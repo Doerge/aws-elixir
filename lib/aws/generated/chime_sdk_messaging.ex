@@ -16,6 +16,2168 @@ defmodule AWS.ChimeSDKMessaging do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_streaming_configurations_response() :: %{
+        "StreamingConfigurations" => list(streaming_configuration()())
+      }
+
+  """
+  @type get_messaging_streaming_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_flows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AppInstanceArn") => String.t()
+      }
+
+  """
+  @type list_channel_flows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      streaming_configuration() :: %{
+        "DataType" => list(any()),
+        "ResourceArn" => String.t()
+      }
+
+  """
+  @type streaming_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_for_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channel_memberships_for_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type delete_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sub_channel_summary() :: %{
+        "MembershipCount" => integer(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type sub_channel_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_bans_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channel_bans_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderated_by_app_instance_user_request() :: %{
+        required("AppInstanceUserArn") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderator_response() :: %{
+        "ChannelModerator" => channel_moderator()
+      }
+
+  """
+  @type describe_channel_moderator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type redact_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_moderator_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelModerator" => identity()
+      }
+
+  """
+  @type create_channel_moderator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_moderator_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type delete_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
+  """
+  @type create_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_for_app_instance_user_summary() :: %{
+        "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
+        "ChannelSummary" => channel_summary()
+      }
+
+  """
+  @type channel_membership_for_app_instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_flows_response() :: %{
+        "ChannelFlows" => list(channel_flow_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_flows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_flow_response() :: %{
+        "ChannelFlow" => channel_flow()
+      }
+
+  """
+  @type describe_channel_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_messages_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelMessages" => list(channel_message_summary()()),
+        "NextToken" => String.t(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type list_channel_messages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_channel_membership_response() :: %{
+        "BatchChannelMemberships" => batch_channel_memberships(),
+        "Errors" => list(batch_create_channel_membership_error()())
+      }
+
+  """
+  @type batch_create_channel_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_expiration_settings_response() :: %{
+        "ChannelArn" => String.t(),
+        "ExpirationSettings" => expiration_settings()
+      }
+
+  """
+  @type put_channel_expiration_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type service_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type forbidden_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_flow_response() :: %{
+        "ChannelFlowArn" => String.t()
+      }
+
+  """
+  @type update_channel_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderated_by_app_instance_user_response() :: %{
+        "Channel" => channel_moderated_by_app_instance_user_summary()
+      }
+
+  """
+  @type describe_channel_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "InvitedBy" => identity(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Member" => identity(),
+        "SubChannelId" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type channel_membership() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_attribute_value() :: %{
+        "StringValues" => list(String.t()())
+      }
+
+  """
+  @type message_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type unauthorized_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_channel_message_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type redact_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_channels_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Fields") => list(search_field()())
+      }
+
+  """
+  @type search_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_message_request() :: %{
+        optional("ContentType") => String.t(),
+        optional("Metadata") => String.t(),
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t(),
+        required("Content") => String.t()
+      }
+
+  """
+  @type update_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_moderator_request() :: %{
+        required("ChannelModeratorArn") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type create_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type throttled_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_associated_with_channel_flow_response() :: %{
+        "Channels" => list(channel_associated_with_flow_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channels_associated_with_channel_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_response() :: %{
+        "ChannelMembership" => channel_membership()
+      }
+
+  """
+  @type describe_channel_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t(),
+        required("MemberArn") => String.t()
+      }
+
+  """
+  @type create_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_flow_request() :: %{}
+
+  """
+  @type describe_channel_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      app_instance_user_membership_summary() :: %{
+        "ReadMarkerTimestamp" => non_neg_integer(),
+        "SubChannelId" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type app_instance_user_membership_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type send_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      processor() :: %{
+        "Configuration" => processor_configuration(),
+        "ExecutionOrder" => integer(),
+        "FallbackAction" => list(any()),
+        "Name" => String.t()
+      }
+
+  """
+  @type processor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expiration_settings() :: %{
+        "ExpirationCriterion" => list(any()),
+        "ExpirationDays" => integer()
+      }
+
+  """
+  @type expiration_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message_callback() :: %{
+        "Content" => String.t(),
+        "ContentType" => String.t(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t(),
+        "Metadata" => String.t(),
+        "PushNotification" => push_notification_configuration(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type channel_message_callback() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_channels_response() :: %{
+        "ChannelArn" => String.t(),
+        "NextToken" => String.t(),
+        "SubChannels" => list(sub_channel_summary()())
+      }
+
+  """
+  @type list_sub_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_membership_preferences_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type get_channel_membership_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_moderated_by_app_instance_user_response() :: %{
+        "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channels_moderated_by_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_membership_preferences_request() :: %{
+        required("ChimeBearer") => String.t(),
+        required("Preferences") => channel_membership_preferences()
+      }
+
+  """
+  @type put_channel_membership_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_moderated_by_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channels_moderated_by_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target() :: %{
+        "MemberArn" => String.t()
+      }
+
+  """
+  @type target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderator_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_moderator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow() :: %{
+        "ChannelFlowArn" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Name" => String.t(),
+        "Processors" => list(processor()())
+      }
+
+  """
+  @type channel_flow() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_summary() :: %{
+        "ChannelArn" => String.t(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_callback_request() :: %{
+        optional("DeleteResource") => boolean(),
+        required("CallbackId") => String.t(),
+        required("ChannelMessage") => channel_message_callback()
+      }
+
+  """
+  @type channel_flow_callback_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_response() :: %{
+        "ChannelMessage" => channel_message()
+      }
+
+  """
+  @type get_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_messaging_streaming_configurations_response() :: %{
+        "StreamingConfigurations" => list(streaming_configuration()())
+      }
+
+  """
+  @type put_messaging_streaming_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_flow_request() :: %{
+        required("Name") => String.t(),
+        required("Processors") => list(processor()())
+      }
+
+  """
+  @type update_channel_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_channel_flow_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type disassociate_channel_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_preferences() :: %{
+        "PushNotifications" => push_notification_preferences()
+      }
+
+  """
+  @type channel_membership_preferences() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_ban_summary() :: %{
+        "Member" => identity()
+      }
+
+  """
+  @type channel_ban_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_response() :: %{
+        "Channel" => channel()
+      }
+
+  """
+  @type describe_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type delete_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_bans_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelBans" => list(channel_ban_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_bans_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SubChannelId") => String.t(),
+        optional("Type") => list(any()),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channel_memberships_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_summary() :: %{
+        "Member" => identity()
+      }
+
+  """
+  @type channel_membership_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_request() :: %{
+        optional("ChannelId") => String.t(),
+        optional("ElasticChannelConfiguration") => elastic_channel_configuration(),
+        optional("ExpirationSettings") => expiration_settings(),
+        optional("MemberArns") => list(String.t()()),
+        optional("Metadata") => String.t(),
+        optional("Mode") => list(any()),
+        optional("ModeratorArns") => list(String.t()()),
+        optional("Privacy") => list(any()),
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("ChimeBearer") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_session_endpoint_request() :: %{}
+
+  """
+  @type get_messaging_session_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_messaging_streaming_configurations_request() :: %{
+        required("StreamingConfigurations") => list(streaming_configuration()())
+      }
+
+  """
+  @type put_messaging_streaming_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_for_app_instance_user_response() :: %{
+        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_memberships_for_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
+        "Channels" => list(channel_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t(),
+        required("MemberArn") => String.t(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type create_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_notification_preferences() :: %{
+        "AllowNotifications" => list(any()),
+        "FilterRule" => String.t()
+      }
+
+  """
+  @type push_notification_preferences() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_session_endpoint_response() :: %{
+        "Endpoint" => messaging_session_endpoint()
+      }
+
+  """
+  @type get_messaging_session_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_request() :: %{
+        optional("Metadata") => String.t(),
+        optional("Mode") => list(any()),
+        optional("Name") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type update_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_membership_preferences_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity(),
+        "Preferences" => channel_membership_preferences()
+      }
+
+  """
+  @type put_channel_membership_preferences_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_flow_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("AppInstanceArn") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Name") => String.t(),
+        required("Processors") => list(processor()())
+      }
+
+  """
+  @type create_channel_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_read_marker_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type update_channel_read_marker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_moderated_by_app_instance_user_summary() :: %{
+        "ChannelSummary" => channel_summary()
+      }
+
+  """
+  @type channel_moderated_by_app_instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message() :: %{
+        "ChannelArn" => String.t(),
+        "Content" => String.t(),
+        "ContentType" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastEditedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t(),
+        "Metadata" => String.t(),
+        "Persistence" => list(any()),
+        "Redacted" => boolean(),
+        "Sender" => identity(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t(),
+        "Target" => list(target()()),
+        "Type" => list(any())
+      }
+
+  """
+  @type channel_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      messaging_session_endpoint() :: %{
+        "Url" => String.t()
+      }
+
+  """
+  @type messaging_session_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_message_response() :: %{
+        "ChannelArn" => String.t(),
+        "MessageId" => String.t(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type update_channel_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_associated_with_flow_summary() :: %{
+        "ChannelArn" => String.t(),
+        "Metadata" => String.t(),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel_associated_with_flow_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_message_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type delete_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_field() :: %{
+        "Key" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type search_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_flow_request() :: %{}
+
+  """
+  @type delete_channel_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_moderators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channel_moderators_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_configuration() :: %{
+        "InvocationType" => list(any()),
+        "ResourceArn" => String.t()
+      }
+
+  """
+  @type lambda_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_associated_with_channel_flow_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChannelFlowArn") => String.t()
+      }
+
+  """
+  @type list_channels_associated_with_channel_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t(),
+        optional("Type") => list(any()),
+        required("ChimeBearer") => String.t(),
+        required("MemberArns") => list(String.t()())
+      }
+
+  """
+  @type batch_create_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_for_app_instance_user_request() :: %{
+        required("AppInstanceUserArn") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_membership_for_app_instance_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type delete_channel_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_messages_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("NotAfter") => non_neg_integer(),
+        optional("NotBefore") => non_neg_integer(),
+        optional("SortOrder") => list(any()),
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channel_messages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_channel_message_request() :: %{
+        optional("ContentType") => String.t(),
+        optional("MessageAttributes") => map(),
+        optional("Metadata") => String.t(),
+        optional("PushNotification") => push_notification_configuration(),
+        optional("SubChannelId") => String.t(),
+        optional("Target") => list(target()()),
+        required("ChimeBearer") => String.t(),
+        required("ClientRequestToken") => String.t(),
+        required("Content") => String.t(),
+        required("Persistence") => list(any()),
+        required("Type") => list(any())
+      }
+
+  """
+  @type send_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_messaging_streaming_configurations_request() :: %{}
+
+  """
+  @type delete_messaging_streaming_configurations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_status_response() :: %{
+        "Status" => channel_message_status_structure()
+      }
+
+  """
+  @type get_channel_message_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      processor_configuration() :: %{
+        "Lambda" => lambda_configuration()
+      }
+
+  """
+  @type processor_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_moderators_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelModerators" => list(channel_moderator_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_moderators_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type get_channel_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_ban_response() :: %{
+        "ChannelBan" => channel_ban()
+      }
+
+  """
+  @type describe_channel_ban_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_flow_response() :: %{
+        "ChannelFlowArn" => String.t()
+      }
+
+  """
+  @type create_channel_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_sub_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_ban() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Member" => identity()
+      }
+
+  """
+  @type channel_ban() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_notification_configuration() :: %{
+        "Body" => String.t(),
+        "Title" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type push_notification_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_channel_flow_request() :: %{
+        required("ChannelFlowArn") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type associate_channel_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelFlowArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ElasticChannelConfiguration" => elastic_channel_configuration(),
+        "ExpirationSettings" => expiration_settings(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t(),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_response() :: %{
+        "ChannelArn" => String.t(),
+        "ChannelMemberships" => list(channel_membership_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_memberships_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_moderator() :: %{
+        "ChannelArn" => String.t(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Moderator" => identity()
+      }
+
+  """
+  @type channel_moderator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message_status_structure() :: %{
+        "Detail" => String.t(),
+        "Value" => list(any())
+      }
+
+  """
+  @type channel_message_status_structure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_expiration_settings_request() :: %{
+        optional("ChimeBearer") => String.t(),
+        optional("ExpirationSettings") => expiration_settings()
+      }
+
+  """
+  @type put_channel_expiration_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_ban_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity()
+      }
+
+  """
+  @type create_channel_ban_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_channel_membership_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t(),
+        "MemberArn" => String.t()
+      }
+
+  """
+  @type batch_create_channel_membership_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_summary() :: %{
+        "ChannelFlowArn" => String.t(),
+        "Name" => String.t(),
+        "Processors" => list(processor()())
+      }
+
+  """
+  @type channel_flow_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_read_marker_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
+  """
+  @type update_channel_read_marker_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_membership_preferences_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity(),
+        "Preferences" => channel_membership_preferences()
+      }
+
+  """
+  @type get_channel_membership_preferences_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_moderator_summary() :: %{
+        "Moderator" => identity()
+      }
+
+  """
+  @type channel_moderator_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_channel_memberships() :: %{
+        "ChannelArn" => String.t(),
+        "InvitedBy" => identity(),
+        "Members" => list(identity()()),
+        "SubChannelId" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type batch_channel_memberships() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_response() :: %{
+        "ChannelArn" => String.t()
+      }
+
+  """
+  @type update_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type describe_channel_ban_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_for_app_instance_user_response() :: %{
+        "ChannelMembership" => channel_membership_for_app_instance_user_summary()
+      }
+
+  """
+  @type describe_channel_membership_for_app_instance_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_callback_response() :: %{
+        "CallbackId" => String.t(),
+        "ChannelArn" => String.t()
+      }
+
+  """
+  @type channel_flow_callback_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Privacy") => list(any()),
+        required("AppInstanceArn") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type list_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elastic_channel_configuration() :: %{
+        "MaximumSubChannels" => integer(),
+        "MinimumMembershipPercentage" => integer(),
+        "TargetMembershipsPerSubChannel" => integer()
+      }
+
+  """
+  @type elastic_channel_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message_summary() :: %{
+        "Content" => String.t(),
+        "ContentType" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastEditedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t(),
+        "Metadata" => String.t(),
+        "Redacted" => boolean(),
+        "Sender" => identity(),
+        "Status" => channel_message_status_structure(),
+        "Target" => list(target()()),
+        "Type" => list(any())
+      }
+
+  """
+  @type channel_message_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_status_request() :: %{
+        optional("SubChannelId") => String.t(),
+        required("ChimeBearer") => String.t()
+      }
+
+  """
+  @type get_channel_message_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_streaming_configurations_request() :: %{}
+
+  """
+  @type get_messaging_streaming_configurations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_channels_response() :: %{
+        "Channels" => list(channel_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_membership_response() :: %{
+        "ChannelArn" => String.t(),
+        "Member" => identity(),
+        "SubChannelId" => String.t()
+      }
+
+  """
+  @type create_channel_membership_response() :: %{String.t() => any()}
+
+  @type associate_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type batch_create_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type channel_flow_callback_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type create_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type delete_messaging_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_ban_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_membership_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_membership_for_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_moderated_by_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type describe_channel_moderator_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type disassociate_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_channel_membership_preferences_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_channel_message_status_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_messaging_session_endpoint_errors() ::
+          service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_messaging_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_bans_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_flows_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_memberships_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_memberships_for_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_messages_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channel_moderators_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channels_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channels_associated_with_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_channels_moderated_by_app_instance_user_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_sub_channels_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_channel_expiration_settings_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_channel_membership_preferences_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_messaging_streaming_configurations_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type redact_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type search_channels_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type send_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_flow_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_message_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type update_channel_read_marker_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
   def metadata do
     %{
       api_version: "2021-05-15",
@@ -23,6 +2185,7 @@ defmodule AWS.ChimeSDKMessaging do
       credential_scope: nil,
       endpoint_prefix: "messaging-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Messaging",
       signature_version: "v4",
@@ -42,7 +2205,22 @@ defmodule AWS.ChimeSDKMessaging do
   `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
   `AppInstanceUser` or `AppInstanceBot`
   that makes the API call as the value in the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec associate_channel_flow(
+          AWS.Client.t(),
+          String.t(),
+          associate_channel_flow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_channel_flow_errors()}
   def associate_channel_flow(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/channel-flow"
 
@@ -54,14 +2232,30 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Adds a specified number of users and bots to a channel.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec batch_create_channel_membership(
+          AWS.Client.t(),
+          String.t(),
+          batch_create_channel_membership_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_create_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_channel_membership_errors()}
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
 
@@ -73,7 +2267,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -103,13 +2298,28 @@ defmodule AWS.ChimeSDKMessaging do
 
     *
   Make no changes to the message
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
   """
+  @spec channel_flow_callback(
+          AWS.Client.t(),
+          String.t(),
+          channel_flow_callback_request(),
+          Keyword.t()
+        ) ::
+          {:ok, channel_flow_callback_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, channel_flow_callback_errors()}
   def channel_flow_callback(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?operation=channel-flow-callback"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -134,7 +2344,16 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
+          {:ok, create_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
 
@@ -146,7 +2365,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -177,7 +2397,17 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec create_channel_ban(AWS.Client.t(), String.t(), create_channel_ban_request(), Keyword.t()) ::
+          {:ok, create_channel_ban_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_ban_errors()}
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
 
@@ -189,7 +2419,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -229,13 +2460,22 @@ defmodule AWS.ChimeSDKMessaging do
   about the message types provided by Chime SDK messaging, refer to
   [Message types](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types)
   in the *Amazon Chime developer guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_channel_flow(AWS.Client.t(), create_channel_flow_request(), Keyword.t()) ::
+          {:ok, create_channel_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_flow_errors()}
   def create_channel_flow(%Client{} = client, input, options \\ []) do
     url_path = "/channel-flows"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -284,7 +2524,22 @@ defmodule AWS.ChimeSDKMessaging do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call
   as the value in the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec create_channel_membership(
+          AWS.Client.t(),
+          String.t(),
+          create_channel_membership_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_membership_errors()}
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
 
@@ -296,7 +2551,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -335,7 +2591,22 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot`of the user that makes the API
   call as the value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec create_channel_moderator(
+          AWS.Client.t(),
+          String.t(),
+          create_channel_moderator_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_channel_moderator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_moderator_errors()}
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
 
@@ -347,7 +2618,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -372,7 +2644,17 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as
   the value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -384,7 +2666,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -406,7 +2689,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec delete_channel_ban(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_channel_ban_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_ban_errors()}
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
@@ -419,7 +2719,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -443,13 +2744,28 @@ defmodule AWS.ChimeSDKMessaging do
   get a list of all channels that a channel flow is associated with, use the
   `ListChannelsAssociatedWithChannelFlow` API. Use the `DisassociateChannelFlow`
   API to disassociate a channel flow from all channels.
+
+  ## Required positional parameters:
+   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+
+  ## Optional parameters:
   """
+  @spec delete_channel_flow(
+          AWS.Client.t(),
+          String.t(),
+          delete_channel_flow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_flow_errors()}
   def delete_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -470,7 +2786,25 @@ defmodule AWS.ChimeSDKMessaging do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec delete_channel_membership(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_channel_membership_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_membership_errors()}
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
@@ -487,7 +2821,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -513,7 +2848,25 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :message_id (t:string String.t/0) (MessageId)
+
+  ## Optional parameters:
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec delete_channel_message(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_channel_message_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_message_errors()}
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -530,7 +2883,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -552,7 +2906,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :channel_moderator_arn (t:string String.t/0) (ChannelModeratorArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec delete_channel_moderator(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_channel_moderator_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_moderator_errors()}
   def delete_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -571,7 +2942,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -592,7 +2964,21 @@ defmodule AWS.ChimeSDKMessaging do
   For more information, see
   [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
   the *Amazon Chime SDK Developer Guide*.
+
+  ## Required positional parameters:
+   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+
+  ## Optional parameters:
   """
+  @spec delete_messaging_streaming_configurations(
+          AWS.Client.t(),
+          String.t(),
+          delete_messaging_streaming_configurations_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_messaging_streaming_configurations_errors()}
   def delete_messaging_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -603,7 +2989,8 @@ defmodule AWS.ChimeSDKMessaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -626,10 +3013,27 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -640,7 +3044,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -652,7 +3057,18 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_channel_ban_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_ban_errors()}
   def describe_channel_ban(
         %Client{} = client,
         channel_arn,
@@ -663,7 +3079,13 @@ defmodule AWS.ChimeSDKMessaging do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans/#{AWS.Util.encode_uri(member_arn)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -674,7 +3096,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -683,13 +3106,28 @@ defmodule AWS.ChimeSDKMessaging do
   Returns the full details of a channel flow in an Amazon Chime `AppInstance`.
 
   This is a developer API.
+
+  ## Required positional parameters:
+   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+
+  ## Optional parameters:
   """
+  @spec describe_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_channel_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_flow_errors()}
   def describe_channel_flow(%Client{} = client, channel_flow_arn, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -701,19 +3139,42 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel_membership(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_channel_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_membership_errors()}
   def describe_channel_membership(
         %Client{} = client,
         channel_arn,
         member_arn,
-        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [sub_channel_id: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -724,6 +3185,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {sub_channel_id, options} = Keyword.pop(options, :sub_channel_id, nil)
+
     query_params =
       if !is_nil(sub_channel_id) do
         [{"sub-channel-id", sub_channel_id} | query_params]
@@ -731,7 +3194,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -744,7 +3208,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel_membership_for_app_instance_user(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_membership_for_app_instance_user_errors()}
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -753,7 +3234,14 @@ defmodule AWS.ChimeSDKMessaging do
         options \\ []
       ) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-membership"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_user_arn: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -764,6 +3252,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {app_instance_user_arn, options} = Keyword.pop(options, :app_instance_user_arn, nil)
+
     query_params =
       if !is_nil(app_instance_user_arn) do
         [{"app-instance-user-arn", app_instance_user_arn} | query_params]
@@ -771,7 +3261,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -784,7 +3275,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel_moderated_by_app_instance_user(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_moderated_by_app_instance_user_errors()}
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
         channel_arn,
@@ -795,7 +3303,13 @@ defmodule AWS.ChimeSDKMessaging do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}?scope=app-instance-user-moderated-channel"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_user_arn: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -806,6 +3320,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {app_instance_user_arn, options} = Keyword.pop(options, :app_instance_user_arn, nil)
+
     query_params =
       if !is_nil(app_instance_user_arn) do
         [{"app-instance-user-arn", app_instance_user_arn} | query_params]
@@ -813,7 +3329,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -824,7 +3341,24 @@ defmodule AWS.ChimeSDKMessaging do
   The `x-amz-chime-bearer` request header is mandatory. Use the
   `AppInstanceUserArn` of the user that makes the API call as the value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :channel_moderator_arn (t:string String.t/0) (ChannelModeratorArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec describe_channel_moderator(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_channel_moderator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_moderator_errors()}
   def describe_channel_moderator(
         %Client{} = client,
         channel_arn,
@@ -835,7 +3369,13 @@ defmodule AWS.ChimeSDKMessaging do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators/#{AWS.Util.encode_uri(channel_moderator_arn)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -846,7 +3386,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -863,7 +3404,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec disassociate_channel_flow(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          disassociate_channel_flow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_channel_flow_errors()}
   def disassociate_channel_flow(
         %Client{} = client,
         channel_arn,
@@ -882,7 +3440,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -912,7 +3471,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec get_channel_membership_preferences(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, get_channel_membership_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_channel_membership_preferences_errors()}
   def get_channel_membership_preferences(
         %Client{} = client,
         channel_arn,
@@ -923,7 +3499,13 @@ defmodule AWS.ChimeSDKMessaging do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships/#{AWS.Util.encode_uri(member_arn)}/preferences"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -934,7 +3516,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -946,19 +3529,36 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :message_id (t:string String.t/0) (MessageId)
+
+  ## Optional parameters:
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_channel_message_errors()}
   def get_channel_message(
         %Client{} = client,
         channel_arn,
         message_id,
-        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [sub_channel_id: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -969,6 +3569,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {sub_channel_id, options} = Keyword.pop(options, :sub_channel_id, nil)
+
     query_params =
       if !is_nil(sub_channel_id) do
         [{"sub-channel-id", sub_channel_id} | query_params]
@@ -976,7 +3578,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1021,19 +3624,42 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :message_id (t:string String.t/0) (MessageId)
+
+  ## Optional parameters:
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec get_channel_message_status(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, get_channel_message_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_channel_message_status_errors()}
   def get_channel_message_status(
         %Client{} = client,
         channel_arn,
         message_id,
-        sub_channel_id \\ nil,
         chime_bearer,
         options \\ []
       ) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?scope=message-status"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [sub_channel_id: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1044,6 +3670,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {sub_channel_id, options} = Keyword.pop(options, :sub_channel_id, nil)
+
     query_params =
       if !is_nil(sub_channel_id) do
         [{"sub-channel-id", sub_channel_id} | query_params]
@@ -1051,20 +3679,35 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   The details of the endpoint for the messaging session.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_messaging_session_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_messaging_session_endpoint_errors()}
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1075,13 +3718,28 @@ defmodule AWS.ChimeSDKMessaging do
   For more information, see
   [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
   the *Amazon Chime SDK Developer Guide*.
+
+  ## Required positional parameters:
+   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+
+  ## Optional parameters:
   """
+  @spec get_messaging_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_messaging_streaming_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_messaging_streaming_configurations_errors()}
   def get_messaging_streaming_configurations(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1093,17 +3751,29 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_channel_bans(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_channel_bans(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_bans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_bans_errors()}
+  def list_channel_bans(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1114,12 +3784,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1128,7 +3802,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1137,17 +3812,29 @@ defmodule AWS.ChimeSDKMessaging do
   Returns a paginated lists of all the channel flows created under a single Chime.
 
   This is a developer API.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :app_instance_arn (t:String.t/0) (app-instance-arn)
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
   """
-  def list_channel_flows(
-        %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_channel_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_flows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_flows_errors()}
+  def list_channel_flows(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/channel-flows"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_arn: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1156,12 +3843,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"max-results", max_results} | query_params]
       else
         query_params
       end
+
+    {app_instance_arn, options} = Keyword.pop(options, :app_instance_arn, nil)
 
     query_params =
       if !is_nil(app_instance_arn) do
@@ -1170,7 +3861,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1187,19 +3879,31 @@ defmodule AWS.ChimeSDKMessaging do
   see the
   [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html)
   API.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :type (t:String.t/0) (type)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_channel_memberships(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        sub_channel_id \\ nil,
-        type \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_channel_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_memberships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_memberships_errors()}
+  def list_channel_memberships(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, sub_channel_id: nil, type: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1210,12 +3914,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {type, options} = Keyword.pop(options, :type, nil)
+
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
       else
         query_params
       end
+
+    {sub_channel_id, options} = Keyword.pop(options, :sub_channel_id, nil)
 
     query_params =
       if !is_nil(sub_channel_id) do
@@ -1224,12 +3932,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1238,7 +3950,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1253,17 +3966,33 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_memberships_for_app_instance_user_errors()}
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
-        app_instance_user_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         chime_bearer,
         options \\ []
       ) do
     url_path = "/channels?scope=app-instance-user-memberships"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_user_arn: nil, max_results: nil, next_token: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1274,12 +4003,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1288,6 +4021,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {app_instance_user_arn, options} = Keyword.pop(options, :app_instance_user_arn, nil)
+
     query_params =
       if !is_nil(app_instance_user_arn) do
         [{"app-instance-user-arn", app_instance_user_arn} | query_params]
@@ -1295,7 +4030,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1317,21 +4053,33 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :not_after (t:String.t/0) (not-after)
+   • :not_before (t:String.t/0) (not-before)
+   • :sort_order (t:String.t/0) (sort-order)
+   • :sub_channel_id (t:String.t/0) (sub-channel-id)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_channel_messages(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        not_after \\ nil,
-        not_before \\ nil,
-        sort_order \\ nil,
-        sub_channel_id \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_channel_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_messages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_messages_errors()}
+  def list_channel_messages(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, not_after: nil, not_before: nil, sort_order: nil, sub_channel_id: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1342,12 +4090,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {sub_channel_id, options} = Keyword.pop(options, :sub_channel_id, nil)
+
     query_params =
       if !is_nil(sub_channel_id) do
         [{"sub-channel-id", sub_channel_id} | query_params]
       else
         query_params
       end
+
+    {sort_order, options} = Keyword.pop(options, :sort_order, nil)
 
     query_params =
       if !is_nil(sort_order) do
@@ -1356,12 +4108,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {not_before, options} = Keyword.pop(options, :not_before, nil)
+
     query_params =
       if !is_nil(not_before) do
         [{"not-before", not_before} | query_params]
       else
         query_params
       end
+
+    {not_after, options} = Keyword.pop(options, :not_after, nil)
 
     query_params =
       if !is_nil(not_after) do
@@ -1370,12 +4126,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1384,7 +4144,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1396,17 +4157,29 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_channel_moderators(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_channel_moderators(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channel_moderators_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_moderators_errors()}
+  def list_channel_moderators(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1417,12 +4190,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1431,7 +4208,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1456,18 +4234,30 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :app_instance_arn (t:String.t/0) (app-instance-arn)
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :privacy (t:String.t/0) (privacy)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_channels(
-        %Client{} = client,
-        app_instance_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        privacy \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channels_errors()}
+  def list_channels(%Client{} = client, app_instance_arn, chime_bearer, options \\ []) do
     url_path = "/channels"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_arn: nil, max_results: nil, next_token: nil, privacy: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1478,12 +4268,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {privacy, options} = Keyword.pop(options, :privacy, nil)
+
     query_params =
       if !is_nil(privacy) do
         [{"privacy", privacy} | query_params]
       else
         query_params
       end
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1492,12 +4286,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"max-results", max_results} | query_params]
       else
         query_params
       end
+
+    {app_instance_arn, options} = Keyword.pop(options, :app_instance_arn, nil)
 
     query_params =
       if !is_nil(app_instance_arn) do
@@ -1506,7 +4304,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1516,17 +4315,33 @@ defmodule AWS.ChimeSDKMessaging do
 
   You can associate a channel flow with multiple channels, but you can only
   associate a channel with one channel flow. This is a developer API.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :channel_flow_arn (t:String.t/0) (channel-flow-arn)
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
   """
+  @spec list_channels_associated_with_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channels_associated_with_channel_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channels_associated_with_channel_flow_errors()}
   def list_channels_associated_with_channel_flow(
         %Client{} = client,
         channel_flow_arn,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/channels?scope=channel-flow-associations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [channel_flow_arn: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1535,12 +4350,16 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"max-results", max_results} | query_params]
       else
         query_params
       end
+
+    {channel_flow_arn, options} = Keyword.pop(options, :channel_flow_arn, nil)
 
     query_params =
       if !is_nil(channel_flow_arn) do
@@ -1549,7 +4368,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1561,17 +4381,33 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channels_moderated_by_app_instance_user_errors()}
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
-        app_instance_user_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         chime_bearer,
         options \\ []
       ) do
     url_path = "/channels?scope=app-instance-user-moderated-channels"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [app_instance_user_arn: nil, max_results: nil, next_token: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1582,12 +4418,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1596,6 +4436,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
+    {app_instance_user_arn, options} = Keyword.pop(options, :app_instance_user_arn, nil)
+
     query_params =
       if !is_nil(app_instance_user_arn) do
         [{"app-instance-user-arn", app_instance_user_arn} | query_params]
@@ -1603,7 +4445,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1613,17 +4456,29 @@ defmodule AWS.ChimeSDKMessaging do
 
   Available only to the app instance admins and channel moderators of elastic
   channels.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
-  def list_sub_channels(
-        %Client{} = client,
-        channel_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        chime_bearer,
-        options \\ []
-      ) do
+  @spec list_sub_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_sub_channels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sub_channels_errors()}
+  def list_sub_channels(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/subchannels"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, chime_bearer: nil
+    # ])
+
     headers = []
+
+    {chime_bearer, options} = Keyword.pop(options, :chime_bearer, nil)
 
     headers =
       if !is_nil(chime_bearer) do
@@ -1634,12 +4489,16 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1648,18 +4507,35 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags applied to an Amazon Chime SDK messaging resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :resource_arn (t:String.t/0) (arn)
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [resource_arn: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {resource_arn, options} = Keyword.pop(options, :resource_arn, nil)
 
     query_params =
       if !is_nil(resource_arn) do
@@ -1668,7 +4544,8 @@ defmodule AWS.ChimeSDKMessaging do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1690,7 +4567,22 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec put_channel_expiration_settings(
+          AWS.Client.t(),
+          String.t(),
+          put_channel_expiration_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_channel_expiration_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_channel_expiration_settings_errors()}
   def put_channel_expiration_settings(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/expiration-settings"
 
@@ -1702,7 +4594,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1723,7 +4616,24 @@ defmodule AWS.ChimeSDKMessaging do
   `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
   the
   header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :member_arn (t:string String.t/0) (MemberArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec put_channel_membership_preferences(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_channel_membership_preferences_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_channel_membership_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_channel_membership_preferences_errors()}
   def put_channel_membership_preferences(
         %Client{} = client,
         channel_arn,
@@ -1742,7 +4652,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1753,7 +4664,21 @@ defmodule AWS.ChimeSDKMessaging do
   For more information, see
   [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
   the *Amazon Chime SDK Developer Guide*.
+
+  ## Required positional parameters:
+   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+
+  ## Optional parameters:
   """
+  @spec put_messaging_streaming_configurations(
+          AWS.Client.t(),
+          String.t(),
+          put_messaging_streaming_configurations_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_messaging_streaming_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_messaging_streaming_configurations_errors()}
   def put_messaging_streaming_configurations(
         %Client{} = client,
         app_instance_arn,
@@ -1764,7 +4689,8 @@ defmodule AWS.ChimeSDKMessaging do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1779,7 +4705,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :message_id (t:string String.t/0) (MessageId)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec redact_channel_message(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          redact_channel_message_request(),
+          Keyword.t()
+        ) ::
+          {:ok, redact_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, redact_channel_message_errors()}
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
@@ -1792,7 +4735,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1819,7 +4763,18 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec search_channels(AWS.Client.t(), search_channels_request(), Keyword.t()) ::
+          {:ok, search_channels_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_channels_errors()}
   def search_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels?operation=search"
 
@@ -1836,7 +4791,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1865,7 +4821,22 @@ defmodule AWS.ChimeSDKMessaging do
   attachment.
 
   `CONTROL` messages are limited to 30 bytes and do not contain metadata.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec send_channel_message(
+          AWS.Client.t(),
+          String.t(),
+          send_channel_message_request(),
+          Keyword.t()
+        ) ::
+          {:ok, send_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_channel_message_errors()}
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
 
@@ -1877,7 +4848,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1894,13 +4866,22 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK messaging resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1918,13 +4899,22 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Removes the specified tags from the specified Amazon Chime SDK messaging
   resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1948,7 +4938,17 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
+          {:ok, update_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
 
@@ -1960,7 +4960,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1969,13 +4970,28 @@ defmodule AWS.ChimeSDKMessaging do
   Updates channel flow attributes.
 
   This is a developer API.
+
+  ## Required positional parameters:
+   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+
+  ## Optional parameters:
   """
+  @spec update_channel_flow(
+          AWS.Client.t(),
+          String.t(),
+          update_channel_flow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_channel_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_flow_errors()}
   def update_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1987,7 +5003,24 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+   • :message_id (t:string String.t/0) (MessageId)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec update_channel_message(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_channel_message_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_channel_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_message_errors()}
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
       "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -2000,7 +5033,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -2012,7 +5046,22 @@ defmodule AWS.ChimeSDKMessaging do
   ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
   value in
   the header.
+
+  ## Required positional parameters:
+   • :channel_arn (t:string String.t/0) (ChannelArn)
+
+  ## Optional parameters:
+   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
   """
+  @spec update_channel_read_marker(
+          AWS.Client.t(),
+          String.t(),
+          update_channel_read_marker_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_channel_read_marker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_read_marker_errors()}
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"
 
@@ -2024,7 +5073,8 @@ defmodule AWS.ChimeSDKMessaging do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

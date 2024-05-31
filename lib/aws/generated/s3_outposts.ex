@@ -9,6 +9,291 @@ defmodule AWS.S3Outposts do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_endpoint_request() :: %{
+        optional("AccessType") => list(any()),
+        optional("CustomerOwnedIpv4Pool") => String.t(),
+        required("OutpostId") => String.t(),
+        required("SecurityGroupId") => String.t(),
+        required("SubnetId") => String.t()
+      }
+
+  """
+  @type create_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_endpoint_result() :: %{
+        "EndpointArn" => String.t()
+      }
+
+  """
+  @type create_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_endpoint_request() :: %{
+        required("EndpointId") => String.t(),
+        required("OutpostId") => String.t()
+      }
+
+  """
+  @type delete_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint() :: %{
+        "AccessType" => list(any()),
+        "CidrBlock" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerOwnedIpv4Pool" => String.t(),
+        "EndpointArn" => String.t(),
+        "FailedReason" => failed_reason(),
+        "NetworkInterfaces" => list(network_interface()()),
+        "OutpostsId" => String.t(),
+        "SecurityGroupId" => String.t(),
+        "Status" => list(any()),
+        "SubnetId" => String.t(),
+        "VpcId" => String.t()
+      }
+
+  """
+  @type endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_reason() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type failed_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_endpoints_result() :: %{
+        "Endpoints" => list(endpoint()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_outposts_with_s3_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_outposts_with_s3_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_outposts_with_s3_result() :: %{
+        "NextToken" => String.t(),
+        "Outposts" => list(outpost()())
+      }
+
+  """
+  @type list_outposts_with_s3_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shared_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OutpostId") => String.t()
+      }
+
+  """
+  @type list_shared_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_shared_endpoints_result() :: %{
+        "Endpoints" => list(endpoint()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_shared_endpoints_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_interface() :: %{
+        "NetworkInterfaceId" => String.t()
+      }
+
+  """
+  @type network_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outpost() :: %{
+        "CapacityInBytes" => float(),
+        "OutpostArn" => String.t(),
+        "OutpostId" => String.t(),
+        "OwnerId" => String.t(),
+        "S3OutpostArn" => String.t()
+      }
+
+  """
+  @type outpost() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outpost_offline_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type outpost_offline_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type create_endpoint_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | outpost_offline_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_endpoint_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | outpost_offline_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_endpoints_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_outposts_with_s3_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_shared_endpoints_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2017-07-25",
@@ -16,6 +301,7 @@ defmodule AWS.S3Outposts do
       credential_scope: nil,
       endpoint_prefix: "s3-outposts",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "S3Outposts",
       signature_version: "v4",
@@ -38,13 +324,22 @@ defmodule AWS.S3Outposts do
     *
 
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_endpoint(AWS.Client.t(), create_endpoint_request(), Keyword.t()) ::
+          {:ok, create_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/CreateEndpoint"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -73,7 +368,17 @@ defmodule AWS.S3Outposts do
     *
 
   [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :endpoint_id (t:String.t/0) (endpointId)
+   • :outpost_id (t:String.t/0) (outpostId)
   """
+  @spec delete_endpoint(AWS.Client.t(), delete_endpoint_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/DeleteEndpoint"
     headers = []
@@ -85,7 +390,8 @@ defmodule AWS.S3Outposts do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -112,11 +418,28 @@ defmodule AWS.S3Outposts do
     *
 
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_endpoints(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_endpoints_errors()}
+  def list_endpoints(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListEndpoints"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -125,6 +448,8 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -132,7 +457,8 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -144,16 +470,28 @@ defmodule AWS.S3Outposts do
   Includes S3 on Outposts that you have access to as the Outposts owner, or as a
   shared user
   from Resource Access Manager (RAM).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_outposts_with_s3(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_outposts_with_s3_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_outposts_with_s3_errors()}
+  def list_outposts_with_s3(%Client{} = client, options \\ []) do
     url_path = "/S3Outposts/ListOutpostsWithS3"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -162,6 +500,8 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -169,7 +509,8 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -187,17 +528,29 @@ defmodule AWS.S3Outposts do
     *
 
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :outpost_id (t:String.t/0) (outpostId)
   """
-  def list_shared_endpoints(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        outpost_id,
-        options \\ []
-      ) do
+  @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_shared_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_shared_endpoints_errors()}
+  def list_shared_endpoints(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/S3Outposts/ListSharedEndpoints"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, outpost_id: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {outpost_id, options} = Keyword.pop(options, :outpost_id, nil)
 
     query_params =
       if !is_nil(outpost_id) do
@@ -206,12 +559,16 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -220,7 +577,8 @@ defmodule AWS.S3Outposts do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end

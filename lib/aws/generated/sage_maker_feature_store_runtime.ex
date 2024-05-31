@@ -33,6 +33,220 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_forbidden() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type access_forbidden() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_record_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "RecordIdentifierValueAsString" => String.t()
+      }
+
+  """
+  @type batch_get_record_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_record_identifier() :: %{
+        "FeatureGroupName" => String.t(),
+        "FeatureNames" => list(String.t()()),
+        "RecordIdentifiersValueAsString" => list(String.t()())
+      }
+
+  """
+  @type batch_get_record_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_record_request() :: %{
+        optional("ExpirationTimeResponse") => list(any()),
+        required("Identifiers") => list(batch_get_record_identifier()())
+      }
+
+  """
+  @type batch_get_record_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_record_response() :: %{
+        "Errors" => list(batch_get_record_error()()),
+        "Records" => list(batch_get_record_result_detail()()),
+        "UnprocessedIdentifiers" => list(batch_get_record_identifier()())
+      }
+
+  """
+  @type batch_get_record_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_record_result_detail() :: %{
+        "ExpiresAt" => String.t(),
+        "FeatureGroupName" => String.t(),
+        "Record" => list(feature_value()()),
+        "RecordIdentifierValueAsString" => String.t()
+      }
+
+  """
+  @type batch_get_record_result_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_record_request() :: %{
+        optional("DeletionMode") => list(any()),
+        optional("TargetStores") => list(list(any())()),
+        required("EventTime") => String.t(),
+        required("RecordIdentifierValueAsString") => String.t()
+      }
+
+  """
+  @type delete_record_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      feature_value() :: %{
+        "FeatureName" => String.t(),
+        "ValueAsString" => String.t(),
+        "ValueAsStringList" => list(String.t()())
+      }
+
+  """
+  @type feature_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_record_request() :: %{
+        optional("ExpirationTimeResponse") => list(any()),
+        optional("FeatureNames") => list(String.t()()),
+        required("RecordIdentifierValueAsString") => String.t()
+      }
+
+  """
+  @type get_record_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_record_response() :: %{
+        "ExpiresAt" => String.t(),
+        "Record" => list(feature_value()())
+      }
+
+  """
+  @type get_record_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_record_request() :: %{
+        optional("TargetStores") => list(list(any())()),
+        optional("TtlDuration") => ttl_duration(),
+        required("Record") => list(feature_value()())
+      }
+
+  """
+  @type put_record_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type service_unavailable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ttl_duration() :: %{
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+
+  """
+  @type ttl_duration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_error() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_error() :: %{String.t() => any()}
+
+  @type batch_get_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
+  @type delete_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
+  @type get_record_errors() ::
+          validation_error()
+          | service_unavailable()
+          | resource_not_found()
+          | internal_failure()
+          | access_forbidden()
+
+  @type put_record_errors() ::
+          validation_error() | service_unavailable() | internal_failure() | access_forbidden()
+
   def metadata do
     %{
       api_version: "2020-07-01",
@@ -40,6 +254,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       credential_scope: nil,
       endpoint_prefix: "featurestore-runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker FeatureStore Runtime",
       signature_version: "v4",
@@ -50,13 +265,22 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   @doc """
   Retrieves a batch of `Records` from a `FeatureGroup`.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec batch_get_record(AWS.Client.t(), batch_get_record_request(), Keyword.t()) ::
+          {:ok, batch_get_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_record_errors()}
   def batch_get_record(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetRecord"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -114,7 +338,20 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   `OfflineStore` using Amazon Athena or Apache Spark. For information on how to
   hard delete a record from the `OfflineStore` with the Iceberg table format
   enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
+
+  ## Required positional parameters:
+   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+
+  ## Optional parameters:
+   • :deletion_mode (t:String.t/0) (DeletionMode)
+   • :event_time (t:String.t/0) (EventTime)
+   • :record_identifier_value_as_string (t:String.t/0) (RecordIdentifierValueAsString)
+   • :target_stores (t:String.t/0) (TargetStores)
   """
+  @spec delete_record(AWS.Client.t(), String.t(), delete_record_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_record_errors()}
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
@@ -128,7 +365,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -149,18 +387,36 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   Only the
   latest records stored in the `OnlineStore` can be retrieved. If no Record with
   `RecordIdentifierValue` is found, then an empty result is returned.
+
+  ## Required positional parameters:
+   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+
+  ## Optional parameters:
+   • :expiration_time_response (t:String.t/0) (ExpirationTimeResponse)
+   • :feature_names (t:String.t/0) (FeatureName)
+   • :record_identifier_value_as_string (t:String.t/0) (RecordIdentifierValueAsString)
   """
+  @spec get_record(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_record_errors()}
   def get_record(
         %Client{} = client,
         feature_group_name,
-        expiration_time_response \\ nil,
-        feature_names \\ nil,
         record_identifier_value_as_string,
         options \\ []
       ) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [expiration_time_response: nil, feature_names: nil, record_identifier_value_as_string: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {record_identifier_value_as_string, options} =
+      Keyword.pop(options, :record_identifier_value_as_string, nil)
 
     query_params =
       if !is_nil(record_identifier_value_as_string) do
@@ -169,12 +425,16 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
         query_params
       end
 
+    {feature_names, options} = Keyword.pop(options, :feature_names, nil)
+
     query_params =
       if !is_nil(feature_names) do
         [{"FeatureName", feature_names} | query_params]
       else
         query_params
       end
+
+    {expiration_time_response, options} = Keyword.pop(options, :expiration_time_response, nil)
 
     query_params =
       if !is_nil(expiration_time_response) do
@@ -183,7 +443,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -209,13 +470,23 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   is `null` or unspecified, `TtlDuration` is set to the default feature
   group level `TtlDuration`. A record level `TtlDuration` supersedes
   the group level `TtlDuration`.
+
+  ## Required positional parameters:
+   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+
+  ## Optional parameters:
   """
+  @spec put_record(AWS.Client.t(), String.t(), put_record_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_record_errors()}
   def put_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

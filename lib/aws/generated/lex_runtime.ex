@@ -22,6 +22,477 @@ defmodule AWS.LexRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      active_context() :: %{
+        "name" => String.t(),
+        "parameters" => map(),
+        "timeToLive" => active_context_time_to_live()
+      }
+
+  """
+  @type active_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_context_time_to_live() :: %{
+        "timeToLiveInSeconds" => integer(),
+        "turnsToLive" => integer()
+      }
+
+  """
+  @type active_context_time_to_live() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_gateway_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      button() :: %{
+        "text" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type button() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_request() :: %{}
+
+  """
+  @type delete_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_response() :: %{
+        "botAlias" => String.t(),
+        "botName" => String.t(),
+        "sessionId" => String.t(),
+        "userId" => String.t()
+      }
+
+  """
+  @type delete_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failed_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type dependency_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dialog_action() :: %{
+        "fulfillmentState" => list(any()),
+        "intentName" => String.t(),
+        "message" => String.t(),
+        "messageFormat" => list(any()),
+        "slotToElicit" => String.t(),
+        "slots" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type dialog_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generic_attachment() :: %{
+        "attachmentLinkUrl" => String.t(),
+        "buttons" => list(button()()),
+        "imageUrl" => String.t(),
+        "subTitle" => String.t(),
+        "title" => String.t()
+      }
+
+  """
+  @type generic_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{
+        optional("checkpointLabelFilter") => String.t()
+      }
+
+  """
+  @type get_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "activeContexts" => list(active_context()()),
+        "dialogAction" => dialog_action(),
+        "recentIntentSummaryView" => list(intent_summary()()),
+        "sessionAttributes" => map(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_confidence() :: %{
+        "score" => float()
+      }
+
+  """
+  @type intent_confidence() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_summary() :: %{
+        "checkpointLabel" => String.t(),
+        "confirmationStatus" => list(any()),
+        "dialogActionType" => list(any()),
+        "fulfillmentState" => list(any()),
+        "intentName" => String.t(),
+        "slotToElicit" => String.t(),
+        "slots" => map()
+      }
+
+  """
+  @type intent_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => String.t()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_detected_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type loop_detected_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_acceptable_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type not_acceptable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_content_request() :: %{
+        optional("accept") => String.t(),
+        optional("activeContexts") => String.t(),
+        optional("requestAttributes") => String.t(),
+        optional("sessionAttributes") => String.t(),
+        required("contentType") => String.t(),
+        required("inputStream") => binary()
+      }
+
+  """
+  @type post_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_content_response() :: %{
+        "activeContexts" => String.t(),
+        "alternativeIntents" => String.t(),
+        "audioStream" => binary(),
+        "botVersion" => String.t(),
+        "contentType" => String.t(),
+        "dialogState" => list(any()),
+        "encodedInputTranscript" => String.t(),
+        "encodedMessage" => String.t(),
+        "inputTranscript" => String.t(),
+        "intentName" => String.t(),
+        "message" => String.t(),
+        "messageFormat" => list(any()),
+        "nluIntentConfidence" => String.t(),
+        "sentimentResponse" => String.t(),
+        "sessionAttributes" => String.t(),
+        "sessionId" => String.t(),
+        "slotToElicit" => String.t(),
+        "slots" => String.t()
+      }
+
+  """
+  @type post_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_text_request() :: %{
+        optional("activeContexts") => list(active_context()()),
+        optional("requestAttributes") => map(),
+        optional("sessionAttributes") => map(),
+        required("inputText") => String.t()
+      }
+
+  """
+  @type post_text_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_text_response() :: %{
+        "activeContexts" => list(active_context()()),
+        "alternativeIntents" => list(predicted_intent()()),
+        "botVersion" => String.t(),
+        "dialogState" => list(any()),
+        "intentName" => String.t(),
+        "message" => String.t(),
+        "messageFormat" => list(any()),
+        "nluIntentConfidence" => intent_confidence(),
+        "responseCard" => response_card(),
+        "sentimentResponse" => sentiment_response(),
+        "sessionAttributes" => map(),
+        "sessionId" => String.t(),
+        "slotToElicit" => String.t(),
+        "slots" => map()
+      }
+
+  """
+  @type post_text_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      predicted_intent() :: %{
+        "intentName" => String.t(),
+        "nluIntentConfidence" => intent_confidence(),
+        "slots" => map()
+      }
+
+  """
+  @type predicted_intent() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_session_request() :: %{
+        optional("accept") => String.t(),
+        optional("activeContexts") => list(active_context()()),
+        optional("dialogAction") => dialog_action(),
+        optional("recentIntentSummaryView") => list(intent_summary()()),
+        optional("sessionAttributes") => map()
+      }
+
+  """
+  @type put_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_session_response() :: %{
+        "activeContexts" => String.t(),
+        "audioStream" => binary(),
+        "contentType" => String.t(),
+        "dialogState" => list(any()),
+        "encodedMessage" => String.t(),
+        "intentName" => String.t(),
+        "message" => String.t(),
+        "messageFormat" => list(any()),
+        "sessionAttributes" => String.t(),
+        "sessionId" => String.t(),
+        "slotToElicit" => String.t(),
+        "slots" => String.t()
+      }
+
+  """
+  @type put_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_timeout_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type request_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_card() :: %{
+        "contentType" => list(any()),
+        "genericAttachments" => list(generic_attachment()()),
+        "version" => String.t()
+      }
+
+  """
+  @type response_card() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sentiment_response() :: %{
+        "sentimentLabel" => String.t(),
+        "sentimentScore" => String.t()
+      }
+
+  """
+  @type sentiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_media_type_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_media_type_exception() :: %{String.t() => any()}
+
+  @type delete_session_errors() ::
+          not_found_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type get_session_errors() ::
+          not_found_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | bad_request_exception()
+
+  @type post_content_errors() ::
+          unsupported_media_type_exception()
+          | request_timeout_exception()
+          | not_found_exception()
+          | not_acceptable_exception()
+          | loop_detected_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | bad_gateway_exception()
+
+  @type post_text_errors() ::
+          not_found_exception()
+          | loop_detected_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | bad_gateway_exception()
+
+  @type put_session_errors() ::
+          not_found_exception()
+          | not_acceptable_exception()
+          | limit_exceeded_exception()
+          | internal_failure_exception()
+          | dependency_failed_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | bad_gateway_exception()
+
   def metadata do
     %{
       api_version: "2016-11-28",
@@ -29,6 +500,7 @@ defmodule AWS.LexRuntime do
       credential_scope: nil,
       endpoint_prefix: "runtime.lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Runtime Service",
       signature_version: "v4",
@@ -39,7 +511,25 @@ defmodule AWS.LexRuntime do
 
   @doc """
   Removes session information for a specified bot, alias, and user ID.
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
   """
+  @spec delete_session(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_session_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
@@ -47,7 +537,8 @@ defmodule AWS.LexRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -65,20 +556,31 @@ defmodule AWS.LexRuntime do
   @doc """
   Returns session information for a specified bot, alias, and user
   ID.
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
+   • :checkpoint_label_filter (t:String.t/0) (checkpointLabelFilter)
   """
-  def get_session(
-        %Client{} = client,
-        bot_alias,
-        bot_name,
-        user_id,
-        checkpoint_label_filter \\ nil,
-        options \\ []
-      ) do
+  @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, bot_alias, bot_name, user_id, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [checkpoint_label_filter: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {checkpoint_label_filter, options} = Keyword.pop(options, :checkpoint_label_filter, nil)
 
     query_params =
       if !is_nil(checkpoint_label_filter) do
@@ -87,7 +589,8 @@ defmodule AWS.LexRuntime do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -168,7 +671,30 @@ defmodule AWS.LexRuntime do
   In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
+   • :accept (t:String.t/0) (Accept)
+   • :active_contexts (t:String.t/0) (x-amz-lex-active-contexts)
+   • :content_type (t:String.t/0) (Content-Type)
+   • :request_attributes (t:String.t/0) (x-amz-lex-request-attributes)
+   • :session_attributes (t:String.t/0) (x-amz-lex-session-attributes)
   """
+  @spec post_content(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          post_content_request(),
+          Keyword.t()
+        ) ::
+          {:ok, post_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, post_content_errors()}
   def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/content"
@@ -210,7 +736,8 @@ defmodule AWS.LexRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -299,7 +826,25 @@ defmodule AWS.LexRuntime do
   In addition, Amazon Lex also returns your application-specific
   `sessionAttributes`. For more information, see [Managing Conversation
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
   """
+  @spec post_text(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          post_text_request(),
+          Keyword.t()
+        ) ::
+          {:ok, post_text_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, post_text_errors()}
   def post_text(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/text"
@@ -307,7 +852,8 @@ defmodule AWS.LexRuntime do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -330,7 +876,26 @@ defmodule AWS.LexRuntime do
   bot.
 
   For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
+   • :accept (t:String.t/0) (Accept)
   """
+  @spec put_session(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          put_session_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_session_errors()}
   def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
@@ -362,7 +927,8 @@ defmodule AWS.LexRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

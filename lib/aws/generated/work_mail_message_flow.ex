@@ -13,6 +13,122 @@ defmodule AWS.WorkMailMessageFlow do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      get_raw_message_content_request() :: %{}
+
+  """
+  @type get_raw_message_content_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_raw_message_content_response() :: %{
+        "messageContent" => binary()
+      }
+
+  """
+  @type get_raw_message_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_content_location() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_content_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_frozen() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type message_frozen() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_rejected() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type message_rejected() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_raw_message_content_request() :: %{
+        required("content") => raw_message_content()
+      }
+
+  """
+  @type put_raw_message_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_raw_message_content_response() :: %{}
+
+  """
+  @type put_raw_message_content_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      raw_message_content() :: %{
+        "s3Reference" => s3_reference()
+      }
+
+  """
+  @type raw_message_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_reference() :: %{
+        "bucket" => String.t(),
+        "key" => String.t(),
+        "objectVersion" => String.t()
+      }
+
+  """
+  @type s3_reference() :: %{String.t() => any()}
+
+  @type get_raw_message_content_errors() :: resource_not_found_exception()
+
+  @type put_raw_message_content_errors() ::
+          resource_not_found_exception()
+          | message_rejected()
+          | message_frozen()
+          | invalid_content_location()
+
   def metadata do
     %{
       api_version: "2019-05-01",
@@ -20,6 +136,7 @@ defmodule AWS.WorkMailMessageFlow do
       credential_scope: nil,
       endpoint_prefix: "workmailmessageflow",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkMailMessageFlow",
       signature_version: "v4",
@@ -30,13 +147,28 @@ defmodule AWS.WorkMailMessageFlow do
 
   @doc """
   Retrieves the raw content of an in-transit email message, in MIME format.
+
+  ## Required positional parameters:
+   • :message_id (t:string String.t/0) (messageId)
+
+  ## Optional parameters:
   """
+  @spec get_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_raw_message_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_raw_message_content_errors()}
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -61,13 +193,28 @@ defmodule AWS.WorkMailMessageFlow do
   [GetRawMessageContent](https://docs.aws.amazon.com/workmail/latest/APIReference/API_messageflow_GetRawMessageContent.html)
   returns an updated
   message.
+
+  ## Required positional parameters:
+   • :message_id (t:string String.t/0) (messageId)
+
+  ## Optional parameters:
   """
+  @spec put_raw_message_content(
+          AWS.Client.t(),
+          String.t(),
+          put_raw_message_content_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_raw_message_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_raw_message_content_errors()}
   def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

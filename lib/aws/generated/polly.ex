@@ -15,6 +15,587 @@ defmodule AWS.Polly do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      synthesize_speech_input() :: %{
+        optional("Engine") => list(any()),
+        optional("LanguageCode") => list(any()),
+        optional("LexiconNames") => list(String.t()()),
+        optional("SampleRate") => String.t(),
+        optional("SpeechMarkTypes") => list(list(any())()),
+        optional("TextType") => list(any()),
+        required("OutputFormat") => list(any()),
+        required("Text") => String.t(),
+        required("VoiceId") => list(any())
+      }
+
+  """
+  @type synthesize_speech_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_lexicon_input() :: %{
+        required("Content") => String.t()
+      }
+
+  """
+  @type put_lexicon_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_voices_output() :: %{
+        "NextToken" => String.t(),
+        "Voices" => list(voice()())
+      }
+
+  """
+  @type describe_voices_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      max_lexicons_number_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type max_lexicons_number_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speech_synthesis_task_output() :: %{
+        "SynthesisTask" => synthesis_task()
+      }
+
+  """
+  @type start_speech_synthesis_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_s3_key_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_s3_key_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_size_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type lexicon_size_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lexicons_output() :: %{
+        "Lexicons" => list(lexicon_description()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_lexicons_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lexicon_input() :: %{}
+
+  """
+  @type get_lexicon_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_voices_input() :: %{
+        optional("Engine") => list(any()),
+        optional("IncludeAdditionalLanguageCodes") => boolean(),
+        optional("LanguageCode") => list(any()),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type describe_voices_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_speech_synthesis_tasks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_speech_synthesis_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_speech_synthesis_tasks_output() :: %{
+        "NextToken" => String.t(),
+        "SynthesisTasks" => list(synthesis_task()())
+      }
+
+  """
+  @type list_speech_synthesis_tasks_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type lexicon_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ssml_marks_not_supported_for_text_type_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type ssml_marks_not_supported_for_text_type_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type engine_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lexicon_output() :: %{
+        "Lexicon" => lexicon(),
+        "LexiconAttributes" => lexicon_attributes()
+      }
+
+  """
+  @type get_lexicon_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_ssml_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_ssml_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_pls_alphabet_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_pls_alphabet_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lexicon_input() :: %{}
+
+  """
+  @type delete_lexicon_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      voice() :: %{
+        "AdditionalLanguageCodes" => list(list(any())()),
+        "Gender" => list(any()),
+        "Id" => list(any()),
+        "LanguageCode" => list(any()),
+        "LanguageName" => String.t(),
+        "Name" => String.t(),
+        "SupportedEngines" => list(list(any())())
+      }
+
+  """
+  @type voice() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_speech_synthesis_task_output() :: %{
+        "SynthesisTask" => synthesis_task()
+      }
+
+  """
+  @type get_speech_synthesis_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_s3_bucket_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_s3_bucket_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_attributes() :: %{
+        "Alphabet" => String.t(),
+        "LanguageCode" => list(any()),
+        "LastModified" => non_neg_integer(),
+        "LexemesCount" => integer(),
+        "LexiconArn" => String.t(),
+        "Size" => integer()
+      }
+
+  """
+  @type lexicon_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_next_token_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthesis_task() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Engine" => list(any()),
+        "LanguageCode" => list(any()),
+        "LexiconNames" => list(String.t()()),
+        "OutputFormat" => list(any()),
+        "OutputUri" => String.t(),
+        "RequestCharacters" => integer(),
+        "SampleRate" => String.t(),
+        "SnsTopicArn" => String.t(),
+        "SpeechMarkTypes" => list(list(any())()),
+        "TaskId" => String.t(),
+        "TaskStatus" => list(any()),
+        "TaskStatusReason" => String.t(),
+        "TextType" => list(any()),
+        "VoiceId" => list(any())
+      }
+
+  """
+  @type synthesis_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      max_lexeme_length_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type max_lexeme_length_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      language_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type language_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lexicons_input() :: %{
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_lexicons_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_task_id_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_task_id_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_lexicon_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_lexicon_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_sns_topic_arn_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_sns_topic_arn_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_description() :: %{
+        "Attributes" => lexicon_attributes(),
+        "Name" => String.t()
+      }
+
+  """
+  @type lexicon_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_lexicon_output() :: %{}
+
+  """
+  @type put_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon() :: %{
+        "Content" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type lexicon() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_sample_rate_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_sample_rate_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_pls_language_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_pls_language_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthesize_speech_output() :: %{
+        "AudioStream" => binary(),
+        "ContentType" => String.t(),
+        "RequestCharacters" => integer()
+      }
+
+  """
+  @type synthesize_speech_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speech_synthesis_task_input() :: %{
+        optional("Engine") => list(any()),
+        optional("LanguageCode") => list(any()),
+        optional("LexiconNames") => list(String.t()()),
+        optional("OutputS3KeyPrefix") => String.t(),
+        optional("SampleRate") => String.t(),
+        optional("SnsTopicArn") => String.t(),
+        optional("SpeechMarkTypes") => list(list(any())()),
+        optional("TextType") => list(any()),
+        required("OutputFormat") => list(any()),
+        required("OutputS3BucketName") => String.t(),
+        required("Text") => String.t(),
+        required("VoiceId") => list(any())
+      }
+
+  """
+  @type start_speech_synthesis_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marks_not_supported_for_format_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type marks_not_supported_for_format_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthesis_task_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type synthesis_task_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_speech_synthesis_task_input() :: %{}
+
+  """
+  @type get_speech_synthesis_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      text_length_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type text_length_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lexicon_output() :: %{}
+
+  """
+  @type delete_lexicon_output() :: %{}
+
+  @type delete_lexicon_errors() :: lexicon_not_found_exception() | service_failure_exception()
+
+  @type describe_voices_errors() :: invalid_next_token_exception() | service_failure_exception()
+
+  @type get_lexicon_errors() :: lexicon_not_found_exception() | service_failure_exception()
+
+  @type get_speech_synthesis_task_errors() ::
+          synthesis_task_not_found_exception()
+          | invalid_task_id_exception()
+          | service_failure_exception()
+
+  @type list_lexicons_errors() :: invalid_next_token_exception() | service_failure_exception()
+
+  @type list_speech_synthesis_tasks_errors() ::
+          invalid_next_token_exception() | service_failure_exception()
+
+  @type put_lexicon_errors() ::
+          unsupported_pls_language_exception()
+          | invalid_lexicon_exception()
+          | max_lexeme_length_exceeded_exception()
+          | unsupported_pls_alphabet_exception()
+          | service_failure_exception()
+          | lexicon_size_exceeded_exception()
+          | max_lexicons_number_exceeded_exception()
+
+  @type start_speech_synthesis_task_errors() ::
+          text_length_exceeded_exception()
+          | marks_not_supported_for_format_exception()
+          | invalid_sample_rate_exception()
+          | invalid_sns_topic_arn_exception()
+          | language_not_supported_exception()
+          | invalid_s3_bucket_exception()
+          | invalid_ssml_exception()
+          | engine_not_supported_exception()
+          | ssml_marks_not_supported_for_text_type_exception()
+          | lexicon_not_found_exception()
+          | service_failure_exception()
+          | invalid_s3_key_exception()
+
+  @type synthesize_speech_errors() ::
+          text_length_exceeded_exception()
+          | marks_not_supported_for_format_exception()
+          | invalid_sample_rate_exception()
+          | language_not_supported_exception()
+          | invalid_ssml_exception()
+          | engine_not_supported_exception()
+          | ssml_marks_not_supported_for_text_type_exception()
+          | lexicon_not_found_exception()
+          | service_failure_exception()
+
   def metadata do
     %{
       api_version: "2016-06-10",
@@ -22,6 +603,7 @@ defmodule AWS.Polly do
       credential_scope: nil,
       endpoint_prefix: "polly",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Polly",
       signature_version: "v4",
@@ -39,13 +621,23 @@ defmodule AWS.Polly do
   `GetLexicon` or `ListLexicon` APIs.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec delete_lexicon(AWS.Client.t(), String.t(), delete_lexicon_input(), Keyword.t()) ::
+          {:ok, delete_lexicon_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_lexicon_errors()}
   def delete_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -83,18 +675,30 @@ defmodule AWS.Polly do
 
   This operation requires permissions to perform the
   `polly:DescribeVoices` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :engine (t:String.t/0) (Engine)
+   • :include_additional_language_codes (t:String.t/0) (IncludeAdditionalLanguageCodes)
+   • :language_code (t:String.t/0) (LanguageCode)
+   • :next_token (t:String.t/0) (NextToken)
   """
-  def describe_voices(
-        %Client{} = client,
-        engine \\ nil,
-        include_additional_language_codes \\ nil,
-        language_code \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_voices_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_voices_errors()}
+  def describe_voices(%Client{} = client, options \\ []) do
     url_path = "/v1/voices"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [engine: nil, include_additional_language_codes: nil, language_code: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -103,12 +707,17 @@ defmodule AWS.Polly do
         query_params
       end
 
+    {language_code, options} = Keyword.pop(options, :language_code, nil)
+
     query_params =
       if !is_nil(language_code) do
         [{"LanguageCode", language_code} | query_params]
       else
         query_params
       end
+
+    {include_additional_language_codes, options} =
+      Keyword.pop(options, :include_additional_language_codes, nil)
 
     query_params =
       if !is_nil(include_additional_language_codes) do
@@ -117,6 +726,8 @@ defmodule AWS.Polly do
         query_params
       end
 
+    {engine, options} = Keyword.pop(options, :engine, nil)
+
     query_params =
       if !is_nil(engine) do
         [{"Engine", engine} | query_params]
@@ -124,7 +735,8 @@ defmodule AWS.Polly do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -134,13 +746,28 @@ defmodule AWS.Polly do
   in an Amazon Web Services Region.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec get_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_lexicon_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_lexicon_errors()}
   def get_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -151,13 +778,28 @@ defmodule AWS.Polly do
   This object contains information about the given speech synthesis task,
   including the status of the task, and a link to the S3 bucket containing
   the output of the task.
+
+  ## Required positional parameters:
+   • :task_id (t:string String.t/0) (TaskId)
+
+  ## Optional parameters:
   """
+  @spec get_speech_synthesis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_speech_synthesis_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_speech_synthesis_task_errors()}
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -167,11 +809,27 @@ defmodule AWS.Polly do
   Region.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :next_token (t:String.t/0) (NextToken)
   """
-  def list_lexicons(%Client{} = client, next_token \\ nil, options \\ []) do
+  @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_lexicons_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_lexicons_errors()}
+  def list_lexicons(%Client{} = client, options \\ []) do
     url_path = "/v1/lexicons"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -180,7 +838,8 @@ defmodule AWS.Polly do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -191,17 +850,29 @@ defmodule AWS.Polly do
 
   This operation can filter the tasks by their status, for
   example, allowing users to list only tasks that are completed.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
+   • :status (t:String.t/0) (Status)
   """
-  def list_speech_synthesis_tasks(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_speech_synthesis_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_speech_synthesis_tasks_errors()}
+  def list_speech_synthesis_tasks(%Client{} = client, options \\ []) do
     url_path = "/v1/synthesisTasks"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, status: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {status, options} = Keyword.pop(options, :status, nil)
 
     query_params =
       if !is_nil(status) do
@@ -210,12 +881,16 @@ defmodule AWS.Polly do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"NextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -224,7 +899,8 @@ defmodule AWS.Polly do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -239,13 +915,23 @@ defmodule AWS.Polly do
   available to the SynthesizeSpeech operation.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec put_lexicon(AWS.Client.t(), String.t(), put_lexicon_input(), Keyword.t()) ::
+          {:ok, put_lexicon_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_lexicon_errors()}
   def put_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -263,13 +949,26 @@ defmodule AWS.Polly do
   will include an identifier of this task as well as the current status. The
   `SpeechSynthesisTask` object is available for 72 hours after
   starting the asynchronous synthesis task.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_speech_synthesis_task(
+          AWS.Client.t(),
+          start_speech_synthesis_task_input(),
+          Keyword.t()
+        ) ::
+          {:ok, start_speech_synthesis_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_speech_synthesis_task_errors()}
   def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
     url_path = "/v1/synthesisTasks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -291,7 +990,15 @@ defmodule AWS.Polly do
   available with all the voices (for example, Cyrillic might not be read at
   all by English voices) unless phoneme mapping is used. For more
   information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec synthesize_speech(AWS.Client.t(), synthesize_speech_input(), Keyword.t()) ::
+          {:ok, synthesize_speech_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, synthesize_speech_errors()}
   def synthesize_speech(%Client{} = client, input, options \\ []) do
     url_path = "/v1/speech"
     headers = []
@@ -307,7 +1014,8 @@ defmodule AWS.Polly do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -25,6 +25,971 @@ defmodule AWS.CleanRoomsML do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t()
+      }
+
+  """
+  @type update_configured_audience_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_audience_model_response() :: %{
+        "audienceModelArn" => String.t()
+      }
+
+  """
+  @type create_audience_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_quality_metrics() :: %{
+        "recallMetric" => [float()],
+        "relevanceMetrics" => list(relevance_metric()())
+      }
+
+  """
+  @type audience_quality_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t()
+      }
+
+  """
+  @type start_audience_generation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "includeSeedInOutput" => [boolean()],
+        "metrics" => audience_quality_metrics(),
+        "name" => String.t(),
+        "seedAudience" => audience_generation_job_data_source(),
+        "startedBy" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_audience_generation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_training_dataset_response() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "tags" => map(),
+        "trainingData" => list(dataset()()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_training_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t()
+      }
+
+  """
+  @type create_configured_audience_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_configured_audience_models_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_training_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_training_datasets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_training_dataset_request() :: %{}
+
+  """
+  @type get_training_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      relevance_metric() :: %{
+        "audienceSize" => audience_size(),
+        "score" => [float()]
+      }
+
+  """
+  @type relevance_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_request() :: %{
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("childResourceTagOnCreatePolicy") => list(any()),
+        optional("description") => String.t(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("tags") => map(),
+        required("audienceModelArn") => String.t(),
+        required("name") => String.t(),
+        required("outputConfig") => configured_audience_model_output_config(),
+        required("sharedAudienceMetrics") => list(list(any())())
+      }
+
+  """
+  @type create_configured_audience_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_audience_model_request() :: %{}
+
+  """
+  @type delete_configured_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_details() :: %{
+        "message" => [String.t()],
+        "statusCode" => [String.t()]
+      }
+
+  """
+  @type status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_export_job_request() :: %{
+        optional("description") => String.t(),
+        required("audienceGenerationJobArn") => String.t(),
+        required("audienceSize") => audience_size(),
+        required("name") => String.t()
+      }
+
+  """
+  @type start_audience_export_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_training_dataset_request() :: %{}
+
+  """
+  @type delete_training_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_audience_models_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset() :: %{
+        "inputConfig" => dataset_input_config(),
+        "type" => list(any())
+      }
+
+  """
+  @type dataset() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_size() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+
+  """
+  @type audience_size() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_generation_job_request() :: %{
+        optional("collaborationId") => String.t(),
+        optional("description") => String.t(),
+        optional("includeSeedInOutput") => [boolean()],
+        optional("tags") => map(),
+        required("configuredAudienceModelArn") => String.t(),
+        required("name") => String.t(),
+        required("seedAudience") => audience_generation_job_data_source()
+      }
+
+  """
+  @type start_audience_generation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_generation_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "collaborationId" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "startedBy" => String.t(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_generation_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_model_request() :: %{}
+
+  """
+  @type get_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_output_config() :: %{
+        "destination" => audience_destination(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type configured_audience_model_output_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_response() :: %{
+        "audienceModelArn" => String.t(),
+        "audienceSizeConfig" => audience_size_config(),
+        "childResourceTagOnCreatePolicy" => list(any()),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "minMatchingSeedSize" => integer(),
+        "name" => String.t(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "sharedAudienceMetrics" => list(list(any())()),
+        "status" => list(any()),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_configured_audience_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_model_summary() :: %{
+        "audienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_audience_generation_job_request() :: %{}
+
+  """
+  @type delete_audience_generation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_training_datasets_response() :: %{
+        "nextToken" => String.t(),
+        "trainingDatasets" => list(training_dataset_summary()())
+      }
+
+  """
+  @type list_training_datasets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_export_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t(),
+        "audienceSize" => audience_size(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "outputLocation" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_export_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_audience_model_request() :: %{}
+
+  """
+  @type delete_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_training_dataset_response() :: %{
+        "trainingDatasetArn" => String.t()
+      }
+
+  """
+  @type create_training_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_audience_model_request() :: %{
+        optional("description") => String.t(),
+        optional("kmsKeyArn") => String.t(),
+        optional("tags") => map(),
+        optional("trainingDataEndTime") => [non_neg_integer()],
+        optional("trainingDataStartTime") => [non_neg_integer()],
+        required("name") => String.t(),
+        required("trainingDatasetArn") => String.t()
+      }
+
+  """
+  @type create_audience_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_models_response() :: %{
+        "configuredAudienceModels" => list(configured_audience_model_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_configured_audience_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_config_map() :: %{
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type s3_config_map() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_export_jobs_response() :: %{
+        "audienceExportJobs" => list(audience_export_job_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_audience_export_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_request() :: %{}
+
+  """
+  @type get_configured_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_summary() :: %{
+        "audienceModelArn" => String.t(),
+        "configuredAudienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_audience_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelArn" => String.t(),
+        "configuredAudienceModelPolicy" => String.t(),
+        "policyHash" => String.t()
+      }
+
+  """
+  @type get_configured_audience_model_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_data_source() :: %{
+        "catalogId" => String.t(),
+        "databaseName" => String.t(),
+        "tableName" => String.t()
+      }
+
+  """
+  @type glue_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelPolicy" => String.t(),
+        "policyHash" => String.t()
+      }
+
+  """
+  @type put_configured_audience_model_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_training_dataset_request() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("roleArn") => String.t(),
+        required("trainingData") => list(dataset()())
+      }
+
+  """
+  @type create_training_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      training_dataset_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type training_dataset_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_schema() :: %{
+        "columnName" => String.t(),
+        "columnTypes" => list(list(any())())
+      }
+
+  """
+  @type column_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_model_response() :: %{
+        "audienceModelArn" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "trainingDataEndTime" => [non_neg_integer()],
+        "trainingDataStartTime" => [non_neg_integer()],
+        "trainingDatasetArn" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_audience_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_input_config() :: %{
+        "dataSource" => data_source(),
+        "schema" => list(column_schema()())
+      }
+
+  """
+  @type dataset_input_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configured_audience_model_policy_request() :: %{
+        optional("policyExistenceCondition") => list(any()),
+        optional("previousPolicyHash") => String.t(),
+        required("configuredAudienceModelPolicy") => String.t()
+      }
+
+  """
+  @type put_configured_audience_model_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "glueDataSource" => glue_data_source()
+      }
+
+  """
+  @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_size_config() :: %{
+        "audienceSizeBins" => list(integer()()),
+        "audienceSizeType" => list(any())
+      }
+
+  """
+  @type audience_size_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_destination() :: %{
+        "s3Destination" => s3_config_map()
+      }
+
+  """
+  @type audience_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_generation_job_data_source() :: %{
+        "dataSource" => s3_config_map(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type audience_generation_job_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_generation_jobs_request() :: %{
+        optional("collaborationId") => String.t(),
+        optional("configuredAudienceModelArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_audience_generation_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_generation_jobs_response() :: %{
+        "audienceGenerationJobs" => list(audience_generation_job_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_audience_generation_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_models_response() :: %{
+        "audienceModels" => list(audience_model_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_audience_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_export_jobs_request() :: %{
+        optional("audienceGenerationJobArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_audience_export_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_audience_model_policy_request() :: %{}
+
+  """
+  @type delete_configured_audience_model_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_policy_request() :: %{}
+
+  """
+  @type get_configured_audience_model_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_request() :: %{
+        optional("audienceModelArn") => String.t(),
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("description") => String.t(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("outputConfig") => configured_audience_model_output_config(),
+        optional("sharedAudienceMetrics") => list(list(any())())
+      }
+
+  """
+  @type update_configured_audience_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_generation_job_request() :: %{}
+
+  """
+  @type get_audience_generation_job_request() :: %{}
+
+  @type create_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_training_dataset_errors() ::
+          validation_exception() | access_denied_exception() | conflict_exception()
+
+  @type delete_audience_generation_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type delete_training_dataset_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_audience_generation_job_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_audience_model_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_configured_audience_model_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_training_dataset_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_audience_export_jobs_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_audience_generation_jobs_errors() ::
+          validation_exception() | access_denied_exception()
+
+  @type list_audience_models_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_configured_audience_models_errors() ::
+          validation_exception() | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_training_datasets_errors() :: validation_exception() | access_denied_exception()
+
+  @type put_configured_audience_model_policy_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type start_audience_export_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_audience_generation_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type update_configured_audience_model_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2023-09-06",
@@ -32,6 +997,7 @@ defmodule AWS.CleanRoomsML do
       credential_scope: nil,
       endpoint_prefix: "cleanrooms-ml",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CleanRoomsML",
       signature_version: "v4",
@@ -47,13 +1013,22 @@ defmodule AWS.CleanRoomsML do
   measure similarity between users. Clean Rooms ML manages training and storing
   the audience model. The audience model can be used in multiple calls to the
   `StartAudienceGenerationJob` API.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_audience_model(AWS.Client.t(), create_audience_model_request(), Keyword.t()) ::
+          {:ok, create_audience_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_audience_model_errors()}
   def create_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/audience-model"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -70,13 +1045,26 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Defines the information necessary to create a configured audience model.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_configured_audience_model(
+          AWS.Client.t(),
+          create_configured_audience_model_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_configured_audience_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_configured_audience_model_errors()}
   def create_configured_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/configured-audience-model"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -92,18 +1080,26 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create a training dataset, or seed
-  audience.
+  Defines the information necessary to create a training dataset.
 
   In Clean Rooms ML, the `TrainingDataset` is metadata that points to a Glue
   table, which is read only during `AudienceModel` creation.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_training_dataset(AWS.Client.t(), create_training_dataset_request(), Keyword.t()) ::
+          {:ok, create_training_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_training_dataset_errors()}
   def create_training_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/training-dataset"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -121,7 +1117,21 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Deletes the specified audience generation job, and removes all data associated
   with the job.
+
+  ## Required positional parameters:
+   • :audience_generation_job_arn (t:string String.t/0) (audienceGenerationJobArn)
+
+  ## Optional parameters:
   """
+  @spec delete_audience_generation_job(
+          AWS.Client.t(),
+          String.t(),
+          delete_audience_generation_job_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_audience_generation_job_errors()}
   def delete_audience_generation_job(
         %Client{} = client,
         audience_generation_job_arn,
@@ -132,7 +1142,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -152,13 +1163,28 @@ defmodule AWS.CleanRoomsML do
 
   You can't delete an audience model if there are any configured audience models
   that depend on the audience model.
+
+  ## Required positional parameters:
+   • :audience_model_arn (t:string String.t/0) (audienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec delete_audience_model(
+          AWS.Client.t(),
+          String.t(),
+          delete_audience_model_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_audience_model_errors()}
   def delete_audience_model(%Client{} = client, audience_model_arn, input, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -179,7 +1205,21 @@ defmodule AWS.CleanRoomsML do
   You can't delete a configured audience model if there are any lookalike models
   that use the configured audience model. If you delete a configured audience
   model, it will be removed from any collaborations that it is associated to.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec delete_configured_audience_model(
+          AWS.Client.t(),
+          String.t(),
+          delete_configured_audience_model_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_configured_audience_model_errors()}
   def delete_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -190,7 +1230,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -207,7 +1248,21 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Deletes the specified configured audience model policy.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec delete_configured_audience_model_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_configured_audience_model_policy_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_configured_audience_model_policy_errors()}
   def delete_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -220,7 +1275,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -242,13 +1298,28 @@ defmodule AWS.CleanRoomsML do
   on the training dataset. In Clean Rooms ML, the `TrainingDataset` is metadata
   that points to a Glue table, which is read only during `AudienceModel` creation.
   This action deletes the metadata.
+
+  ## Required positional parameters:
+   • :training_dataset_arn (t:string String.t/0) (trainingDatasetArn)
+
+  ## Optional parameters:
   """
+  @spec delete_training_dataset(
+          AWS.Client.t(),
+          String.t(),
+          delete_training_dataset_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_training_dataset_errors()}
   def delete_training_dataset(%Client{} = client, training_dataset_arn, input, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -265,50 +1336,104 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Returns information about an audience generation job.
+
+  ## Required positional parameters:
+   • :audience_generation_job_arn (t:string String.t/0) (audienceGenerationJobArn)
+
+  ## Optional parameters:
   """
+  @spec get_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_audience_generation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_audience_generation_job_errors()}
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about an audience model
+
+  ## Required positional parameters:
+   • :audience_model_arn (t:string String.t/0) (audienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec get_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_audience_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_audience_model_errors()}
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a specified configured audience model.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec get_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_configured_audience_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_configured_audience_model_errors()}
   def get_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
         options \\ []
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a configured audience model policy.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec get_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_configured_audience_model_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_configured_audience_model_policy_errors()}
   def get_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -317,40 +1442,72 @@ defmodule AWS.CleanRoomsML do
     url_path =
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information about a training dataset.
+
+  ## Required positional parameters:
+   • :training_dataset_arn (t:string String.t/0) (trainingDatasetArn)
+
+  ## Optional parameters:
   """
+  @spec get_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_training_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_training_dataset_errors()}
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the audience export jobs.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :audience_generation_job_arn (t:String.t/0) (audienceGenerationJobArn)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_audience_export_jobs(
-        %Client{} = client,
-        audience_generation_job_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_audience_export_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_audience_export_jobs_errors()}
+  def list_audience_export_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-export-job"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [audience_generation_job_arn: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -359,12 +1516,17 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {audience_generation_job_arn, options} =
+      Keyword.pop(options, :audience_generation_job_arn, nil)
 
     query_params =
       if !is_nil(audience_generation_job_arn) do
@@ -373,25 +1535,38 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of audience generation jobs.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :collaboration_id (t:String.t/0) (collaborationId)
+   • :configured_audience_model_arn (t:String.t/0) (configuredAudienceModelArn)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_audience_generation_jobs(
-        %Client{} = client,
-        collaboration_id \\ nil,
-        configured_audience_model_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_audience_generation_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_audience_generation_jobs_errors()}
+  def list_audience_generation_jobs(%Client{} = client, options \\ []) do
     url_path = "/audience-generation-job"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [collaboration_id: nil, configured_audience_model_arn: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -400,12 +1575,17 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {configured_audience_model_arn, options} =
+      Keyword.pop(options, :configured_audience_model_arn, nil)
 
     query_params =
       if !is_nil(configured_audience_model_arn) do
@@ -414,6 +1594,8 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {collaboration_id, options} = Keyword.pop(options, :collaboration_id, nil)
+
     query_params =
       if !is_nil(collaboration_id) do
         [{"collaborationId", collaboration_id} | query_params]
@@ -421,23 +1603,36 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of audience models.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_audience_models(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_audience_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_audience_models_errors()}
+  def list_audience_models(%Client{} = client, options \\ []) do
     url_path = "/audience-model"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -446,6 +1641,8 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -453,23 +1650,36 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the configured audience models.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_configured_audience_models(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_configured_audience_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_configured_audience_models_errors()}
+  def list_configured_audience_models(%Client{} = client, options \\ []) do
     url_path = "/configured-audience-model"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -478,6 +1688,8 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -485,36 +1697,64 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of tags for a provided resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of training datasets.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_training_datasets(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_training_datasets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_training_datasets_errors()}
+  def list_training_datasets(%Client{} = client, options \\ []) do
     url_path = "/training-dataset"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -523,6 +1763,8 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -530,14 +1772,29 @@ defmodule AWS.CleanRoomsML do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Create or update the resource policy for a configured audience model.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec put_configured_audience_model_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_configured_audience_model_policy_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_configured_audience_model_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_configured_audience_model_policy_errors()}
   def put_configured_audience_model_policy(
         %Client{} = client,
         configured_audience_model_arn,
@@ -550,20 +1807,34 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Export an audience of a specified size after you have generated an audience.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_audience_export_job(
+          AWS.Client.t(),
+          start_audience_export_job_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_audience_export_job_errors()}
   def start_audience_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-export-job"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -580,13 +1851,26 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Information necessary to start the audience generation job.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_audience_generation_job(
+          AWS.Client.t(),
+          start_audience_generation_job_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_audience_generation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_audience_generation_job_errors()}
   def start_audience_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-generation-job"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -603,13 +1887,23 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Adds metadata tags to a specified resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -626,7 +1920,17 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Removes metadata tags from a specified resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -637,7 +1941,8 @@ defmodule AWS.CleanRoomsML do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -657,7 +1962,21 @@ defmodule AWS.CleanRoomsML do
 
   Updates that impact audience generation jobs take effect when a new job starts,
   but do not impact currently running jobs.
+
+  ## Required positional parameters:
+   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+
+  ## Optional parameters:
   """
+  @spec update_configured_audience_model(
+          AWS.Client.t(),
+          String.t(),
+          update_configured_audience_model_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_configured_audience_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_configured_audience_model_errors()}
   def update_configured_audience_model(
         %Client{} = client,
         configured_audience_model_arn,
@@ -668,7 +1987,8 @@ defmodule AWS.CleanRoomsML do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

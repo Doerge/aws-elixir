@@ -9,6 +9,224 @@ defmodule AWS.SageMakerRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      internal_dependency_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_dependency_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_stream_failure() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_stream_failure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_async_input() :: %{
+        optional("Accept") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("CustomAttributes") => String.t(),
+        optional("InferenceId") => String.t(),
+        optional("InvocationTimeoutSeconds") => integer(),
+        optional("RequestTTLSeconds") => integer(),
+        required("InputLocation") => String.t()
+      }
+
+  """
+  @type invoke_endpoint_async_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_async_output() :: %{
+        "FailureLocation" => String.t(),
+        "InferenceId" => String.t(),
+        "OutputLocation" => String.t()
+      }
+
+  """
+  @type invoke_endpoint_async_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_input() :: %{
+        optional("Accept") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("CustomAttributes") => String.t(),
+        optional("EnableExplanations") => String.t(),
+        optional("InferenceComponentName") => String.t(),
+        optional("InferenceId") => String.t(),
+        optional("TargetContainerHostname") => String.t(),
+        optional("TargetModel") => String.t(),
+        optional("TargetVariant") => String.t(),
+        required("Body") => binary()
+      }
+
+  """
+  @type invoke_endpoint_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_output() :: %{
+        "Body" => binary(),
+        "ContentType" => String.t(),
+        "CustomAttributes" => String.t(),
+        "InvokedProductionVariant" => String.t()
+      }
+
+  """
+  @type invoke_endpoint_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_with_response_stream_input() :: %{
+        optional("Accept") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("CustomAttributes") => String.t(),
+        optional("InferenceComponentName") => String.t(),
+        optional("InferenceId") => String.t(),
+        optional("TargetContainerHostname") => String.t(),
+        optional("TargetVariant") => String.t(),
+        required("Body") => binary()
+      }
+
+  """
+  @type invoke_endpoint_with_response_stream_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_endpoint_with_response_stream_output() :: %{
+        "Body" => list(),
+        "ContentType" => String.t(),
+        "CustomAttributes" => String.t(),
+        "InvokedProductionVariant" => String.t()
+      }
+
+  """
+  @type invoke_endpoint_with_response_stream_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_error() :: %{
+        "LogStreamArn" => String.t(),
+        "Message" => String.t(),
+        "OriginalMessage" => String.t(),
+        "OriginalStatusCode" => integer()
+      }
+
+  """
+  @type model_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_not_ready_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type model_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_stream_error() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type model_stream_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payload_part() :: %{
+        "Bytes" => binary()
+      }
+
+  """
+  @type payload_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type service_unavailable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_error() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_error() :: %{String.t() => any()}
+
+  @type invoke_endpoint_errors() ::
+          validation_error()
+          | service_unavailable()
+          | model_not_ready_exception()
+          | model_error()
+          | internal_failure()
+          | internal_dependency_exception()
+
+  @type invoke_endpoint_async_errors() ::
+          validation_error() | service_unavailable() | internal_failure()
+
+  @type invoke_endpoint_with_response_stream_errors() ::
+          validation_error()
+          | service_unavailable()
+          | model_stream_error()
+          | model_error()
+          | internal_stream_failure()
+          | internal_failure()
+
   def metadata do
     %{
       api_version: "2017-05-13",
@@ -16,6 +234,7 @@ defmodule AWS.SageMakerRuntime do
       credential_scope: nil,
       endpoint_prefix: "runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker Runtime",
       signature_version: "v4",
@@ -53,7 +272,25 @@ defmodule AWS.SageMakerRuntime do
   Endpoints are scoped to an individual account, and are not public. The URL does
   not contain the account ID, but Amazon SageMaker determines the account ID from
   the authentication token that is supplied by the caller.
+
+  ## Required positional parameters:
+   • :endpoint_name (t:string String.t/0) (EndpointName)
+
+  ## Optional parameters:
+   • :accept (t:String.t/0) (Accept)
+   • :content_type (t:String.t/0) (Content-Type)
+   • :custom_attributes (t:String.t/0) (X-Amzn-SageMaker-Custom-Attributes)
+   • :enable_explanations (t:String.t/0) (X-Amzn-SageMaker-Enable-Explanations)
+   • :inference_component_name (t:String.t/0) (X-Amzn-SageMaker-Inference-Component)
+   • :inference_id (t:String.t/0) (X-Amzn-SageMaker-Inference-Id)
+   • :target_container_hostname (t:String.t/0) (X-Amzn-SageMaker-Target-Container-Hostname)
+   • :target_model (t:String.t/0) (X-Amzn-SageMaker-Target-Model)
+   • :target_variant (t:String.t/0) (X-Amzn-SageMaker-Target-Variant)
   """
+  @spec invoke_endpoint(AWS.Client.t(), String.t(), invoke_endpoint_input(), Keyword.t()) ::
+          {:ok, invoke_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_endpoint_errors()}
   def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations"
 
@@ -98,7 +335,8 @@ defmodule AWS.SageMakerRuntime do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -136,7 +374,28 @@ defmodule AWS.SageMakerRuntime do
   Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the *Amazon S3 API Reference*.
+
+  ## Required positional parameters:
+   • :endpoint_name (t:string String.t/0) (EndpointName)
+
+  ## Optional parameters:
+   • :accept (t:String.t/0) (X-Amzn-SageMaker-Accept)
+   • :content_type (t:String.t/0) (X-Amzn-SageMaker-Content-Type)
+   • :custom_attributes (t:String.t/0) (X-Amzn-SageMaker-Custom-Attributes)
+   • :inference_id (t:String.t/0) (X-Amzn-SageMaker-Inference-Id)
+   • :input_location (t:String.t/0) (X-Amzn-SageMaker-InputLocation)
+   • :invocation_timeout_seconds (t:String.t/0) (X-Amzn-SageMaker-InvocationTimeoutSeconds)
+   • :request_t_t_l_seconds (t:String.t/0) (X-Amzn-SageMaker-RequestTTLSeconds)
   """
+  @spec invoke_endpoint_async(
+          AWS.Client.t(),
+          String.t(),
+          invoke_endpoint_async_input(),
+          Keyword.t()
+        ) ::
+          {:ok, invoke_endpoint_async_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_endpoint_async_errors()}
   def invoke_endpoint_async(%Client{} = client, endpoint_name, input, options \\ []) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/async-invocations"
 
@@ -164,7 +423,8 @@ defmodule AWS.SageMakerRuntime do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -218,7 +478,28 @@ defmodule AWS.SageMakerRuntime do
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
   in the
   *Amazon S3 API Reference*.
+
+  ## Required positional parameters:
+   • :endpoint_name (t:string String.t/0) (EndpointName)
+
+  ## Optional parameters:
+   • :accept (t:String.t/0) (X-Amzn-SageMaker-Accept)
+   • :content_type (t:String.t/0) (Content-Type)
+   • :custom_attributes (t:String.t/0) (X-Amzn-SageMaker-Custom-Attributes)
+   • :inference_component_name (t:String.t/0) (X-Amzn-SageMaker-Inference-Component)
+   • :inference_id (t:String.t/0) (X-Amzn-SageMaker-Inference-Id)
+   • :target_container_hostname (t:String.t/0) (X-Amzn-SageMaker-Target-Container-Hostname)
+   • :target_variant (t:String.t/0) (X-Amzn-SageMaker-Target-Variant)
   """
+  @spec invoke_endpoint_with_response_stream(
+          AWS.Client.t(),
+          String.t(),
+          invoke_endpoint_with_response_stream_input(),
+          Keyword.t()
+        ) ::
+          {:ok, invoke_endpoint_with_response_stream_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_endpoint_with_response_stream_errors()}
   def invoke_endpoint_with_response_stream(
         %Client{} = client,
         endpoint_name,
@@ -259,7 +540,8 @@ defmodule AWS.SageMakerRuntime do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

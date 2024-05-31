@@ -21,6 +21,2005 @@ defmodule AWS.DirectConnect do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      confirm_transit_virtual_interface_request() :: %{
+        required("directConnectGatewayId") => String.t(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type confirm_transit_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_request() :: %{
+        optional("connectionName") => String.t(),
+        optional("encryptionMode") => String.t(),
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type update_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_associations_result() :: %{
+        "directConnectGatewayAssociations" => list(direct_connect_gateway_association()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_gateway_association_proposal() :: %{
+        "associatedGateway" => associated_gateway(),
+        "directConnectGatewayId" => String.t(),
+        "directConnectGatewayOwnerAccount" => String.t(),
+        "existingAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()()),
+        "proposalId" => String.t(),
+        "proposalState" => list(any()),
+        "requestedAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()())
+      }
+      
+  """
+  @type direct_connect_gateway_association_proposal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_virtual_interface_attributes_request() :: %{
+        optional("enableSiteLink") => boolean(),
+        optional("mtu") => integer(),
+        optional("virtualInterfaceName") => String.t(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type update_virtual_interface_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_bgp_failover_test_request() :: %{
+        optional("bgpPeers") => list(String.t()()),
+        optional("testDurationInMinutes") => integer(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type start_bgp_failover_test_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateways_result() :: %{
+        "directConnectGateways" => list(direct_connect_gateway()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateways_request() :: %{
+        optional("directConnectGatewayId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_association_proposals_request() :: %{
+        optional("associatedGatewayId") => String.t(),
+        optional("directConnectGatewayId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("proposalId") => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_association_proposals_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_lags_request() :: %{
+        optional("lagId") => String.t()
+      }
+      
+  """
+  @type describe_lags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_bgp_failover_test_request() :: %{
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type stop_bgp_failover_test_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_private_virtual_interface() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "directConnectGatewayId" => String.t(),
+        "enableSiteLink" => boolean(),
+        "mtu" => integer(),
+        "tags" => list(tag()()),
+        "virtualGatewayId" => String.t(),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_private_virtual_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_connection_response() :: %{
+        "connectionState" => list(any())
+      }
+      
+  """
+  @type confirm_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_gateways() :: %{
+        optional("virtualGateways") => list(virtual_gateway()())
+      }
+      
+  """
+  @type virtual_gateways() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_association_proposal_request() :: %{
+        required("proposalId") => String.t()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_association_proposal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_private_virtual_interface_allocation() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "mtu" => integer(),
+        "tags" => list(tag()()),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_private_virtual_interface_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_result() :: %{
+        "directConnectGateway" => direct_connect_gateway()
+      }
+      
+  """
+  @type create_direct_connect_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_interconnect_request() :: %{
+        optional("lagId") => String.t(),
+        optional("providerName") => String.t(),
+        optional("tags") => list(tag()()),
+        required("bandwidth") => String.t(),
+        required("interconnectName") => String.t(),
+        required("location") => String.t()
+      }
+      
+  """
+  @type create_interconnect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      loa() :: %{
+        "loaContent" => binary(),
+        "loaContentType" => list(any())
+      }
+      
+  """
+  @type loa() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_client_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type direct_connect_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_connection_request() :: %{
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type confirm_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_customer_metadata_response() :: %{
+        "agreements" => list(customer_agreement()()),
+        "nniPartnerType" => list(any())
+      }
+      
+  """
+  @type describe_customer_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_associations_request() :: %{
+        optional("associatedGatewayId") => String.t(),
+        optional("associationId") => String.t(),
+        optional("directConnectGatewayId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("virtualGatewayId") => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_direct_connect_gateway_association_result() :: %{
+        "directConnectGatewayAssociation" => direct_connect_gateway_association()
+      }
+      
+  """
+  @type update_direct_connect_gateway_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_virtual_interface_request() :: %{
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type delete_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_hosted_connections_request() :: %{
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type describe_hosted_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_mac_sec_key_response() :: %{
+        "connectionId" => String.t(),
+        "macSecKeys" => list(mac_sec_key()())
+      }
+      
+  """
+  @type disassociate_mac_sec_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_private_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newPrivateVirtualInterface") => new_private_virtual_interface()
+      }
+      
+  """
+  @type create_private_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connections_request() :: %{
+        optional("connectionId") => String.t()
+      }
+      
+  """
+  @type describe_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bgp_peer() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "awsDeviceV2" => String.t(),
+        "awsLogicalDeviceId" => String.t(),
+        "bgpPeerId" => String.t(),
+        "bgpPeerState" => list(any()),
+        "bgpStatus" => list(any()),
+        "customerAddress" => String.t()
+      }
+      
+  """
+  @type bgp_peer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      interconnect() :: %{
+        "awsDevice" => String.t(),
+        "awsDeviceV2" => String.t(),
+        "awsLogicalDeviceId" => String.t(),
+        "bandwidth" => String.t(),
+        "hasLogicalRedundancy" => list(any()),
+        "interconnectId" => String.t(),
+        "interconnectName" => String.t(),
+        "interconnectState" => list(any()),
+        "jumboFrameCapable" => boolean(),
+        "lagId" => String.t(),
+        "loaIssueTime" => non_neg_integer(),
+        "location" => String.t(),
+        "providerName" => String.t(),
+        "region" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type interconnect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_customer_agreement_request() :: %{
+        optional("agreementName") => String.t()
+      }
+      
+  """
+  @type confirm_customer_agreement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transit_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newTransitVirtualInterface") => new_transit_virtual_interface()
+      }
+      
+  """
+  @type create_transit_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_gateway_association() :: %{
+        "allowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()()),
+        "associatedGateway" => associated_gateway(),
+        "associationId" => String.t(),
+        "associationState" => list(any()),
+        "directConnectGatewayId" => String.t(),
+        "directConnectGatewayOwnerAccount" => String.t(),
+        "stateChangeError" => String.t(),
+        "virtualGatewayId" => String.t(),
+        "virtualGatewayOwnerAccount" => String.t(),
+        "virtualGatewayRegion" => String.t()
+      }
+      
+  """
+  @type direct_connect_gateway_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      router_type() :: %{
+        "platform" => String.t(),
+        "routerTypeIdentifier" => String.t(),
+        "software" => String.t(),
+        "vendor" => String.t(),
+        "xsltTemplateName" => String.t(),
+        "xsltTemplateNameForMacSec" => String.t()
+      }
+      
+  """
+  @type router_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bgp_peer_request() :: %{
+        optional("newBGPPeer") => new_bgp_peer(),
+        optional("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type create_bgp_peer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_bgp_peer_response() :: %{
+        "virtualInterface" => virtual_interface()
+      }
+      
+  """
+  @type create_bgp_peer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_response() :: %{
+        "resourceTags" => list(resource_tag()())
+      }
+      
+  """
+  @type describe_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_interface_test_history_request() :: %{
+        optional("bgpPeers") => list(String.t()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t(),
+        optional("testId") => String.t(),
+        optional("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type list_virtual_interface_test_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_attachments_result() :: %{
+        "directConnectGatewayAttachments" => list(direct_connect_gateway_attachment()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_attachments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_interfaces() :: %{
+        optional("virtualInterfaces") => list(virtual_interface()())
+      }
+      
+  """
+  @type virtual_interfaces() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_mac_sec_key_request() :: %{
+        required("connectionId") => String.t(),
+        required("secretARN") => String.t()
+      }
+      
+  """
+  @type disassociate_mac_sec_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_transit_virtual_interface_allocation() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "mtu" => integer(),
+        "tags" => list(tag()()),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_transit_virtual_interface_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bgp_peer_request() :: %{
+        optional("asn") => integer(),
+        optional("bgpPeerId") => String.t(),
+        optional("customerAddress") => String.t(),
+        optional("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type delete_bgp_peer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_transit_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newTransitVirtualInterfaceAllocation") => new_transit_virtual_interface_allocation(),
+        required("ownerAccount") => String.t()
+      }
+      
+  """
+  @type allocate_transit_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_transit_virtual_interface_result() :: %{
+        "virtualInterface" => virtual_interface()
+      }
+      
+  """
+  @type allocate_transit_virtual_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_direct_connect_gateway_response() :: %{
+        "directConnectGateway" => direct_connect_gateway()
+      }
+      
+  """
+  @type update_direct_connect_gateway_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_bgp_peer_response() :: %{
+        "virtualInterface" => virtual_interface()
+      }
+      
+  """
+  @type delete_bgp_peer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_lag_request() :: %{
+        optional("childConnectionTags") => list(tag()()),
+        optional("connectionId") => String.t(),
+        optional("providerName") => String.t(),
+        optional("requestMACSec") => boolean(),
+        optional("tags") => list(tag()()),
+        required("connectionsBandwidth") => String.t(),
+        required("lagName") => String.t(),
+        required("location") => String.t(),
+        required("numberOfConnections") => integer()
+      }
+      
+  """
+  @type create_lag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_public_virtual_interface_response() :: %{
+        "virtualInterfaceState" => list(any())
+      }
+      
+  """
+  @type confirm_public_virtual_interface_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_interconnect_loa_response() :: %{
+        "loa" => loa()
+      }
+      
+  """
+  @type describe_interconnect_loa_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_virtual_interface_test_history_response() :: %{
+        "nextToken" => String.t(),
+        "virtualInterfaceTestHistory" => list(virtual_interface_test_history()())
+      }
+      
+  """
+  @type list_virtual_interface_test_history_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_gateway() :: %{
+        "virtualGatewayId" => String.t(),
+        "virtualGatewayState" => String.t()
+      }
+      
+  """
+  @type virtual_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_bgp_failover_test_response() :: %{
+        "virtualInterfaceTest" => virtual_interface_test_history()
+      }
+      
+  """
+  @type start_bgp_failover_test_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_result() :: %{
+        "directConnectGateway" => direct_connect_gateway()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection() :: %{
+        "awsDevice" => String.t(),
+        "awsDeviceV2" => String.t(),
+        "awsLogicalDeviceId" => String.t(),
+        "bandwidth" => String.t(),
+        "connectionId" => String.t(),
+        "connectionName" => String.t(),
+        "connectionState" => list(any()),
+        "encryptionMode" => String.t(),
+        "hasLogicalRedundancy" => list(any()),
+        "jumboFrameCapable" => boolean(),
+        "lagId" => String.t(),
+        "loaIssueTime" => non_neg_integer(),
+        "location" => String.t(),
+        "macSecCapable" => boolean(),
+        "macSecKeys" => list(mac_sec_key()()),
+        "ownerAccount" => String.t(),
+        "partnerName" => String.t(),
+        "portEncryptionStatus" => String.t(),
+        "providerName" => String.t(),
+        "region" => String.t(),
+        "tags" => list(tag()()),
+        "vlan" => integer()
+      }
+      
+  """
+  @type connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_bgp_failover_test_response() :: %{
+        "virtualInterfaceTest" => virtual_interface_test_history()
+      }
+      
+  """
+  @type stop_bgp_failover_test_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_public_virtual_interface() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "routeFilterPrefixes" => list(route_filter_prefix()()),
+        "tags" => list(tag()()),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_public_virtual_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_public_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newPublicVirtualInterface") => new_public_virtual_interface()
+      }
+      
+  """
+  @type create_public_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_interconnect_response() :: %{
+        "interconnectState" => list(any())
+      }
+      
+  """
+  @type delete_interconnect_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_association_proposal_result() :: %{
+        "directConnectGatewayAssociationProposal" => direct_connect_gateway_association_proposal()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_association_proposal_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_agreement() :: %{
+        "agreementName" => String.t(),
+        "status" => String.t()
+      }
+      
+  """
+  @type customer_agreement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_request() :: %{
+        optional("amazonSideAsn") => float(),
+        required("directConnectGatewayName") => String.t()
+      }
+      
+  """
+  @type create_direct_connect_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_association_request() :: %{
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("gatewayId") => String.t(),
+        optional("virtualGatewayId") => String.t(),
+        required("directConnectGatewayId") => String.t()
+      }
+      
+  """
+  @type create_direct_connect_gateway_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_interconnect_loa_request() :: %{
+        optional("loaContentType") => list(any()),
+        optional("providerName") => String.t(),
+        required("interconnectId") => String.t()
+      }
+      
+  """
+  @type describe_interconnect_loa_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mac_sec_key() :: %{
+        "ckn" => String.t(),
+        "secretARN" => String.t(),
+        "startOn" => String.t(),
+        "state" => String.t()
+      }
+      
+  """
+  @type mac_sec_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location() :: %{
+        "availableMacSecPortSpeeds" => list(String.t()()),
+        "availablePortSpeeds" => list(String.t()()),
+        "availableProviders" => list(String.t()()),
+        "locationCode" => String.t(),
+        "locationName" => String.t(),
+        "region" => String.t()
+      }
+      
+  """
+  @type location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_router_configuration_request() :: %{
+        optional("routerTypeIdentifier") => String.t(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type describe_router_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_lag_request() :: %{
+        required("lagId") => String.t()
+      }
+      
+  """
+  @type delete_lag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_request() :: %{
+        required("directConnectGatewayId") => String.t()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_virtual_interfaces_request() :: %{
+        optional("connectionId") => String.t(),
+        optional("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type describe_virtual_interfaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connections() :: %{
+        optional("connections") => list(connection()())
+      }
+      
+  """
+  @type connections() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_private_virtual_interface_response() :: %{
+        "virtualInterfaceState" => list(any())
+      }
+      
+  """
+  @type confirm_private_virtual_interface_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      locations() :: %{
+        optional("locations") => list(location()())
+      }
+      
+  """
+  @type locations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_direct_connect_gateway_association_proposal_result() :: %{
+        "directConnectGatewayAssociation" => direct_connect_gateway_association()
+      }
+      
+  """
+  @type accept_direct_connect_gateway_association_proposal_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_interface_test_history() :: %{
+        "bgpPeers" => list(String.t()()),
+        "endTime" => non_neg_integer(),
+        "ownerAccount" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t(),
+        "testDurationInMinutes" => integer(),
+        "testId" => String.t(),
+        "virtualInterfaceId" => String.t()
+      }
+      
+  """
+  @type virtual_interface_test_history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_transit_virtual_interface() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "directConnectGatewayId" => String.t(),
+        "enableSiteLink" => boolean(),
+        "mtu" => integer(),
+        "tags" => list(tag()()),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_transit_virtual_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connections_on_interconnect_request() :: %{
+        required("interconnectId") => String.t()
+      }
+      
+  """
+  @type describe_connections_on_interconnect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_association_proposals_result() :: %{
+        "directConnectGatewayAssociationProposals" => list(direct_connect_gateway_association_proposal()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_association_proposals_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      virtual_interface() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "amazonSideAsn" => float(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "awsDeviceV2" => String.t(),
+        "awsLogicalDeviceId" => String.t(),
+        "bgpPeers" => list(bgp_peer()()),
+        "connectionId" => String.t(),
+        "customerAddress" => String.t(),
+        "customerRouterConfig" => String.t(),
+        "directConnectGatewayId" => String.t(),
+        "jumboFrameCapable" => boolean(),
+        "location" => String.t(),
+        "mtu" => integer(),
+        "ownerAccount" => String.t(),
+        "region" => String.t(),
+        "routeFilterPrefixes" => list(route_filter_prefix()()),
+        "siteLinkEnabled" => boolean(),
+        "tags" => list(tag()()),
+        "virtualGatewayId" => String.t(),
+        "virtualInterfaceId" => String.t(),
+        "virtualInterfaceName" => String.t(),
+        "virtualInterfaceState" => list(any()),
+        "virtualInterfaceType" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type virtual_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "resourceArn" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type resource_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_hosted_connection_request() :: %{
+        optional("tags") => list(tag()()),
+        required("bandwidth") => String.t(),
+        required("connectionId") => String.t(),
+        required("connectionName") => String.t(),
+        required("ownerAccount") => String.t(),
+        required("vlan") => integer()
+      }
+      
+  """
+  @type allocate_hosted_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_mac_sec_key_request() :: %{
+        optional("cak") => String.t(),
+        optional("ckn") => String.t(),
+        optional("secretARN") => String.t(),
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type associate_mac_sec_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_hosted_connection_request() :: %{
+        required("connectionId") => String.t(),
+        required("parentConnectionId") => String.t()
+      }
+      
+  """
+  @type associate_hosted_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_direct_connect_gateway_attachments_request() :: %{
+        optional("directConnectGatewayId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type describe_direct_connect_gateway_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_gateway_attachment() :: %{
+        "attachmentState" => list(any()),
+        "attachmentType" => list(any()),
+        "directConnectGatewayId" => String.t(),
+        "stateChangeError" => String.t(),
+        "virtualInterfaceId" => String.t(),
+        "virtualInterfaceOwnerAccount" => String.t(),
+        "virtualInterfaceRegion" => String.t()
+      }
+      
+  """
+  @type direct_connect_gateway_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connection_loa_request() :: %{
+        optional("loaContentType") => list(any()),
+        optional("providerName") => String.t(),
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type describe_connection_loa_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lag_request() :: %{
+        optional("encryptionMode") => String.t(),
+        optional("lagName") => String.t(),
+        optional("minimumLinks") => integer(),
+        required("lagId") => String.t()
+      }
+      
+  """
+  @type update_lag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_interconnects_request() :: %{
+        optional("interconnectId") => String.t()
+      }
+      
+  """
+  @type describe_interconnects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_virtual_interface_response() :: %{
+        "virtualInterfaceState" => list(any())
+      }
+      
+  """
+  @type delete_virtual_interface_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_direct_connect_gateway_association_request() :: %{
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("associationId") => String.t(),
+        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()())
+      }
+      
+  """
+  @type update_direct_connect_gateway_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_private_virtual_interface_request() :: %{
+        optional("directConnectGatewayId") => String.t(),
+        optional("virtualGatewayId") => String.t(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type confirm_private_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_interconnect_request() :: %{
+        required("interconnectId") => String.t()
+      }
+      
+  """
+  @type delete_interconnect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      interconnects() :: %{
+        optional("interconnects") => list(interconnect()())
+      }
+      
+  """
+  @type interconnects() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_tag_keys_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type duplicate_tag_keys_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_connection_from_lag_request() :: %{
+        required("connectionId") => String.t(),
+        required("lagId") => String.t()
+      }
+      
+  """
+  @type disassociate_connection_from_lag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_filter_prefix() :: %{
+        "cidr" => String.t()
+      }
+      
+  """
+  @type route_filter_prefix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_connection_on_interconnect_request() :: %{
+        required("bandwidth") => String.t(),
+        required("connectionName") => String.t(),
+        required("interconnectId") => String.t(),
+        required("ownerAccount") => String.t(),
+        required("vlan") => integer()
+      }
+      
+  """
+  @type allocate_connection_on_interconnect_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_association_proposal_result() :: %{
+        "directConnectGatewayAssociationProposal" => direct_connect_gateway_association_proposal()
+      }
+      
+  """
+  @type create_direct_connect_gateway_association_proposal_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_association_proposal_request() :: %{
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        required("directConnectGatewayId") => String.t(),
+        required("directConnectGatewayOwnerAccount") => String.t(),
+        required("gatewayId") => String.t()
+      }
+      
+  """
+  @type create_direct_connect_gateway_association_proposal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_association_request() :: %{
+        optional("associationId") => String.t(),
+        optional("directConnectGatewayId") => String.t(),
+        optional("virtualGatewayId") => String.t()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_transit_virtual_interface_response() :: %{
+        "virtualInterfaceState" => list(any())
+      }
+      
+  """
+  @type confirm_transit_virtual_interface_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_direct_connect_gateway_association_proposal_request() :: %{
+        optional("overrideAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        required("associatedGatewayOwnerAccount") => String.t(),
+        required("directConnectGatewayId") => String.t(),
+        required("proposalId") => String.t()
+      }
+      
+  """
+  @type accept_direct_connect_gateway_association_proposal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_private_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newPrivateVirtualInterfaceAllocation") => new_private_virtual_interface_allocation(),
+        required("ownerAccount") => String.t()
+      }
+      
+  """
+  @type allocate_private_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_mac_sec_key_response() :: %{
+        "connectionId" => String.t(),
+        "macSecKeys" => list(mac_sec_key()())
+      }
+      
+  """
+  @type associate_mac_sec_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allocate_public_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("newPublicVirtualInterfaceAllocation") => new_public_virtual_interface_allocation(),
+        required("ownerAccount") => String.t()
+      }
+      
+  """
+  @type allocate_public_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_gateway() :: %{
+        "amazonSideAsn" => float(),
+        "directConnectGatewayId" => String.t(),
+        "directConnectGatewayName" => String.t(),
+        "directConnectGatewayState" => list(any()),
+        "ownerAccount" => String.t(),
+        "stateChangeError" => String.t()
+      }
+      
+  """
+  @type direct_connect_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_connection_with_lag_request() :: %{
+        required("connectionId") => String.t(),
+        required("lagId") => String.t()
+      }
+      
+  """
+  @type associate_connection_with_lag_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_request() :: %{
+        required("resourceArns") => list(String.t()())
+      }
+      
+  """
+  @type describe_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_direct_connect_gateway_association_result() :: %{
+        "directConnectGatewayAssociation" => direct_connect_gateway_association()
+      }
+      
+  """
+  @type create_direct_connect_gateway_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_customer_agreement_response() :: %{
+        "status" => String.t()
+      }
+      
+  """
+  @type confirm_customer_agreement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associated_gateway() :: %{
+        "id" => String.t(),
+        "ownerAccount" => String.t(),
+        "region" => String.t(),
+        "type" => list(any())
+      }
+      
+  """
+  @type associated_gateway() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_router_configuration_response() :: %{
+        "customerRouterConfig" => String.t(),
+        "router" => router_type(),
+        "virtualInterfaceId" => String.t(),
+        "virtualInterfaceName" => String.t()
+      }
+      
+  """
+  @type describe_router_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_request() :: %{
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type delete_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_connect_server_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type direct_connect_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_public_virtual_interface_request() :: %{
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type confirm_public_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_virtual_interface_request() :: %{
+        required("connectionId") => String.t(),
+        required("virtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type associate_virtual_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lags() :: %{
+        optional("lags") => list(lag()())
+      }
+      
+  """
+  @type lags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_loa_request() :: %{
+        optional("loaContentType") => list(any()),
+        optional("providerName") => String.t(),
+        required("connectionId") => String.t()
+      }
+      
+  """
+  @type describe_loa_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connection_loa_response() :: %{
+        "loa" => loa()
+      }
+      
+  """
+  @type describe_connection_loa_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_request() :: %{
+        optional("lagId") => String.t(),
+        optional("providerName") => String.t(),
+        optional("requestMACSec") => boolean(),
+        optional("tags") => list(tag()()),
+        required("bandwidth") => String.t(),
+        required("connectionName") => String.t(),
+        required("location") => String.t()
+      }
+      
+  """
+  @type create_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_direct_connect_gateway_request() :: %{
+        required("directConnectGatewayId") => String.t(),
+        required("newDirectConnectGatewayName") => String.t()
+      }
+      
+  """
+  @type update_direct_connect_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_direct_connect_gateway_association_result() :: %{
+        "directConnectGatewayAssociation" => direct_connect_gateway_association()
+      }
+      
+  """
+  @type delete_direct_connect_gateway_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lag() :: %{
+        "allowsHostedConnections" => boolean(),
+        "awsDevice" => String.t(),
+        "awsDeviceV2" => String.t(),
+        "awsLogicalDeviceId" => String.t(),
+        "connections" => list(connection()()),
+        "connectionsBandwidth" => String.t(),
+        "encryptionMode" => String.t(),
+        "hasLogicalRedundancy" => list(any()),
+        "jumboFrameCapable" => boolean(),
+        "lagId" => String.t(),
+        "lagName" => String.t(),
+        "lagState" => list(any()),
+        "location" => String.t(),
+        "macSecCapable" => boolean(),
+        "macSecKeys" => list(mac_sec_key()()),
+        "minimumLinks" => integer(),
+        "numberOfConnections" => integer(),
+        "ownerAccount" => String.t(),
+        "providerName" => String.t(),
+        "region" => String.t(),
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type lag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_public_virtual_interface_allocation() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t(),
+        "routeFilterPrefixes" => list(route_filter_prefix()()),
+        "tags" => list(tag()()),
+        "virtualInterfaceName" => String.t(),
+        "vlan" => integer()
+      }
+      
+  """
+  @type new_public_virtual_interface_allocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_bgp_peer() :: %{
+        "addressFamily" => list(any()),
+        "amazonAddress" => String.t(),
+        "asn" => integer(),
+        "authKey" => String.t(),
+        "customerAddress" => String.t()
+      }
+      
+  """
+  @type new_bgp_peer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transit_virtual_interface_result() :: %{
+        "virtualInterface" => virtual_interface()
+      }
+      
+  """
+  @type create_transit_virtual_interface_result() :: %{String.t() => any()}
+
+  @type accept_direct_connect_gateway_association_proposal_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type allocate_connection_on_interconnect_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type allocate_hosted_connection_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type allocate_private_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type allocate_public_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type allocate_transit_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type associate_connection_with_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type associate_hosted_connection_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type associate_mac_sec_key_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type associate_virtual_interface_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type confirm_connection_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type confirm_customer_agreement_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type confirm_private_virtual_interface_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type confirm_public_virtual_interface_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type confirm_transit_virtual_interface_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type create_bgp_peer_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type create_connection_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type create_direct_connect_gateway_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type create_direct_connect_gateway_association_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type create_direct_connect_gateway_association_proposal_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type create_interconnect_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type create_lag_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type create_private_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type create_public_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type create_transit_virtual_interface_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type delete_bgp_peer_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_connection_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_direct_connect_gateway_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_direct_connect_gateway_association_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_direct_connect_gateway_association_proposal_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_interconnect_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type delete_virtual_interface_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_connection_loa_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_connections_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_connections_on_interconnect_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_customer_metadata_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_direct_connect_gateway_association_proposals_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_direct_connect_gateway_associations_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_direct_connect_gateway_attachments_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_direct_connect_gateways_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_hosted_connections_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_interconnect_loa_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_interconnects_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_lags_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_loa_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_locations_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_router_configuration_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_tags_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_virtual_gateways_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type describe_virtual_interfaces_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type disassociate_connection_from_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type disassociate_mac_sec_key_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type list_virtual_interface_test_history_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type start_bgp_failover_test_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type stop_bgp_failover_test_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | direct_connect_server_exception()
+          | duplicate_tag_keys_exception()
+          | direct_connect_client_exception()
+
+  @type untag_resource_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_connection_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_direct_connect_gateway_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_direct_connect_gateway_association_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_lag_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
+  @type update_virtual_interface_attributes_errors() ::
+          direct_connect_server_exception() | direct_connect_client_exception()
+
   def metadata do
     %{
       api_version: "2012-10-25",
@@ -28,6 +2027,7 @@ defmodule AWS.DirectConnect do
       credential_scope: nil,
       endpoint_prefix: "directconnect",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Direct Connect",
       signature_version: "v4",
@@ -40,8 +2040,17 @@ defmodule AWS.DirectConnect do
   Accepts a proposal request to attach a virtual private gateway or transit
   gateway to a Direct Connect gateway.
   """
+  @spec accept_direct_connect_gateway_association_proposal(
+          AWS.Client.t(),
+          accept_direct_connect_gateway_association_proposal_request(),
+          Keyword.t()
+        ) ::
+          {:ok, accept_direct_connect_gateway_association_proposal_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_direct_connect_gateway_association_proposal_errors()}
   def accept_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -64,8 +2073,17 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec allocate_connection_on_interconnect(
+          AWS.Client.t(),
+          allocate_connection_on_interconnect_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_connection_on_interconnect_errors()}
   def allocate_connection_on_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateConnectionOnInterconnect", input, options)
   end
@@ -82,8 +2100,17 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec allocate_hosted_connection(
+          AWS.Client.t(),
+          allocate_hosted_connection_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_hosted_connection_errors()}
   def allocate_hosted_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateHostedConnection", input, options)
   end
@@ -97,8 +2124,17 @@ defmodule AWS.DirectConnect do
   Until then, the virtual interface is in the `Confirming` state and is not
   available to handle traffic.
   """
+  @spec allocate_private_virtual_interface(
+          AWS.Client.t(),
+          allocate_private_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_private_virtual_interface_errors()}
   def allocate_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocatePrivateVirtualInterface", input, options)
   end
@@ -119,8 +2155,17 @@ defmodule AWS.DirectConnect do
   customer address. IPv6 addresses are automatically assigned from
   the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
   """
+  @spec allocate_public_virtual_interface(
+          AWS.Client.t(),
+          allocate_public_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_public_virtual_interface_errors()}
   def allocate_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocatePublicVirtualInterface", input, options)
   end
@@ -140,8 +2185,17 @@ defmodule AWS.DirectConnect do
   transit virtual interface is in the `requested` state and is not available to
   handle traffic.
   """
+  @spec allocate_transit_virtual_interface(
+          AWS.Client.t(),
+          allocate_transit_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, allocate_transit_virtual_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, allocate_transit_virtual_interface_errors()}
   def allocate_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateTransitVirtualInterface", input, options)
   end
@@ -174,8 +2228,17 @@ defmodule AWS.DirectConnect do
   hosted
   connections remain associated with the original LAG.
   """
+  @spec associate_connection_with_lag(
+          AWS.Client.t(),
+          associate_connection_with_lag_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_connection_with_lag_errors()}
   def associate_connection_with_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConnectionWithLag", input, options)
   end
@@ -194,8 +2257,17 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec associate_hosted_connection(
+          AWS.Client.t(),
+          associate_hosted_connection_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_hosted_connection_errors()}
   def associate_hosted_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateHostedConnection", input, options)
   end
@@ -211,8 +2283,13 @@ defmodule AWS.DirectConnect do
   ](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration)
   in the *Direct Connect User Guide*.
   """
+  @spec associate_mac_sec_key(AWS.Client.t(), associate_mac_sec_key_request(), Keyword.t()) ::
+          {:ok, associate_mac_sec_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_mac_sec_key_errors()}
   def associate_mac_sec_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateMacSecKey", input, options)
   end
@@ -239,8 +2316,17 @@ defmodule AWS.DirectConnect do
   connection
   or LAG for the association.
   """
+  @spec associate_virtual_interface(
+          AWS.Client.t(),
+          associate_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_virtual_interface_errors()}
   def associate_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVirtualInterface", input, options)
   end
@@ -252,8 +2338,13 @@ defmodule AWS.DirectConnect do
   remains in this state until the owner confirms creation of the hosted
   connection.
   """
+  @spec confirm_connection(AWS.Client.t(), confirm_connection_request(), Keyword.t()) ::
+          {:ok, confirm_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, confirm_connection_errors()}
   def confirm_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmConnection", input, options)
   end
@@ -263,8 +2354,17 @@ defmodule AWS.DirectConnect do
   The confirmation of the terms of agreement when creating the connection/link
   aggregation group (LAG).
   """
+  @spec confirm_customer_agreement(
+          AWS.Client.t(),
+          confirm_customer_agreement_request(),
+          Keyword.t()
+        ) ::
+          {:ok, confirm_customer_agreement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, confirm_customer_agreement_errors()}
   def confirm_customer_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmCustomerAgreement", input, options)
   end
@@ -278,8 +2378,17 @@ defmodule AWS.DirectConnect do
   gateway, and is
   made available to handle traffic.
   """
+  @spec confirm_private_virtual_interface(
+          AWS.Client.t(),
+          confirm_private_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, confirm_private_virtual_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, confirm_private_virtual_interface_errors()}
   def confirm_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmPrivateVirtualInterface", input, options)
   end
@@ -292,8 +2401,17 @@ defmodule AWS.DirectConnect do
   interface is
   created and made available to handle traffic.
   """
+  @spec confirm_public_virtual_interface(
+          AWS.Client.t(),
+          confirm_public_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, confirm_public_virtual_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, confirm_public_virtual_interface_errors()}
   def confirm_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmPublicVirtualInterface", input, options)
   end
@@ -305,8 +2423,17 @@ defmodule AWS.DirectConnect do
   After the owner of the transit virtual interface makes this call, the specified
   transit virtual interface is created and made available to handle traffic.
   """
+  @spec confirm_transit_virtual_interface(
+          AWS.Client.t(),
+          confirm_transit_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, confirm_transit_virtual_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, confirm_transit_virtual_interface_errors()}
   def confirm_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmTransitVirtualInterface", input, options)
   end
@@ -341,8 +2468,13 @@ defmodule AWS.DirectConnect do
   For a public virtual interface, the Autonomous System Number (ASN) must be
   private or already on the allow list for the virtual interface.
   """
+  @spec create_bgp_peer(AWS.Client.t(), create_bgp_peer_request(), Keyword.t()) ::
+          {:ok, create_bgp_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bgp_peer_errors()}
   def create_bgp_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBGPPeer", input, options)
   end
@@ -366,8 +2498,13 @@ defmodule AWS.DirectConnect do
   available ports on the endpoint,
   the request fails and no connection is created.
   """
+  @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -386,8 +2523,17 @@ defmodule AWS.DirectConnect do
   interfaces
   are located, and pass traffic between them.
   """
+  @spec create_direct_connect_gateway(
+          AWS.Client.t(),
+          create_direct_connect_gateway_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_direct_connect_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_direct_connect_gateway_errors()}
   def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectConnectGateway", input, options)
   end
@@ -400,8 +2546,17 @@ defmodule AWS.DirectConnect do
   private gateway must be attached to a VPC and must not be associated with
   another Direct Connect gateway.
   """
+  @spec create_direct_connect_gateway_association(
+          AWS.Client.t(),
+          create_direct_connect_gateway_association_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_direct_connect_gateway_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_direct_connect_gateway_association_errors()}
   def create_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectConnectGatewayAssociation", input, options)
   end
@@ -413,8 +2568,17 @@ defmodule AWS.DirectConnect do
   You can associate a Direct Connect gateway and virtual private gateway or
   transit gateway that is owned by any Amazon Web Services account.
   """
+  @spec create_direct_connect_gateway_association_proposal(
+          AWS.Client.t(),
+          create_direct_connect_gateway_association_proposal_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_direct_connect_gateway_association_proposal_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_direct_connect_gateway_association_proposal_errors()}
   def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -456,8 +2620,13 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec create_interconnect(AWS.Client.t(), create_interconnect_request(), Keyword.t()) ::
+          {:ok, interconnect(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_interconnect_errors()}
   def create_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInterconnect", input, options)
   end
@@ -498,8 +2667,13 @@ defmodule AWS.DirectConnect do
   associated virtual
   interfaces cannot be directly configured.
   """
+  @spec create_lag(AWS.Client.t(), create_lag_request(), Keyword.t()) ::
+          {:ok, lag(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_lag_errors()}
   def create_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLag", input, options)
   end
@@ -527,8 +2701,17 @@ defmodule AWS.DirectConnect do
   frames, call `DescribeConnections`. To check whether your virtual
   interface supports jumbo frames, call `DescribeVirtualInterfaces`.
   """
+  @spec create_private_virtual_interface(
+          AWS.Client.t(),
+          create_private_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_private_virtual_interface_errors()}
   def create_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePrivateVirtualInterface", input, options)
   end
@@ -545,8 +2728,17 @@ defmodule AWS.DirectConnect do
   and `amazon` address fields blank to use auto-assigned IPv6 space. Custom IPv6
   addresses are not supported.
   """
+  @spec create_public_virtual_interface(
+          AWS.Client.t(),
+          create_public_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_public_virtual_interface_errors()}
   def create_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePublicVirtualInterface", input, options)
   end
@@ -577,8 +2769,17 @@ defmodule AWS.DirectConnect do
   `DescribeConnections`. To check whether your virtual interface supports jumbo
   frames, call `DescribeVirtualInterfaces`.
   """
+  @spec create_transit_virtual_interface(
+          AWS.Client.t(),
+          create_transit_virtual_interface_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_transit_virtual_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_transit_virtual_interface_errors()}
   def create_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitVirtualInterface", input, options)
   end
@@ -589,8 +2790,13 @@ defmodule AWS.DirectConnect do
 
   You cannot delete the last BGP peer from a virtual interface.
   """
+  @spec delete_bgp_peer(AWS.Client.t(), delete_bgp_peer_request(), Keyword.t()) ::
+          {:ok, delete_bgp_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bgp_peer_errors()}
   def delete_bgp_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBGPPeer", input, options)
   end
@@ -604,8 +2810,13 @@ defmodule AWS.DirectConnect do
   location,
   you must cancel your service with them separately.
   """
+  @spec delete_connection(AWS.Client.t(), delete_connection_request(), Keyword.t()) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -618,8 +2829,17 @@ defmodule AWS.DirectConnect do
   gateways associated
   with the Direct Connect gateway.
   """
+  @spec delete_direct_connect_gateway(
+          AWS.Client.t(),
+          delete_direct_connect_gateway_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_direct_connect_gateway_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_direct_connect_gateway_errors()}
   def delete_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectConnectGateway", input, options)
   end
@@ -633,8 +2853,17 @@ defmodule AWS.DirectConnect do
   association, you can specify the `virtualGatewayId` and `directConnectGatewayId`
   to delete an association.
   """
+  @spec delete_direct_connect_gateway_association(
+          AWS.Client.t(),
+          delete_direct_connect_gateway_association_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_direct_connect_gateway_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_direct_connect_gateway_association_errors()}
   def delete_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectConnectGatewayAssociation", input, options)
   end
@@ -643,8 +2872,17 @@ defmodule AWS.DirectConnect do
   Deletes the association proposal request between the specified Direct Connect
   gateway and virtual private gateway or transit gateway.
   """
+  @spec delete_direct_connect_gateway_association_proposal(
+          AWS.Client.t(),
+          delete_direct_connect_gateway_association_proposal_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_direct_connect_gateway_association_proposal_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_direct_connect_gateway_association_proposal_errors()}
   def delete_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -661,8 +2899,13 @@ defmodule AWS.DirectConnect do
   Intended for use
   by Direct Connect Partners only.
   """
+  @spec delete_interconnect(AWS.Client.t(), delete_interconnect_request(), Keyword.t()) ::
+          {:ok, delete_interconnect_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_interconnect_errors()}
   def delete_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInterconnect", input, options)
   end
@@ -673,8 +2916,13 @@ defmodule AWS.DirectConnect do
   You cannot delete a LAG if it has active
   virtual interfaces or hosted connections.
   """
+  @spec delete_lag(AWS.Client.t(), delete_lag_request(), Keyword.t()) ::
+          {:ok, lag(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_lag_errors()}
   def delete_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLag", input, options)
   end
@@ -682,8 +2930,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Deletes a virtual interface.
   """
+  @spec delete_virtual_interface(AWS.Client.t(), delete_virtual_interface_request(), Keyword.t()) ::
+          {:ok, delete_virtual_interface_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_virtual_interface_errors()}
   def delete_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVirtualInterface", input, options)
   end
@@ -703,8 +2956,13 @@ defmodule AWS.DirectConnect do
   Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
+  @spec describe_connection_loa(AWS.Client.t(), describe_connection_loa_request(), Keyword.t()) ::
+          {:ok, describe_connection_loa_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_connection_loa_errors()}
   def describe_connection_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionLoa", input, options)
   end
@@ -712,8 +2970,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Displays the specified connection or all connections in this Region.
   """
+  @spec describe_connections(AWS.Client.t(), describe_connections_request(), Keyword.t()) ::
+          {:ok, connections(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnections", input, options)
   end
@@ -727,8 +2990,17 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec describe_connections_on_interconnect(
+          AWS.Client.t(),
+          describe_connections_on_interconnect_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connections(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_connections_on_interconnect_errors()}
   def describe_connections_on_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionsOnInterconnect", input, options)
   end
@@ -737,8 +3009,13 @@ defmodule AWS.DirectConnect do
   Get and view a list of customer agreements, along with their signed status and
   whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner.
   """
+  @spec describe_customer_metadata(AWS.Client.t(), %{}, Keyword.t()) ::
+          {:ok, describe_customer_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_customer_metadata_errors()}
   def describe_customer_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomerMetadata", input, options)
   end
@@ -747,12 +3024,21 @@ defmodule AWS.DirectConnect do
   Describes one or more association proposals for connection between a virtual
   private gateway or transit gateway and a Direct Connect gateway.
   """
+  @spec describe_direct_connect_gateway_association_proposals(
+          AWS.Client.t(),
+          describe_direct_connect_gateway_association_proposals_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_direct_connect_gateway_association_proposals_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_direct_connect_gateway_association_proposals_errors()}
   def describe_direct_connect_gateway_association_proposals(
         %Client{} = client,
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -797,8 +3083,17 @@ defmodule AWS.DirectConnect do
   The response contains the association between the Direct Connect gateway and
   transit gateway.
   """
+  @spec describe_direct_connect_gateway_associations(
+          AWS.Client.t(),
+          describe_direct_connect_gateway_associations_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_direct_connect_gateway_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_direct_connect_gateway_associations_errors()}
   def describe_direct_connect_gateway_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGatewayAssociations", input, options)
   end
@@ -817,8 +3112,17 @@ defmodule AWS.DirectConnect do
   the response contains the attachment between the Direct Connect gateway and the
   virtual interface.
   """
+  @spec describe_direct_connect_gateway_attachments(
+          AWS.Client.t(),
+          describe_direct_connect_gateway_attachments_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_direct_connect_gateway_attachments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_direct_connect_gateway_attachments_errors()}
   def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGatewayAttachments", input, options)
   end
@@ -829,8 +3133,17 @@ defmodule AWS.DirectConnect do
 
   Deleted Direct Connect gateways are not returned.
   """
+  @spec describe_direct_connect_gateways(
+          AWS.Client.t(),
+          describe_direct_connect_gateways_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_direct_connect_gateways_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_direct_connect_gateways_errors()}
   def describe_direct_connect_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGateways", input, options)
   end
@@ -841,8 +3154,17 @@ defmodule AWS.DirectConnect do
 
   Intended for use by Direct Connect Partners only.
   """
+  @spec describe_hosted_connections(
+          AWS.Client.t(),
+          describe_hosted_connections_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connections(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_hosted_connections_errors()}
   def describe_hosted_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHostedConnections", input, options)
   end
@@ -860,8 +3182,17 @@ defmodule AWS.DirectConnect do
   For more information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
+  @spec describe_interconnect_loa(
+          AWS.Client.t(),
+          describe_interconnect_loa_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_interconnect_loa_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_interconnect_loa_errors()}
   def describe_interconnect_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInterconnectLoa", input, options)
   end
@@ -870,8 +3201,13 @@ defmodule AWS.DirectConnect do
   Lists the interconnects owned by the Amazon Web Services account or only the
   specified interconnect.
   """
+  @spec describe_interconnects(AWS.Client.t(), describe_interconnects_request(), Keyword.t()) ::
+          {:ok, interconnects(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_interconnects_errors()}
   def describe_interconnects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInterconnects", input, options)
   end
@@ -879,8 +3215,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Describes all your link aggregation groups (LAG) or the specified LAG.
   """
+  @spec describe_lags(AWS.Client.t(), describe_lags_request(), Keyword.t()) ::
+          {:ok, lags(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_lags_errors()}
   def describe_lags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLags", input, options)
   end
@@ -895,8 +3236,13 @@ defmodule AWS.DirectConnect do
   information, see [Requesting Cross Connects at Direct Connect Locations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html)
   in the *Direct Connect User Guide*.
   """
+  @spec describe_loa(AWS.Client.t(), describe_loa_request(), Keyword.t()) ::
+          {:ok, loa(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_loa_errors()}
   def describe_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoa", input, options)
   end
@@ -907,8 +3253,13 @@ defmodule AWS.DirectConnect do
   These are the locations that can be selected when calling
   `CreateConnection` or `CreateInterconnect`.
   """
+  @spec describe_locations(AWS.Client.t(), %{}, Keyword.t()) ::
+          {:ok, locations(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_locations_errors()}
   def describe_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocations", input, options)
   end
@@ -917,8 +3268,17 @@ defmodule AWS.DirectConnect do
 
   Details about the router.
   """
+  @spec describe_router_configuration(
+          AWS.Client.t(),
+          describe_router_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_router_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_router_configuration_errors()}
   def describe_router_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouterConfiguration", input, options)
   end
@@ -926,8 +3286,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Describes the tags associated with the specified Direct Connect resources.
   """
+  @spec describe_tags(AWS.Client.t(), describe_tags_request(), Keyword.t()) ::
+          {:ok, describe_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -938,8 +3303,13 @@ defmodule AWS.DirectConnect do
   You can create one or more Direct Connect private virtual interfaces linked to a
   virtual private gateway.
   """
+  @spec describe_virtual_gateways(AWS.Client.t(), %{}, Keyword.t()) ::
+          {:ok, virtual_gateways(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_virtual_gateways_errors()}
   def describe_virtual_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVirtualGateways", input, options)
   end
@@ -957,8 +3327,17 @@ defmodule AWS.DirectConnect do
   A virtual interface (VLAN) transmits the traffic between the Direct Connect
   location and the customer network.
   """
+  @spec describe_virtual_interfaces(
+          AWS.Client.t(),
+          describe_virtual_interfaces_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interfaces(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_virtual_interfaces_errors()}
   def describe_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVirtualInterfaces", input, options)
   end
@@ -982,8 +3361,17 @@ defmodule AWS.DirectConnect do
   exist as
   an empty LAG with no physical connections.
   """
+  @spec disassociate_connection_from_lag(
+          AWS.Client.t(),
+          disassociate_connection_from_lag_request(),
+          Keyword.t()
+        ) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_connection_from_lag_errors()}
   def disassociate_connection_from_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnectionFromLag", input, options)
   end
@@ -992,8 +3380,13 @@ defmodule AWS.DirectConnect do
   Removes the association between a MAC Security (MACsec) security key and an
   Direct Connect dedicated connection.
   """
+  @spec disassociate_mac_sec_key(AWS.Client.t(), disassociate_mac_sec_key_request(), Keyword.t()) ::
+          {:ok, disassociate_mac_sec_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_mac_sec_key_errors()}
   def disassociate_mac_sec_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateMacSecKey", input, options)
   end
@@ -1001,8 +3394,17 @@ defmodule AWS.DirectConnect do
   @doc """
   Lists the virtual interface failover test history.
   """
+  @spec list_virtual_interface_test_history(
+          AWS.Client.t(),
+          list_virtual_interface_test_history_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_virtual_interface_test_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_virtual_interface_test_history_errors()}
   def list_virtual_interface_test_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVirtualInterfaceTestHistory", input, options)
   end
@@ -1022,8 +3424,13 @@ defmodule AWS.DirectConnect do
   If you need to stop the test before the test interval completes, use
   [StopBgpFailoverTest](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html).
   """
+  @spec start_bgp_failover_test(AWS.Client.t(), start_bgp_failover_test_request(), Keyword.t()) ::
+          {:ok, start_bgp_failover_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_bgp_failover_test_errors()}
   def start_bgp_failover_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBgpFailoverTest", input, options)
   end
@@ -1031,8 +3438,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Stops the virtual interface failover test.
   """
+  @spec stop_bgp_failover_test(AWS.Client.t(), stop_bgp_failover_test_request(), Keyword.t()) ::
+          {:ok, stop_bgp_failover_test_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_bgp_failover_test_errors()}
   def stop_bgp_failover_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBgpFailoverTest", input, options)
   end
@@ -1045,8 +3457,13 @@ defmodule AWS.DirectConnect do
   Each tag consists of a key and an optional value. If a tag with the same key is
   already associated with the resource, this action updates its value.
   """
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1054,8 +3471,13 @@ defmodule AWS.DirectConnect do
   @doc """
   Removes one or more tags from the specified Direct Connect resource.
   """
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1071,8 +3493,13 @@ defmodule AWS.DirectConnect do
     *
   The connection's MAC Security (MACsec) encryption mode.
   """
+  @spec update_connection(AWS.Client.t(), update_connection_request(), Keyword.t()) ::
+          {:ok, connection(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -1080,8 +3507,17 @@ defmodule AWS.DirectConnect do
   @doc """
   Updates the name of a current Direct Connect gateway.
   """
+  @spec update_direct_connect_gateway(
+          AWS.Client.t(),
+          update_direct_connect_gateway_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_direct_connect_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_direct_connect_gateway_errors()}
   def update_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectConnectGateway", input, options)
   end
@@ -1091,8 +3527,17 @@ defmodule AWS.DirectConnect do
 
   Add or remove prefixes from the association.
   """
+  @spec update_direct_connect_gateway_association(
+          AWS.Client.t(),
+          update_direct_connect_gateway_association_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_direct_connect_gateway_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_direct_connect_gateway_association_errors()}
   def update_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectConnectGatewayAssociation", input, options)
   end
@@ -1123,8 +3568,13 @@ defmodule AWS.DirectConnect do
   that the new value does not cause the LAG to fall below the threshold and become
   non-operational.
   """
+  @spec update_lag(AWS.Client.t(), update_lag_request(), Keyword.t()) ::
+          {:ok, lag(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_lag_errors()}
   def update_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLag", input, options)
   end
@@ -1143,8 +3593,17 @@ defmodule AWS.DirectConnect do
   frames, call `DescribeConnections`. To check whether your virtual
   interface supports jumbo frames, call `DescribeVirtualInterfaces`.
   """
+  @spec update_virtual_interface_attributes(
+          AWS.Client.t(),
+          update_virtual_interface_attributes_request(),
+          Keyword.t()
+        ) ::
+          {:ok, virtual_interface(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_virtual_interface_attributes_errors()}
   def update_virtual_interface_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVirtualInterfaceAttributes", input, options)
   end

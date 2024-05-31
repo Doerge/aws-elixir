@@ -16,6 +16,55 @@ defmodule AWS.SageMakerMetrics do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      batch_put_metrics_error() :: %{
+        "Code" => list(any()),
+        "MetricIndex" => integer()
+      }
+
+  """
+  @type batch_put_metrics_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_metrics_request() :: %{
+        required("MetricData") => list(raw_metric_data()()),
+        required("TrialComponentName") => String.t()
+      }
+
+  """
+  @type batch_put_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_metrics_response() :: %{
+        "Errors" => list(batch_put_metrics_error()())
+      }
+
+  """
+  @type batch_put_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      raw_metric_data() :: %{
+        "MetricName" => String.t(),
+        "Step" => integer(),
+        "Timestamp" => non_neg_integer(),
+        "Value" => float()
+      }
+
+  """
+  @type raw_metric_data() :: %{String.t() => any()}
+
   def metadata do
     %{
       api_version: "2022-09-30",
@@ -23,6 +72,7 @@ defmodule AWS.SageMakerMetrics do
       credential_scope: nil,
       endpoint_prefix: "metrics.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker Metrics",
       signature_version: "v4",
@@ -36,13 +86,21 @@ defmodule AWS.SageMakerMetrics do
 
   These metrics can be visualized in SageMaker Studio and
   retrieved with the `GetMetrics` API.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec batch_put_metrics(AWS.Client.t(), batch_put_metrics_request(), Keyword.t()) ::
+          {:ok, batch_put_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutMetrics"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

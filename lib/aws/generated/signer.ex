@@ -39,6 +39,983 @@ defmodule AWS.Signer do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      cancel_signing_profile_request() :: %{}
+
+  """
+  @type cancel_signing_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_profile_permission_response() :: %{
+        "revisionId" => String.t()
+      }
+
+  """
+  @type remove_profile_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source() :: %{
+        "bucketName" => String.t(),
+        "key" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type s3_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_platform_overrides() :: %{
+        "signingConfiguration" => signing_configuration_overrides(),
+        "signingImageFormat" => list(any())
+      }
+
+  """
+  @type signing_platform_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_configuration_overrides() :: %{
+        "encryptionAlgorithm" => list(any()),
+        "hashAlgorithm" => list(any())
+      }
+
+  """
+  @type signing_configuration_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_signing_job_request() :: %{
+        optional("profileOwner") => String.t(),
+        required("clientRequestToken") => String.t(),
+        required("destination") => destination(),
+        required("profileName") => String.t(),
+        required("source") => source()
+      }
+
+  """
+  @type start_signing_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_platform() :: %{
+        "category" => list(any()),
+        "displayName" => String.t(),
+        "maxSizeInMB" => integer(),
+        "partner" => String.t(),
+        "platformId" => String.t(),
+        "revocationSupported" => boolean(),
+        "signingConfiguration" => signing_configuration(),
+        "signingImageFormat" => signing_image_format(),
+        "target" => String.t()
+      }
+
+  """
+  @type signing_platform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_image_format() :: %{
+        "defaultFormat" => list(any()),
+        "supportedFormats" => list(list(any())())
+      }
+
+  """
+  @type signing_image_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_profile_permission_request() :: %{
+        required("revisionId") => String.t()
+      }
+
+  """
+  @type remove_profile_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_profile() :: %{
+        "arn" => String.t(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t(),
+        "signatureValidityPeriod" => signature_validity_period(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type signing_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_jobs_response() :: %{
+        "jobs" => list(signing_job()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_signing_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_profile_permission_request() :: %{
+        optional("profileVersion") => String.t(),
+        optional("revisionId") => String.t(),
+        required("action") => String.t(),
+        required("principal") => String.t(),
+        required("statementId") => String.t()
+      }
+
+  """
+  @type add_profile_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type internal_service_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_signing_profile_request() :: %{
+        optional("overrides") => signing_platform_overrides(),
+        optional("signatureValidityPeriod") => signature_validity_period(),
+        optional("signingMaterial") => signing_material(),
+        optional("signingParameters") => map(),
+        optional("tags") => map(),
+        required("platformId") => String.t()
+      }
+
+  """
+  @type put_signing_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signing_platform_request() :: %{}
+
+  """
+  @type get_signing_platform_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_configuration() :: %{
+        "encryptionAlgorithmOptions" => encryption_algorithm_options(),
+        "hashAlgorithmOptions" => hash_algorithm_options()
+      }
+
+  """
+  @type signing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signing_profile_request() :: %{
+        optional("profileOwner") => String.t()
+      }
+
+  """
+  @type get_signing_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signature_validity_period() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+
+  """
+  @type signature_validity_period() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_job_revocation_record() :: %{
+        "reason" => String.t(),
+        "revokedAt" => non_neg_integer(),
+        "revokedBy" => String.t()
+      }
+
+  """
+  @type signing_job_revocation_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_signing_job_request() :: %{}
+
+  """
+  @type describe_signing_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_signing_profile_response() :: %{
+        "arn" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t()
+      }
+
+  """
+  @type put_signing_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signing_platform_response() :: %{
+        "category" => list(any()),
+        "displayName" => String.t(),
+        "maxSizeInMB" => integer(),
+        "partner" => String.t(),
+        "platformId" => String.t(),
+        "revocationSupported" => boolean(),
+        "signingConfiguration" => signing_configuration(),
+        "signingImageFormat" => signing_image_format(),
+        "target" => String.t()
+      }
+
+  """
+  @type get_signing_platform_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_revocation_status_response() :: %{
+        "revokedEntities" => list(String.t()())
+      }
+
+  """
+  @type get_revocation_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_signing_job_response() :: %{
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "jobId" => String.t(),
+        "jobInvoker" => String.t(),
+        "jobOwner" => String.t(),
+        "overrides" => signing_platform_overrides(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "requestedBy" => String.t(),
+        "revocationRecord" => signing_job_revocation_record(),
+        "signatureExpiresAt" => non_neg_integer(),
+        "signedObject" => signed_object(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "source" => source(),
+        "status" => list(any()),
+        "statusReason" => String.t()
+      }
+
+  """
+  @type describe_signing_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_revocation_status_request() :: %{
+        required("certificateHashes") => list(String.t()()),
+        required("jobArn") => String.t(),
+        required("platformId") => String.t(),
+        required("profileVersionArn") => String.t(),
+        required("signatureTimestamp") => non_neg_integer()
+      }
+
+  """
+  @type get_revocation_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_permissions_response() :: %{
+        "nextToken" => String.t(),
+        "permissions" => list(permission()()),
+        "policySizeBytes" => integer(),
+        "revisionId" => String.t()
+      }
+
+  """
+  @type list_profile_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination() :: %{
+        "bucketName" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type s3_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_jobs_request() :: %{
+        optional("isRevoked") => boolean(),
+        optional("jobInvoker") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("platformId") => String.t(),
+        optional("requestedBy") => String.t(),
+        optional("signatureExpiresAfter") => non_neg_integer(),
+        optional("signatureExpiresBefore") => non_neg_integer(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_signing_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source() :: %{
+        "s3" => s3_source()
+      }
+
+  """
+  @type source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signed_object() :: %{
+        "s3" => s3_signed_object()
+      }
+
+  """
+  @type signed_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_material() :: %{
+        "certificateArn" => String.t()
+      }
+
+  """
+  @type signing_material() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_signing_job_response() :: %{
+        "jobId" => String.t(),
+        "jobOwner" => String.t()
+      }
+
+  """
+  @type start_signing_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_profiles_request() :: %{
+        optional("includeCanceled") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("platformId") => String.t(),
+        optional("statuses") => list(list(any())())
+      }
+
+  """
+  @type list_signing_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_profile_revocation_record() :: %{
+        "revocationEffectiveFrom" => non_neg_integer(),
+        "revokedAt" => non_neg_integer(),
+        "revokedBy" => String.t()
+      }
+
+  """
+  @type signing_profile_revocation_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "s3" => s3_destination()
+      }
+
+  """
+  @type destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_limit_exceeded_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type service_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signing_job() :: %{
+        "createdAt" => non_neg_integer(),
+        "isRevoked" => boolean(),
+        "jobId" => String.t(),
+        "jobInvoker" => String.t(),
+        "jobOwner" => String.t(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "signatureExpiresAt" => non_neg_integer(),
+        "signedObject" => signed_object(),
+        "signingMaterial" => signing_material(),
+        "source" => source(),
+        "status" => list(any())
+      }
+
+  """
+  @type signing_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hash_algorithm_options() :: %{
+        "allowedValues" => list(list(any())()),
+        "defaultValue" => list(any())
+      }
+
+  """
+  @type hash_algorithm_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_signing_profile_request() :: %{
+        required("effectiveTime") => non_neg_integer(),
+        required("profileVersion") => String.t(),
+        required("reason") => String.t()
+      }
+
+  """
+  @type revoke_signing_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_signed_object() :: %{
+        "bucketName" => String.t(),
+        "key" => String.t()
+      }
+
+  """
+  @type s3_signed_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sign_payload_request() :: %{
+        optional("profileOwner") => String.t(),
+        required("payload") => binary(),
+        required("payloadFormat") => String.t(),
+        required("profileName") => String.t()
+      }
+
+  """
+  @type sign_payload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signing_profile_response() :: %{
+        "arn" => String.t(),
+        "overrides" => signing_platform_overrides(),
+        "platformDisplayName" => String.t(),
+        "platformId" => String.t(),
+        "profileName" => String.t(),
+        "profileVersion" => String.t(),
+        "profileVersionArn" => String.t(),
+        "revocationRecord" => signing_profile_revocation_record(),
+        "signatureValidityPeriod" => signature_validity_period(),
+        "signingMaterial" => signing_material(),
+        "signingParameters" => map(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type get_signing_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_profiles_response() :: %{
+        "nextToken" => String.t(),
+        "profiles" => list(signing_profile()())
+      }
+
+  """
+  @type list_signing_profiles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sign_payload_response() :: %{
+        "jobId" => String.t(),
+        "jobOwner" => String.t(),
+        "metadata" => map(),
+        "signature" => binary()
+      }
+
+  """
+  @type sign_payload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_platforms_request() :: %{
+        optional("category") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("partner") => String.t(),
+        optional("target") => String.t()
+      }
+
+  """
+  @type list_signing_platforms_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_signature_request() :: %{
+        optional("jobOwner") => String.t(),
+        required("reason") => String.t()
+      }
+
+  """
+  @type revoke_signature_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_profile_permission_response() :: %{
+        "revisionId" => String.t()
+      }
+
+  """
+  @type add_profile_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signing_platforms_response() :: %{
+        "nextToken" => String.t(),
+        "platforms" => list(signing_platform()())
+      }
+
+  """
+  @type list_signing_platforms_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission() :: %{
+        "action" => String.t(),
+        "principal" => String.t(),
+        "profileVersion" => String.t(),
+        "statementId" => String.t()
+      }
+
+  """
+  @type permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_algorithm_options() :: %{
+        "allowedValues" => list(list(any())()),
+        "defaultValue" => list(any())
+      }
+
+  """
+  @type encryption_algorithm_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_permissions_request() :: %{
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_profile_permissions_request() :: %{String.t() => any()}
+
+  @type add_profile_permission_errors() ::
+          service_limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type cancel_signing_profile_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type describe_signing_job_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_revocation_status_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_signing_platform_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type get_signing_profile_errors() ::
+          access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_profile_permissions_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_jobs_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_platforms_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_signing_profiles_errors() ::
+          access_denied_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type put_signing_profile_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type remove_profile_permission_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type revoke_signature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type revoke_signing_profile_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type sign_payload_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type start_signing_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | internal_service_error_exception()
+
   def metadata do
     %{
       api_version: "2017-08-25",
@@ -46,6 +1023,7 @@ defmodule AWS.Signer do
       credential_scope: nil,
       endpoint_prefix: "signer",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "signer",
       signature_version: "v4",
@@ -56,13 +1034,28 @@ defmodule AWS.Signer do
 
   @doc """
   Adds cross-account permissions to a signing profile.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
   """
+  @spec add_profile_permission(
+          AWS.Client.t(),
+          String.t(),
+          add_profile_permission_request(),
+          Keyword.t()
+        ) ::
+          {:ok, add_profile_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_profile_permission_errors()}
   def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -84,13 +1077,28 @@ defmodule AWS.Signer do
   operation, but it cannot perform new signing jobs, and is deleted two years
   after
   cancelation.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
   """
+  @spec cancel_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          cancel_signing_profile_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_signing_profile_errors()}
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -111,13 +1119,28 @@ defmodule AWS.Signer do
   You specify the job by using the
   `jobId` value that is returned by the `StartSigningJob`
   operation.
+
+  ## Required positional parameters:
+   • :job_id (t:string String.t/0) (jobId)
+
+  ## Optional parameters:
   """
+  @spec describe_signing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_signing_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_signing_job_errors()}
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -126,7 +1149,28 @@ defmodule AWS.Signer do
   Retrieves the revocation status of one or more of the signing profile, signing
   job,
   and signing certificate.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :certificate_hashes (t:String.t/0) (certificateHashes)
+   • :job_arn (t:String.t/0) (jobArn)
+   • :platform_id (t:String.t/0) (platformId)
+   • :profile_version_arn (t:String.t/0) (profileVersionArn)
+   • :signature_timestamp (t:String.t/0) (signatureTimestamp)
   """
+  @spec get_revocation_status(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, get_revocation_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_revocation_status_errors()}
   def get_revocation_status(
         %Client{} = client,
         certificate_hashes,
@@ -137,8 +1181,15 @@ defmodule AWS.Signer do
         options \\ []
       ) do
     url_path = "/revocations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [certificate_hashes: nil, job_arn: nil, platform_id: nil, profile_version_arn: nil, signature_timestamp: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {signature_timestamp, options} = Keyword.pop(options, :signature_timestamp, nil)
 
     query_params =
       if !is_nil(signature_timestamp) do
@@ -147,12 +1198,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {profile_version_arn, options} = Keyword.pop(options, :profile_version_arn, nil)
+
     query_params =
       if !is_nil(profile_version_arn) do
         [{"profileVersionArn", profile_version_arn} | query_params]
       else
         query_params
       end
+
+    {platform_id, options} = Keyword.pop(options, :platform_id, nil)
 
     query_params =
       if !is_nil(platform_id) do
@@ -161,12 +1216,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {job_arn, options} = Keyword.pop(options, :job_arn, nil)
+
     query_params =
       if !is_nil(job_arn) do
         [{"jobArn", job_arn} | query_params]
       else
         query_params
       end
+
+    {certificate_hashes, options} = Keyword.pop(options, :certificate_hashes, nil)
 
     query_params =
       if !is_nil(certificate_hashes) do
@@ -175,31 +1234,64 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata() |> Map.put_new(:host_prefix, "verification.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "verification.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information on a specific signing platform.
+
+  ## Required positional parameters:
+   • :platform_id (t:string String.t/0) (platformId)
+
+  ## Optional parameters:
   """
+  @spec get_signing_platform(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_signing_platform_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_signing_platform_errors()}
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
     url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns information on a specific signing profile.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
+   • :profile_owner (t:String.t/0) (profileOwner)
   """
-  def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
+  @spec get_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_signing_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_signing_profile_errors()}
+  def get_signing_profile(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [profile_owner: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {profile_owner, options} = Keyword.pop(options, :profile_owner, nil)
 
     query_params =
       if !is_nil(profile_owner) do
@@ -208,18 +1300,36 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the cross-account permissions associated with a signing profile.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
+  @spec list_profile_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_profile_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_profile_permissions_errors()}
+  def list_profile_permissions(%Client{} = client, profile_name, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -228,7 +1338,8 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -244,23 +1355,35 @@ defmodule AWS.Signer do
   continue calling `ListSigningJobs` with your `maxResults`
   parameter and with new values that Signer returns in the `nextToken`
   parameter until all of your signing jobs have been returned.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :is_revoked (t:String.t/0) (isRevoked)
+   • :job_invoker (t:String.t/0) (jobInvoker)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :platform_id (t:String.t/0) (platformId)
+   • :requested_by (t:String.t/0) (requestedBy)
+   • :signature_expires_after (t:String.t/0) (signatureExpiresAfter)
+   • :signature_expires_before (t:String.t/0) (signatureExpiresBefore)
+   • :status (t:String.t/0) (status)
   """
-  def list_signing_jobs(
-        %Client{} = client,
-        is_revoked \\ nil,
-        job_invoker \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        platform_id \\ nil,
-        requested_by \\ nil,
-        signature_expires_after \\ nil,
-        signature_expires_before \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  @spec list_signing_jobs(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_signing_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_signing_jobs_errors()}
+  def list_signing_jobs(%Client{} = client, options \\ []) do
     url_path = "/signing-jobs"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [is_revoked: nil, job_invoker: nil, max_results: nil, next_token: nil, platform_id: nil, requested_by: nil, signature_expires_after: nil, signature_expires_before: nil, status: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {status, options} = Keyword.pop(options, :status, nil)
 
     query_params =
       if !is_nil(status) do
@@ -269,12 +1392,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {signature_expires_before, options} = Keyword.pop(options, :signature_expires_before, nil)
+
     query_params =
       if !is_nil(signature_expires_before) do
         [{"signatureExpiresBefore", signature_expires_before} | query_params]
       else
         query_params
       end
+
+    {signature_expires_after, options} = Keyword.pop(options, :signature_expires_after, nil)
 
     query_params =
       if !is_nil(signature_expires_after) do
@@ -283,12 +1410,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {requested_by, options} = Keyword.pop(options, :requested_by, nil)
+
     query_params =
       if !is_nil(requested_by) do
         [{"requestedBy", requested_by} | query_params]
       else
         query_params
       end
+
+    {platform_id, options} = Keyword.pop(options, :platform_id, nil)
 
     query_params =
       if !is_nil(platform_id) do
@@ -297,12 +1428,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -311,12 +1446,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {job_invoker, options} = Keyword.pop(options, :job_invoker, nil)
+
     query_params =
       if !is_nil(job_invoker) do
         [{"jobInvoker", job_invoker} | query_params]
       else
         query_params
       end
+
+    {is_revoked, options} = Keyword.pop(options, :is_revoked, nil)
 
     query_params =
       if !is_nil(is_revoked) do
@@ -325,7 +1464,8 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -341,19 +1481,31 @@ defmodule AWS.Signer do
   `maxResults` parameter and with new values that Signer returns in the
   `nextToken` parameter until all of your signing jobs have been
   returned.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :category (t:String.t/0) (category)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :partner (t:String.t/0) (partner)
+   • :target (t:String.t/0) (target)
   """
-  def list_signing_platforms(
-        %Client{} = client,
-        category \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        partner \\ nil,
-        target \\ nil,
-        options \\ []
-      ) do
+  @spec list_signing_platforms(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_signing_platforms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_signing_platforms_errors()}
+  def list_signing_platforms(%Client{} = client, options \\ []) do
     url_path = "/signing-platforms"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [category: nil, max_results: nil, next_token: nil, partner: nil, target: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {target, options} = Keyword.pop(options, :target, nil)
 
     query_params =
       if !is_nil(target) do
@@ -362,12 +1514,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {partner, options} = Keyword.pop(options, :partner, nil)
+
     query_params =
       if !is_nil(partner) do
         [{"partner", partner} | query_params]
       else
         query_params
       end
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -376,12 +1532,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {category, options} = Keyword.pop(options, :category, nil)
 
     query_params =
       if !is_nil(category) do
@@ -390,7 +1550,8 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -406,19 +1567,31 @@ defmodule AWS.Signer do
   `ListSigningJobs` with your `maxResults` parameter and with
   new values that Signer returns in the `nextToken` parameter until all of
   your signing jobs have been returned.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :include_canceled (t:String.t/0) (includeCanceled)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :platform_id (t:String.t/0) (platformId)
+   • :statuses (t:String.t/0) (statuses)
   """
-  def list_signing_profiles(
-        %Client{} = client,
-        include_canceled \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        platform_id \\ nil,
-        statuses \\ nil,
-        options \\ []
-      ) do
+  @spec list_signing_profiles(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_signing_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_signing_profiles_errors()}
+  def list_signing_profiles(%Client{} = client, options \\ []) do
     url_path = "/signing-profiles"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [include_canceled: nil, max_results: nil, next_token: nil, platform_id: nil, statuses: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {statuses, options} = Keyword.pop(options, :statuses, nil)
 
     query_params =
       if !is_nil(statuses) do
@@ -427,12 +1600,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {platform_id, options} = Keyword.pop(options, :platform_id, nil)
+
     query_params =
       if !is_nil(platform_id) do
         [{"platformId", platform_id} | query_params]
       else
         query_params
       end
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -441,12 +1618,16 @@ defmodule AWS.Signer do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {include_canceled, options} = Keyword.pop(options, :include_canceled, nil)
 
     query_params =
       if !is_nil(include_canceled) do
@@ -455,20 +1636,36 @@ defmodule AWS.Signer do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags associated with a signing profile resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -478,20 +1675,52 @@ defmodule AWS.Signer do
 
   A signing profile is a code-signing template that can be used to
   carry out a pre-defined signing job.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
   """
+  @spec put_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          put_signing_profile_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_signing_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_signing_profile_errors()}
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Removes cross-account permissions from a signing profile.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+   • :statement_id (t:string String.t/0) (statementId)
+
+  ## Optional parameters:
+   • :revision_id (t:String.t/0) (revisionId)
   """
+  @spec remove_profile_permission(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          remove_profile_permission_request(),
+          Keyword.t()
+        ) ::
+          {:ok, remove_profile_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_profile_permission_errors()}
   def remove_profile_permission(
         %Client{} = client,
         profile_name,
@@ -510,7 +1739,8 @@ defmodule AWS.Signer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -530,13 +1760,23 @@ defmodule AWS.Signer do
 
   This indicates that the signature is no
   longer valid.
+
+  ## Required positional parameters:
+   • :job_id (t:string String.t/0) (jobId)
+
+  ## Optional parameters:
   """
+  @spec revoke_signature(AWS.Client.t(), String.t(), revoke_signature_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, revoke_signature_errors()}
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -547,26 +1787,50 @@ defmodule AWS.Signer do
   This indicates that signatures
   generated using the signing profile after an effective start date are no longer
   valid.
+
+  ## Required positional parameters:
+   • :profile_name (t:string String.t/0) (profileName)
+
+  ## Optional parameters:
   """
+  @spec revoke_signing_profile(
+          AWS.Client.t(),
+          String.t(),
+          revoke_signing_profile_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, revoke_signing_profile_errors()}
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Signs a binary payload and returns a signature envelope.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec sign_payload(AWS.Client.t(), sign_payload_request(), Keyword.t()) ::
+          {:ok, sign_payload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, sign_payload_errors()}
   def sign_payload(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs/with-payload"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -606,6 +1870,10 @@ defmodule AWS.Signer do
   `StartSigningJob` operation.
 
     *
+  You must ensure the S3 buckets are from the same Region as the signing profile.
+  Cross-Region signing isn't supported.
+
+    *
   You must also specify a request token that identifies your request to Signer.
 
   You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
@@ -614,13 +1882,22 @@ defmodule AWS.Signer do
 
   For a Java example that shows how to use this action, see
   [StartSigningJob](https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_signing_job(AWS.Client.t(), start_signing_job_request(), Keyword.t()) ::
+          {:ok, start_signing_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_signing_job_errors()}
   def start_signing_job(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -644,13 +1921,23 @@ defmodule AWS.Signer do
   value. To specify the signing profile, use its Amazon Resource Name (ARN). To
   specify
   the tag, use a key-value pair.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -670,7 +1957,17 @@ defmodule AWS.Signer do
 
   To remove the tags, specify a list of
   tag keys.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -681,7 +1978,8 @@ defmodule AWS.Signer do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

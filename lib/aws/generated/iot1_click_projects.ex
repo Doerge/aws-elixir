@@ -9,6 +9,562 @@ defmodule AWS.IoT1ClickProjects do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      describe_project_response() :: %{
+        "project" => project_description()
+      }
+
+  """
+  @type describe_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_description() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "placementTemplate" => placement_template(),
+        "projectName" => String.t(),
+        "tags" => map(),
+        "updatedDate" => non_neg_integer()
+      }
+
+  """
+  @type project_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_placement_request() :: %{
+        optional("attributes") => map(),
+        required("placementName") => String.t()
+      }
+
+  """
+  @type create_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_placement_response() :: %{}
+
+  """
+  @type update_placement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "arn" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "projectName" => String.t(),
+        "tags" => map(),
+        "updatedDate" => non_neg_integer()
+      }
+
+  """
+  @type project_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_placements_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_placements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_project_request() :: %{}
+
+  """
+  @type describe_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_description() :: %{
+        "attributes" => map(),
+        "createdDate" => non_neg_integer(),
+        "placementName" => String.t(),
+        "projectName" => String.t(),
+        "updatedDate" => non_neg_integer()
+      }
+
+  """
+  @type placement_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_template() :: %{
+        "defaultAttributes" => map(),
+        "deviceTemplates" => map()
+      }
+
+  """
+  @type placement_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_response() :: %{}
+
+  """
+  @type update_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_placements_response() :: %{
+        "nextToken" => String.t(),
+        "placements" => list(placement_summary()())
+      }
+
+  """
+  @type list_placements_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{}
+
+  """
+  @type create_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_device_with_placement_request() :: %{
+        required("deviceId") => String.t()
+      }
+
+  """
+  @type associate_device_with_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_placement_response() :: %{
+        "placement" => placement_description()
+      }
+
+  """
+  @type describe_placement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_placement_response() :: %{}
+
+  """
+  @type delete_placement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        "nextToken" => String.t(),
+        "projects" => list(project_summary()())
+      }
+
+  """
+  @type list_projects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_summary() :: %{
+        "createdDate" => non_neg_integer(),
+        "placementName" => String.t(),
+        "projectName" => String.t(),
+        "updatedDate" => non_neg_integer()
+      }
+
+  """
+  @type placement_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_placement_response() :: %{}
+
+  """
+  @type create_placement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_response() :: %{}
+
+  """
+  @type delete_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_request() :: %{
+        optional("description") => String.t(),
+        optional("placementTemplate") => placement_template()
+      }
+
+  """
+  @type update_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_placement_request() :: %{
+        optional("attributes") => map()
+      }
+
+  """
+  @type update_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_device_with_placement_response() :: %{}
+
+  """
+  @type associate_device_with_placement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_request() :: %{
+        optional("description") => String.t(),
+        optional("placementTemplate") => placement_template(),
+        optional("tags") => map(),
+        required("projectName") => String.t()
+      }
+
+  """
+  @type create_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_placement_request() :: %{}
+
+  """
+  @type describe_placement_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_device_from_placement_response() :: %{}
+
+  """
+  @type disassociate_device_from_placement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_placement_request() :: %{}
+
+  """
+  @type delete_placement_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      device_template() :: %{
+        "callbackOverrides" => map(),
+        "deviceType" => String.t()
+      }
+
+  """
+  @type device_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{}
+
+  """
+  @type delete_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_devices_in_placement_request() :: %{}
+
+  """
+  @type get_devices_in_placement_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_conflict_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type resource_conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_devices_in_placement_response() :: %{
+        "devices" => map()
+      }
+
+  """
+  @type get_devices_in_placement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_device_from_placement_request() :: %{}
+
+  """
+  @type disassociate_device_from_placement_request() :: %{}
+
+  @type associate_device_with_placement_errors() ::
+          resource_conflict_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type create_placement_errors() ::
+          resource_conflict_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type create_project_errors() ::
+          resource_conflict_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type delete_placement_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_failure_exception()
+
+  @type delete_project_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_failure_exception()
+
+  @type describe_placement_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_project_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type disassociate_device_from_placement_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_failure_exception()
+
+  @type get_devices_in_placement_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_placements_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_projects_errors() :: invalid_request_exception() | internal_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type tag_resource_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type untag_resource_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type update_placement_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_failure_exception()
+
+  @type update_project_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | internal_failure_exception()
+
   def metadata do
     %{
       api_version: "2018-05-14",
@@ -16,6 +572,7 @@ defmodule AWS.IoT1ClickProjects do
       credential_scope: nil,
       endpoint_prefix: "projects.iot1click",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT 1Click Projects",
       signature_version: "v4",
@@ -26,7 +583,25 @@ defmodule AWS.IoT1ClickProjects do
 
   @doc """
   Associates a physical device with a placement.
+
+  ## Required positional parameters:
+   • :device_template_name (t:string String.t/0) (deviceTemplateName)
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec associate_device_with_placement(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          associate_device_with_placement_request(),
+          Keyword.t()
+        ) ::
+          {:ok, associate_device_with_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_device_with_placement_errors()}
   def associate_device_with_placement(
         %Client{} = client,
         device_template_name,
@@ -41,20 +616,31 @@ defmodule AWS.IoT1ClickProjects do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Creates an empty placement.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec create_placement(AWS.Client.t(), String.t(), create_placement_request(), Keyword.t()) ::
+          {:ok, create_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_placement_errors()}
   def create_placement(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -74,13 +660,22 @@ defmodule AWS.IoT1ClickProjects do
 
   A project contains zero or more
   placements that adhere to the placement template defined in the project.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -102,7 +697,23 @@ defmodule AWS.IoT1ClickProjects do
   it.
 
   When you delete a placement, all associated data becomes irretrievable.
+
+  ## Required positional parameters:
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec delete_placement(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_placement_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_placement_errors()}
   def delete_placement(%Client{} = client, placement_name, project_name, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
@@ -110,7 +721,8 @@ defmodule AWS.IoT1ClickProjects do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -132,13 +744,23 @@ defmodule AWS.IoT1ClickProjects do
   it.
 
   When you delete a project, all associated data becomes irretrievable.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+          {:ok, delete_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -155,35 +777,83 @@ defmodule AWS.IoT1ClickProjects do
 
   @doc """
   Describes a placement in a project.
+
+  ## Required positional parameters:
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec describe_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_placement_errors()}
   def describe_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns an object describing a project.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Removes a physical device from a placement.
+
+  ## Required positional parameters:
+   • :device_template_name (t:string String.t/0) (deviceTemplateName)
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec disassociate_device_from_placement(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          disassociate_device_from_placement_request(),
+          Keyword.t()
+        ) ::
+          {:ok, disassociate_device_from_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_device_from_placement_errors()}
   def disassociate_device_from_placement(
         %Client{} = client,
         device_template_name,
@@ -198,7 +868,8 @@ defmodule AWS.IoT1ClickProjects do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -215,32 +886,59 @@ defmodule AWS.IoT1ClickProjects do
 
   @doc """
   Returns an object enumerating the devices in a placement.
+
+  ## Required positional parameters:
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec get_devices_in_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_devices_in_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_devices_in_placement_errors()}
   def get_devices_in_placement(%Client{} = client, placement_name, project_name, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the placement(s) of a project.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_placements(
-        %Client{} = client,
-        project_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_placements(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_placements_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_placements_errors()}
+  def list_placements(%Client{} = client, project_name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -249,6 +947,8 @@ defmodule AWS.IoT1ClickProjects do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -256,7 +956,8 @@ defmodule AWS.IoT1ClickProjects do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -264,11 +965,28 @@ defmodule AWS.IoT1ClickProjects do
   @doc """
   Lists the AWS IoT 1-Click project(s) associated with your AWS account and
   region.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_projects_errors()}
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -277,6 +995,8 @@ defmodule AWS.IoT1ClickProjects do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -284,7 +1004,8 @@ defmodule AWS.IoT1ClickProjects do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -292,13 +1013,28 @@ defmodule AWS.IoT1ClickProjects do
   @doc """
   Lists the tags (metadata key/value pairs) which you have assigned to the
   resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -308,13 +1044,23 @@ defmodule AWS.IoT1ClickProjects do
 
   Tags are key/value pairs (metadata) that can be
   used to manage a resource. For more information, see [AWS Tagging Strategies](https://aws.amazon.com/answers/account-management/aws-tagging-strategies/).
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -331,7 +1077,17 @@ defmodule AWS.IoT1ClickProjects do
 
   @doc """
   Removes one or more tags (metadata key/value pairs) from a resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -342,7 +1098,8 @@ defmodule AWS.IoT1ClickProjects do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -362,7 +1119,23 @@ defmodule AWS.IoT1ClickProjects do
 
   To clear an attribute, pass an empty value
   (i.e., "").
+
+  ## Required positional parameters:
+   • :placement_name (t:string String.t/0) (placementName)
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec update_placement(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_placement_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_placement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_placement_errors()}
   def update_placement(%Client{} = client, placement_name, project_name, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
@@ -370,7 +1143,8 @@ defmodule AWS.IoT1ClickProjects do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -384,13 +1158,23 @@ defmodule AWS.IoT1ClickProjects do
   request will change only the values that are provided. To clear a value, pass
   the empty string
   (i.e., `""`).
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (projectName)
+
+  ## Optional parameters:
   """
+  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
+          {:ok, update_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_project_errors()}
   def update_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

@@ -15,6 +15,870 @@ defmodule AWS.ChimeSDKMeetings do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      update_attendee_capabilities_response() :: %{
+        "Attendee" => attendee()
+      }
+
+  """
+  @type update_attendee_capabilities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notifications_configuration() :: %{
+        "LambdaFunctionArn" => String.t(),
+        "SnsTopicArn" => String.t(),
+        "SqsQueueArn" => String.t()
+      }
+
+  """
+  @type notifications_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
+  """
+  @type get_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_with_attendees_request() :: %{
+        optional("MeetingFeatures") => meeting_features_configuration(),
+        optional("MeetingHostId") => String.t(),
+        optional("NotificationsConfiguration") => notifications_configuration(),
+        optional("PrimaryMeetingId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TenantIds") => list(String.t()()),
+        required("Attendees") => list(create_attendee_request_item()()),
+        required("ClientRequestToken") => String.t(),
+        required("ExternalMeetingId") => String.t(),
+        required("MediaRegion") => String.t()
+      }
+
+  """
+  @type create_meeting_with_attendees_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type service_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type forbidden_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meeting() :: %{
+        "ExternalMeetingId" => String.t(),
+        "MediaPlacement" => media_placement(),
+        "MediaRegion" => String.t(),
+        "MeetingArn" => String.t(),
+        "MeetingFeatures" => meeting_features_configuration(),
+        "MeetingHostId" => String.t(),
+        "MeetingId" => String.t(),
+        "PrimaryMeetingId" => String.t(),
+        "TenantIds" => list(String.t()())
+      }
+
+  """
+  @type meeting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_response() :: %{
+        "Meeting" => meeting()
+      }
+
+  """
+  @type create_meeting_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_meeting_response() :: %{
+        "Meeting" => meeting()
+      }
+
+  """
+  @type get_meeting_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_meeting_transcription_request() :: %{}
+
+  """
+  @type stop_meeting_transcription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      attendee_features() :: %{
+        "MaxCount" => integer()
+      }
+
+  """
+  @type attendee_features() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_transcribe_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "ContentRedactionType" => list(any()),
+        "EnablePartialResultsStabilization" => boolean(),
+        "IdentifyLanguage" => boolean(),
+        "LanguageCode" => list(any()),
+        "LanguageModelName" => String.t(),
+        "LanguageOptions" => String.t(),
+        "PartialResultsStability" => list(any()),
+        "PiiEntityTypes" => String.t(),
+        "PreferredLanguage" => list(any()),
+        "Region" => list(any()),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyFilterNames" => String.t(),
+        "VocabularyName" => String.t(),
+        "VocabularyNames" => String.t()
+      }
+
+  """
+  @type engine_transcribe_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attendees_response() :: %{
+        "Attendees" => list(attendee()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_attendees_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_with_attendees_response() :: %{
+        "Attendees" => list(attendee()()),
+        "Errors" => list(create_attendee_error()()),
+        "Meeting" => meeting()
+      }
+
+  """
+  @type create_meeting_with_attendees_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transcription_configuration() :: %{
+        "EngineTranscribeMedicalSettings" => engine_transcribe_medical_settings(),
+        "EngineTranscribeSettings" => engine_transcribe_settings()
+      }
+
+  """
+  @type transcription_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_meeting_request() :: %{}
+
+  """
+  @type delete_meeting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "ResourceName" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_features() :: %{
+        "EchoReduction" => list(any())
+      }
+
+  """
+  @type audio_features() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_transcribe_medical_settings() :: %{
+        "ContentIdentificationType" => list(any()),
+        "LanguageCode" => list(any()),
+        "Region" => list(any()),
+        "Specialty" => list(any()),
+        "Type" => list(any()),
+        "VocabularyName" => String.t()
+      }
+
+  """
+  @type engine_transcribe_medical_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_meeting_request() :: %{
+        optional("MeetingFeatures") => meeting_features_configuration(),
+        optional("MeetingHostId") => String.t(),
+        optional("NotificationsConfiguration") => notifications_configuration(),
+        optional("PrimaryMeetingId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TenantIds") => list(String.t()()),
+        required("ClientRequestToken") => String.t(),
+        required("ExternalMeetingId") => String.t(),
+        required("MediaRegion") => String.t()
+      }
+
+  """
+  @type create_meeting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_request_item() :: %{
+        "Capabilities" => attendee_capabilities(),
+        "ExternalUserId" => String.t()
+      }
+
+  """
+  @type create_attendee_request_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_response() :: %{
+        "Attendee" => attendee()
+      }
+
+  """
+  @type create_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attendee_capabilities() :: %{
+        "Audio" => list(any()),
+        "Content" => list(any()),
+        "Video" => list(any())
+      }
+
+  """
+  @type attendee_capabilities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "RetryAfterSeconds" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_meeting_request() :: %{}
+
+  """
+  @type get_meeting_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ExternalUserId" => String.t()
+      }
+
+  """
+  @type create_attendee_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessable_entity_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type unprocessable_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attendee_request() :: %{}
+
+  """
+  @type get_attendee_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      attendee_id_item() :: %{
+        "AttendeeId" => String.t()
+      }
+
+  """
+  @type attendee_id_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meeting_features_configuration() :: %{
+        "Attendee" => attendee_features(),
+        "Audio" => audio_features(),
+        "Content" => content_features(),
+        "Video" => video_features()
+      }
+
+  """
+  @type meeting_features_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_features() :: %{
+        "MaxResolution" => list(any())
+      }
+
+  """
+  @type content_features() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attendee_capabilities_request() :: %{
+        required("Capabilities") => attendee_capabilities()
+      }
+
+  """
+  @type update_attendee_capabilities_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_meeting_transcription_request() :: %{
+        required("TranscriptionConfiguration") => transcription_configuration()
+      }
+
+  """
+  @type start_meeting_transcription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_attendee_request() :: %{
+        required("Attendees") => list(create_attendee_request_item()())
+      }
+
+  """
+  @type batch_create_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_attendee_response() :: %{
+        "Attendees" => list(attendee()()),
+        "Errors" => list(create_attendee_error()())
+      }
+
+  """
+  @type batch_create_attendee_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attendees_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_attendees_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_attendee_capabilities_except_request() :: %{
+        required("Capabilities") => attendee_capabilities(),
+        required("ExcludedAttendeeIds") => list(attendee_id_item()())
+      }
+
+  """
+  @type batch_update_attendee_capabilities_except_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_features() :: %{
+        "MaxResolution" => list(any())
+      }
+
+  """
+  @type video_features() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attendee() :: %{
+        "AttendeeId" => String.t(),
+        "Capabilities" => attendee_capabilities(),
+        "ExternalUserId" => String.t(),
+        "JoinToken" => String.t()
+      }
+
+  """
+  @type attendee() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attendee_request() :: %{
+        optional("Capabilities") => attendee_capabilities(),
+        required("ExternalUserId") => String.t()
+      }
+
+  """
+  @type create_attendee_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_placement() :: %{
+        "AudioFallbackUrl" => String.t(),
+        "AudioHostUrl" => String.t(),
+        "EventIngestionUrl" => String.t(),
+        "ScreenDataUrl" => String.t(),
+        "ScreenSharingUrl" => String.t(),
+        "ScreenViewingUrl" => String.t(),
+        "SignalingUrl" => String.t(),
+        "TurnControlUrl" => String.t()
+      }
+
+  """
+  @type media_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "ResourceName" => String.t()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_attendee_request() :: %{}
+
+  """
+  @type delete_attendee_request() :: %{}
+
+  @type batch_create_attendee_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type batch_update_attendee_capabilities_except_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type create_attendee_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type create_meeting_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type create_meeting_with_attendees_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type delete_attendee_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type delete_meeting_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type get_attendee_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type get_meeting_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type list_attendees_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type start_meeting_transcription_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type stop_meeting_transcription_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | unprocessable_entity_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
+  @type update_attendee_capabilities_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+          | unauthorized_exception()
+
   def metadata do
     %{
       api_version: "2021-07-15",
@@ -22,6 +886,7 @@ defmodule AWS.ChimeSDKMeetings do
       credential_scope: nil,
       endpoint_prefix: "meetings-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Meetings",
       signature_version: "v4",
@@ -36,13 +901,28 @@ defmodule AWS.ChimeSDKMeetings do
   For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec batch_create_attendee(
+          AWS.Client.t(),
+          String.t(),
+          batch_create_attendee_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_create_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_attendee_errors()}
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -99,7 +979,21 @@ defmodule AWS.ChimeSDKMeetings do
   and if the attendee turned on their video or content streams, remote attendees
   can receive those streams, but only after media renegotiation between the client
   and the Amazon Chime back-end server.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec batch_update_attendee_capabilities_except(
+          AWS.Client.t(),
+          String.t(),
+          batch_update_attendee_capabilities_except_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_update_attendee_capabilities_except_errors()}
   def batch_update_attendee_capabilities_except(
         %Client{} = client,
         meeting_id,
@@ -112,7 +1006,8 @@ defmodule AWS.ChimeSDKMeetings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -125,13 +1020,23 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the
   *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec create_attendee(AWS.Client.t(), String.t(), create_attendee_request(), Keyword.t()) ::
+          {:ok, create_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_attendee_errors()}
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -157,13 +1062,22 @@ defmodule AWS.ChimeSDKMeetings do
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the
   *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_meeting(AWS.Client.t(), create_meeting_request(), Keyword.t()) ::
+          {:ok, create_meeting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_meeting_errors()}
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -189,13 +1103,26 @@ defmodule AWS.ChimeSDKMeetings do
   Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_meeting_with_attendees(
+          AWS.Client.t(),
+          create_meeting_with_attendees_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_meeting_with_attendees_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_meeting_with_attendees_errors()}
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -219,7 +1146,23 @@ defmodule AWS.ChimeSDKMeetings do
   For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :attendee_id (t:string String.t/0) (AttendeeId)
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec delete_attendee(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_attendee_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_attendee_errors()}
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
@@ -227,7 +1170,8 @@ defmodule AWS.ChimeSDKMeetings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -250,13 +1194,23 @@ defmodule AWS.ChimeSDKMeetings do
   joining the meeting. For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html) in the
   *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec delete_meeting(AWS.Client.t(), String.t(), delete_meeting_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_meeting_errors()}
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -279,15 +1233,30 @@ defmodule AWS.ChimeSDKMeetings do
   For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :attendee_id (t:string String.t/0) (AttendeeId)
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_attendee_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_attendee_errors()}
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -298,13 +1267,28 @@ defmodule AWS.ChimeSDKMeetings do
   For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_meeting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_meeting_errors()}
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -316,17 +1300,29 @@ defmodule AWS.ChimeSDKMeetings do
   For more information about the Amazon Chime SDK, see
   [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html)
   in the *Amazon Chime Developer Guide*.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max-results)
+   • :next_token (t:String.t/0) (next-token)
   """
-  def list_attendees(
-        %Client{} = client,
-        meeting_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_attendees_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attendees_errors()}
+  def list_attendees(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -335,6 +1331,8 @@ defmodule AWS.ChimeSDKMeetings do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"max-results", max_results} | query_params]
@@ -342,18 +1340,35 @@ defmodule AWS.ChimeSDKMeetings do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns a list of the tags available for the specified resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :resource_arn (t:String.t/0) (arn)
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [resource_arn: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {resource_arn, options} = Keyword.pop(options, :resource_arn, nil)
 
     query_params =
       if !is_nil(resource_arn) do
@@ -362,7 +1377,8 @@ defmodule AWS.ChimeSDKMeetings do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -396,13 +1412,28 @@ defmodule AWS.ChimeSDKMeetings do
   develop and
   improve AWS AI/ML services by configuring an AI services opt out policy using
   Amazon Web Services Organizations.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec start_meeting_transcription(
+          AWS.Client.t(),
+          String.t(),
+          start_meeting_transcription_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_meeting_transcription_errors()}
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -438,13 +1469,28 @@ defmodule AWS.ChimeSDKMeetings do
   develop and
   improve Amazon Web Services AI/ML services by configuring an AI services opt out
   policy using Amazon Web Services Organizations.
+
+  ## Required positional parameters:
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec stop_meeting_transcription(
+          AWS.Client.t(),
+          String.t(),
+          stop_meeting_transcription_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_meeting_transcription_errors()}
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -461,13 +1507,22 @@ defmodule AWS.ChimeSDKMeetings do
 
   @doc """
   The resource that supports tags.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -511,13 +1566,22 @@ defmodule AWS.ChimeSDKMeetings do
   `tag:UntagResource`
 
   `ChimeSDKMeetings:DeleteTags`
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -573,7 +1637,23 @@ defmodule AWS.ChimeSDKMeetings do
   and if the attendee turned on their video or content streams, remote attendees
   can receive those streams, but only after media renegotiation between the client
   and the Amazon Chime back-end server.
+
+  ## Required positional parameters:
+   • :attendee_id (t:string String.t/0) (AttendeeId)
+   • :meeting_id (t:string String.t/0) (MeetingId)
+
+  ## Optional parameters:
   """
+  @spec update_attendee_capabilities(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_attendee_capabilities_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_attendee_capabilities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_attendee_capabilities_errors()}
   def update_attendee_capabilities(
         %Client{} = client,
         attendee_id,
@@ -587,7 +1667,8 @@ defmodule AWS.ChimeSDKMeetings do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

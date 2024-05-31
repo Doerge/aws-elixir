@@ -14,6 +14,206 @@ defmodule AWS.MediaStoreData do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      container_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type container_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_request() :: %{}
+
+  """
+  @type delete_object_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_response() :: %{}
+
+  """
+  @type delete_object_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_object_request() :: %{}
+
+  """
+  @type describe_object_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_object_response() :: %{
+        "CacheControl" => String.t(),
+        "ContentLength" => float(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer()
+      }
+
+  """
+  @type describe_object_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_request() :: %{
+        optional("Range") => String.t()
+      }
+
+  """
+  @type get_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_response() :: %{
+        "Body" => binary(),
+        "CacheControl" => String.t(),
+        "ContentLength" => float(),
+        "ContentRange" => String.t(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type get_object_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      item() :: %{
+        "ContentLength" => float(),
+        "ContentType" => String.t(),
+        "ETag" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_items_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Path") => String.t()
+      }
+
+  """
+  @type list_items_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_items_response() :: %{
+        "Items" => list(item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_items_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type object_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_request() :: %{
+        optional("CacheControl") => String.t(),
+        optional("ContentType") => String.t(),
+        optional("StorageClass") => list(any()),
+        optional("UploadAvailability") => list(any()),
+        required("Body") => binary()
+      }
+
+  """
+  @type put_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_response() :: %{
+        "ContentSHA256" => String.t(),
+        "ETag" => String.t(),
+        "StorageClass" => list(any())
+      }
+
+  """
+  @type put_object_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      requested_range_not_satisfiable_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type requested_range_not_satisfiable_exception() :: %{String.t() => any()}
+
+  @type delete_object_errors() ::
+          object_not_found_exception() | internal_server_error() | container_not_found_exception()
+
+  @type describe_object_errors() ::
+          object_not_found_exception() | internal_server_error() | container_not_found_exception()
+
+  @type get_object_errors() ::
+          requested_range_not_satisfiable_exception()
+          | object_not_found_exception()
+          | internal_server_error()
+          | container_not_found_exception()
+
+  @type list_items_errors() :: internal_server_error() | container_not_found_exception()
+
+  @type put_object_errors() :: internal_server_error() | container_not_found_exception()
+
   def metadata do
     %{
       api_version: "2017-09-01",
@@ -21,6 +221,7 @@ defmodule AWS.MediaStoreData do
       credential_scope: nil,
       endpoint_prefix: "data.mediastore",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaStore Data",
       signature_version: "v4",
@@ -31,13 +232,23 @@ defmodule AWS.MediaStoreData do
 
   @doc """
   Deletes an object at the specified path.
+
+  ## Required positional parameters:
+   • :path (t:string String.t/0) (Path)
+
+  ## Optional parameters:
   """
+  @spec delete_object(AWS.Client.t(), String.t(), delete_object_request(), Keyword.t()) ::
+          {:ok, delete_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_object_errors()}
   def delete_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -54,7 +265,16 @@ defmodule AWS.MediaStoreData do
 
   @doc """
   Gets the headers for an object at the specified path.
+
+  ## Required positional parameters:
+   • :path (t:string String.t/0) (Path)
+
+  ## Optional parameters:
   """
+  @spec describe_object(AWS.Client.t(), String.t(), describe_object_request(), Keyword.t()) ::
+          {:ok, describe_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_object_errors()}
   def describe_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
@@ -73,7 +293,8 @@ defmodule AWS.MediaStoreData do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -93,10 +314,27 @@ defmodule AWS.MediaStoreData do
 
   If the object’s upload availability is set to `streaming`, AWS Elemental
   MediaStore downloads the object even if it’s still uploading the object.
+
+  ## Required positional parameters:
+   • :path (t:string String.t/0) (Path)
+
+  ## Optional parameters:
+   • :range (t:String.t/0) (Range)
   """
-  def get_object(%Client{} = client, path, range \\ nil, options \\ []) do
+  @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_object_errors()}
+  def get_object(%Client{} = client, path, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [range: nil
+    # ])
+
     headers = []
+
+    {range, options} = Keyword.pop(options, :range, nil)
 
     headers =
       if !is_nil(range) do
@@ -128,7 +366,8 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -136,17 +375,29 @@ defmodule AWS.MediaStoreData do
   @doc """
   Provides a list of metadata entries about folders and objects in the specified
   folder.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
+   • :path (t:String.t/0) (Path)
   """
-  def list_items(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        path \\ nil,
-        options \\ []
-      ) do
+  @spec list_items(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_items_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_items_errors()}
+  def list_items(%Client{} = client, options \\ []) do
     url_path = "/"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, path: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {path, options} = Keyword.pop(options, :path, nil)
 
     query_params =
       if !is_nil(path) do
@@ -155,12 +406,16 @@ defmodule AWS.MediaStoreData do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"NextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -169,7 +424,8 @@ defmodule AWS.MediaStoreData do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -179,7 +435,20 @@ defmodule AWS.MediaStoreData do
 
   Object sizes are limited to 25 MB for standard upload availability and 10 MB for
   streaming upload availability.
+
+  ## Required positional parameters:
+   • :path (t:string String.t/0) (Path)
+
+  ## Optional parameters:
+   • :cache_control (t:String.t/0) (Cache-Control)
+   • :content_type (t:String.t/0) (Content-Type)
+   • :storage_class (t:String.t/0) (x-amz-storage-class)
+   • :upload_availability (t:String.t/0) (x-amz-upload-availability)
   """
+  @spec put_object(AWS.Client.t(), String.t(), put_object_request(), Keyword.t()) ::
+          {:ok, put_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_object_errors()}
   def put_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
 
@@ -201,7 +470,8 @@ defmodule AWS.MediaStoreData do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

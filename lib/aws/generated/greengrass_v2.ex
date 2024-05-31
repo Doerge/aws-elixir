@@ -30,6 +30,1485 @@ defmodule AWS.GreengrassV2 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_recipe_source() :: %{
+        "componentDependencies" => map(),
+        "componentLambdaParameters" => lambda_execution_parameters(),
+        "componentName" => String.t(),
+        "componentPlatforms" => list(component_platform()()),
+        "componentVersion" => String.t(),
+        "lambdaArn" => String.t()
+      }
+
+  """
+  @type lambda_function_recipe_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_component_update_policy() :: %{
+        "action" => list(any()),
+        "timeoutInSeconds" => integer()
+      }
+
+  """
+  @type deployment_component_update_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_service_role_from_account_response() :: %{
+        "disassociatedAt" => String.t()
+      }
+
+  """
+  @type disassociate_service_role_from_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_version_response() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "status" => cloud_component_status()
+      }
+
+  """
+  @type create_component_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_request() :: %{
+        optional("historyFilter") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("parentTargetArn") => String.t(),
+        optional("targetArn") => String.t()
+      }
+
+  """
+  @type list_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_response() :: %{
+        "message" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type update_connectivity_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_versions_response() :: %{
+        "componentVersions" => list(component_version_list_item()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_component_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_version_artifact_request() :: %{
+        optional("iotEndpointType") => list(any()),
+        optional("s3EndpointType") => list(any())
+      }
+
+  """
+  @type get_component_version_artifact_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_client_device_from_core_device_entry() :: %{
+        "thingName" => String.t()
+      }
+
+  """
+  @type disassociate_client_device_from_core_device_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "deploymentStatus" => list(any()),
+        "isLatestForTarget" => boolean(),
+        "parentTargetArn" => String.t(),
+        "revisionId" => String.t(),
+        "targetArn" => String.t()
+      }
+
+  """
+  @type deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_dependency_requirement() :: %{
+        "dependencyType" => list(any()),
+        "versionRequirement" => String.t()
+      }
+
+  """
+  @type component_dependency_requirement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_execution_parameters() :: %{
+        "environmentVariables" => map(),
+        "eventSources" => list(lambda_event_source()()),
+        "execArgs" => list(String.t()()),
+        "inputPayloadEncodingType" => list(any()),
+        "linuxProcessParams" => lambda_linux_process_params(),
+        "maxIdleTimeInSeconds" => integer(),
+        "maxInstancesCount" => integer(),
+        "maxQueueSize" => integer(),
+        "pinned" => boolean(),
+        "statusTimeoutInSeconds" => integer(),
+        "timeoutInSeconds" => integer()
+      }
+
+  """
+  @type lambda_execution_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_response() :: %{
+        "deployments" => list(deployment()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_deployments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_devices_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any()),
+        optional("thingGroupArn") => String.t()
+      }
+
+  """
+  @type list_core_devices_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_volume_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "destinationPath" => String.t(),
+        "permission" => list(any()),
+        "sourcePath" => String.t()
+      }
+
+  """
+  @type lambda_volume_mount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("components") => map(),
+        optional("deploymentName") => String.t(),
+        optional("deploymentPolicies") => deployment_policies(),
+        optional("iotJobConfiguration") => deployment_io_t_job_configuration(),
+        optional("parentTargetArn") => String.t(),
+        optional("tags") => map(),
+        required("targetArn") => String.t()
+      }
+
+  """
+  @type create_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_device_response() :: %{
+        "architecture" => String.t(),
+        "coreDeviceThingName" => String.t(),
+        "coreVersion" => String.t(),
+        "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "platform" => String.t(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type get_core_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_devices_response() :: %{
+        "coreDevices" => list(core_device()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_core_devices_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_device_request() :: %{}
+
+  """
+  @type delete_core_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_component_request() :: %{}
+
+  """
+  @type delete_component_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_event_source() :: %{
+        "topic" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type lambda_event_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_response() :: %{
+        "recipe" => binary(),
+        "recipeOutputFormat" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type get_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_resource_limits() :: %{
+        "cpus" => float(),
+        "memory" => float()
+      }
+
+  """
+  @type system_resource_limits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_installed_components_response() :: %{
+        "installedComponents" => list(installed_component()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_installed_components_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_executions_rollout_config() :: %{
+        "exponentialRate" => io_t_job_exponential_rollout_rate(),
+        "maximumPerMinute" => integer()
+      }
+
+  """
+  @type io_t_job_executions_rollout_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_device() :: %{
+        "coreDeviceThingName" => String.t(),
+        "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type core_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_response() :: %{
+        "deploymentId" => String.t(),
+        "iotJobArn" => String.t(),
+        "iotJobId" => String.t()
+      }
+
+  """
+  @type create_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_exponential_rollout_rate() :: %{
+        "baseRatePerMinute" => integer(),
+        "incrementFactor" => float(),
+        "rateIncreaseCriteria" => io_t_job_rate_increase_criteria()
+      }
+
+  """
+  @type io_t_job_exponential_rollout_rate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_role_for_account_request() :: %{}
+
+  """
+  @type get_service_role_for_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_client_device_with_core_device_error_entry() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "thingName" => String.t()
+      }
+
+  """
+  @type associate_client_device_with_core_device_error_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_request() :: %{
+        required("connectivityInfo") => list(connectivity_info()())
+      }
+
+  """
+  @type update_connectivity_info_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_device_request() :: %{}
+
+  """
+  @type get_core_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_configuration_validation_policy() :: %{
+        "timeoutInSeconds" => integer()
+      }
+
+  """
+  @type deployment_configuration_validation_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_component_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_deployment() :: %{
+        "coreDeviceExecutionStatus" => list(any()),
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "description" => String.t(),
+        "iotJobArn" => String.t(),
+        "iotJobId" => String.t(),
+        "modifiedTimestamp" => non_neg_integer(),
+        "reason" => String.t(),
+        "statusDetails" => effective_deployment_status_details(),
+        "targetArn" => String.t()
+      }
+
+  """
+  @type effective_deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_already_in_progress_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type request_already_in_progress_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_deployment_request() :: %{}
+
+  """
+  @type cancel_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connectivity_info() :: %{
+        "hostAddress" => String.t(),
+        "id" => String.t(),
+        "metadata" => String.t(),
+        "portNumber" => integer()
+      }
+
+  """
+  @type connectivity_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connectivity_info_response() :: %{
+        "connectivityInfo" => list(connectivity_info()()),
+        "message" => String.t()
+      }
+
+  """
+  @type get_connectivity_info_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      installed_component() :: %{
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "isRoot" => boolean(),
+        "lastInstallationSource" => String.t(),
+        "lastReportedTimestamp" => non_neg_integer(),
+        "lastStatusChangeTimestamp" => non_neg_integer(),
+        "lifecycleState" => list(any()),
+        "lifecycleStateDetails" => String.t(),
+        "lifecycleStatusCodes" => list(String.t()())
+      }
+
+  """
+  @type installed_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("inlineRecipe") => binary(),
+        optional("lambdaFunction") => lambda_function_recipe_source(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_component_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("scope") => list(any())
+      }
+
+  """
+  @type list_components_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_client_device_from_core_device_response() :: %{
+        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry()())
+      }
+
+  """
+  @type batch_disassociate_client_device_from_core_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_latest_version() :: %{
+        "arn" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t(),
+        "platforms" => list(component_platform()()),
+        "publisher" => String.t()
+      }
+
+  """
+  @type component_latest_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_io_t_job_configuration() :: %{
+        "abortConfig" => io_t_job_abort_config(),
+        "jobExecutionsRolloutConfig" => io_t_job_executions_rollout_config(),
+        "timeoutConfig" => io_t_job_timeout_config()
+      }
+
+  """
+  @type deployment_io_t_job_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "latestVersion" => component_latest_version()
+      }
+
+  """
+  @type component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resolved_component_version() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "message" => String.t(),
+        "recipe" => binary(),
+        "vendorGuidance" => list(any())
+      }
+
+  """
+  @type resolved_component_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_platform() :: %{
+        "attributes" => map(),
+        "name" => String.t()
+      }
+
+  """
+  @type component_platform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_rate_increase_criteria() :: %{
+        "numberOfNotifiedThings" => integer(),
+        "numberOfSucceededThings" => integer()
+      }
+
+  """
+  @type io_t_job_rate_increase_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_component_status() :: %{
+        "componentState" => list(any()),
+        "errors" => map(),
+        "message" => String.t(),
+        "vendorGuidance" => list(any()),
+        "vendorGuidanceMessage" => String.t()
+      }
+
+  """
+  @type cloud_component_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_run_with() :: %{
+        "posixUser" => String.t(),
+        "systemResourceLimits" => system_resource_limits(),
+        "windowsUser" => String.t()
+      }
+
+  """
+  @type component_run_with() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      effective_deployment_status_details() :: %{
+        "errorStack" => list(String.t()()),
+        "errorTypes" => list(String.t()())
+      }
+
+  """
+  @type effective_deployment_status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_deployment_specification() :: %{
+        "componentVersion" => String.t(),
+        "configurationUpdate" => component_configuration_update(),
+        "runWith" => component_run_with()
+      }
+
+  """
+  @type component_deployment_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_client_devices_associated_with_core_device_response() :: %{
+        "associatedClientDevices" => list(associated_client_device()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_client_devices_associated_with_core_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connectivity_info_request() :: %{}
+
+  """
+  @type get_connectivity_info_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_service_role_to_account_request() :: %{
+        required("roleArn") => String.t()
+      }
+
+  """
+  @type associate_service_role_to_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_policies() :: %{
+        "componentUpdatePolicy" => deployment_component_update_policy(),
+        "configurationValidationPolicy" => deployment_configuration_validation_policy(),
+        "failureHandlingPolicy" => list(any())
+      }
+
+  """
+  @type deployment_policies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_request() :: %{}
+
+  """
+  @type delete_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_configuration_update() :: %{
+        "merge" => String.t(),
+        "reset" => list(String.t()())
+      }
+
+  """
+  @type component_configuration_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_client_device_with_core_device_entry() :: %{
+        "thingName" => String.t()
+      }
+
+  """
+  @type associate_client_device_with_core_device_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_timeout_config() :: %{
+        "inProgressTimeoutInMinutes" => float()
+      }
+
+  """
+  @type io_t_job_timeout_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_component_candidates_response() :: %{
+        "resolvedComponentVersions" => list(resolved_component_version()())
+      }
+
+  """
+  @type resolve_component_candidates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_client_device_from_core_device_error_entry() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "thingName" => String.t()
+      }
+
+  """
+  @type disassociate_client_device_from_core_device_error_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_client_device_from_core_device_request() :: %{
+        optional("entries") => list(disassociate_client_device_from_core_device_entry()())
+      }
+
+  """
+  @type batch_disassociate_client_device_from_core_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_abort_config() :: %{
+        "criteriaList" => list(io_t_job_abort_criteria()())
+      }
+
+  """
+  @type io_t_job_abort_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_version_list_item() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t()
+      }
+
+  """
+  @type component_version_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_container_params() :: %{
+        "devices" => list(lambda_device_mount()()),
+        "memorySizeInKB" => integer(),
+        "mountROSysfs" => boolean(),
+        "volumes" => list(lambda_volume_mount()())
+      }
+
+  """
+  @type lambda_container_params() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_deployment_response() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type cancel_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_response() :: %{
+        "components" => map(),
+        "creationTimestamp" => non_neg_integer(),
+        "deploymentId" => String.t(),
+        "deploymentName" => String.t(),
+        "deploymentPolicies" => deployment_policies(),
+        "deploymentStatus" => list(any()),
+        "iotJobArn" => String.t(),
+        "iotJobConfiguration" => deployment_io_t_job_configuration(),
+        "iotJobId" => String.t(),
+        "isLatestForTarget" => boolean(),
+        "parentTargetArn" => String.t(),
+        "revisionId" => String.t(),
+        "tags" => map(),
+        "targetArn" => String.t()
+      }
+
+  """
+  @type get_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_component_response() :: %{
+        "arn" => String.t(),
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "creationTimestamp" => non_neg_integer(),
+        "description" => String.t(),
+        "platforms" => list(component_platform()()),
+        "publisher" => String.t(),
+        "status" => cloud_component_status(),
+        "tags" => map()
+      }
+
+  """
+  @type describe_component_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_effective_deployments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_effective_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_components_response() :: %{
+        "components" => list(component()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_components_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_version_artifact_response() :: %{
+        "preSignedUrl" => String.t()
+      }
+
+  """
+  @type get_component_version_artifact_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_installed_components_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("topologyFilter") => list(any())
+      }
+
+  """
+  @type list_installed_components_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_client_device_with_core_device_response() :: %{
+        "errorEntries" => list(associate_client_device_with_core_device_error_entry()())
+      }
+
+  """
+  @type batch_associate_client_device_with_core_device_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_client_devices_associated_with_core_device_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_client_devices_associated_with_core_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_client_device() :: %{
+        "associationTimestamp" => non_neg_integer(),
+        "thingName" => String.t()
+      }
+
+  """
+  @type associated_client_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_component_request() :: %{}
+
+  """
+  @type describe_component_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      component_candidate() :: %{
+        "componentName" => String.t(),
+        "componentVersion" => String.t(),
+        "versionRequirements" => map()
+      }
+
+  """
+  @type component_candidate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_effective_deployments_response() :: %{
+        "effectiveDeployments" => list(effective_deployment()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_effective_deployments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_linux_process_params() :: %{
+        "containerParams" => lambda_container_params(),
+        "isolationMode" => list(any())
+      }
+
+  """
+  @type lambda_linux_process_params() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_role_for_account_response() :: %{
+        "associatedAt" => String.t(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type get_service_role_for_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_client_device_with_core_device_request() :: %{
+        optional("entries") => list(associate_client_device_with_core_device_entry()())
+      }
+
+  """
+  @type batch_associate_client_device_with_core_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      io_t_job_abort_criteria() :: %{
+        "action" => list(any()),
+        "failureType" => list(any()),
+        "minNumberOfExecutedThings" => integer(),
+        "thresholdPercentage" => float()
+      }
+
+  """
+  @type io_t_job_abort_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_service_role_to_account_response() :: %{
+        "associatedAt" => String.t()
+      }
+
+  """
+  @type associate_service_role_to_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_service_role_from_account_request() :: %{}
+
+  """
+  @type disassociate_service_role_from_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_request() :: %{
+        optional("recipeOutputFormat") => list(any())
+      }
+
+  """
+  @type get_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_component_candidates_request() :: %{
+        optional("componentCandidates") => list(component_candidate()()),
+        optional("platform") => component_platform()
+      }
+
+  """
+  @type resolve_component_candidates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_device_mount() :: %{
+        "addGroupOwner" => boolean(),
+        "path" => String.t(),
+        "permission" => list(any())
+      }
+
+  """
+  @type lambda_device_mount() :: %{String.t() => any()}
+
+  @type associate_service_role_to_account_errors() ::
+          validation_exception() | internal_server_exception()
+
+  @type batch_associate_client_device_with_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_disassociate_client_device_from_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type cancel_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_component_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | request_already_in_progress_exception()
+
+  @type create_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_already_in_progress_exception()
+
+  @type delete_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type disassociate_service_role_from_account_errors() :: internal_server_exception()
+
+  @type get_component_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_component_version_artifact_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_connectivity_info_errors() :: validation_exception() | internal_server_exception()
+
+  @type get_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_service_role_for_account_errors() :: internal_server_exception()
+
+  @type list_client_devices_associated_with_core_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_component_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_components_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_core_devices_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_effective_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_installed_components_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type resolve_component_candidates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_connectivity_info_errors() :: validation_exception() | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2020-11-30",
@@ -37,6 +1516,7 @@ defmodule AWS.GreengrassV2 do
       credential_scope: nil,
       endpoint_prefix: "greengrass",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "GreengrassV2",
       signature_version: "v4",
@@ -59,13 +1539,26 @@ defmodule AWS.GreengrassV2 do
   [Greengrass service
   role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec associate_service_role_to_account(
+          AWS.Client.t(),
+          associate_service_role_to_account_request(),
+          Keyword.t()
+        ) ::
+          {:ok, associate_service_role_to_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_service_role_to_account_errors()}
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -90,7 +1583,21 @@ defmodule AWS.GreengrassV2 do
   see [Interact with local IoT
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html)
   in the *IoT Greengrass V2 Developer Guide*.
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
   """
+  @spec batch_associate_client_device_with_core_device(
+          AWS.Client.t(),
+          String.t(),
+          batch_associate_client_device_with_core_device_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_associate_client_device_with_core_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_associate_client_device_with_core_device_errors()}
   def batch_associate_client_device_with_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -103,7 +1610,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -125,7 +1633,21 @@ defmodule AWS.GreengrassV2 do
   device from a core device, the client device won't be able to use cloud
   discovery to retrieve
   the core device's connectivity information and certificates.
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
   """
+  @spec batch_disassociate_client_device_from_core_device(
+          AWS.Client.t(),
+          String.t(),
+          batch_disassociate_client_device_from_core_device_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_disassociate_client_device_from_core_device_errors()}
   def batch_disassociate_client_device_from_core_device(
         %Client{} = client,
         core_device_thing_name,
@@ -138,7 +1660,8 @@ defmodule AWS.GreengrassV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -160,13 +1683,23 @@ defmodule AWS.GreengrassV2 do
   received it. If a device already received the deployment, this operation doesn't
   change
   anything for that device.
+
+  ## Required positional parameters:
+   • :deployment_id (t:string String.t/0) (deploymentId)
+
+  ## Optional parameters:
   """
+  @spec cancel_deployment(AWS.Client.t(), String.t(), cancel_deployment_request(), Keyword.t()) ::
+          {:ok, cancel_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_deployment_errors()}
   def cancel_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -215,46 +1748,32 @@ defmodule AWS.GreengrassV2 do
   operation to
   migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.
 
-  This function only accepts Lambda functions that use the following runtimes:
-
-      *
-  Python 2.7 – `python2.7`
-
-      *
-  Python 3.7 – `python3.7`
-
-      *
-  Python 3.8 – `python3.8`
-
-      *
-  Python 3.9 – `python3.9`
-
-      *
-  Java 8 – `java8`
-
-      *
-  Java 11 – `java11`
-
-      *
-  Node.js 10 – `nodejs10.x`
-
-      *
-  Node.js 12 – `nodejs12.x`
-
-      *
-  Node.js 14 – `nodejs14.x`
+  This function accepts Lambda functions in all supported versions of Python,
+  Node.js,
+  and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on
+  deprecated Lambda
+  runtime versions.
 
   To create a component from a Lambda function, specify `lambdaFunction` when
   you call this operation.
 
   IoT Greengrass currently supports Lambda functions on only Linux core devices.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_component_version(AWS.Client.t(), create_component_version_request(), Keyword.t()) ::
+          {:ok, create_component_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_component_version_errors()}
   def create_component_version(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -292,13 +1811,22 @@ defmodule AWS.GreengrassV2 do
   For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html)
   in the
   *IoT Greengrass V2 Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_deployment(AWS.Client.t(), create_deployment_request(), Keyword.t()) ::
+          {:ok, create_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/deployments"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -323,13 +1851,23 @@ defmodule AWS.GreengrassV2 do
   component version, you can remove the component from the deployment or update
   the deployment
   to use a valid version.
+
+  ## Required positional parameters:
+   • :arn (t:string String.t/0) (arn)
+
+  ## Optional parameters:
   """
+  @spec delete_component(AWS.Client.t(), String.t(), delete_component_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, arn, input, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -354,13 +1892,23 @@ defmodule AWS.GreengrassV2 do
   [DeleteThing](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html)
   in the
   *IoT API Reference*.
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
   """
+  @spec delete_core_device(AWS.Client.t(), String.t(), delete_core_device_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_core_device_errors()}
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -387,13 +1935,23 @@ defmodule AWS.GreengrassV2 do
   devices store the deployment's configuration on the device. Additionally, core
   devices can
   roll back to a previous deployment that has been deleted.
+
+  ## Required positional parameters:
+   • :deployment_id (t:string String.t/0) (deploymentId)
+
+  ## Optional parameters:
   """
+  @spec delete_deployment(AWS.Client.t(), String.t(), delete_deployment_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -410,13 +1968,28 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Retrieves metadata for a version of a component.
+
+  ## Required positional parameters:
+   • :arn (t:string String.t/0) (arn)
+
+  ## Optional parameters:
   """
+  @spec describe_component(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -430,13 +2003,26 @@ defmodule AWS.GreengrassV2 do
   connectivity information. For more information, see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
   in
   the *IoT Greengrass Version 2 Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec disassociate_service_role_from_account(
+          AWS.Client.t(),
+          disassociate_service_role_from_account_request(),
+          Keyword.t()
+        ) ::
+          {:ok, disassociate_service_role_from_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_service_role_from_account_errors()}
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -453,11 +2039,28 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Gets the recipe for a version of a component.
+
+  ## Required positional parameters:
+   • :arn (t:string String.t/0) (arn)
+
+  ## Optional parameters:
+   • :recipe_output_format (t:String.t/0) (recipeOutputFormat)
   """
-  def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
+  @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_component_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_component_errors()}
+  def get_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [recipe_output_format: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {recipe_output_format, options} = Keyword.pop(options, :recipe_output_format, nil)
 
     query_params =
       if !is_nil(recipe_output_format) do
@@ -466,7 +2069,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -478,15 +2082,51 @@ defmodule AWS.GreengrassV2 do
   call this operation to identify the URL that they can use to download an
   artifact to
   install.
+
+  ## Required positional parameters:
+   • :arn (t:string String.t/0) (arn)
+   • :artifact_name (t:string String.t/0) (artifactName)
+
+  ## Optional parameters:
+   • :s3_endpoint_type (t:String.t/0) (s3EndpointType)
+   • :iot_endpoint_type (t:String.t/0) (x-amz-iot-endpoint-type)
   """
+  @spec get_component_version_artifact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_component_version_artifact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_component_version_artifact_errors()}
   def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
     url_path =
       "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [s3_endpoint_type: nil, iot_endpoint_type: nil
+    # ])
+
     headers = []
+
+    {iot_endpoint_type, options} = Keyword.pop(options, :iot_endpoint_type, nil)
+
+    headers =
+      if !is_nil(iot_endpoint_type) do
+        [{"x-amz-iot-endpoint-type", iot_endpoint_type} | headers]
+      else
+        headers
+      end
+
     query_params = []
 
-    meta = metadata()
+    {s3_endpoint_type, options} = Keyword.pop(options, :s3_endpoint_type, nil)
+
+    query_params =
+      if !is_nil(s3_endpoint_type) do
+        [{"s3EndpointType", s3_endpoint_type} | query_params]
+      else
+        query_params
+      end
+
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -502,13 +2142,28 @@ defmodule AWS.GreengrassV2 do
   connect. For more information, see [Connect client devices to core
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
   """
+  @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_connectivity_info_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -544,13 +2199,28 @@ defmodule AWS.GreengrassV2 do
   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
   deployment and
   cloud deployment
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
   """
+  @spec get_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_core_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_core_device_errors()}
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -559,13 +2229,28 @@ defmodule AWS.GreengrassV2 do
   Gets a deployment.
 
   Deployments define the components that run on Greengrass core devices.
+
+  ## Required positional parameters:
+   • :deployment_id (t:string String.t/0) (deploymentId)
+
+  ## Optional parameters:
   """
+  @spec get_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -579,13 +2264,27 @@ defmodule AWS.GreengrassV2 do
   connectivity information. For more information, see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html)
   in
   the *IoT Greengrass Version 2 Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_service_role_for_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -593,19 +2292,34 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of client devices that are associated with a core
   device.
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
+  @spec list_client_devices_associated_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_client_devices_associated_with_core_device_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_client_devices_associated_with_core_device_errors()}
   def list_client_devices_associated_with_core_device(
         %Client{} = client,
         core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/associatedClientDevices"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -614,6 +2328,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -621,7 +2337,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -631,17 +2348,29 @@ defmodule AWS.GreengrassV2 do
 
   Greater versions are listed
   first.
+
+  ## Required positional parameters:
+   • :arn (t:string String.t/0) (arn)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_component_versions(
-        %Client{} = client,
-        arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_component_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_component_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_component_versions_errors()}
+  def list_component_versions(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/versions"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -650,6 +2379,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -657,7 +2388,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -667,17 +2399,29 @@ defmodule AWS.GreengrassV2 do
 
   This list includes components that you
   have permission to view.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :scope (t:String.t/0) (scope)
   """
-  def list_components(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        scope \\ nil,
-        options \\ []
-      ) do
+  @spec list_components(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_components_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_components_errors()}
+  def list_components(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/components"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, scope: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {scope, options} = Keyword.pop(options, :scope, nil)
 
     query_params =
       if !is_nil(scope) do
@@ -686,12 +2430,16 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -700,7 +2448,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -736,18 +2485,30 @@ defmodule AWS.GreengrassV2 do
   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
   deployment and
   cloud deployment
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :status (t:String.t/0) (status)
+   • :thing_group_arn (t:String.t/0) (thingGroupArn)
   """
-  def list_core_devices(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        thing_group_arn \\ nil,
-        options \\ []
-      ) do
+  @spec list_core_devices(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_core_devices_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_core_devices_errors()}
+  def list_core_devices(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/coreDevices"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, status: nil, thing_group_arn: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {thing_group_arn, options} = Keyword.pop(options, :thing_group_arn, nil)
 
     query_params =
       if !is_nil(thing_group_arn) do
@@ -756,12 +2517,16 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {status, options} = Keyword.pop(options, :status, nil)
+
     query_params =
       if !is_nil(status) do
         [{"status", status} | query_params]
       else
         query_params
       end
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -770,6 +2535,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -777,26 +2544,39 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves a paginated list of deployments.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :history_filter (t:String.t/0) (historyFilter)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :parent_target_arn (t:String.t/0) (parentTargetArn)
+   • :target_arn (t:String.t/0) (targetArn)
   """
-  def list_deployments(
-        %Client{} = client,
-        history_filter \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        parent_target_arn \\ nil,
-        target_arn \\ nil,
-        options \\ []
-      ) do
+  @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_deployments_errors()}
+  def list_deployments(%Client{} = client, options \\ []) do
     url_path = "/greengrass/v2/deployments"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [history_filter: nil, max_results: nil, next_token: nil, parent_target_arn: nil, target_arn: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {target_arn, options} = Keyword.pop(options, :target_arn, nil)
 
     query_params =
       if !is_nil(target_arn) do
@@ -805,12 +2585,16 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {parent_target_arn, options} = Keyword.pop(options, :parent_target_arn, nil)
+
     query_params =
       if !is_nil(parent_target_arn) do
         [{"parentTargetArn", parent_target_arn} | query_params]
       else
         query_params
       end
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -819,12 +2603,16 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {history_filter, options} = Keyword.pop(options, :history_filter, nil)
 
     query_params =
       if !is_nil(history_filter) do
@@ -833,7 +2621,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -841,19 +2630,30 @@ defmodule AWS.GreengrassV2 do
   @doc """
   Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
   Greengrass core devices.
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_effective_deployments(
-        %Client{} = client,
-        core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_effective_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_effective_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_effective_deployments_errors()}
+  def list_effective_deployments(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/effectiveDeployments"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -862,6 +2662,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -869,7 +2671,8 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -911,20 +2714,31 @@ defmodule AWS.GreengrassV2 do
   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local
   deployment and
   cloud deployment
+
+  ## Required positional parameters:
+   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :topology_filter (t:String.t/0) (topologyFilter)
   """
-  def list_installed_components(
-        %Client{} = client,
-        core_device_thing_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        topology_filter \\ nil,
-        options \\ []
-      ) do
+  @spec list_installed_components(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_installed_components_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_installed_components_errors()}
+  def list_installed_components(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path =
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/installedComponents"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, topology_filter: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {topology_filter, options} = Keyword.pop(options, :topology_filter, nil)
 
     query_params =
       if !is_nil(topology_filter) do
@@ -933,12 +2747,16 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -947,20 +2765,36 @@ defmodule AWS.GreengrassV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Retrieves the list of tags for an IoT Greengrass resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -990,13 +2824,26 @@ defmodule AWS.GreengrassV2 do
   To use this operation, you must use the data plane API endpoint and authenticate
   with an
   IoT device certificate. For more information, see [IoT Greengrass endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/greengrass.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec resolve_component_candidates(
+          AWS.Client.t(),
+          resolve_component_candidates_request(),
+          Keyword.t()
+        ) ::
+          {:ok, resolve_component_candidates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resolve_component_candidates_errors()}
   def resolve_component_candidates(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/resolveComponentCandidates"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1016,13 +2863,23 @@ defmodule AWS.GreengrassV2 do
 
   If a tag already exists for the resource, this operation
   updates the tag's value.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1039,7 +2896,17 @@ defmodule AWS.GreengrassV2 do
 
   @doc """
   Removes a tag from an IoT Greengrass resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1050,7 +2917,8 @@ defmodule AWS.GreengrassV2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1076,13 +2944,28 @@ defmodule AWS.GreengrassV2 do
   connect. For more information, see [Connect client devices to core
   devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html)
   in the *IoT Greengrass Version 2 Developer Guide*.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
   """
+  @spec update_connectivity_info(
+          AWS.Client.t(),
+          String.t(),
+          update_connectivity_info_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_connectivity_info_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_connectivity_info_errors()}
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

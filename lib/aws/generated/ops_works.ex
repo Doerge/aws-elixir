@@ -3,62 +3,63 @@
 
 defmodule AWS.OpsWorks do
   @moduledoc """
-  AWS OpsWorks
+  OpsWorks
 
-  Welcome to the *AWS OpsWorks Stacks API Reference*.
+  Welcome to the *OpsWorks Stacks API Reference*.
 
-  This guide provides descriptions, syntax, and
-  usage examples for AWS OpsWorks Stacks actions and data types, including common
+  This guide provides descriptions, syntax,
+  and
+  usage examples for OpsWorks Stacks actions and data types, including common
   parameters and error
   codes.
 
-  AWS OpsWorks Stacks is an application management service that provides an
-  integrated experience for
-  overseeing the complete application lifecycle. For information about this
-  product, go to the
-  [AWS OpsWorks](http://aws.amazon.com/opsworks/) details page. 
-
+  OpsWorks Stacks is an application management service that provides an integrated
+  experience for
+  managing the complete application lifecycle. For information about OpsWorks, see
+  the
+  [OpsWorks](http://aws.amazon.com/opsworks/) information page. 
   ## SDKs and CLI
 
-  The most common way to use the AWS OpsWorks Stacks API is by using the AWS
-  Command Line Interface (CLI) or by using one of the AWS SDKs to implement
-  applications in your preferred language. For more information, see:
+  Use the OpsWorks Stacks API by using the Command Line Interface (CLI) or by
+  using one of the
+  Amazon Web Services SDKs to implement applications in your preferred language.
+  For more information, see:
 
     *
 
-  [AWS
-  CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+  [CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
 
     *
 
-  [AWS SDK for Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
+  [SDK for Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html)
 
     *
 
-  [AWS SDK for .NET](https://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm)
+  [SDK for .NET](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/OpsWorks/NOpsWorks.html)
 
     *
 
-  [AWS SDK for PHP
-  2](https://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html)
+  [SDK for PHP](https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.OpsWorks.OpsWorksClient.html)
 
     *
 
-  [AWS SDK for Ruby](http://docs.aws.amazon.com/sdkforruby/api/) 
+  [SDK for Ruby](http://docs.aws.amazon.com/sdkforruby/api/) 
 
     *
 
-  [AWS SDK for Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)
+  [Amazon Web Services SDK for
+  Node.js](http://aws.amazon.com/documentation/sdkforjavascript/)
 
     *
 
-  [AWS SDK for Python(Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html)
+  [SDK for Python (Boto)](http://docs.pythonboto.org/en/latest/ref/opsworks.html) 
 
   ## Endpoints
 
-  AWS OpsWorks Stacks supports the following endpoints, all HTTPS. You must
-  connect to one of the following endpoints. Stacks
-  can only be accessed or managed within the endpoint in which they are created.
+  OpsWorks Stacks supports the following endpoints, all HTTPS. You must connect to
+  one of the following endpoints.
+  Stacks can only be accessed or managed within the endpoint in which they are
+  created.
 
     *
   opsworks.us-east-1.amazonaws.com
@@ -73,7 +74,8 @@ defmodule AWS.OpsWorks do
   opsworks.us-west-2.amazonaws.com
 
     *
-  opsworks.ca-central-1.amazonaws.com (API only; not available in the AWS console)
+  opsworks.ca-central-1.amazonaws.com (API only; not available in the Amazon Web
+  Services Management Console)
 
     *
   opsworks.eu-west-1.amazonaws.com
@@ -111,14 +113,2350 @@ defmodule AWS.OpsWorks do
   use the `ConfigurationManager` parameter to specify the Chef version.
   The recommended and default value for Linux stacks is currently 12. Windows
   stacks use Chef 12.2. For more information,
-  see [Chef Versions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
+  see [Chef
+  Versions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html).
 
   You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend
-  migrating your existing Linux stacks to Chef 12 as soon as possible.
+  migrating your existing Linux stacks
+  to Chef 12 as soon as possible.
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_operating_systems_response() :: %{
+        "OperatingSystems" => list(operating_system()())
+      }
+      
+  """
+  @type describe_operating_systems_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      app() :: %{
+        "AppId" => String.t(),
+        "AppSource" => source(),
+        "Attributes" => map(),
+        "CreatedAt" => String.t(),
+        "DataSources" => list(data_source()()),
+        "Description" => String.t(),
+        "Domains" => list(String.t()()),
+        "EnableSsl" => boolean(),
+        "Environment" => list(environment_variable()()),
+        "Name" => String.t(),
+        "Shortname" => String.t(),
+        "SslConfiguration" => ssl_configuration(),
+        "StackId" => String.t(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type app() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_profile() :: %{
+        "AllowSelfManagement" => boolean(),
+        "IamUserArn" => String.t(),
+        "Name" => String.t(),
+        "SshPublicKey" => String.t(),
+        "SshUsername" => String.t()
+      }
+      
+  """
+  @type user_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_apps_request() :: %{
+        optional("AppIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_apps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_profile_request() :: %{
+        optional("AllowSelfManagement") => boolean(),
+        optional("SshPublicKey") => String.t(),
+        optional("SshUsername") => String.t(),
+        required("IamUserArn") => String.t()
+      }
+      
+  """
+  @type update_user_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_ecs_cluster_request() :: %{
+        required("EcsClusterArn") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type register_ecs_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elastic_ip() :: %{
+        "Domain" => String.t(),
+        "InstanceId" => String.t(),
+        "Ip" => String.t(),
+        "Name" => String.t(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type elastic_ip() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_app_request() :: %{
+        optional("AppSource") => source(),
+        optional("Attributes") => map(),
+        optional("DataSources") => list(data_source()()),
+        optional("Description") => String.t(),
+        optional("Domains") => list(String.t()()),
+        optional("EnableSsl") => boolean(),
+        optional("Environment") => list(environment_variable()()),
+        optional("Shortname") => String.t(),
+        optional("SslConfiguration") => ssl_configuration(),
+        required("Name") => String.t(),
+        required("StackId") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_stack_request() :: %{
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type stop_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_elastic_ips_result() :: %{
+        "ElasticIps" => list(elastic_ip()())
+      }
+      
+  """
+  @type describe_elastic_ips_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rds_db_instances_request() :: %{
+        optional("RdsDbInstanceArns") => list(String.t()()),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type describe_rds_db_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment() :: %{
+        "AppId" => String.t(),
+        "Command" => deployment_command(),
+        "Comment" => String.t(),
+        "CompletedAt" => String.t(),
+        "CreatedAt" => String.t(),
+        "CustomJson" => String.t(),
+        "DeploymentId" => String.t(),
+        "Duration" => integer(),
+        "IamUserArn" => String.t(),
+        "InstanceIds" => list(String.t()()),
+        "StackId" => String.t(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_result() :: %{
+        "NextToken" => String.t(),
+        "Tags" => map()
+      }
+      
+  """
+  @type list_tags_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_ecs_cluster_request() :: %{
+        required("EcsClusterArn") => String.t()
+      }
+      
+  """
+  @type deregister_ecs_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      block_device_mapping() :: %{
+        "DeviceName" => String.t(),
+        "Ebs" => ebs_block_device(),
+        "NoDevice" => String.t(),
+        "VirtualName" => String.t()
+      }
+      
+  """
+  @type block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_stack_request() :: %{
+        optional("AgentVersion") => String.t(),
+        optional("Attributes") => map(),
+        optional("ChefConfiguration") => chef_configuration(),
+        optional("ConfigurationManager") => stack_configuration_manager(),
+        optional("CustomCookbooksSource") => source(),
+        optional("CustomJson") => String.t(),
+        optional("DefaultAvailabilityZone") => String.t(),
+        optional("DefaultOs") => String.t(),
+        optional("DefaultRootDeviceType") => list(any()),
+        optional("DefaultSshKeyName") => String.t(),
+        optional("DefaultSubnetId") => String.t(),
+        optional("HostnameTheme") => String.t(),
+        optional("UseCustomCookbooks") => boolean(),
+        optional("UseOpsworksSecurityGroups") => boolean(),
+        optional("VpcId") => String.t(),
+        required("DefaultInstanceProfileArn") => String.t(),
+        required("Name") => String.t(),
+        required("Region") => String.t(),
+        required("ServiceRoleArn") => String.t()
+      }
+      
+  """
+  @type create_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_stack_request() :: %{
+        optional("AgentVersion") => String.t(),
+        optional("Attributes") => map(),
+        optional("ChefConfiguration") => chef_configuration(),
+        optional("ConfigurationManager") => stack_configuration_manager(),
+        optional("CustomCookbooksSource") => source(),
+        optional("CustomJson") => String.t(),
+        optional("DefaultAvailabilityZone") => String.t(),
+        optional("DefaultInstanceProfileArn") => String.t(),
+        optional("DefaultOs") => String.t(),
+        optional("DefaultRootDeviceType") => list(any()),
+        optional("DefaultSshKeyName") => String.t(),
+        optional("DefaultSubnetId") => String.t(),
+        optional("HostnameTheme") => String.t(),
+        optional("Name") => String.t(),
+        optional("ServiceRoleArn") => String.t(),
+        optional("UseCustomCookbooks") => boolean(),
+        optional("UseOpsworksSecurityGroups") => boolean(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type update_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_raid_arrays_result() :: %{
+        "RaidArrays" => list(raid_array()())
+      }
+      
+  """
+  @type describe_raid_arrays_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_instance_request() :: %{
+        optional("Force") => boolean(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type stop_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_elastic_ips_request() :: %{
+        optional("InstanceId") => String.t(),
+        optional("Ips") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_elastic_ips_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_commands_result() :: %{
+        "Commands" => list(command()())
+      }
+      
+  """
+  @type describe_commands_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_variable() :: %{
+        "Key" => String.t(),
+        "Secure" => boolean(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type environment_variable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_event_configuration() :: %{
+        "Shutdown" => shutdown_event_configuration()
+      }
+      
+  """
+  @type lifecycle_event_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_volumes_request() :: %{
+        optional("InstanceId") => String.t(),
+        optional("RaidArrayId") => String.t(),
+        optional("StackId") => String.t(),
+        optional("VolumeIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_volumes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_volume_request() :: %{
+        optional("MountPoint") => String.t(),
+        optional("Name") => String.t(),
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type update_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_stack_result() :: %{
+        "StackId" => String.t()
+      }
+      
+  """
+  @type create_stack_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_deployment_request() :: %{
+        optional("AppId") => String.t(),
+        optional("Comment") => String.t(),
+        optional("CustomJson") => String.t(),
+        optional("InstanceIds") => list(String.t()()),
+        optional("LayerIds") => list(String.t()()),
+        required("Command") => deployment_command(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type create_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      temporary_credential() :: %{
+        "InstanceId" => String.t(),
+        "Password" => String.t(),
+        "Username" => String.t(),
+        "ValidForInMinutes" => integer()
+      }
+      
+  """
+  @type temporary_credential() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_layer_result() :: %{
+        "LayerId" => String.t()
+      }
+      
+  """
+  @type create_layer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_provisioning_parameters_result() :: %{
+        "AgentInstallerUrl" => String.t(),
+        "Parameters" => map()
+      }
+      
+  """
+  @type describe_stack_provisioning_parameters_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shutdown_event_configuration() :: %{
+        "DelayUntilElbConnectionsDrained" => boolean(),
+        "ExecutionTimeout" => integer()
+      }
+      
+  """
+  @type shutdown_event_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_my_user_profile_result() :: %{
+        "UserProfile" => self_user_profile()
+      }
+      
+  """
+  @type describe_my_user_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_rds_db_instance_request() :: %{
+        required("DbPassword") => String.t(),
+        required("DbUser") => String.t(),
+        required("RdsDbInstanceArn") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type register_rds_db_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permissions_request() :: %{
+        optional("IamUserArn") => String.t(),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operating_system() :: %{
+        "ConfigurationManagers" => list(operating_system_configuration_manager()()),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReportedName" => String.t(),
+        "ReportedVersion" => String.t(),
+        "Supported" => boolean(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type operating_system() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_permissions_result() :: %{
+        "Permissions" => list(permission()())
+      }
+      
+  """
+  @type describe_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_volume_request() :: %{
+        optional("Ec2VolumeId") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type register_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_summary_result() :: %{
+        "StackSummary" => stack_summary()
+      }
+      
+  """
+  @type describe_stack_summary_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_commands_request() :: %{
+        optional("CommandIds") => list(String.t()()),
+        optional("DeploymentId") => String.t(),
+        optional("InstanceId") => String.t()
+      }
+      
+  """
+  @type describe_commands_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_instance_request() :: %{
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type deregister_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instances_count() :: %{
+        "Assigning" => integer(),
+        "Booting" => integer(),
+        "ConnectionLost" => integer(),
+        "Deregistering" => integer(),
+        "Online" => integer(),
+        "Pending" => integer(),
+        "Rebooting" => integer(),
+        "Registered" => integer(),
+        "Registering" => integer(),
+        "Requested" => integer(),
+        "RunningSetup" => integer(),
+        "SetupFailed" => integer(),
+        "ShuttingDown" => integer(),
+        "StartFailed" => integer(),
+        "StopFailed" => integer(),
+        "Stopped" => integer(),
+        "Stopping" => integer(),
+        "Terminated" => integer(),
+        "Terminating" => integer(),
+        "Unassigning" => integer()
+      }
+      
+  """
+  @type instances_count() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grant_access_request() :: %{
+        optional("ValidForInMinutes") => integer(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type grant_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_load_based_auto_scaling_request() :: %{
+        optional("DownScaling") => auto_scaling_thresholds(),
+        optional("Enable") => boolean(),
+        optional("UpScaling") => auto_scaling_thresholds(),
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type set_load_based_auto_scaling_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unassign_volume_request() :: %{
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type unassign_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hostname_suggestion_request() :: %{
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type get_hostname_suggestion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_configuration() :: %{
+        "Enabled" => boolean(),
+        "LogStreams" => list(cloud_watch_logs_log_stream()())
+      }
+      
+  """
+  @type cloud_watch_logs_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_permission_request() :: %{
+        optional("AllowSsh") => boolean(),
+        optional("AllowSudo") => boolean(),
+        optional("Level") => String.t(),
+        required("IamUserArn") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type set_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agent_versions_request() :: %{
+        optional("ConfigurationManager") => stack_configuration_manager(),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_agent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assign_volume_request() :: %{
+        optional("InstanceId") => String.t(),
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type assign_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reboot_instance_request() :: %{
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type reboot_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_stack_request() :: %{
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type delete_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack() :: %{
+        "AgentVersion" => String.t(),
+        "Arn" => String.t(),
+        "Attributes" => map(),
+        "ChefConfiguration" => chef_configuration(),
+        "ConfigurationManager" => stack_configuration_manager(),
+        "CreatedAt" => String.t(),
+        "CustomCookbooksSource" => source(),
+        "CustomJson" => String.t(),
+        "DefaultAvailabilityZone" => String.t(),
+        "DefaultInstanceProfileArn" => String.t(),
+        "DefaultOs" => String.t(),
+        "DefaultRootDeviceType" => list(any()),
+        "DefaultSshKeyName" => String.t(),
+        "DefaultSubnetId" => String.t(),
+        "HostnameTheme" => String.t(),
+        "Name" => String.t(),
+        "Region" => String.t(),
+        "ServiceRoleArn" => String.t(),
+        "StackId" => String.t(),
+        "UseCustomCookbooks" => boolean(),
+        "UseOpsworksSecurityGroups" => boolean(),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type stack() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rds_db_instances_result() :: %{
+        "RdsDbInstances" => list(rds_db_instance()())
+      }
+      
+  """
+  @type describe_rds_db_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_elastic_load_balancers_request() :: %{
+        optional("LayerIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_elastic_load_balancers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elastic_load_balancer() :: %{
+        "AvailabilityZones" => list(String.t()()),
+        "DnsName" => String.t(),
+        "Ec2InstanceIds" => list(String.t()()),
+        "ElasticLoadBalancerName" => String.t(),
+        "LayerId" => String.t(),
+        "Region" => String.t(),
+        "StackId" => String.t(),
+        "SubnetIds" => list(String.t()()),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type elastic_load_balancer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recipes() :: %{
+        "Configure" => list(String.t()()),
+        "Deploy" => list(String.t()()),
+        "Setup" => list(String.t()()),
+        "Shutdown" => list(String.t()()),
+        "Undeploy" => list(String.t()())
+      }
+      
+  """
+  @type recipes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_elastic_ip_request() :: %{
+        optional("InstanceId") => String.t(),
+        required("ElasticIp") => String.t()
+      }
+      
+  """
+  @type associate_elastic_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_summary() :: %{
+        "AppsCount" => integer(),
+        "Arn" => String.t(),
+        "InstancesCount" => instances_count(),
+        "LayersCount" => integer(),
+        "Name" => String.t(),
+        "StackId" => String.t()
+      }
+      
+  """
+  @type stack_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_command() :: %{
+        "Args" => map(),
+        "Name" => list(any())
+      }
+      
+  """
+  @type deployment_command() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stacks_request() :: %{
+        optional("StackIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_stacks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unassign_instance_request() :: %{
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type unassign_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      raid_array() :: %{
+        "AvailabilityZone" => String.t(),
+        "CreatedAt" => String.t(),
+        "Device" => String.t(),
+        "InstanceId" => String.t(),
+        "Iops" => integer(),
+        "MountPoint" => String.t(),
+        "Name" => String.t(),
+        "NumberOfDisks" => integer(),
+        "RaidArrayId" => String.t(),
+        "RaidLevel" => integer(),
+        "Size" => integer(),
+        "StackId" => String.t(),
+        "VolumeType" => String.t()
+      }
+      
+  """
+  @type raid_array() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_elastic_ip_request() :: %{
+        required("ElasticIp") => String.t()
+      }
+      
+  """
+  @type disassociate_elastic_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_profile_request() :: %{
+        required("IamUserArn") => String.t()
+      }
+      
+  """
+  @type delete_user_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_deployment_result() :: %{
+        "DeploymentId" => String.t()
+      }
+      
+  """
+  @type create_deployment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_profiles_result() :: %{
+        "UserProfiles" => list(user_profile()())
+      }
+      
+  """
+  @type describe_user_profiles_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      weekly_auto_scaling_schedule() :: %{
+        "Friday" => map(),
+        "Monday" => map(),
+        "Saturday" => map(),
+        "Sunday" => map(),
+        "Thursday" => map(),
+        "Tuesday" => map(),
+        "Wednesday" => map()
+      }
+      
+  """
+  @type weekly_auto_scaling_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assign_instance_request() :: %{
+        required("InstanceId") => String.t(),
+        required("LayerIds") => list(String.t()())
+      }
+      
+  """
+  @type assign_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_result() :: %{
+        "InstanceId" => String.t()
+      }
+      
+  """
+  @type create_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_load_based_auto_scaling_request() :: %{
+        required("LayerIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_load_based_auto_scaling_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_instance_request() :: %{
+        optional("AgentVersion") => String.t(),
+        optional("AmiId") => String.t(),
+        optional("Architecture") => list(any()),
+        optional("AutoScalingType") => list(any()),
+        optional("EbsOptimized") => boolean(),
+        optional("Hostname") => String.t(),
+        optional("InstallUpdatesOnBoot") => boolean(),
+        optional("InstanceType") => String.t(),
+        optional("LayerIds") => list(String.t()()),
+        optional("Os") => String.t(),
+        optional("SshKeyName") => String.t(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type update_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_configuration_manager() :: %{
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type stack_configuration_manager() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_layers_result() :: %{
+        "Layers" => list(layer()())
+      }
+      
+  """
+  @type describe_layers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      layer() :: %{
+        "Arn" => String.t(),
+        "Attributes" => map(),
+        "AutoAssignElasticIps" => boolean(),
+        "AutoAssignPublicIps" => boolean(),
+        "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration(),
+        "CreatedAt" => String.t(),
+        "CustomInstanceProfileArn" => String.t(),
+        "CustomJson" => String.t(),
+        "CustomRecipes" => recipes(),
+        "CustomSecurityGroupIds" => list(String.t()()),
+        "DefaultRecipes" => recipes(),
+        "DefaultSecurityGroupNames" => list(String.t()()),
+        "EnableAutoHealing" => boolean(),
+        "InstallUpdatesOnBoot" => boolean(),
+        "LayerId" => String.t(),
+        "LifecycleEventConfiguration" => lifecycle_event_configuration(),
+        "Name" => String.t(),
+        "Packages" => list(String.t()()),
+        "Shortname" => String.t(),
+        "StackId" => String.t(),
+        "Type" => list(any()),
+        "UseEbsOptimizedInstances" => boolean(),
+        "VolumeConfigurations" => list(volume_configuration()())
+      }
+      
+  """
+  @type layer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_instance_request() :: %{
+        optional("Hostname") => String.t(),
+        optional("InstanceIdentity") => instance_identity(),
+        optional("PrivateIp") => String.t(),
+        optional("PublicIp") => String.t(),
+        optional("RsaPublicKey") => String.t(),
+        optional("RsaPublicKeyFingerprint") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type register_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instances_request() :: %{
+        optional("InstanceIds") => list(String.t()()),
+        optional("LayerId") => String.t(),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssl_configuration() :: %{
+        "Certificate" => String.t(),
+        "Chain" => String.t(),
+        "PrivateKey" => String.t()
+      }
+      
+  """
+  @type ssl_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_profiles_request() :: %{
+        optional("IamUserArns") => list(String.t()())
+      }
+      
+  """
+  @type describe_user_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_elastic_load_balancers_result() :: %{
+        "ElasticLoadBalancers" => list(elastic_load_balancer()())
+      }
+      
+  """
+  @type describe_elastic_load_balancers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_time_based_auto_scaling_request() :: %{
+        required("InstanceIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_time_based_auto_scaling_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_elastic_ip_request() :: %{
+        optional("Name") => String.t(),
+        required("ElasticIp") => String.t()
+      }
+      
+  """
+  @type update_elastic_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ecs_clusters_request() :: %{
+        optional("EcsClusterArns") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_ecs_clusters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_block_device() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Iops" => integer(),
+        "SnapshotId" => String.t(),
+        "VolumeSize" => integer(),
+        "VolumeType" => list(any())
+      }
+      
+  """
+  @type ebs_block_device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_elastic_ip_result() :: %{
+        "ElasticIp" => String.t()
+      }
+      
+  """
+  @type register_elastic_ip_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_elastic_load_balancer_request() :: %{
+        required("ElasticLoadBalancerName") => String.t(),
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type detach_elastic_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agent_version() :: %{
+        "ConfigurationManager" => stack_configuration_manager(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type agent_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_deployments_result() :: %{
+        "Deployments" => list(deployment()())
+      }
+      
+  """
+  @type describe_deployments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_scaling_thresholds() :: %{
+        "Alarms" => list(String.t()()),
+        "CpuThreshold" => float(),
+        "IgnoreMetricsTime" => integer(),
+        "InstanceCount" => integer(),
+        "LoadThreshold" => float(),
+        "MemoryThreshold" => float(),
+        "ThresholdsWaitTime" => integer()
+      }
+      
+  """
+  @type auto_scaling_thresholds() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hostname_suggestion_result() :: %{
+        "Hostname" => String.t(),
+        "LayerId" => String.t()
+      }
+      
+  """
+  @type get_hostname_suggestion_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_apps_result() :: %{
+        "Apps" => list(app()())
+      }
+      
+  """
+  @type describe_apps_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_layer_request() :: %{
+        optional("Attributes") => map(),
+        optional("AutoAssignElasticIps") => boolean(),
+        optional("AutoAssignPublicIps") => boolean(),
+        optional("CloudWatchLogsConfiguration") => cloud_watch_logs_configuration(),
+        optional("CustomInstanceProfileArn") => String.t(),
+        optional("CustomJson") => String.t(),
+        optional("CustomRecipes") => recipes(),
+        optional("CustomSecurityGroupIds") => list(String.t()()),
+        optional("EnableAutoHealing") => boolean(),
+        optional("InstallUpdatesOnBoot") => boolean(),
+        optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
+        optional("Name") => String.t(),
+        optional("Packages") => list(String.t()()),
+        optional("Shortname") => String.t(),
+        optional("UseEbsOptimizedInstances") => boolean(),
+        optional("VolumeConfigurations") => list(volume_configuration()()),
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type update_layer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_elastic_ip_request() :: %{
+        required("ElasticIp") => String.t()
+      }
+      
+  """
+  @type deregister_elastic_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source() :: %{
+        "Password" => String.t(),
+        "Revision" => String.t(),
+        "SshKey" => String.t(),
+        "Type" => list(any()),
+        "Url" => String.t(),
+        "Username" => String.t()
+      }
+      
+  """
+  @type source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_elastic_load_balancer_request() :: %{
+        required("ElasticLoadBalancerName") => String.t(),
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type attach_elastic_load_balancer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_errors_request() :: %{
+        optional("InstanceId") => String.t(),
+        optional("ServiceErrorIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_service_errors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stacks_result() :: %{
+        "Stacks" => list(stack()())
+      }
+      
+  """
+  @type describe_stacks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clone_stack_request() :: %{
+        optional("AgentVersion") => String.t(),
+        optional("Attributes") => map(),
+        optional("ChefConfiguration") => chef_configuration(),
+        optional("CloneAppIds") => list(String.t()()),
+        optional("ClonePermissions") => boolean(),
+        optional("ConfigurationManager") => stack_configuration_manager(),
+        optional("CustomCookbooksSource") => source(),
+        optional("CustomJson") => String.t(),
+        optional("DefaultAvailabilityZone") => String.t(),
+        optional("DefaultInstanceProfileArn") => String.t(),
+        optional("DefaultOs") => String.t(),
+        optional("DefaultRootDeviceType") => list(any()),
+        optional("DefaultSshKeyName") => String.t(),
+        optional("DefaultSubnetId") => String.t(),
+        optional("HostnameTheme") => String.t(),
+        optional("Name") => String.t(),
+        optional("Region") => String.t(),
+        optional("UseCustomCookbooks") => boolean(),
+        optional("UseOpsworksSecurityGroups") => boolean(),
+        optional("VpcId") => String.t(),
+        required("ServiceRoleArn") => String.t(),
+        required("SourceStackId") => String.t()
+      }
+      
+  """
+  @type clone_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_app_request() :: %{
+        required("AppId") => String.t()
+      }
+      
+  """
+  @type delete_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_based_auto_scaling_configuration() :: %{
+        "DownScaling" => auto_scaling_thresholds(),
+        "Enable" => boolean(),
+        "LayerId" => String.t(),
+        "UpScaling" => auto_scaling_thresholds()
+      }
+      
+  """
+  @type load_based_auto_scaling_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_my_user_profile_request() :: %{
+        optional("SshPublicKey") => String.t()
+      }
+      
+  """
+  @type update_my_user_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_instance_request() :: %{
+        optional("AgentVersion") => String.t(),
+        optional("AmiId") => String.t(),
+        optional("Architecture") => list(any()),
+        optional("AutoScalingType") => list(any()),
+        optional("AvailabilityZone") => String.t(),
+        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("EbsOptimized") => boolean(),
+        optional("Hostname") => String.t(),
+        optional("InstallUpdatesOnBoot") => boolean(),
+        optional("Os") => String.t(),
+        optional("RootDeviceType") => list(any()),
+        optional("SshKeyName") => String.t(),
+        optional("SubnetId") => String.t(),
+        optional("Tenancy") => String.t(),
+        optional("VirtualizationType") => String.t(),
+        required("InstanceType") => String.t(),
+        required("LayerIds") => list(String.t()()),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type create_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agent_versions_result() :: %{
+        "AgentVersions" => list(agent_version()())
+      }
+      
+  """
+  @type describe_agent_versions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_ecs_cluster_result() :: %{
+        "EcsClusterArn" => String.t()
+      }
+      
+  """
+  @type register_ecs_cluster_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance() :: %{
+        "Status" => String.t(),
+        "AutoScalingType" => list(any()),
+        "AmiId" => String.t(),
+        "Hostname" => String.t(),
+        "ReportedOs" => reported_os(),
+        "LastServiceErrorId" => String.t(),
+        "SubnetId" => String.t(),
+        "InstanceProfileArn" => String.t(),
+        "AgentVersion" => String.t(),
+        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "SshKeyName" => String.t(),
+        "Os" => String.t(),
+        "StackId" => String.t(),
+        "RootDeviceVolumeId" => String.t(),
+        "CreatedAt" => String.t(),
+        "Ec2InstanceId" => String.t(),
+        "AvailabilityZone" => String.t(),
+        "RegisteredBy" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "InstanceType" => String.t(),
+        "InstanceId" => String.t(),
+        "Tenancy" => String.t(),
+        "PublicIp" => String.t(),
+        "ElasticIp" => String.t(),
+        "ReportedAgentVersion" => String.t(),
+        "EcsContainerInstanceArn" => String.t(),
+        "VirtualizationType" => list(any()),
+        "PrivateDns" => String.t(),
+        "RootDeviceType" => list(any()),
+        "PrivateIp" => String.t(),
+        "Architecture" => list(any()),
+        "InstallUpdatesOnBoot" => boolean(),
+        "LayerIds" => list(String.t()()),
+        "Arn" => String.t(),
+        "EcsClusterArn" => String.t(),
+        "SshHostDsaKeyFingerprint" => String.t(),
+        "SshHostRsaKeyFingerprint" => String.t(),
+        "PublicDns" => String.t(),
+        "EbsOptimized" => boolean(),
+        "InfrastructureClass" => String.t(),
+        "Platform" => String.t()
+      }
+      
+  """
+  @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume() :: %{
+        "AvailabilityZone" => String.t(),
+        "Device" => String.t(),
+        "Ec2VolumeId" => String.t(),
+        "Encrypted" => boolean(),
+        "InstanceId" => String.t(),
+        "Iops" => integer(),
+        "MountPoint" => String.t(),
+        "Name" => String.t(),
+        "RaidArrayId" => String.t(),
+        "Region" => String.t(),
+        "Size" => integer(),
+        "Status" => String.t(),
+        "VolumeId" => String.t(),
+        "VolumeType" => String.t()
+      }
+      
+  """
+  @type volume() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_volume_request() :: %{
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type deregister_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      chef_configuration() :: %{
+        "BerkshelfVersion" => String.t(),
+        "ManageBerkshelf" => boolean()
+      }
+      
+  """
+  @type chef_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_profile_request() :: %{
+        optional("AllowSelfManagement") => boolean(),
+        optional("SshPublicKey") => String.t(),
+        optional("SshUsername") => String.t(),
+        required("IamUserArn") => String.t()
+      }
+      
+  """
+  @type create_user_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ecs_cluster() :: %{
+        "EcsClusterArn" => String.t(),
+        "EcsClusterName" => String.t(),
+        "RegisteredAt" => String.t(),
+        "StackId" => String.t()
+      }
+      
+  """
+  @type ecs_cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_profile_result() :: %{
+        "IamUserArn" => String.t()
+      }
+      
+  """
+  @type create_user_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_raid_arrays_request() :: %{
+        optional("InstanceId") => String.t(),
+        optional("RaidArrayIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_raid_arrays_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_layer_request() :: %{
+        optional("Attributes") => map(),
+        optional("AutoAssignElasticIps") => boolean(),
+        optional("AutoAssignPublicIps") => boolean(),
+        optional("CloudWatchLogsConfiguration") => cloud_watch_logs_configuration(),
+        optional("CustomInstanceProfileArn") => String.t(),
+        optional("CustomJson") => String.t(),
+        optional("CustomRecipes") => recipes(),
+        optional("CustomSecurityGroupIds") => list(String.t()()),
+        optional("EnableAutoHealing") => boolean(),
+        optional("InstallUpdatesOnBoot") => boolean(),
+        optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
+        optional("Packages") => list(String.t()()),
+        optional("UseEbsOptimizedInstances") => boolean(),
+        optional("VolumeConfigurations") => list(volume_configuration()()),
+        required("Name") => String.t(),
+        required("Shortname") => String.t(),
+        required("StackId") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_layer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ecs_clusters_result() :: %{
+        "EcsClusters" => list(ecs_cluster()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_ecs_clusters_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_layer_request() :: %{
+        required("LayerId") => String.t()
+      }
+      
+  """
+  @type delete_layer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_instance_result() :: %{
+        "InstanceId" => String.t()
+      }
+      
+  """
+  @type register_instance_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_time_based_auto_scaling_result() :: %{
+        "TimeBasedAutoScalingConfigurations" => list(time_based_auto_scaling_configuration()())
+      }
+      
+  """
+  @type describe_time_based_auto_scaling_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rds_db_instance_request() :: %{
+        optional("DbPassword") => String.t(),
+        optional("DbUser") => String.t(),
+        required("RdsDbInstanceArn") => String.t()
+      }
+      
+  """
+  @type update_rds_db_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_layers_request() :: %{
+        optional("LayerIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_layers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_app_request() :: %{
+        optional("AppSource") => source(),
+        optional("Attributes") => map(),
+        optional("DataSources") => list(data_source()()),
+        optional("Description") => String.t(),
+        optional("Domains") => list(String.t()()),
+        optional("EnableSsl") => boolean(),
+        optional("Environment") => list(environment_variable()()),
+        optional("Name") => String.t(),
+        optional("SslConfiguration") => ssl_configuration(),
+        optional("Type") => list(any()),
+        required("AppId") => String.t()
+      }
+      
+  """
+  @type update_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_instance_request() :: %{
+        optional("DeleteElasticIp") => boolean(),
+        optional("DeleteVolumes") => boolean(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type delete_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_elastic_ip_request() :: %{
+        required("ElasticIp") => String.t(),
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type register_elastic_ip_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_volume_result() :: %{
+        "VolumeId" => String.t()
+      }
+      
+  """
+  @type register_volume_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grant_access_result() :: %{
+        "TemporaryCredential" => temporary_credential()
+      }
+      
+  """
+  @type grant_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_summary_request() :: %{
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type describe_stack_summary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instances_result() :: %{
+        "Instances" => list(instance()())
+      }
+      
+  """
+  @type describe_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_instance() :: %{
+        "Address" => String.t(),
+        "DbInstanceIdentifier" => String.t(),
+        "DbPassword" => String.t(),
+        "DbUser" => String.t(),
+        "Engine" => String.t(),
+        "MissingOnRds" => boolean(),
+        "RdsDbInstanceArn" => String.t(),
+        "Region" => String.t(),
+        "StackId" => String.t()
+      }
+      
+  """
+  @type rds_db_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_load_based_auto_scaling_result() :: %{
+        "LoadBasedAutoScalingConfigurations" => list(load_based_auto_scaling_configuration()())
+      }
+      
+  """
+  @type describe_load_based_auto_scaling_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clone_stack_result() :: %{
+        "StackId" => String.t()
+      }
+      
+  """
+  @type clone_stack_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      command() :: %{
+        "AcknowledgedAt" => String.t(),
+        "CommandId" => String.t(),
+        "CompletedAt" => String.t(),
+        "CreatedAt" => String.t(),
+        "DeploymentId" => String.t(),
+        "ExitCode" => integer(),
+        "InstanceId" => String.t(),
+        "LogUrl" => String.t(),
+        "Status" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type command() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      volume_configuration() :: %{
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "MountPoint" => String.t(),
+        "NumberOfDisks" => integer(),
+        "RaidLevel" => integer(),
+        "Size" => integer(),
+        "VolumeType" => String.t()
+      }
+      
+  """
+  @type volume_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_volumes_result() :: %{
+        "Volumes" => list(volume()())
+      }
+      
+  """
+  @type describe_volumes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operating_system_configuration_manager() :: %{
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type operating_system_configuration_manager() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_error() :: %{
+        "CreatedAt" => String.t(),
+        "InstanceId" => String.t(),
+        "Message" => String.t(),
+        "ServiceErrorId" => String.t(),
+        "StackId" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type service_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source() :: %{
+        "Arn" => String.t(),
+        "DatabaseName" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_instance_request() :: %{
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type start_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      self_user_profile() :: %{
+        "IamUserArn" => String.t(),
+        "Name" => String.t(),
+        "SshPublicKey" => String.t(),
+        "SshUsername" => String.t()
+      }
+      
+  """
+  @type self_user_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_time_based_auto_scaling_request() :: %{
+        optional("AutoScalingSchedule") => weekly_auto_scaling_schedule(),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type set_time_based_auto_scaling_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type list_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_log_stream() :: %{
+        "BatchCount" => integer(),
+        "BatchSize" => integer(),
+        "BufferDuration" => integer(),
+        "DatetimeFormat" => String.t(),
+        "Encoding" => list(any()),
+        "File" => String.t(),
+        "FileFingerprintLines" => String.t(),
+        "InitialPosition" => list(any()),
+        "LogGroupName" => String.t(),
+        "MultiLineStartPattern" => String.t(),
+        "TimeZone" => list(any())
+      }
+      
+  """
+  @type cloud_watch_logs_log_stream() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_provisioning_parameters_request() :: %{
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type describe_stack_provisioning_parameters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_identity() :: %{
+        "Document" => String.t(),
+        "Signature" => String.t()
+      }
+      
+  """
+  @type instance_identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_deployments_request() :: %{
+        optional("AppId") => String.t(),
+        optional("DeploymentIds") => list(String.t()()),
+        optional("StackId") => String.t()
+      }
+      
+  """
+  @type describe_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_app_result() :: %{
+        "AppId" => String.t()
+      }
+      
+  """
+  @type create_app_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_errors_result() :: %{
+        "ServiceErrors" => list(service_error()())
+      }
+      
+  """
+  @type describe_service_errors_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_stack_request() :: %{
+        required("StackId") => String.t()
+      }
+      
+  """
+  @type start_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_based_auto_scaling_configuration() :: %{
+        "AutoScalingSchedule" => weekly_auto_scaling_schedule(),
+        "InstanceId" => String.t()
+      }
+      
+  """
+  @type time_based_auto_scaling_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permission() :: %{
+        "AllowSsh" => boolean(),
+        "AllowSudo" => boolean(),
+        "IamUserArn" => String.t(),
+        "Level" => String.t(),
+        "StackId" => String.t()
+      }
+      
+  """
+  @type permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reported_os() :: %{
+        "Family" => String.t(),
+        "Name" => String.t(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type reported_os() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_rds_db_instance_request() :: %{
+        required("RdsDbInstanceArn") => String.t()
+      }
+      
+  """
+  @type deregister_rds_db_instance_request() :: %{String.t() => any()}
+
+  @type assign_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type assign_volume_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type associate_elastic_ip_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type attach_elastic_load_balancer_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type clone_stack_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type create_app_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type create_deployment_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type create_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type create_layer_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type create_stack_errors() :: validation_exception()
+
+  @type create_user_profile_errors() :: validation_exception()
+
+  @type delete_app_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type delete_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type delete_layer_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type delete_stack_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type delete_user_profile_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type deregister_ecs_cluster_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type deregister_elastic_ip_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type deregister_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type deregister_rds_db_instance_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type deregister_volume_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_agent_versions_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_apps_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_commands_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_deployments_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_ecs_clusters_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_elastic_ips_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_elastic_load_balancers_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_instances_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_layers_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_load_based_auto_scaling_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_permissions_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_raid_arrays_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_rds_db_instances_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_service_errors_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_stack_provisioning_parameters_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_stack_summary_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_stacks_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_time_based_auto_scaling_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type describe_user_profiles_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type describe_volumes_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type detach_elastic_load_balancer_errors() :: resource_not_found_exception()
+
+  @type disassociate_elastic_ip_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type get_hostname_suggestion_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type grant_access_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type list_tags_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type reboot_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type register_ecs_cluster_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type register_elastic_ip_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type register_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type register_rds_db_instance_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type register_volume_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type set_load_based_auto_scaling_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type set_permission_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type set_time_based_auto_scaling_errors() ::
+          validation_exception() | resource_not_found_exception()
+
+  @type start_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type start_stack_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type stop_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type stop_stack_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type tag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type unassign_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type unassign_volume_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_app_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_elastic_ip_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_layer_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_my_user_profile_errors() :: validation_exception()
+
+  @type update_rds_db_instance_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_stack_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_user_profile_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_volume_errors() :: validation_exception() | resource_not_found_exception()
 
   def metadata do
     %{
@@ -127,6 +2465,7 @@ defmodule AWS.OpsWorks do
       credential_scope: nil,
       endpoint_prefix: "opsworks",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "OpsWorks",
       signature_version: "v4",
@@ -145,18 +2484,22 @@ defmodule AWS.OpsWorks do
   You can assign registered Amazon EC2 instances only to custom layers.
 
     *
-  You cannot use this action with instances that were created with AWS OpsWorks
+  You cannot use this action with instances that were created with OpsWorks
   Stacks.
 
-  **Required Permissions**: To use this action, an AWS Identity and Access
-  Management
+  **Required Permissions**: To use this action, an Identity and Access Management
   (IAM) user must have a Manage permissions
   level for the stack or an attached policy that explicitly grants permissions.
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec assign_instance(AWS.Client.t(), assign_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, assign_instance_errors()}
   def assign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignInstance", input, options)
   end
@@ -177,8 +2520,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec assign_volume(AWS.Client.t(), assign_volume_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, assign_volume_errors()}
   def assign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignVolume", input, options)
   end
@@ -192,14 +2540,19 @@ defmodule AWS.OpsWorks do
   For more
   information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
 
-  **Required Permissions**: To use this action, an IAM user must have a Manage
-  permissions
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions
   level for the stack, or an attached policy that explicitly grants permissions.
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec associate_elastic_ip(AWS.Client.t(), associate_elastic_ip_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_elastic_ip_errors()}
   def associate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateElasticIp", input, options)
   end
@@ -207,15 +2560,14 @@ defmodule AWS.OpsWorks do
   @doc """
   Attaches an Elastic Load Balancing load balancer to a specified layer.
 
-  AWS OpsWorks Stacks does not support
-  Application Load Balancer. You can only use Classic Load Balancer with AWS
-  OpsWorks Stacks.
+  OpsWorks Stacks does not support
+  Application Load Balancer. You can only use Classic Load Balancer with OpsWorks
+  Stacks.
   For more information, see [Elastic Load Balancing](https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html).
 
   You must create the Elastic Load Balancing instance separately, by using the
   Elastic Load Balancing console, API, or CLI. For
-  more information, see [ Elastic Load Balancing Developer
-  Guide](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html).
+  more information, see the [Elastic Load Balancing Developer Guide](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html).
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -223,8 +2575,17 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec attach_elastic_load_balancer(
+          AWS.Client.t(),
+          attach_elastic_load_balancer_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, attach_elastic_load_balancer_errors()}
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachElasticLoadBalancer", input, options)
   end
@@ -240,8 +2601,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec clone_stack(AWS.Client.t(), clone_stack_request(), Keyword.t()) ::
+          {:ok, clone_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, clone_stack_errors()}
   def clone_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloneStack", input, options)
   end
@@ -257,8 +2623,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
+          {:ok, create_app_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -275,8 +2646,13 @@ defmodule AWS.OpsWorks do
   permissions. For
   more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_deployment(AWS.Client.t(), create_deployment_request(), Keyword.t()) ::
+          {:ok, create_deployment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -293,8 +2669,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_instance(AWS.Client.t(), create_instance_request(), Keyword.t()) ::
+          {:ok, create_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstance", input, options)
   end
@@ -305,8 +2686,8 @@ defmodule AWS.OpsWorks do
   For more information, see [How to Create a
   Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html).
 
-  You should use **CreateLayer** for noncustom layer types such as PHP App Server
-  only if the stack
+  You should use **CreateLayer** for noncustom layer types such as
+  PHP App Server only if the stack
   does not have an existing layer of that type. A stack can have at most one
   instance of each
   noncustom layer; if you attempt to create a second instance, ## CreateLayer
@@ -315,14 +2696,19 @@ defmodule AWS.OpsWorks do
   **CreateLayer** as
   many times as you like for that layer type.
 
-  **Required Permissions**: To use this action, an IAM user must have a Manage
-  permissions
+  **Required Permissions**: To use this action, an IAM user must
+  have a Manage permissions
   level for the stack, or an attached policy that explicitly grants permissions.
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_layer(AWS.Client.t(), create_layer_request(), Keyword.t()) ::
+          {:ok, create_layer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_layer_errors()}
   def create_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLayer", input, options)
   end
@@ -337,8 +2723,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_stack(AWS.Client.t(), create_stack_request(), Keyword.t()) ::
+          {:ok, create_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -351,8 +2742,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec create_user_profile(AWS.Client.t(), create_user_profile_request(), Keyword.t()) ::
+          {:ok, create_user_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
@@ -360,14 +2756,19 @@ defmodule AWS.OpsWorks do
   @doc """
   Deletes a specified app.
 
-  **Required Permissions**: To use this action, an IAM user must have a Manage
-  permissions
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions
   level for the stack, or an attached policy that explicitly grants permissions.
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -376,7 +2777,8 @@ defmodule AWS.OpsWorks do
   Deletes a specified instance, which terminates the associated Amazon EC2
   instance.
 
-  You must stop an instance before you can delete it.
+  You must stop an instance before
+  you can delete it.
 
   For more information, see [Deleting Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html).
 
@@ -386,8 +2788,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec delete_instance(AWS.Client.t(), delete_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -399,14 +2806,19 @@ defmodule AWS.OpsWorks do
   unassign registered instances. For more information, see [How to Delete a
   Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html).
 
-  **Required Permissions**: To use this action, an IAM user must have a Manage
-  permissions
+  **Required Permissions**: To use this action, an IAM user must have a
+  Manage permissions
   level for the stack, or an attached policy that explicitly grants permissions.
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec delete_layer(AWS.Client.t(), delete_layer_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_layer_errors()}
   def delete_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLayer", input, options)
   end
@@ -423,8 +2835,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec delete_stack(AWS.Client.t(), delete_stack_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -437,8 +2854,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec delete_user_profile(AWS.Client.t(), delete_user_profile_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -458,8 +2880,13 @@ defmodule AWS.OpsWorks do
   information on user permissions, see
   [https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec deregister_ecs_cluster(AWS.Client.t(), deregister_ecs_cluster_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_ecs_cluster_errors()}
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEcsCluster", input, options)
   end
@@ -467,8 +2894,8 @@ defmodule AWS.OpsWorks do
   @doc """
   Deregisters a specified Elastic IP address.
 
-  The address can then be registered by another
-  stack. For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  The address can be registered by another
+  stack after it is deregistered. For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -476,19 +2903,23 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec deregister_elastic_ip(AWS.Client.t(), deregister_elastic_ip_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_elastic_ip_errors()}
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterElasticIp", input, options)
   end
 
   @doc """
-  Deregister a registered Amazon EC2 or on-premises instance.
+  Deregister an instance from OpsWorks Stacks.
 
-  This action removes the
-  instance from the stack and returns it to your control. This action cannot be
-  used with
-  instances that were created with AWS OpsWorks Stacks.
+  The instance can be a registered instance (Amazon EC2 or on-premises) or an
+  instance created with OpsWorks.
+  This action removes the instance from the stack and returns it to your control.
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -496,8 +2927,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec deregister_instance(AWS.Client.t(), deregister_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
@@ -511,8 +2947,17 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec deregister_rds_db_instance(
+          AWS.Client.t(),
+          deregister_rds_db_instance_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_rds_db_instance_errors()}
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterRdsDbInstance", input, options)
   end
@@ -529,21 +2974,31 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec deregister_volume(AWS.Client.t(), deregister_volume_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_volume_errors()}
   def deregister_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterVolume", input, options)
   end
 
   @doc """
-  Describes the available AWS OpsWorks Stacks agent versions.
+  Describes the available OpsWorks Stacks agent versions.
 
   You must specify a stack ID or a
   configuration manager. `DescribeAgentVersions` returns a list of available
   agent versions for the specified stack or configuration manager.
   """
+  @spec describe_agent_versions(AWS.Client.t(), describe_agent_versions_request(), Keyword.t()) ::
+          {:ok, describe_agent_versions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_agent_versions_errors()}
   def describe_agent_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgentVersions", input, options)
   end
@@ -554,13 +3009,19 @@ defmodule AWS.OpsWorks do
   This call accepts only one resource-identifying parameter.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
-  Deploy, or
+  Deploy,
+  or
   Manage permissions level for the stack, or an attached policy that explicitly
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_apps(AWS.Client.t(), describe_apps_request(), Keyword.t()) ::
+          {:ok, describe_apps_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_apps_errors()}
   def describe_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApps", input, options)
   end
@@ -576,8 +3037,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_commands(AWS.Client.t(), describe_commands_request(), Keyword.t()) ::
+          {:ok, describe_commands_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_commands_errors()}
   def describe_commands(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCommands", input, options)
   end
@@ -593,8 +3059,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_deployments(AWS.Client.t(), describe_deployments_request(), Keyword.t()) ::
+          {:ok, describe_deployments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_deployments_errors()}
   def describe_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeployments", input, options)
   end
@@ -604,7 +3075,7 @@ defmodule AWS.OpsWorks do
 
   If you specify only a stack ID,
   you can use the `MaxResults` and `NextToken` parameters to paginate the
-  response. However, AWS OpsWorks Stacks currently supports only one cluster per
+  response. However, OpsWorks Stacks currently supports only one cluster per
   layer, so the result
   set has a maximum of one element.
 
@@ -616,8 +3087,13 @@ defmodule AWS.OpsWorks do
 
   This call accepts only one resource-identifying parameter.
   """
+  @spec describe_ecs_clusters(AWS.Client.t(), describe_ecs_clusters_request(), Keyword.t()) ::
+          {:ok, describe_ecs_clusters_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_ecs_clusters_errors()}
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEcsClusters", input, options)
   end
@@ -633,8 +3109,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_elastic_ips(AWS.Client.t(), describe_elastic_ips_request(), Keyword.t()) ::
+          {:ok, describe_elastic_ips_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_elastic_ips_errors()}
   def describe_elastic_ips(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticIps", input, options)
   end
@@ -650,8 +3131,17 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_elastic_load_balancers(
+          AWS.Client.t(),
+          describe_elastic_load_balancers_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_elastic_load_balancers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_elastic_load_balancers_errors()}
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticLoadBalancers", input, options)
   end
@@ -667,8 +3157,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_instances(AWS.Client.t(), describe_instances_request(), Keyword.t()) ::
+          {:ok, describe_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -684,8 +3179,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_layers(AWS.Client.t(), describe_layers_request(), Keyword.t()) ::
+          {:ok, describe_layers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_layers_errors()}
   def describe_layers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLayers", input, options)
   end
@@ -701,8 +3201,17 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_load_based_auto_scaling(
+          AWS.Client.t(),
+          describe_load_based_auto_scaling_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_load_based_auto_scaling_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_load_based_auto_scaling_errors()}
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBasedAutoScaling", input, options)
   end
@@ -716,17 +3225,25 @@ defmodule AWS.OpsWorks do
   information about user
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_my_user_profile(AWS.Client.t(), %{}, Keyword.t()) ::
+          {:ok, describe_my_user_profile_result(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMyUserProfile", input, options)
   end
 
   @doc """
-  Describes the operating systems that are supported by AWS OpsWorks Stacks.
+  Describes the operating systems that are supported by OpsWorks Stacks.
   """
+  @spec describe_operating_systems(AWS.Client.t(), %{}, Keyword.t()) ::
+          {:ok, describe_operating_systems_response(), any()}
+          | {:error, {:unexpected_response, any()}}
   def describe_operating_systems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOperatingSystems", input, options)
   end
@@ -740,8 +3257,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_permissions(AWS.Client.t(), describe_permissions_request(), Keyword.t()) ::
+          {:ok, describe_permissions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_permissions_errors()}
   def describe_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePermissions", input, options)
   end
@@ -757,8 +3279,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_raid_arrays(AWS.Client.t(), describe_raid_arrays_request(), Keyword.t()) ::
+          {:ok, describe_raid_arrays_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_raid_arrays_errors()}
   def describe_raid_arrays(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRaidArrays", input, options)
   end
@@ -774,14 +3301,23 @@ defmodule AWS.OpsWorks do
 
   This call accepts only one resource-identifying parameter.
   """
+  @spec describe_rds_db_instances(
+          AWS.Client.t(),
+          describe_rds_db_instances_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_rds_db_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_rds_db_instances_errors()}
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRdsDbInstances", input, options)
   end
 
   @doc """
-  Describes AWS OpsWorks Stacks service errors.
+  Describes OpsWorks Stacks service errors.
 
   **Required Permissions**: To use this action, an IAM user must have a Show,
   Deploy, or
@@ -791,8 +3327,13 @@ defmodule AWS.OpsWorks do
 
   This call accepts only one resource-identifying parameter.
   """
+  @spec describe_service_errors(AWS.Client.t(), describe_service_errors_request(), Keyword.t()) ::
+          {:ok, describe_service_errors_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_service_errors_errors()}
   def describe_service_errors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceErrors", input, options)
   end
@@ -806,8 +3347,17 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_stack_provisioning_parameters(
+          AWS.Client.t(),
+          describe_stack_provisioning_parameters_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_stack_provisioning_parameters_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_stack_provisioning_parameters_errors()}
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackProvisioningParameters", input, options)
   end
@@ -823,8 +3373,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_stack_summary(AWS.Client.t(), describe_stack_summary_request(), Keyword.t()) ::
+          {:ok, describe_stack_summary_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_stack_summary_errors()}
   def describe_stack_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackSummary", input, options)
   end
@@ -838,8 +3393,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_stacks(AWS.Client.t(), describe_stacks_request(), Keyword.t()) ::
+          {:ok, describe_stacks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -855,8 +3415,17 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_time_based_auto_scaling(
+          AWS.Client.t(),
+          describe_time_based_auto_scaling_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_time_based_auto_scaling_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_time_based_auto_scaling_errors()}
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTimeBasedAutoScaling", input, options)
   end
@@ -869,8 +3438,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_user_profiles(AWS.Client.t(), describe_user_profiles_request(), Keyword.t()) ::
+          {:ok, describe_user_profiles_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_user_profiles_errors()}
   def describe_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfiles", input, options)
   end
@@ -886,8 +3460,13 @@ defmodule AWS.OpsWorks do
   grants
   permissions. For more information about user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec describe_volumes(AWS.Client.t(), describe_volumes_request(), Keyword.t()) ::
+          {:ok, describe_volumes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -901,8 +3480,17 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec detach_elastic_load_balancer(
+          AWS.Client.t(),
+          detach_elastic_load_balancer_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detach_elastic_load_balancer_errors()}
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachElasticLoadBalancer", input, options)
   end
@@ -919,8 +3507,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec disassociate_elastic_ip(AWS.Client.t(), disassociate_elastic_ip_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_elastic_ip_errors()}
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateElasticIp", input, options)
   end
@@ -935,8 +3528,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec get_hostname_suggestion(AWS.Client.t(), get_hostname_suggestion_request(), Keyword.t()) ::
+          {:ok, get_hostname_suggestion_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_hostname_suggestion_errors()}
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHostnameSuggestion", input, options)
   end
@@ -947,8 +3545,13 @@ defmodule AWS.OpsWorks do
 
   Grants RDP access to a Windows instance for a specified time period.
   """
+  @spec grant_access(AWS.Client.t(), grant_access_request(), Keyword.t()) ::
+          {:ok, grant_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, grant_access_errors()}
   def grant_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GrantAccess", input, options)
   end
@@ -956,8 +3559,13 @@ defmodule AWS.OpsWorks do
   @doc """
   Returns a list of tags that are applied to the specified stack or layer.
   """
+  @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
+          {:ok, list_tags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -974,8 +3582,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec reboot_instance(AWS.Client.t(), reboot_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootInstance", input, options)
   end
@@ -999,8 +3612,13 @@ defmodule AWS.OpsWorks do
   Managing User
   Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec register_ecs_cluster(AWS.Client.t(), register_ecs_cluster_request(), Keyword.t()) ::
+          {:ok, register_ecs_cluster_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_ecs_cluster_errors()}
   def register_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEcsCluster", input, options)
   end
@@ -1019,30 +3637,36 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec register_elastic_ip(AWS.Client.t(), register_elastic_ip_request(), Keyword.t()) ::
+          {:ok, register_elastic_ip_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_elastic_ip_errors()}
   def register_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterElasticIp", input, options)
   end
 
   @doc """
-  Registers instances that were created outside of AWS OpsWorks Stacks with a
+  Registers instances that were created outside of OpsWorks Stacks with a
   specified stack.
 
   We do not recommend using this action to register instances. The complete
   registration
-  operation includes two tasks: installing the AWS OpsWorks Stacks agent on the
+  operation includes two tasks: installing the OpsWorks Stacks agent on the
   instance, and registering
   the instance with the stack. `RegisterInstance` handles only the second step.
   You
-  should instead use the AWS CLI `register` command, which performs the entire
+  should instead use the CLI `register` command, which performs the entire
   registration operation. For more information,
   see [
-  Registering an Instance with an AWS OpsWorks Stacks
+  Registering an Instance with an OpsWorks Stacks
   Stack](https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html).
 
   Registered instances have the same requirements as instances that are created by
-  using the `CreateInstance` API.
+  using the `CreateInstance`
+  API.
   For example, registered instances must be running a supported Linux-based
   operating system, and they must have a supported instance
   type. For more information about requirements for instances that you want to
@@ -1056,8 +3680,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec register_instance(AWS.Client.t(), register_instance_request(), Keyword.t()) ::
+          {:ok, register_instance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstance", input, options)
   end
@@ -1071,8 +3700,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec register_rds_db_instance(AWS.Client.t(), register_rds_db_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_rds_db_instance_errors()}
   def register_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterRdsDbInstance", input, options)
   end
@@ -1091,8 +3725,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec register_volume(AWS.Client.t(), register_volume_request(), Keyword.t()) ::
+          {:ok, register_volume_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_volume_errors()}
   def register_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterVolume", input, options)
   end
@@ -1105,9 +3744,10 @@ defmodule AWS.OpsWorks do
   Instances](https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html).
 
   To use load-based auto scaling, you must create a set of load-based auto scaling
-  instances. Load-based auto scaling operates only on the instances from that set,
-  so you must ensure that you have created enough instances to handle the maximum
-  anticipated load.
+  instances.
+  Load-based auto scaling operates only on the instances from that set, so you
+  must ensure that you have created enough
+  instances to handle the maximum anticipated load.
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -1115,8 +3755,17 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec set_load_based_auto_scaling(
+          AWS.Client.t(),
+          set_load_based_auto_scaling_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_load_based_auto_scaling_errors()}
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBasedAutoScaling", input, options)
   end
@@ -1124,7 +3773,8 @@ defmodule AWS.OpsWorks do
   @doc """
   Specifies a user's permissions.
 
-  For more information, see [Security and Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html).
+  For more information, see
+  [Security and Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html).
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -1132,8 +3782,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec set_permission(AWS.Client.t(), set_permission_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_permission_errors()}
   def set_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPermission", input, options)
   end
@@ -1151,8 +3806,17 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec set_time_based_auto_scaling(
+          AWS.Client.t(),
+          set_time_based_auto_scaling_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_time_based_auto_scaling_errors()}
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTimeBasedAutoScaling", input, options)
   end
@@ -1169,8 +3833,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec start_instance(AWS.Client.t(), start_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstance", input, options)
   end
@@ -1184,8 +3853,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec start_stack(AWS.Client.t(), start_stack_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_stack_errors()}
   def start_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartStack", input, options)
   end
@@ -1205,8 +3879,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec stop_instance(AWS.Client.t(), stop_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInstance", input, options)
   end
@@ -1220,21 +3899,32 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec stop_stack(AWS.Client.t(), stop_stack_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_stack_errors()}
   def stop_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStack", input, options)
   end
 
   @doc """
-  Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks.
+  Apply cost-allocation tags to a specified stack or layer in OpsWorks Stacks.
 
-  For more information about how tagging works, see
+  For more information about how
+  tagging works, see
   [Tags](https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html) in
-  the AWS OpsWorks User Guide.
+  the OpsWorks User Guide.
   """
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1246,7 +3936,7 @@ defmodule AWS.OpsWorks do
   to
   another layer as needed. You cannot use this action with instances that were
   created
-  with AWS OpsWorks Stacks.
+  with OpsWorks Stacks.
 
   **Required Permissions**: To use this action, an IAM user must
   have a Manage permissions level for the stack or an attached policy that
@@ -1254,8 +3944,13 @@ defmodule AWS.OpsWorks do
   grants permissions. For more information about user permissions, see [Managing User
   Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec unassign_instance(AWS.Client.t(), unassign_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, unassign_instance_errors()}
   def unassign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignInstance", input, options)
   end
@@ -1272,8 +3967,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec unassign_volume(AWS.Client.t(), unassign_volume_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, unassign_volume_errors()}
   def unassign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignVolume", input, options)
   end
@@ -1281,8 +3981,13 @@ defmodule AWS.OpsWorks do
   @doc """
   Removes tags from a specified stack or layer.
   """
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1296,8 +4001,13 @@ defmodule AWS.OpsWorks do
   permissions. For
   more information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_app(AWS.Client.t(), update_app_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -1313,8 +4023,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_elastic_ip(AWS.Client.t(), update_elastic_ip_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_elastic_ip_errors()}
   def update_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateElasticIp", input, options)
   end
@@ -1328,8 +4043,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_instance(AWS.Client.t(), update_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstance", input, options)
   end
@@ -1343,8 +4063,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_layer(AWS.Client.t(), update_layer_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_layer_errors()}
   def update_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLayer", input, options)
   end
@@ -1358,8 +4083,13 @@ defmodule AWS.OpsWorks do
   information about user
   permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_my_user_profile(AWS.Client.t(), update_my_user_profile_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_my_user_profile_errors()}
   def update_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMyUserProfile", input, options)
   end
@@ -1373,8 +4103,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_rds_db_instance(AWS.Client.t(), update_rds_db_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_rds_db_instance_errors()}
   def update_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRdsDbInstance", input, options)
   end
@@ -1388,8 +4123,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_stack(AWS.Client.t(), update_stack_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -1402,8 +4142,13 @@ defmodule AWS.OpsWorks do
   that explicitly grants permissions. For more information about user permissions,
   see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_user_profile(AWS.Client.t(), update_user_profile_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
@@ -1411,7 +4156,8 @@ defmodule AWS.OpsWorks do
   @doc """
   Updates an Amazon EBS volume's name or mount point.
 
-  For more information, see [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
+  For more information, see
+  [Resource Management](https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html).
 
   **Required Permissions**: To use this action, an IAM user must have a Manage
   permissions
@@ -1419,8 +4165,13 @@ defmodule AWS.OpsWorks do
   For more
   information on user permissions, see [Managing User Permissions](https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html).
   """
+  @spec update_volume(AWS.Client.t(), update_volume_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVolume", input, options)
   end

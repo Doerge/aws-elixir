@@ -11,6 +11,211 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Name" => [String.t()],
+        "Operator" => String.t(),
+        "Values" => list([String.t()]())
+      }
+
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_settings_request() :: %{}
+
+  """
+  @type get_service_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_settings_response() :: %{
+        optional("HomeRegions") => list([String.t()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
+        optional("Status") => String.t(),
+        optional("StatusMessage") => map()
+      }
+
+  """
+  @type get_service_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance() :: %{
+        "AccountID" => [String.t()],
+        "AmiId" => [String.t()],
+        "InstanceID" => [String.t()],
+        "InstanceType" => [String.t()],
+        "LastUpdatedTime" => [String.t()],
+        "ProductCode" => list([String.t()]()),
+        "Region" => [String.t()],
+        "Status" => [String.t()],
+        "SubscriptionName" => [String.t()],
+        "UsageOperation" => [String.t()]
+      }
+
+  """
+  @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linux_subscriptions_discovery_settings() :: %{
+        "OrganizationIntegration" => String.t(),
+        "SourceRegions" => list([String.t()]())
+      }
+
+  """
+  @type linux_subscriptions_discovery_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscription_instances_request() :: %{
+        "Filters" => list(filter()()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_linux_subscription_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscription_instances_response() :: %{
+        optional("Instances") => list(instance()()),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_linux_subscription_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscriptions_request() :: %{
+        "Filters" => list(filter()()),
+        "MaxResults" => integer(),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_linux_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_linux_subscriptions_response() :: %{
+        optional("NextToken") => [String.t()],
+        optional("Subscriptions") => list(subscription()())
+      }
+
+  """
+  @type list_linux_subscriptions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "InstanceCount" => float(),
+        "Name" => [String.t()],
+        "Type" => [String.t()]
+      }
+
+  """
+  @type subscription() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_settings_request() :: %{
+        optional("AllowUpdate") => [boolean()],
+        required("LinuxSubscriptionsDiscovery") => String.t(),
+        required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
+      }
+
+  """
+  @type update_service_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_settings_response() :: %{
+        optional("HomeRegions") => list([String.t()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
+        optional("Status") => String.t(),
+        optional("StatusMessage") => map()
+      }
+
+  """
+  @type update_service_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type get_service_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_linux_subscription_instances_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_linux_subscriptions_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type update_service_settings_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -18,6 +223,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       credential_scope: nil,
       endpoint_prefix: "license-manager-linux-subscriptions",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "License Manager Linux Subscriptions",
       signature_version: "v4",
@@ -28,13 +234,22 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Lists the Linux subscriptions service settings.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_service_settings(AWS.Client.t(), get_service_settings_request(), Keyword.t()) ::
+          {:ok, get_service_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetServiceSettings"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -53,13 +268,26 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   Lists the running Amazon EC2 instances that were discovered with commercial
   Linux
   subscriptions.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_linux_subscription_instances(
+          AWS.Client.t(),
+          list_linux_subscription_instances_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_linux_subscription_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_linux_subscription_instances_errors()}
   def list_linux_subscription_instances(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -81,13 +309,22 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   organization, the returned results will include data aggregated across your
   accounts in
   Organizations.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_linux_subscriptions(AWS.Client.t(), list_linux_subscriptions_request(), Keyword.t()) ::
+          {:ok, list_linux_subscriptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_linux_subscriptions_errors()}
   def list_linux_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -104,13 +341,22 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Updates the service settings for Linux subscriptions.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_service_settings(AWS.Client.t(), update_service_settings_request(), Keyword.t()) ::
+          {:ok, update_service_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/UpdateServiceSettings"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

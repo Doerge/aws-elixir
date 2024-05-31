@@ -5,6 +5,165 @@ defmodule AWS.PersonalizeRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      get_action_recommendations_request() :: %{
+        optional("campaignArn") => String.t(),
+        optional("filterArn") => String.t(),
+        optional("filterValues") => map(),
+        optional("numResults") => integer(),
+        optional("userId") => String.t()
+      }
+
+  """
+  @type get_action_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_action_recommendations_response() :: %{
+        "actionList" => list(predicted_action()()),
+        "recommendationId" => String.t()
+      }
+
+  """
+  @type get_action_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_personalized_ranking_request() :: %{
+        optional("context") => map(),
+        optional("filterArn") => String.t(),
+        optional("filterValues") => map(),
+        optional("metadataColumns") => map(),
+        required("campaignArn") => String.t(),
+        required("inputList") => list(String.t()()),
+        required("userId") => String.t()
+      }
+
+  """
+  @type get_personalized_ranking_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_personalized_ranking_response() :: %{
+        "personalizedRanking" => list(predicted_item()()),
+        "recommendationId" => String.t()
+      }
+
+  """
+  @type get_personalized_ranking_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendations_request() :: %{
+        optional("campaignArn") => String.t(),
+        optional("context") => map(),
+        optional("filterArn") => String.t(),
+        optional("filterValues") => map(),
+        optional("itemId") => String.t(),
+        optional("metadataColumns") => map(),
+        optional("numResults") => integer(),
+        optional("promotions") => list(promotion()()),
+        optional("recommenderArn") => String.t(),
+        optional("userId") => String.t()
+      }
+
+  """
+  @type get_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendations_response() :: %{
+        "itemList" => list(predicted_item()()),
+        "recommendationId" => String.t()
+      }
+
+  """
+  @type get_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      predicted_action() :: %{
+        "actionId" => String.t(),
+        "score" => float()
+      }
+
+  """
+  @type predicted_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      predicted_item() :: %{
+        "itemId" => String.t(),
+        "metadata" => map(),
+        "promotionName" => String.t(),
+        "reason" => list(String.t()()),
+        "score" => float()
+      }
+
+  """
+  @type predicted_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promotion() :: %{
+        "filterArn" => String.t(),
+        "filterValues" => map(),
+        "name" => String.t(),
+        "percentPromotedItems" => integer()
+      }
+
+  """
+  @type promotion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @type get_action_recommendations_errors() ::
+          resource_not_found_exception() | invalid_input_exception()
+
+  @type get_personalized_ranking_errors() ::
+          resource_not_found_exception() | invalid_input_exception()
+
+  @type get_recommendations_errors() :: resource_not_found_exception() | invalid_input_exception()
+
   def metadata do
     %{
       api_version: "2018-05-22",
@@ -12,6 +171,7 @@ defmodule AWS.PersonalizeRuntime do
       credential_scope: nil,
       endpoint_prefix: "personalize-runtime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Personalize Runtime",
       signature_version: "v4",
@@ -31,13 +191,26 @@ defmodule AWS.PersonalizeRuntime do
   For more information about PERSONALIZED_ACTIONS recipes, see
   [PERSONALIZED_ACTIONS recipes](https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html).
   For more information about getting action recommendations, see [Getting action recommendations](https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_action_recommendations(
+          AWS.Client.t(),
+          get_action_recommendations_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_action_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_action_recommendations_errors()}
   def get_action_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/action-recommendations"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -60,13 +233,22 @@ defmodule AWS.PersonalizeRuntime do
 
   The solution backing the campaign must have been created using a recipe of type
   PERSONALIZED_RANKING.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_personalized_ranking(AWS.Client.t(), get_personalized_ranking_request(), Keyword.t()) ::
+          {:ok, get_personalized_ranking_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_personalized_ranking_errors()}
   def get_personalized_ranking(%Client{} = client, input, options \\ []) do
     url_path = "/personalize-ranking"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -101,13 +283,22 @@ defmodule AWS.PersonalizeRuntime do
   user input depends on the use case (domain-based recipe) backing the
   recommender.
   For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_recommendations(AWS.Client.t(), get_recommendations_request(), Keyword.t()) ::
+          {:ok, get_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_recommendations_errors()}
   def get_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

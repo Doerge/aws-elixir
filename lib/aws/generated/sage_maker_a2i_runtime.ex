@@ -53,6 +53,269 @@ defmodule AWS.SageMakerA2IRuntime do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_human_loop_request() :: %{}
+
+  """
+  @type delete_human_loop_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_human_loop_response() :: %{}
+
+  """
+  @type delete_human_loop_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_human_loop_request() :: %{}
+
+  """
+  @type describe_human_loop_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_human_loop_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureCode" => String.t(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "HumanLoopArn" => String.t(),
+        "HumanLoopName" => String.t(),
+        "HumanLoopOutput" => human_loop_output(),
+        "HumanLoopStatus" => list(any())
+      }
+
+  """
+  @type describe_human_loop_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_data_attributes() :: %{
+        "ContentClassifiers" => list(list(any())())
+      }
+
+  """
+  @type human_loop_data_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_input() :: %{
+        "InputContent" => String.t()
+      }
+
+  """
+  @type human_loop_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_output() :: %{
+        "OutputS3Uri" => String.t()
+      }
+
+  """
+  @type human_loop_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_loop_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "FlowDefinitionArn" => String.t(),
+        "HumanLoopName" => String.t(),
+        "HumanLoopStatus" => list(any())
+      }
+
+  """
+  @type human_loop_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortOrder") => list(any()),
+        required("FlowDefinitionArn") => String.t()
+      }
+
+  """
+  @type list_human_loops_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_human_loops_response() :: %{
+        "HumanLoopSummaries" => list(human_loop_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_human_loops_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_human_loop_request() :: %{
+        optional("DataAttributes") => human_loop_data_attributes(),
+        required("FlowDefinitionArn") => String.t(),
+        required("HumanLoopInput") => human_loop_input(),
+        required("HumanLoopName") => String.t()
+      }
+
+  """
+  @type start_human_loop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_human_loop_response() :: %{
+        "HumanLoopArn" => String.t()
+      }
+
+  """
+  @type start_human_loop_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_human_loop_request() :: %{
+        required("HumanLoopName") => String.t()
+      }
+
+  """
+  @type stop_human_loop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_human_loop_response() :: %{}
+
+  """
+  @type stop_human_loop_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type delete_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type describe_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type list_human_loops_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type start_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type stop_human_loop_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2019-11-07",
@@ -60,6 +323,7 @@ defmodule AWS.SageMakerA2IRuntime do
       credential_scope: nil,
       endpoint_prefix: "a2i-runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker A2I Runtime",
       signature_version: "v4",
@@ -73,13 +337,23 @@ defmodule AWS.SageMakerA2IRuntime do
 
   If the human loop was deleted, this operation will return a
   `ResourceNotFoundException`.
+
+  ## Required positional parameters:
+   • :human_loop_name (t:string String.t/0) (HumanLoopName)
+
+  ## Optional parameters:
   """
+  @spec delete_human_loop(AWS.Client.t(), String.t(), delete_human_loop_request(), Keyword.t()) ::
+          {:ok, delete_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_human_loop_errors()}
   def delete_human_loop(%Client{} = client, human_loop_name, input, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -99,13 +373,28 @@ defmodule AWS.SageMakerA2IRuntime do
 
   If the human loop was deleted, this
   operation will return a `ResourceNotFoundException` error.
+
+  ## Required positional parameters:
+   • :human_loop_name (t:string String.t/0) (HumanLoopName)
+
+  ## Optional parameters:
   """
+  @spec describe_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_human_loop_errors()}
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -114,20 +403,32 @@ defmodule AWS.SageMakerA2IRuntime do
   Returns information about human loops, given the specified parameters.
 
   If a human loop was deleted, it will not be included.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :creation_time_after (t:String.t/0) (CreationTimeAfter)
+   • :creation_time_before (t:String.t/0) (CreationTimeBefore)
+   • :flow_definition_arn (t:String.t/0) (FlowDefinitionArn)
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
+   • :sort_order (t:String.t/0) (SortOrder)
   """
-  def list_human_loops(
-        %Client{} = client,
-        creation_time_after \\ nil,
-        creation_time_before \\ nil,
-        flow_definition_arn,
-        max_results \\ nil,
-        next_token \\ nil,
-        sort_order \\ nil,
-        options \\ []
-      ) do
+  @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_human_loops_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_human_loops_errors()}
+  def list_human_loops(%Client{} = client, flow_definition_arn, options \\ []) do
     url_path = "/human-loops"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [creation_time_after: nil, creation_time_before: nil, flow_definition_arn: nil, max_results: nil, next_token: nil, sort_order: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {sort_order, options} = Keyword.pop(options, :sort_order, nil)
 
     query_params =
       if !is_nil(sort_order) do
@@ -136,12 +437,16 @@ defmodule AWS.SageMakerA2IRuntime do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"NextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -150,12 +455,16 @@ defmodule AWS.SageMakerA2IRuntime do
         query_params
       end
 
+    {flow_definition_arn, options} = Keyword.pop(options, :flow_definition_arn, nil)
+
     query_params =
       if !is_nil(flow_definition_arn) do
         [{"FlowDefinitionArn", flow_definition_arn} | query_params]
       else
         query_params
       end
+
+    {creation_time_before, options} = Keyword.pop(options, :creation_time_before, nil)
 
     query_params =
       if !is_nil(creation_time_before) do
@@ -164,6 +473,8 @@ defmodule AWS.SageMakerA2IRuntime do
         query_params
       end
 
+    {creation_time_after, options} = Keyword.pop(options, :creation_time_after, nil)
+
     query_params =
       if !is_nil(creation_time_after) do
         [{"CreationTimeAfter", creation_time_after} | query_params]
@@ -171,20 +482,30 @@ defmodule AWS.SageMakerA2IRuntime do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a human loop, provided that at least one activation condition is met.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_human_loop(AWS.Client.t(), start_human_loop_request(), Keyword.t()) ::
+          {:ok, start_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_human_loop_errors()}
   def start_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -201,13 +522,22 @@ defmodule AWS.SageMakerA2IRuntime do
 
   @doc """
   Stops the specified human loop.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec stop_human_loop(AWS.Client.t(), stop_human_loop_request(), Keyword.t()) ::
+          {:ok, stop_human_loop_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_human_loop_errors()}
   def stop_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops/stop"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

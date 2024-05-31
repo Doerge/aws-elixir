@@ -9,6 +9,1342 @@ defmodule AWS.MTurk do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      approve_assignment_request() :: %{
+        optional("OverrideRejection") => boolean(),
+        optional("RequesterFeedback") => String.t(),
+        required("AssignmentId") => String.t()
+      }
+      
+  """
+  @type approve_assignment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hit_response() :: %{}
+      
+  """
+  @type delete_hit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_workers_request() :: %{
+        required("MessageText") => String.t(),
+        required("Subject") => String.t(),
+        required("WorkerIds") => list(String.t()())
+      }
+      
+  """
+  @type notify_workers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualification_requirement() :: %{
+        "ActionsGuarded" => list(any()),
+        "Comparator" => list(any()),
+        "IntegerValues" => list(integer()()),
+        "LocaleValues" => list(locale()()),
+        "QualificationTypeId" => String.t(),
+        "RequiredToPreview" => boolean()
+      }
+      
+  """
+  @type qualification_requirement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      review_policy() :: %{
+        "Parameters" => list(policy_parameter()()),
+        "PolicyName" => String.t()
+      }
+      
+  """
+  @type review_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_worker_block_request() :: %{
+        optional("Reason") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type delete_worker_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualification_type_request() :: %{
+        required("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type get_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_qualification_type_request() :: %{
+        optional("AnswerKey") => String.t(),
+        optional("AutoGranted") => boolean(),
+        optional("AutoGrantedValue") => integer(),
+        optional("Keywords") => String.t(),
+        optional("RetryDelayInSeconds") => float(),
+        optional("Test") => String.t(),
+        optional("TestDurationInSeconds") => float(),
+        required("Description") => String.t(),
+        required("Name") => String.t(),
+        required("QualificationTypeStatus") => list(any())
+      }
+      
+  """
+  @type create_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assignment() :: %{
+        "AcceptTime" => non_neg_integer(),
+        "Answer" => String.t(),
+        "ApprovalTime" => non_neg_integer(),
+        "AssignmentId" => String.t(),
+        "AssignmentStatus" => list(any()),
+        "AutoApprovalTime" => non_neg_integer(),
+        "Deadline" => non_neg_integer(),
+        "HITId" => String.t(),
+        "RejectionTime" => non_neg_integer(),
+        "RequesterFeedback" => String.t(),
+        "SubmitTime" => non_neg_integer(),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type assignment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_assignment_request() :: %{
+        required("AssignmentId") => String.t(),
+        required("RequesterFeedback") => String.t()
+      }
+      
+  """
+  @type reject_assignment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_balance_response() :: %{
+        "AvailableBalance" => String.t(),
+        "OnHoldBalance" => String.t()
+      }
+      
+  """
+  @type get_account_balance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reviewable_hits_request() :: %{
+        optional("HITTypeId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_reviewable_hits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_file_upload_url_response() :: %{
+        "FileUploadURL" => String.t()
+      }
+      
+  """
+  @type get_file_upload_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_qualification_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MustBeOwnedByCaller") => boolean(),
+        optional("NextToken") => String.t(),
+        optional("Query") => String.t(),
+        required("MustBeRequestable") => boolean()
+      }
+      
+  """
+  @type list_qualification_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_qualification_request_request() :: %{
+        optional("IntegerValue") => integer(),
+        required("QualificationRequestId") => String.t()
+      }
+      
+  """
+  @type accept_qualification_request_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_type_response() :: %{
+        "HITTypeId" => String.t()
+      }
+      
+  """
+  @type create_hit_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_worker_block_response() :: %{}
+      
+  """
+  @type create_worker_block_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_fault() :: %{
+        "Message" => String.t(),
+        "TurkErrorCode" => String.t()
+      }
+      
+  """
+  @type service_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_additional_assignments_for_hit_response() :: %{}
+      
+  """
+  @type create_additional_assignments_for_hit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_qualification_type_request() :: %{
+        required("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type delete_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      locale() :: %{
+        "Country" => String.t(),
+        "Subdivision" => String.t()
+      }
+      
+  """
+  @type locale() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      review_result_detail() :: %{
+        "ActionId" => String.t(),
+        "Key" => String.t(),
+        "QuestionId" => String.t(),
+        "SubjectId" => String.t(),
+        "SubjectType" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type review_result_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hits_for_qualification_type_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type list_hits_for_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_bonus_response() :: %{}
+      
+  """
+  @type send_bonus_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_file_upload_url_request() :: %{
+        required("AssignmentId") => String.t(),
+        required("QuestionIdentifier") => String.t()
+      }
+      
+  """
+  @type get_file_upload_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualification_score_request() :: %{
+        required("QualificationTypeId") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type get_qualification_score_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hit_type_of_hit_request() :: %{
+        required("HITId") => String.t(),
+        required("HITTypeId") => String.t()
+      }
+      
+  """
+  @type update_hit_type_of_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approve_assignment_response() :: %{}
+      
+  """
+  @type approve_assignment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_review_policy_results_for_hit_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PolicyLevels") => list(list(any())()),
+        optional("RetrieveActions") => boolean(),
+        optional("RetrieveResults") => boolean(),
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type list_review_policy_results_for_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_worker_blocks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_worker_blocks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_bonus_request() :: %{
+        optional("UniqueRequestToken") => String.t(),
+        required("AssignmentId") => String.t(),
+        required("BonusAmount") => String.t(),
+        required("Reason") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type send_bonus_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_assignment_response() :: %{}
+      
+  """
+  @type reject_assignment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_specification() :: %{
+        "Destination" => String.t(),
+        "EventTypes" => list(list(any())()),
+        "Transport" => list(any()),
+        "Version" => String.t()
+      }
+      
+  """
+  @type notification_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_bonus_payments_response() :: %{
+        "BonusPayments" => list(bonus_payment()()),
+        "NextToken" => String.t(),
+        "NumResults" => integer()
+      }
+      
+  """
+  @type list_bonus_payments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_test_event_notification_request() :: %{
+        required("Notification") => notification_specification(),
+        required("TestEventType") => list(any())
+      }
+      
+  """
+  @type send_test_event_notification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_workers_failure_status() :: %{
+        "NotifyWorkersFailureCode" => list(any()),
+        "NotifyWorkersFailureMessage" => String.t(),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type notify_workers_failure_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hits_for_qualification_type_response() :: %{
+        "HITs" => list(hit()()),
+        "NextToken" => String.t(),
+        "NumResults" => integer()
+      }
+      
+  """
+  @type list_hits_for_qualification_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_balance_request() :: %{}
+      
+  """
+  @type get_account_balance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notification_settings_response() :: %{}
+      
+  """
+  @type update_notification_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_qualification_request_response() :: %{}
+      
+  """
+  @type reject_qualification_request_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_qualification_type_response() :: %{
+        "QualificationType" => qualification_type()
+      }
+      
+  """
+  @type update_qualification_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hit_response() :: %{
+        "HIT" => hit()
+      }
+      
+  """
+  @type get_hit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_assignment_response() :: %{
+        "Assignment" => assignment(),
+        "HIT" => hit()
+      }
+      
+  """
+  @type get_assignment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_qualification_request_request() :: %{
+        optional("Reason") => String.t(),
+        required("QualificationRequestId") => String.t()
+      }
+      
+  """
+  @type reject_qualification_request_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_worker_block_request() :: %{
+        required("Reason") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type create_worker_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_qualification_type_response() :: %{}
+      
+  """
+  @type delete_qualification_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_worker_blocks_response() :: %{
+        "NextToken" => String.t(),
+        "NumResults" => integer(),
+        "WorkerBlocks" => list(worker_block()())
+      }
+      
+  """
+  @type list_worker_blocks_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_qualification_with_worker_response() :: %{}
+      
+  """
+  @type associate_qualification_with_worker_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualification() :: %{
+        "GrantTime" => non_neg_integer(),
+        "IntegerValue" => integer(),
+        "LocaleValue" => locale(),
+        "QualificationTypeId" => String.t(),
+        "Status" => list(any()),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type qualification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hit_review_status_response() :: %{}
+      
+  """
+  @type update_hit_review_status_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_workers_response() :: %{
+        "NotifyWorkersFailureStatuses" => list(notify_workers_failure_status()())
+      }
+      
+  """
+  @type notify_workers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      worker_block() :: %{
+        "Reason" => String.t(),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type worker_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_notification_settings_request() :: %{
+        optional("Active") => boolean(),
+        optional("Notification") => notification_specification(),
+        required("HITTypeId") => String.t()
+      }
+      
+  """
+  @type update_notification_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_error() :: %{
+        "Message" => String.t(),
+        "TurkErrorCode" => String.t()
+      }
+      
+  """
+  @type request_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_qualification_request_response() :: %{}
+      
+  """
+  @type accept_qualification_request_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_qualification_from_worker_response() :: %{}
+      
+  """
+  @type disassociate_qualification_from_worker_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_qualification_requests_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type list_qualification_requests_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_expiration_for_hit_response() :: %{}
+      
+  """
+  @type update_expiration_for_hit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      hit() :: %{
+        "AssignmentDurationInSeconds" => float(),
+        "AutoApprovalDelayInSeconds" => float(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "Expiration" => non_neg_integer(),
+        "HITGroupId" => String.t(),
+        "HITId" => String.t(),
+        "HITLayoutId" => String.t(),
+        "HITReviewStatus" => list(any()),
+        "HITStatus" => list(any()),
+        "HITTypeId" => String.t(),
+        "Keywords" => String.t(),
+        "MaxAssignments" => integer(),
+        "NumberOfAssignmentsAvailable" => integer(),
+        "NumberOfAssignmentsCompleted" => integer(),
+        "NumberOfAssignmentsPending" => integer(),
+        "QualificationRequirements" => list(qualification_requirement()()),
+        "Question" => String.t(),
+        "RequesterAnnotation" => String.t(),
+        "Reward" => String.t(),
+        "Title" => String.t()
+      }
+      
+  """
+  @type hit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_hit_request() :: %{
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type get_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_parameter() :: %{
+        "Key" => String.t(),
+        "MapEntries" => list(parameter_map_entry()()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type policy_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bonus_payment() :: %{
+        "AssignmentId" => String.t(),
+        "BonusAmount" => String.t(),
+        "GrantTime" => non_neg_integer(),
+        "Reason" => String.t(),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type bonus_payment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workers_with_qualification_type_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Status") => list(any()),
+        required("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type list_workers_with_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_bonus_payments_request() :: %{
+        optional("AssignmentId") => String.t(),
+        optional("HITId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_bonus_payments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_request() :: %{
+        optional("AssignmentReviewPolicy") => review_policy(),
+        optional("AutoApprovalDelayInSeconds") => float(),
+        optional("HITLayoutId") => String.t(),
+        optional("HITLayoutParameters") => list(hit_layout_parameter()()),
+        optional("HITReviewPolicy") => review_policy(),
+        optional("Keywords") => String.t(),
+        optional("MaxAssignments") => integer(),
+        optional("QualificationRequirements") => list(qualification_requirement()()),
+        optional("Question") => String.t(),
+        optional("RequesterAnnotation") => String.t(),
+        optional("UniqueRequestToken") => String.t(),
+        required("AssignmentDurationInSeconds") => float(),
+        required("Description") => String.t(),
+        required("LifetimeInSeconds") => float(),
+        required("Reward") => String.t(),
+        required("Title") => String.t()
+      }
+      
+  """
+  @type create_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_qualification_with_worker_request() :: %{
+        optional("IntegerValue") => integer(),
+        optional("SendNotification") => boolean(),
+        required("QualificationTypeId") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type associate_qualification_with_worker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_qualification_requests_response() :: %{
+        "NextToken" => String.t(),
+        "NumResults" => integer(),
+        "QualificationRequests" => list(qualification_request()())
+      }
+      
+  """
+  @type list_qualification_requests_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hit_layout_parameter() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type hit_layout_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      review_action_detail() :: %{
+        "ActionId" => String.t(),
+        "ActionName" => String.t(),
+        "CompleteTime" => non_neg_integer(),
+        "ErrorCode" => String.t(),
+        "Result" => String.t(),
+        "Status" => list(any()),
+        "TargetId" => String.t(),
+        "TargetType" => String.t()
+      }
+      
+  """
+  @type review_action_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_with_hit_type_response() :: %{
+        "HIT" => hit()
+      }
+      
+  """
+  @type create_hit_with_hit_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hits_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_hits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_test_event_notification_response() :: %{}
+      
+  """
+  @type send_test_event_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hit_review_status_request() :: %{
+        optional("Revert") => boolean(),
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type update_hit_review_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workers_with_qualification_type_response() :: %{
+        "NextToken" => String.t(),
+        "NumResults" => integer(),
+        "Qualifications" => list(qualification()())
+      }
+      
+  """
+  @type list_workers_with_qualification_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_review_policy_results_for_hit_response() :: %{
+        "AssignmentReviewPolicy" => review_policy(),
+        "AssignmentReviewReport" => review_report(),
+        "HITId" => String.t(),
+        "HITReviewPolicy" => review_policy(),
+        "HITReviewReport" => review_report(),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_review_policy_results_for_hit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_additional_assignments_for_hit_request() :: %{
+        optional("UniqueRequestToken") => String.t(),
+        required("HITId") => String.t(),
+        required("NumberOfAdditionalAssignments") => integer()
+      }
+      
+  """
+  @type create_additional_assignments_for_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      review_report() :: %{
+        "ReviewActions" => list(review_action_detail()()),
+        "ReviewResults" => list(review_result_detail()())
+      }
+      
+  """
+  @type review_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_assignment_request() :: %{
+        required("AssignmentId") => String.t()
+      }
+      
+  """
+  @type get_assignment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_assignments_for_hit_response() :: %{
+        "Assignments" => list(assignment()()),
+        "NextToken" => String.t(),
+        "NumResults" => integer()
+      }
+      
+  """
+  @type list_assignments_for_hit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualification_type() :: %{
+        "AnswerKey" => String.t(),
+        "AutoGranted" => boolean(),
+        "AutoGrantedValue" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "IsRequestable" => boolean(),
+        "Keywords" => String.t(),
+        "Name" => String.t(),
+        "QualificationTypeId" => String.t(),
+        "QualificationTypeStatus" => list(any()),
+        "RetryDelayInSeconds" => float(),
+        "Test" => String.t(),
+        "TestDurationInSeconds" => float()
+      }
+      
+  """
+  @type qualification_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      qualification_request() :: %{
+        "Answer" => String.t(),
+        "QualificationRequestId" => String.t(),
+        "QualificationTypeId" => String.t(),
+        "SubmitTime" => non_neg_integer(),
+        "Test" => String.t(),
+        "WorkerId" => String.t()
+      }
+      
+  """
+  @type qualification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualification_score_response() :: %{
+        "Qualification" => qualification()
+      }
+      
+  """
+  @type get_qualification_score_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_qualification_type_response() :: %{
+        "QualificationType" => qualification_type()
+      }
+      
+  """
+  @type create_qualification_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_hit_type_of_hit_response() :: %{}
+      
+  """
+  @type update_hit_type_of_hit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_with_hit_type_request() :: %{
+        optional("AssignmentReviewPolicy") => review_policy(),
+        optional("HITLayoutId") => String.t(),
+        optional("HITLayoutParameters") => list(hit_layout_parameter()()),
+        optional("HITReviewPolicy") => review_policy(),
+        optional("MaxAssignments") => integer(),
+        optional("Question") => String.t(),
+        optional("RequesterAnnotation") => String.t(),
+        optional("UniqueRequestToken") => String.t(),
+        required("HITTypeId") => String.t(),
+        required("LifetimeInSeconds") => float()
+      }
+      
+  """
+  @type create_hit_with_hit_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hits_response() :: %{
+        "HITs" => list(hit()()),
+        "NextToken" => String.t(),
+        "NumResults" => integer()
+      }
+      
+  """
+  @type list_hits_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_expiration_for_hit_request() :: %{
+        required("ExpireAt") => non_neg_integer(),
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type update_expiration_for_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hit_request() :: %{
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type delete_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reviewable_hits_response() :: %{
+        "HITs" => list(hit()()),
+        "NextToken" => String.t(),
+        "NumResults" => integer()
+      }
+      
+  """
+  @type list_reviewable_hits_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_qualification_type_response() :: %{
+        "QualificationType" => qualification_type()
+      }
+      
+  """
+  @type get_qualification_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_response() :: %{
+        "HIT" => hit()
+      }
+      
+  """
+  @type create_hit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_qualification_from_worker_request() :: %{
+        optional("Reason") => String.t(),
+        required("QualificationTypeId") => String.t(),
+        required("WorkerId") => String.t()
+      }
+      
+  """
+  @type disassociate_qualification_from_worker_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_qualification_type_request() :: %{
+        optional("AnswerKey") => String.t(),
+        optional("AutoGranted") => boolean(),
+        optional("AutoGrantedValue") => integer(),
+        optional("Description") => String.t(),
+        optional("QualificationTypeStatus") => list(any()),
+        optional("RetryDelayInSeconds") => float(),
+        optional("Test") => String.t(),
+        optional("TestDurationInSeconds") => float(),
+        required("QualificationTypeId") => String.t()
+      }
+      
+  """
+  @type update_qualification_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_map_entry() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type parameter_map_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_assignments_for_hit_request() :: %{
+        optional("AssignmentStatuses") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("HITId") => String.t()
+      }
+      
+  """
+  @type list_assignments_for_hit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_qualification_types_response() :: %{
+        "NextToken" => String.t(),
+        "NumResults" => integer(),
+        "QualificationTypes" => list(qualification_type()())
+      }
+      
+  """
+  @type list_qualification_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hit_type_request() :: %{
+        optional("AutoApprovalDelayInSeconds") => float(),
+        optional("Keywords") => String.t(),
+        optional("QualificationRequirements") => list(qualification_requirement()()),
+        required("AssignmentDurationInSeconds") => float(),
+        required("Description") => String.t(),
+        required("Reward") => String.t(),
+        required("Title") => String.t()
+      }
+      
+  """
+  @type create_hit_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_worker_block_response() :: %{}
+      
+  """
+  @type delete_worker_block_response() :: %{}
+
+  @type accept_qualification_request_errors() :: request_error() | service_fault()
+
+  @type approve_assignment_errors() :: request_error() | service_fault()
+
+  @type associate_qualification_with_worker_errors() :: request_error() | service_fault()
+
+  @type create_additional_assignments_for_hit_errors() :: request_error() | service_fault()
+
+  @type create_hit_errors() :: request_error() | service_fault()
+
+  @type create_hit_type_errors() :: request_error() | service_fault()
+
+  @type create_hit_with_hit_type_errors() :: request_error() | service_fault()
+
+  @type create_qualification_type_errors() :: request_error() | service_fault()
+
+  @type create_worker_block_errors() :: request_error() | service_fault()
+
+  @type delete_hit_errors() :: request_error() | service_fault()
+
+  @type delete_qualification_type_errors() :: request_error() | service_fault()
+
+  @type delete_worker_block_errors() :: request_error() | service_fault()
+
+  @type disassociate_qualification_from_worker_errors() :: request_error() | service_fault()
+
+  @type get_account_balance_errors() :: request_error() | service_fault()
+
+  @type get_assignment_errors() :: request_error() | service_fault()
+
+  @type get_file_upload_url_errors() :: request_error() | service_fault()
+
+  @type get_hit_errors() :: request_error() | service_fault()
+
+  @type get_qualification_score_errors() :: request_error() | service_fault()
+
+  @type get_qualification_type_errors() :: request_error() | service_fault()
+
+  @type list_assignments_for_hit_errors() :: request_error() | service_fault()
+
+  @type list_bonus_payments_errors() :: request_error() | service_fault()
+
+  @type list_hits_errors() :: request_error() | service_fault()
+
+  @type list_hits_for_qualification_type_errors() :: request_error() | service_fault()
+
+  @type list_qualification_requests_errors() :: request_error() | service_fault()
+
+  @type list_qualification_types_errors() :: request_error() | service_fault()
+
+  @type list_review_policy_results_for_hit_errors() :: request_error() | service_fault()
+
+  @type list_reviewable_hits_errors() :: request_error() | service_fault()
+
+  @type list_worker_blocks_errors() :: request_error() | service_fault()
+
+  @type list_workers_with_qualification_type_errors() :: request_error() | service_fault()
+
+  @type notify_workers_errors() :: request_error() | service_fault()
+
+  @type reject_assignment_errors() :: request_error() | service_fault()
+
+  @type reject_qualification_request_errors() :: request_error() | service_fault()
+
+  @type send_bonus_errors() :: request_error() | service_fault()
+
+  @type send_test_event_notification_errors() :: request_error() | service_fault()
+
+  @type update_expiration_for_hit_errors() :: request_error() | service_fault()
+
+  @type update_hit_review_status_errors() :: request_error() | service_fault()
+
+  @type update_hit_type_of_hit_errors() :: request_error() | service_fault()
+
+  @type update_notification_settings_errors() :: request_error() | service_fault()
+
+  @type update_qualification_type_errors() :: request_error() | service_fault()
+
   def metadata do
     %{
       api_version: "2017-01-17",
@@ -16,6 +1352,7 @@ defmodule AWS.MTurk do
       credential_scope: nil,
       endpoint_prefix: "mturk-requester",
       global?: true,
+      hostname: nil,
       protocol: "json",
       service_id: "MTurk",
       signature_version: "v4",
@@ -35,8 +1372,17 @@ defmodule AWS.MTurk do
   A successful request for the `AcceptQualificationRequest` operation
   returns with no errors and an empty body.
   """
+  @spec accept_qualification_request(
+          AWS.Client.t(),
+          accept_qualification_request_request(),
+          Keyword.t()
+        ) ::
+          {:ok, accept_qualification_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_qualification_request_errors()}
   def accept_qualification_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptQualificationRequest", input, options)
   end
@@ -69,8 +1415,13 @@ defmodule AWS.MTurk do
   30 days
   and only if the assignment's related HIT has not been deleted.
   """
+  @spec approve_assignment(AWS.Client.t(), approve_assignment_request(), Keyword.t()) ::
+          {:ok, approve_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, approve_assignment_errors()}
   def approve_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApproveAssignment", input, options)
   end
@@ -98,8 +1449,17 @@ defmodule AWS.MTurk do
   request without affecting the Qualification the Worker already has, reject the
   request with the `RejectQualificationRequest` operation.
   """
+  @spec associate_qualification_with_worker(
+          AWS.Client.t(),
+          associate_qualification_with_worker_request(),
+          Keyword.t()
+        ) ::
+          {:ok, associate_qualification_with_worker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_qualification_with_worker_errors()}
   def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateQualificationWithWorker", input, options)
   end
@@ -127,8 +1487,17 @@ defmodule AWS.MTurk do
   `AWS.MechanicalTurk.HITTooOldForExtension`
   exception.
   """
+  @spec create_additional_assignments_for_hit(
+          AWS.Client.t(),
+          create_additional_assignments_for_hit_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_additional_assignments_for_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_additional_assignments_for_hit_errors()}
   def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdditionalAssignmentsForHIT", input, options)
   end
@@ -162,8 +1531,13 @@ defmodule AWS.MTurk do
   fee. For more information, see
   [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
+  @spec create_hit(AWS.Client.t(), create_hit_request(), Keyword.t()) ::
+          {:ok, create_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_hit_errors()}
   def create_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHIT", input, options)
   end
@@ -178,8 +1552,13 @@ defmodule AWS.MTurk do
   type
   ID of the existing type will be returned.
   """
+  @spec create_hit_type(AWS.Client.t(), create_hit_type_request(), Keyword.t()) ::
+          {:ok, create_hit_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_hit_type_errors()}
   def create_hit_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHITType", input, options)
   end
@@ -202,8 +1581,13 @@ defmodule AWS.MTurk do
   fee.
   For more information, see [Amazon Mechanical Turk Pricing](https://requester.mturk.com/pricing).
   """
+  @spec create_hit_with_hit_type(AWS.Client.t(), create_hit_with_hit_type_request(), Keyword.t()) ::
+          {:ok, create_hit_with_hit_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_hit_with_hit_type_errors()}
   def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHITWithHITType", input, options)
   end
@@ -216,8 +1600,17 @@ defmodule AWS.MTurk do
   `QualificationType`
   data structure.
   """
+  @spec create_qualification_type(
+          AWS.Client.t(),
+          create_qualification_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_qualification_type_errors()}
   def create_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQualificationType", input, options)
   end
@@ -229,8 +1622,13 @@ defmodule AWS.MTurk do
   For example, you can block a Worker who is producing poor quality work. You can
   block up to 100,000 Workers.
   """
+  @spec create_worker_block(AWS.Client.t(), create_worker_block_request(), Keyword.t()) ::
+          {:ok, create_worker_block_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_worker_block_errors()}
   def create_worker_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkerBlock", input, options)
   end
@@ -267,8 +1665,13 @@ defmodule AWS.MTurk do
   Disposing HITs can improve the performance of operations such as
   ListReviewableHITs and ListHITs.
   """
+  @spec delete_hit(AWS.Client.t(), delete_hit_request(), Keyword.t()) ::
+          {:ok, delete_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_hit_errors()}
   def delete_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHIT", input, options)
   end
@@ -293,8 +1696,17 @@ defmodule AWS.MTurk do
   the unique name of the Qualification type is available for reuse with
   CreateQualificationType.
   """
+  @spec delete_qualification_type(
+          AWS.Client.t(),
+          delete_qualification_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_qualification_type_errors()}
   def delete_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQualificationType", input, options)
   end
@@ -308,8 +1720,13 @@ defmodule AWS.MTurk do
   this operation fails and returns the message “WorkerId is invalid.” If the
   specified Worker is not blocked, this operation returns successfully.
   """
+  @spec delete_worker_block(AWS.Client.t(), delete_worker_block_request(), Keyword.t()) ::
+          {:ok, delete_worker_block_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_worker_block_errors()}
   def delete_worker_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkerBlock", input, options)
   end
@@ -322,8 +1739,17 @@ defmodule AWS.MTurk do
   You can provide a text message explaining why the Qualification was
   revoked. The user who had the Qualification can see this message.
   """
+  @spec disassociate_qualification_from_worker(
+          AWS.Client.t(),
+          disassociate_qualification_from_worker_request(),
+          Keyword.t()
+        ) ::
+          {:ok, disassociate_qualification_from_worker_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_qualification_from_worker_errors()}
   def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateQualificationFromWorker", input, options)
   end
@@ -338,8 +1764,13 @@ defmodule AWS.MTurk do
   balance, this balance can be viewed on the My Account page in the Requester
   console.
   """
+  @spec get_account_balance(AWS.Client.t(), get_account_balance_request(), Keyword.t()) ::
+          {:ok, get_account_balance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_balance_errors()}
   def get_account_balance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountBalance", input, options)
   end
@@ -348,8 +1779,13 @@ defmodule AWS.MTurk do
 
   The `GetAssignment` operation retrieves the details of the specified Assignment.
   """
+  @spec get_assignment(AWS.Client.t(), get_assignment_request(), Keyword.t()) ::
+          {:ok, get_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_assignment_errors()}
   def get_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssignment", input, options)
   end
@@ -374,8 +1810,13 @@ defmodule AWS.MTurk do
   Instead, we recommend that Requesters who want to create HITs asking
   Workers to upload files to use Amazon S3.
   """
+  @spec get_file_upload_url(AWS.Client.t(), get_file_upload_url_request(), Keyword.t()) ::
+          {:ok, get_file_upload_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_file_upload_url_errors()}
   def get_file_upload_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFileUploadURL", input, options)
   end
@@ -384,8 +1825,13 @@ defmodule AWS.MTurk do
 
   The `GetHIT` operation retrieves the details of the specified HIT.
   """
+  @spec get_hit(AWS.Client.t(), get_hit_request(), Keyword.t()) ::
+          {:ok, get_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_hit_errors()}
   def get_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHIT", input, options)
   end
@@ -405,8 +1851,13 @@ defmodule AWS.MTurk do
   Only the owner of a Qualification type can query the value of
   a Worker's Qualification of that type.
   """
+  @spec get_qualification_score(AWS.Client.t(), get_qualification_score_request(), Keyword.t()) ::
+          {:ok, get_qualification_score_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_qualification_score_errors()}
   def get_qualification_score(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQualificationScore", input, options)
   end
@@ -416,8 +1867,13 @@ defmodule AWS.MTurk do
   The `GetQualificationType`operation retrieves information about a Qualification
   type using its ID.
   """
+  @spec get_qualification_type(AWS.Client.t(), get_qualification_type_request(), Keyword.t()) ::
+          {:ok, get_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_qualification_type_errors()}
   def get_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQualificationType", input, options)
   end
@@ -452,8 +1908,13 @@ defmodule AWS.MTurk do
   parameters
   of the operation to control sorting and pagination.
   """
+  @spec list_assignments_for_hit(AWS.Client.t(), list_assignments_for_hit_request(), Keyword.t()) ::
+          {:ok, list_assignments_for_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_assignments_for_hit_errors()}
   def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssignmentsForHIT", input, options)
   end
@@ -465,8 +1926,13 @@ defmodule AWS.MTurk do
   operation retrieves the amounts of bonuses you have paid to Workers
   for a given HIT or assignment.
   """
+  @spec list_bonus_payments(AWS.Client.t(), list_bonus_payments_request(), Keyword.t()) ::
+          {:ok, list_bonus_payments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_bonus_payments_errors()}
   def list_bonus_payments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBonusPayments", input, options)
   end
@@ -481,8 +1947,13 @@ defmodule AWS.MTurk do
   HITs of any status, except for HITs that have been deleted of with
   the DeleteHIT operation or that have been auto-deleted.
   """
+  @spec list_hits(AWS.Client.t(), list_hits_request(), Keyword.t()) ::
+          {:ok, list_hits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_hits_errors()}
   def list_hits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHITs", input, options)
   end
@@ -495,8 +1966,17 @@ defmodule AWS.MTurk do
   The operation returns HITs of any status, except for HITs that have been deleted
   with the `DeleteHIT` operation or that have been auto-deleted.
   """
+  @spec list_hits_for_qualification_type(
+          AWS.Client.t(),
+          list_hits_for_qualification_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_hits_for_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_hits_for_qualification_type_errors()}
   def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHITsForQualificationType", input, options)
   end
@@ -512,8 +1992,17 @@ defmodule AWS.MTurk do
   operation to poll for pending requests, and accepts them using the
   AcceptQualification operation.
   """
+  @spec list_qualification_requests(
+          AWS.Client.t(),
+          list_qualification_requests_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_qualification_requests_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_qualification_requests_errors()}
   def list_qualification_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQualificationRequests", input, options)
   end
@@ -525,8 +2014,13 @@ defmodule AWS.MTurk do
   operation returns a list of Qualification types, filtered by
   an optional search term.
   """
+  @spec list_qualification_types(AWS.Client.t(), list_qualification_types_request(), Keyword.t()) ::
+          {:ok, list_qualification_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_qualification_types_errors()}
   def list_qualification_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQualificationTypes", input, options)
   end
@@ -542,8 +2036,17 @@ defmodule AWS.MTurk do
   results for both
   Assignment-level and HIT-level review results.
   """
+  @spec list_review_policy_results_for_hit(
+          AWS.Client.t(),
+          list_review_policy_results_for_hit_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_review_policy_results_for_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_review_policy_results_for_hit_errors()}
   def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReviewPolicyResultsForHIT", input, options)
   end
@@ -554,8 +2057,13 @@ defmodule AWS.MTurk do
   Reviewable or Status equal to Reviewing that belong to the Requester calling the
   operation.
   """
+  @spec list_reviewable_hits(AWS.Client.t(), list_reviewable_hits_request(), Keyword.t()) ::
+          {:ok, list_reviewable_hits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_reviewable_hits_errors()}
   def list_reviewable_hits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReviewableHITs", input, options)
   end
@@ -564,8 +2072,13 @@ defmodule AWS.MTurk do
   The `ListWorkersBlocks` operation retrieves a list of Workers who are blocked
   from working on your HITs.
   """
+  @spec list_worker_blocks(AWS.Client.t(), list_worker_blocks_request(), Keyword.t()) ::
+          {:ok, list_worker_blocks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_worker_blocks_errors()}
   def list_worker_blocks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkerBlocks", input, options)
   end
@@ -575,8 +2088,17 @@ defmodule AWS.MTurk do
   The `ListWorkersWithQualificationType` operation returns all of the Workers
   that have been associated with a given Qualification type.
   """
+  @spec list_workers_with_qualification_type(
+          AWS.Client.t(),
+          list_workers_with_qualification_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_workers_with_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workers_with_qualification_type_errors()}
   def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkersWithQualificationType", input, options)
   end
@@ -594,8 +2116,13 @@ defmodule AWS.MTurk do
   only if you have previously approved or rejected work from the
   Worker.
   """
+  @spec notify_workers(AWS.Client.t(), notify_workers_request(), Keyword.t()) ::
+          {:ok, notify_workers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, notify_workers_errors()}
   def notify_workers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyWorkers", input, options)
   end
@@ -612,8 +2139,13 @@ defmodule AWS.MTurk do
 
   Only the Requester who created the HIT can reject an assignment for the HIT.
   """
+  @spec reject_assignment(AWS.Client.t(), reject_assignment_request(), Keyword.t()) ::
+          {:ok, reject_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_assignment_errors()}
   def reject_assignment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAssignment", input, options)
   end
@@ -627,8 +2159,17 @@ defmodule AWS.MTurk do
   You can provide a text message explaining why the request was
   rejected. The Worker who made the request can see this message.
   """
+  @spec reject_qualification_request(
+          AWS.Client.t(),
+          reject_qualification_request_request(),
+          Keyword.t()
+        ) ::
+          {:ok, reject_qualification_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_qualification_request_errors()}
   def reject_qualification_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectQualificationRequest", input, options)
   end
@@ -649,8 +2190,13 @@ defmodule AWS.MTurk do
   if your account does not have enough funds to pay for both the bonus
   and the fees.
   """
+  @spec send_bonus(AWS.Client.t(), send_bonus_request(), Keyword.t()) ::
+          {:ok, send_bonus_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_bonus_errors()}
   def send_bonus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendBonus", input, options)
   end
@@ -667,8 +2213,17 @@ defmodule AWS.MTurk do
   When you call this operation, the service attempts to send the test notification
   immediately.
   """
+  @spec send_test_event_notification(
+          AWS.Client.t(),
+          send_test_event_notification_request(),
+          Keyword.t()
+        ) ::
+          {:ok, send_test_event_notification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_test_event_notification_errors()}
   def send_test_event_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTestEventNotification", input, options)
   end
@@ -680,8 +2235,17 @@ defmodule AWS.MTurk do
 
   If you update it to a time in the past, the HIT will be immediately expired.
   """
+  @spec update_expiration_for_hit(
+          AWS.Client.t(),
+          update_expiration_for_hit_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_expiration_for_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_expiration_for_hit_errors()}
   def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExpirationForHIT", input, options)
   end
@@ -693,8 +2257,13 @@ defmodule AWS.MTurk do
   If the status is Reviewable, this operation can update the status to Reviewing,
   or it can revert a Reviewing HIT back to the Reviewable status.
   """
+  @spec update_hit_review_status(AWS.Client.t(), update_hit_review_status_request(), Keyword.t()) ::
+          {:ok, update_hit_review_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_hit_review_status_errors()}
   def update_hit_review_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHITReviewStatus", input, options)
   end
@@ -710,8 +2279,13 @@ defmodule AWS.MTurk do
   associates it with the new HITType properties. The HIT takes on the
   properties of the new HITType in place of the old ones.
   """
+  @spec update_hit_type_of_hit(AWS.Client.t(), update_hit_type_of_hit_request(), Keyword.t()) ::
+          {:ok, update_hit_type_of_hit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_hit_type_of_hit_errors()}
   def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHITTypeOfHIT", input, options)
   end
@@ -735,8 +2309,17 @@ defmodule AWS.MTurk do
   the HIT type must already have a notification specification,
   or one must be provided in the same call to `UpdateNotificationSettings`.
   """
+  @spec update_notification_settings(
+          AWS.Client.t(),
+          update_notification_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_notification_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_notification_settings_errors()}
   def update_notification_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotificationSettings", input, options)
   end
@@ -783,8 +2366,17 @@ defmodule AWS.MTurk do
   You can also update the AutoGranted and AutoGrantedValue
   attributes of the Qualification type.
   """
+  @spec update_qualification_type(
+          AWS.Client.t(),
+          update_qualification_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_qualification_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_qualification_type_errors()}
   def update_qualification_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQualificationType", input, options)
   end

@@ -71,6 +71,273 @@ defmodule AWS.Route53RecoveryCluster do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+      
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_temporarily_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type endpoint_temporarily_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_routing_control_state_request() :: %{
+        required("RoutingControlArn") => String.t()
+      }
+      
+  """
+  @type get_routing_control_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_routing_control_state_response() :: %{
+        "RoutingControlArn" => String.t(),
+        "RoutingControlName" => String.t(),
+        "RoutingControlState" => list(any())
+      }
+      
+  """
+  @type get_routing_control_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_routing_controls_request() :: %{
+        optional("ControlPanelArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_routing_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_routing_controls_response() :: %{
+        "NextToken" => String.t(),
+        "RoutingControls" => list(routing_control()())
+      }
+      
+  """
+  @type list_routing_controls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_control() :: %{
+        "ControlPanelArn" => String.t(),
+        "ControlPanelName" => String.t(),
+        "Owner" => String.t(),
+        "RoutingControlArn" => String.t(),
+        "RoutingControlName" => String.t(),
+        "RoutingControlState" => list(any())
+      }
+      
+  """
+  @type routing_control() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_limit_exceeded_exception() :: %{
+        "limitCode" => String.t(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+      
+  """
+  @type service_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => integer()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_state_entry() :: %{
+        "RoutingControlArn" => String.t(),
+        "RoutingControlState" => list(any())
+      }
+      
+  """
+  @type update_routing_control_state_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_state_request() :: %{
+        optional("SafetyRulesToOverride") => list(String.t()()),
+        required("RoutingControlArn") => String.t(),
+        required("RoutingControlState") => list(any())
+      }
+      
+  """
+  @type update_routing_control_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_state_response() :: %{}
+      
+  """
+  @type update_routing_control_state_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_states_request() :: %{
+        optional("SafetyRulesToOverride") => list(String.t()()),
+        required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry()())
+      }
+      
+  """
+  @type update_routing_control_states_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_routing_control_states_response() :: %{}
+      
+  """
+  @type update_routing_control_states_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+      
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @type get_routing_control_state_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | access_denied_exception()
+
+  @type list_routing_controls_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | access_denied_exception()
+
+  @type update_routing_control_state_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_routing_control_states_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | endpoint_temporarily_unavailable_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2019-12-02",
@@ -78,6 +345,7 @@ defmodule AWS.Route53RecoveryCluster do
       credential_scope: nil,
       endpoint_prefix: "route53-recovery-cluster",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Route53 Recovery Cluster",
       signature_version: "v4",
@@ -126,8 +394,17 @@ defmodule AWS.Route53RecoveryCluster do
   [Working with routing controls in Route 53
   ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
+  @spec get_routing_control_state(
+          AWS.Client.t(),
+          get_routing_control_state_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_routing_control_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_routing_control_state_errors()}
   def get_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRoutingControlState", input, options)
   end
@@ -174,8 +451,13 @@ defmodule AWS.Route53RecoveryCluster do
   [Working with routing controls in Route 53
   ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
+  @spec list_routing_controls(AWS.Client.t(), list_routing_controls_request(), Keyword.t()) ::
+          {:ok, list_routing_controls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_routing_controls_errors()}
   def list_routing_controls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoutingControls", input, options)
   end
@@ -228,8 +510,17 @@ defmodule AWS.Route53RecoveryCluster do
 
   [Working with routing controls overall](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
+  @spec update_routing_control_state(
+          AWS.Client.t(),
+          update_routing_control_state_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_routing_control_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_routing_control_state_errors()}
   def update_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlState", input, options)
   end
@@ -281,8 +572,17 @@ defmodule AWS.Route53RecoveryCluster do
 
   [Working with routing controls overall](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
   """
+  @spec update_routing_control_states(
+          AWS.Client.t(),
+          update_routing_control_states_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_routing_control_states_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_routing_control_states_errors()}
   def update_routing_control_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlStates", input, options)
   end

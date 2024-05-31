@@ -9,6 +9,2540 @@ defmodule AWS.ApiGatewayV2 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      update_stage_request() :: %{
+        optional("AccessLogSettings") => access_log_settings(),
+        optional("AutoDeploy") => boolean(),
+        optional("ClientCertificateId") => String.t(),
+        optional("DefaultRouteSettings") => route_settings(),
+        optional("DeploymentId") => String.t(),
+        optional("Description") => String.t(),
+        optional("RouteSettings") => map(),
+        optional("StageVariables") => map()
+      }
+
+  """
+  @type update_stage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t(),
+        "IntegrationResponseKey" => String.t(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t()
+      }
+
+  """
+  @type update_integration_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stages_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_stages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t(),
+        "IntegrationResponseKey" => String.t(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t()
+      }
+
+  """
+  @type create_integration_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_api_request() :: %{
+        optional("ExportVersion") => String.t(),
+        optional("IncludeExtensions") => boolean(),
+        optional("StageName") => String.t(),
+        required("OutputType") => String.t()
+      }
+
+  """
+  @type export_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stage() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t(),
+        "Description" => String.t(),
+        "LastDeploymentStatusMessage" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type stage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_config_input() :: %{
+        "ServerNameToVerify" => String.t()
+      }
+
+  """
+  @type tls_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_link_response() :: %{}
+
+  """
+  @type delete_vpc_link_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer() :: %{
+        "AuthorizerCredentialsArn" => String.t(),
+        "AuthorizerId" => String.t(),
+        "AuthorizerPayloadFormatVersion" => String.t(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t()()),
+        "IdentityValidationExpression" => String.t(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t()
+      }
+
+  """
+  @type authorizer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizer_response() :: %{
+        "AuthorizerCredentialsArn" => String.t(),
+        "AuthorizerId" => String.t(),
+        "AuthorizerPayloadFormatVersion" => String.t(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t()()),
+        "IdentityValidationExpression" => String.t(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t()
+      }
+
+  """
+  @type get_authorizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t(),
+        "Description" => String.t(),
+        "LastDeploymentStatusMessage" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_stage_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_links_response() :: %{
+        "Items" => list(vpc_link()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_vpc_links_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tags_request() :: %{}
+
+  """
+  @type get_tags_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t(),
+        "Description" => String.t(),
+        "LastDeploymentStatusMessage" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_stage_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_constraints() :: %{
+        "Required" => boolean()
+      }
+
+  """
+  @type parameter_constraints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t(),
+        "Description" => String.t()
+      }
+
+  """
+  @type deployment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_mapping_request() :: %{}
+
+  """
+  @type delete_api_mapping_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      integration() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ConnectionId" => String.t(),
+        "ConnectionType" => list(any()),
+        "ContentHandlingStrategy" => list(any()),
+        "CredentialsArn" => String.t(),
+        "Description" => String.t(),
+        "IntegrationId" => String.t(),
+        "IntegrationMethod" => String.t(),
+        "IntegrationResponseSelectionExpression" => String.t(),
+        "IntegrationSubtype" => String.t(),
+        "IntegrationType" => list(any()),
+        "IntegrationUri" => String.t(),
+        "PassthroughBehavior" => list(any()),
+        "PayloadFormatVersion" => String.t(),
+        "RequestParameters" => map(),
+        "RequestTemplates" => map(),
+        "ResponseParameters" => map(),
+        "TemplateSelectionExpression" => String.t(),
+        "TimeoutInMillis" => integer(),
+        "TlsConfig" => tls_config()
+      }
+
+  """
+  @type integration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_mapping_request() :: %{
+        optional("ApiMappingKey") => String.t(),
+        optional("Stage") => String.t(),
+        required("ApiId") => String.t()
+      }
+
+  """
+  @type update_api_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ConnectionId" => String.t(),
+        "ConnectionType" => list(any()),
+        "ContentHandlingStrategy" => list(any()),
+        "CredentialsArn" => String.t(),
+        "Description" => String.t(),
+        "IntegrationId" => String.t(),
+        "IntegrationMethod" => String.t(),
+        "IntegrationResponseSelectionExpression" => String.t(),
+        "IntegrationSubtype" => String.t(),
+        "IntegrationType" => list(any()),
+        "IntegrationUri" => String.t(),
+        "PassthroughBehavior" => list(any()),
+        "PayloadFormatVersion" => String.t(),
+        "RequestParameters" => map(),
+        "RequestTemplates" => map(),
+        "ResponseParameters" => map(),
+        "TemplateSelectionExpression" => String.t(),
+        "TimeoutInMillis" => integer(),
+        "TlsConfig" => tls_config()
+      }
+
+  """
+  @type get_integration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizers_response() :: %{
+        "Items" => list(authorizer()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_authorizers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_response_request() :: %{}
+
+  """
+  @type delete_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      route_settings() :: %{
+        "DataTraceEnabled" => boolean(),
+        "DetailedMetricsEnabled" => boolean(),
+        "LoggingLevel" => list(any()),
+        "ThrottlingBurstLimit" => integer(),
+        "ThrottlingRateLimit" => float()
+      }
+
+  """
+  @type route_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_responses_response() :: %{
+        "Items" => list(route_response()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_route_responses_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication() :: %{
+        optional("TruststoreUri") => String.t(),
+        optional("TruststoreVersion") => String.t(),
+        optional("TruststoreWarnings") => list(String.t()())
+      }
+
+  """
+  @type mutual_tls_authentication() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_response_request() :: %{
+        optional("ModelSelectionExpression") => String.t(),
+        optional("ResponseModels") => map(),
+        optional("ResponseParameters") => map(),
+        required("RouteResponseKey") => String.t()
+      }
+
+  """
+  @type create_route_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_mapping_response() :: %{
+        "ApiId" => String.t(),
+        "ApiMappingId" => String.t(),
+        "ApiMappingKey" => String.t(),
+        "Stage" => String.t()
+      }
+
+  """
+  @type update_api_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_response_response() :: %{
+        "ModelSelectionExpression" => String.t(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t(),
+        "RouteResponseKey" => String.t()
+      }
+
+  """
+  @type get_route_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_request() :: %{
+        optional("Description") => String.t(),
+        optional("StageName") => String.t()
+      }
+
+  """
+  @type create_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_response() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type create_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_request() :: %{
+        optional("ContentType") => String.t(),
+        optional("Description") => String.t(),
+        required("Name") => String.t(),
+        required("Schema") => String.t()
+      }
+
+  """
+  @type create_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t(),
+        "ModelSelectionExpression" => String.t(),
+        "OperationName" => String.t(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t(),
+        "RouteKey" => String.t(),
+        "RouteResponseSelectionExpression" => String.t(),
+        "Target" => String.t()
+      }
+
+  """
+  @type update_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_model_request() :: %{
+        optional("ContentType") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("Schema") => String.t()
+      }
+
+  """
+  @type update_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reimport_api_request() :: %{
+        optional("Basepath") => String.t(),
+        optional("FailOnWarnings") => boolean(),
+        required("Body") => String.t()
+      }
+
+  """
+  @type reimport_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_response_request() :: %{}
+
+  """
+  @type get_route_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_request() :: %{
+        optional("DomainNameConfigurations") => list(domain_name_configuration()()),
+        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
+        optional("Tags") => map(),
+        required("DomainName") => String.t()
+      }
+
+  """
+  @type create_domain_name_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t(),
+        "Description" => String.t(),
+        "LastDeploymentStatusMessage" => String.t(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_stage_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_link() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type vpc_link() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t(),
+        "Description" => String.t()
+      }
+
+  """
+  @type create_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_template_request() :: %{}
+
+  """
+  @type get_model_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_authorizer_request() :: %{}
+
+  """
+  @type delete_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "LimitType" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_request() :: %{
+        optional("AuthorizerCredentialsArn") => String.t(),
+        optional("AuthorizerPayloadFormatVersion") => String.t(),
+        optional("AuthorizerResultTtlInSeconds") => integer(),
+        optional("AuthorizerUri") => String.t(),
+        optional("EnableSimpleResponses") => boolean(),
+        optional("IdentityValidationExpression") => String.t(),
+        optional("JwtConfiguration") => j_w_t_configuration(),
+        required("AuthorizerType") => list(any()),
+        required("IdentitySource") => list(String.t()()),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_authorizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stage_request() :: %{}
+
+  """
+  @type get_stage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizer_request() :: %{}
+
+  """
+  @type get_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_responses_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_integration_responses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_response_response() :: %{
+        "ModelSelectionExpression" => String.t(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t(),
+        "RouteResponseKey" => String.t()
+      }
+
+  """
+  @type update_route_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_mapping_request() :: %{
+        optional("ApiMappingKey") => String.t(),
+        required("ApiId") => String.t(),
+        required("Stage") => String.t()
+      }
+
+  """
+  @type create_api_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_response() :: %{
+        "AuthorizerCredentialsArn" => String.t(),
+        "AuthorizerId" => String.t(),
+        "AuthorizerPayloadFormatVersion" => String.t(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t()()),
+        "IdentityValidationExpression" => String.t(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t()
+      }
+
+  """
+  @type create_authorizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_request_parameter_request() :: %{}
+
+  """
+  @type delete_route_request_parameter_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ConnectionId" => String.t(),
+        "ConnectionType" => list(any()),
+        "ContentHandlingStrategy" => list(any()),
+        "CredentialsArn" => String.t(),
+        "Description" => String.t(),
+        "IntegrationId" => String.t(),
+        "IntegrationMethod" => String.t(),
+        "IntegrationResponseSelectionExpression" => String.t(),
+        "IntegrationSubtype" => String.t(),
+        "IntegrationType" => list(any()),
+        "IntegrationUri" => String.t(),
+        "PassthroughBehavior" => list(any()),
+        "PayloadFormatVersion" => String.t(),
+        "RequestParameters" => map(),
+        "RequestTemplates" => map(),
+        "ResponseParameters" => map(),
+        "TemplateSelectionExpression" => String.t(),
+        "TimeoutInMillis" => integer(),
+        "TlsConfig" => tls_config()
+      }
+
+  """
+  @type create_integration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stage_request() :: %{}
+
+  """
+  @type delete_stage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizers_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_authorizers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_request() :: %{}
+
+  """
+  @type delete_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_response() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type get_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cors_configuration_request() :: %{}
+
+  """
+  @type delete_cors_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_response() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type update_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      j_w_t_configuration() :: %{
+        "Audience" => list(String.t()()),
+        "Issuer" => String.t()
+      }
+
+  """
+  @type j_w_t_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_link_request() :: %{
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("SubnetIds") => list(String.t()())
+      }
+
+  """
+  @type create_vpc_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_api_request() :: %{
+        optional("Basepath") => String.t(),
+        optional("FailOnWarnings") => boolean(),
+        required("Body") => String.t()
+      }
+
+  """
+  @type import_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_link_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type create_vpc_link_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_template_response() :: %{
+        "Value" => String.t()
+      }
+
+  """
+  @type get_model_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_responses_response() :: %{
+        "Items" => list(integration_response()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_integration_responses_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t(),
+        "ResourceType" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t(),
+        "ModelSelectionExpression" => String.t(),
+        "OperationName" => String.t(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t(),
+        "RouteKey" => String.t(),
+        "RouteResponseSelectionExpression" => String.t(),
+        "Target" => String.t()
+      }
+
+  """
+  @type route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_mapping() :: %{
+        "ApiId" => String.t(),
+        "ApiMappingId" => String.t(),
+        "ApiMappingKey" => String.t(),
+        "Stage" => String.t()
+      }
+
+  """
+  @type api_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tags_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type get_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mapping_request() :: %{}
+
+  """
+  @type get_api_mapping_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_response_request() :: %{}
+
+  """
+  @type delete_route_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t(),
+        "DomainName" => String.t(),
+        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_domain_name_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_names_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_domain_names_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_log_settings_request() :: %{}
+
+  """
+  @type delete_access_log_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integrations_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_integrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_request() :: %{}
+
+  """
+  @type get_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routes_response() :: %{
+        "Items" => list(route()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_routes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_response_request() :: %{
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("IntegrationResponseKey") => String.t(),
+        optional("ResponseParameters") => map(),
+        optional("ResponseTemplates") => map(),
+        optional("TemplateSelectionExpression") => String.t()
+      }
+
+  """
+  @type update_integration_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_response_request() :: %{
+        optional("ModelSelectionExpression") => String.t(),
+        optional("ResponseModels") => map(),
+        optional("ResponseParameters") => map(),
+        optional("RouteResponseKey") => String.t()
+      }
+
+  """
+  @type update_route_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_request() :: %{
+        optional("ConnectionId") => String.t(),
+        optional("ConnectionType") => list(any()),
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("CredentialsArn") => String.t(),
+        optional("Description") => String.t(),
+        optional("IntegrationMethod") => String.t(),
+        optional("IntegrationSubtype") => String.t(),
+        optional("IntegrationType") => list(any()),
+        optional("IntegrationUri") => String.t(),
+        optional("PassthroughBehavior") => list(any()),
+        optional("PayloadFormatVersion") => String.t(),
+        optional("RequestParameters") => map(),
+        optional("RequestTemplates") => map(),
+        optional("ResponseParameters") => map(),
+        optional("TemplateSelectionExpression") => String.t(),
+        optional("TimeoutInMillis") => integer(),
+        optional("TlsConfig") => tls_config_input()
+      }
+
+  """
+  @type update_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_settings_request() :: %{}
+
+  """
+  @type delete_route_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_model_response() :: %{
+        "ContentType" => String.t(),
+        "Description" => String.t(),
+        "ModelId" => String.t(),
+        "Name" => String.t(),
+        "Schema" => String.t()
+      }
+
+  """
+  @type update_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_response() :: %{
+        "ContentType" => String.t(),
+        "Description" => String.t(),
+        "ModelId" => String.t(),
+        "Name" => String.t(),
+        "Schema" => String.t()
+      }
+
+  """
+  @type create_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reimport_api_response() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type reimport_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_request() :: %{
+        optional("ApiKeyRequired") => boolean(),
+        optional("AuthorizationScopes") => list(String.t()()),
+        optional("AuthorizationType") => list(any()),
+        optional("AuthorizerId") => String.t(),
+        optional("ModelSelectionExpression") => String.t(),
+        optional("OperationName") => String.t(),
+        optional("RequestModels") => map(),
+        optional("RequestParameters") => map(),
+        optional("RouteKey") => String.t(),
+        optional("RouteResponseSelectionExpression") => String.t(),
+        optional("Target") => String.t()
+      }
+
+  """
+  @type update_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_request() :: %{
+        optional("DomainNameConfigurations") => list(domain_name_configuration()()),
+        optional("MutualTlsAuthentication") => mutual_tls_authentication_input()
+      }
+
+  """
+  @type update_domain_name_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_responses_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_route_responses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_name() :: %{
+        "ApiMappingSelectionExpression" => String.t(),
+        "DomainName" => String.t(),
+        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "Tags" => map()
+      }
+
+  """
+  @type domain_name() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stage_request() :: %{
+        optional("AccessLogSettings") => access_log_settings(),
+        optional("AutoDeploy") => boolean(),
+        optional("ClientCertificateId") => String.t(),
+        optional("DefaultRouteSettings") => route_settings(),
+        optional("DeploymentId") => String.t(),
+        optional("Description") => String.t(),
+        optional("RouteSettings") => map(),
+        optional("StageVariables") => map(),
+        optional("Tags") => map(),
+        required("StageName") => String.t()
+      }
+
+  """
+  @type create_stage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_request() :: %{}
+
+  """
+  @type delete_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_names_response() :: %{
+        "Items" => list(domain_name()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_domain_names_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_request() :: %{
+        optional("ConnectionId") => String.t(),
+        optional("ConnectionType") => list(any()),
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("CredentialsArn") => String.t(),
+        optional("Description") => String.t(),
+        optional("IntegrationMethod") => String.t(),
+        optional("IntegrationSubtype") => String.t(),
+        optional("IntegrationUri") => String.t(),
+        optional("PassthroughBehavior") => list(any()),
+        optional("PayloadFormatVersion") => String.t(),
+        optional("RequestParameters") => map(),
+        optional("RequestTemplates") => map(),
+        optional("ResponseParameters") => map(),
+        optional("TemplateSelectionExpression") => String.t(),
+        optional("TimeoutInMillis") => integer(),
+        optional("TlsConfig") => tls_config_input(),
+        required("IntegrationType") => list(any())
+      }
+
+  """
+  @type create_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mapping_response() :: %{
+        "ApiId" => String.t(),
+        "ApiMappingId" => String.t(),
+        "ApiMappingKey" => String.t(),
+        "Stage" => String.t()
+      }
+
+  """
+  @type get_api_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication_input() :: %{
+        optional("TruststoreUri") => String.t(),
+        optional("TruststoreVersion") => String.t()
+      }
+
+  """
+  @type mutual_tls_authentication_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_name_configuration() :: %{
+        "ApiGatewayDomainName" => String.t(),
+        "CertificateArn" => String.t(),
+        "CertificateName" => String.t(),
+        "CertificateUploadDate" => non_neg_integer(),
+        "DomainNameStatus" => list(any()),
+        "DomainNameStatusMessage" => String.t(),
+        "EndpointType" => list(any()),
+        "HostedZoneId" => String.t(),
+        "OwnershipVerificationCertificateArn" => String.t(),
+        "SecurityPolicy" => list(any())
+      }
+
+  """
+  @type domain_name_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_api_response() :: %{
+        "body" => binary()
+      }
+
+  """
+  @type export_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mappings_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_api_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_request() :: %{}
+
+  """
+  @type delete_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_config() :: %{
+        "ServerNameToVerify" => String.t()
+      }
+
+  """
+  @type tls_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integrations_response() :: %{
+        "Items" => list(integration()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_integrations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_log_settings() :: %{
+        "DestinationArn" => String.t(),
+        "Format" => String.t()
+      }
+
+  """
+  @type access_log_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_models_response() :: %{
+        "Items" => list(model()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t(),
+        "ModelSelectionExpression" => String.t(),
+        "OperationName" => String.t(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t(),
+        "RouteKey" => String.t(),
+        "RouteResponseSelectionExpression" => String.t(),
+        "Target" => String.t()
+      }
+
+  """
+  @type get_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response_request() :: %{}
+
+  """
+  @type get_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stages_response() :: %{
+        "Items" => list(stage()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_stages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_models_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_models_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t(),
+        "ModelSelectionExpression" => String.t(),
+        "OperationName" => String.t(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t(),
+        "RouteKey" => String.t(),
+        "RouteResponseSelectionExpression" => String.t(),
+        "Target" => String.t()
+      }
+
+  """
+  @type create_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routes_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_routes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_link_request() :: %{
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_vpc_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_request() :: %{}
+
+  """
+  @type get_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_request() :: %{}
+
+  """
+  @type get_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_request() :: %{
+        optional("ApiKeySelectionExpression") => String.t(),
+        optional("CorsConfiguration") => cors(),
+        optional("CredentialsArn") => String.t(),
+        optional("Description") => String.t(),
+        optional("DisableExecuteApiEndpoint") => boolean(),
+        optional("DisableSchemaValidation") => boolean(),
+        optional("Name") => String.t(),
+        optional("RouteKey") => String.t(),
+        optional("RouteSelectionExpression") => String.t(),
+        optional("Target") => String.t(),
+        optional("Version") => String.t()
+      }
+
+  """
+  @type update_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_response_request() :: %{
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("ResponseParameters") => map(),
+        optional("ResponseTemplates") => map(),
+        optional("TemplateSelectionExpression") => String.t(),
+        required("IntegrationResponseKey") => String.t()
+      }
+
+  """
+  @type create_integration_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t(),
+        "Description" => String.t()
+      }
+
+  """
+  @type update_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_request() :: %{}
+
+  """
+  @type delete_route_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t(),
+        "Description" => String.t()
+      }
+
+  """
+  @type get_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_response() :: %{
+        "AuthorizerCredentialsArn" => String.t(),
+        "AuthorizerId" => String.t(),
+        "AuthorizerPayloadFormatVersion" => String.t(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t()()),
+        "IdentityValidationExpression" => String.t(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t()
+      }
+
+  """
+  @type update_authorizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_request() :: %{
+        optional("ApiKeySelectionExpression") => String.t(),
+        optional("CorsConfiguration") => cors(),
+        optional("CredentialsArn") => String.t(),
+        optional("Description") => String.t(),
+        optional("DisableExecuteApiEndpoint") => boolean(),
+        optional("DisableSchemaValidation") => boolean(),
+        optional("RouteKey") => String.t(),
+        optional("RouteSelectionExpression") => String.t(),
+        optional("Tags") => map(),
+        optional("Target") => String.t(),
+        optional("Version") => String.t(),
+        required("Name") => String.t(),
+        required("ProtocolType") => list(any())
+      }
+
+  """
+  @type create_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_link_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type get_vpc_link_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cors() :: %{
+        "AllowCredentials" => boolean(),
+        "AllowHeaders" => list(String.t()()),
+        "AllowMethods" => list(String.t()()),
+        "AllowOrigins" => list(String.t()()),
+        "ExposeHeaders" => list(String.t()()),
+        "MaxAge" => integer()
+      }
+
+  """
+  @type cors() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type api() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_response_response() :: %{
+        "ModelSelectionExpression" => String.t(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t(),
+        "RouteResponseKey" => String.t()
+      }
+
+  """
+  @type create_route_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_response() :: %{
+        "ContentType" => String.t(),
+        "Description" => String.t(),
+        "ModelId" => String.t(),
+        "Name" => String.t(),
+        "Schema" => String.t()
+      }
+
+  """
+  @type get_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_mapping_response() :: %{
+        "ApiId" => String.t(),
+        "ApiMappingId" => String.t(),
+        "ApiMappingKey" => String.t(),
+        "Stage" => String.t()
+      }
+
+  """
+  @type create_api_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_request() :: %{}
+
+  """
+  @type delete_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_link_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type update_vpc_link_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t(),
+        "DomainName" => String.t(),
+        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_domain_name_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_link_request() :: %{}
+
+  """
+  @type get_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_response() :: %{
+        "Items" => list(deployment()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_deployments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_api_response() :: %{
+        "ApiEndpoint" => String.t(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t(),
+        "ApiKeySelectionExpression" => String.t(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t()()),
+        "Name" => String.t(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t(),
+        "Tags" => map(),
+        "Version" => String.t(),
+        "Warnings" => list(String.t()())
+      }
+
+  """
+  @type import_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_authorizers_cache_request() :: %{}
+
+  """
+  @type reset_authorizers_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mappings_response() :: %{
+        "Items" => list(api_mapping()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_api_mappings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_request() :: %{
+        optional("ApiKeyRequired") => boolean(),
+        optional("AuthorizationScopes") => list(String.t()()),
+        optional("AuthorizationType") => list(any()),
+        optional("AuthorizerId") => String.t(),
+        optional("ModelSelectionExpression") => String.t(),
+        optional("OperationName") => String.t(),
+        optional("RequestModels") => map(),
+        optional("RequestParameters") => map(),
+        optional("RouteResponseSelectionExpression") => String.t(),
+        optional("Target") => String.t(),
+        required("RouteKey") => String.t()
+      }
+
+  """
+  @type create_route_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_links_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_vpc_links_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apis_response() :: %{
+        "Items" => list(api()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_apis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integration_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t(),
+        "IntegrationResponseKey" => String.t(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t()
+      }
+
+  """
+  @type integration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model() :: %{
+        "ContentType" => String.t(),
+        "Description" => String.t(),
+        "ModelId" => String.t(),
+        "Name" => String.t(),
+        "Schema" => String.t()
+      }
+
+  """
+  @type model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apis_request() :: %{
+        optional("MaxResults") => String.t(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_apis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_request() :: %{
+        optional("Description") => String.t()
+      }
+
+  """
+  @type update_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t(),
+        "IntegrationResponseKey" => String.t(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t()
+      }
+
+  """
+  @type get_integration_response_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_request() :: %{}
+
+  """
+  @type get_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t(),
+        "DomainName" => String.t(),
+        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_domain_name_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ConnectionId" => String.t(),
+        "ConnectionType" => list(any()),
+        "ContentHandlingStrategy" => list(any()),
+        "CredentialsArn" => String.t(),
+        "Description" => String.t(),
+        "IntegrationId" => String.t(),
+        "IntegrationMethod" => String.t(),
+        "IntegrationResponseSelectionExpression" => String.t(),
+        "IntegrationSubtype" => String.t(),
+        "IntegrationType" => list(any()),
+        "IntegrationUri" => String.t(),
+        "PassthroughBehavior" => list(any()),
+        "PayloadFormatVersion" => String.t(),
+        "RequestParameters" => map(),
+        "RequestTemplates" => map(),
+        "ResponseParameters" => map(),
+        "TemplateSelectionExpression" => String.t(),
+        "TimeoutInMillis" => integer(),
+        "TlsConfig" => tls_config()
+      }
+
+  """
+  @type update_integration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_link_request() :: %{}
+
+  """
+  @type delete_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_request() :: %{
+        optional("AuthorizerCredentialsArn") => String.t(),
+        optional("AuthorizerPayloadFormatVersion") => String.t(),
+        optional("AuthorizerResultTtlInSeconds") => integer(),
+        optional("AuthorizerType") => list(any()),
+        optional("AuthorizerUri") => String.t(),
+        optional("EnableSimpleResponses") => boolean(),
+        optional("IdentitySource") => list(String.t()()),
+        optional("IdentityValidationExpression") => String.t(),
+        optional("JwtConfiguration") => j_w_t_configuration(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_authorizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_request() :: %{}
+
+  """
+  @type delete_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_request() :: %{}
+
+  """
+  @type get_route_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      route_response() :: %{
+        "ModelSelectionExpression" => String.t(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t(),
+        "RouteResponseKey" => String.t()
+      }
+
+  """
+  @type route_response() :: %{String.t() => any()}
+
+  @type create_api_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_api_mapping_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_authorizer_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_deployment_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_domain_name_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_integration_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_integration_response_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_model_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_route_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_route_response_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_stage_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type create_vpc_link_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type delete_access_log_settings_errors() ::
+          not_found_exception() | too_many_requests_exception()
+
+  @type delete_api_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_api_mapping_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_authorizer_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_cors_configuration_errors() ::
+          not_found_exception() | too_many_requests_exception()
+
+  @type delete_deployment_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_domain_name_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_integration_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_integration_response_errors() ::
+          not_found_exception() | too_many_requests_exception()
+
+  @type delete_model_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_route_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_route_request_parameter_errors() ::
+          not_found_exception() | too_many_requests_exception()
+
+  @type delete_route_response_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_route_settings_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_stage_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_vpc_link_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type export_api_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_api_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_api_mapping_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_api_mappings_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_apis_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_authorizer_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_authorizers_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_deployment_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_deployments_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_domain_name_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_domain_names_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_integration_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_integration_response_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_integration_responses_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_integrations_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_model_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_model_template_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_models_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_route_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_route_response_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_route_responses_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_routes_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_stage_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_stages_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_tags_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type get_vpc_link_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type get_vpc_links_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type import_api_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type reimport_api_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type reset_authorizers_cache_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_api_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_api_mapping_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_authorizer_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_deployment_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_domain_name_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_integration_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_integration_response_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_model_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_route_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_route_response_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_stage_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type update_vpc_link_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
   def metadata do
     %{
       api_version: "2018-11-29",
@@ -16,6 +2550,7 @@ defmodule AWS.ApiGatewayV2 do
       credential_scope: nil,
       endpoint_prefix: "apigateway",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ApiGatewayV2",
       signature_version: "v4",
@@ -26,13 +2561,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Api resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_api(AWS.Client.t(), create_api_request(), Keyword.t()) ::
+          {:ok, create_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_api_errors()}
   def create_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -49,13 +2593,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an API mapping.
+
+  ## Required positional parameters:
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec create_api_mapping(AWS.Client.t(), String.t(), create_api_mapping_request(), Keyword.t()) ::
+          {:ok, create_api_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_api_mapping_errors()}
   def create_api_mapping(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -72,13 +2626,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Authorizer for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_authorizer(AWS.Client.t(), String.t(), create_authorizer_request(), Keyword.t()) ::
+          {:ok, create_authorizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_authorizer_errors()}
   def create_authorizer(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -95,13 +2659,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Deployment for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
+          {:ok, create_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -118,13 +2692,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a domain name.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_domain_name(AWS.Client.t(), create_domain_name_request(), Keyword.t()) ::
+          {:ok, create_domain_name_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_domain_name_errors()}
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domainnames"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -141,13 +2724,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an Integration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_integration(AWS.Client.t(), String.t(), create_integration_request(), Keyword.t()) ::
+          {:ok, create_integration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -164,7 +2757,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates an IntegrationResponses.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+
+  ## Optional parameters:
   """
+  @spec create_integration_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_integration_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_integration_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_response_errors()}
   def create_integration_response(
         %Client{} = client,
         api_id,
@@ -178,7 +2787,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -195,13 +2805,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Model for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
+          {:ok, create_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_model_errors()}
   def create_model(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -218,13 +2838,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Route for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_route(AWS.Client.t(), String.t(), create_route_request(), Keyword.t()) ::
+          {:ok, create_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_route_errors()}
   def create_route(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -241,7 +2871,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a RouteResponse for a Route.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
   """
+  @spec create_route_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          create_route_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_route_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_route_response_errors()}
   def create_route_response(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
@@ -249,7 +2895,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -266,13 +2913,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a Stage for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec create_stage(AWS.Client.t(), String.t(), create_stage_request(), Keyword.t()) ::
+          {:ok, create_stage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_stage_errors()}
   def create_stage(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -289,13 +2946,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a VPC link.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_vpc_link(AWS.Client.t(), create_vpc_link_request(), Keyword.t()) ::
+          {:ok, create_vpc_link_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_vpc_link_errors()}
   def create_vpc_link(%Client{} = client, input, options \\ []) do
     url_path = "/v2/vpclinks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -314,7 +2980,23 @@ defmodule AWS.ApiGatewayV2 do
   Deletes the AccessLogSettings for a Stage.
 
   To disable access logging for a Stage, delete its AccessLogSettings.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec delete_access_log_settings(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_access_log_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_access_log_settings_errors()}
   def delete_access_log_settings(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/accesslogsettings"
@@ -322,7 +3004,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -339,13 +3022,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Api resource.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec delete_api(AWS.Client.t(), String.t(), delete_api_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_api_errors()}
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -362,7 +3055,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an API mapping.
+
+  ## Required positional parameters:
+   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec delete_api_mapping(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_api_mapping_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_api_mapping_errors()}
   def delete_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
@@ -370,7 +3079,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -387,7 +3097,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Authorizer.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+
+  ## Optional parameters:
   """
+  @spec delete_authorizer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_authorizer_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_authorizer_errors()}
   def delete_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -395,7 +3121,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -412,13 +3139,28 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a CORS configuration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec delete_cors_configuration(
+          AWS.Client.t(),
+          String.t(),
+          delete_cors_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cors_configuration_errors()}
   def delete_cors_configuration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/cors"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -435,7 +3177,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Deployment.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :deployment_id (t:string String.t/0) (DeploymentId)
+
+  ## Optional parameters:
   """
+  @spec delete_deployment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_deployment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -443,7 +3201,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -460,13 +3219,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a domain name.
+
+  ## Required positional parameters:
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec delete_domain_name(AWS.Client.t(), String.t(), delete_domain_name_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_domain_name_errors()}
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -483,7 +3252,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an Integration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+
+  ## Optional parameters:
   """
+  @spec delete_integration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_integration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
@@ -491,7 +3276,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -508,7 +3294,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes an IntegrationResponses.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+
+  ## Optional parameters:
   """
+  @spec delete_integration_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_integration_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_response_errors()}
   def delete_integration_response(
         %Client{} = client,
         api_id,
@@ -523,7 +3327,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -540,13 +3345,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Model.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :model_id (t:string String.t/0) (ModelId)
+
+  ## Optional parameters:
   """
+  @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -563,13 +3379,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Route.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
   """
+  @spec delete_route(AWS.Client.t(), String.t(), String.t(), delete_route_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_route_errors()}
   def delete_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -588,7 +3415,25 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a route request parameter.
 
   Supported only for WebSocket APIs.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :request_parameter_key (t:string String.t/0) (RequestParameterKey)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
   """
+  @spec delete_route_request_parameter(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_route_request_parameter_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_route_request_parameter_errors()}
   def delete_route_request_parameter(
         %Client{} = client,
         api_id,
@@ -603,7 +3448,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -620,7 +3466,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a RouteResponse.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+   • :route_response_id (t:string String.t/0) (RouteResponseId)
+
+  ## Optional parameters:
   """
+  @spec delete_route_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_route_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_route_response_errors()}
   def delete_route_response(
         %Client{} = client,
         api_id,
@@ -635,7 +3499,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -652,7 +3517,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes the RouteSettings for a stage.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_key (t:string String.t/0) (RouteKey)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec delete_route_settings(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_route_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_route_settings_errors()}
   def delete_route_settings(
         %Client{} = client,
         api_id,
@@ -667,7 +3550,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -684,13 +3568,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Stage.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec delete_stage(AWS.Client.t(), String.t(), String.t(), delete_stage_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_stage_errors()}
   def delete_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -707,13 +3602,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a VPC link.
+
+  ## Required positional parameters:
+   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+
+  ## Optional parameters:
   """
+  @spec delete_vpc_link(AWS.Client.t(), String.t(), delete_vpc_link_request(), Keyword.t()) ::
+          {:ok, delete_vpc_link_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_vpc_link_errors()}
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -728,21 +3633,22 @@ defmodule AWS.ApiGatewayV2 do
     )
   end
 
-  def export_api(
-        %Client{} = client,
-        api_id,
-        specification,
-        export_version \\ nil,
-        include_extensions \\ nil,
-        output_type,
-        stage_name \\ nil,
-        options \\ []
-      ) do
+  @spec export_api(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, export_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_api_errors()}
+  def export_api(%Client{} = client, api_id, specification, output_type, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/exports/#{AWS.Util.encode_uri(specification)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [export_version: nil, include_extensions: nil, output_type: nil, stage_name: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {stage_name, options} = Keyword.pop(options, :stage_name, nil)
 
     query_params =
       if !is_nil(stage_name) do
@@ -751,12 +3657,16 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {output_type, options} = Keyword.pop(options, :output_type, nil)
+
     query_params =
       if !is_nil(output_type) do
         [{"outputType", output_type} | query_params]
       else
         query_params
       end
+
+    {include_extensions, options} = Keyword.pop(options, :include_extensions, nil)
 
     query_params =
       if !is_nil(include_extensions) do
@@ -765,6 +3675,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {export_version, options} = Keyword.pop(options, :export_version, nil)
+
     query_params =
       if !is_nil(export_version) do
         [{"exportVersion", export_version} | query_params]
@@ -772,52 +3684,95 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Api resource.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec get_api(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_api_errors()}
   def get_api(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an API mapping.
+
+  ## Required positional parameters:
+   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec get_api_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_api_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_api_mapping_errors()}
   def get_api_mapping(%Client{} = client, api_mapping_id, domain_name, options \\ []) do
     url_path =
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets API mappings.
+
+  ## Required positional parameters:
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_api_mappings(
-        %Client{} = client,
-        domain_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_api_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_api_mappings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_api_mappings_errors()}
+  def get_api_mappings(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -826,6 +3781,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -833,18 +3790,36 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of Api resources.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_apis(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_apis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_apis_errors()}
+  def get_apis(%Client{} = client, options \\ []) do
     url_path = "/v2/apis"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -853,6 +3828,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -860,39 +3837,67 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Authorizer.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+
+  ## Optional parameters:
   """
+  @spec get_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_authorizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_authorizer_errors()}
   def get_authorizer(%Client{} = client, api_id, authorizer_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Authorizers for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_authorizers(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_authorizers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_authorizers_errors()}
+  def get_authorizers(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -901,6 +3906,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -908,39 +3915,67 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Deployment.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :deployment_id (t:string String.t/0) (DeploymentId)
+
+  ## Optional parameters:
   """
+  @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, api_id, deployment_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Deployments for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_deployments(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_deployments_errors()}
+  def get_deployments(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -949,6 +3984,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -956,31 +3993,64 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a domain name.
+
+  ## Required positional parameters:
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec get_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_domain_name_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domain_name_errors()}
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the domain names for an AWS account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_domain_names_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domain_names_errors()}
+  def get_domain_names(%Client{} = client, options \\ []) do
     url_path = "/v2/domainnames"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -989,6 +4059,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -996,29 +4068,56 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an Integration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+
+  ## Optional parameters:
   """
+  @spec get_integration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_integration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_errors()}
   def get_integration(%Client{} = client, api_id, integration_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets an IntegrationResponses.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+
+  ## Optional parameters:
   """
+  @spec get_integration_response(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_integration_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_response_errors()}
   def get_integration_response(
         %Client{} = client,
         api_id,
@@ -1029,30 +4128,46 @@ defmodule AWS.ApiGatewayV2 do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the IntegrationResponses for an Integration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_integration_responses(
-        %Client{} = client,
-        api_id,
-        integration_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_integration_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_integration_responses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_responses_errors()}
+  def get_integration_responses(%Client{} = client, api_id, integration_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1061,6 +4176,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1068,24 +4185,37 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Integrations for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_integrations(
-        %Client{} = client,
-        api_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_integrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integrations_errors()}
+  def get_integrations(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1094,6 +4224,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1101,46 +4233,96 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Model.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :model_id (t:string String.t/0) (ModelId)
+
+  ## Optional parameters:
   """
+  @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_model_errors()}
   def get_model(%Client{} = client, api_id, model_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a model template.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :model_id (t:string String.t/0) (ModelId)
+
+  ## Optional parameters:
   """
+  @spec get_model_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_model_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_model_template_errors()}
   def get_model_template(%Client{} = client, api_id, model_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}/template"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Models for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_models(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_models_errors()}
+  def get_models(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1149,6 +4331,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1156,55 +4340,99 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Route.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
   """
+  @spec get_route(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_route_errors()}
   def get_route(%Client{} = client, api_id, route_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a RouteResponse.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+   • :route_response_id (t:string String.t/0) (RouteResponseId)
+
+  ## Optional parameters:
   """
+  @spec get_route_response(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_route_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_route_response_errors()}
   def get_route_response(%Client{} = client, api_id, route_id, route_response_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the RouteResponses for a Route.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_route_responses(
-        %Client{} = client,
-        api_id,
-        route_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_route_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_route_responses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_route_responses_errors()}
+  def get_route_responses(%Client{} = client, api_id, route_id, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1213,6 +4441,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1220,18 +4450,37 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Routes for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_routes(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_routes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_routes_errors()}
+  def get_routes(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1240,6 +4489,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1247,31 +4498,66 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a Stage.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec get_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_stage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_stage_errors()}
   def get_stage(%Client{} = client, api_id, stage_name, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets the Stages for an API.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_stages(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_stages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_stages_errors()}
+  def get_stages(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1280,6 +4566,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1287,44 +4575,92 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of Tag resources.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a VPC link.
+
+  ## Required positional parameters:
+   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+
+  ## Optional parameters:
   """
+  @spec get_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_vpc_link_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_vpc_link_errors()}
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a collection of VPC links.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_vpc_links(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_vpc_links_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_vpc_links_errors()}
+  def get_vpc_links(%Client{} = client, options \\ []) do
     url_path = "/v2/vpclinks"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1333,6 +4669,8 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1340,14 +4678,25 @@ defmodule AWS.ApiGatewayV2 do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Imports an API.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :basepath (t:String.t/0) (basepath)
+   • :fail_on_warnings (t:String.t/0) (failOnWarnings)
   """
+  @spec import_api(AWS.Client.t(), import_api_request(), Keyword.t()) ::
+          {:ok, import_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_api_errors()}
   def import_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
     headers = []
@@ -1366,14 +4715,26 @@ defmodule AWS.ApiGatewayV2 do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """
   Puts an Api resource.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
+   • :basepath (t:String.t/0) (basepath)
+   • :fail_on_warnings (t:String.t/0) (failOnWarnings)
   """
+  @spec reimport_api(AWS.Client.t(), String.t(), reimport_api_request(), Keyword.t()) ::
+          {:ok, reimport_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reimport_api_errors()}
   def reimport_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
@@ -1392,7 +4753,8 @@ defmodule AWS.ApiGatewayV2 do
         true
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
@@ -1401,7 +4763,23 @@ defmodule AWS.ApiGatewayV2 do
   Resets all authorizer cache entries on a stage.
 
   Supported only for HTTP APIs.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec reset_authorizers_cache(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          reset_authorizers_cache_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_authorizers_cache_errors()}
   def reset_authorizers_cache(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
@@ -1409,7 +4787,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1426,13 +4805,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Creates a new Tag resource to represent a tag.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1449,7 +4838,17 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Deletes a Tag.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1460,7 +4859,8 @@ defmodule AWS.ApiGatewayV2 do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1477,13 +4877,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Api resource.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+
+  ## Optional parameters:
   """
+  @spec update_api(AWS.Client.t(), String.t(), update_api_request(), Keyword.t()) ::
+          {:ok, update_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_api_errors()}
   def update_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1500,7 +4910,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   The API mapping.
+
+  ## Required positional parameters:
+   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec update_api_mapping(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_api_mapping_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_api_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_api_mapping_errors()}
   def update_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
@@ -1508,7 +4934,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1525,7 +4952,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Authorizer.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+
+  ## Optional parameters:
   """
+  @spec update_authorizer(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_authorizer_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_authorizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_authorizer_errors()}
   def update_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
@@ -1533,7 +4976,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1550,7 +4994,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Deployment.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :deployment_id (t:string String.t/0) (DeploymentId)
+
+  ## Optional parameters:
   """
+  @spec update_deployment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_deployment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_deployment_errors()}
   def update_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -1558,7 +5018,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1575,13 +5036,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a domain name.
+
+  ## Required positional parameters:
+   • :domain_name (t:string String.t/0) (DomainName)
+
+  ## Optional parameters:
   """
+  @spec update_domain_name(AWS.Client.t(), String.t(), update_domain_name_request(), Keyword.t()) ::
+          {:ok, update_domain_name_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_domain_name_errors()}
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1598,7 +5069,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an Integration.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+
+  ## Optional parameters:
   """
+  @spec update_integration(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_integration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_integration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_integration_errors()}
   def update_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
     url_path =
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
@@ -1606,7 +5093,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1623,7 +5111,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates an IntegrationResponses.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :integration_id (t:string String.t/0) (IntegrationId)
+   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+
+  ## Optional parameters:
   """
+  @spec update_integration_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_integration_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_integration_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_integration_response_errors()}
   def update_integration_response(
         %Client{} = client,
         api_id,
@@ -1638,7 +5144,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1655,13 +5162,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Model.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :model_id (t:string String.t/0) (ModelId)
+
+  ## Optional parameters:
   """
+  @spec update_model(AWS.Client.t(), String.t(), String.t(), update_model_request(), Keyword.t()) ::
+          {:ok, update_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_model_errors()}
   def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1678,13 +5196,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Route.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+
+  ## Optional parameters:
   """
+  @spec update_route(AWS.Client.t(), String.t(), String.t(), update_route_request(), Keyword.t()) ::
+          {:ok, update_route_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_route_errors()}
   def update_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1701,7 +5230,25 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a RouteResponse.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :route_id (t:string String.t/0) (RouteId)
+   • :route_response_id (t:string String.t/0) (RouteResponseId)
+
+  ## Optional parameters:
   """
+  @spec update_route_response(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_route_response_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_route_response_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_route_response_errors()}
   def update_route_response(
         %Client{} = client,
         api_id,
@@ -1716,7 +5263,8 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1733,13 +5281,24 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a Stage.
+
+  ## Required positional parameters:
+   • :api_id (t:string String.t/0) (ApiId)
+   • :stage_name (t:string String.t/0) (StageName)
+
+  ## Optional parameters:
   """
+  @spec update_stage(AWS.Client.t(), String.t(), String.t(), update_stage_request(), Keyword.t()) ::
+          {:ok, update_stage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_stage_errors()}
   def update_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1756,13 +5315,23 @@ defmodule AWS.ApiGatewayV2 do
 
   @doc """
   Updates a VPC link.
+
+  ## Required positional parameters:
+   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+
+  ## Optional parameters:
   """
+  @spec update_vpc_link(AWS.Client.t(), String.t(), update_vpc_link_request(), Keyword.t()) ::
+          {:ok, update_vpc_link_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_vpc_link_errors()}
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

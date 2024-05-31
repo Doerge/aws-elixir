@@ -9,6 +9,2442 @@ defmodule AWS.Drs do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      describe_job_log_items_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("jobID") => String.t()
+      }
+
+  """
+  @type describe_job_log_items_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_failback_replication_configuration_request() :: %{
+        optional("bandwidthThrottling") => float(),
+        optional("name") => String.t(),
+        optional("usePrivateIP") => [boolean()],
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type update_failback_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_instances_request_filters() :: %{
+        "recoveryInstanceIDs" => list(String.t()()),
+        "sourceServerIDs" => list(String.t()())
+      }
+
+  """
+  @type describe_recovery_instances_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_request() :: %{
+        optional("filters") => describe_source_servers_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_source_servers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_staging_accounts_response() :: %{
+        optional("accounts") => list(account()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_staging_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_request_source_server() :: %{
+        "recoverySnapshotID" => String.t(),
+        "sourceServerID" => String.t()
+      }
+
+  """
+  @type start_recovery_request_source_server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle() :: %{
+        "addedToServiceDateTime" => String.t(),
+        "elapsedReplicationDuration" => String.t(),
+        "firstByteDateTime" => String.t(),
+        "lastLaunch" => life_cycle_last_launch(),
+        "lastSeenByServiceDateTime" => String.t()
+      }
+
+  """
+  @type life_cycle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_life_cycle() :: %{
+        "apiCallDateTime" => [non_neg_integer()],
+        "jobID" => String.t(),
+        "lastRecoveryResult" => String.t()
+      }
+
+  """
+  @type recovery_life_cycle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_source_network_cfn_template_request() :: %{
+        required("sourceNetworkID") => String.t()
+      }
+
+  """
+  @type export_source_network_cfn_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_cloud_properties() :: %{
+        "originAccountID" => String.t(),
+        "originAvailabilityZone" => String.t(),
+        "originRegion" => String.t(),
+        "sourceOutpostArn" => String.t()
+      }
+
+  """
+  @type source_cloud_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extensible_source_servers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("stagingAccountID") => String.t()
+      }
+
+  """
+  @type list_extensible_source_servers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_launch_configuration_templates_request() :: %{
+        optional("launchConfigurationTemplateIDs") => list(String.t()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_launch_configuration_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_server_response() :: %{}
+
+  """
+  @type delete_source_server_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_server_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type delete_source_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_instances_response() :: %{
+        optional("items") => list(recovery_instance()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_recovery_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_template() :: %{
+        optional("arn") => String.t(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("tags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
+  """
+  @type replication_configuration_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_properties() :: %{
+        "cpus" => list(c_p_u()()),
+        "disks" => list(recovery_instance_disk()()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t(),
+        "networkInterfaces" => list(network_interface()()),
+        "os" => o_s(),
+        "ramBytes" => float()
+      }
+
+  """
+  @type recovery_instance_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_disk() :: %{
+        "bytes" => float(),
+        "ebsVolumeID" => String.t(),
+        "internalDeviceName" => String.t()
+      }
+
+  """
+  @type recovery_instance_disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_replication_configuration_template_request() :: %{
+        optional("arn") => String.t(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
+  """
+  @type update_replication_configuration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_replicated_disk() :: %{
+        "deviceName" => String.t(),
+        "iops" => float(),
+        "isBootDisk" => [boolean()],
+        "optimizedStagingDiskType" => String.t(),
+        "stagingDiskType" => String.t(),
+        "throughput" => float()
+      }
+
+  """
+  @type replication_configuration_replicated_disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_recovery_instances_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type terminate_recovery_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_resource() :: %{
+        "launchStatus" => String.t(),
+        "participatingResourceID" => list()
+      }
+
+  """
+  @type participating_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_launch_action_request() :: %{
+        optional("parameters") => map(),
+        required("actionCode") => String.t(),
+        required("actionId") => String.t(),
+        required("actionVersion") => String.t(),
+        required("active") => [boolean()],
+        required("category") => String.t(),
+        required("description") => String.t(),
+        required("name") => String.t(),
+        required("optional") => [boolean()],
+        required("order") => integer(),
+        required("resourceId") => String.t()
+      }
+
+  """
+  @type put_launch_action_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_failback_request() :: %{
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type stop_failback_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_network_request() :: %{
+        required("sourceNetworkID") => String.t()
+      }
+
+  """
+  @type delete_source_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_interface() :: %{
+        "ips" => list(String.t()()),
+        "isPrimary" => [boolean()],
+        "macAddress" => String.t()
+      }
+
+  """
+  @type network_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_response() :: %{
+        "items" => list(source_network()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type describe_source_networks_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_configuration_template_request() :: %{
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("tags") => map(),
+        required("associateDefaultSecurityGroup") => [boolean()],
+        required("bandwidthThrottling") => float(),
+        required("createPublicIP") => [boolean()],
+        required("dataPlaneRouting") => String.t(),
+        required("defaultLargeStagingDiskType") => String.t(),
+        required("ebsEncryption") => String.t(),
+        required("pitPolicy") => list(p_i_t_policy_rule()()),
+        required("replicationServerInstanceType") => String.t(),
+        required("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        required("stagingAreaSubnetId") => String.t(),
+        required("stagingAreaTags") => map(),
+        required("useDedicatedReplicationServer") => [boolean()]
+      }
+
+  """
+  @type create_replication_configuration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_launch_action_response() :: %{
+        "actionCode" => String.t(),
+        "actionId" => String.t(),
+        "actionVersion" => String.t(),
+        "active" => [boolean()],
+        "category" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "optional" => [boolean()],
+        "order" => integer(),
+        "parameters" => map(),
+        "resourceId" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type put_launch_action_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      staging_source_server() :: %{
+        "arn" => String.t(),
+        "hostname" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type staging_source_server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_action_parameter() :: %{
+        "type" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type launch_action_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_data_replication_request() :: %{
+        "sourceServerID" => String.t()
+      }
+
+  """
+  @type retry_data_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_replication_configuration_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type get_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_replication_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type start_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_action_response() :: %{}
+
+  """
+  @type delete_launch_action_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_replication_request() :: %{
+        required("sourceNetworkID") => String.t()
+      }
+
+  """
+  @type start_source_network_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_replication_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type stop_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_failback_launch_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type start_failback_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_configuration_template() :: %{
+        "arn" => String.t(),
+        "copyPrivateIp" => [boolean()],
+        "copyTags" => [boolean()],
+        "exportBucketArn" => String.t(),
+        "launchConfigurationTemplateID" => String.t(),
+        "launchDisposition" => String.t(),
+        "launchIntoSourceInstance" => [boolean()],
+        "licensing" => licensing(),
+        "postLaunchEnabled" => [boolean()],
+        "tags" => map(),
+        "targetInstanceTypeRightSizingMethod" => String.t()
+      }
+
+  """
+  @type launch_configuration_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_snapshots_request() :: %{
+        optional("filters") => describe_recovery_snapshots_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("order") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type describe_recovery_snapshots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_actions_request_filters() :: %{
+        "actionIds" => list(String.t()())
+      }
+
+  """
+  @type launch_actions_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      licensing() :: %{
+        "osByol" => [boolean()]
+      }
+
+  """
+  @type licensing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      p_i_t_policy_rule() :: %{
+        "enabled" => [boolean()],
+        "interval" => integer(),
+        "retentionDuration" => integer(),
+        "ruleID" => float(),
+        "units" => String.t()
+      }
+
+  """
+  @type p_i_t_policy_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_failback() :: %{
+        "agentLastSeenByServiceDateTime" => String.t(),
+        "elapsedReplicationDuration" => String.t(),
+        "failbackClientID" => String.t(),
+        "failbackClientLastSeenByServiceDateTime" => String.t(),
+        "failbackInitiationTime" => String.t(),
+        "failbackJobID" => String.t(),
+        "failbackLaunchType" => String.t(),
+        "failbackToOriginalServer" => [boolean()],
+        "firstByteDateTime" => String.t(),
+        "state" => String.t()
+      }
+
+  """
+  @type recovery_instance_failback() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_request() :: %{
+        optional("isDrill") => [boolean()],
+        optional("tags") => map(),
+        required("sourceServers") => list(start_recovery_request_source_server()())
+      }
+
+  """
+  @type start_recovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identification_hints() :: %{
+        "awsInstanceID" => String.t(),
+        "fqdn" => String.t(),
+        "hostname" => String.t(),
+        "vmWareUuid" => String.t()
+      }
+
+  """
+  @type identification_hints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_action() :: %{
+        "actionCode" => String.t(),
+        "actionId" => String.t(),
+        "actionVersion" => String.t(),
+        "active" => [boolean()],
+        "category" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "optional" => [boolean()],
+        "order" => integer(),
+        "parameters" => map(),
+        "type" => String.t()
+      }
+
+  """
+  @type launch_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_properties() :: %{
+        "cpus" => list(c_p_u()()),
+        "disks" => list(disk()()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t(),
+        "networkInterfaces" => list(network_interface()()),
+        "os" => o_s(),
+        "ramBytes" => float(),
+        "recommendedInstanceType" => String.t(),
+        "supportsNitroInstances" => [boolean()]
+      }
+
+  """
+  @type source_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_response() :: %{
+        optional("items") => list(source_server()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_source_servers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reverse_replication_request() :: %{
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type reverse_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_response() :: %{
+        optional("items") => list(replication_configuration_template()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_replication_configuration_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float()
+      }
+
+  """
+  @type recovery_instance_data_replication_info_replicated_disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_response() :: %{}
+
+  """
+  @type delete_replication_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("name") => String.t(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("sourceServerID") => String.t(),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()]
+      }
+
+  """
+  @type replication_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_request() :: %{
+        optional("filters") => describe_source_networks_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_source_networks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_error() :: %{
+        "error" => String.t(),
+        "rawError" => String.t()
+      }
+
+  """
+  @type data_replication_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_recovery_instance_request() :: %{
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type disconnect_recovery_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launch_actions_request() :: %{
+        optional("filters") => launch_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("resourceId") => String.t()
+      }
+
+  """
+  @type list_launch_actions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => String.t(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_recovery_request_network_entry() :: %{
+        "cfnStackName" => String.t(),
+        "sourceNetworkID" => String.t()
+      }
+
+  """
+  @type start_source_network_recovery_request_network_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_p_u() :: %{
+        "cores" => float(),
+        "modelName" => String.t()
+      }
+
+  """
+  @type c_p_u() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uninitialized_account_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type uninitialized_account_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_action_run() :: %{
+        "action" => launch_action(),
+        "failureReason" => String.t(),
+        "runId" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type launch_action_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_instance_request() :: %{
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type delete_recovery_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account() :: %{
+        "accountID" => String.t()
+      }
+
+  """
+  @type account() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_initiation() :: %{
+        "startDateTime" => String.t(),
+        "steps" => list(recovery_instance_data_replication_initiation_step()())
+      }
+
+  """
+  @type recovery_instance_data_replication_initiation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initialize_service_request() :: %{}
+
+  """
+  @type initialize_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_configuration_template_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("exportBucketArn") => String.t(),
+        optional("launchDisposition") => String.t(),
+        optional("launchIntoSourceInstance") => [boolean()],
+        optional("licensing") => licensing(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("tags") => map(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t()
+      }
+
+  """
+  @type create_launch_configuration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_info() :: %{
+        "dataReplicationError" => recovery_instance_data_replication_error(),
+        "dataReplicationInitiation" => recovery_instance_data_replication_initiation(),
+        "dataReplicationState" => String.t(),
+        "etaDateTime" => String.t(),
+        "lagDuration" => String.t(),
+        "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()()),
+        "stagingAvailabilityZone" => String.t(),
+        "stagingOutpostArn" => String.t()
+      }
+
+  """
+  @type recovery_instance_data_replication_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_network_request() :: %{
+        optional("tags") => map(),
+        required("originAccountID") => String.t(),
+        required("originRegion") => String.t(),
+        required("vpcID") => String.t()
+      }
+
+  """
+  @type create_source_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_template_response() :: %{
+        optional("launchConfigurationTemplate") => launch_configuration_template()
+      }
+
+  """
+  @type update_launch_configuration_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_network() :: %{
+        "arn" => String.t(),
+        "cfnStackName" => String.t(),
+        "lastRecovery" => recovery_life_cycle(),
+        "launchedVpcID" => String.t(),
+        "replicationStatus" => String.t(),
+        "replicationStatusDetails" => String.t(),
+        "sourceAccountID" => String.t(),
+        "sourceNetworkID" => String.t(),
+        "sourceRegion" => String.t(),
+        "sourceVpcID" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type source_network() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_info() :: %{
+        "dataReplicationError" => data_replication_error(),
+        "dataReplicationInitiation" => data_replication_initiation(),
+        "dataReplicationState" => String.t(),
+        "etaDateTime" => String.t(),
+        "lagDuration" => String.t(),
+        "replicatedDisks" => list(data_replication_info_replicated_disk()()),
+        "stagingAvailabilityZone" => String.t(),
+        "stagingOutpostArn" => String.t()
+      }
+
+  """
+  @type data_replication_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_request_filters() :: %{
+        "hardwareId" => String.t(),
+        "sourceServerIDs" => list(String.t()()),
+        "stagingAccountIDs" => list(String.t()())
+      }
+
+  """
+  @type describe_source_servers_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reverse_replication_response() :: %{
+        optional("reversedDirectionSourceServerArn") => String.t()
+      }
+
+  """
+  @type reverse_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_recovery_instances_request() :: %{
+        required("recoveryInstanceIDs") => list(String.t()())
+      }
+
+  """
+  @type terminate_recovery_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float(),
+        "volumeStatus" => String.t()
+      }
+
+  """
+  @type data_replication_info_replicated_disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_source_server_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type disconnect_source_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initialize_service_response() :: %{}
+
+  """
+  @type initialize_service_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_actions_status() :: %{
+        "runs" => list(launch_action_run()()),
+        "ssmAgentDiscoveryDatetime" => String.t()
+      }
+
+  """
+  @type launch_actions_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversion_properties() :: %{
+        "dataTimestamp" => String.t(),
+        "forceUefi" => [boolean()],
+        "rootVolumeName" => String.t(),
+        "volumeToConversionMap" => map(),
+        "volumeToProductCodes" => map(),
+        "volumeToVolumeSize" => map()
+      }
+
+  """
+  @type conversion_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_code() :: %{
+        "productCodeId" => String.t(),
+        "productCodeMode" => String.t()
+      }
+
+  """
+  @type product_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_source_network_cfn_template_response() :: %{
+        "s3DestinationUrl" => String.t()
+      }
+
+  """
+  @type export_source_network_cfn_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_request_filters() :: %{
+        "fromDate" => String.t(),
+        "jobIDs" => list(String.t()()),
+        "toDate" => String.t()
+      }
+
+  """
+  @type describe_jobs_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation() :: %{
+        "nextAttemptDateTime" => String.t(),
+        "startDateTime" => String.t(),
+        "steps" => list(data_replication_initiation_step()())
+      }
+
+  """
+  @type data_replication_initiation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_launch_configuration_templates_response() :: %{
+        optional("items") => list(launch_configuration_template()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_launch_configuration_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_action_request() :: %{
+        required("actionId") => String.t(),
+        required("resourceId") => String.t()
+      }
+
+  """
+  @type delete_launch_action_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_launch_configuration_request() :: %{
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type get_launch_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => float()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_request_filters() :: %{
+        "originAccountID" => String.t(),
+        "originRegion" => String.t(),
+        "sourceNetworkIDs" => list(String.t()())
+      }
+
+  """
+  @type describe_source_networks_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_network_stack_request() :: %{
+        required("cfnStackName") => String.t(),
+        required("sourceNetworkID") => String.t()
+      }
+
+  """
+  @type associate_source_network_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_server() :: %{
+        "launchActionsStatus" => launch_actions_status(),
+        "launchStatus" => String.t(),
+        "recoveryInstanceID" => String.t(),
+        "sourceServerID" => String.t()
+      }
+
+  """
+  @type participating_server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation_step() :: %{
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type data_replication_initiation_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_recovery_request() :: %{
+        optional("deployAsNew") => [boolean()],
+        optional("tags") => map(),
+        required("sourceNetworks") => list(start_source_network_recovery_request_network_entry()())
+      }
+
+  """
+  @type start_source_network_recovery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_source_network_replication_response() :: %{
+        "sourceNetwork" => source_network()
+      }
+
+  """
+  @type stop_source_network_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      staging_area() :: %{
+        "errorMessage" => String.t(),
+        "stagingAccountID" => String.t(),
+        "stagingSourceServerArn" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type staging_area() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "code" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_initiation_step() :: %{
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type recovery_instance_data_replication_initiation_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_launch_initiated() :: %{
+        "apiCallDateTime" => String.t(),
+        "jobID" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type life_cycle_last_launch_initiated() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launch_actions_response() :: %{
+        "items" => list(launch_action()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_launch_actions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_replication_response() :: %{
+        optional("sourceServer") => source_server()
+      }
+
+  """
+  @type stop_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_replication_response() :: %{
+        optional("sourceServer") => source_server()
+      }
+
+  """
+  @type start_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{
+        required("jobID") => String.t()
+      }
+
+  """
+  @type delete_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_replication_response() :: %{
+        "sourceNetwork" => source_network()
+      }
+
+  """
+  @type start_source_network_replication_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failback_replication_configuration_response() :: %{
+        optional("bandwidthThrottling") => float(),
+        optional("name") => String.t(),
+        optional("usePrivateIP") => [boolean()],
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type get_failback_replication_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_response() :: %{
+        optional("items") => list(job()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disk() :: %{
+        "bytes" => float(),
+        "deviceName" => String.t()
+      }
+
+  """
+  @type disk() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("launchDisposition") => String.t(),
+        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
+        optional("licensing") => licensing(),
+        optional("name") => String.t(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("targetInstanceTypeRightSizingMethod") => String.t(),
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type update_launch_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "code" => String.t(),
+        "fieldList" => list(validation_exception_field()()),
+        "message" => String.t(),
+        "reason" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_request() :: %{
+        required("replicationConfigurationTemplateID") => String.t()
+      }
+
+  """
+  @type delete_replication_configuration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job() :: %{
+        "arn" => String.t(),
+        "creationDateTime" => String.t(),
+        "endDateTime" => String.t(),
+        "initiatedBy" => String.t(),
+        "jobID" => String.t(),
+        "participatingResources" => list(participating_resource()()),
+        "participatingServers" => list(participating_server()()),
+        "status" => String.t(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
+  """
+  @type job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failback_replication_configuration_request() :: %{
+        required("recoveryInstanceID") => String.t()
+      }
+
+  """
+  @type get_failback_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance() :: %{
+        "agentVersion" => String.t(),
+        "arn" => String.t(),
+        "dataReplicationInfo" => recovery_instance_data_replication_info(),
+        "ec2InstanceID" => String.t(),
+        "ec2InstanceState" => String.t(),
+        "failback" => recovery_instance_failback(),
+        "isDrill" => [boolean()],
+        "jobID" => String.t(),
+        "originAvailabilityZone" => String.t(),
+        "originEnvironment" => String.t(),
+        "pointInTimeSnapshotDateTime" => String.t(),
+        "recoveryInstanceID" => String.t(),
+        "recoveryInstanceProperties" => recovery_instance_properties(),
+        "sourceOutpostArn" => String.t(),
+        "sourceServerID" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type recovery_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t(),
+        "quotaCode" => String.t(),
+        "retryAfterSeconds" => String.t(),
+        "serviceCode" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_into_instance_properties() :: %{
+        "launchIntoEC2InstanceID" => String.t()
+      }
+
+  """
+  @type launch_into_instance_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_failback_launch_request() :: %{
+        optional("tags") => map(),
+        required("recoveryInstanceIDs") => list(String.t()())
+      }
+
+  """
+  @type start_failback_launch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type start_recovery_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_staging_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_staging_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log_event_data() :: %{
+        "conversionProperties" => conversion_properties(),
+        "conversionServerID" => String.t(),
+        "eventResourceData" => list(),
+        "rawError" => String.t(),
+        "sourceServerID" => String.t(),
+        "targetInstanceID" => String.t()
+      }
+
+  """
+  @type job_log_event_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_request() :: %{
+        optional("filters") => describe_jobs_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_configuration() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("ec2LaunchTemplateID") => String.t(),
+        optional("launchDisposition") => String.t(),
+        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
+        optional("licensing") => licensing(),
+        optional("name") => String.t(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("sourceServerID") => String.t(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t()
+      }
+
+  """
+  @type launch_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extensible_source_servers_response() :: %{
+        optional("items") => list(staging_source_server()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_extensible_source_servers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_snapshot() :: %{
+        "ebsSnapshots" => list(String.t()()),
+        "expectedTimestamp" => String.t(),
+        "snapshotID" => String.t(),
+        "sourceServerID" => String.t(),
+        "timestamp" => String.t()
+      }
+
+  """
+  @type recovery_snapshot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_replication_configuration_request() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t(),
+        optional("defaultLargeStagingDiskType") => String.t(),
+        optional("ebsEncryption") => String.t(),
+        optional("ebsEncryptionKeyArn") => String.t(),
+        optional("name") => String.t(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicationServerInstanceType") => String.t(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("stagingAreaSubnetId") => String.t(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        required("sourceServerID") => String.t()
+      }
+
+  """
+  @type update_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_network_data() :: %{
+        "sourceNetworkID" => String.t(),
+        "sourceVpc" => String.t(),
+        "stackName" => String.t(),
+        "targetVpc" => String.t()
+      }
+
+  """
+  @type source_network_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server() :: %{
+        "agentVersion" => String.t(),
+        "arn" => String.t(),
+        "dataReplicationInfo" => data_replication_info(),
+        "lastLaunchResult" => String.t(),
+        "lifeCycle" => life_cycle(),
+        "recoveryInstanceId" => String.t(),
+        "replicationDirection" => String.t(),
+        "reversedDirectionSourceServerArn" => String.t(),
+        "sourceCloudProperties" => source_cloud_properties(),
+        "sourceNetworkID" => String.t(),
+        "sourceProperties" => source_properties(),
+        "sourceServerID" => String.t(),
+        "stagingArea" => staging_area(),
+        "tags" => map()
+      }
+
+  """
+  @type source_server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_network_response() :: %{}
+
+  """
+  @type delete_source_network_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_source_network_replication_request() :: %{
+        required("sourceNetworkID") => String.t()
+      }
+
+  """
+  @type stop_source_network_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_recovery_response() :: %{
+        "job" => job()
+      }
+
+  """
+  @type start_source_network_recovery_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_launch() :: %{
+        "initiated" => life_cycle_last_launch_initiated(),
+        "status" => String.t()
+      }
+
+  """
+  @type life_cycle_last_launch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_instances_request() :: %{
+        optional("filters") => describe_recovery_instances_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_recovery_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_network_stack_response() :: %{
+        "job" => job()
+      }
+
+  """
+  @type associate_source_network_stack_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_configuration_template_response() :: %{}
+
+  """
+  @type delete_launch_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_response() :: %{}
+
+  """
+  @type delete_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("replicationConfigurationTemplateIDs") => list(String.t()())
+      }
+
+  """
+  @type describe_replication_configuration_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_s() :: %{
+        "fullString" => String.t()
+      }
+
+  """
+  @type o_s() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_extended_source_server_response() :: %{
+        optional("sourceServer") => source_server()
+      }
+
+  """
+  @type create_extended_source_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_log_items_response() :: %{
+        optional("items") => list(job_log()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_job_log_items_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_error() :: %{
+        "error" => String.t(),
+        "rawError" => String.t()
+      }
+
+  """
+  @type recovery_instance_data_replication_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_template_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("exportBucketArn") => String.t(),
+        optional("launchDisposition") => String.t(),
+        optional("launchIntoSourceInstance") => [boolean()],
+        optional("licensing") => licensing(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("targetInstanceTypeRightSizingMethod") => String.t(),
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
+  """
+  @type update_launch_configuration_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_configuration_template_response() :: %{
+        optional("launchConfigurationTemplate") => launch_configuration_template()
+      }
+
+  """
+  @type create_launch_configuration_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_extended_source_server_request() :: %{
+        optional("tags") => map(),
+        required("sourceServerArn") => String.t()
+      }
+
+  """
+  @type create_extended_source_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_snapshots_response() :: %{
+        optional("items") => list(recovery_snapshot()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type describe_recovery_snapshots_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log() :: %{
+        "event" => String.t(),
+        "eventData" => job_log_event_data(),
+        "logDateTime" => String.t()
+      }
+
+  """
+  @type job_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_snapshots_request_filters() :: %{
+        "fromDateTime" => String.t(),
+        "toDateTime" => String.t()
+      }
+
+  """
+  @type describe_recovery_snapshots_request_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_network_response() :: %{
+        "sourceNetworkID" => String.t()
+      }
+
+  """
+  @type create_source_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_configuration_template_request() :: %{
+        required("launchConfigurationTemplateID") => String.t()
+      }
+
+  """
+  @type delete_launch_configuration_template_request() :: %{String.t() => any()}
+
+  @type associate_source_network_stack_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_extended_source_server_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type create_launch_configuration_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+
+  @type create_replication_configuration_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+
+  @type create_source_network_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_job_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_launch_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type delete_launch_configuration_template_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_recovery_instance_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | conflict_exception()
+
+  @type delete_replication_configuration_template_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_source_network_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_source_server_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_job_log_items_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type describe_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type describe_launch_configuration_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type describe_recovery_instances_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type describe_recovery_snapshots_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type describe_replication_configuration_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type describe_source_networks_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type describe_source_servers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type disconnect_recovery_instance_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disconnect_source_server_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type export_source_network_cfn_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_failback_replication_configuration_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type get_launch_configuration_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type get_replication_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type initialize_service_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_extensible_source_servers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type list_launch_actions_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type list_staging_accounts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_launch_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type retry_data_replication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type reverse_replication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_failback_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_recovery_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_replication_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_source_network_recovery_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type start_source_network_replication_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_failback_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type stop_replication_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_source_network_replication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type terminate_recovery_instances_errors() ::
+          throttling_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_failback_replication_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type update_launch_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_launch_configuration_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type update_replication_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_replication_configuration_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2020-02-26",
@@ -16,6 +2452,7 @@ defmodule AWS.Drs do
       credential_scope: nil,
       endpoint_prefix: "drs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "drs",
       signature_version: "v4",
@@ -29,13 +2466,26 @@ defmodule AWS.Drs do
   templates to use this network.
 
   Can be used for reverting to previously deployed CloudFormation stacks.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec associate_source_network_stack(
+          AWS.Client.t(),
+          associate_source_network_stack_request(),
+          Keyword.t()
+        ) ::
+          {:ok, associate_source_network_stack_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_source_network_stack_errors()}
   def associate_source_network_stack(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceNetworkStack"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -53,13 +2503,26 @@ defmodule AWS.Drs do
   @doc """
   Create an extended source server in the target Account based on the source
   server in staging account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_extended_source_server(
+          AWS.Client.t(),
+          create_extended_source_server_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_extended_source_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_extended_source_server_errors()}
   def create_extended_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/CreateExtendedSourceServer"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -76,13 +2539,26 @@ defmodule AWS.Drs do
 
   @doc """
   Creates a new Launch Configuration Template.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_launch_configuration_template(
+          AWS.Client.t(),
+          create_launch_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_launch_configuration_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_launch_configuration_template_errors()}
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -99,13 +2575,26 @@ defmodule AWS.Drs do
 
   @doc """
   Creates a new ReplicationConfigurationTemplate.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_replication_configuration_template(
+          AWS.Client.t(),
+          create_replication_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, replication_configuration_template(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_replication_configuration_template_errors()}
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -122,13 +2611,22 @@ defmodule AWS.Drs do
 
   @doc """
   Create a new Source Network resource for a provided VPC ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_source_network(AWS.Client.t(), create_source_network_request(), Keyword.t()) ::
+          {:ok, create_source_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_source_network_errors()}
   def create_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSourceNetwork"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -145,13 +2643,22 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Job by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
+          {:ok, delete_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -168,13 +2675,22 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a resource launch action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_launch_action(AWS.Client.t(), delete_launch_action_request(), Keyword.t()) ::
+          {:ok, delete_launch_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_launch_action_errors()}
   def delete_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchAction"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -191,13 +2707,26 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Launch Configuration Template by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_launch_configuration_template(
+          AWS.Client.t(),
+          delete_launch_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_launch_configuration_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_launch_configuration_template_errors()}
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -217,13 +2746,22 @@ defmodule AWS.Drs do
 
   This deletes the Recovery Instance resource from Elastic Disaster Recovery. The
   Recovery Instance must be disconnected first in order to delete it.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_recovery_instance(AWS.Client.t(), delete_recovery_instance_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_recovery_instance_errors()}
   def delete_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecoveryInstance"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -240,13 +2778,26 @@ defmodule AWS.Drs do
 
   @doc """
   Deletes a single Replication Configuration Template by ID
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_replication_configuration_template(
+          AWS.Client.t(),
+          delete_replication_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_replication_configuration_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_replication_configuration_template_errors()}
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -263,13 +2814,22 @@ defmodule AWS.Drs do
 
   @doc """
   Delete Source Network resource.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_source_network(AWS.Client.t(), delete_source_network_request(), Keyword.t()) ::
+          {:ok, delete_source_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_source_network_errors()}
   def delete_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceNetwork"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -288,13 +2848,22 @@ defmodule AWS.Drs do
   Deletes a single Source Server by ID.
 
   The Source Server must be disconnected first.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_source_server(AWS.Client.t(), delete_source_server_request(), Keyword.t()) ::
+          {:ok, delete_source_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_source_server_errors()}
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -311,13 +2880,22 @@ defmodule AWS.Drs do
 
   @doc """
   Retrieves a detailed Job log with pagination.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_job_log_items(AWS.Client.t(), describe_job_log_items_request(), Keyword.t()) ::
+          {:ok, describe_job_log_items_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_job_log_items_errors()}
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -341,13 +2919,22 @@ defmodule AWS.Drs do
   Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances,
   which are APIs available only to *Support* and only used in response to relevant
   support tickets.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_jobs(AWS.Client.t(), describe_jobs_request(), Keyword.t()) ::
+          {:ok, describe_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_jobs_errors()}
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -365,13 +2952,26 @@ defmodule AWS.Drs do
   @doc """
   Lists all Launch Configuration Templates, filtered by Launch Configuration
   Template IDs
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_launch_configuration_templates(
+          AWS.Client.t(),
+          describe_launch_configuration_templates_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_launch_configuration_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_launch_configuration_templates_errors()}
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -388,13 +2988,26 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Recovery Instances or multiple Recovery Instances by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_recovery_instances(
+          AWS.Client.t(),
+          describe_recovery_instances_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_recovery_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_recovery_instances_errors()}
   def describe_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoveryInstances"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -411,13 +3024,26 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Recovery Snapshots for a single Source Server.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_recovery_snapshots(
+          AWS.Client.t(),
+          describe_recovery_snapshots_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_recovery_snapshots_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_recovery_snapshots_errors()}
   def describe_recovery_snapshots(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoverySnapshots"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -434,13 +3060,26 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_replication_configuration_templates(
+          AWS.Client.t(),
+          describe_replication_configuration_templates_request(),
+          Keyword.t()
+        ) ::
+          {:ok, describe_replication_configuration_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_replication_configuration_templates_errors()}
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -457,13 +3096,22 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Source Networks or multiple Source Networks filtered by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_source_networks(AWS.Client.t(), describe_source_networks_request(), Keyword.t()) ::
+          {:ok, describe_source_networks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_source_networks_errors()}
   def describe_source_networks(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceNetworks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -480,13 +3128,22 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Source Servers or multiple Source Servers filtered by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_source_servers(AWS.Client.t(), describe_source_servers_request(), Keyword.t()) ::
+          {:ok, describe_source_servers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_source_servers_errors()}
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -515,13 +3172,26 @@ defmodule AWS.Drs do
   dataReplicationInfo.replicatedDisks will be set to zero;
   dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec disconnect_recovery_instance(
+          AWS.Client.t(),
+          disconnect_recovery_instance_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disconnect_recovery_instance_errors()}
   def disconnect_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectRecoveryInstance"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -550,13 +3220,22 @@ defmodule AWS.Drs do
   totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
   be set to zero; dataReplicationInfo.lagDuration and
   dataReplicationInfo.lagDuration will be nullified.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec disconnect_source_server(AWS.Client.t(), disconnect_source_server_request(), Keyword.t()) ::
+          {:ok, source_server(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disconnect_source_server_errors()}
   def disconnect_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectSourceServer"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -573,13 +3252,26 @@ defmodule AWS.Drs do
 
   @doc """
   Export the Source Network CloudFormation template to an S3 bucket.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec export_source_network_cfn_template(
+          AWS.Client.t(),
+          export_source_network_cfn_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, export_source_network_cfn_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_source_network_cfn_template_errors()}
   def export_source_network_cfn_template(%Client{} = client, input, options \\ []) do
     url_path = "/ExportSourceNetworkCfnTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -596,13 +3288,26 @@ defmodule AWS.Drs do
 
   @doc """
   Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_failback_replication_configuration(
+          AWS.Client.t(),
+          get_failback_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_failback_replication_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_failback_replication_configuration_errors()}
   def get_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetFailbackReplicationConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -619,13 +3324,22 @@ defmodule AWS.Drs do
 
   @doc """
   Gets a LaunchConfiguration, filtered by Source Server IDs.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_launch_configuration(AWS.Client.t(), get_launch_configuration_request(), Keyword.t()) ::
+          {:ok, launch_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_launch_configuration_errors()}
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -642,13 +3356,26 @@ defmodule AWS.Drs do
 
   @doc """
   Gets a ReplicationConfiguration, filtered by Source Server ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_replication_configuration(
+          AWS.Client.t(),
+          get_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, replication_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_replication_configuration_errors()}
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -665,13 +3392,22 @@ defmodule AWS.Drs do
 
   @doc """
   Initialize Elastic Disaster Recovery.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec initialize_service(AWS.Client.t(), initialize_service_request(), Keyword.t()) ::
+          {:ok, initialize_service_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, initialize_service_errors()}
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -694,13 +3430,26 @@ defmodule AWS.Drs do
   The source server is not already extended into this Account.
   b. The source server on the Account we’re reading from is not an extension of
   another source server.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_extensible_source_servers(
+          AWS.Client.t(),
+          list_extensible_source_servers_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_extensible_source_servers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_extensible_source_servers_errors()}
   def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/ListExtensibleSourceServers"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -717,13 +3466,22 @@ defmodule AWS.Drs do
 
   @doc """
   Lists resource launch actions.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_launch_actions(AWS.Client.t(), list_launch_actions_request(), Keyword.t()) ::
+          {:ok, list_launch_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_launch_actions_errors()}
   def list_launch_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLaunchActions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -740,16 +3498,28 @@ defmodule AWS.Drs do
 
   @doc """
   Returns an array of staging accounts for existing extended source servers.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_staging_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_staging_accounts(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_staging_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_staging_accounts_errors()}
+  def list_staging_accounts(%Client{} = client, options \\ []) do
     url_path = "/ListStagingAccounts"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -758,6 +3528,8 @@ defmodule AWS.Drs do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -765,33 +3537,58 @@ defmodule AWS.Drs do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   List all tags for your Elastic Disaster Recovery resources.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Puts a resource launch action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec put_launch_action(AWS.Client.t(), put_launch_action_request(), Keyword.t()) ::
+          {:ok, put_launch_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_launch_action_errors()}
   def put_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutLaunchAction"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -813,13 +3610,22 @@ defmodule AWS.Drs do
   Handshake for the specified Source Server ID, regardless of when the previous
   initiation started. This command will work only if the Source Server is stalled
   or is in a DISCONNECTED or STOPPED state.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec retry_data_replication(AWS.Client.t(), retry_data_replication_request(), Keyword.t()) ::
+          {:ok, source_server(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, retry_data_replication_errors()}
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -842,13 +3648,22 @@ defmodule AWS.Drs do
   region.
   For failback instances on origin region - starts replication to target region to
   re-protect them.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec reverse_replication(AWS.Client.t(), reverse_replication_request(), Keyword.t()) ::
+          {:ok, reverse_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reverse_replication_errors()}
   def reverse_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ReverseReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -869,13 +3684,22 @@ defmodule AWS.Drs do
 
   This will run conversion on the failback client and will reboot your machine,
   thus completing the failback process.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_failback_launch(AWS.Client.t(), start_failback_launch_request(), Keyword.t()) ::
+          {:ok, start_failback_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_failback_launch_errors()}
   def start_failback_launch(%Client{} = client, input, options \\ []) do
     url_path = "/StartFailbackLaunch"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -895,13 +3719,22 @@ defmodule AWS.Drs do
 
   For each Source Server you may choose a point in time snapshot to launch from,
   or use an on demand snapshot.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_recovery(AWS.Client.t(), start_recovery_request(), Keyword.t()) ::
+          {:ok, start_recovery_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_recovery_errors()}
   def start_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartRecovery"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -921,13 +3754,22 @@ defmodule AWS.Drs do
 
   This action would make the Source Server protected again and restart billing for
   it.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_replication(AWS.Client.t(), start_replication_request(), Keyword.t()) ::
+          {:ok, start_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -947,13 +3789,26 @@ defmodule AWS.Drs do
   this network.
 
   The VPC will be deployed using a dedicated CloudFormation stack.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_source_network_recovery(
+          AWS.Client.t(),
+          start_source_network_recovery_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_source_network_recovery_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_source_network_recovery_errors()}
   def start_source_network_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkRecovery"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -972,13 +3827,26 @@ defmodule AWS.Drs do
   Starts replication for a Source Network.
 
   This action would make the Source Network protected.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_source_network_replication(
+          AWS.Client.t(),
+          start_source_network_replication_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_source_network_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_source_network_replication_errors()}
   def start_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -998,13 +3866,22 @@ defmodule AWS.Drs do
 
   This changes the Failback State of the Recovery Instance back to
   FAILBACK_NOT_STARTED.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec stop_failback(AWS.Client.t(), stop_failback_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_failback_errors()}
   def stop_failback(%Client{} = client, input, options \\ []) do
     url_path = "/StopFailback"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1024,13 +3901,22 @@ defmodule AWS.Drs do
 
   This action would make the Source Server unprotected, delete its existing
   snapshots and stop billing for it.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec stop_replication(AWS.Client.t(), stop_replication_request(), Keyword.t()) ::
+          {:ok, stop_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1049,13 +3935,26 @@ defmodule AWS.Drs do
   Stops replication for a Source Network.
 
   This action would make the Source Network unprotected.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec stop_source_network_replication(
+          AWS.Client.t(),
+          stop_source_network_replication_request(),
+          Keyword.t()
+        ) ::
+          {:ok, stop_source_network_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_source_network_replication_errors()}
   def stop_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopSourceNetworkReplication"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1077,13 +3976,23 @@ defmodule AWS.Drs do
   When you specify an existing tag key, the value is overwritten with the new
   value. Each resource can have a maximum of 50 tags. Each tag consists of a key
   and optional value.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1102,13 +4011,26 @@ defmodule AWS.Drs do
   Initiates a Job for terminating the EC2 resources associated with the specified
   Recovery Instances, and then will delete the Recovery Instances from the Elastic
   Disaster Recovery service.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec terminate_recovery_instances(
+          AWS.Client.t(),
+          terminate_recovery_instances_request(),
+          Keyword.t()
+        ) ::
+          {:ok, terminate_recovery_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, terminate_recovery_instances_errors()}
   def terminate_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateRecoveryInstances"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1126,7 +4048,17 @@ defmodule AWS.Drs do
   @doc """
   Deletes the specified set of tags from the specified set of Elastic Disaster
   Recovery resources.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1137,7 +4069,8 @@ defmodule AWS.Drs do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1155,13 +4088,26 @@ defmodule AWS.Drs do
   @doc """
   Allows you to update the failback replication configuration of a Recovery
   Instance by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_failback_replication_configuration(
+          AWS.Client.t(),
+          update_failback_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_failback_replication_configuration_errors()}
   def update_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateFailbackReplicationConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1178,13 +4124,26 @@ defmodule AWS.Drs do
 
   @doc """
   Updates a LaunchConfiguration by Source Server ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_launch_configuration(
+          AWS.Client.t(),
+          update_launch_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, launch_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_launch_configuration_errors()}
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1201,13 +4160,26 @@ defmodule AWS.Drs do
 
   @doc """
   Updates an existing Launch Configuration Template by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_launch_configuration_template(
+          AWS.Client.t(),
+          update_launch_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_launch_configuration_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1224,13 +4196,26 @@ defmodule AWS.Drs do
 
   @doc """
   Allows you to update a ReplicationConfiguration by Source Server ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_replication_configuration(
+          AWS.Client.t(),
+          update_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, replication_configuration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_replication_configuration_errors()}
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1247,13 +4232,26 @@ defmodule AWS.Drs do
 
   @doc """
   Updates a ReplicationConfigurationTemplate by ID.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_replication_configuration_template(
+          AWS.Client.t(),
+          update_replication_configuration_template_request(),
+          Keyword.t()
+        ) ::
+          {:ok, replication_configuration_template(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_replication_configuration_template_errors()}
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

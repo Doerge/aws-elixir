@@ -18,6 +18,254 @@ defmodule AWS.CloudSearchDomain do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      bucket() :: %{
+        "count" => float(),
+        "value" => String.t()
+      }
+
+  """
+  @type bucket() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bucket_info() :: %{
+        "buckets" => list(bucket()())
+      }
+
+  """
+  @type bucket_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_service_exception() :: %{
+        "message" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type document_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_service_warning() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type document_service_warning() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_stats() :: %{
+        "count" => float(),
+        "max" => String.t(),
+        "mean" => String.t(),
+        "min" => String.t(),
+        "missing" => float(),
+        "stddev" => float(),
+        "sum" => float(),
+        "sumOfSquares" => float()
+      }
+
+  """
+  @type field_stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hit() :: %{
+        "exprs" => map(),
+        "fields" => map(),
+        "highlights" => map(),
+        "id" => String.t()
+      }
+
+  """
+  @type hit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hits() :: %{
+        "cursor" => String.t(),
+        "found" => float(),
+        "hit" => list(hit()()),
+        "start" => float()
+      }
+
+  """
+  @type hits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type search_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_request() :: %{
+        optional("cursor") => String.t(),
+        optional("expr") => String.t(),
+        optional("facet") => String.t(),
+        optional("filterQuery") => String.t(),
+        optional("highlight") => String.t(),
+        optional("partial") => boolean(),
+        optional("queryOptions") => String.t(),
+        optional("queryParser") => list(any()),
+        optional("return") => String.t(),
+        optional("size") => float(),
+        optional("sort") => String.t(),
+        optional("start") => float(),
+        optional("stats") => String.t(),
+        required("query") => String.t()
+      }
+
+  """
+  @type search_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_response() :: %{
+        "facets" => map(),
+        "hits" => hits(),
+        "stats" => map(),
+        "status" => search_status()
+      }
+
+  """
+  @type search_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_status() :: %{
+        "rid" => String.t(),
+        "timems" => float()
+      }
+
+  """
+  @type search_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_model() :: %{
+        "found" => float(),
+        "query" => String.t(),
+        "suggestions" => list(suggestion_match()())
+      }
+
+  """
+  @type suggest_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_request() :: %{
+        optional("size") => float(),
+        required("query") => String.t(),
+        required("suggester") => String.t()
+      }
+
+  """
+  @type suggest_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_response() :: %{
+        "status" => suggest_status(),
+        "suggest" => suggest_model()
+      }
+
+  """
+  @type suggest_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggest_status() :: %{
+        "rid" => String.t(),
+        "timems" => float()
+      }
+
+  """
+  @type suggest_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggestion_match() :: %{
+        "id" => String.t(),
+        "score" => float(),
+        "suggestion" => String.t()
+      }
+
+  """
+  @type suggestion_match() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_documents_request() :: %{
+        required("contentType") => list(any()),
+        required("documents") => binary()
+      }
+
+  """
+  @type upload_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_documents_response() :: %{
+        "adds" => float(),
+        "deletes" => float(),
+        "status" => String.t(),
+        "warnings" => list(document_service_warning()())
+      }
+
+  """
+  @type upload_documents_response() :: %{String.t() => any()}
+
+  @type search_errors() :: search_exception()
+
+  @type suggest_errors() :: search_exception()
+
+  @type upload_documents_errors() :: document_service_exception()
+
   def metadata do
     %{
       api_version: "2013-01-01",
@@ -25,6 +273,7 @@ defmodule AWS.CloudSearchDomain do
       credential_scope: nil,
       endpoint_prefix: "cloudsearchdomain",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CloudSearch Domain",
       signature_version: "v4",
@@ -60,28 +309,40 @@ defmodule AWS.CloudSearchDomain do
   your domain, use the Amazon CloudSearch configuration service `DescribeDomains`
   action. A domain's endpoints are also displayed on the domain dashboard in the
   Amazon CloudSearch console.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :cursor (t:String.t/0) (cursor)
+   • :expr (t:String.t/0) (expr)
+   • :facet (t:String.t/0) (facet)
+   • :filter_query (t:String.t/0) (fq)
+   • :highlight (t:String.t/0) (highlight)
+   • :partial (t:String.t/0) (partial)
+   • :query (t:String.t/0) (q)
+   • :query_options (t:String.t/0) (q.options)
+   • :query_parser (t:String.t/0) (q.parser)
+   • :return (t:String.t/0) (return)
+   • :size (t:String.t/0) (size)
+   • :sort (t:String.t/0) (sort)
+   • :start (t:String.t/0) (start)
+   • :stats (t:String.t/0) (stats)
   """
-  def search(
-        %Client{} = client,
-        cursor \\ nil,
-        expr \\ nil,
-        facet \\ nil,
-        filter_query \\ nil,
-        highlight \\ nil,
-        partial \\ nil,
-        query,
-        query_options \\ nil,
-        query_parser \\ nil,
-        return \\ nil,
-        size \\ nil,
-        sort \\ nil,
-        start \\ nil,
-        stats \\ nil,
-        options \\ []
-      ) do
+  @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, search_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_errors()}
+  def search(%Client{} = client, query, options \\ []) do
     url_path = "/2013-01-01/search?format=sdk&pretty=true"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [cursor: nil, expr: nil, facet: nil, filter_query: nil, highlight: nil, partial: nil, query: nil, query_options: nil, query_parser: nil, return: nil, size: nil, sort: nil, start: nil, stats: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {stats, options} = Keyword.pop(options, :stats, nil)
 
     query_params =
       if !is_nil(stats) do
@@ -90,12 +351,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {start, options} = Keyword.pop(options, :start, nil)
+
     query_params =
       if !is_nil(start) do
         [{"start", start} | query_params]
       else
         query_params
       end
+
+    {sort, options} = Keyword.pop(options, :sort, nil)
 
     query_params =
       if !is_nil(sort) do
@@ -104,12 +369,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {size, options} = Keyword.pop(options, :size, nil)
+
     query_params =
       if !is_nil(size) do
         [{"size", size} | query_params]
       else
         query_params
       end
+
+    {return, options} = Keyword.pop(options, :return, nil)
 
     query_params =
       if !is_nil(return) do
@@ -118,12 +387,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {query_parser, options} = Keyword.pop(options, :query_parser, nil)
+
     query_params =
       if !is_nil(query_parser) do
         [{"q.parser", query_parser} | query_params]
       else
         query_params
       end
+
+    {query_options, options} = Keyword.pop(options, :query_options, nil)
 
     query_params =
       if !is_nil(query_options) do
@@ -132,12 +405,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {query, options} = Keyword.pop(options, :query, nil)
+
     query_params =
       if !is_nil(query) do
         [{"q", query} | query_params]
       else
         query_params
       end
+
+    {partial, options} = Keyword.pop(options, :partial, nil)
 
     query_params =
       if !is_nil(partial) do
@@ -146,12 +423,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {highlight, options} = Keyword.pop(options, :highlight, nil)
+
     query_params =
       if !is_nil(highlight) do
         [{"highlight", highlight} | query_params]
       else
         query_params
       end
+
+    {filter_query, options} = Keyword.pop(options, :filter_query, nil)
 
     query_params =
       if !is_nil(filter_query) do
@@ -160,12 +441,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {facet, options} = Keyword.pop(options, :facet, nil)
+
     query_params =
       if !is_nil(facet) do
         [{"facet", facet} | query_params]
       else
         query_params
       end
+
+    {expr, options} = Keyword.pop(options, :expr, nil)
 
     query_params =
       if !is_nil(expr) do
@@ -174,6 +459,8 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {cursor, options} = Keyword.pop(options, :cursor, nil)
+
     query_params =
       if !is_nil(cursor) do
         [{"cursor", cursor} | query_params]
@@ -181,7 +468,8 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -205,11 +493,29 @@ defmodule AWS.CloudSearchDomain do
   your domain, use the Amazon CloudSearch configuration service `DescribeDomains`
   action. A domain's endpoints are also displayed on the domain dashboard in the
   Amazon CloudSearch console.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :query (t:String.t/0) (q)
+   • :size (t:String.t/0) (size)
+   • :suggester (t:String.t/0) (suggester)
   """
-  def suggest(%Client{} = client, query, size \\ nil, suggester, options \\ []) do
+  @spec suggest(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, suggest_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, suggest_errors()}
+  def suggest(%Client{} = client, query, suggester, options \\ []) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [query: nil, size: nil, suggester: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {suggester, options} = Keyword.pop(options, :suggester, nil)
 
     query_params =
       if !is_nil(suggester) do
@@ -218,12 +524,16 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
+    {size, options} = Keyword.pop(options, :size, nil)
+
     query_params =
       if !is_nil(size) do
         [{"size", size} | query_params]
       else
         query_params
       end
+
+    {query, options} = Keyword.pop(options, :query, nil)
 
     query_params =
       if !is_nil(query) do
@@ -232,7 +542,8 @@ defmodule AWS.CloudSearchDomain do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -261,7 +572,16 @@ defmodule AWS.CloudSearchDomain do
   in the *Amazon CloudSearch Developer Guide*.
   For more information about uploading data for indexing, see [Uploading Data](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html)
   in the *Amazon CloudSearch Developer Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :content_type (t:String.t/0) (Content-Type)
   """
+  @spec upload_documents(AWS.Client.t(), upload_documents_request(), Keyword.t()) ::
+          {:ok, upload_documents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, upload_documents_errors()}
   def upload_documents(%Client{} = client, input, options \\ []) do
     url_path = "/2013-01-01/documents/batch?format=sdk"
 
@@ -273,7 +593,8 @@ defmodule AWS.CloudSearchDomain do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

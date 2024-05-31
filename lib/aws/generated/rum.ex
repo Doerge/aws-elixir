@@ -24,6 +24,818 @@ defmodule AWS.RUM do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      put_rum_metrics_destination_response() :: %{}
+
+  """
+  @type put_rum_metrics_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_storage() :: %{
+        "CwLog" => cw_log()
+      }
+
+  """
+  @type data_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type query_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_events_request() :: %{
+        required("AppMonitorDetails") => app_monitor_details(),
+        required("BatchId") => [String.t()],
+        required("RumEvents") => list(rum_event()()),
+        required("UserDetails") => user_details()
+      }
+
+  """
+  @type put_rum_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_monitor_summary() :: %{
+        "Created" => String.t(),
+        "Id" => String.t(),
+        "LastModified" => String.t(),
+        "Name" => String.t(),
+        "State" => String.t()
+      }
+
+  """
+  @type app_monitor_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_monitor_response() :: %{
+        optional("AppMonitor") => app_monitor()
+      }
+
+  """
+  @type get_app_monitor_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_monitor_details() :: %{
+        "id" => [String.t()],
+        "name" => [String.t()],
+        "version" => [String.t()]
+      }
+
+  """
+  @type app_monitor_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_destination_summary() :: %{
+        "Destination" => String.t(),
+        "DestinationArn" => String.t(),
+        "IamRoleArn" => String.t()
+      }
+
+  """
+  @type metric_destination_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cw_log() :: %{
+        "CwLogEnabled" => [boolean()],
+        "CwLogGroup" => [String.t()]
+      }
+
+  """
+  @type cw_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinitionIds") => list(String.t()())
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_monitor_configuration() :: %{
+        "AllowCookies" => [boolean()],
+        "EnableXRay" => [boolean()],
+        "ExcludedPages" => list(String.t()()),
+        "FavoritePages" => list([String.t()]()),
+        "GuestRoleArn" => String.t(),
+        "IdentityPoolId" => String.t(),
+        "IncludedPages" => list(String.t()()),
+        "SessionSampleRate" => float(),
+        "Telemetries" => list(String.t()())
+      }
+
+  """
+  @type app_monitor_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_details() :: %{
+        "sessionId" => [String.t()],
+        "userId" => [String.t()]
+      }
+
+  """
+  @type user_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_monitor_request() :: %{
+        optional("AppMonitorConfiguration") => app_monitor_configuration(),
+        optional("CustomEvents") => custom_events(),
+        optional("CwLogEnabled") => [boolean()],
+        optional("Domain") => String.t()
+      }
+
+  """
+  @type update_app_monitor_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_monitor_data_request() :: %{
+        optional("Filters") => list(query_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("TimeRange") => time_range()
+      }
+
+  """
+  @type get_app_monitor_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition() :: %{
+        "DimensionKeys" => map(),
+        "EventPattern" => String.t(),
+        "MetricDefinitionId" => String.t(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "UnitLabel" => String.t(),
+        "ValueKey" => String.t()
+      }
+
+  """
+  @type metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_monitors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_app_monitors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rum_event() :: %{
+        "details" => String.t(),
+        "id" => [String.t()],
+        "metadata" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "type" => [String.t()]
+      }
+
+  """
+  @type rum_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_monitor_request() :: %{}
+
+  """
+  @type get_app_monitor_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_monitor_response() :: %{
+        optional("Id") => String.t()
+      }
+
+  """
+  @type create_app_monitor_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_monitor() :: %{
+        "AppMonitorConfiguration" => app_monitor_configuration(),
+        "Created" => String.t(),
+        "CustomEvents" => custom_events(),
+        "DataStorage" => data_storage(),
+        "Domain" => String.t(),
+        "Id" => String.t(),
+        "LastModified" => String.t(),
+        "Name" => String.t(),
+        "State" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type app_monitor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_monitor_response() :: %{}
+
+  """
+  @type delete_app_monitor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_monitor_request() :: %{
+        optional("AppMonitorConfiguration") => app_monitor_configuration(),
+        optional("CustomEvents") => custom_events(),
+        optional("CwLogEnabled") => [boolean()],
+        optional("Tags") => map(),
+        required("Domain") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_app_monitor_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t()
+      }
+
+  """
+  @type delete_rum_metrics_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t()],
+        "ErrorMessage" => [String.t()],
+        "MetricDefinition" => metric_definition_request()
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinitions") => list(metric_definition_request()())
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rum_metric_definition_request() :: %{
+        optional("DestinationArn") => String.t(),
+        required("Destination") => String.t(),
+        required("MetricDefinition") => metric_definition_request(),
+        required("MetricDefinitionId") => String.t()
+      }
+
+  """
+  @type update_rum_metric_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceName" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceName" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitionIds") => list(String.t()()),
+        required("Errors") => list(batch_delete_rum_metric_definitions_error()())
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_rum_metric_definitions_error() :: %{
+        "ErrorCode" => [String.t()],
+        "ErrorMessage" => [String.t()],
+        "MetricDefinitionId" => String.t()
+      }
+
+  """
+  @type batch_delete_rum_metric_definitions_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_monitor_data_response() :: %{
+        optional("Events") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_app_monitor_data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_events_response() :: %{}
+
+  """
+  @type put_rum_events_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rum_metrics_destination_request() :: %{
+        optional("DestinationArn") => String.t(),
+        optional("IamRoleArn") => String.t(),
+        required("Destination") => String.t()
+      }
+
+  """
+  @type put_rum_metrics_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_monitor_request() :: %{}
+
+  """
+  @type delete_app_monitor_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rum_metrics_destinations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_rum_metrics_destinations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rum_metrics_destination_response() :: %{}
+
+  """
+  @type delete_rum_metrics_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitions") => list(metric_definition()()),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type batch_get_rum_metric_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_rum_metric_definitions_request() :: %{
+        optional("DestinationArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        required("Destination") => String.t()
+      }
+
+  """
+  @type batch_get_rum_metric_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_range() :: %{
+        "After" => float(),
+        "Before" => float()
+      }
+
+  """
+  @type time_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_rum_metric_definitions_response() :: %{
+        optional("MetricDefinitions") => list(metric_definition()()),
+        required("Errors") => list(batch_create_rum_metric_definitions_error()())
+      }
+
+  """
+  @type batch_create_rum_metric_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_monitor_response() :: %{}
+
+  """
+  @type update_app_monitor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition_request() :: %{
+        "DimensionKeys" => map(),
+        "EventPattern" => String.t(),
+        "Name" => String.t(),
+        "Namespace" => String.t(),
+        "UnitLabel" => String.t(),
+        "ValueKey" => String.t()
+      }
+
+  """
+  @type metric_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rum_metric_definition_response() :: %{}
+
+  """
+  @type update_rum_metric_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_monitors_response() :: %{
+        optional("AppMonitorSummaries") => list(app_monitor_summary()()),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_app_monitors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rum_metrics_destinations_response() :: %{
+        optional("Destinations") => list(metric_destination_summary()()),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_rum_metrics_destinations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_events() :: %{
+        "Status" => String.t()
+      }
+
+  """
+  @type custom_events() :: %{String.t() => any()}
+
+  @type batch_create_rum_metric_definitions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_delete_rum_metric_definitions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_get_rum_metric_definitions_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_rum_metrics_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_app_monitor_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_app_monitors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_rum_metrics_destinations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type put_rum_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_rum_metrics_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_app_monitor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_rum_metric_definition_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -31,6 +843,7 @@ defmodule AWS.RUM do
       credential_scope: nil,
       endpoint_prefix: "rum",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RUM",
       signature_version: "v4",
@@ -108,7 +921,21 @@ defmodule AWS.RUM do
   operations are not valid,
   those metric definitions fail and return errors, but all valid metric
   definitions in the same operation still succeed.
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
   """
+  @spec batch_create_rum_metric_definitions(
+          AWS.Client.t(),
+          String.t(),
+          batch_create_rum_metric_definitions_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_create_rum_metric_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_rum_metric_definitions_errors()}
   def batch_create_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
@@ -119,7 +946,8 @@ defmodule AWS.RUM do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -146,7 +974,24 @@ defmodule AWS.RUM do
 
   The maximum number of metric definitions that you can specify in one
   `BatchDeleteRumMetricDefinitions` operation is 200.
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
+   • :destination (t:String.t/0) (destination)
+   • :destination_arn (t:String.t/0) (destinationArn)
+   • :metric_definition_ids (t:String.t/0) (metricDefinitionIds)
   """
+  @spec batch_delete_rum_metric_definitions(
+          AWS.Client.t(),
+          String.t(),
+          batch_delete_rum_metric_definitions_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_delete_rum_metric_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_rum_metric_definitions_errors()}
   def batch_delete_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
@@ -164,7 +1009,8 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -182,19 +1028,36 @@ defmodule AWS.RUM do
   @doc """
   Retrieves the list of metrics and dimensions that a RUM app monitor is sending
   to a single destination.
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
+   • :destination (t:String.t/0) (destination)
+   • :destination_arn (t:String.t/0) (destinationArn)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
+  @spec batch_get_rum_metric_definitions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, batch_get_rum_metric_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_rum_metric_definitions_errors()}
   def batch_get_rum_metric_definitions(
         %Client{} = client,
         app_monitor_name,
         destination,
-        destination_arn \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
         options \\ []
       ) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [destination: nil, destination_arn: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -203,12 +1066,16 @@ defmodule AWS.RUM do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {destination_arn, options} = Keyword.pop(options, :destination_arn, nil)
 
     query_params =
       if !is_nil(destination_arn) do
@@ -217,6 +1084,8 @@ defmodule AWS.RUM do
         query_params
       end
 
+    {destination, options} = Keyword.pop(options, :destination, nil)
+
     query_params =
       if !is_nil(destination) do
         [{"destination", destination} | query_params]
@@ -224,7 +1093,8 @@ defmodule AWS.RUM do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -248,13 +1118,22 @@ defmodule AWS.RUM do
   [How do I find a code snippet
   that I've already
   generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_app_monitor(AWS.Client.t(), create_app_monitor_request(), Keyword.t()) ::
+          {:ok, create_app_monitor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_app_monitor_errors()}
   def create_app_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitor"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -273,13 +1152,23 @@ defmodule AWS.RUM do
   Deletes an existing app monitor.
 
   This immediately stops the collection of data.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec delete_app_monitor(AWS.Client.t(), String.t(), delete_app_monitor_request(), Keyword.t()) ::
+          {:ok, delete_app_monitor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_app_monitor_errors()}
   def delete_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -298,7 +1187,23 @@ defmodule AWS.RUM do
   Deletes a destination for CloudWatch RUM extended metrics, so that the specified
   app monitor stops
   sending extended metrics to that destination.
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
+   • :destination (t:String.t/0) (destination)
+   • :destination_arn (t:String.t/0) (destinationArn)
   """
+  @spec delete_rum_metrics_destination(
+          AWS.Client.t(),
+          String.t(),
+          delete_rum_metrics_destination_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_rum_metrics_destination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_rum_metrics_destination_errors()}
   def delete_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
@@ -310,7 +1215,8 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -327,13 +1233,28 @@ defmodule AWS.RUM do
 
   @doc """
   Retrieves the complete configuration information for one app monitor.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec get_app_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_app_monitor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_app_monitor_errors()}
   def get_app_monitor(%Client{} = client, name, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -342,13 +1263,28 @@ defmodule AWS.RUM do
   Retrieves the raw performance events that RUM has collected from your web
   application,
   so that you can do your own processing or analysis of this data.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec get_app_monitor_data(
+          AWS.Client.t(),
+          String.t(),
+          get_app_monitor_data_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_app_monitor_data_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_app_monitor_data_errors()}
   def get_app_monitor_data(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/data"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -365,7 +1301,17 @@ defmodule AWS.RUM do
 
   @doc """
   Returns a list of the Amazon CloudWatch RUM app monitors in the account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
+  @spec list_app_monitors(AWS.Client.t(), list_app_monitors_request(), Keyword.t()) ::
+          {:ok, list_app_monitors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_app_monitors_errors()}
   def list_app_monitors(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitors"
     headers = []
@@ -377,7 +1323,8 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -399,17 +1346,29 @@ defmodule AWS.RUM do
 
   For more information about extended metrics, see
   [AddRumMetrics](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html).
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_rum_metrics_destinations(
-        %Client{} = client,
-        app_monitor_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_rum_metrics_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_rum_metrics_destinations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_rum_metrics_destinations_errors()}
+  def list_rum_metrics_destinations(%Client{} = client, app_monitor_name, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -418,6 +1377,8 @@ defmodule AWS.RUM do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -425,20 +1386,36 @@ defmodule AWS.RUM do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the tags associated with a CloudWatch RUM resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -453,13 +1430,23 @@ defmodule AWS.RUM do
   send this data to RUM.
 
   Each `PutRumEvents` operation can send a batch of events from one user session.
+
+  ## Required positional parameters:
+   • :id (t:string String.t/0) (Id)
+
+  ## Optional parameters:
   """
+  @spec put_rum_events(AWS.Client.t(), String.t(), put_rum_events_request(), Keyword.t()) ::
+          {:ok, put_rum_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_rum_events_errors()}
   def put_rum_events(%Client{} = client, id, input, options \\ []) do
     url_path = "/appmonitors/#{AWS.Util.encode_uri(id)}/"
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -483,13 +1470,28 @@ defmodule AWS.RUM do
 
   For more information about extended metrics, see
   [BatchCreateRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html).
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
   """
+  @spec put_rum_metrics_destination(
+          AWS.Client.t(),
+          String.t(),
+          put_rum_metrics_destination_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_rum_metrics_destination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_rum_metrics_destination_errors()}
   def put_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -530,13 +1532,23 @@ defmodule AWS.RUM do
   You can associate as many as 50 tags with a resource.
 
   For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -553,7 +1565,17 @@ defmodule AWS.RUM do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -564,7 +1586,8 @@ defmodule AWS.RUM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -598,13 +1621,23 @@ defmodule AWS.RUM do
   information, see
   [How do I find a code snippet that I've already
   generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (Name)
+
+  ## Optional parameters:
   """
+  @spec update_app_monitor(AWS.Client.t(), String.t(), update_app_monitor_request(), Keyword.t()) ::
+          {:ok, update_app_monitor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_app_monitor_errors()}
   def update_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -625,13 +1658,28 @@ defmodule AWS.RUM do
   For
   more information about extended metrics, see
   [BatchCreateRumMetricsDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html).
+
+  ## Required positional parameters:
+   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+
+  ## Optional parameters:
   """
+  @spec update_rum_metric_definition(
+          AWS.Client.t(),
+          String.t(),
+          update_rum_metric_definition_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_rum_metric_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_rum_metric_definition_errors()}
   def update_rum_metric_definition(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

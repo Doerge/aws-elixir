@@ -43,6 +43,359 @@ defmodule AWS.EBS do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      block() :: %{
+        "BlockIndex" => integer(),
+        "BlockToken" => String.t()
+      }
+
+  """
+  @type block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      changed_block() :: %{
+        "BlockIndex" => integer(),
+        "FirstBlockToken" => String.t(),
+        "SecondBlockToken" => String.t()
+      }
+
+  """
+  @type changed_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_snapshot_request() :: %{
+        optional("Checksum") => String.t(),
+        optional("ChecksumAggregationMethod") => list(any()),
+        optional("ChecksumAlgorithm") => list(any()),
+        required("ChangedBlocksCount") => integer()
+      }
+
+  """
+  @type complete_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_snapshot_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type complete_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type concurrent_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_snapshot_block_request() :: %{
+        required("BlockToken") => String.t()
+      }
+
+  """
+  @type get_snapshot_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_snapshot_block_response() :: %{
+        "BlockData" => binary(),
+        "Checksum" => String.t(),
+        "ChecksumAlgorithm" => list(any()),
+        "DataLength" => integer()
+      }
+
+  """
+  @type get_snapshot_block_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_changed_blocks_request() :: %{
+        optional("FirstSnapshotId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartingBlockIndex") => integer()
+      }
+
+  """
+  @type list_changed_blocks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_changed_blocks_response() :: %{
+        "BlockSize" => integer(),
+        "ChangedBlocks" => list(changed_block()()),
+        "ExpiryTime" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "VolumeSize" => float()
+      }
+
+  """
+  @type list_changed_blocks_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_snapshot_blocks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StartingBlockIndex") => integer()
+      }
+
+  """
+  @type list_snapshot_blocks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_snapshot_blocks_response() :: %{
+        "BlockSize" => integer(),
+        "Blocks" => list(block()()),
+        "ExpiryTime" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "VolumeSize" => float()
+      }
+
+  """
+  @type list_snapshot_blocks_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_snapshot_block_request() :: %{
+        optional("Progress") => integer(),
+        required("BlockData") => binary(),
+        required("Checksum") => String.t(),
+        required("ChecksumAlgorithm") => list(any()),
+        required("DataLength") => integer()
+      }
+
+  """
+  @type put_snapshot_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_snapshot_block_response() :: %{
+        "Checksum" => String.t(),
+        "ChecksumAlgorithm" => list(any())
+      }
+
+  """
+  @type put_snapshot_block_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_throttled_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type request_throttled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_snapshot_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Encrypted") => boolean(),
+        optional("KmsKeyArn") => String.t(),
+        optional("ParentSnapshotId") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("Timeout") => integer(),
+        required("VolumeSize") => float()
+      }
+
+  """
+  @type start_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_snapshot_response() :: %{
+        "BlockSize" => integer(),
+        "Description" => String.t(),
+        "KmsKeyArn" => String.t(),
+        "OwnerId" => String.t(),
+        "ParentSnapshotId" => String.t(),
+        "SnapshotId" => String.t(),
+        "SseType" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "VolumeSize" => float()
+      }
+
+  """
+  @type start_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type complete_snapshot_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_snapshot_block_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_changed_blocks_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_snapshot_blocks_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_snapshot_block_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_snapshot_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | request_throttled_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | concurrent_limit_exceeded_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2019-11-02",
@@ -50,6 +403,7 @@ defmodule AWS.EBS do
       credential_scope: nil,
       endpoint_prefix: "ebs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EBS",
       signature_version: "v4",
@@ -71,7 +425,20 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+   • :snapshot_id (t:string String.t/0) (SnapshotId)
+
+  ## Optional parameters:
+   • :changed_blocks_count (t:String.t/0) (x-amz-ChangedBlocksCount)
+   • :checksum (t:String.t/0) (x-amz-Checksum)
+   • :checksum_aggregation_method (t:String.t/0) (x-amz-Checksum-Aggregation-Method)
+   • :checksum_algorithm (t:String.t/0) (x-amz-Checksum-Algorithm)
   """
+  @spec complete_snapshot(AWS.Client.t(), String.t(), complete_snapshot_request(), Keyword.t()) ::
+          {:ok, complete_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, complete_snapshot_errors()}
   def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
 
@@ -86,7 +453,8 @@ defmodule AWS.EBS do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -109,13 +477,30 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+   • :block_index (t:integer String.t/0) (BlockIndex)
+   • :snapshot_id (t:string String.t/0) (SnapshotId)
+
+  ## Optional parameters:
+   • :block_token (t:String.t/0) (blockToken)
   """
+  @spec get_snapshot_block(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_snapshot_block_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_snapshot_block_errors()}
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [block_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {block_token, options} = Keyword.pop(options, :block_token, nil)
 
     query_params =
       if !is_nil(block_token) do
@@ -135,7 +520,8 @@ defmodule AWS.EBS do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -149,19 +535,31 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+   • :second_snapshot_id (t:string String.t/0) (SecondSnapshotId)
+
+  ## Optional parameters:
+   • :first_snapshot_id (t:String.t/0) (firstSnapshotId)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (pageToken)
+   • :starting_block_index (t:String.t/0) (startingBlockIndex)
   """
-  def list_changed_blocks(
-        %Client{} = client,
-        second_snapshot_id,
-        first_snapshot_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        starting_block_index \\ nil,
-        options \\ []
-      ) do
+  @spec list_changed_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_changed_blocks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_changed_blocks_errors()}
+  def list_changed_blocks(%Client{} = client, second_snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(second_snapshot_id)}/changedblocks"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [first_snapshot_id: nil, max_results: nil, next_token: nil, starting_block_index: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {starting_block_index, options} = Keyword.pop(options, :starting_block_index, nil)
 
     query_params =
       if !is_nil(starting_block_index) do
@@ -170,12 +568,16 @@ defmodule AWS.EBS do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"pageToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -184,6 +586,8 @@ defmodule AWS.EBS do
         query_params
       end
 
+    {first_snapshot_id, options} = Keyword.pop(options, :first_snapshot_id, nil)
+
     query_params =
       if !is_nil(first_snapshot_id) do
         [{"firstSnapshotId", first_snapshot_id} | query_params]
@@ -191,7 +595,8 @@ defmodule AWS.EBS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -204,18 +609,30 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+   • :snapshot_id (t:string String.t/0) (SnapshotId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (pageToken)
+   • :starting_block_index (t:String.t/0) (startingBlockIndex)
   """
-  def list_snapshot_blocks(
-        %Client{} = client,
-        snapshot_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        starting_block_index \\ nil,
-        options \\ []
-      ) do
+  @spec list_snapshot_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_snapshot_blocks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_snapshot_blocks_errors()}
+  def list_snapshot_blocks(%Client{} = client, snapshot_id, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, starting_block_index: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {starting_block_index, options} = Keyword.pop(options, :starting_block_index, nil)
 
     query_params =
       if !is_nil(starting_block_index) do
@@ -224,12 +641,16 @@ defmodule AWS.EBS do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"pageToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -238,7 +659,8 @@ defmodule AWS.EBS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -257,7 +679,27 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+   • :block_index (t:integer String.t/0) (BlockIndex)
+   • :snapshot_id (t:string String.t/0) (SnapshotId)
+
+  ## Optional parameters:
+   • :checksum (t:String.t/0) (x-amz-Checksum)
+   • :checksum_algorithm (t:String.t/0) (x-amz-Checksum-Algorithm)
+   • :data_length (t:String.t/0) (x-amz-Data-Length)
+   • :progress (t:String.t/0) (x-amz-Progress)
   """
+  @spec put_snapshot_block(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_snapshot_block_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_snapshot_block_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_snapshot_block_errors()}
   def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
     url_path =
       "/snapshots/#{AWS.Util.encode_uri(snapshot_id)}/blocks/#{AWS.Util.encode_uri(block_index)}"
@@ -283,7 +725,8 @@ defmodule AWS.EBS do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
@@ -304,13 +747,22 @@ defmodule AWS.EBS do
   client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_snapshot(AWS.Client.t(), start_snapshot_request(), Keyword.t()) ::
+          {:ok, start_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_snapshot_errors()}
   def start_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

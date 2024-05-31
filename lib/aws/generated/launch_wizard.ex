@@ -15,6 +15,375 @@ defmodule AWS.LaunchWizard do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_input() :: %{
+        optional("dryRun") => [boolean()],
+        required("deploymentPatternName") => String.t(),
+        required("name") => String.t(),
+        required("specifications") => map(),
+        required("workloadName") => String.t()
+      }
+
+  """
+  @type create_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_output() :: %{
+        "deploymentId" => String.t()
+      }
+
+  """
+  @type create_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_input() :: %{
+        required("deploymentId") => String.t()
+      }
+
+  """
+  @type delete_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_output() :: %{
+        "status" => list(any()),
+        "statusReason" => [String.t()]
+      }
+
+  """
+  @type delete_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_data() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deletedAt" => [non_neg_integer()],
+        "id" => String.t(),
+        "name" => [String.t()],
+        "patternName" => String.t(),
+        "resourceGroup" => [String.t()],
+        "specifications" => map(),
+        "status" => list(any()),
+        "workloadName" => String.t()
+      }
+
+  """
+  @type deployment_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_data_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "id" => String.t(),
+        "name" => [String.t()],
+        "patternName" => String.t(),
+        "status" => list(any()),
+        "workloadName" => String.t()
+      }
+
+  """
+  @type deployment_data_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_event_data_summary() :: %{
+        "description" => [String.t()],
+        "name" => [String.t()],
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type deployment_event_data_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_filter() :: %{
+        "name" => list(any()),
+        "values" => list([String.t()]())
+      }
+
+  """
+  @type deployment_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_input() :: %{
+        required("deploymentId") => String.t()
+      }
+
+  """
+  @type get_deployment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_output() :: %{
+        "deployment" => deployment_data()
+      }
+
+  """
+  @type get_deployment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_input() :: %{
+        required("workloadName") => String.t()
+      }
+
+  """
+  @type get_workload_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_output() :: %{
+        "workload" => workload_data()
+      }
+
+  """
+  @type get_workload_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployment_events_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("deploymentId") => String.t()
+      }
+
+  """
+  @type list_deployment_events_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployment_events_output() :: %{
+        "deploymentEvents" => list(deployment_event_data_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_deployment_events_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_input() :: %{
+        optional("filters") => list(deployment_filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_deployments_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployments_output() :: %{
+        "deployments" => list(deployment_data_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_deployments_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workload_deployment_patterns_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("workloadName") => String.t()
+      }
+
+  """
+  @type list_workload_deployment_patterns_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workload_deployment_patterns_output() :: %{
+        "nextToken" => String.t(),
+        "workloadDeploymentPatterns" => list(workload_deployment_pattern_data_summary()())
+      }
+
+  """
+  @type list_workload_deployment_patterns_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workloads_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_workloads_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workloads_output() :: %{
+        "nextToken" => String.t(),
+        "workloads" => list(workload_data_summary()())
+      }
+
+  """
+  @type list_workloads_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_limit_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workload_data() :: %{
+        "description" => [String.t()],
+        "displayName" => [String.t()],
+        "documentationUrl" => [String.t()],
+        "iconUrl" => [String.t()],
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "workloadName" => String.t()
+      }
+
+  """
+  @type workload_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workload_data_summary() :: %{
+        "displayName" => [String.t()],
+        "workloadName" => String.t()
+      }
+
+  """
+  @type workload_data_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workload_deployment_pattern_data_summary() :: %{
+        "deploymentPatternName" => String.t(),
+        "description" => [String.t()],
+        "displayName" => [String.t()],
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "workloadName" => String.t(),
+        "workloadVersionName" => String.t()
+      }
+
+  """
+  @type workload_deployment_pattern_data_summary() :: %{String.t() => any()}
+
+  @type create_deployment_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_limit_exception()
+          | internal_server_exception()
+
+  @type delete_deployment_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type get_deployment_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type get_workload_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type list_deployment_events_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type list_deployments_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_workload_deployment_patterns_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type list_workloads_errors() :: validation_exception() | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -22,6 +391,7 @@ defmodule AWS.LaunchWizard do
       credential_scope: nil,
       endpoint_prefix: "launchwizard",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Launch Wizard",
       signature_version: "v4",
@@ -36,13 +406,22 @@ defmodule AWS.LaunchWizard do
   Deployments created by this operation are
   not available in the Launch Wizard console to use the `Clone deployment` action
   on.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_deployment(AWS.Client.t(), create_deployment_input(), Keyword.t()) ::
+          {:ok, create_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/createDeployment"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -59,13 +438,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Deletes a deployment.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_deployment(AWS.Client.t(), delete_deployment_input(), Keyword.t()) ::
+          {:ok, delete_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/deleteDeployment"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -82,13 +470,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns information about the deployment.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_deployment(AWS.Client.t(), get_deployment_input(), Keyword.t()) ::
+          {:ok, get_deployment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/getDeployment"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -105,13 +502,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Returns information about a workload.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_workload(AWS.Client.t(), get_workload_input(), Keyword.t()) ::
+          {:ok, get_workload_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_workload_errors()}
   def get_workload(%Client{} = client, input, options \\ []) do
     url_path = "/getWorkload"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -128,13 +534,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the events of a deployment.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_deployment_events(AWS.Client.t(), list_deployment_events_input(), Keyword.t()) ::
+          {:ok, list_deployment_events_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_deployment_events_errors()}
   def list_deployment_events(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentEvents"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -151,13 +566,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the deployments that have been created.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_deployments(AWS.Client.t(), list_deployments_input(), Keyword.t()) ::
+          {:ok, list_deployments_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/listDeployments"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -174,13 +598,26 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the workload deployment patterns.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_workload_deployment_patterns(
+          AWS.Client.t(),
+          list_workload_deployment_patterns_input(),
+          Keyword.t()
+        ) ::
+          {:ok, list_workload_deployment_patterns_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workload_deployment_patterns_errors()}
   def list_workload_deployment_patterns(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloadDeploymentPatterns"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -197,13 +634,22 @@ defmodule AWS.LaunchWizard do
 
   @doc """
   Lists the workloads.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_workloads(AWS.Client.t(), list_workloads_input(), Keyword.t()) ::
+          {:ok, list_workloads_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloads"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

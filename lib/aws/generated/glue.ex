@@ -11,6 +11,11737 @@ defmodule AWS.Glue do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      decimal_number() :: %{
+        "Scale" => integer(),
+        "UnscaledValue" => binary()
+      }
+      
+  """
+  @type decimal_number() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ml_transform_response() :: %{
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type update_ml_transform_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_crawler_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type start_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluate_data_quality_multi_frame() :: %{
+        "AdditionalDataSources" => map(),
+        "AdditionalOptions" => map(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PublishingOptions" => d_q_results_publishing_options(),
+        "Ruleset" => String.t(),
+        "StopJobOnFailureOptions" => d_q_stop_job_on_failure_options()
+      }
+      
+  """
+  @type evaluate_data_quality_multi_frame() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawler_response() :: %{
+        "Crawler" => crawler()
+      }
+      
+  """
+  @type get_crawler_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_run_sort_criteria() :: %{
+        "Column" => list(any()),
+        "SortDirection" => list(any())
+      }
+      
+  """
+  @type task_run_sort_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_input() :: %{
+        required("RegistryId") => registry_id()
+      }
+      
+  """
+  @type get_registry_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connection_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("HidePassword") => boolean(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_defined_function() :: %{
+        "CatalogId" => String.t(),
+        "ClassName" => String.t(),
+        "CreateTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "FunctionName" => String.t(),
+        "OwnerName" => String.t(),
+        "OwnerType" => list(any()),
+        "ResourceUris" => list(resource_uri()())
+      }
+      
+  """
+  @type user_defined_function() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_schema_change_policy() :: %{
+        "EnableUpdateCatalog" => boolean(),
+        "UpdateBehavior" => list(any())
+      }
+      
+  """
+  @type catalog_schema_change_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_entity_type_response() :: %{
+        "ContextWords" => list(String.t()()),
+        "Name" => String.t(),
+        "RegexString" => String.t()
+      }
+      
+  """
+  @type get_custom_entity_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_results_response() :: %{
+        "NextToken" => String.t(),
+        "Results" => list(data_quality_result_description()())
+      }
+      
+  """
+  @type list_data_quality_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_quality_rule_recommendation_run_response() :: %{
+        "RunId" => String.t()
+      }
+      
+  """
+  @type start_data_quality_rule_recommendation_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "SchemaChangePolicy" => catalog_schema_change_policy(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_run_response() :: %{
+        "JobRun" => job_run()
+      }
+      
+  """
+  @type get_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schemas_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RegistryId") => registry_id()
+      }
+      
+  """
+  @type list_schemas_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_request() :: %{
+        optional("DefaultRunProperties") => map(),
+        optional("Description") => String.t(),
+        optional("MaxConcurrentRuns") => integer(),
+        optional("Tags") => map(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_crawlers_request() :: %{
+        required("CrawlerNames") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_crawlers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_schema_version_metadata_input() :: %{
+        optional("SchemaId") => schema_id(),
+        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionNumber") => schema_version_number(),
+        required("MetadataKeyValue") => metadata_key_value_pair()
+      }
+      
+  """
+  @type put_schema_version_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_versions_diff_response() :: %{
+        "Diff" => String.t()
+      }
+      
+  """
+  @type get_schema_versions_diff_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ser_de_info() :: %{
+        "Name" => String.t(),
+        "Parameters" => map(),
+        "SerializationLibrary" => String.t()
+      }
+      
+  """
+  @type ser_de_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ConnectionInput") => connection_input(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_policy() :: %{
+        "CreateTime" => non_neg_integer(),
+        "PolicyHash" => String.t(),
+        "PolicyInJson" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type glue_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_statement_response() :: %{}
+      
+  """
+  @type cancel_statement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_target_table() :: %{
+        "CatalogId" => String.t(),
+        "DatabaseName" => String.t(),
+        "TableName" => String.t()
+      }
+      
+  """
+  @type data_quality_target_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_column_statistics_for_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnStatisticsList") => list(column_statistics()()),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type update_column_statistics_for_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_triggers_response() :: %{
+        "Triggers" => list(trigger()()),
+        "TriggersNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_triggers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recipe_reference() :: %{
+        "RecipeArn" => String.t(),
+        "RecipeVersion" => String.t()
+      }
+      
+  """
+  @type recipe_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      basic_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type basic_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_bookmarks_encryption() :: %{
+        "JobBookmarksEncryptionMode" => list(any()),
+        "KmsKeyArn" => String.t()
+      }
+      
+  """
+  @type job_bookmarks_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "CloudWatchEncryption" => cloud_watch_encryption(),
+        "JobBookmarksEncryption" => job_bookmarks_encryption(),
+        "S3Encryption" => list(s3_encryption()())
+      }
+      
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trigger_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spark_connector_target() :: %{
+        "AdditionalOptions" => map(),
+        "ConnectionName" => String.t(),
+        "ConnectionType" => String.t(),
+        "ConnectorName" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type spark_connector_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      apply_mapping() :: %{
+        "Inputs" => list(String.t()()),
+        "Mapping" => list(mapping()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type apply_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics() :: %{
+        "AnalyzedTime" => non_neg_integer(),
+        "ColumnName" => String.t(),
+        "ColumnType" => String.t(),
+        "StatisticsData" => column_statistics_data()
+      }
+      
+  """
+  @type column_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_run_request() :: %{
+        required("BlueprintName") => String.t(),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_blueprint_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_blueprints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_blueprints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supported_dialect() :: %{
+        "Dialect" => list(any()),
+        "DialectVersion" => String.t()
+      }
+      
+  """
+  @type supported_dialect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagsToAdd") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_task_stopping_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type column_statistics_task_stopping_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_rule_recommendation_run_filter() :: %{
+        "DataSource" => data_source(),
+        "StartedAfter" => non_neg_integer(),
+        "StartedBefore" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_rule_recommendation_run_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oracle_s_q_l_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type oracle_s_q_l_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_crawler_schedule_request() :: %{
+        required("CrawlerName") => String.t()
+      }
+      
+  """
+  @type start_crawler_schedule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_version_list_item() :: %{
+        "CreatedTime" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaVersionId" => String.t(),
+        "Status" => list(any()),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type schema_version_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_quality_ruleset_request() :: %{
+        optional("Description") => String.t(),
+        optional("Ruleset") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_data_quality_ruleset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_labels_task_run_properties() :: %{
+        "InputS3Path" => String.t(),
+        "Replace" => boolean()
+      }
+      
+  """
+  @type import_labels_task_run_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_schema_versions_input() :: %{
+        required("SchemaId") => schema_id(),
+        required("Versions") => String.t()
+      }
+      
+  """
+  @type delete_schema_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      principal_permissions() :: %{
+        "Permissions" => list(list(any())()),
+        "Principal" => data_lake_principal()
+      }
+      
+  """
+  @type principal_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_response() :: %{}
+      
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_schema_version_validity_input() :: %{
+        required("DataFormat") => list(any()),
+        required("SchemaDefinition") => String.t()
+      }
+      
+  """
+  @type check_schema_version_validity_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_blueprints_response() :: %{
+        "Blueprints" => list(blueprint()()),
+        "MissingBlueprints" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_blueprints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_transform_request() :: %{
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type get_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      j_db_c_connector_source() :: %{
+        "AdditionalOptions" => j_db_c_connector_options(),
+        "ConnectionName" => String.t(),
+        "ConnectionTable" => String.t(),
+        "ConnectionType" => String.t(),
+        "ConnectorName" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Query" => String.t()
+      }
+      
+  """
+  @type j_db_c_connector_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduler_not_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type scheduler_not_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database() :: %{
+        "CatalogId" => String.t(),
+        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FederatedDatabase" => federated_database(),
+        "LocationUri" => String.t(),
+        "Name" => String.t(),
+        "Parameters" => map(),
+        "TargetDatabase" => database_identifier()
+      }
+      
+  """
+  @type database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_triggers_response() :: %{
+        "NextToken" => String.t(),
+        "Triggers" => list(trigger()())
+      }
+      
+  """
+  @type get_triggers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_schema_version_metadata_response() :: %{
+        "LatestVersion" => boolean(),
+        "MetadataKey" => String.t(),
+        "MetadataValue" => String.t(),
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t(),
+        "SchemaVersionId" => String.t(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type remove_schema_version_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_not_found_exception() :: %{
+        "FromFederationSource" => boolean(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type entity_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_metrics() :: %{
+        "CrawlerName" => String.t(),
+        "LastRuntimeSeconds" => float(),
+        "MedianRuntimeSeconds" => float(),
+        "StillEstimating" => boolean(),
+        "TablesCreated" => integer(),
+        "TablesDeleted" => integer(),
+        "TablesUpdated" => integer(),
+        "TimeLeftSeconds" => float()
+      }
+      
+  """
+  @type crawler_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      boolean_column_statistics_data() :: %{
+        "NumberOfFalses" => float(),
+        "NumberOfNulls" => float(),
+        "NumberOfTrues" => float()
+      }
+      
+  """
+  @type boolean_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_timeout_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type operation_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_response() :: %{
+        "Statement" => statement()
+      }
+      
+  """
+  @type get_statement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_rulesets_request() :: %{
+        optional("Filter") => data_quality_ruleset_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_data_quality_rulesets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_index() :: %{
+        "IndexName" => String.t(),
+        "Keys" => list(String.t()())
+      }
+      
+  """
+  @type partition_index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registry_input() :: %{
+        required("RegistryId") => registry_id()
+      }
+      
+  """
+  @type delete_registry_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_response() :: %{
+        "Session" => session()
+      }
+      
+  """
+  @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_result_description() :: %{
+        "DataSource" => data_source(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t(),
+        "ResultId" => String.t(),
+        "StartedOn" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_result_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint_details() :: %{
+        "BlueprintName" => String.t(),
+        "RunId" => String.t()
+      }
+      
+  """
+  @type blueprint_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_partition_response() :: %{
+        "Errors" => list(partition_error()())
+      }
+      
+  """
+  @type batch_delete_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_run_request() :: %{
+        optional("PredecessorsIncluded") => boolean(),
+        required("JobName") => String.t(),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_job_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_defined_functions_response() :: %{
+        "NextToken" => String.t(),
+        "UserDefinedFunctions" => list(user_defined_function()())
+      }
+      
+  """
+  @type get_user_defined_functions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_script_request() :: %{
+        optional("DagEdges") => list(code_gen_edge()()),
+        optional("DagNodes") => list(code_gen_node()()),
+        optional("Language") => list(any())
+      }
+      
+  """
+  @type create_script_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_error() :: %{
+        "ErrorDetail" => error_detail(),
+        "PartitionValues" => list(String.t()())
+      }
+      
+  """
+  @type partition_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_job_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_triggers_response() :: %{
+        "NextToken" => String.t(),
+        "TriggerNames" => list(String.t()())
+      }
+      
+  """
+  @type list_triggers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("SkipArchive") => boolean(),
+        optional("TransactionId") => String.t(),
+        optional("VersionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableInput") => table_input()
+      }
+      
+  """
+  @type update_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TablesToDelete") => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_crawler_response() :: %{}
+      
+  """
+  @type delete_crawler_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_transforms_response() :: %{
+        "NextToken" => String.t(),
+        "Transforms" => list(ml_transform()())
+      }
+      
+  """
+  @type get_ml_transforms_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type get_job_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_session_context() :: %{
+        "AdditionalContext" => map(),
+        "ClusterId" => String.t(),
+        "QueryAuthorizationId" => String.t(),
+        "QueryId" => String.t(),
+        "QueryStartTime" => non_neg_integer()
+      }
+      
+  """
+  @type query_session_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_table_optimizer_error() :: %{
+        "catalogId" => String.t(),
+        "databaseName" => String.t(),
+        "error" => error_detail(),
+        "tableName" => String.t(),
+        "type" => list(any())
+      }
+      
+  """
+  @type batch_get_table_optimizer_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tables_response() :: %{
+        "NextToken" => String.t(),
+        "TableList" => list(table()())
+      }
+      
+  """
+  @type get_tables_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trigger() :: %{
+        "Actions" => list(action()()),
+        "Description" => String.t(),
+        "EventBatchingCondition" => event_batching_condition(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Predicate" => predicate(),
+        "Schedule" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any()),
+        "WorkflowName" => String.t()
+      }
+      
+  """
+  @type trigger() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tags_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type get_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_crawler_response() :: %{}
+      
+  """
+  @type update_crawler_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_result_response() :: %{
+        "AnalyzerResults" => list(data_quality_analyzer_result()()),
+        "CompletedOn" => non_neg_integer(),
+        "DataSource" => data_source(),
+        "EvaluationContext" => String.t(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t(),
+        "Observations" => list(data_quality_observation()()),
+        "ResultId" => String.t(),
+        "RuleResults" => list(data_quality_rule_result()()),
+        "RulesetEvaluationRunId" => String.t(),
+        "RulesetName" => String.t(),
+        "Score" => float(),
+        "StartedOn" => non_neg_integer()
+      }
+      
+  """
+  @type get_data_quality_result_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_partition_response() :: %{
+        "Errors" => list(partition_error()())
+      }
+      
+  """
+  @type batch_create_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      null_value_field() :: %{
+        "Datatype" => datatype(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type null_value_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_classifiers_response() :: %{
+        "Classifiers" => list(classifier()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_classifiers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dev_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_dev_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_targets() :: %{
+        "CatalogTargets" => list(catalog_target()()),
+        "DeltaTargets" => list(delta_target()()),
+        "DynamoDBTargets" => list(dynamo_db_target()()),
+        "HudiTargets" => list(hudi_target()()),
+        "IcebergTargets" => list(iceberg_target()()),
+        "JdbcTargets" => list(jdbc_target()()),
+        "MongoDBTargets" => list(mongo_db_target()()),
+        "S3Targets" => list(s3_target()())
+      }
+      
+  """
+  @type crawler_targets() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_catalog_hudi_source() :: %{
+        "AdditionalHudiOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_catalog_hudi_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_table_format_input() :: %{
+        "IcebergInput" => iceberg_input()
+      }
+      
+  """
+  @type open_table_format_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_optimizer_configuration() :: %{
+        "enabled" => boolean(),
+        "roleArn" => String.t()
+      }
+      
+  """
+  @type table_optimizer_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hudi_target() :: %{
+        "ConnectionName" => String.t(),
+        "Exclusions" => list(String.t()()),
+        "MaximumTraversalDepth" => integer(),
+        "Paths" => list(String.t()())
+      }
+      
+  """
+  @type hudi_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_runs_request() :: %{
+        optional("IncludeGraph") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_workflow_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_optimizer_response() :: %{}
+      
+  """
+  @type create_table_optimizer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_redshift_advanced_option() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type amazon_redshift_advanced_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_catalog_to_glue_request() :: %{
+        optional("CatalogId") => String.t()
+      }
+      
+  """
+  @type import_catalog_to_glue_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      federated_database() :: %{
+        "ConnectionName" => String.t(),
+        "Identifier" => String.t()
+      }
+      
+  """
+  @type federated_database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_j_db_c_source() :: %{
+        "ConnectionName" => String.t(),
+        "ConnectionType" => list(any()),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "RedshiftTmpDir" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type direct_j_db_c_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_security_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ml_transform() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "EvaluationMetrics" => evaluation_metrics(),
+        "GlueVersion" => String.t(),
+        "InputRecordTables" => list(glue_table()()),
+        "LabelCount" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "MaxCapacity" => float(),
+        "MaxRetries" => integer(),
+        "Name" => String.t(),
+        "NumberOfWorkers" => integer(),
+        "Parameters" => transform_parameters(),
+        "Role" => String.t(),
+        "Schema" => list(schema_column()()),
+        "Status" => list(any()),
+        "Timeout" => integer(),
+        "TransformEncryption" => transform_encryption(),
+        "TransformId" => String.t(),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type ml_transform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partition_response() :: %{}
+      
+  """
+  @type create_partition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_run() :: %{
+        "AllocatedCapacity" => integer(),
+        "Arguments" => map(),
+        "Attempt" => integer(),
+        "CompletedOn" => non_neg_integer(),
+        "DPUSeconds" => float(),
+        "ErrorMessage" => String.t(),
+        "ExecutionClass" => list(any()),
+        "ExecutionTime" => integer(),
+        "GlueVersion" => String.t(),
+        "Id" => String.t(),
+        "JobMode" => list(any()),
+        "JobName" => String.t(),
+        "JobRunState" => list(any()),
+        "LastModifiedOn" => non_neg_integer(),
+        "LogGroupName" => String.t(),
+        "MaintenanceWindow" => String.t(),
+        "MaxCapacity" => float(),
+        "NotificationProperty" => notification_property(),
+        "NumberOfWorkers" => integer(),
+        "PredecessorRuns" => list(predecessor()()),
+        "PreviousRunId" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Timeout" => integer(),
+        "TriggerName" => String.t(),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type job_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_data_quality_result_response() :: %{
+        "Results" => list(data_quality_result()()),
+        "ResultsNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_data_quality_result_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connection_response() :: %{
+        "Connection" => connection()
+      }
+      
+  """
+  @type get_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_gen_configuration_node() :: %{
+        "CatalogKinesisSource" => catalog_kinesis_source(),
+        "AmazonRedshiftTarget" => amazon_redshift_target(),
+        "MySQLCatalogSource" => my_s_q_l_catalog_source(),
+        "DropDuplicates" => drop_duplicates(),
+        "GovernedCatalogSource" => governed_catalog_source(),
+        "ConnectorDataSource" => connector_data_source(),
+        "CatalogTarget" => basic_catalog_target(),
+        "CatalogKafkaSource" => catalog_kafka_source(),
+        "CatalogHudiSource" => catalog_hudi_source(),
+        "S3HudiDirectTarget" => s3_hudi_direct_target(),
+        "ConnectorDataTarget" => connector_data_target(),
+        "DynamoDBCatalogSource" => dynamo_db_catalog_source(),
+        "RelationalCatalogSource" => relational_catalog_source(),
+        "SparkConnectorSource" => spark_connector_source(),
+        "FillMissingValues" => fill_missing_values(),
+        "DropNullFields" => drop_null_fields(),
+        "Union" => union(),
+        "Recipe" => recipe(),
+        "AthenaConnectorSource" => athena_connector_source(),
+        "S3ParquetSource" => s3_parquet_source(),
+        "OracleSQLCatalogTarget" => oracle_s_q_l_catalog_target(),
+        "SnowflakeSource" => snowflake_source(),
+        "EvaluateDataQuality" => evaluate_data_quality(),
+        "DirectJDBCSource" => direct_j_db_c_source(),
+        "S3CatalogSource" => s3_catalog_source(),
+        "S3CatalogDeltaSource" => s3_catalog_delta_source(),
+        "ApplyMapping" => apply_mapping(),
+        "S3GlueParquetTarget" => s3_glue_parquet_target(),
+        "Merge" => merge(),
+        "SplitFields" => split_fields(),
+        "S3HudiCatalogTarget" => s3_hudi_catalog_target(),
+        "Spigot" => spigot(),
+        "PostgreSQLCatalogTarget" => postgre_s_q_l_catalog_target(),
+        "DynamicTransform" => dynamic_transform(),
+        "S3DirectTarget" => s3_direct_target(),
+        "S3DeltaDirectTarget" => s3_delta_direct_target(),
+        "Filter" => filter(),
+        "Aggregate" => aggregate(),
+        "DirectKafkaSource" => direct_kafka_source(),
+        "CatalogDeltaSource" => catalog_delta_source(),
+        "RenameField" => rename_field(),
+        "GovernedCatalogTarget" => governed_catalog_target(),
+        "PostgreSQLCatalogSource" => postgre_s_q_l_catalog_source(),
+        "SnowflakeTarget" => snowflake_target(),
+        "DirectKinesisSource" => direct_kinesis_source(),
+        "PIIDetection" => p_i_idetection(),
+        "S3CatalogHudiSource" => s3_catalog_hudi_source(),
+        "CustomCode" => custom_code(),
+        "SparkConnectorTarget" => spark_connector_target(),
+        "RedshiftTarget" => redshift_target(),
+        "RedshiftSource" => redshift_source(),
+        "CatalogSource" => catalog_source(),
+        "JDBCConnectorTarget" => j_db_c_connector_target(),
+        "AmazonRedshiftSource" => amazon_redshift_source(),
+        "Join" => join(),
+        "S3DeltaSource" => s3_delta_source(),
+        "SelectFromCollection" => select_from_collection(),
+        "S3JsonSource" => s3_json_source(),
+        "SparkSQL" => spark_s_q_l(),
+        "MySQLCatalogTarget" => my_s_q_l_catalog_target(),
+        "JDBCConnectorSource" => j_db_c_connector_source(),
+        "S3HudiSource" => s3_hudi_source(),
+        "MicrosoftSQLServerCatalogTarget" => microsoft_s_q_l_server_catalog_target(),
+        "S3CatalogTarget" => s3_catalog_target(),
+        "SelectFields" => select_fields(),
+        "EvaluateDataQualityMultiFrame" => evaluate_data_quality_multi_frame(),
+        "MicrosoftSQLServerCatalogSource" => microsoft_s_q_l_server_catalog_source(),
+        "S3DeltaCatalogTarget" => s3_delta_catalog_target(),
+        "DropFields" => drop_fields(),
+        "S3CsvSource" => s3_csv_source(),
+        "OracleSQLCatalogSource" => oracle_s_q_l_catalog_source()
+      }
+      
+  """
+  @type code_gen_configuration_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_data_catalog_encryption_settings_response() :: %{}
+      
+  """
+  @type put_data_catalog_encryption_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dev_endpoints_response() :: %{
+        "DevEndpoints" => list(dev_endpoint()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_dev_endpoints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_workflow_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_table_metadata_response() :: %{
+        "AuthorizedColumns" => list(String.t()()),
+        "CellFilters" => list(column_row_filter()()),
+        "IsMultiDialectView" => boolean(),
+        "IsProtected" => boolean(),
+        "IsRegisteredWithLakeFormation" => boolean(),
+        "Permissions" => list(list(any())()),
+        "QueryAuthorizationId" => String.t(),
+        "ResourceArn" => String.t(),
+        "RowFilter" => String.t(),
+        "Table" => table()
+      }
+      
+  """
+  @type get_unfiltered_table_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_run_filter_criteria() :: %{
+        "StartedAfter" => non_neg_integer(),
+        "StartedBefore" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskRunType" => list(any())
+      }
+      
+  """
+  @type task_run_filter_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_classifier_response() :: %{}
+      
+  """
+  @type delete_classifier_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_blueprint_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_blueprint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_partition_failure_entry() :: %{
+        "ErrorDetail" => error_detail(),
+        "PartitionValueList" => list(String.t()())
+      }
+      
+  """
+  @type batch_update_partition_failure_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_rule_recommendation_run_description() :: %{
+        "DataSource" => data_source(),
+        "RunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type data_quality_rule_recommendation_run_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      athena_connector_source() :: %{
+        "ConnectionName" => String.t(),
+        "ConnectionTable" => String.t(),
+        "ConnectionType" => String.t(),
+        "ConnectorName" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "SchemaName" => String.t()
+      }
+      
+  """
+  @type athena_connector_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_run_properties_request() :: %{
+        required("Name") => String.t(),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_workflow_run_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_optimizer_run() :: %{
+        "endTimestamp" => non_neg_integer(),
+        "error" => String.t(),
+        "eventType" => list(any()),
+        "metrics" => run_metrics(),
+        "startTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type table_optimizer_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_batching_condition() :: %{
+        "BatchSize" => integer(),
+        "BatchWindow" => integer()
+      }
+      
+  """
+  @type event_batching_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_rulesets_response() :: %{
+        "NextToken" => String.t(),
+        "Rulesets" => list(data_quality_ruleset_list_details()())
+      }
+      
+  """
+  @type list_data_quality_rulesets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_catalog_encryption_settings() :: %{
+        "ConnectionPasswordEncryption" => connection_password_encryption(),
+        "EncryptionAtRest" => encryption_at_rest()
+      }
+      
+  """
+  @type data_catalog_encryption_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column() :: %{
+        "Comment" => String.t(),
+        "Name" => String.t(),
+        "Parameters" => map(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionInput") => partition_input(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type create_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawl() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "LogGroup" => String.t(),
+        "LogStream" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type crawl() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      already_exists_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_quality_ruleset_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_data_quality_ruleset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_job_bookmark_request() :: %{
+        optional("RunId") => String.t(),
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type reset_job_bookmark_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_workflow_run_request() :: %{
+        required("Name") => String.t(),
+        required("NodeIds") => list(String.t()()),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type resume_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_optimizer_response() :: %{}
+      
+  """
+  @type delete_table_optimizer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      registry_id() :: %{
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t()
+      }
+      
+  """
+  @type registry_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_for_partition_response() :: %{
+        "ColumnStatisticsList" => list(column_statistics()()),
+        "Errors" => list(column_error()())
+      }
+      
+  """
+  @type get_column_statistics_for_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "RedshiftTmpDir" => String.t(),
+        "Table" => String.t(),
+        "TmpDirIAMRole" => String.t()
+      }
+      
+  """
+  @type redshift_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      csv_classifier() :: %{
+        "AllowSingleColumn" => boolean(),
+        "ContainsHeader" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "CustomDatatypeConfigured" => boolean(),
+        "CustomDatatypes" => list(String.t()()),
+        "Delimiter" => String.t(),
+        "DisableValueTrimming" => boolean(),
+        "Header" => list(String.t()()),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t(),
+        "QuoteSymbol" => String.t(),
+        "Serde" => list(any()),
+        "Version" => float()
+      }
+      
+  """
+  @type csv_classifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schema_versions_response() :: %{
+        "NextToken" => String.t(),
+        "Schemas" => list(schema_version_list_item()())
+      }
+      
+  """
+  @type list_schema_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      version_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type version_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_crawler_response() :: %{}
+      
+  """
+  @type create_crawler_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registry_response() :: %{
+        "Description" => String.t(),
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "Tags" => map()
+      }
+      
+  """
+  @type create_registry_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      oracle_s_q_l_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type oracle_s_q_l_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_list_item() :: %{
+        "CreatedTime" => String.t(),
+        "Description" => String.t(),
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t(),
+        "SchemaStatus" => list(any()),
+        "UpdatedTime" => String.t()
+      }
+      
+  """
+  @type schema_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_metrics() :: %{
+        "JobDurationInHour" => String.t(),
+        "NumberOfBytesCompacted" => String.t(),
+        "NumberOfDpus" => String.t(),
+        "NumberOfFilesCompacted" => String.t()
+      }
+      
+  """
+  @type run_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_data() :: %{
+        "BinaryColumnStatisticsData" => binary_column_statistics_data(),
+        "BooleanColumnStatisticsData" => boolean_column_statistics_data(),
+        "DateColumnStatisticsData" => date_column_statistics_data(),
+        "DecimalColumnStatisticsData" => decimal_column_statistics_data(),
+        "DoubleColumnStatisticsData" => double_column_statistics_data(),
+        "LongColumnStatisticsData" => long_column_statistics_data(),
+        "StringColumnStatisticsData" => string_column_statistics_data(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_runs_response() :: %{
+        "NextToken" => String.t(),
+        "Runs" => list(workflow_run()())
+      }
+      
+  """
+  @type get_workflow_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("QueryAsOfTime") => non_neg_integer(),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_blueprint_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type delete_blueprint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_entity_type_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_custom_entity_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_x_ml_classifier_request() :: %{
+        "Classification" => String.t(),
+        "Name" => String.t(),
+        "RowTag" => String.t()
+      }
+      
+  """
+  @type update_x_ml_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_kinesis_source() :: %{
+        "DataPreviewOptions" => streaming_data_preview_options(),
+        "Database" => String.t(),
+        "DetectSchema" => boolean(),
+        "Name" => String.t(),
+        "StreamingOptions" => kinesis_streaming_source_options(),
+        "Table" => String.t(),
+        "WindowSize" => integer()
+      }
+      
+  """
+  @type catalog_kinesis_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamic_transform() :: %{
+        "FunctionName" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Parameters" => list(transform_config_parameter()()),
+        "Path" => String.t(),
+        "TransformName" => String.t(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type dynamic_transform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_runs_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type concurrent_runs_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_parquet_source() :: %{
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "CompressionType" => list(any()),
+        "Exclusions" => list(String.t()()),
+        "GroupFiles" => String.t(),
+        "GroupSize" => String.t(),
+        "MaxBand" => integer(),
+        "MaxFilesInBand" => integer(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()()),
+        "Recurse" => boolean()
+      }
+      
+  """
+  @type s3_parquet_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_statement_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Id") => integer(),
+        required("SessionId") => String.t()
+      }
+      
+  """
+  @type cancel_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      illegal_session_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type illegal_session_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_workflow_run_response() :: %{}
+      
+  """
+  @type stop_workflow_run_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_dev_endpoints_response() :: %{
+        "DevEndpoints" => list(dev_endpoint()()),
+        "DevEndpointsNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_dev_endpoints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_statement_response() :: %{
+        "Id" => integer()
+      }
+      
+  """
+  @type run_statement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notification_property() :: %{
+        "NotifyDelayAfter" => integer()
+      }
+      
+  """
+  @type notification_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      run_statement_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Code") => String.t(),
+        required("SessionId") => String.t()
+      }
+      
+  """
+  @type run_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connections_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Filter") => get_connections_filter(),
+        optional("HidePassword") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_defined_function_response() :: %{
+        "UserDefinedFunction" => user_defined_function()
+      }
+      
+  """
+  @type get_user_defined_function_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ml_transform_response() :: %{
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type delete_ml_transform_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_export_labels_task_run_response() :: %{
+        "TaskRunId" => String.t()
+      }
+      
+  """
+  @type start_export_labels_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_node_details() :: %{
+        "Crawls" => list(crawl()())
+      }
+      
+  """
+  @type crawler_node_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_direct_target() :: %{
+        "Compression" => String.t(),
+        "Format" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_task_run_request() :: %{
+        required("TaskRunId") => String.t(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type get_ml_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("OpenTableFormatInput") => open_table_format_input(),
+        optional("PartitionIndexes") => list(partition_index()()),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableInput") => table_input()
+      }
+      
+  """
+  @type create_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dev_endpoint_request() :: %{
+        required("EndpointName") => String.t()
+      }
+      
+  """
+  @type get_dev_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_database_response() :: %{
+        "Database" => database()
+      }
+      
+  """
+  @type get_database_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_response() :: %{
+        "Table" => table()
+      }
+      
+  """
+  @type get_table_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_configuration_request() :: %{
+        required("EncryptionConfiguration") => encryption_configuration(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_security_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      find_matches_parameters() :: %{
+        "AccuracyCostTradeoff" => float(),
+        "EnforceProvidedLabels" => boolean(),
+        "PrecisionRecallTradeoff" => float(),
+        "PrimaryKeyColumnName" => String.t()
+      }
+      
+  """
+  @type find_matches_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ml_transform_request() :: %{
+        optional("Description") => String.t(),
+        optional("GlueVersion") => String.t(),
+        optional("MaxCapacity") => float(),
+        optional("MaxRetries") => integer(),
+        optional("NumberOfWorkers") => integer(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        optional("TransformEncryption") => transform_encryption(),
+        optional("WorkerType") => list(any()),
+        required("InputRecordTables") => list(glue_table()()),
+        required("Name") => String.t(),
+        required("Parameters") => transform_parameters(),
+        required("Role") => String.t()
+      }
+      
+  """
+  @type create_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_index_descriptor() :: %{
+        "BackfillErrors" => list(backfill_error()()),
+        "IndexName" => String.t(),
+        "IndexStatus" => list(any()),
+        "Keys" => list(key_schema_element()())
+      }
+      
+  """
+  @type partition_index_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dev_endpoint() :: %{
+        "Arguments" => map(),
+        "AvailabilityZone" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "ExtraJarsS3Path" => String.t(),
+        "ExtraPythonLibsS3Path" => String.t(),
+        "FailureReason" => String.t(),
+        "GlueVersion" => String.t(),
+        "LastModifiedTimestamp" => non_neg_integer(),
+        "LastUpdateStatus" => String.t(),
+        "NumberOfNodes" => integer(),
+        "NumberOfWorkers" => integer(),
+        "PrivateAddress" => String.t(),
+        "PublicAddress" => String.t(),
+        "PublicKey" => String.t(),
+        "PublicKeys" => list(String.t()()),
+        "RoleArn" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "Status" => String.t(),
+        "SubnetId" => String.t(),
+        "VpcId" => String.t(),
+        "WorkerType" => list(any()),
+        "YarnEndpointAddress" => String.t(),
+        "ZeppelinRemoteSparkInterpreterPort" => integer()
+      }
+      
+  """
+  @type dev_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "CreateTime" => non_neg_integer(),
+        "PolicyHash" => String.t(),
+        "PolicyInJson" => String.t(),
+        "UpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduler_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type scheduler_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transform_filter_criteria() :: %{
+        "CreatedAfter" => non_neg_integer(),
+        "CreatedBefore" => non_neg_integer(),
+        "GlueVersion" => String.t(),
+        "LastModifiedAfter" => non_neg_integer(),
+        "LastModifiedBefore" => non_neg_integer(),
+        "Name" => String.t(),
+        "Schema" => list(schema_column()()),
+        "Status" => list(any()),
+        "TransformType" => list(any())
+      }
+      
+  """
+  @type transform_filter_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate() :: %{
+        "Aggs" => list(aggregate_operation()()),
+        "Groups" => list(list(String.t()())()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type aggregate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transform_sort_criteria() :: %{
+        "Column" => list(any()),
+        "SortDirection" => list(any())
+      }
+      
+  """
+  @type transform_sort_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition() :: %{
+        "CatalogId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "LastAccessTime" => non_neg_integer(),
+        "LastAnalyzedTime" => non_neg_integer(),
+        "Parameters" => map(),
+        "StorageDescriptor" => storage_descriptor(),
+        "TableName" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type partition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ml_transforms_request() :: %{
+        optional("Filter") => transform_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Sort") => transform_sort_criteria(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_ml_transforms_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_bookmark_request() :: %{
+        optional("RunId") => String.t(),
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type get_job_bookmark_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_jobs_request() :: %{
+        required("JobNames") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_hudi_catalog_target() :: %{
+        "AdditionalOptions" => map(),
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "SchemaChangePolicy" => catalog_schema_change_policy(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_hudi_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_ruleset_evaluation_run_response() :: %{
+        "AdditionalDataSources" => map(),
+        "AdditionalRunOptions" => data_quality_evaluation_run_additional_run_options(),
+        "CompletedOn" => non_neg_integer(),
+        "DataSource" => data_source(),
+        "ErrorString" => String.t(),
+        "ExecutionTime" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "NumberOfWorkers" => integer(),
+        "ResultIds" => list(String.t()()),
+        "Role" => String.t(),
+        "RulesetNames" => list(String.t()()),
+        "RunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any()),
+        "Timeout" => integer()
+      }
+      
+  """
+  @type get_data_quality_ruleset_evaluation_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_schema_element() :: %{
+        "Name" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type key_schema_element() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_crawl_info() :: %{
+        "ErrorMessage" => String.t(),
+        "LogGroup" => String.t(),
+        "LogStream" => String.t(),
+        "MessagePrefix" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type last_crawl_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_gen_node() :: %{
+        "Args" => list(code_gen_node_arg()()),
+        "Id" => String.t(),
+        "LineNumber" => integer(),
+        "NodeType" => String.t()
+      }
+      
+  """
+  @type code_gen_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_optimizer_request() :: %{
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("TableOptimizerConfiguration") => table_optimizer_configuration(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_table_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_triggers_request() :: %{
+        required("TriggerNames") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_triggers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_entity_type_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_custom_entity_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_schema_version_metadata_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("MetadataList") => list(metadata_key_value_pair()()),
+        optional("NextToken") => String.t(),
+        optional("SchemaId") => schema_id(),
+        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionNumber") => schema_version_number()
+      }
+      
+  """
+  @type query_schema_version_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_crawlers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_crawlers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_jobs_response() :: %{
+        "JobNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_quality_ruleset_response() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "Ruleset" => String.t()
+      }
+      
+  """
+  @type update_data_quality_ruleset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_job_request() :: %{
+        optional("AllocatedCapacity") => integer(),
+        optional("CodeGenConfigurationNodes") => map(),
+        optional("Connections") => connections_list(),
+        optional("DefaultArguments") => map(),
+        optional("Description") => String.t(),
+        optional("ExecutionClass") => list(any()),
+        optional("ExecutionProperty") => execution_property(),
+        optional("GlueVersion") => String.t(),
+        optional("JobMode") => list(any()),
+        optional("LogUri") => String.t(),
+        optional("MaintenanceWindow") => String.t(),
+        optional("MaxCapacity") => float(),
+        optional("MaxRetries") => integer(),
+        optional("NonOverridableArguments") => map(),
+        optional("NotificationProperty") => notification_property(),
+        optional("NumberOfWorkers") => integer(),
+        optional("SecurityConfiguration") => String.t(),
+        optional("SourceControlDetails") => source_control_details(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        optional("WorkerType") => list(any()),
+        required("Command") => job_command(),
+        required("Name") => String.t(),
+        required("Role") => String.t()
+      }
+      
+  """
+  @type create_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statement() :: %{
+        "Code" => String.t(),
+        "CompletedOn" => float(),
+        "Id" => integer(),
+        "Output" => statement_output(),
+        "Progress" => float(),
+        "StartedOn" => float(),
+        "State" => list(any())
+      }
+      
+  """
+  @type statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_trigger_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type start_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_metric_values() :: %{
+        "ActualValue" => float(),
+        "ExpectedValue" => float(),
+        "LowerLimit" => float(),
+        "UpperLimit" => float()
+      }
+      
+  """
+  @type data_quality_metric_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_version_response() :: %{
+        "TableVersion" => table_version()
+      }
+      
+  """
+  @type get_table_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      join_column() :: %{
+        "From" => String.t(),
+        "Keys" => list(list(String.t()())())
+      }
+      
+  """
+  @type join_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_request() :: %{
+        optional("AdditionalPlanOptionsMap") => map(),
+        optional("Language") => list(any()),
+        optional("Location") => location(),
+        optional("Sinks") => list(catalog_entry()()),
+        required("Mapping") => list(mapping_entry()()),
+        required("Source") => catalog_entry()
+      }
+      
+  """
+  @type get_plan_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_grok_classifier_request() :: %{
+        "Classification" => String.t(),
+        "CustomPatterns" => String.t(),
+        "GrokPattern" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_grok_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workflow_request() :: %{
+        optional("DefaultRunProperties") => map(),
+        optional("Description") => String.t(),
+        optional("MaxConcurrentRuns") => integer(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ml_transform_not_ready_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type ml_transform_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connections_response() :: %{
+        "ConnectionList" => list(connection()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_connections_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_schema_response() :: %{
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t()
+      }
+      
+  """
+  @type update_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_kinesis_source() :: %{
+        "DataPreviewOptions" => streaming_data_preview_options(),
+        "DetectSchema" => boolean(),
+        "Name" => String.t(),
+        "StreamingOptions" => kinesis_streaming_source_options(),
+        "WindowSize" => integer()
+      }
+      
+  """
+  @type direct_kinesis_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type internal_service_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_run_properties() :: %{
+        "ExportLabelsTaskRunProperties" => export_labels_task_run_properties(),
+        "FindMatchesTaskRunProperties" => find_matches_task_run_properties(),
+        "ImportLabelsTaskRunProperties" => import_labels_task_run_properties(),
+        "LabelingSetGenerationTaskRunProperties" => labeling_set_generation_task_run_properties(),
+        "TaskType" => list(any())
+      }
+      
+  """
+  @type task_run_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_run_response() :: %{
+        "BlueprintRun" => blueprint_run()
+      }
+      
+  """
+  @type get_blueprint_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      microsoft_s_q_l_server_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type microsoft_s_q_l_server_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transform_encryption() :: %{
+        "MlUserDataEncryption" => ml_user_data_encryption(),
+        "TaskRunSecurityConfigurationName" => String.t()
+      }
+      
+  """
+  @type transform_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_error() :: %{
+        "ColumnName" => String.t(),
+        "Error" => error_detail()
+      }
+      
+  """
+  @type column_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_gen_edge() :: %{
+        "Source" => String.t(),
+        "Target" => String.t(),
+        "TargetParameter" => String.t()
+      }
+      
+  """
+  @type code_gen_edge() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_schema_response() :: %{
+        "Compatibility" => list(any()),
+        "DataFormat" => list(any()),
+        "Description" => String.t(),
+        "LatestSchemaVersion" => float(),
+        "NextSchemaVersion" => float(),
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaCheckpoint" => float(),
+        "SchemaName" => String.t(),
+        "SchemaStatus" => list(any()),
+        "SchemaVersionId" => String.t(),
+        "SchemaVersionStatus" => list(any()),
+        "Tags" => map()
+      }
+      
+  """
+  @type create_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagsToRemove") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tables_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Expression") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("QueryAsOfTime") => non_neg_integer(),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t()
+      }
+      
+  """
+  @type get_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_run_request() :: %{
+        required("ColumnStatisticsTaskRunId") => String.t()
+      }
+      
+  """
+  @type get_column_statistics_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      postgre_s_q_l_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type postgre_s_q_l_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_ruleset_evaluation_runs_response() :: %{
+        "NextToken" => String.t(),
+        "Runs" => list(data_quality_ruleset_evaluation_run_description()())
+      }
+      
+  """
+  @type list_data_quality_ruleset_evaluation_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      labeling_set_generation_task_run_properties() :: %{
+        "OutputS3Path" => String.t()
+      }
+      
+  """
+  @type labeling_set_generation_task_run_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_redshift_node_data() :: %{
+        "AccessType" => String.t(),
+        "Action" => String.t(),
+        "AdvancedOptions" => list(amazon_redshift_advanced_option()()),
+        "CatalogDatabase" => option(),
+        "CatalogRedshiftSchema" => String.t(),
+        "CatalogRedshiftTable" => String.t(),
+        "CatalogTable" => option(),
+        "Connection" => option(),
+        "CrawlerConnection" => String.t(),
+        "IamRole" => option(),
+        "MergeAction" => String.t(),
+        "MergeClause" => String.t(),
+        "MergeWhenMatched" => String.t(),
+        "MergeWhenNotMatched" => String.t(),
+        "PostAction" => String.t(),
+        "PreAction" => String.t(),
+        "SampleQuery" => String.t(),
+        "Schema" => option(),
+        "SelectedColumns" => list(option()()),
+        "SourceType" => String.t(),
+        "StagingTable" => String.t(),
+        "Table" => option(),
+        "TablePrefix" => String.t(),
+        "TableSchema" => list(option()()),
+        "TempDir" => String.t(),
+        "Upsert" => boolean()
+      }
+      
+  """
+  @type amazon_redshift_node_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_reference() :: %{
+        "SchemaId" => schema_id(),
+        "SchemaVersionId" => String.t(),
+        "SchemaVersionNumber" => float()
+      }
+      
+  """
+  @type schema_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_classifier_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_custom_entity_type_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_custom_entity_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_row_filter() :: %{
+        "ColumnName" => String.t(),
+        "RowFilterExpression" => String.t()
+      }
+      
+  """
+  @type column_row_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_entity_types_response() :: %{
+        "CustomEntityTypes" => list(custom_entity_type()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_custom_entity_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_column_statistics_task_run_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type stop_column_statistics_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_catalog_import_status_request() :: %{
+        optional("CatalogId") => String.t()
+      }
+      
+  """
+  @type get_catalog_import_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_json_classifier_request() :: %{
+        "JsonPath" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_json_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_session_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Id") => String.t()
+      }
+      
+  """
+  @type get_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_jobs_response() :: %{
+        "Jobs" => list(job()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_versions_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_table_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduler_transitioning_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type scheduler_transitioning_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_runs_response() :: %{
+        "BlueprintRuns" => list(blueprint_run()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_blueprint_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_request() :: %{
+        optional("IncludeGraph") => boolean(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_workflow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_number_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_number_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      j_db_c_connector_options() :: %{
+        "DataTypeMapping" => map(),
+        "FilterPredicate" => String.t(),
+        "JobBookmarkKeys" => list(String.t()()),
+        "JobBookmarkKeysSortOrder" => String.t(),
+        "LowerBound" => float(),
+        "NumPartitions" => float(),
+        "PartitionColumn" => String.t(),
+        "UpperBound" => float()
+      }
+      
+  """
+  @type j_db_c_connector_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      segment() :: %{
+        "SegmentNumber" => integer(),
+        "TotalSegments" => integer()
+      }
+      
+  """
+  @type segment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_fields() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Paths" => list(list(String.t()())())
+      }
+      
+  """
+  @type select_fields() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_column_statistics_for_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnName") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_column_statistics_for_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_column_statistics_task_run_response() :: %{}
+      
+  """
+  @type stop_column_statistics_task_run_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_redshift_source() :: %{
+        "Data" => amazon_redshift_node_data(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type amazon_redshift_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_connection_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ConnectionNameList") => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_ruleset_evaluation_run_filter() :: %{
+        "DataSource" => data_source(),
+        "StartedAfter" => non_neg_integer(),
+        "StartedBefore" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_ruleset_evaluation_run_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_workflows_response() :: %{
+        "MissingWorkflows" => list(String.t()()),
+        "Workflows" => list(workflow()())
+      }
+      
+  """
+  @type batch_get_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_by_definition_input() :: %{
+        required("SchemaDefinition") => String.t(),
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type get_schema_by_definition_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_request() :: %{
+        optional("IncludeBlueprint") => boolean(),
+        optional("IncludeParameterSpec") => boolean(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_blueprint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_databases_response() :: %{
+        "DatabaseList" => list(database()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_databases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_value() :: %{
+        "Type" => list(any()),
+        "Value" => list(String.t()())
+      }
+      
+  """
+  @type filter_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_catalog_to_glue_response() :: %{}
+      
+  """
+  @type import_catalog_to_glue_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_workflows_request() :: %{
+        optional("IncludeGraph") => boolean(),
+        required("Names") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_workflows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_trigger_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type stop_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_version_number() :: %{
+        "LatestVersion" => boolean(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type schema_version_number() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_table_metadata_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("ParentResourceArn") => String.t(),
+        optional("Permissions") => list(list(any())()),
+        optional("QuerySessionContext") => query_session_context(),
+        optional("Region") => String.t(),
+        optional("RootResourceArn") => String.t(),
+        optional("SupportedDialect") => supported_dialect(),
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("Name") => String.t(),
+        required("SupportedPermissionTypes") => list(list(any())())
+      }
+      
+  """
+  @type get_unfiltered_table_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_rule_recommendation_runs_response() :: %{
+        "NextToken" => String.t(),
+        "Runs" => list(data_quality_rule_recommendation_run_description()())
+      }
+      
+  """
+  @type list_data_quality_rule_recommendation_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_column_statistics_task_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_defined_function_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("FunctionName") => String.t()
+      }
+      
+  """
+  @type delete_user_defined_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_schema_version_response() :: %{
+        "SchemaVersionId" => String.t(),
+        "Status" => list(any()),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type register_schema_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_crawler_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type stop_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_entity_type_request() :: %{
+        optional("ContextWords") => list(String.t()()),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("RegexString") => String.t()
+      }
+      
+  """
+  @type create_custom_entity_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_partition_metadata_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("QuerySessionContext") => query_session_context(),
+        optional("Region") => String.t(),
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("SupportedPermissionTypes") => list(list(any())()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_unfiltered_partition_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_update() :: %{
+        "AllocatedCapacity" => integer(),
+        "CodeGenConfigurationNodes" => map(),
+        "Command" => job_command(),
+        "Connections" => connections_list(),
+        "DefaultArguments" => map(),
+        "Description" => String.t(),
+        "ExecutionClass" => list(any()),
+        "ExecutionProperty" => execution_property(),
+        "GlueVersion" => String.t(),
+        "JobMode" => list(any()),
+        "LogUri" => String.t(),
+        "MaintenanceWindow" => String.t(),
+        "MaxCapacity" => float(),
+        "MaxRetries" => integer(),
+        "NonOverridableArguments" => map(),
+        "NotificationProperty" => notification_property(),
+        "NumberOfWorkers" => integer(),
+        "Role" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "SourceControlDetails" => source_control_details(),
+        "Timeout" => integer(),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type job_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      find_matches_metrics() :: %{
+        "AreaUnderPRCurve" => float(),
+        "ColumnImportances" => list(column_importance()()),
+        "ConfusionMatrix" => confusion_matrix(),
+        "F1" => float(),
+        "Precision" => float(),
+        "Recall" => float()
+      }
+      
+  """
+  @type find_matches_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_json_source() :: %{
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "CompressionType" => list(any()),
+        "Exclusions" => list(String.t()()),
+        "GroupFiles" => String.t(),
+        "GroupSize" => String.t(),
+        "JsonPath" => String.t(),
+        "MaxBand" => integer(),
+        "MaxFilesInBand" => integer(),
+        "Multiline" => boolean(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()()),
+        "Recurse" => boolean()
+      }
+      
+  """
+  @type s3_json_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_classifier_response() :: %{
+        "Classifier" => classifier()
+      }
+      
+  """
+  @type get_classifier_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_session_request() :: %{
+        optional("Connections") => connections_list(),
+        optional("DefaultArguments") => map(),
+        optional("Description") => String.t(),
+        optional("GlueVersion") => String.t(),
+        optional("IdleTimeout") => integer(),
+        optional("MaxCapacity") => float(),
+        optional("NumberOfWorkers") => integer(),
+        optional("RequestOrigin") => String.t(),
+        optional("SecurityConfiguration") => String.t(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        optional("WorkerType") => list(any()),
+        required("Command") => session_command(),
+        required("Id") => String.t(),
+        required("Role") => String.t()
+      }
+      
+  """
+  @type create_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      long_column_statistics_data() :: %{
+        "MaximumValue" => float(),
+        "MinimumValue" => float(),
+        "NumberOfDistinctValues" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type long_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dev_endpoint_response() :: %{
+        "Arguments" => map(),
+        "AvailabilityZone" => String.t(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointName" => String.t(),
+        "ExtraJarsS3Path" => String.t(),
+        "ExtraPythonLibsS3Path" => String.t(),
+        "FailureReason" => String.t(),
+        "GlueVersion" => String.t(),
+        "NumberOfNodes" => integer(),
+        "NumberOfWorkers" => integer(),
+        "RoleArn" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "SecurityGroupIds" => list(String.t()()),
+        "Status" => String.t(),
+        "SubnetId" => String.t(),
+        "VpcId" => String.t(),
+        "WorkerType" => list(any()),
+        "YarnEndpointAddress" => String.t(),
+        "ZeppelinRemoteSparkInterpreterPort" => integer()
+      }
+      
+  """
+  @type create_dev_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_custom_entity_types_response() :: %{
+        "CustomEntityTypes" => list(custom_entity_type()()),
+        "CustomEntityTypesNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_custom_entity_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_lake_principal() :: %{
+        "DataLakePrincipalIdentifier" => String.t()
+      }
+      
+  """
+  @type data_lake_principal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_response() :: %{
+        "NextToken" => String.t(),
+        "Statements" => list(statement()())
+      }
+      
+  """
+  @type list_statements_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_error() :: %{
+        "ErrorDetail" => error_detail(),
+        "TableName" => String.t()
+      }
+      
+  """
+  @type table_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ml_user_data_encryption() :: %{
+        "KmsKeyId" => String.t(),
+        "MlUserDataEncryptionMode" => list(any())
+      }
+      
+  """
+  @type ml_user_data_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_defined_function_response() :: %{}
+      
+  """
+  @type delete_user_defined_function_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_column() :: %{
+        "DataType" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type schema_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      binary_column_statistics_data() :: %{
+        "AverageLength" => float(),
+        "MaximumLength" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type binary_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partition_indexes_response() :: %{
+        "NextToken" => String.t(),
+        "PartitionIndexDescriptorList" => list(partition_index_descriptor()())
+      }
+      
+  """
+  @type get_partition_indexes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_defined_function_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("FunctionInput") => user_defined_function_input()
+      }
+      
+  """
+  @type create_user_defined_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upsert_redshift_target_options() :: %{
+        "ConnectionName" => String.t(),
+        "TableLocation" => String.t(),
+        "UpsertKeys" => list(String.t()())
+      }
+      
+  """
+  @type upsert_redshift_target_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_workflow_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type delete_workflow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_hudi_source() :: %{
+        "AdditionalHudiOptions" => map(),
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()())
+      }
+      
+  """
+  @type s3_hudi_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_workflow_run_properties_response() :: %{}
+      
+  """
+  @type put_workflow_run_properties_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      jdbc_target() :: %{
+        "ConnectionName" => String.t(),
+        "EnableAdditionalMetadata" => list(list(any())()),
+        "Exclusions" => list(String.t()()),
+        "Path" => String.t()
+      }
+      
+  """
+  @type jdbc_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_blueprints_request() :: %{
+        optional("IncludeBlueprint") => boolean(),
+        optional("IncludeParameterSpec") => boolean(),
+        required("Names") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_blueprints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lineage_configuration() :: %{
+        "CrawlerLineageSettings" => list(any())
+      }
+      
+  """
+  @type lineage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fill_missing_values() :: %{
+        "FilledPath" => String.t(),
+        "ImputedPath" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type fill_missing_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_for_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnNames") => list(String.t()()),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_column_statistics_for_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trigger_request() :: %{
+        required("Name") => String.t(),
+        required("TriggerUpdate") => trigger_update()
+      }
+      
+  """
+  @type update_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_registries_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_registries_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_response() :: %{
+        "Ids" => list(String.t()()),
+        "NextToken" => String.t(),
+        "Sessions" => list(session()())
+      }
+      
+  """
+  @type list_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partition_response() :: %{
+        "Partition" => partition()
+      }
+      
+  """
+  @type get_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_custom_entity_types_request() :: %{
+        required("Names") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_custom_entity_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_defined_function_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("FunctionName") => String.t()
+      }
+      
+  """
+  @type get_user_defined_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_streaming_source_options() :: %{
+        "AddIdleTimeBetweenReads" => boolean(),
+        "AddRecordTimestamp" => String.t(),
+        "AvoidEmptyBatches" => boolean(),
+        "Classification" => String.t(),
+        "Delimiter" => String.t(),
+        "DescribeShardInterval" => float(),
+        "EmitConsumerLagMetrics" => String.t(),
+        "EndpointUrl" => String.t(),
+        "IdleTimeBetweenReadsInMs" => float(),
+        "MaxFetchRecordsPerShard" => float(),
+        "MaxFetchTimeInMs" => float(),
+        "MaxRecordPerRead" => float(),
+        "MaxRetryIntervalMs" => float(),
+        "NumRetries" => integer(),
+        "RetryIntervalMs" => float(),
+        "RoleArn" => String.t(),
+        "RoleSessionName" => String.t(),
+        "StartingPosition" => list(any()),
+        "StartingTimestamp" => non_neg_integer(),
+        "StreamArn" => String.t(),
+        "StreamName" => String.t()
+      }
+      
+  """
+  @type kinesis_streaming_source_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "RedshiftTmpDir" => String.t(),
+        "Table" => String.t(),
+        "TmpDirIAMRole" => String.t(),
+        "UpsertRedshiftOptions" => upsert_redshift_target_options()
+      }
+      
+  """
+  @type redshift_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_hudi_source() :: %{
+        "AdditionalHudiOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type catalog_hudi_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_task_not_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type column_statistics_task_not_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_value_list() :: %{
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type partition_value_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_crawler_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backfill_error() :: %{
+        "Code" => list(any()),
+        "Partitions" => list(partition_value_list()())
+      }
+      
+  """
+  @type backfill_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      governed_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "SchemaChangePolicy" => catalog_schema_change_policy(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type governed_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_column_statistics_task_runs_response() :: %{
+        "ColumnStatisticsTaskRunIds" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_column_statistics_task_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_triggers_request() :: %{
+        optional("DependentJobName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_triggers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workflow_run() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "Graph" => workflow_graph(),
+        "Name" => String.t(),
+        "PreviousRunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "StartingEventBatchCondition" => starting_event_batch_condition(),
+        "Statistics" => workflow_run_statistics(),
+        "Status" => list(any()),
+        "WorkflowRunId" => String.t(),
+        "WorkflowRunProperties" => map()
+      }
+      
+  """
+  @type workflow_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_stop_job_run_request() :: %{
+        required("JobName") => String.t(),
+        required("JobRunIds") => list(String.t()())
+      }
+      
+  """
+  @type batch_stop_job_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_connection_response() :: %{
+        "Errors" => map(),
+        "Succeeded" => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_rule_result() :: %{
+        "Description" => String.t(),
+        "EvaluatedMetrics" => map(),
+        "EvaluationMessage" => String.t(),
+        "Name" => String.t(),
+        "Result" => list(any())
+      }
+      
+  """
+  @type data_quality_rule_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_registry_input() :: %{
+        required("Description") => String.t(),
+        required("RegistryId") => registry_id()
+      }
+      
+  """
+  @type update_registry_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_job_run_response() :: %{
+        "JobRunId" => String.t()
+      }
+      
+  """
+  @type start_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ml_transform_request() :: %{
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type delete_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_blueprint_run_response() :: %{
+        "RunId" => String.t()
+      }
+      
+  """
+  @type start_blueprint_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_schema_version_validity_response() :: %{
+        "Error" => String.t(),
+        "Valid" => boolean()
+      }
+      
+  """
+  @type check_schema_version_validity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_data_catalog_encryption_settings_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DataCatalogEncryptionSettings") => data_catalog_encryption_settings()
+      }
+      
+  """
+  @type put_data_catalog_encryption_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_schema_input() :: %{
+        optional("Compatibility") => list(any()),
+        optional("Description") => String.t(),
+        optional("RegistryId") => registry_id(),
+        optional("SchemaDefinition") => String.t(),
+        optional("Tags") => map(),
+        required("DataFormat") => list(any()),
+        required("SchemaName") => String.t()
+      }
+      
+  """
+  @type create_schema_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dev_endpoint_response() :: %{
+        "DevEndpoint" => dev_endpoint()
+      }
+      
+  """
+  @type get_dev_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_column_statistics_for_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnName") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_column_statistics_for_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trigger_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_session_response() :: %{
+        "Id" => String.t()
+      }
+      
+  """
+  @type delete_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dataflow_graph_request() :: %{
+        optional("PythonScript") => String.t()
+      }
+      
+  """
+  @type get_dataflow_graph_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_alias() :: %{
+        "Alias" => String.t(),
+        "From" => String.t()
+      }
+      
+  """
+  @type sql_alias() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_rule_recommendation_run_response() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "CreatedRulesetName" => String.t(),
+        "DataSource" => data_source(),
+        "ErrorString" => String.t(),
+        "ExecutionTime" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "NumberOfWorkers" => integer(),
+        "RecommendedRuleset" => String.t(),
+        "Role" => String.t(),
+        "RunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any()),
+        "Timeout" => integer()
+      }
+      
+  """
+  @type get_data_quality_rule_recommendation_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamo_db_target() :: %{
+        "Path" => String.t(),
+        "scanAll" => boolean(),
+        "scanRate" => float()
+      }
+      
+  """
+  @type dynamo_db_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_delta_direct_target() :: %{
+        "AdditionalOptions" => map(),
+        "Compression" => list(any()),
+        "Format" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_delta_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_encryption() :: %{
+        "KmsKeyArn" => String.t(),
+        "S3EncryptionMode" => list(any())
+      }
+      
+  """
+  @type s3_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_x_ml_classifier_request() :: %{
+        "Classification" => String.t(),
+        "Name" => String.t(),
+        "RowTag" => String.t()
+      }
+      
+  """
+  @type create_x_ml_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_run_properties_response() :: %{
+        "RunProperties" => map()
+      }
+      
+  """
+  @type get_workflow_run_properties_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_request() :: %{
+        required("JobName") => String.t(),
+        required("JobUpdate") => job_update()
+      }
+      
+  """
+  @type update_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionsToGet") => list(partition_value_list()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type batch_get_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_partition_response() :: %{
+        "Partitions" => list(partition()()),
+        "UnprocessedKeys" => list(partition_value_list()())
+      }
+      
+  """
+  @type batch_get_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_version_error_item() :: %{
+        "ErrorDetails" => error_details(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type schema_version_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_crawler_schedule_response() :: %{}
+      
+  """
+  @type start_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mapping_response() :: %{
+        "Mapping" => list(mapping_entry()())
+      }
+      
+  """
+  @type get_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dataflow_graph_response() :: %{
+        "DagEdges" => list(code_gen_edge()()),
+        "DagNodes" => list(code_gen_node()())
+      }
+      
+  """
+  @type get_dataflow_graph_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_table_response() :: %{}
+      
+  """
+  @type create_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_based_observation() :: %{
+        "MetricName" => String.t(),
+        "MetricValues" => data_quality_metric_values(),
+        "NewRules" => list(String.t()())
+      }
+      
+  """
+  @type metric_based_observation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_source_control_from_job_response() :: %{
+        "JobName" => String.t()
+      }
+      
+  """
+  @type update_source_control_from_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_transforms_request() :: %{
+        optional("Filter") => transform_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Sort") => transform_sort_criteria()
+      }
+      
+  """
+  @type get_ml_transforms_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection() :: %{
+        "ConnectionProperties" => map(),
+        "ConnectionType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastUpdatedBy" => String.t(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "MatchCriteria" => list(String.t()()),
+        "Name" => String.t(),
+        "PhysicalConnectionRequirements" => physical_connection_requirements()
+      }
+      
+  """
+  @type connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_table_optimizer_response() :: %{}
+      
+  """
+  @type update_table_optimizer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_versions_diff_input() :: %{
+        required("FirstSchemaVersionNumber") => schema_version_number(),
+        required("SchemaDiffType") => list(any()),
+        required("SchemaId") => schema_id(),
+        required("SecondSchemaVersionNumber") => schema_version_number()
+      }
+      
+  """
+  @type get_schema_versions_diff_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_connections_filter() :: %{
+        "ConnectionType" => list(any()),
+        "MatchCriteria" => list(String.t()())
+      }
+      
+  """
+  @type get_connections_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_target() :: %{
+        "ConnectionName" => String.t(),
+        "DlqEventQueueArn" => String.t(),
+        "EventQueueArn" => String.t(),
+        "Exclusions" => list(String.t()()),
+        "Path" => String.t(),
+        "SampleSize" => integer()
+      }
+      
+  """
+  @type s3_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_import_labels_task_run_request() :: %{
+        optional("ReplaceAllLabels") => boolean(),
+        required("InputS3Path") => String.t(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type start_import_labels_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_import_status() :: %{
+        "ImportCompleted" => boolean(),
+        "ImportTime" => non_neg_integer(),
+        "ImportedBy" => String.t()
+      }
+      
+  """
+  @type catalog_import_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_schema_input() :: %{
+        optional("Compatibility") => list(any()),
+        optional("Description") => String.t(),
+        optional("SchemaVersionNumber") => schema_version_number(),
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type update_schema_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawls_filter() :: %{
+        "FieldName" => list(any()),
+        "FieldValue" => String.t(),
+        "FilterOperator" => list(any())
+      }
+      
+  """
+  @type crawls_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_quality_ruleset_response() :: %{}
+      
+  """
+  @type delete_data_quality_ruleset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      workflow_graph() :: %{
+        "Edges" => list(edge()()),
+        "Nodes" => list(glue_node()())
+      }
+      
+  """
+  @type workflow_graph() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_quality_rule_recommendation_run_response() :: %{}
+      
+  """
+  @type cancel_data_quality_rule_recommendation_run_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_triggers_request() :: %{
+        optional("DependentJobName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_triggers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_workflow_run_request() :: %{
+        optional("RunProperties") => map(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type start_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_crawler_schedule_response() :: %{}
+      
+  """
+  @type stop_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_defined_function_response() :: %{}
+      
+  """
+  @type update_user_defined_function_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      federated_table() :: %{
+        "ConnectionName" => String.t(),
+        "DatabaseIdentifier" => String.t(),
+        "Identifier" => String.t()
+      }
+      
+  """
+  @type federated_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_for_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnNames") => list(String.t()()),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_column_statistics_for_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_dev_endpoints_request() :: %{
+        required("DevEndpointNames") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_dev_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idempotent_parameter_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type crawler_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grok_classifier() :: %{
+        "Classification" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CustomPatterns" => String.t(),
+        "GrokPattern" => String.t(),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t(),
+        "Version" => float()
+      }
+      
+  """
+  @type grok_classifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_trigger_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type stop_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      join() :: %{
+        "Columns" => list(join_column()()),
+        "Inputs" => list(String.t()()),
+        "JoinType" => list(any()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type join() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metadata_info() :: %{
+        "CreatedTime" => String.t(),
+        "MetadataValue" => String.t(),
+        "OtherMetadataValueList" => list(other_metadata_value_list_item()())
+      }
+      
+  """
+  @type metadata_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      find_matches_task_run_properties() :: %{
+        "JobId" => String.t(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t()
+      }
+      
+  """
+  @type find_matches_task_run_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_runs_response() :: %{
+        "JobRuns" => list(job_run()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_job_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      governed_catalog_source() :: %{
+        "AdditionalOptions" => s3_source_additional_options(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "PartitionPredicate" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type governed_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_ruleset_list_details() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedOn" => non_neg_integer(),
+        "Name" => String.t(),
+        "RecommendationRunId" => String.t(),
+        "RuleCount" => integer(),
+        "TargetTable" => data_quality_target_table()
+      }
+      
+  """
+  @type data_quality_ruleset_list_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_partition_request_entry() :: %{
+        "PartitionInput" => partition_input(),
+        "PartitionValueList" => list(String.t()())
+      }
+      
+  """
+  @type batch_update_partition_request_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_control_details() :: %{
+        "AuthStrategy" => list(any()),
+        "AuthToken" => String.t(),
+        "Branch" => String.t(),
+        "Folder" => String.t(),
+        "LastCommitId" => String.t(),
+        "Owner" => String.t(),
+        "Provider" => list(any()),
+        "Repository" => String.t()
+      }
+      
+  """
+  @type source_control_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_grok_classifier_request() :: %{
+        "Classification" => String.t(),
+        "CustomPatterns" => String.t(),
+        "GrokPattern" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_grok_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_workflows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_schedule_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type no_schedule_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_optimizer() :: %{
+        "configuration" => table_optimizer_configuration(),
+        "lastRun" => table_optimizer_run(),
+        "type" => list(any())
+      }
+      
+  """
+  @type table_optimizer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spark_connector_source() :: %{
+        "AdditionalOptions" => map(),
+        "ConnectionName" => String.t(),
+        "ConnectionType" => String.t(),
+        "ConnectorName" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type spark_connector_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_quality_ruleset_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_data_quality_ruleset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_schema_response() :: %{
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_version_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("VersionId") => String.t()
+      }
+      
+  """
+  @type delete_table_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recipe() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "RecipeReference" => recipe_reference()
+      }
+      
+  """
+  @type recipe() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_response() :: %{
+        "Blueprint" => blueprint()
+      }
+      
+  """
+  @type get_blueprint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("BlueprintName") => String.t()
+      }
+      
+  """
+  @type get_blueprint_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_entry() :: %{
+        "DatabaseName" => String.t(),
+        "TableName" => String.t()
+      }
+      
+  """
+  @type catalog_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      my_s_q_l_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type my_s_q_l_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workflow() :: %{
+        "BlueprintDetails" => blueprint_details(),
+        "CreatedOn" => non_neg_integer(),
+        "DefaultRunProperties" => map(),
+        "Description" => String.t(),
+        "Graph" => workflow_graph(),
+        "LastModifiedOn" => non_neg_integer(),
+        "LastRun" => workflow_run(),
+        "MaxConcurrentRuns" => integer(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type workflow() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_task_runs_request() :: %{
+        optional("Filter") => task_run_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Sort") => task_run_sort_criteria(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type get_ml_task_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      illegal_workflow_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type illegal_workflow_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sort_criterion() :: %{
+        "FieldName" => String.t(),
+        "Sort" => list(any())
+      }
+      
+  """
+  @type sort_criterion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_studio_schema_column() :: %{
+        "Name" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type glue_studio_schema_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_crawler_request() :: %{
+        optional("Classifiers") => list(String.t()()),
+        optional("Configuration") => String.t(),
+        optional("CrawlerSecurityConfiguration") => String.t(),
+        optional("DatabaseName") => String.t(),
+        optional("Description") => String.t(),
+        optional("LakeFormationConfiguration") => lake_formation_configuration(),
+        optional("LineageConfiguration") => lineage_configuration(),
+        optional("RecrawlPolicy") => recrawl_policy(),
+        optional("Role") => String.t(),
+        optional("Schedule") => String.t(),
+        optional("SchemaChangePolicy") => schema_change_policy(),
+        optional("TablePrefix") => String.t(),
+        optional("Targets") => crawler_targets(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_classifier_request() :: %{
+        optional("CsvClassifier") => create_csv_classifier_request(),
+        optional("GrokClassifier") => create_grok_classifier_request(),
+        optional("JsonClassifier") => create_json_classifier_request(),
+        optional("XMLClassifier") => create_x_ml_classifier_request()
+      }
+      
+  """
+  @type create_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_configuration_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_security_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tags_response() :: %{
+        "Tags" => map()
+      }
+      
+  """
+  @type get_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_rule_recommendation_run_request() :: %{
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_schema_change_policy() :: %{
+        "Database" => String.t(),
+        "EnableUpdateCatalog" => boolean(),
+        "Table" => String.t(),
+        "UpdateBehavior" => list(any())
+      }
+      
+  """
+  @type direct_schema_change_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_crawler_request() :: %{
+        optional("Classifiers") => list(String.t()()),
+        optional("Configuration") => String.t(),
+        optional("CrawlerSecurityConfiguration") => String.t(),
+        optional("DatabaseName") => String.t(),
+        optional("Description") => String.t(),
+        optional("LakeFormationConfiguration") => lake_formation_configuration(),
+        optional("LineageConfiguration") => lineage_configuration(),
+        optional("RecrawlPolicy") => recrawl_policy(),
+        optional("Schedule") => String.t(),
+        optional("SchemaChangePolicy") => schema_change_policy(),
+        optional("TablePrefix") => String.t(),
+        optional("Tags") => map(),
+        required("Name") => String.t(),
+        required("Role") => String.t(),
+        required("Targets") => crawler_targets()
+      }
+      
+  """
+  @type create_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_workflow_run_properties_request() :: %{
+        required("Name") => String.t(),
+        required("RunId") => String.t(),
+        required("RunProperties") => map()
+      }
+      
+  """
+  @type put_workflow_run_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_schema_versions_response() :: %{
+        "SchemaVersionErrors" => list(schema_version_error_item()())
+      }
+      
+  """
+  @type delete_schema_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_kafka_source() :: %{
+        "DataPreviewOptions" => streaming_data_preview_options(),
+        "DetectSchema" => boolean(),
+        "Name" => String.t(),
+        "StreamingOptions" => kafka_streaming_source_options(),
+        "WindowSize" => integer()
+      }
+      
+  """
+  @type direct_kafka_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      select_from_collection() :: %{
+        "Index" => integer(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type select_from_collection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partition_response() :: %{}
+      
+  """
+  @type delete_partition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_glue_parquet_target() :: %{
+        "Compression" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_glue_parquet_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "FromFederationSource" => boolean(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_run_response() :: %{
+        "ColumnStatisticsTaskRun" => column_statistics_task_run()
+      }
+      
+  """
+  @type get_column_statistics_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_descriptor() :: %{
+        "AdditionalLocations" => list(String.t()()),
+        "BucketColumns" => list(String.t()()),
+        "Columns" => list(column()()),
+        "Compressed" => boolean(),
+        "InputFormat" => String.t(),
+        "Location" => String.t(),
+        "NumberOfBuckets" => integer(),
+        "OutputFormat" => String.t(),
+        "Parameters" => map(),
+        "SchemaReference" => schema_reference(),
+        "SerdeInfo" => ser_de_info(),
+        "SkewedInfo" => skewed_info(),
+        "SortColumns" => list(order()()),
+        "StoredAsSubDirectories" => boolean()
+      }
+      
+  """
+  @type storage_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_details() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+      
+  """
+  @type error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_security_configuration_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_security_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unfiltered_partition() :: %{
+        "AuthorizedColumns" => list(String.t()()),
+        "IsRegisteredWithLakeFormation" => boolean(),
+        "Partition" => partition()
+      }
+      
+  """
+  @type unfiltered_partition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partition_index_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("IndexName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_partition_index_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_ruleset_evaluation_run_request() :: %{
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_target() :: %{
+        "ConnectionName" => String.t(),
+        "DatabaseName" => String.t(),
+        "DlqEventQueueArn" => String.t(),
+        "EventQueueArn" => String.t(),
+        "Tables" => list(String.t()())
+      }
+      
+  """
+  @type catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_script_response() :: %{
+        "PythonScript" => String.t(),
+        "ScalaCode" => String.t()
+      }
+      
+  """
+  @type create_script_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_active_definition() :: %{
+        "BlueprintLocation" => String.t(),
+        "BlueprintServiceLocation" => String.t(),
+        "Description" => String.t(),
+        "LastModifiedOn" => non_neg_integer(),
+        "ParameterSpec" => String.t()
+      }
+      
+  """
+  @type last_active_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partition_index_response() :: %{}
+      
+  """
+  @type create_partition_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_mapping_request() :: %{
+        optional("Location") => location(),
+        optional("Sinks") => list(catalog_entry()()),
+        required("Source") => catalog_entry()
+      }
+      
+  """
+  @type get_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_trigger_response() :: %{
+        "Trigger" => trigger()
+      }
+      
+  """
+  @type update_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_result_request() :: %{
+        required("ResultId") => String.t()
+      }
+      
+  """
+  @type get_data_quality_result_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_catalog_import_status_response() :: %{
+        "ImportStatus" => catalog_import_status()
+      }
+      
+  """
+  @type get_catalog_import_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dev_endpoint_request() :: %{
+        required("EndpointName") => String.t()
+      }
+      
+  """
+  @type delete_dev_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_connection_response() :: %{}
+      
+  """
+  @type update_connection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawler_metrics_request() :: %{
+        optional("CrawlerNameList") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_crawler_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sessions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RequestOrigin") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_workflow_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_workflow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_csv_classifier_request() :: %{
+        "AllowSingleColumn" => boolean(),
+        "ContainsHeader" => list(any()),
+        "CustomDatatypeConfigured" => boolean(),
+        "CustomDatatypes" => list(String.t()()),
+        "Delimiter" => String.t(),
+        "DisableValueTrimming" => boolean(),
+        "Header" => list(String.t()()),
+        "Name" => String.t(),
+        "QuoteSymbol" => String.t(),
+        "Serde" => list(any())
+      }
+      
+  """
+  @type create_csv_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint() :: %{
+        "BlueprintLocation" => String.t(),
+        "BlueprintServiceLocation" => String.t(),
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "ErrorMessage" => String.t(),
+        "LastActiveDefinition" => last_active_definition(),
+        "LastModifiedOn" => non_neg_integer(),
+        "Name" => String.t(),
+        "ParameterSpec" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type blueprint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_history() :: %{
+        "CrawlId" => String.t(),
+        "DPUHour" => float(),
+        "EndTime" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "LogGroup" => String.t(),
+        "LogStream" => String.t(),
+        "MessagePrefix" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "State" => list(any()),
+        "Summary" => String.t()
+      }
+      
+  """
+  @type crawler_history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connections_list() :: %{
+        "Connections" => list(String.t()())
+      }
+      
+  """
+  @type connections_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_configuration_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_security_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_workflow_run_response() :: %{
+        "RunId" => String.t()
+      }
+      
+  """
+  @type start_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_csv_classifier_request() :: %{
+        "AllowSingleColumn" => boolean(),
+        "ContainsHeader" => list(any()),
+        "CustomDatatypeConfigured" => boolean(),
+        "CustomDatatypes" => list(String.t()()),
+        "Delimiter" => String.t(),
+        "DisableValueTrimming" => boolean(),
+        "Header" => list(String.t()()),
+        "Name" => String.t(),
+        "QuoteSymbol" => String.t(),
+        "Serde" => list(any())
+      }
+      
+  """
+  @type update_csv_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_catalog_delta_source() :: %{
+        "AdditionalDeltaOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_catalog_delta_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition() :: %{
+        "CrawlState" => list(any()),
+        "CrawlerName" => String.t(),
+        "JobName" => String.t(),
+        "LogicalOperator" => list(any()),
+        "State" => list(any())
+      }
+      
+  """
+  @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location() :: %{
+        "DynamoDB" => list(code_gen_node_arg()()),
+        "Jdbc" => list(code_gen_node_arg()()),
+        "S3" => list(code_gen_node_arg()())
+      }
+      
+  """
+  @type location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      classifier() :: %{
+        "CsvClassifier" => csv_classifier(),
+        "GrokClassifier" => grok_classifier(),
+        "JsonClassifier" => json_classifier(),
+        "XMLClassifier" => x_ml_classifier()
+      }
+      
+  """
+  @type classifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_expression() :: %{
+        "Negated" => boolean(),
+        "Operation" => list(any()),
+        "Values" => list(filter_value()())
+      }
+      
+  """
+  @type filter_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_tables_response() :: %{
+        "NextToken" => String.t(),
+        "TableList" => list(table()())
+      }
+      
+  """
+  @type search_tables_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_ml_evaluation_task_run_request() :: %{
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type start_ml_evaluation_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_trigger_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventBatchingCondition") => event_batching_condition(),
+        optional("Predicate") => predicate(),
+        optional("Schedule") => String.t(),
+        optional("StartOnCreation") => boolean(),
+        optional("Tags") => map(),
+        optional("WorkflowName") => String.t(),
+        required("Actions") => list(action()()),
+        required("Name") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mongo_db_target() :: %{
+        "ConnectionName" => String.t(),
+        "Path" => String.t(),
+        "ScanAll" => boolean()
+      }
+      
+  """
+  @type mongo_db_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      datatype() :: %{
+        "Id" => String.t(),
+        "Label" => String.t()
+      }
+      
+  """
+  @type datatype() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_node() :: %{
+        "CrawlerDetails" => crawler_node_details(),
+        "JobDetails" => job_node_details(),
+        "Name" => String.t(),
+        "TriggerDetails" => trigger_node_details(),
+        "Type" => list(any()),
+        "UniqueId" => String.t()
+      }
+      
+  """
+  @type glue_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_password_encryption() :: %{
+        "AwsKmsKeyId" => String.t(),
+        "ReturnConnectionPasswordEncrypted" => boolean()
+      }
+      
+  """
+  @type connection_password_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_identifier() :: %{
+        "CatalogId" => String.t(),
+        "DatabaseName" => String.t(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type database_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("Entries") => list(batch_update_partition_request_entry()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type batch_update_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        optional("ResourceArn") => String.t()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decimal_column_statistics_data() :: %{
+        "MaximumValue" => decimal_number(),
+        "MinimumValue" => decimal_number(),
+        "NumberOfDistinctValues" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type decimal_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      null_check_box_list() :: %{
+        "IsEmpty" => boolean(),
+        "IsNegOne" => boolean(),
+        "IsNullString" => boolean()
+      }
+      
+  """
+  @type null_check_box_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session() :: %{
+        "Command" => session_command(),
+        "CompletedOn" => non_neg_integer(),
+        "Connections" => connections_list(),
+        "CreatedOn" => non_neg_integer(),
+        "DPUSeconds" => float(),
+        "DefaultArguments" => map(),
+        "Description" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ExecutionTime" => float(),
+        "GlueVersion" => String.t(),
+        "Id" => String.t(),
+        "IdleTimeout" => integer(),
+        "MaxCapacity" => float(),
+        "NumberOfWorkers" => integer(),
+        "Progress" => float(),
+        "Role" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "Status" => list(any()),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_property() :: %{
+        "MaxConcurrentRuns" => integer()
+      }
+      
+  """
+  @type execution_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_blueprint_run_request() :: %{
+        optional("Parameters") => String.t(),
+        required("BlueprintName") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
+  """
+  @type start_blueprint_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_resource_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_node_data() :: %{
+        "Action" => String.t(),
+        "AdditionalOptions" => map(),
+        "AutoPushdown" => boolean(),
+        "Connection" => option(),
+        "Database" => String.t(),
+        "IamRole" => option(),
+        "MergeAction" => String.t(),
+        "MergeClause" => String.t(),
+        "MergeWhenMatched" => String.t(),
+        "MergeWhenNotMatched" => String.t(),
+        "PostAction" => String.t(),
+        "PreAction" => String.t(),
+        "SampleQuery" => String.t(),
+        "Schema" => String.t(),
+        "SelectedColumns" => list(option()()),
+        "SourceType" => String.t(),
+        "StagingTable" => String.t(),
+        "Table" => String.t(),
+        "TableSchema" => list(option()()),
+        "TempDir" => String.t(),
+        "Upsert" => boolean()
+      }
+      
+  """
+  @type snowflake_node_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policies_response() :: %{
+        "GetResourcePoliciesResponseList" => list(glue_policy()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_resource_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      view_definition() :: %{
+        "Definer" => String.t(),
+        "IsProtected" => boolean(),
+        "Representations" => list(view_representation()()),
+        "SubObjects" => list(String.t()())
+      }
+      
+  """
+  @type view_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawlers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_crawlers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "Filters" => list(filter_expression()()),
+        "Inputs" => list(String.t()()),
+        "LogicalOperator" => list(any()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predecessor() :: %{
+        "JobName" => String.t(),
+        "RunId" => String.t()
+      }
+      
+  """
+  @type predecessor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_column_statistics_for_partition_response() :: %{}
+      
+  """
+  @type delete_column_statistics_for_partition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_classifier_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_session_response() :: %{
+        "Id" => String.t()
+      }
+      
+  """
+  @type stop_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_error() :: %{
+        "ColumnStatistics" => column_statistics(),
+        "Error" => error_detail()
+      }
+      
+  """
+  @type column_statistics_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_code() :: %{
+        "ClassName" => String.t(),
+        "Code" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type custom_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_quality_rule_recommendation_run_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("CreatedRulesetName") => String.t(),
+        optional("NumberOfWorkers") => integer(),
+        optional("Timeout") => integer(),
+        required("DataSource") => data_source(),
+        required("Role") => String.t()
+      }
+      
+  """
+  @type start_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_crawler_schedule_request() :: %{
+        required("CrawlerName") => String.t()
+      }
+      
+  """
+  @type stop_crawler_schedule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_blueprint_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_blueprint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partition_index_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionIndex") => partition_index(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type create_partition_index_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_classifier_response() :: %{}
+      
+  """
+  @type create_classifier_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_delta_source() :: %{
+        "AdditionalDeltaOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type catalog_delta_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      order() :: %{
+        "Column" => String.t(),
+        "SortOrder" => integer()
+      }
+      
+  """
+  @type order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_task_run() :: %{
+        "CatalogID" => String.t(),
+        "ColumnNameList" => list(String.t()()),
+        "ColumnStatisticsTaskRunId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerId" => String.t(),
+        "DPUSeconds" => float(),
+        "DatabaseName" => String.t(),
+        "EndTime" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "LastUpdated" => non_neg_integer(),
+        "NumberOfWorkers" => integer(),
+        "Role" => String.t(),
+        "SampleSize" => float(),
+        "SecurityConfiguration" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TableName" => String.t(),
+        "WorkerType" => String.t()
+      }
+      
+  """
+  @type column_statistics_task_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_quality_ruleset_evaluation_run_request() :: %{
+        optional("AdditionalDataSources") => map(),
+        optional("AdditionalRunOptions") => data_quality_evaluation_run_additional_run_options(),
+        optional("ClientToken") => String.t(),
+        optional("NumberOfWorkers") => integer(),
+        optional("Timeout") => integer(),
+        required("DataSource") => data_source(),
+        required("Role") => String.t(),
+        required("RulesetNames") => list(String.t()())
+      }
+      
+  """
+  @type start_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ml_transforms_response() :: %{
+        "NextToken" => String.t(),
+        "TransformIds" => list(String.t()())
+      }
+      
+  """
+  @type list_ml_transforms_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_partitions_metadata_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("Expression") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("QuerySessionContext") => query_session_context(),
+        optional("Region") => String.t(),
+        optional("Segment") => segment(),
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("SupportedPermissionTypes") => list(list(any())()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_unfiltered_partitions_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_id() :: %{
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t()
+      }
+      
+  """
+  @type schema_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_blueprint_request() :: %{
+        optional("Description") => String.t(),
+        required("BlueprintLocation") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_blueprint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_trigger_response() :: %{
+        "Trigger" => trigger()
+      }
+      
+  """
+  @type get_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      microsoft_s_q_l_server_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type microsoft_s_q_l_server_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_registry_response() :: %{
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t()
+      }
+      
+  """
+  @type update_registry_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      federation_source_exception() :: %{
+        "FederationSourceErrorCode" => list(any()),
+        "Message" => String.t()
+      }
+      
+  """
+  @type federation_source_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_identifier() :: %{
+        "CatalogId" => String.t(),
+        "DatabaseName" => String.t(),
+        "Name" => String.t(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type table_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_response() :: %{
+        "JobName" => String.t()
+      }
+      
+  """
+  @type update_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_input() :: %{
+        "ConnectionProperties" => map(),
+        "ConnectionType" => list(any()),
+        "Description" => String.t(),
+        "MatchCriteria" => list(String.t()()),
+        "Name" => String.t(),
+        "PhysicalConnectionRequirements" => physical_connection_requirements()
+      }
+      
+  """
+  @type connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_optimizer_response() :: %{
+        "CatalogId" => String.t(),
+        "DatabaseName" => String.t(),
+        "TableName" => String.t(),
+        "TableOptimizer" => table_optimizer()
+      }
+      
+  """
+  @type get_table_optimizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_command() :: %{
+        "Name" => String.t(),
+        "PythonVersion" => String.t()
+      }
+      
+  """
+  @type session_command() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_bookmark_response() :: %{
+        "JobBookmarkEntry" => job_bookmark_entry()
+      }
+      
+  """
+  @type get_job_bookmark_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_entity_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Tags") => map()
+      }
+      
+  """
+  @type list_custom_entity_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_schema_version_input() :: %{
+        required("SchemaDefinition") => String.t(),
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type register_schema_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ml_transform_request() :: %{
+        optional("Description") => String.t(),
+        optional("GlueVersion") => String.t(),
+        optional("MaxCapacity") => float(),
+        optional("MaxRetries") => integer(),
+        optional("Name") => String.t(),
+        optional("NumberOfWorkers") => integer(),
+        optional("Parameters") => transform_parameters(),
+        optional("Role") => String.t(),
+        optional("Timeout") => integer(),
+        optional("WorkerType") => list(any()),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type update_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_transform_response() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "EvaluationMetrics" => evaluation_metrics(),
+        "GlueVersion" => String.t(),
+        "InputRecordTables" => list(glue_table()()),
+        "LabelCount" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "MaxCapacity" => float(),
+        "MaxRetries" => integer(),
+        "Name" => String.t(),
+        "NumberOfWorkers" => integer(),
+        "Parameters" => transform_parameters(),
+        "Role" => String.t(),
+        "Schema" => list(schema_column()()),
+        "Status" => list(any()),
+        "Timeout" => integer(),
+        "TransformEncryption" => transform_encryption(),
+        "TransformId" => String.t(),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type get_ml_transform_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule() :: %{
+        "ScheduleExpression" => String.t(),
+        "State" => list(any())
+      }
+      
+  """
+  @type schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_configurations_response() :: %{
+        "NextToken" => String.t(),
+        "SecurityConfigurations" => list(security_configuration()())
+      }
+      
+  """
+  @type get_security_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_quality_ruleset_evaluation_run_response() :: %{}
+      
+  """
+  @type cancel_data_quality_ruleset_evaluation_run_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_catalog_encryption_settings_request() :: %{
+        optional("CatalogId") => String.t()
+      }
+      
+  """
+  @type get_data_catalog_encryption_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trigger_update() :: %{
+        "Actions" => list(action()()),
+        "Description" => String.t(),
+        "EventBatchingCondition" => event_batching_condition(),
+        "Name" => String.t(),
+        "Predicate" => predicate(),
+        "Schedule" => String.t()
+      }
+      
+  """
+  @type trigger_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dev_endpoint_response() :: %{}
+      
+  """
+  @type update_dev_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_column_statistics_for_table_response() :: %{}
+      
+  """
+  @type delete_column_statistics_for_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      federated_resource_already_exists_exception() :: %{
+        "AssociatedGlueResource" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type federated_resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_ml_task_run_response() :: %{
+        "Status" => list(any()),
+        "TaskRunId" => String.t(),
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type cancel_ml_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_quality_rule_recommendation_run_request() :: %{
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type cancel_data_quality_rule_recommendation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_job_run_request() :: %{
+        optional("AllocatedCapacity") => integer(),
+        optional("Arguments") => map(),
+        optional("ExecutionClass") => list(any()),
+        optional("JobRunId") => String.t(),
+        optional("MaxCapacity") => float(),
+        optional("NotificationProperty") => notification_property(),
+        optional("NumberOfWorkers") => integer(),
+        optional("SecurityConfiguration") => String.t(),
+        optional("Timeout") => integer(),
+        optional("WorkerType") => list(any()),
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type start_job_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_data_source() :: %{
+        "ConnectionType" => String.t(),
+        "Data" => map(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type connector_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trigger_node_details() :: %{
+        "Trigger" => trigger()
+      }
+      
+  """
+  @type trigger_node_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_labels_task_run_properties() :: %{
+        "OutputS3Path" => String.t()
+      }
+      
+  """
+  @type export_labels_task_run_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_uri() :: %{
+        "ResourceType" => list(any()),
+        "Uri" => String.t()
+      }
+      
+  """
+  @type resource_uri() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_delta_catalog_target() :: %{
+        "AdditionalOptions" => map(),
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "SchemaChangePolicy" => catalog_schema_change_policy(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_delta_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_source_additional_options() :: %{
+        "BoundedFiles" => float(),
+        "BoundedSize" => float()
+      }
+      
+  """
+  @type s3_source_additional_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      physical_connection_requirements() :: %{
+        "AvailabilityZone" => String.t(),
+        "SecurityGroupIdList" => list(String.t()()),
+        "SubnetId" => String.t()
+      }
+      
+  """
+  @type physical_connection_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_version() :: %{
+        "Table" => table(),
+        "VersionId" => String.t()
+      }
+      
+  """
+  @type table_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action() :: %{
+        "Arguments" => map(),
+        "CrawlerName" => String.t(),
+        "JobName" => String.t(),
+        "NotificationProperty" => notification_property(),
+        "SecurityConfiguration" => String.t(),
+        "Timeout" => integer()
+      }
+      
+  """
+  @type action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_gen_node_arg() :: %{
+        "Name" => String.t(),
+        "Param" => boolean(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type code_gen_node_arg() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_defined_function_input() :: %{
+        "ClassName" => String.t(),
+        "FunctionName" => String.t(),
+        "OwnerName" => String.t(),
+        "OwnerType" => list(any()),
+        "ResourceUris" => list(resource_uri()())
+      }
+      
+  """
+  @type user_defined_function_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_column_statistics_for_partition_response() :: %{
+        "Errors" => list(column_statistics_error()())
+      }
+      
+  """
+  @type update_column_statistics_for_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_classifiers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_classifiers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      my_s_q_l_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type my_s_q_l_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_column_statistics_task_run_response() :: %{
+        "ColumnStatisticsTaskRunId" => String.t()
+      }
+      
+  """
+  @type start_column_statistics_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping_entry() :: %{
+        "SourcePath" => String.t(),
+        "SourceTable" => String.t(),
+        "SourceType" => String.t(),
+        "TargetPath" => String.t(),
+        "TargetTable" => String.t(),
+        "TargetType" => String.t()
+      }
+      
+  """
+  @type mapping_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_at_rest() :: %{
+        "CatalogEncryptionMode" => list(any()),
+        "CatalogEncryptionServiceRole" => String.t(),
+        "SseAwsKmsKeyId" => String.t()
+      }
+      
+  """
+  @type encryption_at_rest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_response() :: %{
+        "PythonScript" => String.t(),
+        "ScalaCode" => String.t()
+      }
+      
+  """
+  @type get_plan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_registries_response() :: %{
+        "NextToken" => String.t(),
+        "Registries" => list(registry_list_item()())
+      }
+      
+  """
+  @type list_registries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("RequestOrigin") => String.t(),
+        required("SessionId") => String.t()
+      }
+      
+  """
+  @type list_statements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_jobs_response() :: %{
+        "Jobs" => list(job()()),
+        "JobsNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        optional("EnableHybrid") => list(any()),
+        optional("PolicyExistsCondition") => list(any()),
+        optional("PolicyHashCondition") => String.t(),
+        optional("ResourceArn") => String.t(),
+        required("PolicyInJson") => String.t()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_change_policy() :: %{
+        "DeleteBehavior" => list(any()),
+        "UpdateBehavior" => list(any())
+      }
+      
+  """
+  @type schema_change_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_source_control_from_job_request() :: %{
+        optional("AuthStrategy") => list(any()),
+        optional("AuthToken") => String.t(),
+        optional("BranchName") => String.t(),
+        optional("CommitId") => String.t(),
+        optional("Folder") => String.t(),
+        optional("JobName") => String.t(),
+        optional("Provider") => list(any()),
+        optional("RepositoryName") => String.t(),
+        optional("RepositoryOwner") => String.t()
+      }
+      
+  """
+  @type update_source_control_from_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_database_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_detail() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+      
+  """
+  @type error_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_node_details() :: %{
+        "JobRuns" => list(job_run()())
+      }
+      
+  """
+  @type job_node_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rename_field() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "SourcePath" => list(String.t()()),
+        "TargetPath" => list(String.t()())
+      }
+      
+  """
+  @type rename_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_trigger_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type start_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_response() :: %{}
+      
+  """
+  @type delete_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workflow_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_workflow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionsToDelete") => list(partition_value_list()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type batch_delete_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_stopping_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type crawler_stopping_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_crawler_schedule_response() :: %{}
+      
+  """
+  @type update_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_delta_source() :: %{
+        "AdditionalDeltaOptions" => map(),
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()())
+      }
+      
+  """
+  @type s3_delta_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_runs_response() :: %{
+        "ColumnStatisticsTaskRuns" => list(column_statistics_task_run()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_column_statistics_task_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_table_optimizer() :: %{
+        "catalogId" => String.t(),
+        "databaseName" => String.t(),
+        "tableName" => String.t(),
+        "tableOptimizer" => table_optimizer()
+      }
+      
+  """
+  @type batch_table_optimizer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_table_response() :: %{
+        "Errors" => list(table_error()())
+      }
+      
+  """
+  @type batch_delete_table_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      d_q_results_publishing_options() :: %{
+        "CloudWatchMetricsEnabled" => boolean(),
+        "EvaluationContext" => String.t(),
+        "ResultsPublishingEnabled" => boolean(),
+        "ResultsS3Prefix" => String.t()
+      }
+      
+  """
+  @type d_q_results_publishing_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_input() :: %{
+        "Description" => String.t(),
+        "LastAccessTime" => non_neg_integer(),
+        "LastAnalyzedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Owner" => String.t(),
+        "Parameters" => map(),
+        "PartitionKeys" => list(column()()),
+        "Retention" => integer(),
+        "StorageDescriptor" => storage_descriptor(),
+        "TableType" => String.t(),
+        "TargetTable" => table_identifier(),
+        "ViewExpandedText" => String.t(),
+        "ViewOriginalText" => String.t()
+      }
+      
+  """
+  @type table_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_importance() :: %{
+        "ColumnName" => String.t(),
+        "Importance" => float()
+      }
+      
+  """
+  @type column_importance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_task_runs_response() :: %{
+        "NextToken" => String.t(),
+        "TaskRuns" => list(task_run()())
+      }
+      
+  """
+  @type get_ml_task_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workflow_run_statistics() :: %{
+        "ErroredActions" => integer(),
+        "FailedActions" => integer(),
+        "RunningActions" => integer(),
+        "StoppedActions" => integer(),
+        "SucceededActions" => integer(),
+        "TimeoutActions" => integer(),
+        "TotalActions" => integer(),
+        "WaitingActions" => integer()
+      }
+      
+  """
+  @type workflow_run_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delta_target() :: %{
+        "ConnectionName" => String.t(),
+        "CreateNativeDeltaTable" => boolean(),
+        "DeltaTables" => list(String.t()()),
+        "WriteManifest" => boolean()
+      }
+      
+  """
+  @type delta_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      transform_config_parameter() :: %{
+        "IsOptional" => boolean(),
+        "ListType" => list(any()),
+        "Name" => String.t(),
+        "Type" => list(any()),
+        "ValidationMessage" => String.t(),
+        "ValidationRule" => String.t(),
+        "Value" => list(String.t()())
+      }
+      
+  """
+  @type transform_config_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_optimizer_request() :: %{
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type delete_table_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_table_optimizer_request() :: %{
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("TableOptimizerConfiguration") => table_optimizer_configuration(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type update_table_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_version_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("VersionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_table_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_ruleset_evaluation_run_description() :: %{
+        "DataSource" => data_source(),
+        "RunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type data_quality_ruleset_evaluation_run_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ml_transform_response() :: %{
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type create_ml_transform_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_configuration_response() :: %{
+        "SecurityConfiguration" => security_configuration()
+      }
+      
+  """
+  @type get_security_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_crawls_response() :: %{
+        "Crawls" => list(crawler_history()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_crawls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dev_endpoint_response() :: %{}
+      
+  """
+  @type delete_dev_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dev_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type get_dev_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      security_configuration() :: %{
+        "CreatedTimeStamp" => non_neg_integer(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type security_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_input() :: %{
+        "LastAccessTime" => non_neg_integer(),
+        "LastAnalyzedTime" => non_neg_integer(),
+        "Parameters" => map(),
+        "StorageDescriptor" => storage_descriptor(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type partition_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_partition_response() :: %{
+        "Errors" => list(batch_update_partition_failure_entry()())
+      }
+      
+  """
+  @type batch_update_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_job_request() :: %{
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type delete_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      p_i_idetection() :: %{
+        "EntityTypesToDetect" => list(String.t()()),
+        "Inputs" => list(String.t()()),
+        "MaskValue" => String.t(),
+        "Name" => String.t(),
+        "OutputColumnName" => String.t(),
+        "PiiType" => list(any()),
+        "SampleFraction" => float(),
+        "ThresholdFraction" => float()
+      }
+      
+  """
+  @type p_i_idetection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregate_operation() :: %{
+        "AggFunc" => list(any()),
+        "Column" => list(String.t()())
+      }
+      
+  """
+  @type aggregate_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_ml_evaluation_task_run_response() :: %{
+        "TaskRunId" => String.t()
+      }
+      
+  """
+  @type start_ml_evaluation_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_quality_ruleset_evaluation_run_response() :: %{
+        "RunId" => String.t()
+      }
+      
+  """
+  @type start_data_quality_ruleset_evaluation_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_observation() :: %{
+        "Description" => String.t(),
+        "MetricBasedObservation" => metric_based_observation()
+      }
+      
+  """
+  @type data_quality_observation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_crawlers_response() :: %{
+        "Crawlers" => list(crawler()()),
+        "CrawlersNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_crawlers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_input() :: %{
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type get_schema_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_source() :: %{
+        "Data" => snowflake_node_data(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type snowflake_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_result() :: %{
+        "AnalyzerResults" => list(data_quality_analyzer_result()()),
+        "CompletedOn" => non_neg_integer(),
+        "DataSource" => data_source(),
+        "EvaluationContext" => String.t(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t(),
+        "Observations" => list(data_quality_observation()()),
+        "ResultId" => String.t(),
+        "RuleResults" => list(data_quality_rule_result()()),
+        "RulesetEvaluationRunId" => String.t(),
+        "RulesetName" => String.t(),
+        "Score" => float(),
+        "StartedOn" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      drop_null_fields() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "NullCheckBoxList" => null_check_box_list(),
+        "NullTextList" => list(null_value_field()())
+      }
+      
+  """
+  @type drop_null_fields() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_response() :: %{
+        "Job" => job()
+      }
+      
+  """
+  @type get_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_run_additional_run_options() :: %{
+        "CloudWatchMetricsEnabled" => boolean(),
+        "ResultsS3Prefix" => String.t()
+      }
+      
+  """
+  @type data_quality_evaluation_run_additional_run_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      d_q_stop_job_on_failure_options() :: %{
+        "StopJobOnFailureTiming" => list(any())
+      }
+      
+  """
+  @type d_q_stop_job_on_failure_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_registry_response() :: %{
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_registry_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_crawls_request() :: %{
+        optional("Filters") => list(crawls_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("CrawlerName") => String.t()
+      }
+      
+  """
+  @type list_crawls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_session_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Id") => String.t()
+      }
+      
+  """
+  @type stop_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_schema_version_metadata_input() :: %{
+        optional("SchemaId") => schema_id(),
+        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionNumber") => schema_version_number(),
+        required("MetadataKeyValue") => metadata_key_value_pair()
+      }
+      
+  """
+  @type remove_schema_version_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_response() :: %{}
+      
+  """
+  @type delete_connection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition_check_failure_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type condition_check_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_table() :: %{
+        "AdditionalOptions" => map(),
+        "CatalogId" => String.t(),
+        "ConnectionName" => String.t(),
+        "DatabaseName" => String.t(),
+        "TableName" => String.t()
+      }
+      
+  """
+  @type glue_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      audit_context() :: %{
+        "AdditionalAuditContext" => String.t(),
+        "AllColumnsRequested" => boolean(),
+        "RequestedColumns" => list(String.t()())
+      }
+      
+  """
+  @type audit_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x_ml_classifier() :: %{
+        "Classification" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t(),
+        "RowTag" => String.t(),
+        "Version" => float()
+      }
+      
+  """
+  @type x_ml_classifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_export_labels_task_run_request() :: %{
+        required("OutputS3Path") => String.t(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type start_export_labels_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_catalog_encryption_settings_response() :: %{
+        "DataCatalogEncryptionSettings" => data_catalog_encryption_settings()
+      }
+      
+  """
+  @type get_data_catalog_encryption_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job() :: %{
+        "AllocatedCapacity" => integer(),
+        "CodeGenConfigurationNodes" => map(),
+        "Command" => job_command(),
+        "Connections" => connections_list(),
+        "CreatedOn" => non_neg_integer(),
+        "DefaultArguments" => map(),
+        "Description" => String.t(),
+        "ExecutionClass" => list(any()),
+        "ExecutionProperty" => execution_property(),
+        "GlueVersion" => String.t(),
+        "JobMode" => list(any()),
+        "LastModifiedOn" => non_neg_integer(),
+        "LogUri" => String.t(),
+        "MaintenanceWindow" => String.t(),
+        "MaxCapacity" => float(),
+        "MaxRetries" => integer(),
+        "Name" => String.t(),
+        "NonOverridableArguments" => map(),
+        "NotificationProperty" => notification_property(),
+        "NumberOfWorkers" => integer(),
+        "Role" => String.t(),
+        "SecurityConfiguration" => String.t(),
+        "SourceControlDetails" => source_control_details(),
+        "Timeout" => integer(),
+        "WorkerType" => list(any())
+      }
+      
+  """
+  @type job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trigger_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type delete_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connector_data_target() :: %{
+        "ConnectionType" => String.t(),
+        "Data" => map(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type connector_data_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_catalog_source() :: %{
+        "AdditionalOptions" => s3_source_additional_options(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "PartitionPredicate" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metadata_key_value_pair() :: %{
+        "MetadataKey" => String.t(),
+        "MetadataValue" => String.t()
+      }
+      
+  """
+  @type metadata_key_value_pair() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_input() :: %{
+        "MetadataOperation" => list(any()),
+        "Version" => String.t()
+      }
+      
+  """
+  @type iceberg_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_blueprint_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_blueprint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_result_filter_criteria() :: %{
+        "DataSource" => data_source(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t(),
+        "StartedAfter" => non_neg_integer(),
+        "StartedBefore" => non_neg_integer()
+      }
+      
+  """
+  @type data_quality_result_filter_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_analyzer_result() :: %{
+        "Description" => String.t(),
+        "EvaluatedMetrics" => map(),
+        "EvaluationMessage" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type data_quality_analyzer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      permission_type_mismatch_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type permission_type_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluate_data_quality() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Output" => list(any()),
+        "PublishingOptions" => d_q_results_publishing_options(),
+        "Ruleset" => String.t(),
+        "StopJobOnFailureOptions" => d_q_stop_job_on_failure_options()
+      }
+      
+  """
+  @type evaluate_data_quality() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_request() :: %{
+        required("JobName") => String.t()
+      }
+      
+  """
+  @type get_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dev_endpoint_request() :: %{
+        optional("Arguments") => map(),
+        optional("ExtraJarsS3Path") => String.t(),
+        optional("ExtraPythonLibsS3Path") => String.t(),
+        optional("GlueVersion") => String.t(),
+        optional("NumberOfNodes") => integer(),
+        optional("NumberOfWorkers") => integer(),
+        optional("PublicKey") => String.t(),
+        optional("PublicKeys") => list(String.t()()),
+        optional("SecurityConfiguration") => String.t(),
+        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SubnetId") => String.t(),
+        optional("Tags") => map(),
+        optional("WorkerType") => list(any()),
+        required("EndpointName") => String.t(),
+        required("RoleArn") => String.t()
+      }
+      
+  """
+  @type create_dev_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      federation_source_retryable_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type federation_source_retryable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_from_source_control_response() :: %{
+        "JobName" => String.t()
+      }
+      
+  """
+  @type update_job_from_source_control_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_versions_response() :: %{
+        "NextToken" => String.t(),
+        "TableVersions" => list(table_version()())
+      }
+      
+  """
+  @type get_table_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partition_index_response() :: %{}
+      
+  """
+  @type delete_partition_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      predicate() :: %{
+        "Conditions" => list(condition()()),
+        "Logical" => list(any())
+      }
+      
+  """
+  @type predicate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      double_column_statistics_data() :: %{
+        "MaximumValue" => float(),
+        "MinimumValue" => float(),
+        "NumberOfDistinctValues" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type double_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_encryption() :: %{
+        "CloudWatchEncryptionMode" => list(any()),
+        "KmsKeyArn" => String.t()
+      }
+      
+  """
+  @type cloud_watch_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler_not_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type crawler_not_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_workflow_run_response() :: %{
+        "NodeIds" => list(String.t()()),
+        "RunId" => String.t()
+      }
+      
+  """
+  @type resume_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      option() :: %{
+        "Description" => String.t(),
+        "Label" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schema_versions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type list_schema_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_partitions_metadata_response() :: %{
+        "NextToken" => String.t(),
+        "UnfilteredPartitions" => list(unfiltered_partition()())
+      }
+      
+  """
+  @type get_unfiltered_partitions_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      other_metadata_value_list_item() :: %{
+        "CreatedTime" => String.t(),
+        "MetadataValue" => String.t()
+      }
+      
+  """
+  @type other_metadata_value_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_blueprint_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("BlueprintLocation") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_blueprint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_data_quality_result_request() :: %{
+        required("ResultIds") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_data_quality_result_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      json_classifier() :: %{
+        "CreationTime" => non_neg_integer(),
+        "JsonPath" => String.t(),
+        "LastUpdated" => non_neg_integer(),
+        "Name" => String.t(),
+        "Version" => float()
+      }
+      
+  """
+  @type json_classifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_tables_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Filters") => list(property_predicate()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceShareType") => list(any()),
+        optional("SearchText") => String.t(),
+        optional("SortCriteria") => list(sort_criterion()())
+      }
+      
+  """
+  @type search_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_crawler_schedule_request() :: %{
+        optional("Schedule") => String.t(),
+        required("CrawlerName") => String.t()
+      }
+      
+  """
+  @type update_crawler_schedule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_run_request() :: %{
+        optional("IncludeGraph") => boolean(),
+        required("Name") => String.t(),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type get_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_crawler_response() :: %{}
+      
+  """
+  @type start_crawler_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawler_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partitions_response() :: %{
+        "NextToken" => String.t(),
+        "Partitions" => list(partition()())
+      }
+      
+  """
+  @type get_partitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamo_db_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type dynamo_db_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_blueprints_response() :: %{
+        "Blueprints" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_blueprints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_database_response() :: %{}
+      
+  """
+  @type delete_database_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_workflow_run_request() :: %{
+        required("Name") => String.t(),
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type stop_workflow_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_registry_response() :: %{
+        "CreatedTime" => String.t(),
+        "Description" => String.t(),
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "Status" => list(any()),
+        "UpdatedTime" => String.t()
+      }
+      
+  """
+  @type get_registry_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{
+        "PolicyHash" => String.t()
+      }
+      
+  """
+  @type put_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_quality_ruleset_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        optional("TargetTable") => data_quality_target_table(),
+        required("Name") => String.t(),
+        required("Ruleset") => String.t()
+      }
+      
+  """
+  @type create_data_quality_ruleset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      column_statistics_task_running_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type column_statistics_task_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_stop_job_run_successful_submission() :: %{
+        "JobName" => String.t(),
+        "JobRunId" => String.t()
+      }
+      
+  """
+  @type batch_stop_job_run_successful_submission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_hudi_direct_target() :: %{
+        "AdditionalOptions" => map(),
+        "Compression" => list(any()),
+        "Format" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_hudi_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_ruleset_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_data_quality_ruleset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Id") => integer(),
+        required("SessionId") => String.t()
+      }
+      
+  """
+  @type get_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_data_quality_ruleset_evaluation_run_request() :: %{
+        required("RunId") => String.t()
+      }
+      
+  """
+  @type cancel_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_response() :: %{}
+      
+  """
+  @type create_connection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_unfiltered_partition_metadata_response() :: %{
+        "AuthorizedColumns" => list(String.t()()),
+        "IsRegisteredWithLakeFormation" => boolean(),
+        "Partition" => partition()
+      }
+      
+  """
+  @type get_unfiltered_partition_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_database_response() :: %{}
+      
+  """
+  @type update_database_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dev_endpoints_response() :: %{
+        "DevEndpointNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_dev_endpoints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_input() :: %{
+        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "Description" => String.t(),
+        "FederatedDatabase" => federated_database(),
+        "LocationUri" => String.t(),
+        "Name" => String.t(),
+        "Parameters" => map(),
+        "TargetDatabase" => database_identifier()
+      }
+      
+  """
+  @type database_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_ruleset_evaluation_runs_request() :: %{
+        optional("Filter") => data_quality_ruleset_evaluation_run_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_data_quality_ruleset_evaluation_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relational_catalog_source() :: %{
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type relational_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_entity_type_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type delete_custom_entity_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spark_s_q_l() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()()),
+        "SqlAliases" => list(sql_alias()()),
+        "SqlQuery" => String.t()
+      }
+      
+  """
+  @type spark_s_q_l() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kafka_streaming_source_options() :: %{
+        "AddRecordTimestamp" => String.t(),
+        "Assign" => String.t(),
+        "BootstrapServers" => String.t(),
+        "Classification" => String.t(),
+        "ConnectionName" => String.t(),
+        "Delimiter" => String.t(),
+        "EmitConsumerLagMetrics" => String.t(),
+        "EndingOffsets" => String.t(),
+        "IncludeHeaders" => boolean(),
+        "MaxOffsetsPerTrigger" => float(),
+        "MinPartitions" => integer(),
+        "NumRetries" => integer(),
+        "PollTimeoutMs" => float(),
+        "RetryIntervalMs" => float(),
+        "SecurityProtocol" => String.t(),
+        "StartingOffsets" => String.t(),
+        "StartingTimestamp" => non_neg_integer(),
+        "SubscribePattern" => String.t(),
+        "TopicName" => String.t()
+      }
+      
+  """
+  @type kafka_streaming_source_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_version_error() :: %{
+        "ErrorDetail" => error_detail(),
+        "TableName" => String.t(),
+        "VersionId" => String.t()
+      }
+      
+  """
+  @type table_version_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_table_version_response() :: %{
+        "Errors" => list(table_version_error()())
+      }
+      
+  """
+  @type batch_delete_table_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_databases_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceShareType") => list(any())
+      }
+      
+  """
+  @type get_databases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_kafka_source() :: %{
+        "DataPreviewOptions" => streaming_data_preview_options(),
+        "Database" => String.t(),
+        "DetectSchema" => boolean(),
+        "Name" => String.t(),
+        "StreamingOptions" => kafka_streaming_source_options(),
+        "Table" => String.t(),
+        "WindowSize" => integer()
+      }
+      
+  """
+  @type catalog_kafka_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_column_statistics_data() :: %{
+        "MaximumValue" => non_neg_integer(),
+        "MinimumValue" => non_neg_integer(),
+        "NumberOfDistinctValues" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type date_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      drop_fields() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Paths" => list(list(String.t()())())
+      }
+      
+  """
+  @type drop_fields() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_job_bookmark_response() :: %{
+        "JobBookmarkEntry" => job_bookmark_entry()
+      }
+      
+  """
+  @type reset_job_bookmark_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        optional("PolicyHashCondition") => String.t(),
+        optional("ResourceArn") => String.t()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawler_metrics_response() :: %{
+        "CrawlerMetricsList" => list(crawler_metrics()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_crawler_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partitions_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("ExcludeColumnSchema") => boolean(),
+        optional("Expression") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("QueryAsOfTime") => non_neg_integer(),
+        optional("Segment") => segment(),
+        optional("TransactionId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_partitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      streaming_data_preview_options() :: %{
+        "PollingTime" => float(),
+        "RecordPollingLimit" => float()
+      }
+      
+  """
+  @type streaming_data_preview_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_json_classifier_request() :: %{
+        "JsonPath" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_json_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_stop_job_run_response() :: %{
+        "Errors" => list(batch_stop_job_run_error()()),
+        "SuccessfulSubmissions" => list(batch_stop_job_run_successful_submission()())
+      }
+      
+  """
+  @type batch_stop_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_stop_job_run_error() :: %{
+        "ErrorDetail" => error_detail(),
+        "JobName" => String.t(),
+        "JobRunId" => String.t()
+      }
+      
+  """
+  @type batch_stop_job_run_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_results_request() :: %{
+        optional("Filter") => data_quality_result_filter_criteria(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_data_quality_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_schema_input() :: %{
+        required("SchemaId") => schema_id()
+      }
+      
+  """
+  @type delete_schema_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      view_representation() :: %{
+        "Dialect" => list(any()),
+        "DialectVersion" => String.t(),
+        "IsStale" => boolean(),
+        "ViewExpandedText" => String.t(),
+        "ViewOriginalText" => String.t()
+      }
+      
+  """
+  @type view_representation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_job_from_source_control_request() :: %{
+        optional("AuthStrategy") => list(any()),
+        optional("AuthToken") => String.t(),
+        optional("BranchName") => String.t(),
+        optional("CommitId") => String.t(),
+        optional("Folder") => String.t(),
+        optional("JobName") => String.t(),
+        optional("Provider") => list(any()),
+        optional("RepositoryName") => String.t(),
+        optional("RepositoryOwner") => String.t()
+      }
+      
+  """
+  @type update_job_from_source_control_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_defined_function_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("FunctionInput") => user_defined_function_input(),
+        required("FunctionName") => String.t()
+      }
+      
+  """
+  @type update_user_defined_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_classifier_request() :: %{
+        optional("CsvClassifier") => update_csv_classifier_request(),
+        optional("GrokClassifier") => update_grok_classifier_request(),
+        optional("JsonClassifier") => update_json_classifier_request(),
+        optional("XMLClassifier") => update_x_ml_classifier_request()
+      }
+      
+  """
+  @type update_classifier_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_column_statistics_for_table_response() :: %{
+        "Errors" => list(column_statistics_error()())
+      }
+      
+  """
+  @type update_column_statistics_for_table_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_trigger_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_encryption_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type glue_encryption_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping() :: %{
+        "Children" => list(mapping()()),
+        "Dropped" => boolean(),
+        "FromPath" => list(String.t()()),
+        "FromType" => String.t(),
+        "ToKey" => String.t(),
+        "ToType" => String.t()
+      }
+      
+  """
+  @type mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      drop_duplicates() :: %{
+        "Columns" => list(list(String.t()())()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type drop_duplicates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_classifier_response() :: %{}
+      
+  """
+  @type update_classifier_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ml_task_run_response() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "ErrorString" => String.t(),
+        "ExecutionTime" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "LogGroupName" => String.t(),
+        "Properties" => task_run_properties(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskRunId" => String.t(),
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type get_ml_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_defined_function_response() :: %{}
+      
+  """
+  @type create_user_defined_function_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      property_predicate() :: %{
+        "Comparator" => list(any()),
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type property_predicate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_table_optimizer_request() :: %{
+        required("Entries") => list(batch_get_table_optimizer_entry()())
+      }
+      
+  """
+  @type batch_get_table_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source() :: %{
+        "GlueTable" => glue_table()
+      }
+      
+  """
+  @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      postgre_s_q_l_catalog_target() :: %{
+        "Database" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type postgre_s_q_l_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_target() :: %{
+        "Data" => snowflake_node_data(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type snowflake_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      edge() :: %{
+        "DestinationId" => String.t(),
+        "SourceId" => String.t()
+      }
+      
+  """
+  @type edge() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_crawlers_response() :: %{
+        "CrawlerNames" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_crawlers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_rule_recommendation_runs_request() :: %{
+        optional("Filter") => data_quality_rule_recommendation_run_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_data_quality_rule_recommendation_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_table_optimizer_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type list_table_optimizer_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_connection_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ConnectionName") => String.t()
+      }
+      
+  """
+  @type delete_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      registry_list_item() :: %{
+        "CreatedTime" => String.t(),
+        "Description" => String.t(),
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "Status" => list(any()),
+        "UpdatedTime" => String.t()
+      }
+      
+  """
+  @type registry_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_table_optimizer_request() :: %{
+        required("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type get_table_optimizer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_fields() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Paths" => list(list(String.t()())())
+      }
+      
+  """
+  @type split_fields() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_import_labels_task_run_response() :: %{
+        "TaskRunId" => String.t()
+      }
+      
+  """
+  @type start_import_labels_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionInputList") => list(partition_input()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type batch_create_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statement_output() :: %{
+        "Data" => statement_output_data(),
+        "ErrorName" => String.t(),
+        "ErrorValue" => String.t(),
+        "ExecutionCount" => integer(),
+        "Status" => list(any()),
+        "Traceback" => list(String.t()())
+      }
+      
+  """
+  @type statement_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionValues") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_version_response() :: %{
+        "CreatedTime" => String.t(),
+        "DataFormat" => list(any()),
+        "SchemaArn" => String.t(),
+        "SchemaDefinition" => String.t(),
+        "SchemaVersionId" => String.t(),
+        "Status" => list(any()),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type get_schema_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_schema_version_metadata_response() :: %{
+        "LatestVersion" => boolean(),
+        "MetadataKey" => String.t(),
+        "MetadataValue" => String.t(),
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaName" => String.t(),
+        "SchemaVersionId" => String.t(),
+        "VersionNumber" => float()
+      }
+      
+  """
+  @type put_schema_version_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_by_definition_response() :: %{
+        "CreatedTime" => String.t(),
+        "DataFormat" => list(any()),
+        "SchemaArn" => String.t(),
+        "SchemaVersionId" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_schema_by_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_table_response() :: %{}
+      
+  """
+  @type update_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      glue_schema() :: %{
+        "Columns" => list(glue_studio_schema_column()())
+      }
+      
+  """
+  @type glue_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_job_response() :: %{
+        "JobName" => String.t()
+      }
+      
+  """
+  @type delete_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_direct_source_additional_options() :: %{
+        "BoundedFiles" => float(),
+        "BoundedSize" => float(),
+        "EnableSamplePath" => boolean(),
+        "SamplePath" => String.t()
+      }
+      
+  """
+  @type s3_direct_source_additional_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table() :: %{
+        "CatalogId" => String.t(),
+        "CreateTime" => non_neg_integer(),
+        "CreatedBy" => String.t(),
+        "DatabaseName" => String.t(),
+        "Description" => String.t(),
+        "FederatedTable" => federated_table(),
+        "IsMultiDialectView" => boolean(),
+        "IsRegisteredWithLakeFormation" => boolean(),
+        "LastAccessTime" => non_neg_integer(),
+        "LastAnalyzedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Owner" => String.t(),
+        "Parameters" => map(),
+        "PartitionKeys" => list(column()()),
+        "Retention" => integer(),
+        "StorageDescriptor" => storage_descriptor(),
+        "TableType" => String.t(),
+        "TargetTable" => table_identifier(),
+        "UpdateTime" => non_neg_integer(),
+        "VersionId" => String.t(),
+        "ViewDefinition" => view_definition(),
+        "ViewExpandedText" => String.t(),
+        "ViewOriginalText" => String.t()
+      }
+      
+  """
+  @type table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recrawl_policy() :: %{
+        "RecrawlBehavior" => list(any())
+      }
+      
+  """
+  @type recrawl_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dev_endpoint_custom_libraries() :: %{
+        "ExtraJarsS3Path" => String.t(),
+        "ExtraPythonLibsS3Path" => String.t()
+      }
+      
+  """
+  @type dev_endpoint_custom_libraries() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_for_table_response() :: %{
+        "ColumnStatisticsList" => list(column_statistics()()),
+        "Errors" => list(column_error()())
+      }
+      
+  """
+  @type get_column_statistics_for_table_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_workflows_response() :: %{
+        "NextToken" => String.t(),
+        "Workflows" => list(String.t()())
+      }
+      
+  """
+  @type list_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_schema_version_metadata_response() :: %{
+        "MetadataInfoMap" => map(),
+        "NextToken" => String.t(),
+        "SchemaVersionId" => String.t()
+      }
+      
+  """
+  @type query_schema_version_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_command() :: %{
+        "Name" => String.t(),
+        "PythonVersion" => String.t(),
+        "Runtime" => String.t(),
+        "ScriptLocation" => String.t()
+      }
+      
+  """
+  @type job_command() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_partition_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("PartitionInput") => partition_input(),
+        required("PartitionValueList") => list(String.t()()),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type update_partition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schemas_response() :: %{
+        "NextToken" => String.t(),
+        "Schemas" => list(schema_list_item()())
+      }
+      
+  """
+  @type list_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      illegal_blueprint_state_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type illegal_blueprint_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_csv_source() :: %{
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "CompressionType" => list(any()),
+        "Escaper" => String.t(),
+        "Exclusions" => list(String.t()()),
+        "GroupFiles" => String.t(),
+        "GroupSize" => String.t(),
+        "MaxBand" => integer(),
+        "MaxFilesInBand" => integer(),
+        "Multiline" => boolean(),
+        "Name" => String.t(),
+        "OptimizePerformance" => boolean(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()()),
+        "QuoteChar" => list(any()),
+        "Recurse" => boolean(),
+        "Separator" => list(any()),
+        "SkipFirst" => boolean(),
+        "WithHeader" => boolean(),
+        "WriteHeader" => boolean()
+      }
+      
+  """
+  @type s3_csv_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statement_output_data() :: %{
+        "TextPlain" => String.t()
+      }
+      
+  """
+  @type statement_output_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_ready_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_ml_labeling_set_generation_task_run_response() :: %{
+        "TaskRunId" => String.t()
+      }
+      
+  """
+  @type start_ml_labeling_set_generation_task_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_session_response() :: %{
+        "Session" => session()
+      }
+      
+  """
+  @type create_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_session_request() :: %{
+        optional("RequestOrigin") => String.t(),
+        required("Id") => String.t()
+      }
+      
+  """
+  @type delete_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crawler() :: %{
+        "Classifiers" => list(String.t()()),
+        "Configuration" => String.t(),
+        "CrawlElapsedTime" => float(),
+        "CrawlerSecurityConfiguration" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DatabaseName" => String.t(),
+        "Description" => String.t(),
+        "LakeFormationConfiguration" => lake_formation_configuration(),
+        "LastCrawl" => last_crawl_info(),
+        "LastUpdated" => non_neg_integer(),
+        "LineageConfiguration" => lineage_configuration(),
+        "Name" => String.t(),
+        "RecrawlPolicy" => recrawl_policy(),
+        "Role" => String.t(),
+        "Schedule" => schedule(),
+        "SchemaChangePolicy" => schema_change_policy(),
+        "State" => list(any()),
+        "TablePrefix" => String.t(),
+        "Targets" => crawler_targets(),
+        "Version" => float()
+      }
+      
+  """
+  @type crawler() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_redshift_target() :: %{
+        "Data" => amazon_redshift_node_data(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type amazon_redshift_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_security_configuration_response() :: %{}
+      
+  """
+  @type delete_security_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_table_optimizer_response() :: %{
+        "Failures" => list(batch_get_table_optimizer_error()()),
+        "TableOptimizers" => list(batch_table_optimizer()())
+      }
+      
+  """
+  @type batch_get_table_optimizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_run_response() :: %{
+        "Run" => workflow_run()
+      }
+      
+  """
+  @type get_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint_run() :: %{
+        "BlueprintName" => String.t(),
+        "CompletedOn" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "Parameters" => String.t(),
+        "RoleArn" => String.t(),
+        "RollbackErrorMessage" => String.t(),
+        "RunId" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "State" => list(any()),
+        "WorkflowName" => String.t()
+      }
+      
+  """
+  @type blueprint_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_ruleset_response() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedOn" => non_neg_integer(),
+        "Name" => String.t(),
+        "RecommendationRunId" => String.t(),
+        "Ruleset" => String.t(),
+        "TargetTable" => data_quality_target_table()
+      }
+      
+  """
+  @type get_data_quality_ruleset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_database_response() :: %{}
+      
+  """
+  @type create_database_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      confusion_matrix() :: %{
+        "NumFalseNegatives" => float(),
+        "NumFalsePositives" => float(),
+        "NumTrueNegatives" => float(),
+        "NumTruePositives" => float()
+      }
+      
+  """
+  @type confusion_matrix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_metrics() :: %{
+        "FindMatchesMetrics" => find_matches_metrics(),
+        "TransformType" => list(any())
+      }
+      
+  """
+  @type evaluation_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_database_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Tags") => map(),
+        required("DatabaseInput") => database_input()
+      }
+      
+  """
+  @type create_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_connection_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Tags") => map(),
+        required("ConnectionInput") => connection_input()
+      }
+      
+  """
+  @type create_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_defined_functions_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("DatabaseName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Pattern") => String.t()
+      }
+      
+  """
+  @type get_user_defined_functions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_target() :: %{
+        "ConnectionName" => String.t(),
+        "Exclusions" => list(String.t()()),
+        "MaximumTraversalDepth" => integer(),
+        "Paths" => list(String.t()())
+      }
+      
+  """
+  @type iceberg_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dev_endpoint_request() :: %{
+        optional("AddArguments") => map(),
+        optional("AddPublicKeys") => list(String.t()()),
+        optional("CustomLibraries") => dev_endpoint_custom_libraries(),
+        optional("DeleteArguments") => list(String.t()()),
+        optional("DeletePublicKeys") => list(String.t()()),
+        optional("PublicKey") => String.t(),
+        optional("UpdateEtlLibraries") => boolean(),
+        required("EndpointName") => String.t()
+      }
+      
+  """
+  @type update_dev_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_database_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseInput") => database_input(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_column_statistics_task_run_request() :: %{
+        optional("CatalogID") => String.t(),
+        optional("ColumnNameList") => list(String.t()()),
+        optional("SampleSize") => float(),
+        optional("SecurityConfiguration") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("Role") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type start_column_statistics_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_entity_type() :: %{
+        "ContextWords" => list(String.t()()),
+        "Name" => String.t(),
+        "RegexString" => String.t()
+      }
+      
+  """
+  @type custom_entity_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_response() :: %{
+        "Compatibility" => list(any()),
+        "CreatedTime" => String.t(),
+        "DataFormat" => list(any()),
+        "Description" => String.t(),
+        "LatestSchemaVersion" => float(),
+        "NextSchemaVersion" => float(),
+        "RegistryArn" => String.t(),
+        "RegistryName" => String.t(),
+        "SchemaArn" => String.t(),
+        "SchemaCheckpoint" => float(),
+        "SchemaName" => String.t(),
+        "SchemaStatus" => list(any()),
+        "UpdatedTime" => String.t()
+      }
+      
+  """
+  @type get_schema_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_table_optimizer_entry() :: %{
+        "catalogId" => String.t(),
+        "databaseName" => String.t(),
+        "tableName" => String.t(),
+        "type" => list(any())
+      }
+      
+  """
+  @type batch_get_table_optimizer_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      merge() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PrimaryKeys" => list(list(String.t()())()),
+        "Source" => String.t()
+      }
+      
+  """
+  @type merge() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_ruleset_filter_criteria() :: %{
+        "CreatedAfter" => non_neg_integer(),
+        "CreatedBefore" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedAfter" => non_neg_integer(),
+        "LastModifiedBefore" => non_neg_integer(),
+        "Name" => String.t(),
+        "TargetTable" => data_quality_target_table()
+      }
+      
+  """
+  @type data_quality_ruleset_filter_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_table_version_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t(),
+        required("VersionIds") => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_table_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      skewed_info() :: %{
+        "SkewedColumnNames" => list(String.t()()),
+        "SkewedColumnValueLocationMaps" => map(),
+        "SkewedColumnValues" => list(String.t()())
+      }
+      
+  """
+  @type skewed_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_schema_version_input() :: %{
+        optional("SchemaId") => schema_id(),
+        optional("SchemaVersionId") => String.t(),
+        optional("SchemaVersionNumber") => schema_version_number()
+      }
+      
+  """
+  @type get_schema_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_table_version_response() :: %{}
+      
+  """
+  @type delete_table_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      union() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "UnionType" => list(any())
+      }
+      
+  """
+  @type union() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_crawlers_response() :: %{
+        "Crawlers" => list(crawler()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_crawlers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_column_statistics_task_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_column_statistics_task_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_registry_input() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("RegistryName") => String.t()
+      }
+      
+  """
+  @type create_registry_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_partition_response() :: %{}
+      
+  """
+  @type update_partition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_bookmark_entry() :: %{
+        "Attempt" => integer(),
+        "JobBookmark" => String.t(),
+        "JobName" => String.t(),
+        "PreviousRunId" => String.t(),
+        "Run" => integer(),
+        "RunId" => String.t(),
+        "Version" => integer()
+      }
+      
+  """
+  @type job_bookmark_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lake_formation_configuration() :: %{
+        "AccountId" => String.t(),
+        "UseLakeFormationCredentials" => boolean()
+      }
+      
+  """
+  @type lake_formation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_table_optimizer_runs_response() :: %{
+        "CatalogId" => String.t(),
+        "DatabaseName" => String.t(),
+        "NextToken" => String.t(),
+        "TableName" => String.t(),
+        "TableOptimizerRuns" => list(table_optimizer_run()())
+      }
+      
+  """
+  @type list_table_optimizer_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_ml_labeling_set_generation_task_run_request() :: %{
+        required("OutputS3Path") => String.t(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type start_ml_labeling_set_generation_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_ml_task_run_request() :: %{
+        required("TaskRunId") => String.t(),
+        required("TransformId") => String.t()
+      }
+      
+  """
+  @type cancel_ml_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spigot() :: %{
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "Path" => String.t(),
+        "Prob" => float(),
+        "Topk" => integer()
+      }
+      
+  """
+  @type spigot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      j_db_c_connector_target() :: %{
+        "AdditionalOptions" => map(),
+        "ConnectionName" => String.t(),
+        "ConnectionTable" => String.t(),
+        "ConnectionType" => String.t(),
+        "ConnectorName" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()())
+      }
+      
+  """
+  @type j_db_c_connector_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_crawler_response() :: %{}
+      
+  """
+  @type stop_crawler_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_run() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "ErrorString" => String.t(),
+        "ExecutionTime" => integer(),
+        "LastModifiedOn" => non_neg_integer(),
+        "LogGroupName" => String.t(),
+        "Properties" => task_run_properties(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any()),
+        "TaskRunId" => String.t(),
+        "TransformId" => String.t()
+      }
+      
+  """
+  @type task_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      string_column_statistics_data() :: %{
+        "AverageLength" => float(),
+        "MaximumLength" => float(),
+        "NumberOfDistinctValues" => float(),
+        "NumberOfNulls" => float()
+      }
+      
+  """
+  @type string_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_column_statistics_for_table_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("ColumnStatisticsList") => list(column_statistics()()),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type update_column_statistics_for_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_workflow_response() :: %{
+        "Workflow" => workflow()
+      }
+      
+  """
+  @type get_workflow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      starting_event_batch_condition() :: %{
+        "BatchSize" => integer(),
+        "BatchWindow" => integer()
+      }
+      
+  """
+  @type starting_event_batch_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transform_parameters() :: %{
+        "FindMatchesParameters" => find_matches_parameters(),
+        "TransformType" => list(any())
+      }
+      
+  """
+  @type transform_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_database_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_partition_indexes_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("NextToken") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_partition_indexes_request() :: %{String.t() => any()}
+
+  @type batch_create_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type batch_delete_connection_errors() ::
+          internal_service_exception() | operation_timeout_exception()
+
+  @type batch_delete_partition_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type batch_delete_table_errors() ::
+          resource_not_ready_exception()
+          | glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type batch_delete_table_version_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type batch_get_blueprints_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_get_crawlers_errors() :: invalid_input_exception() | operation_timeout_exception()
+
+  @type batch_get_custom_entity_types_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_get_data_quality_result_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_get_dev_endpoints_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type batch_get_jobs_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_get_partition_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | invalid_state_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type batch_get_table_optimizer_errors() :: internal_service_exception()
+
+  @type batch_get_triggers_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_get_workflows_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_stop_job_run_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type batch_update_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type cancel_data_quality_rule_recommendation_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type cancel_data_quality_ruleset_evaluation_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type cancel_ml_task_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type cancel_statement_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type check_schema_version_validity_errors() ::
+          access_denied_exception() | invalid_input_exception() | internal_service_exception()
+
+  @type create_blueprint_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_classifier_errors() ::
+          invalid_input_exception() | already_exists_exception() | operation_timeout_exception()
+
+  @type create_connection_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_crawler_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_custom_entity_type_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_data_quality_ruleset_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_database_errors() ::
+          glue_encryption_exception()
+          | concurrent_modification_exception()
+          | federated_resource_already_exists_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_dev_endpoint_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_job_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_ml_transform_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type create_partition_index_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type create_registry_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+
+  @type create_schema_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | entity_not_found_exception()
+
+  @type create_script_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type create_security_configuration_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_session_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type create_table_errors() ::
+          resource_not_ready_exception()
+          | glue_encryption_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type create_table_optimizer_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | entity_not_found_exception()
+
+  @type create_trigger_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type create_user_defined_function_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type create_workflow_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
+  @type delete_blueprint_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type delete_classifier_errors() :: operation_timeout_exception() | entity_not_found_exception()
+
+  @type delete_column_statistics_for_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_column_statistics_for_table_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_connection_errors() :: operation_timeout_exception() | entity_not_found_exception()
+
+  @type delete_crawler_errors() ::
+          crawler_running_exception()
+          | scheduler_transitioning_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_custom_entity_type_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_data_quality_ruleset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_database_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_dev_endpoint_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_job_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type delete_ml_transform_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_partition_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_partition_index_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_registry_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | entity_not_found_exception()
+
+  @type delete_resource_policy_errors() ::
+          condition_check_failure_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_schema_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | entity_not_found_exception()
+
+  @type delete_schema_versions_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | entity_not_found_exception()
+
+  @type delete_security_configuration_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_session_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+
+  @type delete_table_errors() ::
+          resource_not_ready_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_table_optimizer_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type delete_table_version_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_trigger_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type delete_user_defined_function_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_workflow_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type get_blueprint_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_blueprint_run_errors() ::
+          internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_blueprint_runs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_catalog_import_status_errors() ::
+          internal_service_exception() | operation_timeout_exception()
+
+  @type get_classifier_errors() :: operation_timeout_exception() | entity_not_found_exception()
+
+  @type get_classifiers_errors() :: operation_timeout_exception()
+
+  @type get_column_statistics_for_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_column_statistics_for_table_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_column_statistics_task_run_errors() ::
+          invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
+
+  @type get_column_statistics_task_runs_errors() :: operation_timeout_exception()
+
+  @type get_connection_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_connections_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_crawler_errors() :: operation_timeout_exception() | entity_not_found_exception()
+
+  @type get_crawler_metrics_errors() :: operation_timeout_exception()
+
+  @type get_crawlers_errors() :: operation_timeout_exception()
+
+  @type get_custom_entity_type_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_data_catalog_encryption_settings_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type get_data_quality_result_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_data_quality_rule_recommendation_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_data_quality_ruleset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_data_quality_ruleset_evaluation_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_database_errors() ::
+          glue_encryption_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_databases_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type get_dataflow_graph_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type get_dev_endpoint_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_dev_endpoints_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_job_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_job_bookmark_errors() ::
+          validation_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_job_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_job_runs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_jobs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_mapping_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_ml_task_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_ml_task_runs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_ml_transform_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_ml_transforms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_partition_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_partition_indexes_errors() ::
+          invalid_input_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_partitions_errors() ::
+          resource_not_ready_exception()
+          | glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | invalid_state_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_plan_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type get_registry_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_resource_policies_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type get_resource_policy_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_schema_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_schema_by_definition_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_schema_version_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_schema_versions_diff_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_security_configuration_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_security_configurations_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_session_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_statement_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_table_errors() ::
+          resource_not_ready_exception()
+          | glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_table_optimizer_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_table_version_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_table_versions_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_tables_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_tags_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_trigger_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_triggers_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_unfiltered_partition_metadata_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | permission_type_mismatch_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_unfiltered_partitions_metadata_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | permission_type_mismatch_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_unfiltered_table_metadata_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | permission_type_mismatch_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_user_defined_function_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_user_defined_functions_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_workflow_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_workflow_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_workflow_run_properties_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_workflow_runs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type import_catalog_to_glue_errors() ::
+          internal_service_exception() | operation_timeout_exception()
+
+  @type list_blueprints_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type list_column_statistics_task_runs_errors() :: operation_timeout_exception()
+
+  @type list_crawlers_errors() :: operation_timeout_exception()
+
+  @type list_crawls_errors() ::
+          invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
+
+  @type list_custom_entity_types_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type list_data_quality_results_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type list_data_quality_rule_recommendation_runs_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type list_data_quality_ruleset_evaluation_runs_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type list_data_quality_rulesets_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_dev_endpoints_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_jobs_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_ml_transforms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_registries_errors() ::
+          access_denied_exception() | invalid_input_exception() | internal_service_exception()
+
+  @type list_schema_versions_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type list_schemas_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type list_sessions_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type list_statements_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_table_optimizer_runs_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type list_triggers_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_workflows_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type put_data_catalog_encryption_settings_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type put_resource_policy_errors() ::
+          condition_check_failure_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type put_schema_version_metadata_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | already_exists_exception()
+          | entity_not_found_exception()
+
+  @type put_workflow_run_properties_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type query_schema_version_metadata_errors() ::
+          access_denied_exception() | invalid_input_exception() | entity_not_found_exception()
+
+  @type register_schema_version_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type remove_schema_version_metadata_errors() ::
+          access_denied_exception() | invalid_input_exception() | entity_not_found_exception()
+
+  @type reset_job_bookmark_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type resume_workflow_run_errors() ::
+          invalid_input_exception()
+          | illegal_workflow_state_exception()
+          | internal_service_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type run_statement_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type search_tables_errors() ::
+          invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type start_blueprint_run_errors() ::
+          illegal_blueprint_state_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_column_statistics_task_run_errors() ::
+          column_statistics_task_running_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_crawler_errors() ::
+          crawler_running_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_crawler_schedule_errors() ::
+          no_schedule_exception()
+          | scheduler_transitioning_exception()
+          | scheduler_running_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_data_quality_rule_recommendation_run_errors() ::
+          invalid_input_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type start_data_quality_ruleset_evaluation_run_errors() ::
+          invalid_input_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_export_labels_task_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_import_labels_task_run_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_job_run_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_ml_evaluation_task_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | ml_transform_not_ready_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_ml_labeling_set_generation_task_run_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_trigger_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type start_workflow_run_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | concurrent_runs_exceeded_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type stop_column_statistics_task_run_errors() ::
+          column_statistics_task_not_running_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+          | column_statistics_task_stopping_exception()
+
+  @type stop_crawler_errors() ::
+          crawler_not_running_exception()
+          | crawler_stopping_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type stop_crawler_schedule_errors() ::
+          scheduler_transitioning_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+          | scheduler_not_running_exception()
+
+  @type stop_session_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | illegal_session_state_exception()
+          | operation_timeout_exception()
+
+  @type stop_trigger_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type stop_workflow_run_errors() ::
+          invalid_input_exception()
+          | illegal_workflow_state_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type tag_resource_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type untag_resource_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_blueprint_errors() ::
+          illegal_blueprint_state_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_classifier_errors() ::
+          invalid_input_exception()
+          | version_mismatch_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_column_statistics_for_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_column_statistics_for_table_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_connection_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_crawler_errors() ::
+          invalid_input_exception()
+          | crawler_running_exception()
+          | version_mismatch_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_crawler_schedule_errors() ::
+          invalid_input_exception()
+          | scheduler_transitioning_exception()
+          | version_mismatch_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_data_quality_ruleset_errors() ::
+          invalid_input_exception()
+          | idempotent_parameter_mismatch_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_database_errors() ::
+          glue_encryption_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_dev_endpoint_errors() ::
+          validation_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_job_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_job_from_source_control_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_ml_transform_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_partition_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_registry_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type update_schema_errors() ::
+          concurrent_modification_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type update_source_control_from_job_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_table_errors() ::
+          resource_not_ready_exception()
+          | glue_encryption_exception()
+          | concurrent_modification_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_table_optimizer_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type update_trigger_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_user_defined_function_errors() ::
+          glue_encryption_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_workflow_errors() ::
+          concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   def metadata do
     %{
       api_version: "2017-03-31",
@@ -18,6 +11749,7 @@ defmodule AWS.Glue do
       credential_scope: nil,
       endpoint_prefix: "glue",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Glue",
       signature_version: "v4",
@@ -29,8 +11761,13 @@ defmodule AWS.Glue do
   @doc """
   Creates one or more partitions in a batch operation.
   """
+  @spec batch_create_partition(AWS.Client.t(), batch_create_partition_request(), Keyword.t()) ::
+          {:ok, batch_create_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_partition_errors()}
   def batch_create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreatePartition", input, options)
   end
@@ -38,8 +11775,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a list of connection definitions from the Data Catalog.
   """
+  @spec batch_delete_connection(AWS.Client.t(), batch_delete_connection_request(), Keyword.t()) ::
+          {:ok, batch_delete_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_connection_errors()}
   def batch_delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteConnection", input, options)
   end
@@ -47,8 +11789,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes one or more partitions in a batch operation.
   """
+  @spec batch_delete_partition(AWS.Client.t(), batch_delete_partition_request(), Keyword.t()) ::
+          {:ok, batch_delete_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_partition_errors()}
   def batch_delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeletePartition", input, options)
   end
@@ -68,8 +11815,13 @@ defmodule AWS.Glue do
   `BatchDeletePartition`, to delete any resources that belong to the
   table.
   """
+  @spec batch_delete_table(AWS.Client.t(), batch_delete_table_request(), Keyword.t()) ::
+          {:ok, batch_delete_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_table_errors()}
   def batch_delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTable", input, options)
   end
@@ -77,8 +11829,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified batch of versions of a table.
   """
+  @spec batch_delete_table_version(
+          AWS.Client.t(),
+          batch_delete_table_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_delete_table_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_table_version_errors()}
   def batch_delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTableVersion", input, options)
   end
@@ -86,8 +11847,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about a list of blueprints.
   """
+  @spec batch_get_blueprints(AWS.Client.t(), batch_get_blueprints_request(), Keyword.t()) ::
+          {:ok, batch_get_blueprints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_blueprints_errors()}
   def batch_get_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBlueprints", input, options)
   end
@@ -99,8 +11865,13 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
+  @spec batch_get_crawlers(AWS.Client.t(), batch_get_crawlers_request(), Keyword.t()) ::
+          {:ok, batch_get_crawlers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_crawlers_errors()}
   def batch_get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCrawlers", input, options)
   end
@@ -108,8 +11879,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details for the custom patterns specified by a list of names.
   """
+  @spec batch_get_custom_entity_types(
+          AWS.Client.t(),
+          batch_get_custom_entity_types_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_get_custom_entity_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_custom_entity_types_errors()}
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCustomEntityTypes", input, options)
   end
@@ -117,8 +11897,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of data quality results for the specified result IDs.
   """
+  @spec batch_get_data_quality_result(
+          AWS.Client.t(),
+          batch_get_data_quality_result_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_get_data_quality_result_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_data_quality_result_errors()}
   def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
   end
@@ -134,8 +11923,13 @@ defmodule AWS.Glue do
   permissions,
   including permission conditions that uses tags.
   """
+  @spec batch_get_dev_endpoints(AWS.Client.t(), batch_get_dev_endpoints_request(), Keyword.t()) ::
+          {:ok, batch_get_dev_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_dev_endpoints_errors()}
   def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
   end
@@ -147,8 +11941,13 @@ defmodule AWS.Glue do
   the data to which you have been granted permissions. This operation supports all
   IAM permissions, including permission conditions that uses tags.
   """
+  @spec batch_get_jobs(AWS.Client.t(), batch_get_jobs_request(), Keyword.t()) ::
+          {:ok, batch_get_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_jobs_errors()}
   def batch_get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetJobs", input, options)
   end
@@ -156,8 +11955,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partitions in a batch request.
   """
+  @spec batch_get_partition(AWS.Client.t(), batch_get_partition_request(), Keyword.t()) ::
+          {:ok, batch_get_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_partition_errors()}
   def batch_get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetPartition", input, options)
   end
@@ -165,8 +11969,17 @@ defmodule AWS.Glue do
   @doc """
   Returns the configuration for the specified table optimizers.
   """
+  @spec batch_get_table_optimizer(
+          AWS.Client.t(),
+          batch_get_table_optimizer_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_get_table_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_table_optimizer_errors()}
   def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
   end
@@ -178,8 +11991,13 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
+  @spec batch_get_triggers(AWS.Client.t(), batch_get_triggers_request(), Keyword.t()) ::
+          {:ok, batch_get_triggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_triggers_errors()}
   def batch_get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTriggers", input, options)
   end
@@ -191,8 +12009,13 @@ defmodule AWS.Glue do
   access the data to which you have been granted permissions. This operation
   supports all IAM permissions, including permission conditions that uses tags.
   """
+  @spec batch_get_workflows(AWS.Client.t(), batch_get_workflows_request(), Keyword.t()) ::
+          {:ok, batch_get_workflows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_workflows_errors()}
   def batch_get_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
   end
@@ -200,8 +12023,13 @@ defmodule AWS.Glue do
   @doc """
   Stops one or more job runs for a specified job definition.
   """
+  @spec batch_stop_job_run(AWS.Client.t(), batch_stop_job_run_request(), Keyword.t()) ::
+          {:ok, batch_stop_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_stop_job_run_errors()}
   def batch_stop_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopJobRun", input, options)
   end
@@ -209,8 +12037,13 @@ defmodule AWS.Glue do
   @doc """
   Updates one or more partitions in a batch operation.
   """
+  @spec batch_update_partition(AWS.Client.t(), batch_update_partition_request(), Keyword.t()) ::
+          {:ok, batch_update_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_update_partition_errors()}
   def batch_update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
   end
@@ -218,8 +12051,17 @@ defmodule AWS.Glue do
   @doc """
   Cancels the specified recommendation run that was being used to generate rules.
   """
+  @spec cancel_data_quality_rule_recommendation_run(
+          AWS.Client.t(),
+          cancel_data_quality_rule_recommendation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, cancel_data_quality_rule_recommendation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_data_quality_rule_recommendation_run_errors()}
   def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
   end
@@ -227,8 +12069,17 @@ defmodule AWS.Glue do
   @doc """
   Cancels a run where a ruleset is being evaluated against a data source.
   """
+  @spec cancel_data_quality_ruleset_evaluation_run(
+          AWS.Client.t(),
+          cancel_data_quality_ruleset_evaluation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, cancel_data_quality_ruleset_evaluation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
   def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
@@ -241,8 +12092,13 @@ defmodule AWS.Glue do
   machine learning task run at any time by calling `CancelMLTaskRun` with a task
   run's parent transform's `TransformID` and the task run's `TaskRunId`.
   """
+  @spec cancel_ml_task_run(AWS.Client.t(), cancel_ml_task_run_request(), Keyword.t()) ::
+          {:ok, cancel_ml_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_ml_task_run_errors()}
   def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMLTaskRun", input, options)
   end
@@ -250,8 +12106,13 @@ defmodule AWS.Glue do
   @doc """
   Cancels the statement.
   """
+  @spec cancel_statement(AWS.Client.t(), cancel_statement_request(), Keyword.t()) ::
+          {:ok, cancel_statement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -263,8 +12124,17 @@ defmodule AWS.Glue do
   using `DataFormat` as the format. Since it does not take a schema set name, no
   compatibility checks are performed.
   """
+  @spec check_schema_version_validity(
+          AWS.Client.t(),
+          check_schema_version_validity_input(),
+          Keyword.t()
+        ) ::
+          {:ok, check_schema_version_validity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, check_schema_version_validity_errors()}
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckSchemaVersionValidity", input, options)
   end
@@ -272,8 +12142,13 @@ defmodule AWS.Glue do
   @doc """
   Registers a blueprint with Glue.
   """
+  @spec create_blueprint(AWS.Client.t(), create_blueprint_request(), Keyword.t()) ::
+          {:ok, create_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueprint", input, options)
   end
@@ -285,8 +12160,13 @@ defmodule AWS.Glue do
   `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
   depending on which field of the request is present.
   """
+  @spec create_classifier(AWS.Client.t(), create_classifier_request(), Keyword.t()) ::
+          {:ok, create_classifier_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_classifier_errors()}
   def create_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClassifier", input, options)
   end
@@ -297,8 +12177,13 @@ defmodule AWS.Glue do
   Connections used for creating federated resources require the IAM
   `glue:PassConnection` permission.
   """
+  @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
+          {:ok, create_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -310,8 +12195,13 @@ defmodule AWS.Glue do
   At least one crawl target must be specified, in the `s3Targets` field, the
   `jdbcTargets` field, or the `DynamoDBTargets` field.
   """
+  @spec create_crawler(AWS.Client.t(), create_crawler_request(), Keyword.t()) ::
+          {:ok, create_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_crawler_errors()}
   def create_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrawler", input, options)
   end
@@ -324,8 +12214,17 @@ defmodule AWS.Glue do
   list of context words. If no context words are passed only a regular expression
   is checked.
   """
+  @spec create_custom_entity_type(
+          AWS.Client.t(),
+          create_custom_entity_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_custom_entity_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_custom_entity_type_errors()}
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
   end
@@ -337,8 +12236,17 @@ defmodule AWS.Glue do
   You create the ruleset using the Data Quality Definition Language (DQDL). For
   more information, see the Glue developer guide.
   """
+  @spec create_data_quality_ruleset(
+          AWS.Client.t(),
+          create_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_data_quality_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_quality_ruleset_errors()}
   def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
@@ -346,8 +12254,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new database in a Data Catalog.
   """
+  @spec create_database(AWS.Client.t(), create_database_request(), Keyword.t()) ::
+          {:ok, create_database_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -355,8 +12268,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new development endpoint.
   """
+  @spec create_dev_endpoint(AWS.Client.t(), create_dev_endpoint_request(), Keyword.t()) ::
+          {:ok, create_dev_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_dev_endpoint_errors()}
   def create_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
   end
@@ -364,8 +12282,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new job definition.
   """
+  @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
+          {:ok, create_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -391,8 +12314,13 @@ defmodule AWS.Glue do
   information, see
   [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
   """
+  @spec create_ml_transform(AWS.Client.t(), create_ml_transform_request(), Keyword.t()) ::
+          {:ok, create_ml_transform_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_ml_transform_errors()}
   def create_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLTransform", input, options)
   end
@@ -400,8 +12328,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new partition.
   """
+  @spec create_partition(AWS.Client.t(), create_partition_request(), Keyword.t()) ::
+          {:ok, create_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_partition_errors()}
   def create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartition", input, options)
   end
@@ -409,8 +12342,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a specified partition index in an existing table.
   """
+  @spec create_partition_index(AWS.Client.t(), create_partition_index_request(), Keyword.t()) ::
+          {:ok, create_partition_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_partition_index_errors()}
   def create_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartitionIndex", input, options)
   end
@@ -418,8 +12356,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new registry which may be used to hold a collection of schemas.
   """
+  @spec create_registry(AWS.Client.t(), create_registry_input(), Keyword.t()) ::
+          {:ok, create_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistry", input, options)
   end
@@ -440,8 +12383,13 @@ defmodule AWS.Glue do
   "default-registry" in the registry database tables, if it is not already
   present.
   """
+  @spec create_schema(AWS.Client.t(), create_schema_input(), Keyword.t()) ::
+          {:ok, create_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -449,8 +12397,13 @@ defmodule AWS.Glue do
   @doc """
   Transforms a directed acyclic graph (DAG) into code.
   """
+  @spec create_script(AWS.Client.t(), create_script_request(), Keyword.t()) ::
+          {:ok, create_script_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -463,8 +12416,17 @@ defmodule AWS.Glue do
   information about using security configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and Development
   Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html).
   """
+  @spec create_security_configuration(
+          AWS.Client.t(),
+          create_security_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -472,8 +12434,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new session.
   """
+  @spec create_session(AWS.Client.t(), create_session_request(), Keyword.t()) ::
+          {:ok, create_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSession", input, options)
   end
@@ -481,8 +12448,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new table definition in the Data Catalog.
   """
+  @spec create_table(AWS.Client.t(), create_table_request(), Keyword.t()) ::
+          {:ok, create_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -492,8 +12464,13 @@ defmodule AWS.Glue do
 
   `compaction` is the only currently supported optimizer type.
   """
+  @spec create_table_optimizer(AWS.Client.t(), create_table_optimizer_request(), Keyword.t()) ::
+          {:ok, create_table_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_table_optimizer_errors()}
   def create_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTableOptimizer", input, options)
   end
@@ -501,8 +12478,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new trigger.
   """
+  @spec create_trigger(AWS.Client.t(), create_trigger_request(), Keyword.t()) ::
+          {:ok, create_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_trigger_errors()}
   def create_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrigger", input, options)
   end
@@ -510,8 +12492,17 @@ defmodule AWS.Glue do
   @doc """
   Creates a new function definition in the Data Catalog.
   """
+  @spec create_user_defined_function(
+          AWS.Client.t(),
+          create_user_defined_function_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_user_defined_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_defined_function_errors()}
   def create_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserDefinedFunction", input, options)
   end
@@ -519,8 +12510,13 @@ defmodule AWS.Glue do
   @doc """
   Creates a new workflow.
   """
+  @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
+          {:ok, create_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -528,8 +12524,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes an existing blueprint.
   """
+  @spec delete_blueprint(AWS.Client.t(), delete_blueprint_request(), Keyword.t()) ::
+          {:ok, delete_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueprint", input, options)
   end
@@ -537,8 +12538,13 @@ defmodule AWS.Glue do
   @doc """
   Removes a classifier from the Data Catalog.
   """
+  @spec delete_classifier(AWS.Client.t(), delete_classifier_request(), Keyword.t()) ::
+          {:ok, delete_classifier_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_classifier_errors()}
   def delete_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClassifier", input, options)
   end
@@ -549,8 +12555,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `DeletePartition`.
   """
+  @spec delete_column_statistics_for_partition(
+          AWS.Client.t(),
+          delete_column_statistics_for_partition_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_column_statistics_for_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_column_statistics_for_partition_errors()}
   def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForPartition", input, options)
   end
@@ -561,8 +12576,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `DeleteTable`.
   """
+  @spec delete_column_statistics_for_table(
+          AWS.Client.t(),
+          delete_column_statistics_for_table_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_column_statistics_for_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_column_statistics_for_table_errors()}
   def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
   end
@@ -570,8 +12594,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a connection from the Data Catalog.
   """
+  @spec delete_connection(AWS.Client.t(), delete_connection_request(), Keyword.t()) ::
+          {:ok, delete_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -581,8 +12610,13 @@ defmodule AWS.Glue do
   is
   `RUNNING`.
   """
+  @spec delete_crawler(AWS.Client.t(), delete_crawler_request(), Keyword.t()) ::
+          {:ok, delete_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_crawler_errors()}
   def delete_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrawler", input, options)
   end
@@ -590,8 +12624,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a custom pattern by specifying its name.
   """
+  @spec delete_custom_entity_type(
+          AWS.Client.t(),
+          delete_custom_entity_type_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_custom_entity_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_custom_entity_type_errors()}
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
   end
@@ -599,8 +12642,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a data quality ruleset.
   """
+  @spec delete_data_quality_ruleset(
+          AWS.Client.t(),
+          delete_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_data_quality_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_quality_ruleset_errors()}
   def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
@@ -623,8 +12675,13 @@ defmodule AWS.Glue do
   `DeleteTable` or `BatchDeleteTable`, to delete any resources that
   belong to the database.
   """
+  @spec delete_database(AWS.Client.t(), delete_database_request(), Keyword.t()) ::
+          {:ok, delete_database_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -632,8 +12689,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified development endpoint.
   """
+  @spec delete_dev_endpoint(AWS.Client.t(), delete_dev_endpoint_request(), Keyword.t()) ::
+          {:ok, delete_dev_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_dev_endpoint_errors()}
   def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
   end
@@ -644,8 +12706,13 @@ defmodule AWS.Glue do
   If the job definition
   is not found, no exception is thrown.
   """
+  @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
+          {:ok, delete_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteJob", input, options)
   end
@@ -662,8 +12729,13 @@ defmodule AWS.Glue do
   `DeleteMLTransforms`. However, any Glue jobs that still reference the deleted
   transform will no longer succeed.
   """
+  @spec delete_ml_transform(AWS.Client.t(), delete_ml_transform_request(), Keyword.t()) ::
+          {:ok, delete_ml_transform_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_ml_transform_errors()}
   def delete_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLTransform", input, options)
   end
@@ -671,8 +12743,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified partition.
   """
+  @spec delete_partition(AWS.Client.t(), delete_partition_request(), Keyword.t()) ::
+          {:ok, delete_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_partition_errors()}
   def delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartition", input, options)
   end
@@ -680,8 +12757,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified partition index from an existing table.
   """
+  @spec delete_partition_index(AWS.Client.t(), delete_partition_index_request(), Keyword.t()) ::
+          {:ok, delete_partition_index_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_partition_index_errors()}
   def delete_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartitionIndex", input, options)
   end
@@ -694,8 +12776,13 @@ defmodule AWS.Glue do
   operations for the registry such as the `UpdateRegistry`, `CreateSchema`,
   `UpdateSchema`, and `RegisterSchemaVersion` APIs.
   """
+  @spec delete_registry(AWS.Client.t(), delete_registry_input(), Keyword.t()) ::
+          {:ok, delete_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistry", input, options)
   end
@@ -703,8 +12790,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified policy.
   """
+  @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -717,8 +12809,13 @@ defmodule AWS.Glue do
   for the schema, such as the `GetSchemaByDefinition`, and `RegisterSchemaVersion`
   APIs.
   """
+  @spec delete_schema(AWS.Client.t(), delete_schema_input(), Keyword.t()) ::
+          {:ok, delete_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
@@ -745,8 +12842,13 @@ defmodule AWS.Glue do
   If the compatibility mode forbids deleting of a version that is necessary, such
   as BACKWARDS_FULL, an error is returned.
   """
+  @spec delete_schema_versions(AWS.Client.t(), delete_schema_versions_input(), Keyword.t()) ::
+          {:ok, delete_schema_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_schema_versions_errors()}
   def delete_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchemaVersions", input, options)
   end
@@ -754,8 +12856,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified security configuration.
   """
+  @spec delete_security_configuration(
+          AWS.Client.t(),
+          delete_security_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -763,8 +12874,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes the session.
   """
+  @spec delete_session(AWS.Client.t(), delete_session_request(), Keyword.t()) ::
+          {:ok, delete_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSession", input, options)
   end
@@ -784,8 +12900,13 @@ defmodule AWS.Glue do
   `BatchDeletePartition`, to delete any resources that belong to the
   table.
   """
+  @spec delete_table(AWS.Client.t(), delete_table_request(), Keyword.t()) ::
+          {:ok, delete_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -795,8 +12916,13 @@ defmodule AWS.Glue do
 
   The optimization will no longer be performed on the table.
   """
+  @spec delete_table_optimizer(AWS.Client.t(), delete_table_optimizer_request(), Keyword.t()) ::
+          {:ok, delete_table_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_table_optimizer_errors()}
   def delete_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
@@ -804,8 +12930,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a specified version of a table.
   """
+  @spec delete_table_version(AWS.Client.t(), delete_table_version_request(), Keyword.t()) ::
+          {:ok, delete_table_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_table_version_errors()}
   def delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableVersion", input, options)
   end
@@ -816,8 +12947,13 @@ defmodule AWS.Glue do
   If the trigger is not found, no
   exception is thrown.
   """
+  @spec delete_trigger(AWS.Client.t(), delete_trigger_request(), Keyword.t()) ::
+          {:ok, delete_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_trigger_errors()}
   def delete_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
   end
@@ -825,8 +12961,17 @@ defmodule AWS.Glue do
   @doc """
   Deletes an existing function definition from the Data Catalog.
   """
+  @spec delete_user_defined_function(
+          AWS.Client.t(),
+          delete_user_defined_function_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_user_defined_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_defined_function_errors()}
   def delete_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserDefinedFunction", input, options)
   end
@@ -834,8 +12979,13 @@ defmodule AWS.Glue do
   @doc """
   Deletes a workflow.
   """
+  @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
+          {:ok, delete_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -843,8 +12993,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a blueprint.
   """
+  @spec get_blueprint(AWS.Client.t(), get_blueprint_request(), Keyword.t()) ::
+          {:ok, get_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprint", input, options)
   end
@@ -852,8 +13007,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a blueprint run.
   """
+  @spec get_blueprint_run(AWS.Client.t(), get_blueprint_run_request(), Keyword.t()) ::
+          {:ok, get_blueprint_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_blueprint_run_errors()}
   def get_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRun", input, options)
   end
@@ -861,8 +13021,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of blueprint runs for a specified blueprint.
   """
+  @spec get_blueprint_runs(AWS.Client.t(), get_blueprint_runs_request(), Keyword.t()) ::
+          {:ok, get_blueprint_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_blueprint_runs_errors()}
   def get_blueprint_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRuns", input, options)
   end
@@ -870,8 +13035,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the status of a migration operation.
   """
+  @spec get_catalog_import_status(
+          AWS.Client.t(),
+          get_catalog_import_status_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_catalog_import_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_catalog_import_status_errors()}
   def get_catalog_import_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
   end
@@ -879,8 +13053,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieve a classifier by name.
   """
+  @spec get_classifier(AWS.Client.t(), get_classifier_request(), Keyword.t()) ::
+          {:ok, get_classifier_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_classifier_errors()}
   def get_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifier", input, options)
   end
@@ -888,8 +13067,13 @@ defmodule AWS.Glue do
   @doc """
   Lists all classifier objects in the Data Catalog.
   """
+  @spec get_classifiers(AWS.Client.t(), get_classifiers_request(), Keyword.t()) ::
+          {:ok, get_classifiers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_classifiers_errors()}
   def get_classifiers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifiers", input, options)
   end
@@ -900,8 +13084,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `GetPartition`.
   """
+  @spec get_column_statistics_for_partition(
+          AWS.Client.t(),
+          get_column_statistics_for_partition_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_column_statistics_for_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_column_statistics_for_partition_errors()}
   def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForPartition", input, options)
   end
@@ -912,8 +13105,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `GetTable`.
   """
+  @spec get_column_statistics_for_table(
+          AWS.Client.t(),
+          get_column_statistics_for_table_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_column_statistics_for_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_column_statistics_for_table_errors()}
   def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForTable", input, options)
   end
@@ -921,8 +13123,17 @@ defmodule AWS.Glue do
   @doc """
   Get the associated metadata/information for a task run, given a task run ID.
   """
+  @spec get_column_statistics_task_run(
+          AWS.Client.t(),
+          get_column_statistics_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_column_statistics_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_column_statistics_task_run_errors()}
   def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
   end
@@ -930,8 +13141,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about all runs associated with the specified table.
   """
+  @spec get_column_statistics_task_runs(
+          AWS.Client.t(),
+          get_column_statistics_task_runs_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_column_statistics_task_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_column_statistics_task_runs_errors()}
   def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
   end
@@ -939,8 +13159,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a connection definition from the Data Catalog.
   """
+  @spec get_connection(AWS.Client.t(), get_connection_request(), Keyword.t()) ::
+          {:ok, get_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -948,8 +13173,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of connection definitions from the Data Catalog.
   """
+  @spec get_connections(AWS.Client.t(), get_connections_request(), Keyword.t()) ::
+          {:ok, get_connections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_connections_errors()}
   def get_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnections", input, options)
   end
@@ -957,8 +13187,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for a specified crawler.
   """
+  @spec get_crawler(AWS.Client.t(), get_crawler_request(), Keyword.t()) ::
+          {:ok, get_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_crawler_errors()}
   def get_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawler", input, options)
   end
@@ -966,8 +13201,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metrics about specified crawlers.
   """
+  @spec get_crawler_metrics(AWS.Client.t(), get_crawler_metrics_request(), Keyword.t()) ::
+          {:ok, get_crawler_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_crawler_metrics_errors()}
   def get_crawler_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlerMetrics", input, options)
   end
@@ -976,8 +13216,13 @@ defmodule AWS.Glue do
   Retrieves metadata for all crawlers defined in the customer
   account.
   """
+  @spec get_crawlers(AWS.Client.t(), get_crawlers_request(), Keyword.t()) ::
+          {:ok, get_crawlers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_crawlers_errors()}
   def get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlers", input, options)
   end
@@ -985,8 +13230,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the details of a custom pattern by specifying its name.
   """
+  @spec get_custom_entity_type(AWS.Client.t(), get_custom_entity_type_request(), Keyword.t()) ::
+          {:ok, get_custom_entity_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_custom_entity_type_errors()}
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomEntityType", input, options)
   end
@@ -994,8 +13244,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the security configuration for a specified catalog.
   """
+  @spec get_data_catalog_encryption_settings(
+          AWS.Client.t(),
+          get_data_catalog_encryption_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_data_catalog_encryption_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_catalog_encryption_settings_errors()}
   def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
   end
@@ -1003,8 +13262,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the result of a data quality rule evaluation.
   """
+  @spec get_data_quality_result(AWS.Client.t(), get_data_quality_result_request(), Keyword.t()) ::
+          {:ok, get_data_quality_result_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_result_errors()}
   def get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityResult", input, options)
   end
@@ -1012,8 +13276,17 @@ defmodule AWS.Glue do
   @doc """
   Gets the specified recommendation run that was used to generate rules.
   """
+  @spec get_data_quality_rule_recommendation_run(
+          AWS.Client.t(),
+          get_data_quality_rule_recommendation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_data_quality_rule_recommendation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_rule_recommendation_run_errors()}
   def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
   end
@@ -1021,8 +13294,13 @@ defmodule AWS.Glue do
   @doc """
   Returns an existing ruleset by identifier or name.
   """
+  @spec get_data_quality_ruleset(AWS.Client.t(), get_data_quality_ruleset_request(), Keyword.t()) ::
+          {:ok, get_data_quality_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_ruleset_errors()}
   def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
   end
@@ -1030,8 +13308,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specific run where a ruleset is evaluated against a data source.
   """
+  @spec get_data_quality_ruleset_evaluation_run(
+          AWS.Client.t(),
+          get_data_quality_ruleset_evaluation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_data_quality_ruleset_evaluation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_ruleset_evaluation_run_errors()}
   def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
@@ -1039,8 +13326,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the definition of a specified database.
   """
+  @spec get_database(AWS.Client.t(), get_database_request(), Keyword.t()) ::
+          {:ok, get_database_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -1048,8 +13340,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves all databases defined in a given Data Catalog.
   """
+  @spec get_databases(AWS.Client.t(), get_databases_request(), Keyword.t()) ::
+          {:ok, get_databases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_databases_errors()}
   def get_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabases", input, options)
   end
@@ -1057,8 +13354,13 @@ defmodule AWS.Glue do
   @doc """
   Transforms a Python script into a directed acyclic graph (DAG).
   """
+  @spec get_dataflow_graph(AWS.Client.t(), get_dataflow_graph_request(), Keyword.t()) ::
+          {:ok, get_dataflow_graph_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dataflow_graph_errors()}
   def get_dataflow_graph(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataflowGraph", input, options)
   end
@@ -1072,8 +13374,13 @@ defmodule AWS.Glue do
   create a
   non-VPC development endpoint, Glue returns only a public IP address.
   """
+  @spec get_dev_endpoint(AWS.Client.t(), get_dev_endpoint_request(), Keyword.t()) ::
+          {:ok, get_dev_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dev_endpoint_errors()}
   def get_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoint", input, options)
   end
@@ -1087,8 +13394,13 @@ defmodule AWS.Glue do
   development
   endpoint, Glue returns only a public IP address.
   """
+  @spec get_dev_endpoints(AWS.Client.t(), get_dev_endpoints_request(), Keyword.t()) ::
+          {:ok, get_dev_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dev_endpoints_errors()}
   def get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
   end
@@ -1096,8 +13408,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves an existing job definition.
   """
+  @spec get_job(AWS.Client.t(), get_job_request(), Keyword.t()) ::
+          {:ok, get_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -1119,8 +13436,13 @@ defmodule AWS.Glue do
 
   [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
   """
+  @spec get_job_bookmark(AWS.Client.t(), get_job_bookmark_request(), Keyword.t()) ::
+          {:ok, get_job_bookmark_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_bookmark_errors()}
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobBookmark", input, options)
   end
@@ -1128,8 +13450,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the metadata for a given job run.
   """
+  @spec get_job_run(AWS.Client.t(), get_job_run_request(), Keyword.t()) ::
+          {:ok, get_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRun", input, options)
   end
@@ -1137,8 +13464,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for all runs of a given job definition.
   """
+  @spec get_job_runs(AWS.Client.t(), get_job_runs_request(), Keyword.t()) ::
+          {:ok, get_job_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_runs_errors()}
   def get_job_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRuns", input, options)
   end
@@ -1146,8 +13478,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves all current job definitions.
   """
+  @spec get_jobs(AWS.Client.t(), get_jobs_request(), Keyword.t()) ::
+          {:ok, get_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_jobs_errors()}
   def get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobs", input, options)
   end
@@ -1155,8 +13492,13 @@ defmodule AWS.Glue do
   @doc """
   Creates mappings.
   """
+  @spec get_mapping(AWS.Client.t(), get_mapping_request(), Keyword.t()) ::
+          {:ok, get_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_mapping_errors()}
   def get_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMapping", input, options)
   end
@@ -1171,8 +13513,13 @@ defmodule AWS.Glue do
   `GetMLTaskRun` with the `TaskRunID` and its parent transform's
   `TransformID`.
   """
+  @spec get_ml_task_run(AWS.Client.t(), get_ml_task_run_request(), Keyword.t()) ::
+          {:ok, get_ml_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ml_task_run_errors()}
   def get_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRun", input, options)
   end
@@ -1190,8 +13537,13 @@ defmodule AWS.Glue do
 
   This operation returns a list of historic runs and must be paginated.
   """
+  @spec get_ml_task_runs(AWS.Client.t(), get_ml_task_runs_request(), Keyword.t()) ::
+          {:ok, get_ml_task_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ml_task_runs_errors()}
   def get_ml_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRuns", input, options)
   end
@@ -1208,8 +13560,13 @@ defmodule AWS.Glue do
   metadata by
   calling `GetMLTransform`.
   """
+  @spec get_ml_transform(AWS.Client.t(), get_ml_transform_request(), Keyword.t()) ::
+          {:ok, get_ml_transform_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ml_transform_errors()}
   def get_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransform", input, options)
   end
@@ -1226,8 +13583,13 @@ defmodule AWS.Glue do
   metadata by
   calling `GetMLTransforms`.
   """
+  @spec get_ml_transforms(AWS.Client.t(), get_ml_transforms_request(), Keyword.t()) ::
+          {:ok, get_ml_transforms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ml_transforms_errors()}
   def get_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransforms", input, options)
   end
@@ -1235,8 +13597,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about a specified partition.
   """
+  @spec get_partition(AWS.Client.t(), get_partition_request(), Keyword.t()) ::
+          {:ok, get_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_partition_errors()}
   def get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartition", input, options)
   end
@@ -1244,8 +13611,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the partition indexes associated with a table.
   """
+  @spec get_partition_indexes(AWS.Client.t(), get_partition_indexes_request(), Keyword.t()) ::
+          {:ok, get_partition_indexes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_partition_indexes_errors()}
   def get_partition_indexes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitionIndexes", input, options)
   end
@@ -1253,8 +13625,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves information about the partitions in a table.
   """
+  @spec get_partitions(AWS.Client.t(), get_partitions_request(), Keyword.t()) ::
+          {:ok, get_partitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_partitions_errors()}
   def get_partitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitions", input, options)
   end
@@ -1262,8 +13639,13 @@ defmodule AWS.Glue do
   @doc """
   Gets code to perform a specified mapping.
   """
+  @spec get_plan(AWS.Client.t(), get_plan_request(), Keyword.t()) ::
+          {:ok, get_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -1271,8 +13653,13 @@ defmodule AWS.Glue do
   @doc """
   Describes the specified registry in detail.
   """
+  @spec get_registry(AWS.Client.t(), get_registry_input(), Keyword.t()) ::
+          {:ok, get_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_registry_errors()}
   def get_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistry", input, options)
   end
@@ -1289,8 +13676,13 @@ defmodule AWS.Glue do
   permission on the KMS key, the operation can't return the Data Catalog resource
   policy.
   """
+  @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
+          {:ok, get_resource_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -1298,8 +13690,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified resource policy.
   """
+  @spec get_resource_policy(AWS.Client.t(), get_resource_policy_request(), Keyword.t()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1307,8 +13704,13 @@ defmodule AWS.Glue do
   @doc """
   Describes the specified schema in detail.
   """
+  @spec get_schema(AWS.Client.t(), get_schema_input(), Keyword.t()) ::
+          {:ok, get_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -1322,8 +13724,13 @@ defmodule AWS.Glue do
   Otherwise, a 404 or NotFound error is returned. Schema versions in `Deleted`
   statuses will not be included in the results.
   """
+  @spec get_schema_by_definition(AWS.Client.t(), get_schema_by_definition_input(), Keyword.t()) ::
+          {:ok, get_schema_by_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_schema_by_definition_errors()}
   def get_schema_by_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaByDefinition", input, options)
   end
@@ -1334,8 +13741,13 @@ defmodule AWS.Glue do
 
   Schema versions in Deleted status will not be included in the results.
   """
+  @spec get_schema_version(AWS.Client.t(), get_schema_version_input(), Keyword.t()) ::
+          {:ok, get_schema_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_schema_version_errors()}
   def get_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersion", input, options)
   end
@@ -1347,8 +13759,13 @@ defmodule AWS.Glue do
   This API allows you to compare two schema versions between two schema
   definitions under the same schema.
   """
+  @spec get_schema_versions_diff(AWS.Client.t(), get_schema_versions_diff_input(), Keyword.t()) ::
+          {:ok, get_schema_versions_diff_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_schema_versions_diff_errors()}
   def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersionsDiff", input, options)
   end
@@ -1356,8 +13773,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified security configuration.
   """
+  @spec get_security_configuration(
+          AWS.Client.t(),
+          get_security_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_security_configuration_errors()}
   def get_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfiguration", input, options)
   end
@@ -1365,8 +13791,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of all security configurations.
   """
+  @spec get_security_configurations(
+          AWS.Client.t(),
+          get_security_configurations_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_security_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_security_configurations_errors()}
   def get_security_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfigurations", input, options)
   end
@@ -1374,8 +13809,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the session.
   """
+  @spec get_session(AWS.Client.t(), get_session_request(), Keyword.t()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -1383,8 +13823,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the statement.
   """
+  @spec get_statement(AWS.Client.t(), get_statement_request(), Keyword.t()) ::
+          {:ok, get_statement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_statement_errors()}
   def get_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
   end
@@ -1393,8 +13838,13 @@ defmodule AWS.Glue do
   Retrieves the `Table` definition in a Data Catalog for
   a specified table.
   """
+  @spec get_table(AWS.Client.t(), get_table_request(), Keyword.t()) ::
+          {:ok, get_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -1402,8 +13852,13 @@ defmodule AWS.Glue do
   @doc """
   Returns the configuration of all optimizers associated with a specified table.
   """
+  @spec get_table_optimizer(AWS.Client.t(), get_table_optimizer_request(), Keyword.t()) ::
+          {:ok, get_table_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_table_optimizer_errors()}
   def get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableOptimizer", input, options)
   end
@@ -1411,8 +13866,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified version of a table.
   """
+  @spec get_table_version(AWS.Client.t(), get_table_version_request(), Keyword.t()) ::
+          {:ok, get_table_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_table_version_errors()}
   def get_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersion", input, options)
   end
@@ -1421,8 +13881,13 @@ defmodule AWS.Glue do
   Retrieves a list of strings that identify available versions of
   a specified table.
   """
+  @spec get_table_versions(AWS.Client.t(), get_table_versions_request(), Keyword.t()) ::
+          {:ok, get_table_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_table_versions_errors()}
   def get_table_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersions", input, options)
   end
@@ -1431,8 +13896,13 @@ defmodule AWS.Glue do
   Retrieves the definitions of some or all of the tables in a given
   `Database`.
   """
+  @spec get_tables(AWS.Client.t(), get_tables_request(), Keyword.t()) ::
+          {:ok, get_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tables_errors()}
   def get_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTables", input, options)
   end
@@ -1440,8 +13910,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a list of tags associated with a resource.
   """
+  @spec get_tags(AWS.Client.t(), get_tags_request(), Keyword.t()) ::
+          {:ok, get_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -1449,8 +13924,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the definition of a trigger.
   """
+  @spec get_trigger(AWS.Client.t(), get_trigger_request(), Keyword.t()) ::
+          {:ok, get_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_trigger_errors()}
   def get_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrigger", input, options)
   end
@@ -1458,8 +13938,13 @@ defmodule AWS.Glue do
   @doc """
   Gets all the triggers associated with a job.
   """
+  @spec get_triggers(AWS.Client.t(), get_triggers_request(), Keyword.t()) ::
+          {:ok, get_triggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_triggers_errors()}
   def get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
@@ -1471,8 +13956,17 @@ defmodule AWS.Glue do
   For IAM authorization, the public IAM action associated with this API is
   `glue:GetPartition`.
   """
+  @spec get_unfiltered_partition_metadata(
+          AWS.Client.t(),
+          get_unfiltered_partition_metadata_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_unfiltered_partition_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_unfiltered_partition_metadata_errors()}
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
@@ -1484,21 +13978,39 @@ defmodule AWS.Glue do
   For IAM authorization, the public IAM action associated with this API is
   `glue:GetPartitions`.
   """
+  @spec get_unfiltered_partitions_metadata(
+          AWS.Client.t(),
+          get_unfiltered_partitions_metadata_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_unfiltered_partitions_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_unfiltered_partitions_metadata_errors()}
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
 
   @doc """
-  Retrieves table metadata from the Data Catalog that contains unfiltered
-  metadata.
+  Allows a third-party analytical engine to retrieve unfiltered table metadata
+  from the Data Catalog.
 
   For IAM authorization, the public IAM action associated with this API is
   `glue:GetTable`.
   """
+  @spec get_unfiltered_table_metadata(
+          AWS.Client.t(),
+          get_unfiltered_table_metadata_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_unfiltered_table_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_unfiltered_table_metadata_errors()}
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredTableMetadata", input, options)
   end
@@ -1506,8 +14018,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves a specified function definition from the Data Catalog.
   """
+  @spec get_user_defined_function(
+          AWS.Client.t(),
+          get_user_defined_function_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_user_defined_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_defined_function_errors()}
   def get_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunction", input, options)
   end
@@ -1515,8 +14036,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves multiple function definitions from the Data Catalog.
   """
+  @spec get_user_defined_functions(
+          AWS.Client.t(),
+          get_user_defined_functions_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_user_defined_functions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_defined_functions_errors()}
   def get_user_defined_functions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunctions", input, options)
   end
@@ -1524,8 +14054,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves resource metadata for a workflow.
   """
+  @spec get_workflow(AWS.Client.t(), get_workflow_request(), Keyword.t()) ::
+          {:ok, get_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflow", input, options)
   end
@@ -1533,8 +14068,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the metadata for a given workflow run.
   """
+  @spec get_workflow_run(AWS.Client.t(), get_workflow_run_request(), Keyword.t()) ::
+          {:ok, get_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_workflow_run_errors()}
   def get_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRun", input, options)
   end
@@ -1542,8 +14082,17 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the workflow run properties which were set during the run.
   """
+  @spec get_workflow_run_properties(
+          AWS.Client.t(),
+          get_workflow_run_properties_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_workflow_run_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_workflow_run_properties_errors()}
   def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRunProperties", input, options)
   end
@@ -1551,8 +14100,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieves metadata for all runs of a given workflow.
   """
+  @spec get_workflow_runs(AWS.Client.t(), get_workflow_runs_request(), Keyword.t()) ::
+          {:ok, get_workflow_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_workflow_runs_errors()}
   def get_workflow_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRuns", input, options)
   end
@@ -1560,8 +14114,13 @@ defmodule AWS.Glue do
   @doc """
   Imports an existing Amazon Athena Data Catalog to Glue.
   """
+  @spec import_catalog_to_glue(AWS.Client.t(), import_catalog_to_glue_request(), Keyword.t()) ::
+          {:ok, import_catalog_to_glue_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_catalog_to_glue_errors()}
   def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCatalogToGlue", input, options)
   end
@@ -1569,8 +14128,13 @@ defmodule AWS.Glue do
   @doc """
   Lists all the blueprint names in an account.
   """
+  @spec list_blueprints(AWS.Client.t(), list_blueprints_request(), Keyword.t()) ::
+          {:ok, list_blueprints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBlueprints", input, options)
   end
@@ -1578,8 +14142,17 @@ defmodule AWS.Glue do
   @doc """
   List all task runs for a particular account.
   """
+  @spec list_column_statistics_task_runs(
+          AWS.Client.t(),
+          list_column_statistics_task_runs_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_column_statistics_task_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_column_statistics_task_runs_errors()}
   def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
   end
@@ -1597,8 +14170,13 @@ defmodule AWS.Glue do
   to use tags
   filtering, only resources with the tag are retrieved.
   """
+  @spec list_crawlers(AWS.Client.t(), list_crawlers_request(), Keyword.t()) ::
+          {:ok, list_crawlers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_crawlers_errors()}
   def list_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawlers", input, options)
   end
@@ -1625,8 +14203,13 @@ defmodule AWS.Glue do
   Retrieve all the crawls of a specified crawler with a particular state, crawl
   ID, or DPU hour value.
   """
+  @spec list_crawls(AWS.Client.t(), list_crawls_request(), Keyword.t()) ::
+          {:ok, list_crawls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_crawls_errors()}
   def list_crawls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawls", input, options)
   end
@@ -1634,8 +14217,13 @@ defmodule AWS.Glue do
   @doc """
   Lists all the custom patterns that have been created.
   """
+  @spec list_custom_entity_types(AWS.Client.t(), list_custom_entity_types_request(), Keyword.t()) ::
+          {:ok, list_custom_entity_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_custom_entity_types_errors()}
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
   end
@@ -1643,8 +14231,17 @@ defmodule AWS.Glue do
   @doc """
   Returns all data quality execution results for your account.
   """
+  @spec list_data_quality_results(
+          AWS.Client.t(),
+          list_data_quality_results_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_data_quality_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_results_errors()}
   def list_data_quality_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityResults", input, options)
   end
@@ -1652,8 +14249,17 @@ defmodule AWS.Glue do
   @doc """
   Lists the recommendation runs meeting the filter criteria.
   """
+  @spec list_data_quality_rule_recommendation_runs(
+          AWS.Client.t(),
+          list_data_quality_rule_recommendation_runs_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_data_quality_rule_recommendation_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_rule_recommendation_runs_errors()}
   def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
   end
@@ -1662,8 +14268,17 @@ defmodule AWS.Glue do
   Lists all the runs meeting the filter criteria, where a ruleset is evaluated
   against a data source.
   """
+  @spec list_data_quality_ruleset_evaluation_runs(
+          AWS.Client.t(),
+          list_data_quality_ruleset_evaluation_runs_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_data_quality_ruleset_evaluation_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
   def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
   end
@@ -1671,8 +14286,17 @@ defmodule AWS.Glue do
   @doc """
   Returns a paginated list of rulesets for the specified list of Glue tables.
   """
+  @spec list_data_quality_rulesets(
+          AWS.Client.t(),
+          list_data_quality_rulesets_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_data_quality_rulesets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_rulesets_errors()}
   def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
   end
@@ -1690,8 +14314,13 @@ defmodule AWS.Glue do
   to use tags
   filtering, only resources with the tag are retrieved.
   """
+  @spec list_dev_endpoints(AWS.Client.t(), list_dev_endpoints_request(), Keyword.t()) ::
+          {:ok, list_dev_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_dev_endpoints_errors()}
   def list_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevEndpoints", input, options)
   end
@@ -1708,8 +14337,13 @@ defmodule AWS.Glue do
   to use tags
   filtering, only resources with the tag are retrieved.
   """
+  @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
+          {:ok, list_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -1724,8 +14358,13 @@ defmodule AWS.Glue do
   If you choose to use tag
   filtering, only resources with the tags are retrieved.
   """
+  @spec list_ml_transforms(AWS.Client.t(), list_ml_transforms_request(), Keyword.t()) ::
+          {:ok, list_ml_transforms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_ml_transforms_errors()}
   def list_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMLTransforms", input, options)
   end
@@ -1737,8 +14376,13 @@ defmodule AWS.Glue do
   Registries in the `Deleting` status will not be included in the results. Empty
   results will be returned if there are no registries available.
   """
+  @spec list_registries(AWS.Client.t(), list_registries_input(), Keyword.t()) ::
+          {:ok, list_registries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_registries_errors()}
   def list_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegistries", input, options)
   end
@@ -1750,8 +14394,13 @@ defmodule AWS.Glue do
   Schema versions in Deleted status will not be included in the results. Empty
   results will be returned if there are no schema versions available.
   """
+  @spec list_schema_versions(AWS.Client.t(), list_schema_versions_input(), Keyword.t()) ::
+          {:ok, list_schema_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_schema_versions_errors()}
   def list_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaVersions", input, options)
   end
@@ -1765,8 +14414,13 @@ defmodule AWS.Glue do
   When the `RegistryId` is not provided, all the schemas across registries will be
   part of the API response.
   """
+  @spec list_schemas(AWS.Client.t(), list_schemas_input(), Keyword.t()) ::
+          {:ok, list_schemas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -1774,8 +14428,13 @@ defmodule AWS.Glue do
   @doc """
   Retrieve a list of sessions.
   """
+  @spec list_sessions(AWS.Client.t(), list_sessions_request(), Keyword.t()) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -1783,8 +14442,13 @@ defmodule AWS.Glue do
   @doc """
   Lists statements for the session.
   """
+  @spec list_statements(AWS.Client.t(), list_statements_request(), Keyword.t()) ::
+          {:ok, list_statements_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -1792,8 +14456,17 @@ defmodule AWS.Glue do
   @doc """
   Lists the history of previous optimizer runs for a specific table.
   """
+  @spec list_table_optimizer_runs(
+          AWS.Client.t(),
+          list_table_optimizer_runs_request(),
+          Keyword.t()
+        ) ::
+          {:ok, list_table_optimizer_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_table_optimizer_runs_errors()}
   def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
   end
@@ -1810,8 +14483,13 @@ defmodule AWS.Glue do
   to use tags
   filtering, only resources with the tag are retrieved.
   """
+  @spec list_triggers(AWS.Client.t(), list_triggers_request(), Keyword.t()) ::
+          {:ok, list_triggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_triggers_errors()}
   def list_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
   end
@@ -1819,8 +14497,13 @@ defmodule AWS.Glue do
   @doc """
   Lists names of workflows created in the account.
   """
+  @spec list_workflows(AWS.Client.t(), list_workflows_request(), Keyword.t()) ::
+          {:ok, list_workflows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
@@ -1831,8 +14514,17 @@ defmodule AWS.Glue do
   After the configuration has been
   set, the specified encryption is applied to every catalog write thereafter.
   """
+  @spec put_data_catalog_encryption_settings(
+          AWS.Client.t(),
+          put_data_catalog_encryption_settings_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_data_catalog_encryption_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_data_catalog_encryption_settings_errors()}
   def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
   end
@@ -1840,8 +14532,13 @@ defmodule AWS.Glue do
   @doc """
   Sets the Data Catalog resource policy for access control.
   """
+  @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -1852,8 +14549,17 @@ defmodule AWS.Glue do
   A maximum of 10 key value pairs will be allowed per schema version. They can be
   added over one or more calls.
   """
+  @spec put_schema_version_metadata(
+          AWS.Client.t(),
+          put_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
+          {:ok, put_schema_version_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_schema_version_metadata_errors()}
   def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchemaVersionMetadata", input, options)
   end
@@ -1864,8 +14570,17 @@ defmodule AWS.Glue do
   If a property already exists for the specified run, then it overrides the value
   otherwise adds the property to existing properties.
   """
+  @spec put_workflow_run_properties(
+          AWS.Client.t(),
+          put_workflow_run_properties_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_workflow_run_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_workflow_run_properties_errors()}
   def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWorkflowRunProperties", input, options)
   end
@@ -1873,8 +14588,17 @@ defmodule AWS.Glue do
   @doc """
   Queries for the schema version metadata information.
   """
+  @spec query_schema_version_metadata(
+          AWS.Client.t(),
+          query_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
+          {:ok, query_schema_version_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, query_schema_version_metadata_errors()}
   def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
   end
@@ -1896,8 +14620,13 @@ defmodule AWS.Glue do
   If the same schema definition is already stored in Schema Registry as a version,
   the schema ID of the existing schema is returned to the caller.
   """
+  @spec register_schema_version(AWS.Client.t(), register_schema_version_input(), Keyword.t()) ::
+          {:ok, register_schema_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_schema_version_errors()}
   def register_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterSchemaVersion", input, options)
   end
@@ -1906,8 +14635,17 @@ defmodule AWS.Glue do
   Removes a key value pair from the schema version metadata for the specified
   schema version ID.
   """
+  @spec remove_schema_version_metadata(
+          AWS.Client.t(),
+          remove_schema_version_metadata_input(),
+          Keyword.t()
+        ) ::
+          {:ok, remove_schema_version_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_schema_version_metadata_errors()}
   def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSchemaVersionMetadata", input, options)
   end
@@ -1929,8 +14667,13 @@ defmodule AWS.Glue do
 
   [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
   """
+  @spec reset_job_bookmark(AWS.Client.t(), reset_job_bookmark_request(), Keyword.t()) ::
+          {:ok, reset_job_bookmark_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_job_bookmark_errors()}
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetJobBookmark", input, options)
   end
@@ -1942,8 +14685,13 @@ defmodule AWS.Glue do
   The selected nodes and all nodes that are downstream from the selected nodes are
   run.
   """
+  @spec resume_workflow_run(AWS.Client.t(), resume_workflow_run_request(), Keyword.t()) ::
+          {:ok, resume_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, resume_workflow_run_errors()}
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeWorkflowRun", input, options)
   end
@@ -1951,8 +14699,13 @@ defmodule AWS.Glue do
   @doc """
   Executes the statement.
   """
+  @spec run_statement(AWS.Client.t(), run_statement_request(), Keyword.t()) ::
+          {:ok, run_statement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, run_statement_errors()}
   def run_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
   end
@@ -1971,8 +14724,13 @@ defmodule AWS.Glue do
   those columns and the associated metadata for those columns will be included in
   the search.
   """
+  @spec search_tables(AWS.Client.t(), search_tables_request(), Keyword.t()) ::
+          {:ok, search_tables_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_tables_errors()}
   def search_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTables", input, options)
   end
@@ -1980,8 +14738,13 @@ defmodule AWS.Glue do
   @doc """
   Starts a new run of the specified blueprint.
   """
+  @spec start_blueprint_run(AWS.Client.t(), start_blueprint_run_request(), Keyword.t()) ::
+          {:ok, start_blueprint_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_blueprint_run_errors()}
   def start_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBlueprintRun", input, options)
   end
@@ -1989,8 +14752,17 @@ defmodule AWS.Glue do
   @doc """
   Starts a column statistics task run, for a specified table and columns.
   """
+  @spec start_column_statistics_task_run(
+          AWS.Client.t(),
+          start_column_statistics_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_column_statistics_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_column_statistics_task_run_errors()}
   def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
   end
@@ -2002,8 +14774,13 @@ defmodule AWS.Glue do
   If the crawler is already running, returns a
   [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
   """
+  @spec start_crawler(AWS.Client.t(), start_crawler_request(), Keyword.t()) ::
+          {:ok, start_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_crawler_errors()}
   def start_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawler", input, options)
   end
@@ -2013,8 +14790,13 @@ defmodule AWS.Glue do
   `SCHEDULED`, unless the crawler is already running or the
   schedule state is already `SCHEDULED`.
   """
+  @spec start_crawler_schedule(AWS.Client.t(), start_crawler_schedule_request(), Keyword.t()) ::
+          {:ok, start_crawler_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_crawler_schedule_errors()}
   def start_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawlerSchedule", input, options)
   end
@@ -2029,8 +14811,17 @@ defmodule AWS.Glue do
 
   Recommendation runs are automatically deleted after 90 days.
   """
+  @spec start_data_quality_rule_recommendation_run(
+          AWS.Client.t(),
+          start_data_quality_rule_recommendation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_data_quality_rule_recommendation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_data_quality_rule_recommendation_run_errors()}
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
   end
@@ -2042,8 +14833,17 @@ defmodule AWS.Glue do
   The evaluation computes results which you can retrieve with the
   `GetDataQualityResult` API.
   """
+  @spec start_data_quality_ruleset_evaluation_run(
+          AWS.Client.t(),
+          start_data_quality_ruleset_evaluation_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_data_quality_ruleset_evaluation_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_data_quality_ruleset_evaluation_run_errors()}
   def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
   end
@@ -2065,8 +14865,17 @@ defmodule AWS.Glue do
   `TaskRunId`. You can check on the status of your task run by calling the
   `GetMLTaskRun` API.
   """
+  @spec start_export_labels_task_run(
+          AWS.Client.t(),
+          start_export_labels_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_export_labels_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_export_labels_task_run_errors()}
   def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportLabelsTaskRun", input, options)
   end
@@ -2106,8 +14915,17 @@ defmodule AWS.Glue do
   You can check on the status of your task run by calling the `GetMLTaskRun`
   operation.
   """
+  @spec start_import_labels_task_run(
+          AWS.Client.t(),
+          start_import_labels_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_import_labels_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_import_labels_task_run_errors()}
   def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportLabelsTaskRun", input, options)
   end
@@ -2115,8 +14933,13 @@ defmodule AWS.Glue do
   @doc """
   Starts a job run using a job definition.
   """
+  @spec start_job_run(AWS.Client.t(), start_job_run_request(), Keyword.t()) ::
+          {:ok, start_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartJobRun", input, options)
   end
@@ -2133,8 +14956,17 @@ defmodule AWS.Glue do
   Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
   information about the stats of the `EvaluationTaskRun`.
   """
+  @spec start_ml_evaluation_task_run(
+          AWS.Client.t(),
+          start_ml_evaluation_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_ml_evaluation_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_ml_evaluation_task_run_errors()}
   def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLEvaluationTaskRun", input, options)
   end
@@ -2159,8 +14991,17 @@ defmodule AWS.Glue do
   labels and
   perform a higher-quality transformation.
   """
+  @spec start_ml_labeling_set_generation_task_run(
+          AWS.Client.t(),
+          start_ml_labeling_set_generation_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_ml_labeling_set_generation_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_ml_labeling_set_generation_task_run_errors()}
   def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLLabelingSetGenerationTaskRun", input, options)
   end
@@ -2172,8 +15013,13 @@ defmodule AWS.Glue do
   information about how different types of trigger are
   started.
   """
+  @spec start_trigger(AWS.Client.t(), start_trigger_request(), Keyword.t()) ::
+          {:ok, start_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_trigger_errors()}
   def start_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTrigger", input, options)
   end
@@ -2181,8 +15027,13 @@ defmodule AWS.Glue do
   @doc """
   Starts a new run of the specified workflow.
   """
+  @spec start_workflow_run(AWS.Client.t(), start_workflow_run_request(), Keyword.t()) ::
+          {:ok, start_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_workflow_run_errors()}
   def start_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
   end
@@ -2190,8 +15041,17 @@ defmodule AWS.Glue do
   @doc """
   Stops a task run for the specified table.
   """
+  @spec stop_column_statistics_task_run(
+          AWS.Client.t(),
+          stop_column_statistics_task_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, stop_column_statistics_task_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_column_statistics_task_run_errors()}
   def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
@@ -2199,8 +15059,13 @@ defmodule AWS.Glue do
   @doc """
   If the specified crawler is running, stops the crawl.
   """
+  @spec stop_crawler(AWS.Client.t(), stop_crawler_request(), Keyword.t()) ::
+          {:ok, stop_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_crawler_errors()}
   def stop_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawler", input, options)
   end
@@ -2210,8 +15075,13 @@ defmodule AWS.Glue do
   `NOT_SCHEDULED`, but does not stop the crawler if it is
   already running.
   """
+  @spec stop_crawler_schedule(AWS.Client.t(), stop_crawler_schedule_request(), Keyword.t()) ::
+          {:ok, stop_crawler_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_crawler_schedule_errors()}
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
   end
@@ -2219,8 +15089,13 @@ defmodule AWS.Glue do
   @doc """
   Stops the session.
   """
+  @spec stop_session(AWS.Client.t(), stop_session_request(), Keyword.t()) ::
+          {:ok, stop_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_session_errors()}
   def stop_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSession", input, options)
   end
@@ -2228,8 +15103,13 @@ defmodule AWS.Glue do
   @doc """
   Stops a specified trigger.
   """
+  @spec stop_trigger(AWS.Client.t(), stop_trigger_request(), Keyword.t()) ::
+          {:ok, stop_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_trigger_errors()}
   def stop_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrigger", input, options)
   end
@@ -2237,8 +15117,13 @@ defmodule AWS.Glue do
   @doc """
   Stops the execution of the specified workflow run.
   """
+  @spec stop_workflow_run(AWS.Client.t(), stop_workflow_run_request(), Keyword.t()) ::
+          {:ok, stop_workflow_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_workflow_run_errors()}
   def stop_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkflowRun", input, options)
   end
@@ -2250,8 +15135,13 @@ defmodule AWS.Glue do
   In Glue, you can tag only certain resources. For information about what
   resources you can tag, see [Amazon Web Services Tags in Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
   """
+  @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2259,8 +15149,13 @@ defmodule AWS.Glue do
   @doc """
   Removes tags from a resource.
   """
+  @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2268,8 +15163,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a registered blueprint.
   """
+  @spec update_blueprint(AWS.Client.t(), update_blueprint_request(), Keyword.t()) ::
+          {:ok, update_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBlueprint", input, options)
   end
@@ -2279,8 +15179,13 @@ defmodule AWS.Glue do
   an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on
   which field is present).
   """
+  @spec update_classifier(AWS.Client.t(), update_classifier_request(), Keyword.t()) ::
+          {:ok, update_classifier_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_classifier_errors()}
   def update_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClassifier", input, options)
   end
@@ -2291,8 +15196,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `UpdatePartition`.
   """
+  @spec update_column_statistics_for_partition(
+          AWS.Client.t(),
+          update_column_statistics_for_partition_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_column_statistics_for_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_column_statistics_for_partition_errors()}
   def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForPartition", input, options)
   end
@@ -2303,8 +15217,17 @@ defmodule AWS.Glue do
   The Identity and Access Management (IAM) permission required for this operation
   is `UpdateTable`.
   """
+  @spec update_column_statistics_for_table(
+          AWS.Client.t(),
+          update_column_statistics_for_table_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_column_statistics_for_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_column_statistics_for_table_errors()}
   def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
   end
@@ -2312,8 +15235,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a connection definition in the Data Catalog.
   """
+  @spec update_connection(AWS.Client.t(), update_connection_request(), Keyword.t()) ::
+          {:ok, update_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -2325,8 +15253,13 @@ defmodule AWS.Glue do
   running, you must stop it using `StopCrawler` before updating
   it.
   """
+  @spec update_crawler(AWS.Client.t(), update_crawler_request(), Keyword.t()) ::
+          {:ok, update_crawler_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_crawler_errors()}
   def update_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawler", input, options)
   end
@@ -2334,8 +15267,13 @@ defmodule AWS.Glue do
   @doc """
   Updates the schedule of a crawler using a `cron` expression.
   """
+  @spec update_crawler_schedule(AWS.Client.t(), update_crawler_schedule_request(), Keyword.t()) ::
+          {:ok, update_crawler_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_crawler_schedule_errors()}
   def update_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
   end
@@ -2343,8 +15281,17 @@ defmodule AWS.Glue do
   @doc """
   Updates the specified data quality ruleset.
   """
+  @spec update_data_quality_ruleset(
+          AWS.Client.t(),
+          update_data_quality_ruleset_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_data_quality_ruleset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_data_quality_ruleset_errors()}
   def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
@@ -2352,8 +15299,13 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing database definition in a Data Catalog.
   """
+  @spec update_database(AWS.Client.t(), update_database_request(), Keyword.t()) ::
+          {:ok, update_database_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -2361,8 +15313,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a specified development endpoint.
   """
+  @spec update_dev_endpoint(AWS.Client.t(), update_dev_endpoint_request(), Keyword.t()) ::
+          {:ok, update_dev_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_dev_endpoint_errors()}
   def update_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
   end
@@ -2372,8 +15329,13 @@ defmodule AWS.Glue do
 
   The previous job definition is completely overwritten by this information.
   """
+  @spec update_job(AWS.Client.t(), update_job_request(), Keyword.t()) ::
+          {:ok, update_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -2386,8 +15348,17 @@ defmodule AWS.Glue do
 
   This API supports optional parameters which take in the repository information.
   """
+  @spec update_job_from_source_control(
+          AWS.Client.t(),
+          update_job_from_source_control_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_job_from_source_control_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_job_from_source_control_errors()}
   def update_job_from_source_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
   end
@@ -2402,8 +15373,13 @@ defmodule AWS.Glue do
   improving the
   quality of your machine learning transform, or making it more cost-effective).
   """
+  @spec update_ml_transform(AWS.Client.t(), update_ml_transform_request(), Keyword.t()) ::
+          {:ok, update_ml_transform_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_ml_transform_errors()}
   def update_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLTransform", input, options)
   end
@@ -2411,8 +15387,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a partition.
   """
+  @spec update_partition(AWS.Client.t(), update_partition_request(), Keyword.t()) ::
+          {:ok, update_partition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_partition_errors()}
   def update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartition", input, options)
   end
@@ -2423,8 +15404,13 @@ defmodule AWS.Glue do
   The updated properties relate to the registry, and do not modify any of the
   schemas within the registry.
   """
+  @spec update_registry(AWS.Client.t(), update_registry_input(), Keyword.t()) ::
+          {:ok, update_registry_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegistry", input, options)
   end
@@ -2444,8 +15430,13 @@ defmodule AWS.Glue do
 
   This update will happen only if the schema is in the AVAILABLE state.
   """
+  @spec update_schema(AWS.Client.t(), update_schema_input(), Keyword.t()) ::
+          {:ok, update_schema_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
   end
@@ -2458,8 +15449,17 @@ defmodule AWS.Glue do
 
   This API supports optional parameters which take in the repository information.
   """
+  @spec update_source_control_from_job(
+          AWS.Client.t(),
+          update_source_control_from_job_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_source_control_from_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_source_control_from_job_errors()}
   def update_source_control_from_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
@@ -2467,8 +15467,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a metadata table in the Data Catalog.
   """
+  @spec update_table(AWS.Client.t(), update_table_request(), Keyword.t()) ::
+          {:ok, update_table_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -2476,8 +15481,13 @@ defmodule AWS.Glue do
   @doc """
   Updates the configuration for an existing table optimizer.
   """
+  @spec update_table_optimizer(AWS.Client.t(), update_table_optimizer_request(), Keyword.t()) ::
+          {:ok, update_table_optimizer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_table_optimizer_errors()}
   def update_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
@@ -2485,8 +15495,13 @@ defmodule AWS.Glue do
   @doc """
   Updates a trigger definition.
   """
+  @spec update_trigger(AWS.Client.t(), update_trigger_request(), Keyword.t()) ::
+          {:ok, update_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_trigger_errors()}
   def update_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
   end
@@ -2494,8 +15509,17 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing function definition in the Data Catalog.
   """
+  @spec update_user_defined_function(
+          AWS.Client.t(),
+          update_user_defined_function_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_user_defined_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_defined_function_errors()}
   def update_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserDefinedFunction", input, options)
   end
@@ -2503,8 +15527,13 @@ defmodule AWS.Glue do
   @doc """
   Updates an existing workflow.
   """
+  @spec update_workflow(AWS.Client.t(), update_workflow_request(), Keyword.t()) ::
+          {:ok, update_workflow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkflow", input, options)
   end

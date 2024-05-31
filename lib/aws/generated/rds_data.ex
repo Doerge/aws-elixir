@@ -27,6 +27,532 @@ defmodule AWS.RDSData do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      statement_timeout_exception() :: %{
+        "dbConnectionId" => float(),
+        "message" => String.t()
+      }
+
+  """
+  @type statement_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      record() :: %{
+        "values" => list(list()())
+      }
+
+  """
+  @type record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_set_metadata() :: %{
+        "columnCount" => float(),
+        "columnMetadata" => list(column_metadata()())
+      }
+
+  """
+  @type result_set_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_result_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_result_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_transaction_request() :: %{
+        "resourceArn" => String.t(),
+        "secretArn" => String.t(),
+        "transactionId" => String.t()
+      }
+
+  """
+  @type rollback_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_metadata() :: %{
+        "arrayBaseColumnType" => integer(),
+        "isAutoIncrement" => boolean(),
+        "isCaseSensitive" => boolean(),
+        "isCurrency" => boolean(),
+        "isSigned" => boolean(),
+        "label" => String.t(),
+        "name" => String.t(),
+        "nullable" => integer(),
+        "precision" => integer(),
+        "scale" => integer(),
+        "schemaName" => String.t(),
+        "tableName" => String.t(),
+        "type" => integer(),
+        "typeName" => String.t()
+      }
+
+  """
+  @type column_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_transaction_request() :: %{
+        "resourceArn" => String.t(),
+        "secretArn" => String.t(),
+        "transactionId" => String.t()
+      }
+
+  """
+  @type commit_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_sql_request() :: %{
+        "awsSecretStoreArn" => String.t(),
+        "database" => String.t(),
+        "dbClusterOrInstanceArn" => String.t(),
+        "schema" => String.t(),
+        "sqlStatements" => String.t()
+      }
+
+  """
+  @type execute_sql_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type transaction_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type forbidden_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_result() :: %{
+        "generatedFields" => list(list()())
+      }
+
+  """
+  @type update_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_parameter() :: %{
+        "name" => String.t(),
+        "typeHint" => String.t(),
+        "value" => list()
+      }
+
+  """
+  @type sql_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_execute_statement_request() :: %{
+        "database" => String.t(),
+        "parameterSets" => list(list(sql_parameter()())()),
+        "resourceArn" => String.t(),
+        "schema" => String.t(),
+        "secretArn" => String.t(),
+        "sql" => String.t(),
+        "transactionId" => String.t()
+      }
+
+  """
+  @type batch_execute_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      begin_transaction_request() :: %{
+        "database" => String.t(),
+        "resourceArn" => String.t(),
+        "schema" => String.t(),
+        "secretArn" => String.t()
+      }
+
+  """
+  @type begin_transaction_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_statement_response() :: %{
+        "columnMetadata" => list(column_metadata()()),
+        "formattedRecords" => String.t(),
+        "generatedFields" => list(list()()),
+        "numberOfRecordsUpdated" => float(),
+        "records" => list(list(list()())())
+      }
+
+  """
+  @type execute_statement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_error() :: %{}
+
+  """
+  @type service_unavailable_error() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_secret_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_secret_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_set_options() :: %{
+        "decimalReturnType" => String.t(),
+        "longReturnType" => String.t()
+      }
+
+  """
+  @type result_set_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_transaction_response() :: %{
+        "transactionStatus" => String.t()
+      }
+
+  """
+  @type commit_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_unavailable_exception() :: %{}
+
+  """
+  @type database_unavailable_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_error_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type secrets_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_endpoint_not_enabled_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type http_endpoint_not_enabled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type database_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_transaction_response() :: %{
+        "transactionStatus" => String.t()
+      }
+
+  """
+  @type rollback_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_error_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type database_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      begin_transaction_response() :: %{
+        "transactionId" => String.t()
+      }
+
+  """
+  @type begin_transaction_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{}
+
+  """
+  @type internal_server_error_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      result_frame() :: %{
+        "records" => list(record()()),
+        "resultSetMetadata" => result_set_metadata()
+      }
+
+  """
+  @type result_frame() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_statement_request() :: %{
+        "continueAfterTimeout" => boolean(),
+        "database" => String.t(),
+        "formatRecordsAs" => String.t(),
+        "includeResultMetadata" => boolean(),
+        "parameters" => list(sql_parameter()()),
+        "resourceArn" => String.t(),
+        "resultSetOptions" => result_set_options(),
+        "schema" => String.t(),
+        "secretArn" => String.t(),
+        "sql" => String.t(),
+        "transactionId" => String.t()
+      }
+
+  """
+  @type execute_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sql_statement_result() :: %{
+        "numberOfRecordsUpdated" => float(),
+        "resultFrame" => result_frame()
+      }
+
+  """
+  @type sql_statement_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_sql_response() :: %{
+        "sqlStatementResults" => list(sql_statement_result()())
+      }
+
+  """
+  @type execute_sql_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      struct_value() :: %{
+        "attributes" => list(list()())
+      }
+
+  """
+  @type struct_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_execute_statement_response() :: %{
+        "updateResults" => list(update_result()())
+      }
+
+  """
+  @type batch_execute_statement_response() :: %{String.t() => any()}
+
+  @type batch_execute_statement_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | database_error_exception()
+          | access_denied_exception()
+          | database_not_found_exception()
+          | http_endpoint_not_enabled_exception()
+          | secrets_error_exception()
+          | database_unavailable_exception()
+          | invalid_secret_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+          | transaction_not_found_exception()
+          | statement_timeout_exception()
+
+  @type begin_transaction_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | database_error_exception()
+          | access_denied_exception()
+          | database_not_found_exception()
+          | http_endpoint_not_enabled_exception()
+          | secrets_error_exception()
+          | database_unavailable_exception()
+          | invalid_secret_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+          | transaction_not_found_exception()
+          | statement_timeout_exception()
+
+  @type commit_transaction_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | database_error_exception()
+          | access_denied_exception()
+          | database_not_found_exception()
+          | http_endpoint_not_enabled_exception()
+          | secrets_error_exception()
+          | database_unavailable_exception()
+          | not_found_exception()
+          | invalid_secret_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+          | transaction_not_found_exception()
+          | statement_timeout_exception()
+
+  @type execute_sql_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+
+  @type execute_statement_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | database_error_exception()
+          | access_denied_exception()
+          | database_not_found_exception()
+          | http_endpoint_not_enabled_exception()
+          | secrets_error_exception()
+          | database_unavailable_exception()
+          | invalid_secret_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+          | transaction_not_found_exception()
+          | unsupported_result_exception()
+          | statement_timeout_exception()
+
+  @type rollback_transaction_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | database_error_exception()
+          | access_denied_exception()
+          | database_not_found_exception()
+          | http_endpoint_not_enabled_exception()
+          | secrets_error_exception()
+          | database_unavailable_exception()
+          | not_found_exception()
+          | invalid_secret_exception()
+          | service_unavailable_error()
+          | forbidden_exception()
+          | transaction_not_found_exception()
+          | statement_timeout_exception()
+
   def metadata do
     %{
       api_version: "2018-08-01",
@@ -34,6 +560,7 @@ defmodule AWS.RDSData do
       credential_scope: nil,
       endpoint_prefix: "rds-data",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RDS Data",
       signature_version: "v4",
@@ -66,13 +593,22 @@ defmodule AWS.RDSData do
 
   The response size limit is 1 MiB. If the call returns more than 1 MiB of
   response data, the call is terminated.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec batch_execute_statement(AWS.Client.t(), batch_execute_statement_request(), Keyword.t()) ::
+          {:ok, batch_execute_statement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/BatchExecute"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -101,13 +637,22 @@ defmodule AWS.RDSData do
   DDL statements inside a transaction cause an implicit commit. We recommend that
   you run each DDL statement in a separate
   `ExecuteStatement` call with `continueAfterTimeout` enabled.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec begin_transaction(AWS.Client.t(), begin_transaction_request(), Keyword.t()) ::
+          {:ok, begin_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, begin_transaction_errors()}
   def begin_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/BeginTransaction"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -125,13 +670,22 @@ defmodule AWS.RDSData do
   @doc """
   Ends a SQL transaction started with the `BeginTransaction` operation and
   commits the changes.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec commit_transaction(AWS.Client.t(), commit_transaction_request(), Keyword.t()) ::
+          {:ok, commit_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, commit_transaction_errors()}
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -153,13 +707,22 @@ defmodule AWS.RDSData do
   provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
   the operation is deprecated. Use the `BatchExecuteStatement` or
   `ExecuteStatement` operation.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec execute_sql(AWS.Client.t(), execute_sql_request(), Keyword.t()) ::
+          {:ok, execute_sql_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execute_sql_errors()}
   def execute_sql(%Client{} = client, input, options \\ []) do
     url_path = "/ExecuteSql"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -183,13 +746,22 @@ defmodule AWS.RDSData do
 
   If the binary response data from the database is more than 1 MB, the call is
   terminated.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec execute_statement(AWS.Client.t(), execute_statement_request(), Keyword.t()) ::
+          {:ok, execute_statement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/Execute"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -208,13 +780,22 @@ defmodule AWS.RDSData do
   Performs a rollback of a transaction.
 
   Rolling back a transaction cancels its changes.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec rollback_transaction(AWS.Client.t(), rollback_transaction_request(), Keyword.t()) ::
+          {:ok, rollback_transaction_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, rollback_transaction_errors()}
   def rollback_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/RollbackTransaction"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

@@ -27,6 +27,99 @@ defmodule AWS.MarketplaceEntitlement do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      entitlement() :: %{
+        "CustomerIdentifier" => String.t(),
+        "Dimension" => String.t(),
+        "ExpirationDate" => non_neg_integer(),
+        "ProductCode" => String.t(),
+        "Value" => entitlement_value()
+      }
+      
+  """
+  @type entitlement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entitlement_value() :: %{
+        "BooleanValue" => boolean(),
+        "DoubleValue" => float(),
+        "IntegerValue" => integer(),
+        "StringValue" => String.t()
+      }
+      
+  """
+  @type entitlement_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_entitlements_request() :: %{
+        optional("Filter") => map(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ProductCode") => String.t()
+      }
+      
+  """
+  @type get_entitlements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_entitlements_result() :: %{
+        "Entitlements" => list(entitlement()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_entitlements_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type internal_service_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @type get_entitlements_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
+
   def metadata do
     %{
       api_version: "2017-01-11",
@@ -34,6 +127,7 @@ defmodule AWS.MarketplaceEntitlement do
       credential_scope: nil,
       endpoint_prefix: "entitlement.marketplace",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Entitlement Service",
       signature_version: "v4",
@@ -48,8 +142,13 @@ defmodule AWS.MarketplaceEntitlement do
   The results can be
   filtered based on customer identifier or product dimensions.
   """
+  @spec get_entitlements(AWS.Client.t(), get_entitlements_request(), Keyword.t()) ::
+          {:ok, get_entitlements_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_entitlements_errors()}
   def get_entitlements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntitlements", input, options)
   end

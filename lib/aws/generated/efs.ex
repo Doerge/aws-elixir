@@ -20,6 +20,1302 @@ defmodule AWS.EFS do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      update_file_system_protection_request() :: %{
+        optional("ReplicationOverwriteProtection") => list(any())
+      }
+
+  """
+  @type update_file_system_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_size() :: %{
+        "Timestamp" => non_neg_integer(),
+        "Value" => float(),
+        "ValueInArchive" => float(),
+        "ValueInIA" => float(),
+        "ValueInStandard" => float()
+      }
+
+  """
+  @type file_system_size() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_preferences_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceIdPreference" => resource_id_preference()
+      }
+
+  """
+  @type describe_account_preferences_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tags_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type delete_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_description() :: %{
+        "AvailabilityZoneId" => String.t(),
+        "AvailabilityZoneName" => String.t(),
+        "FileSystemId" => String.t(),
+        "IpAddress" => String.t(),
+        "LifeCycleState" => list(any()),
+        "MountTargetId" => String.t(),
+        "NetworkInterfaceId" => String.t(),
+        "OwnerId" => String.t(),
+        "SubnetId" => String.t(),
+        "VpcId" => String.t()
+      }
+
+  """
+  @type mount_target_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_policy_description() :: %{
+        optional("BackupPolicy") => backup_policy()
+      }
+
+  """
+  @type backup_policy_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_preferences_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type describe_account_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_limit_exceeded() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type file_system_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      root_directory() :: %{
+        "CreationInfo" => creation_info(),
+        "Path" => String.t()
+      }
+
+  """
+  @type root_directory() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_availability_zone() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type unsupported_availability_zone() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_backup_policy_request() :: %{
+        required("BackupPolicy") => backup_policy()
+      }
+
+  """
+  @type put_backup_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configurations_response() :: %{
+        "NextToken" => String.t(),
+        "Replications" => list(replication_configuration_description()())
+      }
+
+  """
+  @type describe_replication_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_already_exists() :: %{
+        "ErrorCode" => String.t(),
+        "FileSystemId" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type file_system_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incorrect_file_system_life_cycle_state() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type incorrect_file_system_life_cycle_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_mount_target_request() :: %{
+        optional("IpAddress") => String.t(),
+        optional("SecurityGroups") => list(String.t()()),
+        required("FileSystemId") => String.t(),
+        required("SubnetId") => String.t()
+      }
+
+  """
+  @type create_mount_target_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_lifecycle_configuration_request() :: %{
+        required("LifecyclePolicies") => list(lifecycle_policy()())
+      }
+
+  """
+  @type put_lifecycle_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_preferences_response() :: %{
+        "ResourceIdPreference" => resource_id_preference()
+      }
+
+  """
+  @type put_account_preferences_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_in_use() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type file_system_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tags_response() :: %{
+        "Marker" => String.t(),
+        "NextMarker" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type describe_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_conflict() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type mount_target_conflict() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_to_create() :: %{
+        "AvailabilityZoneName" => String.t(),
+        "FileSystemId" => String.t(),
+        "KmsKeyId" => String.t(),
+        "Region" => String.t()
+      }
+
+  """
+  @type destination_to_create() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_limit_exceeded() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type security_group_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_targets_response() :: %{
+        "Marker" => String.t(),
+        "MountTargets" => list(mount_target_description()()),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type describe_mount_targets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_point_request() :: %{
+        optional("PosixUser") => posix_user(),
+        optional("RootDirectory") => root_directory(),
+        optional("Tags") => list(tag()()),
+        required("ClientToken") => String.t(),
+        required("FileSystemId") => String.t()
+      }
+
+  """
+  @type create_access_point_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_request() :: %{}
+
+  """
+  @type delete_replication_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_policy_description() :: %{
+        optional("FileSystemId") => String.t(),
+        optional("Policy") => String.t()
+      }
+
+  """
+  @type file_system_policy_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tags_request() :: %{
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type create_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_policy_exception() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_policy_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_preferences_request() :: %{
+        required("ResourceIdType") => list(any())
+      }
+
+  """
+  @type put_account_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_mount_target_request() :: %{}
+
+  """
+  @type delete_mount_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      posix_user() :: %{
+        "Gid" => float(),
+        "SecondaryGids" => list(float()()),
+        "Uid" => float()
+      }
+
+  """
+  @type posix_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      availability_zones_mismatch() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type availability_zones_mismatch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_file_system_request() :: %{
+        optional("ProvisionedThroughputInMibps") => float(),
+        optional("ThroughputMode") => list(any())
+      }
+
+  """
+  @type update_file_system_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_already_exists() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type replication_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incorrect_mount_target_state() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type incorrect_mount_target_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      backup_policy() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type backup_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_file_system_request() :: %{
+        optional("AvailabilityZoneName") => String.t(),
+        optional("Backup") => boolean(),
+        optional("Encrypted") => boolean(),
+        optional("KmsKeyId") => String.t(),
+        optional("PerformanceMode") => list(any()),
+        optional("ProvisionedThroughputInMibps") => float(),
+        optional("Tags") => list(tag()()),
+        optional("ThroughputMode") => list(any()),
+        required("CreationToken") => String.t()
+      }
+
+  """
+  @type create_file_system_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_target_security_groups_response() :: %{
+        "SecurityGroups" => list(String.t()())
+      }
+
+  """
+  @type describe_mount_target_security_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mount_target_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type mount_target_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_description() :: %{
+        "AvailabilityZoneId" => String.t(),
+        "AvailabilityZoneName" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "CreationToken" => String.t(),
+        "Encrypted" => boolean(),
+        "FileSystemArn" => String.t(),
+        "FileSystemId" => String.t(),
+        "FileSystemProtection" => file_system_protection_description(),
+        "KmsKeyId" => String.t(),
+        "LifeCycleState" => list(any()),
+        "Name" => String.t(),
+        "NumberOfMountTargets" => integer(),
+        "OwnerId" => String.t(),
+        "PerformanceMode" => list(any()),
+        "ProvisionedThroughputInMibps" => float(),
+        "SizeInBytes" => file_system_size(),
+        "Tags" => list(tag()()),
+        "ThroughputMode" => list(any())
+      }
+
+  """
+  @type file_system_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_id_preference() :: %{
+        "ResourceIdType" => list(any()),
+        "Resources" => list(list(any())())
+      }
+
+  """
+  @type resource_id_preference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_protection_description() :: %{
+        "ReplicationOverwriteProtection" => list(any())
+      }
+
+  """
+  @type file_system_protection_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_timeout() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type dependency_timeout() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_point_limit_exceeded() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type access_point_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_interface_limit_exceeded() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type network_interface_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_mount_target_security_groups_request() :: %{
+        optional("SecurityGroups") => list(String.t()())
+      }
+
+  """
+  @type modify_mount_target_security_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_system_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type file_system_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_file_system_policy_request() :: %{
+        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+        required("Policy") => String.t()
+      }
+
+  """
+  @type put_file_system_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insufficient_throughput_capacity() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type insufficient_throughput_capacity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_point_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type access_point_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_file_system_policy_request() :: %{}
+
+  """
+  @type delete_file_system_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_point_already_exists() :: %{
+        "AccessPointId" => String.t(),
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type access_point_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_description() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destinations" => list(destination()()),
+        "OriginalSourceFileSystemArn" => String.t(),
+        "SourceFileSystemArn" => String.t(),
+        "SourceFileSystemId" => String.t(),
+        "SourceFileSystemRegion" => String.t()
+      }
+
+  """
+  @type replication_configuration_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_point_request() :: %{}
+
+  """
+  @type delete_access_point_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy() :: %{
+        "TransitionToArchive" => list(any()),
+        "TransitionToIA" => list(any()),
+        "TransitionToPrimaryStorageClass" => list(any())
+      }
+
+  """
+  @type lifecycle_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type security_group_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_configuration_request() :: %{
+        required("Destinations") => list(destination_to_create()())
+      }
+
+  """
+  @type create_replication_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_systems_request() :: %{
+        optional("CreationToken") => String.t(),
+        optional("FileSystemId") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type describe_file_systems_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type bad_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_targets_request() :: %{
+        optional("AccessPointId") => String.t(),
+        optional("FileSystemId") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("MountTargetId") => String.t()
+      }
+
+  """
+  @type describe_mount_targets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_backup_policy_request() :: %{}
+
+  """
+  @type describe_backup_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_points_request() :: %{
+        optional("AccessPointId") => String.t(),
+        optional("FileSystemId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type describe_access_points_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_mount_target_security_groups_request() :: %{}
+
+  """
+  @type describe_mount_target_security_groups_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_address_in_use() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type ip_address_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type policy_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "FileSystemId" => String.t(),
+        "LastReplicatedTimestamp" => non_neg_integer(),
+        "Region" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_systems_response() :: %{
+        "FileSystems" => list(file_system_description()()),
+        "Marker" => String.t(),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type describe_file_systems_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type too_many_requests() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type replication_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      creation_info() :: %{
+        "OwnerGid" => float(),
+        "OwnerUid" => float(),
+        "Permissions" => String.t()
+      }
+
+  """
+  @type creation_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throughput_limit_exceeded() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type throughput_limit_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tags_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type describe_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_free_addresses_in_subnet() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type no_free_addresses_in_subnet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_points_response() :: %{
+        "AccessPoints" => list(access_point_description()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type describe_access_points_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_lifecycle_configuration_request() :: %{}
+
+  """
+  @type describe_lifecycle_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configurations_request() :: %{
+        optional("FileSystemId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type describe_replication_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_file_system_policy_request() :: %{}
+
+  """
+  @type describe_file_system_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_configuration_description() :: %{
+        optional("LifecyclePolicies") => list(lifecycle_policy()())
+      }
+
+  """
+  @type lifecycle_configuration_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_point_description() :: %{
+        "AccessPointArn" => String.t(),
+        "AccessPointId" => String.t(),
+        "ClientToken" => String.t(),
+        "FileSystemId" => String.t(),
+        "LifeCycleState" => list(any()),
+        "Name" => String.t(),
+        "OwnerId" => String.t(),
+        "PosixUser" => posix_user(),
+        "RootDirectory" => root_directory(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type access_point_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subnet_not_found() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type subnet_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_file_system_request() :: %{}
+
+  """
+  @type delete_file_system_request() :: %{}
+
+  @type create_access_point_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | bad_request()
+          | access_point_already_exists()
+          | file_system_not_found()
+          | access_point_limit_exceeded()
+          | incorrect_file_system_life_cycle_state()
+
+  @type create_file_system_errors() ::
+          throughput_limit_exceeded()
+          | internal_server_error()
+          | bad_request()
+          | insufficient_throughput_capacity()
+          | file_system_already_exists()
+          | unsupported_availability_zone()
+          | file_system_limit_exceeded()
+
+  @type create_mount_target_errors() ::
+          subnet_not_found()
+          | no_free_addresses_in_subnet()
+          | ip_address_in_use()
+          | internal_server_error()
+          | bad_request()
+          | security_group_not_found()
+          | file_system_not_found()
+          | network_interface_limit_exceeded()
+          | availability_zones_mismatch()
+          | security_group_limit_exceeded()
+          | mount_target_conflict()
+          | incorrect_file_system_life_cycle_state()
+          | unsupported_availability_zone()
+
+  @type create_replication_configuration_errors() ::
+          throughput_limit_exceeded()
+          | replication_not_found()
+          | validation_exception()
+          | internal_server_error()
+          | bad_request()
+          | insufficient_throughput_capacity()
+          | file_system_not_found()
+          | conflict_exception()
+          | incorrect_file_system_life_cycle_state()
+          | unsupported_availability_zone()
+          | file_system_limit_exceeded()
+
+  @type create_tags_errors() :: internal_server_error() | bad_request() | file_system_not_found()
+
+  @type delete_access_point_errors() ::
+          internal_server_error() | bad_request() | access_point_not_found()
+
+  @type delete_file_system_errors() ::
+          internal_server_error() | bad_request() | file_system_not_found() | file_system_in_use()
+
+  @type delete_file_system_policy_errors() ::
+          internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+          | incorrect_file_system_life_cycle_state()
+
+  @type delete_mount_target_errors() ::
+          internal_server_error()
+          | bad_request()
+          | dependency_timeout()
+          | mount_target_not_found()
+
+  @type delete_replication_configuration_errors() ::
+          replication_not_found()
+          | internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+
+  @type delete_tags_errors() :: internal_server_error() | bad_request() | file_system_not_found()
+
+  @type describe_access_points_errors() ::
+          internal_server_error()
+          | bad_request()
+          | access_point_not_found()
+          | file_system_not_found()
+
+  @type describe_account_preferences_errors() :: internal_server_error()
+
+  @type describe_backup_policy_errors() ::
+          policy_not_found()
+          | validation_exception()
+          | internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+
+  @type describe_file_system_policy_errors() ::
+          policy_not_found() | internal_server_error() | bad_request() | file_system_not_found()
+
+  @type describe_file_systems_errors() ::
+          internal_server_error() | bad_request() | file_system_not_found()
+
+  @type describe_lifecycle_configuration_errors() ::
+          internal_server_error() | bad_request() | file_system_not_found()
+
+  @type describe_mount_target_security_groups_errors() ::
+          internal_server_error()
+          | bad_request()
+          | mount_target_not_found()
+          | incorrect_mount_target_state()
+
+  @type describe_mount_targets_errors() ::
+          internal_server_error()
+          | bad_request()
+          | access_point_not_found()
+          | file_system_not_found()
+          | mount_target_not_found()
+
+  @type describe_replication_configurations_errors() ::
+          replication_not_found()
+          | validation_exception()
+          | internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+
+  @type describe_tags_errors() ::
+          internal_server_error() | bad_request() | file_system_not_found()
+
+  @type list_tags_for_resource_errors() ::
+          internal_server_error()
+          | bad_request()
+          | access_point_not_found()
+          | file_system_not_found()
+
+  @type modify_mount_target_security_groups_errors() ::
+          internal_server_error()
+          | bad_request()
+          | security_group_not_found()
+          | mount_target_not_found()
+          | incorrect_mount_target_state()
+          | security_group_limit_exceeded()
+
+  @type put_account_preferences_errors() :: internal_server_error() | bad_request()
+
+  @type put_backup_policy_errors() ::
+          validation_exception()
+          | internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+          | incorrect_file_system_life_cycle_state()
+
+  @type put_file_system_policy_errors() ::
+          internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+          | invalid_policy_exception()
+          | incorrect_file_system_life_cycle_state()
+
+  @type put_lifecycle_configuration_errors() ::
+          internal_server_error()
+          | bad_request()
+          | file_system_not_found()
+          | incorrect_file_system_life_cycle_state()
+
+  @type tag_resource_errors() ::
+          internal_server_error()
+          | bad_request()
+          | access_point_not_found()
+          | file_system_not_found()
+
+  @type untag_resource_errors() ::
+          internal_server_error()
+          | bad_request()
+          | access_point_not_found()
+          | file_system_not_found()
+
+  @type update_file_system_errors() ::
+          throughput_limit_exceeded()
+          | too_many_requests()
+          | internal_server_error()
+          | bad_request()
+          | insufficient_throughput_capacity()
+          | file_system_not_found()
+          | incorrect_file_system_life_cycle_state()
+
+  @type update_file_system_protection_errors() ::
+          throughput_limit_exceeded()
+          | too_many_requests()
+          | internal_server_error()
+          | bad_request()
+          | insufficient_throughput_capacity()
+          | file_system_not_found()
+          | replication_already_exists()
+          | incorrect_file_system_life_cycle_state()
+
   def metadata do
     %{
       api_version: "2015-02-01",
@@ -27,6 +1323,7 @@ defmodule AWS.EFS do
       credential_scope: nil,
       endpoint_prefix: "elasticfilesystem",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EFS",
       signature_version: "v4",
@@ -72,13 +1369,22 @@ defmodule AWS.EFS do
   permissions to use the `elasticfilesystem:TagResource` action. For more
   information, see [Granting permissions to tag resources during
   creation](https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_access_point(AWS.Client.t(), create_access_point_request(), Keyword.t()) ::
+          {:ok, access_point_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_access_point_errors()}
   def create_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/access-points"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -178,13 +1484,22 @@ defmodule AWS.EFS do
   explicit
   permissions to use the `elasticfilesystem:TagResource` action. For more
   information, see [Granting permissions to tag resources during creation](https://docs.aws.amazon.com/efs/latest/ug/using-tags-efs.html#supported-iam-actions-tagging.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_file_system(AWS.Client.t(), create_file_system_request(), Keyword.t()) ::
+          {:ok, file_system_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_file_system_errors()}
   def create_file_system(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/file-systems"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -373,13 +1688,22 @@ defmodule AWS.EFS do
     *
 
   `ec2:CreateNetworkInterface`
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_mount_target(AWS.Client.t(), create_mount_target_request(), Keyword.t()) ::
+          {:ok, mount_target_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_mount_target_errors()}
   def create_mount_target(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -499,7 +1823,21 @@ defmodule AWS.EFS do
   For more information, see [Amazon EFS replication](https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html) in
   the
   *Amazon EFS User Guide*.
+
+  ## Required positional parameters:
+   • :source_file_system_id (t:string String.t/0) (SourceFileSystemId)
+
+  ## Optional parameters:
   """
+  @spec create_replication_configuration(
+          AWS.Client.t(),
+          String.t(),
+          create_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, replication_configuration_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_replication_configuration_errors()}
   def create_replication_configuration(
         %Client{} = client,
         source_file_system_id,
@@ -512,7 +1850,8 @@ defmodule AWS.EFS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -545,13 +1884,23 @@ defmodule AWS.EFS do
 
   This operation requires permission for the `elasticfilesystem:CreateTags`
   action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec create_tags(AWS.Client.t(), String.t(), create_tags_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -576,13 +1925,28 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DeleteAccessPoint` action.
+
+  ## Required positional parameters:
+   • :access_point_id (t:string String.t/0) (AccessPointId)
+
+  ## Optional parameters:
   """
+  @spec delete_access_point(
+          AWS.Client.t(),
+          String.t(),
+          delete_access_point_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_access_point_errors()}
   def delete_access_point(%Client{} = client, access_point_id, input, options \\ []) do
     url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -628,13 +1992,23 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DeleteFileSystem` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec delete_file_system(AWS.Client.t(), String.t(), delete_file_system_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_file_system_errors()}
   def delete_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -659,13 +2033,28 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DeleteFileSystemPolicy` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec delete_file_system_policy(
+          AWS.Client.t(),
+          String.t(),
+          delete_file_system_policy_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_file_system_policy_errors()}
   def delete_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -716,13 +2105,28 @@ defmodule AWS.EFS do
     *
 
   `ec2:DeleteNetworkInterface`
+
+  ## Required positional parameters:
+   • :mount_target_id (t:string String.t/0) (MountTargetId)
+
+  ## Optional parameters:
   """
+  @spec delete_mount_target(
+          AWS.Client.t(),
+          String.t(),
+          delete_mount_target_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_mount_target_errors()}
   def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -748,7 +2152,21 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DeleteReplicationConfiguration` action.
+
+  ## Required positional parameters:
+   • :source_file_system_id (t:string String.t/0) (SourceFileSystemId)
+
+  ## Optional parameters:
   """
+  @spec delete_replication_configuration(
+          AWS.Client.t(),
+          String.t(),
+          delete_replication_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_replication_configuration_errors()}
   def delete_replication_configuration(
         %Client{} = client,
         source_file_system_id,
@@ -761,7 +2179,8 @@ defmodule AWS.EFS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -792,13 +2211,23 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the `elasticfilesystem:DeleteTags`
   action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -824,18 +2253,30 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeAccessPoints` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :access_point_id (t:String.t/0) (AccessPointId)
+   • :file_system_id (t:String.t/0) (FileSystemId)
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
   """
-  def describe_access_points(
-        %Client{} = client,
-        access_point_id \\ nil,
-        file_system_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec describe_access_points(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_access_points_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_access_points_errors()}
+  def describe_access_points(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/access-points"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [access_point_id: nil, file_system_id: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -844,12 +2285,16 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {file_system_id, options} = Keyword.pop(options, :file_system_id, nil)
 
     query_params =
       if !is_nil(file_system_id) do
@@ -858,6 +2303,8 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {access_point_id, options} = Keyword.pop(options, :access_point_id, nil)
+
     query_params =
       if !is_nil(access_point_id) do
         [{"AccessPointId", access_point_id} | query_params]
@@ -865,7 +2312,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -874,26 +2322,55 @@ defmodule AWS.EFS do
   Returns the account preferences settings for the Amazon Web Services account
   associated with the user making the request, in the current Amazon Web Services
   Region.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec describe_account_preferences(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_account_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_account_preferences_errors()}
   def describe_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns the backup policy for the specified EFS file system.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec describe_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, backup_policy_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_backup_policy_errors()}
   def describe_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -904,13 +2381,28 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeFileSystemPolicy` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec describe_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, file_system_policy_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_file_system_policy_errors()}
   def describe_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -949,18 +2441,30 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeFileSystems` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :creation_token (t:String.t/0) (CreationToken)
+   • :file_system_id (t:String.t/0) (FileSystemId)
+   • :marker (t:String.t/0) (Marker)
+   • :max_items (t:String.t/0) (MaxItems)
   """
-  def describe_file_systems(
-        %Client{} = client,
-        creation_token \\ nil,
-        file_system_id \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  @spec describe_file_systems(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_file_systems_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_file_systems_errors()}
+  def describe_file_systems(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [creation_token: nil, file_system_id: nil, marker: nil, max_items: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {max_items, options} = Keyword.pop(options, :max_items, nil)
 
     query_params =
       if !is_nil(max_items) do
@@ -969,12 +2473,16 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {marker, options} = Keyword.pop(options, :marker, nil)
+
     query_params =
       if !is_nil(marker) do
         [{"Marker", marker} | query_params]
       else
         query_params
       end
+
+    {file_system_id, options} = Keyword.pop(options, :file_system_id, nil)
 
     query_params =
       if !is_nil(file_system_id) do
@@ -983,6 +2491,8 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {creation_token, options} = Keyword.pop(options, :creation_token, nil)
+
     query_params =
       if !is_nil(creation_token) do
         [{"CreationToken", creation_token} | query_params]
@@ -990,7 +2500,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1007,15 +2518,29 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec describe_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, lifecycle_configuration_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_lifecycle_configuration_errors()}
   def describe_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1039,13 +2564,28 @@ defmodule AWS.EFS do
 
   `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's
   network interface.
+
+  ## Required positional parameters:
+   • :mount_target_id (t:string String.t/0) (MountTargetId)
+
+  ## Optional parameters:
   """
+  @spec describe_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_mount_target_security_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_mount_target_security_groups_errors()}
   def describe_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1063,19 +2603,31 @@ defmodule AWS.EFS do
   that you specify in `FileSystemId`, or on the file system of the mount target
   that
   you specify in `MountTargetId`.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :access_point_id (t:String.t/0) (AccessPointId)
+   • :file_system_id (t:String.t/0) (FileSystemId)
+   • :marker (t:String.t/0) (Marker)
+   • :max_items (t:String.t/0) (MaxItems)
+   • :mount_target_id (t:String.t/0) (MountTargetId)
   """
-  def describe_mount_targets(
-        %Client{} = client,
-        access_point_id \\ nil,
-        file_system_id \\ nil,
-        marker \\ nil,
-        max_items \\ nil,
-        mount_target_id \\ nil,
-        options \\ []
-      ) do
+  @spec describe_mount_targets(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_mount_targets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_mount_targets_errors()}
+  def describe_mount_targets(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [access_point_id: nil, file_system_id: nil, marker: nil, max_items: nil, mount_target_id: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {mount_target_id, options} = Keyword.pop(options, :mount_target_id, nil)
 
     query_params =
       if !is_nil(mount_target_id) do
@@ -1084,12 +2636,16 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {max_items, options} = Keyword.pop(options, :max_items, nil)
+
     query_params =
       if !is_nil(max_items) do
         [{"MaxItems", max_items} | query_params]
       else
         query_params
       end
+
+    {marker, options} = Keyword.pop(options, :marker, nil)
 
     query_params =
       if !is_nil(marker) do
@@ -1098,12 +2654,16 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {file_system_id, options} = Keyword.pop(options, :file_system_id, nil)
+
     query_params =
       if !is_nil(file_system_id) do
         [{"FileSystemId", file_system_id} | query_params]
       else
         query_params
       end
+
+    {access_point_id, options} = Keyword.pop(options, :access_point_id, nil)
 
     query_params =
       if !is_nil(access_point_id) do
@@ -1112,7 +2672,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1124,17 +2685,29 @@ defmodule AWS.EFS do
   not specified, all of the replication configurations for the Amazon Web Services
   account in an
   Amazon Web Services Region are retrieved.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :file_system_id (t:String.t/0) (FileSystemId)
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
   """
-  def describe_replication_configurations(
-        %Client{} = client,
-        file_system_id \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec describe_replication_configurations(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_replication_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_replication_configurations_errors()}
+  def describe_replication_configurations(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/file-systems/replication-configurations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [file_system_id: nil, max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1143,12 +2716,16 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {file_system_id, options} = Keyword.pop(options, :file_system_id, nil)
 
     query_params =
       if !is_nil(file_system_id) do
@@ -1157,7 +2734,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1177,17 +2755,29 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeTags` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
+   • :marker (t:String.t/0) (Marker)
+   • :max_items (t:String.t/0) (MaxItems)
   """
-  def describe_tags(
-        %Client{} = client,
-        file_system_id,
-        marker \\ nil,
-        max_items \\ nil,
-        options \\ []
-      ) do
+  @spec describe_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_tags_errors()}
+  def describe_tags(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/tags/#{AWS.Util.encode_uri(file_system_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [marker: nil, max_items: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {max_items, options} = Keyword.pop(options, :max_items, nil)
 
     query_params =
       if !is_nil(max_items) do
@@ -1196,6 +2786,8 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {marker, options} = Keyword.pop(options, :marker, nil)
+
     query_params =
       if !is_nil(marker) do
         [{"Marker", marker} | query_params]
@@ -1203,7 +2795,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1216,17 +2809,29 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:DescribeAccessPoints` action.
+
+  ## Required positional parameters:
+   • :resource_id (t:string String.t/0) (ResourceId)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (MaxResults)
+   • :next_token (t:String.t/0) (NextToken)
   """
-  def list_tags_for_resource(
-        %Client{} = client,
-        resource_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_id, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1235,6 +2840,8 @@ defmodule AWS.EFS do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
@@ -1242,7 +2849,8 @@ defmodule AWS.EFS do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1271,7 +2879,21 @@ defmodule AWS.EFS do
 
   `ec2:ModifyNetworkInterfaceAttribute` action on the mount target's network
   interface.
+
+  ## Required positional parameters:
+   • :mount_target_id (t:string String.t/0) (MountTargetId)
+
+  ## Optional parameters:
   """
+  @spec modify_mount_target_security_groups(
+          AWS.Client.t(),
+          String.t(),
+          modify_mount_target_security_groups_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_mount_target_security_groups_errors()}
   def modify_mount_target_security_groups(
         %Client{} = client,
         mount_target_id,
@@ -1282,7 +2904,8 @@ defmodule AWS.EFS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
   end
@@ -1306,13 +2929,22 @@ defmodule AWS.EFS do
   support if you
   receive an error and must use short IDs for file system and mount target
   resources.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec put_account_preferences(AWS.Client.t(), put_account_preferences_request(), Keyword.t()) ::
+          {:ok, put_account_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_account_preferences_errors()}
   def put_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1321,13 +2953,23 @@ defmodule AWS.EFS do
   Updates the file system's backup policy.
 
   Use this action to start or stop automatic backups of the file system.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec put_backup_policy(AWS.Client.t(), String.t(), put_backup_policy_request(), Keyword.t()) ::
+          {:ok, backup_policy_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_backup_policy_errors()}
   def put_backup_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1352,13 +2994,28 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:PutFileSystemPolicy` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec put_file_system_policy(
+          AWS.Client.t(),
+          String.t(),
+          put_file_system_policy_request(),
+          Keyword.t()
+        ) ::
+          {:ok, file_system_policy_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_file_system_policy_errors()}
   def put_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1437,7 +3094,21 @@ defmodule AWS.EFS do
   To apply a `LifecycleConfiguration` object to an encrypted file system, you
   need the same Key Management Service permissions as when you created the
   encrypted file system.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec put_lifecycle_configuration(
+          AWS.Client.t(),
+          String.t(),
+          put_lifecycle_configuration_request(),
+          Keyword.t()
+        ) ::
+          {:ok, lifecycle_configuration_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_lifecycle_configuration_errors()}
   def put_lifecycle_configuration(%Client{} = client, file_system_id, input, options \\ []) do
     url_path =
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
@@ -1445,7 +3116,8 @@ defmodule AWS.EFS do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1458,13 +3130,23 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the `elasticfilesystem:TagResource`
   action.
+
+  ## Required positional parameters:
+   • :resource_id (t:string String.t/0) (ResourceId)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1487,7 +3169,17 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the `elasticfilesystem:UntagResource`
   action.
+
+  ## Required positional parameters:
+   • :resource_id (t:string String.t/0) (ResourceId)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
@@ -1498,7 +3190,8 @@ defmodule AWS.EFS do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1517,13 +3210,23 @@ defmodule AWS.EFS do
   Updates the throughput mode or the amount of provisioned throughput of an
   existing file
   system.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec update_file_system(AWS.Client.t(), String.t(), update_file_system_request(), Keyword.t()) ::
+          {:ok, file_system_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_file_system_errors()}
   def update_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
@@ -1533,13 +3236,28 @@ defmodule AWS.EFS do
 
   This operation requires permissions for the
   `elasticfilesystem:UpdateFileSystemProtection` action.
+
+  ## Required positional parameters:
+   • :file_system_id (t:string String.t/0) (FileSystemId)
+
+  ## Optional parameters:
   """
+  @spec update_file_system_protection(
+          AWS.Client.t(),
+          String.t(),
+          update_file_system_protection_request(),
+          Keyword.t()
+        ) ::
+          {:ok, file_system_protection_description(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_file_system_protection_errors()}
   def update_file_system_protection(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end

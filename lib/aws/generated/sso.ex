@@ -31,6 +31,196 @@ defmodule AWS.SSO do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      account_info() :: %{
+        "accountId" => String.t(),
+        "accountName" => String.t(),
+        "emailAddress" => String.t()
+      }
+
+  """
+  @type account_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_role_credentials_request() :: %{
+        required("accessToken") => String.t(),
+        required("accountId") => String.t(),
+        required("roleName") => String.t()
+      }
+
+  """
+  @type get_role_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_role_credentials_response() :: %{
+        "roleCredentials" => role_credentials()
+      }
+
+  """
+  @type get_role_credentials_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_roles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("accessToken") => String.t(),
+        required("accountId") => String.t()
+      }
+
+  """
+  @type list_account_roles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_roles_response() :: %{
+        "nextToken" => String.t(),
+        "roleList" => list(role_info()())
+      }
+
+  """
+  @type list_account_roles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("accessToken") => String.t()
+      }
+
+  """
+  @type list_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_response() :: %{
+        "accountList" => list(account_info()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logout_request() :: %{
+        required("accessToken") => String.t()
+      }
+
+  """
+  @type logout_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      role_credentials() :: %{
+        "accessKeyId" => String.t(),
+        "expiration" => float(),
+        "secretAccessKey" => String.t(),
+        "sessionToken" => String.t()
+      }
+
+  """
+  @type role_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      role_info() :: %{
+        "accountId" => String.t(),
+        "roleName" => String.t()
+      }
+
+  """
+  @type role_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @type get_role_credentials_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+
+  @type list_account_roles_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+
+  @type list_accounts_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+
+  @type logout_errors() ::
+          unauthorized_exception() | too_many_requests_exception() | invalid_request_exception()
+
   def metadata do
     %{
       api_version: "2019-06-10",
@@ -38,6 +228,7 @@ defmodule AWS.SSO do
       credential_scope: nil,
       endpoint_prefix: "portal.sso",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SSO",
       signature_version: "v4",
@@ -50,10 +241,28 @@ defmodule AWS.SSO do
   Returns the STS short-term credentials for a given role name that is assigned to
   the
   user.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :account_id (t:String.t/0) (account_id)
+   • :role_name (t:String.t/0) (role_name)
+   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
   """
+  @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_role_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_role_credentials_errors()}
   def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
     url_path = "/federation/credentials"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [account_id: nil, role_name: nil, access_token: nil
+    # ])
+
     headers = []
+
+    {access_token, options} = Keyword.pop(options, :access_token, nil)
 
     headers =
       if !is_nil(access_token) do
@@ -63,6 +272,8 @@ defmodule AWS.SSO do
       end
 
     query_params = []
+
+    {role_name, options} = Keyword.pop(options, :role_name, nil)
 
     query_params =
       if !is_nil(role_name) do
@@ -71,6 +282,8 @@ defmodule AWS.SSO do
         query_params
       end
 
+    {account_id, options} = Keyword.pop(options, :account_id, nil)
+
     query_params =
       if !is_nil(account_id) do
         [{"account_id", account_id} | query_params]
@@ -78,24 +291,37 @@ defmodule AWS.SSO do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists all roles that are assigned to the user for a given AWS account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :account_id (t:String.t/0) (account_id)
+   • :max_results (t:String.t/0) (max_result)
+   • :next_token (t:String.t/0) (next_token)
+   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
   """
-  def list_account_roles(
-        %Client{} = client,
-        account_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        access_token,
-        options \\ []
-      ) do
+  @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_account_roles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_account_roles_errors()}
+  def list_account_roles(%Client{} = client, account_id, access_token, options \\ []) do
     url_path = "/assignment/roles"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [account_id: nil, max_results: nil, next_token: nil, access_token: nil
+    # ])
+
     headers = []
+
+    {access_token, options} = Keyword.pop(options, :access_token, nil)
 
     headers =
       if !is_nil(access_token) do
@@ -106,12 +332,16 @@ defmodule AWS.SSO do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next_token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -120,6 +350,8 @@ defmodule AWS.SSO do
         query_params
       end
 
+    {account_id, options} = Keyword.pop(options, :account_id, nil)
+
     query_params =
       if !is_nil(account_id) do
         [{"account_id", account_id} | query_params]
@@ -127,7 +359,8 @@ defmodule AWS.SSO do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -139,16 +372,28 @@ defmodule AWS.SSO do
   administrator of the account. For more information, see [Assign User Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers)
   in the *IAM Identity Center User Guide*. This operation
   returns a paginated response.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (max_result)
+   • :next_token (t:String.t/0) (next_token)
+   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
   """
-  def list_accounts(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        access_token,
-        options \\ []
-      ) do
+  @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_accounts_errors()}
+  def list_accounts(%Client{} = client, access_token, options \\ []) do
     url_path = "/assignment/accounts"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, access_token: nil
+    # ])
+
     headers = []
+
+    {access_token, options} = Keyword.pop(options, :access_token, nil)
 
     headers =
       if !is_nil(access_token) do
@@ -159,12 +404,16 @@ defmodule AWS.SSO do
 
     query_params = []
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"next_token", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -173,7 +422,8 @@ defmodule AWS.SSO do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -199,7 +449,16 @@ defmodule AWS.SSO do
   For more information, see [User authentications](https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html)
   in the *IAM Identity Center User
   Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
   """
+  @spec logout(AWS.Client.t(), logout_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, logout_errors()}
   def logout(%Client{} = client, input, options \\ []) do
     url_path = "/logout"
 
@@ -211,7 +470,8 @@ defmodule AWS.SSO do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

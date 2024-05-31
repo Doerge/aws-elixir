@@ -73,6 +73,128 @@ defmodule AWS.AppConfigData do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Details" => list(),
+        "Message" => String.t(),
+        "Reason" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_latest_configuration_request() :: %{
+        required("ConfigurationToken") => String.t()
+      }
+
+  """
+  @type get_latest_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_latest_configuration_response() :: %{
+        optional("Configuration") => binary(),
+        optional("ContentType") => String.t(),
+        optional("NextPollConfigurationToken") => String.t(),
+        optional("NextPollIntervalInSeconds") => integer(),
+        optional("VersionLabel") => String.t()
+      }
+
+  """
+  @type get_latest_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_detail() :: %{
+        "Problem" => String.t()
+      }
+
+  """
+  @type invalid_parameter_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "ReferencedBy" => map(),
+        "ResourceType" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_session_request() :: %{
+        optional("RequiredMinimumPollIntervalInSeconds") => integer(),
+        required("ApplicationIdentifier") => String.t(),
+        required("ConfigurationProfileIdentifier") => String.t(),
+        required("EnvironmentIdentifier") => String.t()
+      }
+
+  """
+  @type start_configuration_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_session_response() :: %{
+        optional("InitialConfigurationToken") => String.t()
+      }
+
+  """
+  @type start_configuration_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @type get_latest_configuration_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+
+  @type start_configuration_session_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | bad_request_exception()
+
   def metadata do
     %{
       api_version: "2021-11-11",
@@ -80,6 +202,7 @@ defmodule AWS.AppConfigData do
       credential_scope: nil,
       endpoint_prefix: "appconfigdata",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AppConfigData",
       signature_version: "v4",
@@ -111,11 +234,27 @@ defmodule AWS.AppConfigData do
 
   `GetLatestConfiguration` is a priced call. For more information, see
   [Pricing](https://aws.amazon.com/systems-manager/pricing/).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :configuration_token (t:String.t/0) (configuration_token)
   """
+  @spec get_latest_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_latest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_latest_configuration_errors()}
   def get_latest_configuration(%Client{} = client, configuration_token, options \\ []) do
     url_path = "/configuration"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [configuration_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {configuration_token, options} = Keyword.pop(options, :configuration_token, nil)
 
     query_params =
       if !is_nil(configuration_token) do
@@ -136,7 +275,8 @@ defmodule AWS.AppConfigData do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -149,13 +289,26 @@ defmodule AWS.AppConfigData do
   to use
   it with the `GetLatestConfiguration` API action, see [Retrieving the configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration)
   in the *AppConfig User Guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_configuration_session(
+          AWS.Client.t(),
+          start_configuration_session_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_configuration_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_configuration_session_errors()}
   def start_configuration_session(%Client{} = client, input, options \\ []) do
     url_path = "/configurationsessions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

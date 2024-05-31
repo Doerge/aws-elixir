@@ -27,6 +27,1861 @@ defmodule AWS.Evidently do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      evaluation_request() :: %{
+        "entityId" => String.t(),
+        "evaluationContext" => String.t(),
+        "feature" => String.t()
+      }
+
+  """
+  @type evaluation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_experiments_response() :: %{
+        optional("experiments") => list(experiment()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_experiments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_experiment_response() :: %{}
+
+  """
+  @type delete_experiment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      treatment_config() :: %{
+        "description" => String.t(),
+        "feature" => String.t(),
+        "name" => String.t(),
+        "variation" => String.t()
+      }
+
+  """
+  @type treatment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_group() :: %{
+        "description" => String.t(),
+        "featureVariations" => map(),
+        "name" => String.t()
+      }
+
+  """
+  @type launch_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launches_response() :: %{
+        optional("launches") => list(launch()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_launches_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_feature_request() :: %{
+        optional("defaultVariation") => String.t(),
+        optional("description") => String.t(),
+        optional("entityOverrides") => map(),
+        optional("evaluationStrategy") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("variations") => list(variation_config()())
+      }
+
+  """
+  @type create_feature_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_feature_response() :: %{
+        optional("feature") => feature()
+      }
+
+  """
+  @type create_feature_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_data_delivery_response() :: %{
+        required("project") => project()
+      }
+
+  """
+  @type update_project_data_delivery_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_experiment_response() :: %{
+        optional("experiment") => experiment()
+      }
+
+  """
+  @type get_experiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_segment_pattern_request() :: %{
+        required("pattern") => String.t(),
+        required("payload") => String.t()
+      }
+
+  """
+  @type test_segment_pattern_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      feature() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "defaultVariation" => String.t(),
+        "description" => String.t(),
+        "entityOverrides" => map(),
+        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationStrategy" => String.t(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "project" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "valueType" => String.t(),
+        "variations" => list(variation()())
+      }
+
+  """
+  @type feature() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_ab_definition() :: %{
+        "controlTreatmentName" => String.t(),
+        "treatmentWeights" => map()
+      }
+
+  """
+  @type online_ab_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_splits_launch_definition() :: %{
+        "steps" => list(scheduled_split()())
+      }
+
+  """
+  @type scheduled_splits_launch_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "activeExperimentCount" => [float()],
+        "activeLaunchCount" => [float()],
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "featureCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type project_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_launch_response() :: %{
+        optional("launch") => launch()
+      }
+
+  """
+  @type get_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_request() :: %{}
+
+  """
+  @type get_segment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_project_events_response() :: %{
+        optional("eventResults") => list(put_project_events_result_entry()()),
+        optional("failedEventCount") => [integer()]
+      }
+
+  """
+  @type put_project_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variation_config() :: %{
+        "name" => String.t(),
+        "value" => list()
+      }
+
+  """
+  @type variation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_segment_pattern_response() :: %{
+        required("match") => [boolean()]
+      }
+
+  """
+  @type test_segment_pattern_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_request() :: %{}
+
+  """
+  @type get_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_references_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("referencedBy") => list(ref_resource()())
+      }
+
+  """
+  @type list_segment_references_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_destination() :: %{
+        "logGroup" => String.t()
+      }
+
+  """
+  @type cloud_watch_logs_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_project_events_result_entry() :: %{
+        "errorCode" => String.t(),
+        "errorMessage" => String.t(),
+        "eventId" => String.t()
+      }
+
+  """
+  @type put_project_events_result_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_features_response() :: %{
+        optional("features") => list(feature_summary()()),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_features_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition_config() :: %{
+        "entityIdKey" => String.t(),
+        "eventPattern" => String.t(),
+        "name" => String.t(),
+        "unitLabel" => String.t(),
+        "valueKey" => String.t()
+      }
+
+  """
+  @type metric_definition_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_experiment_response() :: %{
+        required("experiment") => experiment()
+      }
+
+  """
+  @type create_experiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_override() :: %{
+        "evaluationOrder" => [float()],
+        "segment" => String.t(),
+        "weights" => map()
+      }
+
+  """
+  @type segment_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launches_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
+  """
+  @type list_launches_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_response() :: %{}
+
+  """
+  @type delete_launch_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_features_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_features_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition() :: %{
+        "entityIdKey" => String.t(),
+        "eventPattern" => String.t(),
+        "name" => String.t(),
+        "unitLabel" => String.t(),
+        "valueKey" => String.t()
+      }
+
+  """
+  @type metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_request() :: %{
+        optional("description") => String.t(),
+        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("randomizationSalt") => String.t(),
+        optional("scheduledSplitsConfig") => scheduled_splits_launch_config(),
+        optional("tags") => map(),
+        required("groups") => list(launch_group_config()()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_launch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_data_delivery_request() :: %{
+        optional("cloudWatchLogs") => cloud_watch_logs_destination_config(),
+        optional("s3Destination") => s3_destination_config()
+      }
+
+  """
+  @type update_project_data_delivery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variation() :: %{
+        "name" => String.t(),
+        "value" => list()
+      }
+
+  """
+  @type variation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_response() :: %{
+        required("project") => project()
+      }
+
+  """
+  @type update_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_feature_response() :: %{
+        optional("details") => String.t(),
+        optional("reason") => [String.t()],
+        optional("value") => list(),
+        optional("variation") => [String.t()]
+      }
+
+  """
+  @type evaluate_feature_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_feature_request() :: %{
+        optional("addOrUpdateVariations") => list(variation_config()()),
+        optional("defaultVariation") => String.t(),
+        optional("description") => String.t(),
+        optional("entityOverrides") => map(),
+        optional("evaluationStrategy") => String.t(),
+        optional("removeVariations") => list(String.t()())
+      }
+
+  """
+  @type update_feature_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "pattern" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type segment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_project_events_request() :: %{
+        required("events") => list(event()())
+      }
+
+  """
+  @type put_project_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_data_delivery_config() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_destination_config(),
+        "s3Destination" => s3_destination_config()
+      }
+
+  """
+  @type project_data_delivery_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_response() :: %{
+        required("segment") => segment()
+      }
+
+  """
+  @type create_segment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_app_config_resource() :: %{
+        "applicationId" => String.t(),
+        "configurationProfileId" => String.t(),
+        "environmentId" => String.t()
+      }
+
+  """
+  @type project_app_config_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segments_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("segments") => list(segment()())
+      }
+
+  """
+  @type list_segments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_feature_request() :: %{
+        optional("evaluationContext") => String.t(),
+        required("entityId") => String.t()
+      }
+
+  """
+  @type evaluate_feature_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_split_config() :: %{
+        "groupWeights" => map(),
+        "segmentOverrides" => list(segment_override()()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type scheduled_split_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{
+        required("project") => project()
+      }
+
+  """
+  @type create_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_experiment_request() :: %{}
+
+  """
+  @type delete_experiment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_experiment_request() :: %{}
+
+  """
+  @type get_experiment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      project() :: %{
+        "activeExperimentCount" => [float()],
+        "activeLaunchCount" => [float()],
+        "appConfigResource" => project_app_config_resource(),
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "dataDelivery" => project_data_delivery(),
+        "description" => String.t(),
+        "experimentCount" => [float()],
+        "featureCount" => [float()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "launchCount" => [float()],
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type project() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_group_config() :: %{
+        "description" => String.t(),
+        "feature" => String.t(),
+        "name" => String.t(),
+        "variation" => String.t()
+      }
+
+  """
+  @type launch_group_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_monitor() :: %{
+        "metricDefinition" => metric_definition()
+      }
+
+  """
+  @type metric_monitor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_feature_response() :: %{
+        required("feature") => feature()
+      }
+
+  """
+  @type update_feature_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_goal_config() :: %{
+        "desiredChange" => String.t(),
+        "metricDefinition" => metric_definition_config()
+      }
+
+  """
+  @type metric_goal_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        optional("nextToken") => String.t(),
+        optional("projects") => list(project_summary()())
+      }
+
+  """
+  @type list_projects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_response() :: %{
+        required("project") => project()
+      }
+
+  """
+  @type get_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      feature_summary() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "defaultVariation" => String.t(),
+        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationStrategy" => String.t(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "project" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type feature_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t()],
+        "name" => [String.t()]
+      }
+
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report() :: %{
+        "content" => String.t(),
+        "metricName" => String.t(),
+        "reportName" => String.t(),
+        "treatmentName" => String.t()
+      }
+
+  """
+  @type experiment_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_evaluate_feature_response() :: %{
+        optional("results") => list(evaluation_result()())
+      }
+
+  """
+  @type batch_evaluate_feature_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_response() :: %{
+        required("segment") => segment()
+      }
+
+  """
+  @type get_segment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ref_resource() :: %{
+        "arn" => [String.t()],
+        "endTime" => [String.t()],
+        "lastUpdatedOn" => [String.t()],
+        "name" => [String.t()],
+        "startTime" => [String.t()],
+        "status" => [String.t()],
+        "type" => [String.t()]
+      }
+
+  """
+  @type ref_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_splits_launch_config() :: %{
+        "steps" => list(scheduled_split_config()())
+      }
+
+  """
+  @type scheduled_splits_launch_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_request() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("pattern") => String.t()
+      }
+
+  """
+  @type create_segment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_destination_config() :: %{
+        "logGroup" => String.t()
+      }
+
+  """
+  @type cloud_watch_logs_destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination() :: %{
+        "bucket" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type s3_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_experiment_request() :: %{
+        optional("description") => String.t(),
+        optional("metricGoals") => list(metric_goal_config()()),
+        optional("onlineAbConfig") => online_ab_config(),
+        optional("randomizationSalt") => String.t(),
+        optional("removeSegment") => [boolean()],
+        optional("samplingRate") => float(),
+        optional("segment") => String.t(),
+        optional("treatments") => list(treatment_config()())
+      }
+
+  """
+  @type update_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_experiment_request() :: %{
+        optional("description") => String.t(),
+        optional("onlineAbConfig") => online_ab_config(),
+        optional("randomizationSalt") => String.t(),
+        optional("samplingRate") => float(),
+        optional("segment") => String.t(),
+        optional("tags") => map(),
+        required("metricGoals") => list(metric_goal_config()()),
+        required("name") => String.t(),
+        required("treatments") => list(treatment_config()())
+      }
+
+  """
+  @type create_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_response() :: %{}
+
+  """
+  @type delete_segment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_results_data() :: %{
+        "metricName" => String.t(),
+        "resultStat" => String.t(),
+        "treatmentName" => String.t(),
+        "values" => list([float()]())
+      }
+
+  """
+  @type experiment_results_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_schedule() :: %{
+        "analysisCompleteTime" => [non_neg_integer()]
+      }
+
+  """
+  @type experiment_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_rule() :: %{
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type evaluation_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_execution() :: %{
+        "endedTime" => [non_neg_integer()],
+        "startedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type experiment_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_experiment_request() :: %{
+        optional("desiredState") => String.t(),
+        optional("reason") => String.t()
+      }
+
+  """
+  @type stop_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_response() :: %{}
+
+  """
+  @type delete_project_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_request() :: %{
+        optional("appConfigResource") => project_app_config_resource_config(),
+        optional("description") => String.t()
+      }
+
+  """
+  @type update_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event() :: %{
+        "data" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "type" => String.t()
+      }
+
+  """
+  @type event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_ab_config() :: %{
+        "controlTreatmentName" => String.t(),
+        "treatmentWeights" => map()
+      }
+
+  """
+  @type online_ab_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      treatment() :: %{
+        "description" => String.t(),
+        "featureVariations" => map(),
+        "name" => String.t()
+      }
+
+  """
+  @type treatment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_experiment_response() :: %{
+        optional("startedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type start_experiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_response() :: %{
+        required("launch") => launch()
+      }
+
+  """
+  @type update_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_data_delivery() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_destination(),
+        "s3Destination" => s3_destination()
+      }
+
+  """
+  @type project_data_delivery() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()()),
+        "message" => [String.t()],
+        "reason" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_evaluate_feature_request() :: %{
+        required("requests") => list(evaluation_request()())
+      }
+
+  """
+  @type batch_evaluate_feature_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_experiments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => String.t()
+      }
+
+  """
+  @type list_experiments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "quotaCode" => [String.t()],
+        "serviceCode" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_request() :: %{
+        optional("appConfigResource") => project_app_config_resource_config(),
+        optional("dataDelivery") => project_data_delivery_config(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_experiment_request() :: %{
+        required("analysisCompleteTime") => [non_neg_integer()]
+      }
+
+  """
+  @type start_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_segments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_references_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("type") => String.t()
+      }
+
+  """
+  @type list_segment_references_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_goal() :: %{
+        "desiredChange" => String.t(),
+        "metricDefinition" => metric_definition()
+      }
+
+  """
+  @type metric_goal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_execution() :: %{
+        "endedTime" => [non_neg_integer()],
+        "startedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type launch_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_request() :: %{}
+
+  """
+  @type delete_segment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_monitor_config() :: %{
+        "metricDefinition" => metric_definition_config()
+      }
+
+  """
+  @type metric_monitor_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_app_config_resource_config() :: %{
+        "applicationId" => String.t(),
+        "environmentId" => String.t()
+      }
+
+  """
+  @type project_app_config_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_result() :: %{
+        "details" => String.t(),
+        "entityId" => String.t(),
+        "feature" => String.t(),
+        "project" => String.t(),
+        "reason" => [String.t()],
+        "value" => list(),
+        "variation" => [String.t()]
+      }
+
+  """
+  @type evaluation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_experiment_response() :: %{
+        optional("endedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type stop_experiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_launch_request() :: %{
+        optional("desiredState") => String.t(),
+        optional("reason") => String.t()
+      }
+
+  """
+  @type stop_launch_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_feature_response() :: %{}
+
+  """
+  @type delete_feature_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_launch_response() :: %{
+        required("launch") => launch()
+      }
+
+  """
+  @type start_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_feature_response() :: %{
+        required("feature") => feature()
+      }
+
+  """
+  @type get_feature_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_launch_request() :: %{}
+
+  """
+  @type start_launch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      launch() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "execution" => launch_execution(),
+        "groups" => list(launch_group()()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "metricMonitors" => list(metric_monitor()()),
+        "name" => String.t(),
+        "project" => String.t(),
+        "randomizationSalt" => String.t(),
+        "scheduledSplitsDefinition" => scheduled_splits_launch_definition(),
+        "status" => String.t(),
+        "statusReason" => String.t(),
+        "tags" => map(),
+        "type" => String.t()
+      }
+
+  """
+  @type launch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_experiment_results_response() :: %{
+        optional("details") => [String.t()],
+        optional("reports") => list(experiment_report()()),
+        optional("resultsData") => list(experiment_results_data()()),
+        optional("timestamps") => list([non_neg_integer()]())
+      }
+
+  """
+  @type get_experiment_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_split() :: %{
+        "groupWeights" => map(),
+        "segmentOverrides" => list(segment_override()()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type scheduled_split() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "execution" => experiment_execution(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "metricGoals" => list(metric_goal()()),
+        "name" => String.t(),
+        "onlineAbDefinition" => online_ab_definition(),
+        "project" => String.t(),
+        "randomizationSalt" => String.t(),
+        "samplingRate" => float(),
+        "schedule" => experiment_schedule(),
+        "segment" => String.t(),
+        "status" => String.t(),
+        "statusReason" => String.t(),
+        "tags" => map(),
+        "treatments" => list(treatment()()),
+        "type" => String.t()
+      }
+
+  """
+  @type experiment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{}
+
+  """
+  @type delete_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_launch_response() :: %{
+        optional("endedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type stop_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_experiment_response() :: %{
+        required("experiment") => experiment()
+      }
+
+  """
+  @type update_experiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_launch_request() :: %{}
+
+  """
+  @type get_launch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination_config() :: %{
+        "bucket" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type s3_destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_experiment_results_request() :: %{
+        optional("baseStat") => String.t(),
+        optional("endTime") => [non_neg_integer()],
+        optional("period") => float(),
+        optional("reportNames") => list(String.t()()),
+        optional("resultStats") => list(String.t()()),
+        optional("startTime") => [non_neg_integer()],
+        required("metricNames") => list(String.t()()),
+        required("treatmentNames") => list(String.t()())
+      }
+
+  """
+  @type get_experiment_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_feature_request() :: %{}
+
+  """
+  @type delete_feature_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_request() :: %{}
+
+  """
+  @type delete_launch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_feature_request() :: %{}
+
+  """
+  @type get_feature_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_response() :: %{
+        required("launch") => launch()
+      }
+
+  """
+  @type create_launch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_request() :: %{
+        optional("description") => String.t(),
+        optional("groups") => list(launch_group_config()()),
+        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("randomizationSalt") => String.t(),
+        optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
+      }
+
+  """
+  @type update_launch_request() :: %{String.t() => any()}
+
+  @type batch_evaluate_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type create_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_feature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_launch_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_project_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_segment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type delete_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_segment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type evaluate_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_experiment_results_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_feature_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_segment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_experiments_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_features_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_launches_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_projects_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_segment_references_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_segments_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type put_project_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type start_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_experiment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_launch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type test_segment_pattern_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
+
+  @type update_experiment_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_feature_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_launch_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_project_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_project_data_delivery_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2021-02-01",
@@ -34,6 +1889,7 @@ defmodule AWS.Evidently do
       credential_scope: nil,
       endpoint_prefix: "evidently",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Evidently",
       signature_version: "v4",
@@ -71,13 +1927,28 @@ defmodule AWS.Evidently do
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec batch_evaluate_feature(
+          AWS.Client.t(),
+          String.t(),
+          batch_evaluate_feature_request(),
+          Keyword.t()
+        ) ::
+          {:ok, batch_evaluate_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_evaluate_feature_errors()}
   def batch_evaluate_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -111,13 +1982,23 @@ defmodule AWS.Evidently do
 
   Don't use this operation to update an existing experiment. Instead, use
   [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec create_experiment(AWS.Client.t(), String.t(), create_experiment_request(), Keyword.t()) ::
+          {:ok, create_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -141,13 +2022,23 @@ defmodule AWS.Evidently do
   a project. For information about creating a project, see
   [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update an existing feature. Instead, use
   [UpdateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateFeature.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec create_feature(AWS.Client.t(), String.t(), create_feature_request(), Keyword.t()) ::
+          {:ok, create_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_feature_errors()}
   def create_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -179,13 +2070,23 @@ defmodule AWS.Evidently do
 
   Don't use this operation to update an existing launch. Instead, use
   [UpdateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateLaunch.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec create_launch(AWS.Client.t(), String.t(), create_launch_request(), Keyword.t()) ::
+          {:ok, create_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_launch_errors()}
   def create_launch(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -209,13 +2110,22 @@ defmodule AWS.Evidently do
 
   To update an existing project, use
   [UpdateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProject.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -257,13 +2167,22 @@ defmodule AWS.Evidently do
   [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html)
   operation,
   when Evidently assigns a feature variation to a user.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_segment(AWS.Client.t(), create_segment_request(), Keyword.t()) ::
+          {:ok, create_segment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_segment_errors()}
   def create_segment(%Client{} = client, input, options \\ []) do
     url_path = "/segments"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -285,7 +2204,23 @@ defmodule AWS.Evidently do
 
   To stop an experiment without deleting it, use
   [StopExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html).
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec delete_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_experiment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -293,7 +2228,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -310,7 +2246,23 @@ defmodule AWS.Evidently do
 
   @doc """
   Deletes an Evidently feature.
+
+  ## Required positional parameters:
+   • :feature (t:string String.t/0) (feature)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec delete_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_feature_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_feature_errors()}
   def delete_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -318,7 +2270,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -340,13 +2293,30 @@ defmodule AWS.Evidently do
 
   To stop a launch without deleting it, use
   [StopLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html).
+
+  ## Required positional parameters:
+   • :launch (t:string String.t/0) (launch)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec delete_launch(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_launch_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_launch_errors()}
   def delete_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -367,13 +2337,23 @@ defmodule AWS.Evidently do
   Before you can delete a project, you must delete all the
   features that the project contains. To delete a feature, use
   [DeleteFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+          {:ok, delete_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -394,13 +2374,23 @@ defmodule AWS.Evidently do
   You can't delete a segment that is being used in a launch or experiment, even if
   that
   launch or experiment is not currently running.
+
+  ## Required positional parameters:
+   • :segment (t:string String.t/0) (segment)
+
+  ## Optional parameters:
   """
+  @spec delete_segment(AWS.Client.t(), String.t(), delete_segment_request(), Keyword.t()) ::
+          {:ok, delete_segment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_segment_errors()}
   def delete_segment(%Client{} = client, segment, input, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -458,7 +2448,23 @@ defmodule AWS.Evidently do
 
   If the user is not assigned to a launch or experiment, they are served the
   default variation.
+
+  ## Required positional parameters:
+   • :feature (t:string String.t/0) (feature)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec evaluate_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          evaluate_feature_request(),
+          Keyword.t()
+        ) ::
+          {:ok, evaluate_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, evaluate_feature_errors()}
   def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/evaluations/#{AWS.Util.encode_uri(feature)}"
@@ -466,7 +2472,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -487,15 +2494,30 @@ defmodule AWS.Evidently do
   You must already know the
   experiment name. To retrieve a list of experiments in your account, use
   [ListExperiments](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html).
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec get_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_experiment_errors()}
   def get_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -516,7 +2538,23 @@ defmodule AWS.Evidently do
   results are available up to 63 days after the start of the experiment. They are
   not available after that because
   of CloudWatch data retention policies.
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec get_experiment_results(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          get_experiment_results_request(),
+          Keyword.t()
+        ) ::
+          {:ok, get_experiment_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_experiment_results_errors()}
   def get_experiment_results(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/results"
@@ -524,7 +2562,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -545,15 +2584,30 @@ defmodule AWS.Evidently do
   You must already know the feature name. To
   retrieve a list of features in your account, use
   [ListFeatures](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html).
+
+  ## Required positional parameters:
+   • :feature (t:string String.t/0) (feature)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec get_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_feature_errors()}
   def get_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -564,13 +2618,29 @@ defmodule AWS.Evidently do
   You must already know the
   launch name. To retrieve a list of launches in your account, use
   [ListLaunches](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html).
+
+  ## Required positional parameters:
+   • :launch (t:string String.t/0) (launch)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec get_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_launch_errors()}
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -581,13 +2651,28 @@ defmodule AWS.Evidently do
   You must already know the
   project name. To retrieve a list of projects in your account, use
   [ListProjects](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec get_project(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_project_errors()}
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -597,13 +2682,28 @@ defmodule AWS.Evidently do
 
   Specify the segment you want to view
   by specifying its ARN.
+
+  ## Required positional parameters:
+   • :segment (t:string String.t/0) (segment)
+
+  ## Optional parameters:
   """
+  @spec get_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_segment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_segment_errors()}
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -611,18 +2711,30 @@ defmodule AWS.Evidently do
   @doc """
   Returns configuration details about all the experiments in the specified
   project.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :status (t:String.t/0) (status)
   """
-  def list_experiments(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_experiments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_experiments_errors()}
+  def list_experiments(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, status: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {status, options} = Keyword.pop(options, :status, nil)
 
     query_params =
       if !is_nil(status) do
@@ -631,12 +2743,16 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -645,24 +2761,37 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns configuration details about all the features in the specified project.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_features(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_features_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_features_errors()}
+  def list_features(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -671,6 +2800,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -678,25 +2809,38 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Returns configuration details about all the launches in the specified project.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :status (t:String.t/0) (status)
   """
-  def list_launches(
-        %Client{} = client,
-        project,
-        max_results \\ nil,
-        next_token \\ nil,
-        status \\ nil,
-        options \\ []
-      ) do
+  @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_launches_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_launches_errors()}
+  def list_launches(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, status: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {status, options} = Keyword.pop(options, :status, nil)
 
     query_params =
       if !is_nil(status) do
@@ -705,12 +2849,16 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -719,7 +2867,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -728,11 +2877,28 @@ defmodule AWS.Evidently do
   Returns configuration details about all the projects in the current Region in
   your
   account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_projects_errors()}
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/projects"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -741,6 +2907,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -748,7 +2916,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -756,18 +2925,30 @@ defmodule AWS.Evidently do
   @doc """
   Use this operation to find which experiments or launches are using a specified
   segment.
+
+  ## Required positional parameters:
+   • :segment (t:string String.t/0) (segment)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :type (t:String.t/0) (type)
   """
-  def list_segment_references(
-        %Client{} = client,
-        segment,
-        max_results \\ nil,
-        next_token \\ nil,
-        type,
-        options \\ []
-      ) do
+  @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_segment_references_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_segment_references_errors()}
+  def list_segment_references(%Client{} = client, segment, type, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}/references"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, type: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {type, options} = Keyword.pop(options, :type, nil)
 
     query_params =
       if !is_nil(type) do
@@ -776,12 +2957,16 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -790,7 +2975,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -798,11 +2984,28 @@ defmodule AWS.Evidently do
   @doc """
   Returns a list of audience segments that you have created in your account in
   this Region.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_segments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec list_segments(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_segments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_segments_errors()}
+  def list_segments(%Client{} = client, options \\ []) do
     url_path = "/segments"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -811,6 +3014,8 @@ defmodule AWS.Evidently do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -818,20 +3023,36 @@ defmodule AWS.Evidently do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays the tags associated with an Evidently resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -841,13 +3062,23 @@ defmodule AWS.Evidently do
 
   These events can be used to evaluate a launch or
   an experiment.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec put_project_events(AWS.Client.t(), String.t(), put_project_events_request(), Keyword.t()) ::
+          {:ok, put_project_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_project_events_errors()}
   def put_project_events(%Client{} = client, project, input, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
     query_params = []
 
-    meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "dataplane.")
 
     Request.request_rest(
       client,
@@ -868,7 +3099,23 @@ defmodule AWS.Evidently do
   To create an experiment,
   use
   [CreateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html).
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec start_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          start_experiment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_experiment_errors()}
   def start_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/start"
@@ -876,7 +3123,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -897,7 +3145,17 @@ defmodule AWS.Evidently do
   To create a launch,
   use
   [CreateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html).
+
+  ## Required positional parameters:
+   • :launch (t:string String.t/0) (launch)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec start_launch(AWS.Client.t(), String.t(), String.t(), start_launch_request(), Keyword.t()) ::
+          {:ok, start_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_launch_errors()}
   def start_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/start"
@@ -905,7 +3163,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -925,7 +3184,23 @@ defmodule AWS.Evidently do
 
   If you stop an experiment, you can't
   resume it or restart it.
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec stop_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          stop_experiment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, stop_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_experiment_errors()}
   def stop_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/cancel"
@@ -933,7 +3208,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -958,7 +3234,17 @@ defmodule AWS.Evidently do
   will instead be available to the feature's experiment, if there is one.
   Otherwise, all traffic
   will be served the default variation after the launch is stopped.
+
+  ## Required positional parameters:
+   • :launch (t:string String.t/0) (launch)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec stop_launch(AWS.Client.t(), String.t(), String.t(), stop_launch_request(), Keyword.t()) ::
+          {:ok, stop_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_launch_errors()}
   def stop_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/cancel"
@@ -966,7 +3252,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1006,13 +3293,23 @@ defmodule AWS.Evidently do
   You can associate as many as 50 tags with a resource.
 
   For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1033,13 +3330,22 @@ defmodule AWS.Evidently do
 
   For more information about segments, see
   [CreateSegment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec test_segment_pattern(AWS.Client.t(), test_segment_pattern_request(), Keyword.t()) ::
+          {:ok, test_segment_pattern_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, test_segment_pattern_errors()}
   def test_segment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/test-segment-pattern"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1056,7 +3362,17 @@ defmodule AWS.Evidently do
 
   @doc """
   Removes one or more tags from the specified resource.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1067,7 +3383,8 @@ defmodule AWS.Evidently do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1087,7 +3404,23 @@ defmodule AWS.Evidently do
 
   Don't use this operation to update an experiment's tag. Instead, use
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+
+  ## Required positional parameters:
+   • :experiment (t:string String.t/0) (experiment)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec update_experiment(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_experiment_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_experiment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
@@ -1095,7 +3428,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1116,7 +3450,23 @@ defmodule AWS.Evidently do
   You can't use this operation to update the tags of an existing feature. Instead,
   use
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+
+  ## Required positional parameters:
+   • :feature (t:string String.t/0) (feature)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec update_feature(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_feature_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_feature_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_feature_errors()}
   def update_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
@@ -1124,7 +3474,8 @@ defmodule AWS.Evidently do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1144,13 +3495,30 @@ defmodule AWS.Evidently do
 
   Don't use this operation to update the tags of an existing launch. Instead, use
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+
+  ## Required positional parameters:
+   • :launch (t:string String.t/0) (launch)
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec update_launch(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_launch_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_launch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_launch_errors()}
   def update_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1175,13 +3543,23 @@ defmodule AWS.Evidently do
 
   Don't use this operation to update the tags of a project. Instead, use
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec update_project(AWS.Client.t(), String.t(), update_project_request(), Keyword.t()) ::
+          {:ok, update_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_project_errors()}
   def update_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1208,13 +3586,28 @@ defmodule AWS.Evidently do
 
   You can't specify both `cloudWatchLogs` and `s3Destination` in the same
   operation.
+
+  ## Required positional parameters:
+   • :project (t:string String.t/0) (project)
+
+  ## Optional parameters:
   """
+  @spec update_project_data_delivery(
+          AWS.Client.t(),
+          String.t(),
+          update_project_data_delivery_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_project_data_delivery_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_project_data_delivery_errors()}
   def update_project_data_delivery(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

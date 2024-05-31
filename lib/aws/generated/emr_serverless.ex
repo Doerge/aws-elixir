@@ -32,6 +32,837 @@ defmodule AWS.EMRServerless do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_response() :: %{
+        required("jobRun") => job_run()
+      }
+
+  """
+  @type get_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_configuration_input() :: %{
+        "imageUri" => String.t()
+      }
+
+  """
+  @type image_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_resource_config() :: %{
+        "cpu" => String.t(),
+        "disk" => String.t(),
+        "diskType" => String.t(),
+        "memory" => String.t()
+      }
+
+  """
+  @type worker_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_monitoring_configuration() :: %{
+        "encryptionKeyArn" => String.t(),
+        "logUri" => String.t()
+      }
+
+  """
+  @type s3_monitoring_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_request() :: %{}
+
+  """
+  @type get_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
+  """
+  @type resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initial_capacity_config() :: %{
+        "workerConfiguration" => worker_resource_config(),
+        "workerCount" => float()
+      }
+
+  """
+  @type initial_capacity_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run() :: %{
+        "applicationId" => String.t(),
+        "arn" => String.t(),
+        "billedResourceUtilization" => resource_utilization(),
+        "configurationOverrides" => configuration_overrides(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "executionRole" => String.t(),
+        "executionTimeoutMinutes" => float(),
+        "jobDriver" => list(),
+        "jobRunId" => String.t(),
+        "name" => String.t(),
+        "networkConfiguration" => network_configuration(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "tags" => map(),
+        "totalExecutionDurationSeconds" => [integer()],
+        "totalResourceUtilization" => total_resource_utilization(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type job_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_summary() :: %{
+        "applicationId" => String.t(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "executionRole" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type job_run_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_request() :: %{
+        optional("createdAtAfter") => non_neg_integer(),
+        optional("createdAtBefore") => non_neg_integer(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("states") => list(String.t()())
+      }
+
+  """
+  @type list_job_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      maximum_allowed_resources() :: %{
+        "cpu" => String.t(),
+        "disk" => String.t(),
+        "memory" => String.t()
+      }
+
+  """
+  @type maximum_allowed_resources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration() :: %{
+        "classification" => String.t(),
+        "configurations" => list(configuration()()),
+        "properties" => map()
+      }
+
+  """
+  @type configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitoring_configuration() :: %{
+        "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
+        "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
+        "prometheusMonitoringConfiguration" => prometheus_monitoring_configuration(),
+        "s3MonitoringConfiguration" => s3_monitoring_configuration()
+      }
+
+  """
+  @type monitoring_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_start_config() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type auto_start_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_stop_config() :: %{
+        "enabled" => [boolean()],
+        "idleTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type auto_stop_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_type_specification() :: %{
+        "imageConfiguration" => image_configuration()
+      }
+
+  """
+  @type worker_type_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_submit() :: %{
+        "entryPoint" => String.t(),
+        "entryPointArguments" => list(String.t()()),
+        "sparkSubmitParameters" => String.t()
+      }
+
+  """
+  @type spark_submit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prometheus_monitoring_configuration() :: %{
+        "remoteWriteUrl" => String.t()
+      }
+
+  """
+  @type prometheus_monitoring_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_run_response() :: %{
+        required("applicationId") => String.t(),
+        required("arn") => String.t(),
+        required("jobRunId") => String.t()
+      }
+
+  """
+  @type start_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_run_response() :: %{
+        required("applicationId") => String.t(),
+        required("jobRunId") => String.t()
+      }
+
+  """
+  @type cancel_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dashboard_for_job_run_response() :: %{
+        optional("url") => String.t()
+      }
+
+  """
+  @type get_dashboard_for_job_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_request() :: %{}
+
+  """
+  @type stop_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_response() :: %{
+        optional("nextToken") => String.t(),
+        required("jobRuns") => list(job_run_summary()())
+      }
+
+  """
+  @type list_job_runs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application() :: %{
+        "applicationId" => String.t(),
+        "architecture" => String.t(),
+        "arn" => String.t(),
+        "autoStartConfiguration" => auto_start_config(),
+        "autoStopConfiguration" => auto_stop_config(),
+        "createdAt" => non_neg_integer(),
+        "imageConfiguration" => image_configuration(),
+        "initialCapacity" => map(),
+        "interactiveConfiguration" => interactive_configuration(),
+        "maximumCapacity" => maximum_allowed_resources(),
+        "monitoringConfiguration" => monitoring_configuration(),
+        "name" => String.t(),
+        "networkConfiguration" => network_configuration(),
+        "releaseLabel" => String.t(),
+        "runtimeConfiguration" => list(configuration()()),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "tags" => map(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "workerTypeSpecifications" => map()
+      }
+
+  """
+  @type application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("architecture") => String.t(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("name") => String.t(),
+        optional("networkConfiguration") => network_configuration(),
+        optional("runtimeConfiguration") => list(configuration()()),
+        optional("tags") => map(),
+        optional("workerTypeSpecifications") => map(),
+        required("clientToken") => String.t(),
+        required("releaseLabel") => String.t(),
+        required("type") => String.t()
+      }
+
+  """
+  @type create_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        optional("name") => String.t(),
+        required("applicationId") => String.t(),
+        required("arn") => String.t()
+      }
+
+  """
+  @type create_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interactive_configuration() :: %{
+        "livyEndpointEnabled" => [boolean()],
+        "studioEnabled" => [boolean()]
+      }
+
+  """
+  @type interactive_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_response() :: %{}
+
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_response() :: %{}
+
+  """
+  @type start_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_type_specification_input() :: %{
+        "imageConfiguration" => image_configuration_input()
+      }
+
+  """
+  @type worker_type_specification_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hive() :: %{
+        "initQueryFile" => String.t(),
+        "parameters" => String.t(),
+        "query" => String.t()
+      }
+
+  """
+  @type hive() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("architecture") => String.t(),
+        optional("autoStartConfiguration") => auto_start_config(),
+        optional("autoStopConfiguration") => auto_stop_config(),
+        optional("imageConfiguration") => image_configuration_input(),
+        optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
+        optional("maximumCapacity") => maximum_allowed_resources(),
+        optional("monitoringConfiguration") => monitoring_configuration(),
+        optional("networkConfiguration") => network_configuration(),
+        optional("releaseLabel") => String.t(),
+        optional("runtimeConfiguration") => list(configuration()()),
+        optional("workerTypeSpecifications") => map(),
+        required("clientToken") => String.t()
+      }
+
+  """
+  @type update_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        required("application") => application()
+      }
+
+  """
+  @type update_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_request() :: %{}
+
+  """
+  @type start_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_run_request() :: %{
+        optional("configurationOverrides") => configuration_overrides(),
+        optional("executionTimeoutMinutes") => float(),
+        optional("jobDriver") => list(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("clientToken") => String.t(),
+        required("executionRoleArn") => String.t()
+      }
+
+  """
+  @type start_job_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        required("application") => application()
+      }
+
+  """
+  @type get_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("states") => list(String.t()())
+      }
+
+  """
+  @type list_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_configuration() :: %{
+        "securityGroupIds" => list(String.t()()),
+        "subnetIds" => list(String.t()())
+      }
+
+  """
+  @type network_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_response() :: %{}
+
+  """
+  @type stop_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dashboard_for_job_run_request() :: %{}
+
+  """
+  @type get_dashboard_for_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      total_resource_utilization() :: %{
+        "memoryGBHour" => [float()],
+        "storageGBHour" => [float()],
+        "vCPUHour" => [float()]
+      }
+
+  """
+  @type total_resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_overrides() :: %{
+        "applicationConfiguration" => list(configuration()()),
+        "monitoringConfiguration" => monitoring_configuration()
+      }
+
+  """
+  @type configuration_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_summary() :: %{
+        "architecture" => String.t(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type application_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        optional("nextToken") => String.t(),
+        required("applications") => list(application_summary()())
+      }
+
+  """
+  @type list_applications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_persistence_monitoring_configuration() :: %{
+        "enabled" => [boolean()],
+        "encryptionKeyArn" => String.t()
+      }
+
+  """
+  @type managed_persistence_monitoring_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_run_request() :: %{}
+
+  """
+  @type cancel_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      image_configuration() :: %{
+        "imageUri" => String.t(),
+        "resolvedImageDigest" => String.t()
+      }
+
+  """
+  @type image_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logging_configuration() :: %{
+        "enabled" => [boolean()],
+        "encryptionKeyArn" => String.t(),
+        "logGroupName" => String.t(),
+        "logStreamNamePrefix" => String.t(),
+        "logTypes" => map()
+      }
+
+  """
+  @type cloud_watch_logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{}
+
+  """
+  @type get_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @type cancel_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type create_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_dashboard_for_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_job_run_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_applications_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type start_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type start_job_run_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_application_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2021-07-13",
@@ -39,6 +870,7 @@ defmodule AWS.EMRServerless do
       credential_scope: nil,
       endpoint_prefix: "emr-serverless",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EMR Serverless",
       signature_version: "v4",
@@ -49,7 +881,23 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Cancels a job run.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+   • :job_run_id (t:string String.t/0) (jobRunId)
+
+  ## Optional parameters:
   """
+  @spec cancel_job_run(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          cancel_job_run_request(),
+          Keyword.t()
+        ) ::
+          {:ok, cancel_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_job_run_errors()}
   def cancel_job_run(%Client{} = client, application_id, job_run_id, input, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
@@ -57,7 +905,8 @@ defmodule AWS.EMRServerless do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -74,13 +923,22 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Creates an application.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_application(AWS.Client.t(), create_application_request(), Keyword.t()) ::
+          {:ok, create_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -100,13 +958,23 @@ defmodule AWS.EMRServerless do
 
   An application has to be in a stopped or created state in order
   to be deleted.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
+          {:ok, delete_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -123,13 +991,28 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Displays detailed information about a specified application.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -148,47 +1031,89 @@ defmodule AWS.EMRServerless do
   The URL is valid for one hour after you generate it. To access the application
   UI
   after that hour elapses, you must invoke the API again to generate a new URL.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+   • :job_run_id (t:string String.t/0) (jobRunId)
+
+  ## Optional parameters:
   """
+  @spec get_dashboard_for_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_dashboard_for_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dashboard_for_job_run_errors()}
   def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Displays detailed information about a job run.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+   • :job_run_id (t:string String.t/0) (jobRunId)
+
+  ## Optional parameters:
   """
+  @spec get_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists applications based on a set of parameters.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :states (t:String.t/0) (states)
   """
-  def list_applications(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        states \\ nil,
-        options \\ []
-      ) do
+  @spec list_applications(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_applications_errors()}
+  def list_applications(%Client{} = client, options \\ []) do
     url_path = "/applications"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil, states: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {states, options} = Keyword.pop(options, :states, nil)
 
     query_params =
       if !is_nil(states) do
@@ -197,12 +1122,16 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -211,27 +1140,40 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists job runs based on a set of parameters.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
+   • :created_at_after (t:String.t/0) (createdAtAfter)
+   • :created_at_before (t:String.t/0) (createdAtBefore)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :states (t:String.t/0) (states)
   """
-  def list_job_runs(
-        %Client{} = client,
-        application_id,
-        created_at_after \\ nil,
-        created_at_before \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        states \\ nil,
-        options \\ []
-      ) do
+  @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_job_runs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_job_runs_errors()}
+  def list_job_runs(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [created_at_after: nil, created_at_before: nil, max_results: nil, next_token: nil, states: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {states, options} = Keyword.pop(options, :states, nil)
 
     query_params =
       if !is_nil(states) do
@@ -240,6 +1182,8 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
@@ -247,12 +1191,16 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
       else
         query_params
       end
+
+    {created_at_before, options} = Keyword.pop(options, :created_at_before, nil)
 
     query_params =
       if !is_nil(created_at_before) do
@@ -261,6 +1209,8 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
+    {created_at_after, options} = Keyword.pop(options, :created_at_after, nil)
+
     query_params =
       if !is_nil(created_at_after) do
         [{"createdAtAfter", created_at_after} | query_params]
@@ -268,33 +1218,59 @@ defmodule AWS.EMRServerless do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Lists the tags assigned to the resources.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Starts a specified application and initializes initial capacity if configured.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec start_application(AWS.Client.t(), String.t(), start_application_request(), Keyword.t()) ::
+          {:ok, start_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_application_errors()}
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -311,13 +1287,23 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Starts a job run.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec start_job_run(AWS.Client.t(), String.t(), start_job_run_request(), Keyword.t()) ::
+          {:ok, start_job_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -337,13 +1323,23 @@ defmodule AWS.EMRServerless do
 
   All scheduled
   and running jobs must be completed or cancelled before stopping an application.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec stop_application(AWS.Client.t(), String.t(), stop_application_request(), Keyword.t()) ::
+          {:ok, stop_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -369,13 +1365,23 @@ defmodule AWS.EMRServerless do
   owner, or environment. When you have many resources of the same type, you can
   quickly
   identify a specific resource based on the tags you've assigned to it.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -392,7 +1398,17 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Removes tags from resources.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -403,7 +1419,8 @@ defmodule AWS.EMRServerless do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -423,13 +1440,23 @@ defmodule AWS.EMRServerless do
 
   An application has to be in a stopped or created state
   in order to be updated.
+
+  ## Required positional parameters:
+   • :application_id (t:string String.t/0) (applicationId)
+
+  ## Optional parameters:
   """
+  @spec update_application(AWS.Client.t(), String.t(), update_application_request(), Keyword.t()) ::
+          {:ok, update_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

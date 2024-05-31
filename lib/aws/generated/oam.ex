@@ -32,6 +32,621 @@ defmodule AWS.OAM do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      create_sink_input() :: %{
+        optional("Tags") => map(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_sink_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => [String.t()],
+        "LinkConfiguration" => link_configuration(),
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
+  """
+  @type get_link_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_input() :: %{
+        required("Identifier") => String.t()
+      }
+
+  """
+  @type delete_link_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_configuration() :: %{
+        "Filter" => String.t()
+      }
+
+  """
+  @type metric_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_group_configuration() :: %{
+        "Filter" => String.t()
+      }
+
+  """
+  @type log_group_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_required_parameter_exception() :: %{
+        "amznErrorType" => [String.t()],
+        "message" => [String.t()]
+      }
+
+  """
+  @type missing_required_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sink_output() :: %{}
+
+  """
+  @type delete_sink_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_links_output() :: %{
+        "Items" => list(list_links_item()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_links_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sink_policy_output() :: %{
+        "Policy" => [String.t()],
+        "SinkArn" => [String.t()],
+        "SinkId" => [String.t()]
+      }
+
+  """
+  @type put_sink_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attached_links_output() :: %{
+        "Items" => list(list_attached_links_item()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_attached_links_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sink_input() :: %{
+        required("Identifier") => String.t()
+      }
+
+  """
+  @type delete_sink_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sink_policy_input() :: %{
+        required("SinkIdentifier") => String.t()
+      }
+
+  """
+  @type get_sink_policy_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sink_policy_output() :: %{
+        "Policy" => [String.t()],
+        "SinkArn" => [String.t()],
+        "SinkId" => [String.t()]
+      }
+
+  """
+  @type get_sink_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attached_links_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SinkIdentifier") => String.t()
+      }
+
+  """
+  @type list_attached_links_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_input() :: %{
+        optional("LinkConfiguration") => link_configuration(),
+        optional("Tags") => map(),
+        required("LabelTemplate") => String.t(),
+        required("ResourceTypes") => list(list(any())()),
+        required("SinkIdentifier") => String.t()
+      }
+
+  """
+  @type create_link_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attached_links_item() :: %{
+        "Label" => [String.t()],
+        "LinkArn" => [String.t()],
+        "ResourceTypes" => list([String.t()]())
+      }
+
+  """
+  @type list_attached_links_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_links_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_links_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_input() :: %{
+        optional("LinkConfiguration") => link_configuration(),
+        required("Identifier") => String.t(),
+        required("ResourceTypes") => list(list(any())())
+      }
+
+  """
+  @type update_link_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sink_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()],
+        "Tags" => map()
+      }
+
+  """
+  @type create_sink_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sink_input() :: %{
+        required("Identifier") => String.t()
+      }
+
+  """
+  @type get_sink_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => [String.t()],
+        "LinkConfiguration" => link_configuration(),
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
+  """
+  @type create_link_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_configuration() :: %{
+        "LogGroupConfiguration" => log_group_configuration(),
+        "MetricConfiguration" => metric_configuration()
+      }
+
+  """
+  @type link_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_links_item() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()]
+      }
+
+  """
+  @type list_links_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sinks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_sinks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "amznErrorType" => [String.t()],
+        "message" => [String.t()]
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sinks_output() :: %{
+        "Items" => list(list_sinks_item()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_sinks_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_link_input() :: %{
+        required("Identifier") => String.t()
+      }
+
+  """
+  @type get_link_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_output() :: %{}
+
+  """
+  @type delete_link_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_fault() :: %{
+        "Message" => [String.t()],
+        "amznErrorType" => [String.t()]
+      }
+
+  """
+  @type internal_service_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sinks_item() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()]
+      }
+
+  """
+  @type list_sinks_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sink_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Name" => [String.t()],
+        "Tags" => map()
+      }
+
+  """
+  @type get_sink_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_output() :: %{
+        "Arn" => [String.t()],
+        "Id" => [String.t()],
+        "Label" => [String.t()],
+        "LabelTemplate" => String.t(),
+        "LinkConfiguration" => link_configuration(),
+        "ResourceTypes" => list([String.t()]()),
+        "SinkArn" => [String.t()],
+        "Tags" => map()
+      }
+
+  """
+  @type update_link_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_sink_policy_input() :: %{
+        required("Policy") => String.t(),
+        required("SinkIdentifier") => String.t()
+      }
+
+  """
+  @type put_sink_policy_input() :: %{String.t() => any()}
+
+  @type create_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type create_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type delete_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type delete_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | missing_required_parameter_exception()
+
+  @type get_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type get_sink_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type get_sink_policy_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type list_attached_links_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type list_links_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+
+  @type list_sinks_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type put_sink_policy_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception() | validation_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type update_link_errors() ::
+          internal_service_fault()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | missing_required_parameter_exception()
+
   def metadata do
     %{
       api_version: "2022-06-10",
@@ -39,6 +654,7 @@ defmodule AWS.OAM do
       credential_scope: nil,
       endpoint_prefix: "oam",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "OAM",
       signature_version: "v4",
@@ -50,6 +666,12 @@ defmodule AWS.OAM do
   @doc """
   Creates a link between a source account and a sink that you have created in a
   monitoring account.
+
+  After the link is created,
+  data is sent from the source account to the monitoring account. When you create
+  a link, you can optionally specify filters
+  that specify which metric namespaces and which log groups are shared from the
+  source account to the monitoring account.
 
   Before you create a link, you must create a sink in the monitoring account and
   create a
@@ -66,13 +688,22 @@ defmodule AWS.OAM do
   Each monitoring account can be linked to as many as 100,000 source accounts.
 
   Each source account can be linked to as many as five monitoring accounts.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_link(AWS.Client.t(), create_link_input(), Keyword.t()) ::
+          {:ok, create_link_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_link_errors()}
   def create_link(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -101,15 +732,24 @@ defmodule AWS.OAM do
   For more information, see
   [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
 
-  Each account can contain one sink. If you delete a sink, you can then create a
-  new one in that account.
+  Each account can contain one sink per Region. If you delete a sink, you can then
+  create a new one in that Region.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec create_sink(AWS.Client.t(), create_sink_input(), Keyword.t()) ::
+          {:ok, create_sink_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_sink_errors()}
   def create_sink(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -129,13 +769,22 @@ defmodule AWS.OAM do
 
   You must run this operation
   in the source account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_link(AWS.Client.t(), delete_link_input(), Keyword.t()) ::
+          {:ok, delete_link_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_link_errors()}
   def delete_link(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -154,13 +803,22 @@ defmodule AWS.OAM do
   Deletes a sink.
 
   You must delete all links to a sink before you can delete that sink.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec delete_sink(AWS.Client.t(), delete_sink_input(), Keyword.t()) ::
+          {:ok, delete_sink_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_sink_errors()}
   def delete_sink(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -181,13 +839,22 @@ defmodule AWS.OAM do
   To use this operation, provide the link ARN. To retrieve a list of link ARNs,
   use
   [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_link(AWS.Client.t(), get_link_input(), Keyword.t()) ::
+          {:ok, get_link_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_link_errors()}
   def get_link(%Client{} = client, input, options \\ []) do
     url_path = "/GetLink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -208,13 +875,22 @@ defmodule AWS.OAM do
   To use this operation, provide the sink ARN. To retrieve a list of sink ARNs,
   use
   [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_sink(AWS.Client.t(), get_sink_input(), Keyword.t()) ::
+          {:ok, get_sink_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_sink_errors()}
   def get_sink(%Client{} = client, input, options \\ []) do
     url_path = "/GetSink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -235,13 +911,22 @@ defmodule AWS.OAM do
   The sink policy specifies what
   accounts can attach to this sink as source accounts, and what types of data they
   can share.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec get_sink_policy(AWS.Client.t(), get_sink_policy_input(), Keyword.t()) ::
+          {:ok, get_sink_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_sink_policy_errors()}
   def get_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetSinkPolicy"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -264,13 +949,22 @@ defmodule AWS.OAM do
   use
   [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html).   To find a list of links for one source account, use
   [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_attached_links(AWS.Client.t(), list_attached_links_input(), Keyword.t()) ::
+          {:ok, list_attached_links_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attached_links_errors()}
   def list_attached_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListAttachedLinks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -293,13 +987,22 @@ defmodule AWS.OAM do
   To find a list of links for one monitoring account sink, use
   [ListAttachedLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html)
   from within the monitoring account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_links(AWS.Client.t(), list_links_input(), Keyword.t()) ::
+          {:ok, list_links_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_links_errors()}
   def list_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListLinks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -317,13 +1020,22 @@ defmodule AWS.OAM do
   @doc """
   Use this operation in a monitoring account to return the list of sinks created
   in that account.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec list_sinks(AWS.Client.t(), list_sinks_input(), Keyword.t()) ::
+          {:ok, list_sinks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sinks_errors()}
   def list_sinks(%Client{} = client, input, options \\ []) do
     url_path = "/ListSinks"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -342,13 +1054,28 @@ defmodule AWS.OAM do
   Displays the tags associated with a resource.
 
   Both sinks and links support tagging.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -384,13 +1111,22 @@ defmodule AWS.OAM do
 
   See the examples in this section to see how to specify permitted source accounts
   and data types.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec put_sink_policy(AWS.Client.t(), put_sink_policy_input(), Keyword.t()) ::
+          {:ok, put_sink_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_sink_policy_errors()}
   def put_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutSinkPolicy"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -432,13 +1168,23 @@ defmodule AWS.OAM do
   sinks you must have the `oam:ResourceTag` permission. The
   `iam:ResourceTag` permission does not allow you to tag and untag links and
   sinks.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_input(), Keyword.t()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -451,7 +1197,17 @@ defmodule AWS.OAM do
   sinks you must have the `oam:ResourceTag` permission. The
   `iam:TagResource` permission does not allow you to tag and untag links and
   sinks.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -462,7 +1218,8 @@ defmodule AWS.OAM do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -484,15 +1241,28 @@ defmodule AWS.OAM do
 
   You can't change the sink or change the monitoring account with this operation.
 
+  When you update a link, you can optionally specify filters
+  that specify which metric namespaces and which log groups are shared from the
+  source account to the monitoring account.
+
   To update the list of tags associated with the sink, use
   [TagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec update_link(AWS.Client.t(), update_link_input(), Keyword.t()) ::
+          {:ok, update_link_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_link_errors()}
   def update_link(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLink"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

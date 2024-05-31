@@ -27,6 +27,353 @@ defmodule AWS.IoTDataPlane do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_request() :: %{
+        optional("shadowName") => String.t()
+      }
+
+  """
+  @type delete_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type delete_thing_shadow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retained_message_request() :: %{}
+
+  """
+  @type get_retained_message_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retained_message_response() :: %{
+        "lastModifiedTime" => float(),
+        "payload" => binary(),
+        "qos" => integer(),
+        "topic" => String.t(),
+        "userProperties" => binary()
+      }
+
+  """
+  @type get_retained_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_request() :: %{
+        optional("shadowName") => String.t()
+      }
+
+  """
+  @type get_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type get_thing_shadow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_request() :: %{
+        optional("nextToken") => String.t(),
+        optional("pageSize") => integer()
+      }
+
+  """
+  @type list_named_shadows_for_thing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_named_shadows_for_thing_response() :: %{
+        "nextToken" => String.t(),
+        "results" => list(String.t()()),
+        "timestamp" => float()
+      }
+
+  """
+  @type list_named_shadows_for_thing_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_retained_messages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retained_messages_response() :: %{
+        "nextToken" => String.t(),
+        "retainedTopics" => list(retained_message_summary()())
+      }
+
+  """
+  @type list_retained_messages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_request() :: %{
+        optional("contentType") => String.t(),
+        optional("correlationData") => String.t(),
+        optional("messageExpiry") => float(),
+        optional("payload") => binary(),
+        optional("payloadFormatIndicator") => list(any()),
+        optional("qos") => integer(),
+        optional("responseTopic") => String.t(),
+        optional("retain") => boolean(),
+        optional("userProperties") => String.t()
+      }
+
+  """
+  @type publish_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_entity_too_large_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type request_entity_too_large_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retained_message_summary() :: %{
+        "lastModifiedTime" => float(),
+        "payloadSize" => float(),
+        "qos" => integer(),
+        "topic" => String.t()
+      }
+
+  """
+  @type retained_message_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_document_encoding_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unsupported_document_encoding_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_request() :: %{
+        optional("shadowName") => String.t(),
+        required("payload") => binary()
+      }
+
+  """
+  @type update_thing_shadow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_shadow_response() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type update_thing_shadow_response() :: %{String.t() => any()}
+
+  @type delete_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type get_retained_message_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type get_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type list_named_shadows_for_thing_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type list_retained_messages_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type publish_errors() ::
+          unauthorized_exception()
+          | throttling_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+
+  @type update_thing_shadow_errors() ::
+          unsupported_document_encoding_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | request_entity_too_large_exception()
+          | method_not_allowed_exception()
+          | invalid_request_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2015-05-28",
@@ -34,6 +381,7 @@ defmodule AWS.IoTDataPlane do
       credential_scope: nil,
       endpoint_prefix: "data-ats.iot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Data Plane",
       signature_version: "v4",
@@ -51,7 +399,22 @@ defmodule AWS.IoTDataPlane do
   For more information, see
   [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html)
   in the IoT Developer Guide.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
+   • :shadow_name (t:String.t/0) (name)
   """
+  @spec delete_thing_shadow(
+          AWS.Client.t(),
+          String.t(),
+          delete_thing_shadow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_thing_shadow_errors()}
   def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
@@ -62,7 +425,8 @@ defmodule AWS.IoTDataPlane do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -89,13 +453,28 @@ defmodule AWS.IoTDataPlane do
   action.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+
+  ## Required positional parameters:
+   • :topic (t:string String.t/0) (topic)
+
+  ## Optional parameters:
   """
+  @spec get_retained_message(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_retained_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_retained_message_errors()}
   def get_retained_message(%Client{} = client, topic, options \\ []) do
     url_path = "/retainedMessage/#{AWS.Util.encode_uri(topic)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -110,11 +489,28 @@ defmodule AWS.IoTDataPlane do
   [GetThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html)
   in the
   IoT Developer Guide.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
+   • :shadow_name (t:String.t/0) (name)
   """
-  def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
+  @spec get_thing_shadow(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_thing_shadow_errors()}
+  def get_thing_shadow(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [shadow_name: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {shadow_name, options} = Keyword.pop(options, :shadow_name, nil)
 
     query_params =
       if !is_nil(shadow_name) do
@@ -123,7 +519,8 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -134,17 +531,29 @@ defmodule AWS.IoTDataPlane do
   Requires permission to access the
   [ListNamedShadowsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
+   • :next_token (t:String.t/0) (nextToken)
+   • :page_size (t:String.t/0) (pageSize)
   """
-  def list_named_shadows_for_thing(
-        %Client{} = client,
-        thing_name,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
+  @spec list_named_shadows_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_named_shadows_for_thing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_named_shadows_for_thing_errors()}
+  def list_named_shadows_for_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/api/things/shadow/ListNamedShadowsForThing/#{AWS.Util.encode_uri(thing_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [next_token: nil, page_size: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {page_size, options} = Keyword.pop(options, :page_size, nil)
 
     query_params =
       if !is_nil(page_size) do
@@ -153,6 +562,8 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
@@ -160,7 +571,8 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -181,16 +593,28 @@ defmodule AWS.IoTDataPlane do
   action.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_retained_messages(
-        %Client{} = client,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_retained_messages(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_retained_messages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_retained_messages_errors()}
+  def list_retained_messages(%Client{} = client, options \\ []) do
     url_path = "/retainedMessage"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -199,6 +623,8 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -206,7 +632,8 @@ defmodule AWS.IoTDataPlane do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -223,7 +650,24 @@ defmodule AWS.IoTDataPlane do
   IoT Developer Guide.
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+
+  ## Required positional parameters:
+   • :topic (t:string String.t/0) (topic)
+
+  ## Optional parameters:
+   • :content_type (t:String.t/0) (contentType)
+   • :message_expiry (t:String.t/0) (messageExpiry)
+   • :qos (t:String.t/0) (qos)
+   • :response_topic (t:String.t/0) (responseTopic)
+   • :retain (t:String.t/0) (retain)
+   • :correlation_data (t:String.t/0) (x-amz-mqtt5-correlation-data)
+   • :payload_format_indicator (t:String.t/0) (x-amz-mqtt5-payload-format-indicator)
+   • :user_properties (t:String.t/0) (x-amz-mqtt5-user-properties)
   """
+  @spec publish(AWS.Client.t(), String.t(), publish_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, publish_errors()}
   def publish(%Client{} = client, topic, input, options \\ []) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
 
@@ -245,7 +689,8 @@ defmodule AWS.IoTDataPlane do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -270,7 +715,22 @@ defmodule AWS.IoTDataPlane do
   [UpdateThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html)
   in the
   IoT Developer Guide.
+
+  ## Required positional parameters:
+   • :thing_name (t:string String.t/0) (thingName)
+
+  ## Optional parameters:
+   • :shadow_name (t:String.t/0) (name)
   """
+  @spec update_thing_shadow(
+          AWS.Client.t(),
+          String.t(),
+          update_thing_shadow_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_thing_shadow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_thing_shadow_errors()}
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
@@ -281,7 +741,8 @@ defmodule AWS.IoTDataPlane do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

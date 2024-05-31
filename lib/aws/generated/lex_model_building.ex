@@ -15,6 +15,1871 @@ defmodule AWS.LexModelBuilding do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      builtin_slot_type_metadata() :: %{
+        "signature" => String.t(),
+        "supportedLocales" => list(list(any())())
+      }
+
+  """
+  @type builtin_slot_type_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_types_response() :: %{
+        "nextToken" => String.t(),
+        "slotTypes" => list(slot_type_metadata()())
+      }
+
+  """
+  @type get_slot_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_request() :: %{
+        optional("abortStatement") => statement(),
+        optional("checksum") => String.t(),
+        optional("clarificationPrompt") => prompt(),
+        optional("createVersion") => boolean(),
+        optional("description") => String.t(),
+        optional("detectSentiment") => boolean(),
+        optional("enableModelImprovements") => boolean(),
+        optional("idleSessionTTLInSeconds") => integer(),
+        optional("intents") => list(intent()()),
+        optional("nluIntentConfidenceThreshold") => float(),
+        optional("processBehavior") => list(any()),
+        optional("tags") => list(tag()()),
+        optional("voiceId") => String.t(),
+        required("childDirected") => boolean(),
+        required("locale") => list(any())
+      }
+
+  """
+  @type put_bot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_associations_response() :: %{
+        "botChannelAssociations" => list(bot_channel_association()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_bot_channel_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intents_request() :: %{
+        optional("locale") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("signatureContains") => String.t()
+      }
+
+  """
+  @type get_builtin_intents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_failure_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fulfillment_activity() :: %{
+        "codeHook" => code_hook(),
+        "type" => list(any())
+      }
+
+  """
+  @type fulfillment_activity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_summary() :: %{
+        "migrationId" => String.t(),
+        "migrationStatus" => list(any()),
+        "migrationStrategy" => list(any()),
+        "migrationTimestamp" => non_neg_integer(),
+        "v1BotLocale" => list(any()),
+        "v1BotName" => String.t(),
+        "v1BotVersion" => String.t(),
+        "v2BotId" => String.t(),
+        "v2BotRole" => String.t()
+      }
+
+  """
+  @type migration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migration_response() :: %{
+        "alerts" => list(migration_alert()()),
+        "migrationId" => String.t(),
+        "migrationStatus" => list(any()),
+        "migrationStrategy" => list(any()),
+        "migrationTimestamp" => non_neg_integer(),
+        "v1BotLocale" => list(any()),
+        "v1BotName" => String.t(),
+        "v1BotVersion" => String.t(),
+        "v2BotId" => String.t(),
+        "v2BotRole" => String.t()
+      }
+
+  """
+  @type get_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_reference() :: %{
+        "name" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type resource_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_slot_types_response() :: %{
+        "nextToken" => String.t(),
+        "slotTypes" => list(builtin_slot_type_metadata()())
+      }
+
+  """
+  @type get_builtin_slot_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_slot_type_response() :: %{
+        "checksum" => String.t(),
+        "createVersion" => boolean(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "enumerationValues" => list(enumeration_value()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "parentSlotTypeSignature" => String.t(),
+        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "valueSelectionStrategy" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type put_slot_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_response() :: %{
+        "createdDate" => non_neg_integer(),
+        "failureReason" => list(String.t()()),
+        "importId" => String.t(),
+        "importStatus" => list(any()),
+        "mergeStrategy" => list(any()),
+        "name" => String.t(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type get_import_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_request() :: %{}
+
+  """
+  @type get_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "exampleReference" => resource_reference(),
+        "referenceType" => list(any())
+      }
+
+  """
+  @type resource_in_use_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_migration_request() :: %{
+        required("migrationStrategy") => list(any()),
+        required("v1BotName") => String.t(),
+        required("v1BotVersion") => String.t(),
+        required("v2BotName") => String.t(),
+        required("v2BotRole") => String.t()
+      }
+
+  """
+  @type start_migration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slot_type_version_response() :: %{
+        "checksum" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "enumerationValues" => list(enumeration_value()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "parentSlotTypeSignature" => String.t(),
+        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "valueSelectionStrategy" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type create_slot_type_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_settings_request() :: %{
+        "destination" => list(any()),
+        "kmsKeyArn" => String.t(),
+        "logType" => list(any()),
+        "resourceArn" => String.t()
+      }
+
+  """
+  @type log_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_request() :: %{}
+
+  """
+  @type delete_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_response() :: %{
+        "abortStatement" => statement(),
+        "checksum" => String.t(),
+        "childDirected" => boolean(),
+        "clarificationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "detectSentiment" => boolean(),
+        "enableModelImprovements" => boolean(),
+        "failureReason" => String.t(),
+        "idleSessionTTLInSeconds" => integer(),
+        "intents" => list(intent()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "locale" => list(any()),
+        "name" => String.t(),
+        "nluIntentConfidenceThreshold" => float(),
+        "status" => list(any()),
+        "version" => String.t(),
+        "voiceId" => String.t()
+      }
+
+  """
+  @type get_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      follow_up_prompt() :: %{
+        "prompt" => prompt(),
+        "rejectionStatement" => statement()
+      }
+
+  """
+  @type follow_up_prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_context() :: %{
+        "name" => String.t(),
+        "timeToLiveInSeconds" => integer(),
+        "turnsToLive" => integer()
+      }
+
+  """
+  @type output_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot() :: %{
+        "defaultValueSpec" => slot_default_value_spec(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "obfuscationSetting" => list(any()),
+        "priority" => integer(),
+        "responseCard" => String.t(),
+        "sampleUtterances" => list(String.t()()),
+        "slotConstraint" => list(any()),
+        "slotType" => String.t(),
+        "slotTypeVersion" => String.t(),
+        "valueElicitationPrompt" => prompt()
+      }
+
+  """
+  @type slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_slot_types_request() :: %{
+        optional("locale") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("signatureContains") => String.t()
+      }
+
+  """
+  @type get_builtin_slot_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_version_request() :: %{
+        optional("checksum") => String.t()
+      }
+
+  """
+  @type create_bot_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_association_response() :: %{
+        "botAlias" => String.t(),
+        "botConfiguration" => map(),
+        "botName" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "failureReason" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type get_bot_channel_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intent_response() :: %{
+        "signature" => String.t(),
+        "slots" => list(builtin_intent_slot()()),
+        "supportedLocales" => list(list(any())())
+      }
+
+  """
+  @type get_builtin_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slot_type_version_request() :: %{
+        optional("checksum") => String.t()
+      }
+
+  """
+  @type create_slot_type_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_type_versions_response() :: %{
+        "nextToken" => String.t(),
+        "slotTypes" => list(slot_type_metadata()())
+      }
+
+  """
+  @type get_slot_type_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slot_type_version_request() :: %{}
+
+  """
+  @type delete_slot_type_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      statement() :: %{
+        "messages" => list(message()()),
+        "responseCard" => String.t()
+      }
+
+  """
+  @type statement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_response() :: %{
+        "bots" => list(bot_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_bots_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      builtin_intent_metadata() :: %{
+        "signature" => String.t(),
+        "supportedLocales" => list(list(any())())
+      }
+
+  """
+  @type builtin_intent_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migrations_response() :: %{
+        "migrationSummaries" => list(migration_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_migrations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_alias_metadata() :: %{
+        "botName" => String.t(),
+        "botVersion" => String.t(),
+        "checksum" => String.t(),
+        "conversationLogs" => conversation_logs_response(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t()
+      }
+
+  """
+  @type bot_alias_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_channel_association() :: %{
+        "botAlias" => String.t(),
+        "botConfiguration" => map(),
+        "botName" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "failureReason" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type bot_channel_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migrations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("migrationStatusEquals") => list(any()),
+        optional("nextToken") => String.t(),
+        optional("sortByAttribute") => list(any()),
+        optional("sortByOrder") => list(any()),
+        optional("v1BotNameContains") => String.t()
+      }
+
+  """
+  @type get_migrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent() :: %{
+        "intentName" => String.t(),
+        "intentVersion" => String.t()
+      }
+
+  """
+  @type intent() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intents_response() :: %{
+        "intents" => list(intent_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_intents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_versions_response() :: %{
+        "intents" => list(intent_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_intent_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kendra_configuration() :: %{
+        "kendraIndex" => String.t(),
+        "queryFilterString" => String.t(),
+        "role" => String.t()
+      }
+
+  """
+  @type kendra_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intent_version_request() :: %{}
+
+  """
+  @type delete_intent_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_regex_configuration() :: %{
+        "pattern" => String.t()
+      }
+
+  """
+  @type slot_type_regex_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_response() :: %{
+        "checksum" => String.t(),
+        "conclusionStatement" => statement(),
+        "confirmationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "dialogCodeHook" => code_hook(),
+        "followUpPrompt" => follow_up_prompt(),
+        "fulfillmentActivity" => fulfillment_activity(),
+        "inputContexts" => list(input_context()()),
+        "kendraConfiguration" => kendra_configuration(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "outputContexts" => list(output_context()()),
+        "parentIntentSignature" => String.t(),
+        "rejectionStatement" => statement(),
+        "sampleUtterances" => list(String.t()()),
+        "slots" => list(slot()()),
+        "version" => String.t()
+      }
+
+  """
+  @type get_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_bots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_hook() :: %{
+        "messageVersion" => String.t(),
+        "uri" => String.t()
+      }
+
+  """
+  @type code_hook() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type bot_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_logs_response() :: %{
+        "iamRoleArn" => String.t(),
+        "logSettings" => list(log_settings_response()())
+      }
+
+  """
+  @type conversation_logs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_version_request() :: %{}
+
+  """
+  @type delete_bot_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_alias_request() :: %{
+        optional("checksum") => String.t(),
+        optional("conversationLogs") => conversation_logs_request(),
+        optional("description") => String.t(),
+        optional("tags") => list(tag()()),
+        required("botVersion") => String.t()
+      }
+
+  """
+  @type put_bot_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_default_value_spec() :: %{
+        "defaultValueList" => list(slot_default_value()())
+      }
+
+  """
+  @type slot_default_value_spec() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_request() :: %{}
+
+  """
+  @type get_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_utterances_view_response() :: %{
+        "botName" => String.t(),
+        "utterances" => list(utterance_list()())
+      }
+
+  """
+  @type get_utterances_view_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_response() :: %{
+        "abortStatement" => statement(),
+        "checksum" => String.t(),
+        "childDirected" => boolean(),
+        "clarificationPrompt" => prompt(),
+        "createVersion" => boolean(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "detectSentiment" => boolean(),
+        "enableModelImprovements" => boolean(),
+        "failureReason" => String.t(),
+        "idleSessionTTLInSeconds" => integer(),
+        "intents" => list(intent()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "locale" => list(any()),
+        "name" => String.t(),
+        "nluIntentConfidenceThreshold" => float(),
+        "status" => list(any()),
+        "tags" => list(tag()()),
+        "version" => String.t(),
+        "voiceId" => String.t()
+      }
+
+  """
+  @type put_bot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_intent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_bot_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_type_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_slot_type_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_alias_request() :: %{}
+
+  """
+  @type get_bot_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_request() :: %{}
+
+  """
+  @type get_intent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_aliases_response() :: %{
+        "BotAliases" => list(bot_alias_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_bot_aliases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_type_response() :: %{
+        "checksum" => String.t(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "enumerationValues" => list(enumeration_value()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "parentSlotTypeSignature" => String.t(),
+        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "valueSelectionStrategy" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type get_slot_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      utterance_list() :: %{
+        "botVersion" => String.t(),
+        "utterances" => list(utterance_data()())
+      }
+
+  """
+  @type utterance_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intent_request() :: %{}
+
+  """
+  @type get_builtin_intent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_alias_request() :: %{}
+
+  """
+  @type delete_bot_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_channel_association_request() :: %{}
+
+  """
+  @type delete_bot_channel_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_versions_response() :: %{
+        "bots" => list(bot_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_bot_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_intent_request() :: %{
+        optional("checksum") => String.t(),
+        optional("conclusionStatement") => statement(),
+        optional("confirmationPrompt") => prompt(),
+        optional("createVersion") => boolean(),
+        optional("description") => String.t(),
+        optional("dialogCodeHook") => code_hook(),
+        optional("followUpPrompt") => follow_up_prompt(),
+        optional("fulfillmentActivity") => fulfillment_activity(),
+        optional("inputContexts") => list(input_context()()),
+        optional("kendraConfiguration") => kendra_configuration(),
+        optional("outputContexts") => list(output_context()()),
+        optional("parentIntentSignature") => String.t(),
+        optional("rejectionStatement") => statement(),
+        optional("sampleUtterances") => list(String.t()()),
+        optional("slots") => list(slot()())
+      }
+
+  """
+  @type put_intent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_intents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_request() :: %{
+        required("exportType") => list(any()),
+        required("name") => String.t(),
+        required("resourceType") => list(any()),
+        required("version") => String.t()
+      }
+
+  """
+  @type get_export_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_slot_type_request() :: %{
+        optional("checksum") => String.t(),
+        optional("createVersion") => boolean(),
+        optional("description") => String.t(),
+        optional("enumerationValues") => list(enumeration_value()()),
+        optional("parentSlotTypeSignature") => String.t(),
+        optional("slotTypeConfigurations") => list(slot_type_configuration()()),
+        optional("valueSelectionStrategy") => list(any())
+      }
+
+  """
+  @type put_slot_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_migration_response() :: %{
+        "migrationId" => String.t(),
+        "migrationStrategy" => list(any()),
+        "migrationTimestamp" => non_neg_integer(),
+        "v1BotLocale" => list(any()),
+        "v1BotName" => String.t(),
+        "v1BotVersion" => String.t(),
+        "v2BotId" => String.t(),
+        "v2BotRole" => String.t()
+      }
+
+  """
+  @type start_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_logs_request() :: %{
+        "iamRoleArn" => String.t(),
+        "logSettings" => list(log_settings_request()())
+      }
+
+  """
+  @type conversation_logs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_configuration() :: %{
+        "regexConfiguration" => slot_type_regex_configuration()
+      }
+
+  """
+  @type slot_type_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intents_response() :: %{
+        "intents" => list(builtin_intent_metadata()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_builtin_intents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_intent_response() :: %{
+        "checksum" => String.t(),
+        "conclusionStatement" => statement(),
+        "confirmationPrompt" => prompt(),
+        "createVersion" => boolean(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "dialogCodeHook" => code_hook(),
+        "followUpPrompt" => follow_up_prompt(),
+        "fulfillmentActivity" => fulfillment_activity(),
+        "inputContexts" => list(input_context()()),
+        "kendraConfiguration" => kendra_configuration(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "outputContexts" => list(output_context()()),
+        "parentIntentSignature" => String.t(),
+        "rejectionStatement" => statement(),
+        "sampleUtterances" => list(String.t()()),
+        "slots" => list(slot()()),
+        "version" => String.t()
+      }
+
+  """
+  @type put_intent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intent_version_request() :: %{
+        optional("checksum") => String.t()
+      }
+
+  """
+  @type create_intent_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_association_request() :: %{}
+
+  """
+  @type get_bot_channel_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      builtin_intent_slot() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type builtin_intent_slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_slot_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_context() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type input_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slot_type_request() :: %{}
+
+  """
+  @type delete_slot_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      log_settings_response() :: %{
+        "destination" => list(any()),
+        "kmsKeyArn" => String.t(),
+        "logType" => list(any()),
+        "resourceArn" => String.t(),
+        "resourcePrefix" => String.t()
+      }
+
+  """
+  @type log_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migration_request() :: %{}
+
+  """
+  @type get_migration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_response() :: %{
+        "exportStatus" => list(any()),
+        "exportType" => list(any()),
+        "failureReason" => String.t(),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "url" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type get_export_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => String.t()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_default_value() :: %{
+        "defaultValue" => String.t()
+      }
+
+  """
+  @type slot_default_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intent_version_response() :: %{
+        "checksum" => String.t(),
+        "conclusionStatement" => statement(),
+        "confirmationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "dialogCodeHook" => code_hook(),
+        "followUpPrompt" => follow_up_prompt(),
+        "fulfillmentActivity" => fulfillment_activity(),
+        "inputContexts" => list(input_context()()),
+        "kendraConfiguration" => kendra_configuration(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "outputContexts" => list(output_context()()),
+        "parentIntentSignature" => String.t(),
+        "rejectionStatement" => statement(),
+        "sampleUtterances" => list(String.t()()),
+        "slots" => list(slot()()),
+        "version" => String.t()
+      }
+
+  """
+  @type create_intent_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_type_request() :: %{}
+
+  """
+  @type get_slot_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type intent_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      utterance_data() :: %{
+        "count" => integer(),
+        "distinctUsers" => integer(),
+        "firstUtteredDate" => non_neg_integer(),
+        "lastUtteredDate" => non_neg_integer(),
+        "utteranceString" => String.t()
+      }
+
+  """
+  @type utterance_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_utterances_request() :: %{}
+
+  """
+  @type delete_utterances_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enumeration_value() :: %{
+        "synonyms" => list(String.t()()),
+        "value" => String.t()
+      }
+
+  """
+  @type enumeration_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_utterances_view_request() :: %{
+        required("botVersions") => list(String.t()()),
+        required("statusType") => list(any())
+      }
+
+  """
+  @type get_utterances_view_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_alias_response() :: %{
+        "botName" => String.t(),
+        "botVersion" => String.t(),
+        "checksum" => String.t(),
+        "conversationLogs" => conversation_logs_response(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "tags" => list(tag()())
+      }
+
+  """
+  @type put_bot_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      precondition_failed_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_alert() :: %{
+        "details" => list(String.t()()),
+        "message" => String.t(),
+        "referenceURLs" => list(String.t()()),
+        "type" => list(any())
+      }
+
+  """
+  @type migration_alert() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intent_request() :: %{}
+
+  """
+  @type delete_intent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_aliases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_bot_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_alias_response() :: %{
+        "botName" => String.t(),
+        "botVersion" => String.t(),
+        "checksum" => String.t(),
+        "conversationLogs" => conversation_logs_response(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t()
+      }
+
+  """
+  @type get_bot_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_request() :: %{
+        optional("tags") => list(tag()()),
+        required("mergeStrategy") => list(any()),
+        required("payload") => binary(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type start_import_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type slot_type_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_response() :: %{
+        "createdDate" => non_neg_integer(),
+        "importId" => String.t(),
+        "importStatus" => list(any()),
+        "mergeStrategy" => list(any()),
+        "name" => String.t(),
+        "resourceType" => list(any()),
+        "tags" => list(tag()())
+      }
+
+  """
+  @type start_import_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt() :: %{
+        "maxAttempts" => integer(),
+        "messages" => list(message()()),
+        "responseCard" => String.t()
+      }
+
+  """
+  @type prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_version_response() :: %{
+        "abortStatement" => statement(),
+        "checksum" => String.t(),
+        "childDirected" => boolean(),
+        "clarificationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t(),
+        "detectSentiment" => boolean(),
+        "enableModelImprovements" => boolean(),
+        "failureReason" => String.t(),
+        "idleSessionTTLInSeconds" => integer(),
+        "intents" => list(intent()()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "locale" => list(any()),
+        "name" => String.t(),
+        "status" => list(any()),
+        "version" => String.t(),
+        "voiceId" => String.t()
+      }
+
+  """
+  @type create_bot_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => String.t(),
+        "contentType" => list(any()),
+        "groupNumber" => integer()
+      }
+
+  """
+  @type message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type get_bot_channel_associations_request() :: %{String.t() => any()}
+
+  @type create_bot_version_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type create_intent_version_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type create_slot_type_version_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type delete_bot_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_bot_alias_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_bot_channel_association_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type delete_bot_version_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_intent_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_intent_version_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_slot_type_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_slot_type_version_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | resource_in_use_exception()
+          | internal_failure_exception()
+
+  @type delete_utterances_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_bot_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_bot_alias_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_bot_aliases_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type get_bot_channel_association_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_bot_channel_associations_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type get_bot_versions_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_bots_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_builtin_intent_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_builtin_intents_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type get_builtin_slot_types_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type get_export_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_import_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_intent_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_intent_versions_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_intents_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_migration_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_migrations_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type get_slot_type_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_slot_type_versions_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_slot_types_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type get_utterances_view_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type put_bot_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type put_bot_alias_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type put_intent_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type put_slot_type_errors() ::
+          precondition_failed_exception()
+          | bad_request_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type start_import_errors() ::
+          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+
+  @type start_migration_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | internal_failure_exception()
+
+  @type tag_resource_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type untag_resource_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   def metadata do
     %{
       api_version: "2017-04-19",
@@ -22,6 +1887,7 @@ defmodule AWS.LexModelBuilding do
       credential_scope: nil,
       endpoint_prefix: "models.lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Model Building Service",
       signature_version: "v4",
@@ -48,13 +1914,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:CreateBotVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec create_bot_version(AWS.Client.t(), String.t(), create_bot_version_request(), Keyword.t()) ::
+          {:ok, create_bot_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_bot_version_errors()}
   def create_bot_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -88,13 +1964,28 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions to perform the
   `lex:CreateIntentVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec create_intent_version(
+          AWS.Client.t(),
+          String.t(),
+          create_intent_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_intent_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_intent_version_errors()}
   def create_intent_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -128,13 +2019,28 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:CreateSlotTypeVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec create_slot_type_version(
+          AWS.Client.t(),
+          String.t(),
+          create_slot_type_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, create_slot_type_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_slot_type_version_errors()}
   def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -173,13 +2079,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:DeleteBot` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec delete_bot(AWS.Client.t(), String.t(), delete_bot_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bot_errors()}
   def delete_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -205,13 +2121,30 @@ defmodule AWS.LexModelBuilding do
   reference to the alias by deleting the channel association. If you get the
   same exception again, delete the referring association until the
   `DeleteBotAlias` operation is successful.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec delete_bot_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_bot_alias_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bot_alias_errors()}
   def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -232,7 +2165,25 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:DeleteBotChannelAssociation` action.
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec delete_bot_channel_association(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_bot_channel_association_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bot_channel_association_errors()}
   def delete_bot_channel_association(
         %Client{} = client,
         bot_alias,
@@ -247,7 +2198,8 @@ defmodule AWS.LexModelBuilding do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -270,13 +2222,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:DeleteBotVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version (t:string String.t/0) (version)
+
+  ## Optional parameters:
   """
+  @spec delete_bot_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_bot_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_bot_version_errors()}
   def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -312,13 +2281,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:DeleteIntent` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec delete_intent(AWS.Client.t(), String.t(), delete_intent_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_intent_errors()}
   def delete_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -341,13 +2320,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:DeleteIntentVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version (t:string String.t/0) (version)
+
+  ## Optional parameters:
   """
+  @spec delete_intent_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_intent_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_intent_version_errors()}
   def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -383,13 +2379,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:DeleteSlotType` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec delete_slot_type(AWS.Client.t(), String.t(), delete_slot_type_request(), Keyword.t()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_slot_type_errors()}
   def delete_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -412,13 +2418,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:DeleteSlotTypeVersion` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version (t:string String.t/0) (version)
+
+  ## Optional parameters:
   """
+  @spec delete_slot_type_version(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_slot_type_version_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_slot_type_version_errors()}
   def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -450,13 +2473,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:DeleteUtterances` action.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+   • :user_id (t:string String.t/0) (userId)
+
+  ## Optional parameters:
   """
+  @spec delete_utterances(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_utterances_request(),
+          Keyword.t()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_utterances_errors()}
   def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -479,15 +2519,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetBot` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version_or_alias (t:string String.t/0) (versionOrAlias)
+
+  ## Optional parameters:
   """
+  @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_errors()}
   def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version_or_alias)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -500,13 +2555,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetBotAlias` action.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec get_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_bot_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_alias_errors()}
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -516,18 +2587,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetBotAliases` action.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :name_contains (t:String.t/0) (nameContains)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_bot_aliases(
-        %Client{} = client,
-        bot_name,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_bot_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_aliases_errors()}
+  def get_bot_aliases(%Client{} = client, bot_name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, name_contains: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -536,12 +2619,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {name_contains, options} = Keyword.pop(options, :name_contains, nil)
+
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -550,7 +2637,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -561,15 +2649,37 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetBotChannelAssociation` action.
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec get_bot_channel_association(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          Keyword.t()
+        ) ::
+          {:ok, get_bot_channel_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_channel_association_errors()}
   def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -581,21 +2691,32 @@ defmodule AWS.LexModelBuilding do
   The `GetBotChannelAssociations` operation requires
   permissions for the `lex:GetBotChannelAssociations`
   action.
+
+  ## Required positional parameters:
+   • :bot_alias (t:string String.t/0) (botAlias)
+   • :bot_name (t:string String.t/0) (botName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :name_contains (t:String.t/0) (nameContains)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_bot_channel_associations(
-        %Client{} = client,
-        bot_alias,
-        bot_name,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_bot_channel_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_bot_channel_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_channel_associations_errors()}
+  def get_bot_channel_associations(%Client{} = client, bot_alias, bot_name, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, name_contains: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -604,12 +2725,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {name_contains, options} = Keyword.pop(options, :name_contains, nil)
+
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -618,7 +2743,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -638,17 +2764,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetBotVersions` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_bot_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_bot_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bot_versions_errors()}
+  def get_bot_versions(%Client{} = client, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -657,6 +2795,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -664,7 +2804,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -684,17 +2825,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the `lex:GetBots`
   action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :name_contains (t:String.t/0) (nameContains)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_bots(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_bots(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_bots_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_bots_errors()}
+  def get_bots(%Client{} = client, options \\ []) do
     url_path = "/bots"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, name_contains: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -703,12 +2856,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {name_contains, options} = Keyword.pop(options, :name_contains, nil)
+
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -717,7 +2874,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -727,13 +2885,28 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:GetBuiltinIntent` action.
+
+  ## Required positional parameters:
+   • :signature (t:string String.t/0) (signature)
+
+  ## Optional parameters:
   """
+  @spec get_builtin_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_builtin_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_builtin_intent_errors()}
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
     url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -744,18 +2917,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:GetBuiltinIntents` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :locale (t:String.t/0) (locale)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :signature_contains (t:String.t/0) (signatureContains)
   """
-  def get_builtin_intents(
-        %Client{} = client,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        signature_contains \\ nil,
-        options \\ []
-      ) do
+  @spec get_builtin_intents(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_builtin_intents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_builtin_intents_errors()}
+  def get_builtin_intents(%Client{} = client, options \\ []) do
     url_path = "/builtins/intents"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [locale: nil, max_results: nil, next_token: nil, signature_contains: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {signature_contains, options} = Keyword.pop(options, :signature_contains, nil)
 
     query_params =
       if !is_nil(signature_contains) do
@@ -764,12 +2949,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -778,6 +2967,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {locale, options} = Keyword.pop(options, :locale, nil)
+
     query_params =
       if !is_nil(locale) do
         [{"locale", locale} | query_params]
@@ -785,7 +2976,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -800,18 +2992,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permission for the
   `lex:GetBuiltInSlotTypes` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :locale (t:String.t/0) (locale)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :signature_contains (t:String.t/0) (signatureContains)
   """
-  def get_builtin_slot_types(
-        %Client{} = client,
-        locale \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        signature_contains \\ nil,
-        options \\ []
-      ) do
+  @spec get_builtin_slot_types(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_builtin_slot_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_builtin_slot_types_errors()}
+  def get_builtin_slot_types(%Client{} = client, options \\ []) do
     url_path = "/builtins/slottypes"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [locale: nil, max_results: nil, next_token: nil, signature_contains: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {signature_contains, options} = Keyword.pop(options, :signature_contains, nil)
 
     query_params =
       if !is_nil(signature_contains) do
@@ -820,12 +3024,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -834,6 +3042,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {locale, options} = Keyword.pop(options, :locale, nil)
+
     query_params =
       if !is_nil(locale) do
         [{"locale", locale} | query_params]
@@ -841,18 +3051,38 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Exports the contents of a Amazon Lex resource in a specified format.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :export_type (t:String.t/0) (exportType)
+   • :name (t:String.t/0) (name)
+   • :resource_type (t:String.t/0) (resourceType)
+   • :version (t:String.t/0) (version)
   """
+  @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_export_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_export_errors()}
   def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ []) do
     url_path = "/exports"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [export_type: nil, name: nil, resource_type: nil, version: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {version, options} = Keyword.pop(options, :version, nil)
 
     query_params =
       if !is_nil(version) do
@@ -861,12 +3091,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {resource_type, options} = Keyword.pop(options, :resource_type, nil)
+
     query_params =
       if !is_nil(resource_type) do
         [{"resourceType", resource_type} | query_params]
       else
         query_params
       end
+
+    {name, options} = Keyword.pop(options, :name, nil)
 
     query_params =
       if !is_nil(name) do
@@ -875,6 +3109,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {export_type, options} = Keyword.pop(options, :export_type, nil)
+
     query_params =
       if !is_nil(export_type) do
         [{"exportType", export_type} | query_params]
@@ -882,7 +3118,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -890,13 +3127,28 @@ defmodule AWS.LexModelBuilding do
   @doc """
   Gets information about an import job started with the
   `StartImport` operation.
+
+  ## Required positional parameters:
+   • :import_id (t:string String.t/0) (importId)
+
+  ## Optional parameters:
   """
+  @spec get_import(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_import_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_import_errors()}
   def get_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -909,13 +3161,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions to perform the
   `lex:GetIntent` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version (t:string String.t/0) (version)
+
+  ## Optional parameters:
   """
+  @spec get_intent(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_intent_errors()}
   def get_intent(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -935,17 +3203,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetIntentVersions` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_intent_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_intent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_intent_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_intent_versions_errors()}
+  def get_intent_versions(%Client{} = client, name, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -954,6 +3234,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -961,7 +3243,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -981,17 +3264,29 @@ defmodule AWS.LexModelBuilding do
 
   The operation requires permission for the
   `lex:GetIntents` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :name_contains (t:String.t/0) (nameContains)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_intents(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_intents(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_intents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_intents_errors()}
+  def get_intents(%Client{} = client, options \\ []) do
     url_path = "/intents"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, name_contains: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1000,12 +3295,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {name_contains, options} = Keyword.pop(options, :name_contains, nil)
+
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1014,7 +3313,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1025,33 +3325,60 @@ defmodule AWS.LexModelBuilding do
 
   Use this operation to view the migration
   alerts and warnings related to the migration.
+
+  ## Required positional parameters:
+   • :migration_id (t:string String.t/0) (migrationId)
+
+  ## Optional parameters:
   """
+  @spec get_migration(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_migration_errors()}
   def get_migration(%Client{} = client, migration_id, options \\ []) do
     url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
   Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :migration_status_equals (t:String.t/0) (migrationStatusEquals)
+   • :next_token (t:String.t/0) (nextToken)
+   • :sort_by_attribute (t:String.t/0) (sortByAttribute)
+   • :sort_by_order (t:String.t/0) (sortByOrder)
+   • :v1_bot_name_contains (t:String.t/0) (v1BotNameContains)
   """
-  def get_migrations(
-        %Client{} = client,
-        max_results \\ nil,
-        migration_status_equals \\ nil,
-        next_token \\ nil,
-        sort_by_attribute \\ nil,
-        sort_by_order \\ nil,
-        v1_bot_name_contains \\ nil,
-        options \\ []
-      ) do
+  @spec get_migrations(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_migrations_errors()}
+  def get_migrations(%Client{} = client, options \\ []) do
     url_path = "/migrations"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, migration_status_equals: nil, next_token: nil, sort_by_attribute: nil, sort_by_order: nil, v1_bot_name_contains: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {v1_bot_name_contains, options} = Keyword.pop(options, :v1_bot_name_contains, nil)
 
     query_params =
       if !is_nil(v1_bot_name_contains) do
@@ -1060,12 +3387,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {sort_by_order, options} = Keyword.pop(options, :sort_by_order, nil)
+
     query_params =
       if !is_nil(sort_by_order) do
         [{"sortByOrder", sort_by_order} | query_params]
       else
         query_params
       end
+
+    {sort_by_attribute, options} = Keyword.pop(options, :sort_by_attribute, nil)
 
     query_params =
       if !is_nil(sort_by_attribute) do
@@ -1074,12 +3405,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {migration_status_equals, options} = Keyword.pop(options, :migration_status_equals, nil)
 
     query_params =
       if !is_nil(migration_status_equals) do
@@ -1088,6 +3423,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1095,7 +3432,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1109,13 +3447,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetSlotType` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+   • :version (t:string String.t/0) (version)
+
+  ## Optional parameters:
   """
+  @spec get_slot_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_slot_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_slot_type_errors()}
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1135,17 +3489,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetSlotTypeVersions` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_slot_type_versions(
-        %Client{} = client,
-        name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_slot_type_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, get_slot_type_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_slot_type_versions_errors()}
+  def get_slot_type_versions(%Client{} = client, name, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1154,6 +3520,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -1161,7 +3529,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1181,17 +3550,29 @@ defmodule AWS.LexModelBuilding do
 
   The operation requires permission for the
   `lex:GetSlotTypes` action.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :name_contains (t:String.t/0) (nameContains)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def get_slot_types(
-        %Client{} = client,
-        max_results \\ nil,
-        name_contains \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec get_slot_types(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_slot_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_slot_types_errors()}
+  def get_slot_types(%Client{} = client, options \\ []) do
     url_path = "/slottypes"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, name_contains: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -1200,12 +3581,16 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {name_contains, options} = Keyword.pop(options, :name_contains, nil)
+
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -1214,7 +3599,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1251,11 +3637,29 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:GetUtterancesView` action.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+
+  ## Optional parameters:
+   • :bot_versions (t:String.t/0) (bot_versions)
+   • :status_type (t:String.t/0) (status_type)
   """
+  @spec get_utterances_view(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_utterances_view_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_utterances_view_errors()}
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [bot_versions: nil, status_type: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {status_type, options} = Keyword.pop(options, :status_type, nil)
 
     query_params =
       if !is_nil(status_type) do
@@ -1264,6 +3668,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
+    {bot_versions, options} = Keyword.pop(options, :bot_versions, nil)
+
     query_params =
       if !is_nil(bot_versions) do
         [{"bot_versions", bot_versions} | query_params]
@@ -1271,7 +3677,8 @@ defmodule AWS.LexModelBuilding do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1281,13 +3688,28 @@ defmodule AWS.LexModelBuilding do
 
   Only bots,
   bot aliases, and bot channels can have tags associated with them.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1313,13 +3735,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the `lex:PutBot`
   action. For more information, see `security-iam`.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec put_bot(AWS.Client.t(), String.t(), put_bot_request(), Keyword.t()) ::
+          {:ok, put_bot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_bot_errors()}
   def put_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1334,13 +3766,30 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:PutBotAlias` action.
+
+  ## Required positional parameters:
+   • :bot_name (t:string String.t/0) (botName)
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec put_bot_alias(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          put_bot_alias_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_bot_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_bot_alias_errors()}
   def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1405,13 +3854,23 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:PutIntent` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec put_intent(AWS.Client.t(), String.t(), put_intent_request(), Keyword.t()) ::
+          {:ok, put_intent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_intent_errors()}
   def put_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
@@ -1435,26 +3894,45 @@ defmodule AWS.LexModelBuilding do
 
   This operation requires permissions for the
   `lex:PutSlotType` action.
+
+  ## Required positional parameters:
+   • :name (t:string String.t/0) (name)
+
+  ## Optional parameters:
   """
+  @spec put_slot_type(AWS.Client.t(), String.t(), put_slot_type_request(), Keyword.t()) ::
+          {:ok, put_slot_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_slot_type_errors()}
   def put_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
   Starts a job to import a resource to Amazon Lex.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_import(AWS.Client.t(), start_import_request(), Keyword.t()) ::
+          {:ok, start_import_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1477,13 +3955,22 @@ defmodule AWS.LexModelBuilding do
 
   For more information, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html) in the *Amazon Lex
   developer guide*.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
   """
+  @spec start_migration(AWS.Client.t(), start_migration_request(), Keyword.t()) ::
+          {:ok, start_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
     url_path = "/migrations"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1503,13 +3990,23 @@ defmodule AWS.LexModelBuilding do
 
   If a tag key
   already exists, the existing value is replaced with the new value.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -1526,7 +4023,17 @@ defmodule AWS.LexModelBuilding do
 
   @doc """
   Removes tags from a bot, bot alias or bot channel.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (resourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1537,7 +4044,8 @@ defmodule AWS.LexModelBuilding do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

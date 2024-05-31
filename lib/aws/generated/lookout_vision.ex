@@ -22,6 +22,1135 @@ defmodule AWS.LookoutVision do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      describe_project_response() :: %{
+        "ProjectDescription" => project_description()
+      }
+
+  """
+  @type describe_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_entries_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("Changes") => binary()
+      }
+
+  """
+  @type update_dataset_entries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greengrass_output_details() :: %{
+        "ComponentName" => String.t(),
+        "ComponentVersion" => String.t(),
+        "ComponentVersionArn" => String.t()
+      }
+
+  """
+  @type greengrass_output_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_models_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_models_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_models_response() :: %{
+        "Models" => list(model_metadata()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_description() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "Datasets" => list(dataset_metadata()()),
+        "ProjectArn" => String.t(),
+        "ProjectName" => String.t()
+      }
+
+  """
+  @type project_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_entries_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type update_dataset_entries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{}
+
+  """
+  @type delete_dataset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_source() :: %{
+        "GroundTruthManifest" => dataset_ground_truth_manifest()
+      }
+
+  """
+  @type dataset_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_metadata() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "Description" => String.t(),
+        "ModelArn" => String.t(),
+        "ModelVersion" => String.t(),
+        "Performance" => model_performance(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type model_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pixel_anomaly() :: %{
+        "Color" => String.t(),
+        "TotalPercentageArea" => float()
+      }
+
+  """
+  @type pixel_anomaly() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_description() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "DatasetType" => String.t(),
+        "ImageStats" => dataset_image_stats(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "ProjectName" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type dataset_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      model_packaging_description() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "JobName" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "ModelPackagingConfiguration" => model_packaging_configuration(),
+        "ModelPackagingJobDescription" => String.t(),
+        "ModelPackagingMethod" => String.t(),
+        "ModelPackagingOutputDetails" => model_packaging_output_details(),
+        "ModelVersion" => String.t(),
+        "ProjectName" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type model_packaging_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_model_packaging_job_request() :: %{}
+
+  """
+  @type describe_model_packaging_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      output_s3_object() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t()
+      }
+
+  """
+  @type output_s3_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_project_request() :: %{}
+
+  """
+  @type describe_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("OutputConfig") => output_config()
+      }
+
+  """
+  @type create_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_model_request() :: %{}
+
+  """
+  @type describe_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_model_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type start_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_metadata() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "ProjectArn" => String.t(),
+        "ProjectName" => String.t()
+      }
+
+  """
+  @type project_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_model_response() :: %{
+        "ModelDescription" => model_description()
+      }
+
+  """
+  @type describe_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_anomalies_response() :: %{
+        "DetectAnomalyResult" => detect_anomaly_result()
+      }
+
+  """
+  @type detect_anomalies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_response() :: %{
+        "DatasetMetadata" => dataset_metadata()
+      }
+
+  """
+  @type create_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{
+        "ProjectMetadata" => project_metadata()
+      }
+
+  """
+  @type create_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_packaging_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_model_packaging_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any()),
+        "ServiceCode" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_image_stats() :: %{
+        "Anomaly" => integer(),
+        "Labeled" => integer(),
+        "Normal" => integer(),
+        "Total" => integer()
+      }
+
+  """
+  @type dataset_image_stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_request() :: %{
+        optional("ClientToken") => String.t()
+      }
+
+  """
+  @type stop_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        "NextToken" => String.t(),
+        "Projects" => list(project_metadata()())
+      }
+
+  """
+  @type list_projects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_entries_request() :: %{
+        optional("AfterCreationDate") => non_neg_integer(),
+        optional("AnomalyClass") => String.t(),
+        optional("BeforeCreationDate") => non_neg_integer(),
+        optional("Labeled") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SourceRefContains") => String.t()
+      }
+
+  """
+  @type list_dataset_entries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_model_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("MaxInferenceUnits") => integer(),
+        required("MinInferenceUnits") => integer()
+      }
+
+  """
+  @type start_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "Bucket" => String.t(),
+        "Prefix" => String.t()
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_anomaly_result() :: %{
+        "Anomalies" => list(anomaly()()),
+        "AnomalyMask" => binary(),
+        "Confidence" => float(),
+        "IsAnomalous" => boolean(),
+        "Source" => image_source()
+      }
+
+  """
+  @type detect_anomaly_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_response() :: %{
+        "ModelMetadata" => model_metadata()
+      }
+
+  """
+  @type create_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_source() :: %{
+        "Type" => String.t()
+      }
+
+  """
+  @type image_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_packaging_output_details() :: %{
+        "Greengrass" => greengrass_output_details()
+      }
+
+  """
+  @type model_packaging_output_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_packaging_job_metadata() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "JobName" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "ModelPackagingJobDescription" => String.t(),
+        "ModelPackagingMethod" => String.t(),
+        "ModelVersion" => String.t(),
+        "ProjectName" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type model_packaging_job_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_packaging_jobs_response() :: %{
+        "ModelPackagingJobs" => list(model_packaging_job_metadata()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_model_packaging_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_anomalies_request() :: %{
+        required("Body") => binary(),
+        required("ContentType") => String.t()
+      }
+
+  """
+  @type detect_anomalies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_performance() :: %{
+        "F1Score" => float(),
+        "Precision" => float(),
+        "Recall" => float()
+      }
+
+  """
+  @type model_performance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t(),
+        "RetryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_ground_truth_manifest() :: %{
+        "S3Object" => input_s3_object()
+      }
+
+  """
+  @type dataset_ground_truth_manifest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_response() :: %{
+        "ProjectArn" => String.t()
+      }
+
+  """
+  @type delete_project_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly() :: %{
+        "Name" => String.t(),
+        "PixelAnomaly" => pixel_anomaly()
+      }
+
+  """
+  @type anomaly() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_request() :: %{
+        optional("ClientToken") => String.t()
+      }
+
+  """
+  @type delete_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_model_packaging_job_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("JobName") => String.t(),
+        required("Configuration") => model_packaging_configuration(),
+        required("ModelVersion") => String.t()
+      }
+
+  """
+  @type start_model_packaging_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      output_config() :: %{
+        "S3Location" => s3_location()
+      }
+
+  """
+  @type output_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_response() :: %{
+        "DatasetDescription" => dataset_description()
+      }
+
+  """
+  @type describe_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      target_platform() :: %{
+        "Accelerator" => list(any()),
+        "Arch" => list(any()),
+        "Os" => list(any())
+      }
+
+  """
+  @type target_platform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DatasetSource") => dataset_source(),
+        required("DatasetType") => String.t()
+      }
+
+  """
+  @type create_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "RetryAfterSeconds" => integer(),
+        "ServiceCode" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ProjectName") => String.t()
+      }
+
+  """
+  @type create_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_projects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_packaging_configuration() :: %{
+        "Greengrass" => greengrass_configuration()
+      }
+
+  """
+  @type model_packaging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greengrass_configuration() :: %{
+        "CompilerOptions" => String.t(),
+        "ComponentDescription" => String.t(),
+        "ComponentName" => String.t(),
+        "ComponentVersion" => String.t(),
+        "S3OutputLocation" => s3_location(),
+        "Tags" => list(tag()()),
+        "TargetDevice" => list(any()),
+        "TargetPlatform" => target_platform()
+      }
+
+  """
+  @type greengrass_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_model_packaging_job_response() :: %{
+        "ModelPackagingDescription" => model_packaging_description()
+      }
+
+  """
+  @type describe_model_packaging_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_model_packaging_job_response() :: %{
+        "JobName" => String.t()
+      }
+
+  """
+  @type start_model_packaging_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_description() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "Description" => String.t(),
+        "EvaluationEndTimestamp" => non_neg_integer(),
+        "EvaluationManifest" => output_s3_object(),
+        "EvaluationResult" => output_s3_object(),
+        "KmsKeyId" => String.t(),
+        "MaxInferenceUnits" => integer(),
+        "MinInferenceUnits" => integer(),
+        "ModelArn" => String.t(),
+        "ModelVersion" => String.t(),
+        "OutputConfig" => output_config(),
+        "Performance" => model_performance(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type model_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_request() :: %{}
+
+  """
+  @type describe_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("ClientToken") => String.t()
+      }
+
+  """
+  @type delete_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type stop_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{
+        optional("ClientToken") => String.t()
+      }
+
+  """
+  @type delete_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_response() :: %{
+        "ModelArn" => String.t()
+      }
+
+  """
+  @type delete_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_entries_response() :: %{
+        "DatasetEntries" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_dataset_entries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_metadata() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "DatasetType" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type dataset_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_s3_object() :: %{
+        "Bucket" => String.t(),
+        "Key" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type input_s3_object() :: %{String.t() => any()}
+
+  @type create_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_model_packaging_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type detect_anomalies_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_dataset_entries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_model_packaging_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_models_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_projects_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_model_packaging_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_dataset_entries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2020-11-20",
@@ -29,6 +1158,7 @@ defmodule AWS.LookoutVision do
       credential_scope: nil,
       endpoint_prefix: "lookoutvision",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "LookoutVision",
       signature_version: "v4",
@@ -54,7 +1184,17 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:CreateDataset` operation.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec create_dataset(AWS.Client.t(), String.t(), create_dataset_request(), Keyword.t()) ::
+          {:ok, create_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets"
 
@@ -66,7 +1206,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -106,7 +1247,17 @@ defmodule AWS.LookoutVision do
   `lookoutvision:CreateModel` operation. If you want to tag your model, you also
   require
   permission to the `lookoutvision:TagResource` operation.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
+          {:ok, create_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_model_errors()}
   def create_model(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
 
@@ -118,7 +1269,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -141,7 +1293,16 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:CreateProject` operation.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/2020-11-20/projects"
 
@@ -153,7 +1314,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -188,7 +1350,24 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DeleteDataset` operation.
+
+  ## Required positional parameters:
+   • :dataset_type (t:string String.t/0) (DatasetType)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec delete_dataset(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          delete_dataset_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
@@ -201,7 +1380,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -229,7 +1409,18 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DeleteModel` operation.
+
+  ## Required positional parameters:
+   • :model_version (t:string String.t/0) (ModelVersion)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
+          {:ok, delete_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
@@ -242,7 +1433,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -271,7 +1463,17 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DeleteProject` operation.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
+          {:ok, delete_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
 
@@ -283,7 +1485,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -303,15 +1506,30 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DescribeDataset` operation.
+
+  ## Required positional parameters:
+   • :dataset_type (t:string String.t/0) (DatasetType)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
   """
+  @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -321,15 +1539,30 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DescribeModel` operation.
+
+  ## Required positional parameters:
+   • :model_version (t:string String.t/0) (ModelVersion)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
   """
+  @spec describe_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_model_errors()}
   def describe_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -343,15 +1576,30 @@ defmodule AWS.LookoutVision do
   For more information, see
   *Using your Amazon Lookout for Vision model on an edge device* in the Amazon
   Lookout for Vision Developer Guide.
+
+  ## Required positional parameters:
+   • :job_name (t:string String.t/0) (JobName)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
   """
+  @spec describe_model_packaging_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_model_packaging_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_model_packaging_job_errors()}
   def describe_model_packaging_job(%Client{} = client, job_name, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs/#{AWS.Util.encode_uri(job_name)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -361,13 +1609,28 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DescribeProject` operation.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
   """
+  @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, describe_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -394,7 +1657,24 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:DetectAnomalies` operation.
+
+  ## Required positional parameters:
+   • :model_version (t:string String.t/0) (ModelVersion)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :content_type (t:String.t/0) (Content-Type)
   """
+  @spec detect_anomalies(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          detect_anomalies_request(),
+          Keyword.t()
+        ) ::
+          {:ok, detect_anomalies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, detect_anomalies_errors()}
   def detect_anomalies(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/detect"
@@ -407,7 +1687,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -431,25 +1712,36 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:ListDatasetEntries` operation.
+
+  ## Required positional parameters:
+   • :dataset_type (t:string String.t/0) (DatasetType)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :after_creation_date (t:String.t/0) (createdAfter)
+   • :anomaly_class (t:String.t/0) (anomalyClass)
+   • :before_creation_date (t:String.t/0) (createdBefore)
+   • :labeled (t:String.t/0) (labeled)
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
+   • :source_ref_contains (t:String.t/0) (sourceRefContains)
   """
-  def list_dataset_entries(
-        %Client{} = client,
-        dataset_type,
-        project_name,
-        after_creation_date \\ nil,
-        anomaly_class \\ nil,
-        before_creation_date \\ nil,
-        labeled \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        source_ref_contains \\ nil,
-        options \\ []
-      ) do
+  @spec list_dataset_entries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, list_dataset_entries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_dataset_entries_errors()}
+  def list_dataset_entries(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [after_creation_date: nil, anomaly_class: nil, before_creation_date: nil, labeled: nil, max_results: nil, next_token: nil, source_ref_contains: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {source_ref_contains, options} = Keyword.pop(options, :source_ref_contains, nil)
 
     query_params =
       if !is_nil(source_ref_contains) do
@@ -458,12 +1750,16 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
+
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
       else
         query_params
       end
+
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
 
     query_params =
       if !is_nil(max_results) do
@@ -472,12 +1768,16 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {labeled, options} = Keyword.pop(options, :labeled, nil)
+
     query_params =
       if !is_nil(labeled) do
         [{"labeled", labeled} | query_params]
       else
         query_params
       end
+
+    {before_creation_date, options} = Keyword.pop(options, :before_creation_date, nil)
 
     query_params =
       if !is_nil(before_creation_date) do
@@ -486,12 +1786,16 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {anomaly_class, options} = Keyword.pop(options, :anomaly_class, nil)
+
     query_params =
       if !is_nil(anomaly_class) do
         [{"anomalyClass", anomaly_class} | query_params]
       else
         query_params
       end
+
+    {after_creation_date, options} = Keyword.pop(options, :after_creation_date, nil)
 
     query_params =
       if !is_nil(after_creation_date) do
@@ -500,7 +1804,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -515,17 +1820,29 @@ defmodule AWS.LookoutVision do
   For more information, see
   *Using your Amazon Lookout for Vision model on an edge device* in the Amazon
   Lookout for Vision Developer Guide.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_model_packaging_jobs(
-        %Client{} = client,
-        project_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_model_packaging_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_model_packaging_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_model_packaging_jobs_errors()}
+  def list_model_packaging_jobs(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -534,6 +1851,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -541,7 +1860,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -555,17 +1875,29 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:ListModels` operation.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_models(
-        %Client{} = client,
-        project_name,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
+  @spec list_models(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_models_errors()}
+  def list_models(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -574,6 +1906,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -581,7 +1915,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -597,11 +1932,28 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:ListProjects` operation.
+
+  ## Required positional parameters:
+
+  ## Optional parameters:
+   • :max_results (t:String.t/0) (maxResults)
+   • :next_token (t:String.t/0) (nextToken)
   """
-  def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  @spec list_projects(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_projects_errors()}
+  def list_projects(%Client{} = client, options \\ []) do
     url_path = "/2020-11-20/projects"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [max_results: nil, next_token: nil
+    # ])
+
     headers = []
     query_params = []
+
+    {next_token, options} = Keyword.pop(options, :next_token, nil)
 
     query_params =
       if !is_nil(next_token) do
@@ -610,6 +1962,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
+    {max_results, options} = Keyword.pop(options, :max_results, nil)
+
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
@@ -617,7 +1971,8 @@ defmodule AWS.LookoutVision do
         query_params
       end
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -628,13 +1983,28 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:ListTagsForResource` operation.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
+
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -656,7 +2026,18 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:StartModel` operation.
+
+  ## Required positional parameters:
+   • :model_version (t:string String.t/0) (ModelVersion)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec start_model(AWS.Client.t(), String.t(), String.t(), start_model_request(), Keyword.t()) ::
+          {:ok, start_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_model_errors()}
   def start_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/start"
@@ -669,7 +2050,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -735,7 +2117,22 @@ defmodule AWS.LookoutVision do
   For more information, see
   *Using your Amazon Lookout for Vision model on an edge device* in the Amazon
   Lookout for Vision Developer Guide.
+
+  ## Required positional parameters:
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec start_model_packaging_job(
+          AWS.Client.t(),
+          String.t(),
+          start_model_packaging_job_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_model_packaging_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_model_packaging_job_errors()}
   def start_model_packaging_job(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
 
@@ -747,7 +2144,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -772,7 +2170,18 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:StopModel` operation.
+
+  ## Required positional parameters:
+   • :model_version (t:string String.t/0) (ModelVersion)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec stop_model(AWS.Client.t(), String.t(), String.t(), stop_model_request(), Keyword.t()) ::
+          {:ok, stop_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_model_errors()}
   def stop_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models/#{AWS.Util.encode_uri(model_version)}/stop"
@@ -785,7 +2194,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -808,13 +2218,23 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:TagResource` operation.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
   """
+  @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -837,7 +2257,17 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:UntagResource` operation.
+
+  ## Required positional parameters:
+   • :resource_arn (t:string String.t/0) (ResourceArn)
+
+  ## Optional parameters:
+   • :tag_keys (t:String.t/0) (tagKeys)
   """
+  @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -848,7 +2278,8 @@ defmodule AWS.LookoutVision do
       ]
       |> Request.build_params(input)
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -887,7 +2318,24 @@ defmodule AWS.LookoutVision do
 
   This operation requires permissions to perform the
   `lookoutvision:UpdateDatasetEntries` operation.
+
+  ## Required positional parameters:
+   • :dataset_type (t:string String.t/0) (DatasetType)
+   • :project_name (t:string String.t/0) (ProjectName)
+
+  ## Optional parameters:
+   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
   """
+  @spec update_dataset_entries(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          update_dataset_entries_request(),
+          Keyword.t()
+        ) ::
+          {:ok, update_dataset_entries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_dataset_entries_errors()}
   def update_dataset_entries(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =
       "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets/#{AWS.Util.encode_uri(dataset_type)}/entries"
@@ -900,7 +2348,8 @@ defmodule AWS.LookoutVision do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

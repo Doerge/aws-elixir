@@ -10,6 +10,711 @@ defmodule AWS.LexRuntimeV2 do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+
+      recognized_bot_member() :: %{
+        "botId" => String.t(),
+        "botName" => String.t()
+      }
+
+  """
+  @type recognized_bot_member() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "interpretations" => list(interpretation()()),
+        "messages" => list(message()()),
+        "sessionId" => String.t(),
+        "sessionState" => session_state()
+      }
+
+  """
+  @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_session_request() :: %{
+        optional("messages") => list(message()()),
+        optional("requestAttributes") => map(),
+        optional("responseContentType") => String.t(),
+        required("sessionState") => session_state()
+      }
+
+  """
+  @type put_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elicit_sub_slot() :: %{
+        "name" => String.t(),
+        "subSlotToElicit" => elicit_sub_slot()
+      }
+
+  """
+  @type elicit_sub_slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recognize_text_request() :: %{
+        optional("requestAttributes") => map(),
+        optional("sessionState") => session_state(),
+        required("text") => String.t()
+      }
+
+  """
+  @type recognize_text_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_gateway_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot() :: %{
+        "shape" => list(any()),
+        "subSlots" => map(),
+        "value" => value(),
+        "values" => list(slot()())
+      }
+
+  """
+  @type slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_failed_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type dependency_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      d_t_m_f_input_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t(),
+        "inputCharacter" => String.t()
+      }
+
+  """
+  @type d_t_m_f_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recognize_utterance_request() :: %{
+        optional("inputStream") => binary(),
+        optional("requestAttributes") => String.t(),
+        optional("responseContentType") => String.t(),
+        optional("sessionState") => String.t(),
+        required("requestContentType") => String.t()
+      }
+
+  """
+  @type recognize_utterance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      value() :: %{
+        "interpretedValue" => String.t(),
+        "originalValue" => String.t(),
+        "resolvedValues" => list(String.t()())
+      }
+
+  """
+  @type value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sentiment_response() :: %{
+        "sentiment" => list(any()),
+        "sentimentScore" => sentiment_score()
+      }
+
+  """
+  @type sentiment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_context_time_to_live() :: %{
+        "timeToLiveInSeconds" => integer(),
+        "turnsToLive" => integer()
+      }
+
+  """
+  @type active_context_time_to_live() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_input_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t(),
+        "text" => String.t()
+      }
+
+  """
+  @type text_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_response_card() :: %{
+        "buttons" => list(button()()),
+        "imageUrl" => String.t(),
+        "subtitle" => String.t(),
+        "title" => String.t()
+      }
+
+  """
+  @type image_response_card() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_session_response() :: %{
+        "audioStream" => binary(),
+        "contentType" => String.t(),
+        "messages" => String.t(),
+        "requestAttributes" => String.t(),
+        "sessionId" => String.t(),
+        "sessionState" => String.t()
+      }
+
+  """
+  @type put_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent() :: %{
+        "confirmationState" => list(any()),
+        "name" => String.t(),
+        "slots" => map(),
+        "state" => list(any())
+      }
+
+  """
+  @type intent() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sentiment_score() :: %{
+        "mixed" => float(),
+        "negative" => float(),
+        "neutral" => float(),
+        "positive" => float()
+      }
+
+  """
+  @type sentiment_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_result_event() :: %{
+        "eventId" => String.t(),
+        "inputMode" => list(any()),
+        "interpretations" => list(interpretation()()),
+        "recognizedBotMember" => recognized_bot_member(),
+        "requestAttributes" => map(),
+        "sessionId" => String.t(),
+        "sessionState" => session_state()
+      }
+
+  """
+  @type intent_result_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_response() :: %{
+        "botAliasId" => String.t(),
+        "botId" => String.t(),
+        "localeId" => String.t(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type delete_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_response_event() :: %{
+        "eventId" => String.t(),
+        "messages" => list(message()())
+      }
+
+  """
+  @type text_response_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_context() :: %{
+        "contextAttributes" => map(),
+        "name" => String.t(),
+        "timeToLive" => active_context_time_to_live()
+      }
+
+  """
+  @type active_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confidence_score() :: %{
+        "score" => float()
+      }
+
+  """
+  @type confidence_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnection_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t()
+      }
+
+  """
+  @type disconnection_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_state() :: %{
+        "activeContexts" => list(active_context()()),
+        "dialogAction" => dialog_action(),
+        "intent" => intent(),
+        "originatingRequestId" => String.t(),
+        "runtimeHints" => runtime_hints(),
+        "sessionAttributes" => map()
+      }
+
+  """
+  @type session_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recognize_text_response() :: %{
+        "interpretations" => list(interpretation()()),
+        "messages" => list(message()()),
+        "recognizedBotMember" => recognized_bot_member(),
+        "requestAttributes" => map(),
+        "sessionId" => String.t(),
+        "sessionState" => session_state()
+      }
+
+  """
+  @type recognize_text_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_response_event() :: %{
+        "audioChunk" => binary(),
+        "contentType" => String.t(),
+        "eventId" => String.t()
+      }
+
+  """
+  @type audio_response_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hint_value() :: %{
+        "phrase" => String.t()
+      }
+
+  """
+  @type runtime_hint_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_conversation_request() :: %{
+        optional("conversationMode") => list(any()),
+        required("requestEventStream") => list()
+      }
+
+  """
+  @type start_conversation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recognize_utterance_response() :: %{
+        "audioStream" => binary(),
+        "contentType" => String.t(),
+        "inputMode" => String.t(),
+        "inputTranscript" => String.t(),
+        "interpretations" => String.t(),
+        "messages" => String.t(),
+        "recognizedBotMember" => String.t(),
+        "requestAttributes" => String.t(),
+        "sessionId" => String.t(),
+        "sessionState" => String.t()
+      }
+
+  """
+  @type recognize_utterance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_event() :: %{
+        "clientTimestampMillis" => float(),
+        "disablePlayback" => boolean(),
+        "eventId" => String.t(),
+        "requestAttributes" => map(),
+        "responseContentType" => String.t(),
+        "sessionState" => session_state(),
+        "welcomeMessages" => list(message()())
+      }
+
+  """
+  @type configuration_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      playback_interruption_event() :: %{
+        "causedByEventId" => String.t(),
+        "eventId" => String.t(),
+        "eventReason" => list(any())
+      }
+
+  """
+  @type playback_interruption_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hints() :: %{
+        "slotHints" => map()
+      }
+
+  """
+  @type runtime_hints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      playback_completion_event() :: %{
+        "clientTimestampMillis" => float(),
+        "eventId" => String.t()
+      }
+
+  """
+  @type playback_completion_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      heartbeat_event() :: %{
+        "eventId" => String.t()
+      }
+
+  """
+  @type heartbeat_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_conversation_response() :: %{
+        "responseEventStream" => list()
+      }
+
+  """
+  @type start_conversation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      button() :: %{
+        "text" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type button() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dialog_action() :: %{
+        "slotElicitationStyle" => list(any()),
+        "slotToElicit" => String.t(),
+        "subSlotToElicit" => elicit_sub_slot(),
+        "type" => list(any())
+      }
+
+  """
+  @type dialog_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hint_details() :: %{
+        "runtimeHintValues" => list(runtime_hint_value()()),
+        "subSlotHints" => map()
+      }
+
+  """
+  @type runtime_hint_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transcript_event() :: %{
+        "eventId" => String.t(),
+        "transcript" => String.t()
+      }
+
+  """
+  @type transcript_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_request() :: %{}
+
+  """
+  @type delete_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      interpretation() :: %{
+        "intent" => intent(),
+        "interpretationSource" => list(any()),
+        "nluConfidence" => confidence_score(),
+        "sentimentResponse" => sentiment_response()
+      }
+
+  """
+  @type interpretation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_input_event() :: %{
+        "audioChunk" => binary(),
+        "clientTimestampMillis" => float(),
+        "contentType" => String.t(),
+        "eventId" => String.t()
+      }
+
+  """
+  @type audio_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => String.t(),
+        "contentType" => list(any()),
+        "imageResponseCard" => image_response_card()
+      }
+
+  """
+  @type message() :: %{String.t() => any()}
+
+  @type delete_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type put_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type recognize_text_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type recognize_utterance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type start_conversation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2020-08-07",
@@ -17,6 +722,7 @@ defmodule AWS.LexRuntimeV2 do
       credential_scope: nil,
       endpoint_prefix: "runtime-v2-lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Runtime V2",
       signature_version: "v4",
@@ -43,7 +749,27 @@ defmodule AWS.LexRuntimeV2 do
   If the locale doesn't exist in the bot, or if the locale hasn't been
   enables for the alias, you receive a
   `BadRequestException`.
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
   """
+  @spec delete_session(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_session_request(),
+          Keyword.t()
+        ) ::
+          {:ok, delete_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_session_errors()}
   def delete_session(
         %Client{} = client,
         bot_alias_id,
@@ -59,7 +785,8 @@ defmodule AWS.LexRuntimeV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -86,15 +813,32 @@ defmodule AWS.LexRuntimeV2 do
   returns a `BadRequestException`. If the locale doesn't exist
   or is not enabled for the alias, you receive a
   `BadRequestException`.
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
   """
+  @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_session_errors()}
   def get_session(%Client{} = client, bot_alias_id, bot_id, locale_id, session_id, options \\ []) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
+    # NOTE: We can't use validate!/2 here because the user might pass options to the client too...
+    # options = Keyword.validate!(options, [
+    # ])
+
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -105,7 +849,28 @@ defmodule AWS.LexRuntimeV2 do
 
   Use this operation to enable your application to set the state of
   the bot.
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
+   • :response_content_type (t:String.t/0) (ResponseContentType)
   """
+  @spec put_session(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          put_session_request(),
+          Keyword.t()
+        ) ::
+          {:ok, put_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_session_errors()}
   def put_session(
         %Client{} = client,
         bot_alias_id,
@@ -139,7 +904,8 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -191,7 +957,27 @@ defmodule AWS.LexRuntimeV2 do
 
   For more information, see [Completion
   message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
   """
+  @spec recognize_text(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          recognize_text_request(),
+          Keyword.t()
+        ) ::
+          {:ok, recognize_text_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, recognize_text_errors()}
   def recognize_text(
         %Client{} = client,
         bot_alias_id,
@@ -207,7 +993,8 @@ defmodule AWS.LexRuntimeV2 do
     headers = []
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -289,7 +1076,31 @@ defmodule AWS.LexRuntimeV2 do
 
   For more information, see [Completion
   message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
+   • :request_attributes (t:String.t/0) (x-amz-lex-request-attributes)
+   • :request_content_type (t:String.t/0) (Content-Type)
+   • :response_content_type (t:String.t/0) (Response-Content-Type)
+   • :session_state (t:String.t/0) (x-amz-lex-session-state)
   """
+  @spec recognize_utterance(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          recognize_utterance_request(),
+          Keyword.t()
+        ) ::
+          {:ok, recognize_utterance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, recognize_utterance_errors()}
   def recognize_utterance(
         %Client{} = client,
         bot_alias_id,
@@ -330,7 +1141,8 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,
@@ -414,7 +1226,28 @@ defmodule AWS.LexRuntimeV2 do
     *
 
   [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation)
+
+  ## Required positional parameters:
+   • :bot_alias_id (t:string String.t/0) (botAliasId)
+   • :bot_id (t:string String.t/0) (botId)
+   • :locale_id (t:string String.t/0) (localeId)
+   • :session_id (t:string String.t/0) (sessionId)
+
+  ## Optional parameters:
+   • :conversation_mode (t:String.t/0) (x-amz-lex-conversation-mode)
   """
+  @spec start_conversation(
+          AWS.Client.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          start_conversation_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_conversation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_conversation_errors()}
   def start_conversation(
         %Client{} = client,
         bot_alias_id,
@@ -435,7 +1268,8 @@ defmodule AWS.LexRuntimeV2 do
 
     query_params = []
 
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_rest(
       client,

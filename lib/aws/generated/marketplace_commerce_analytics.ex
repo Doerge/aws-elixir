@@ -9,6 +9,77 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      generate_data_set_request() :: %{
+        optional("customerDefinedValues") => map(),
+        optional("destinationS3Prefix") => String.t(),
+        required("dataSetPublicationDate") => non_neg_integer(),
+        required("dataSetType") => list(any()),
+        required("destinationS3BucketName") => String.t(),
+        required("roleNameArn") => String.t(),
+        required("snsTopicArn") => String.t()
+      }
+      
+  """
+  @type generate_data_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_data_set_result() :: %{
+        "dataSetRequestId" => String.t()
+      }
+      
+  """
+  @type generate_data_set_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      marketplace_commerce_analytics_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type marketplace_commerce_analytics_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_support_data_export_request() :: %{
+        optional("customerDefinedValues") => map(),
+        optional("destinationS3Prefix") => String.t(),
+        required("dataSetType") => list(any()),
+        required("destinationS3BucketName") => String.t(),
+        required("fromDate") => non_neg_integer(),
+        required("roleNameArn") => String.t(),
+        required("snsTopicArn") => String.t()
+      }
+      
+  """
+  @type start_support_data_export_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_support_data_export_result() :: %{
+        "dataSetRequestId" => String.t()
+      }
+      
+  """
+  @type start_support_data_export_result() :: %{String.t() => any()}
+
+  @type generate_data_set_errors() :: marketplace_commerce_analytics_exception()
+
+  @type start_support_data_export_errors() :: marketplace_commerce_analytics_exception()
+
   def metadata do
     %{
       api_version: "2015-07-01",
@@ -16,6 +87,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       credential_scope: nil,
       endpoint_prefix: "marketplacecommerceanalytics",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Commerce Analytics",
       signature_version: "v4",
@@ -41,8 +113,13 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish,
   iam:GetRolePolicy.
   """
+  @spec generate_data_set(AWS.Client.t(), generate_data_set_request(), Keyword.t()) ::
+          {:ok, generate_data_set_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataSet", input, options)
   end
@@ -66,8 +143,17 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish,
   iam:GetRolePolicy.
   """
+  @spec start_support_data_export(
+          AWS.Client.t(),
+          start_support_data_export_request(),
+          Keyword.t()
+        ) ::
+          {:ok, start_support_data_export_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSupportDataExport", input, options)
   end

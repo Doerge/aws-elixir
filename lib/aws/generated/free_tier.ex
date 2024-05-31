@@ -25,6 +25,114 @@ defmodule AWS.FreeTier do
   alias AWS.Client
   alias AWS.Request
 
+  @typedoc """
+
+  ## Example:
+      
+      dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type dimension_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "And" => list(expression()()),
+        "Dimensions" => dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression()())
+      }
+      
+  """
+  @type expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      free_tier_usage() :: %{
+        "actualUsageAmount" => float(),
+        "description" => String.t(),
+        "forecastedUsageAmount" => float(),
+        "freeTierType" => String.t(),
+        "limit" => float(),
+        "operation" => String.t(),
+        "region" => String.t(),
+        "service" => String.t(),
+        "unit" => String.t(),
+        "usageType" => String.t()
+      }
+      
+  """
+  @type free_tier_usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_free_tier_usage_request() :: %{
+        optional("filter") => expression(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type get_free_tier_usage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_free_tier_usage_response() :: %{
+        "freeTierUsages" => list(free_tier_usage()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type get_free_tier_usage_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @type get_free_tier_usage_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
   def metadata do
     %{
       api_version: "2023-09-07",
@@ -32,6 +140,7 @@ defmodule AWS.FreeTier do
       credential_scope: nil,
       endpoint_prefix: "freetier",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "FreeTier",
       signature_version: "v4",
@@ -43,8 +152,13 @@ defmodule AWS.FreeTier do
   @doc """
   Returns a list of all Free Tier usage objects that match your filters.
   """
+  @spec get_free_tier_usage(AWS.Client.t(), get_free_tier_usage_request(), Keyword.t()) ::
+          {:ok, get_free_tier_usage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFreeTierUsage", input, options)
   end
