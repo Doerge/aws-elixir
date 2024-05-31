@@ -2370,7 +2370,7 @@ defmodule AWS.IoTTwinMaker do
   Sets values for multiple time series properties.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the properties to set.
 
   ## Optional parameters:
   """
@@ -2408,7 +2408,7 @@ defmodule AWS.IoTTwinMaker do
   Cancels the metadata transfer job.
 
   ## Required positional parameters:
-   • :metadata_transfer_job_id (t:string String.t/0) (metadataTransferJobId)
+  * `:metadata_transfer_job_id` (`t:string`) The metadata transfer job Id.
 
   ## Optional parameters:
   """
@@ -2441,8 +2441,8 @@ defmodule AWS.IoTTwinMaker do
   Creates a component type.
 
   ## Required positional parameters:
-   • :component_type_id (t:string String.t/0) (componentTypeId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the component type.
 
   ## Optional parameters:
   """
@@ -2489,7 +2489,7 @@ defmodule AWS.IoTTwinMaker do
   Creates an entity.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity.
 
   ## Optional parameters:
   """
@@ -2558,7 +2558,7 @@ defmodule AWS.IoTTwinMaker do
   Creates a scene.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
 
   ## Optional parameters:
   """
@@ -2591,8 +2591,8 @@ defmodule AWS.IoTTwinMaker do
   This action creates a SyncJob.
 
   ## Required positional parameters:
-   • :sync_source (t:string String.t/0) (syncSource)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The workspace ID.
 
   ## Optional parameters:
   """
@@ -2633,7 +2633,7 @@ defmodule AWS.IoTTwinMaker do
   Creates a workplace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -2666,8 +2666,8 @@ defmodule AWS.IoTTwinMaker do
   Deletes a component type.
 
   ## Required positional parameters:
-   • :component_type_id (t:string String.t/0) (componentTypeId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:component_type_id` (`t:string`) The ID of the component type to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the component type.
 
   ## Optional parameters:
   """
@@ -2714,11 +2714,11 @@ defmodule AWS.IoTTwinMaker do
   Deletes an entity.
 
   ## Required positional parameters:
-   • :entity_id (t:string String.t/0) (entityId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:entity_id` (`t:string`) The ID of the entity to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity to delete.
 
   ## Optional parameters:
-   • :is_recursive (t:String.t/0) (isRecursive)
+  * `:is_recursive` (`t:boolean`) A Boolean value that specifies whether the operation deletes child entities.
   """
   @spec delete_entity(
           AWS.Client.t(),
@@ -2762,8 +2762,8 @@ defmodule AWS.IoTTwinMaker do
   Deletes a scene.
 
   ## Required positional parameters:
-   • :scene_id (t:string String.t/0) (sceneId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:scene_id` (`t:string`) The ID of the scene to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -2798,8 +2798,8 @@ defmodule AWS.IoTTwinMaker do
   Delete the SyncJob.
 
   ## Required positional parameters:
-   • :sync_source (t:string String.t/0) (syncSource)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The workspace ID.
 
   ## Optional parameters:
   """
@@ -2840,7 +2840,7 @@ defmodule AWS.IoTTwinMaker do
   Deletes a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
 
   ## Optional parameters:
   """
@@ -2909,8 +2909,8 @@ defmodule AWS.IoTTwinMaker do
   Retrieves information about a component type.
 
   ## Required positional parameters:
-   • :component_type_id (t:string String.t/0) (componentTypeId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the component type.
 
   ## Optional parameters:
   """
@@ -2939,8 +2939,8 @@ defmodule AWS.IoTTwinMaker do
   Retrieves information about an entity.
 
   ## Required positional parameters:
-   • :entity_id (t:string String.t/0) (entityId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:entity_id` (`t:string`) The ID of the entity.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -2969,7 +2969,7 @@ defmodule AWS.IoTTwinMaker do
   Gets a nmetadata transfer job.
 
   ## Required positional parameters:
-   • :metadata_transfer_job_id (t:string String.t/0) (metadataTransferJobId)
+  * `:metadata_transfer_job_id` (`t:string`) The metadata transfer job Id.
 
   ## Optional parameters:
   """
@@ -3027,7 +3027,7 @@ defmodule AWS.IoTTwinMaker do
   `componentTypeId`, `entityId`, or `workspaceId`.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace whose values the operation returns.
 
   ## Optional parameters:
   """
@@ -3066,7 +3066,7 @@ defmodule AWS.IoTTwinMaker do
   quries, specify a value for `componentTypeId`.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -3104,8 +3104,8 @@ defmodule AWS.IoTTwinMaker do
   Retrieves information about a scene.
 
   ## Required positional parameters:
-   • :scene_id (t:string String.t/0) (sceneId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:scene_id` (`t:string`) The ID of the scene.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
 
   ## Optional parameters:
   """
@@ -3134,10 +3134,10 @@ defmodule AWS.IoTTwinMaker do
   Gets the SyncJob.
 
   ## Required positional parameters:
-   • :sync_source (t:string String.t/0) (syncSource)
+  * `:sync_source` (`t:string`) The sync source.
 
   ## Optional parameters:
-   • :workspace_id (t:String.t/0) (workspace)
+  * `:workspace_id` (`t:string`) The workspace ID.
   """
   @spec get_sync_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sync_job_response(), any()}
@@ -3172,7 +3172,7 @@ defmodule AWS.IoTTwinMaker do
   Retrieves information about a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -3200,7 +3200,7 @@ defmodule AWS.IoTTwinMaker do
   Lists all component types in a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -3238,8 +3238,8 @@ defmodule AWS.IoTTwinMaker do
   This API lists the components of an entity.
 
   ## Required positional parameters:
-   • :entity_id (t:string String.t/0) (entityId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:entity_id` (`t:string`) The ID for the entity whose metadata (component/properties) is returned by the operation.
+  * `:workspace_id` (`t:string`) The workspace ID.
 
   ## Optional parameters:
   """
@@ -3280,7 +3280,7 @@ defmodule AWS.IoTTwinMaker do
   Lists all entities in a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -3349,7 +3349,7 @@ defmodule AWS.IoTTwinMaker do
   This API lists the properties of a component.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The workspace ID.
 
   ## Optional parameters:
   """
@@ -3382,7 +3382,7 @@ defmodule AWS.IoTTwinMaker do
   Lists all scenes in a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scenes.
 
   ## Optional parameters:
   """
@@ -3415,7 +3415,7 @@ defmodule AWS.IoTTwinMaker do
   List all SyncJobs.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync job.
 
   ## Optional parameters:
   """
@@ -3448,8 +3448,8 @@ defmodule AWS.IoTTwinMaker do
   Lists the sync resources.
 
   ## Required positional parameters:
-   • :sync_source (t:string String.t/0) (syncSource)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:sync_source` (`t:string`) The sync source.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the sync job.
 
   ## Optional parameters:
   """
@@ -3588,8 +3588,9 @@ defmodule AWS.IoTTwinMaker do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceARN)
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iottwinmaker#TagKey]`) A list of tag key names to remove from the resource. You don&#39;t specify the value. Both
+         the key and its associated value are removed.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3626,8 +3627,8 @@ defmodule AWS.IoTTwinMaker do
   Updates information in a component type.
 
   ## Required positional parameters:
-   • :component_type_id (t:string String.t/0) (componentTypeId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:component_type_id` (`t:string`) The ID of the component type.
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """
@@ -3664,8 +3665,8 @@ defmodule AWS.IoTTwinMaker do
   Updates an entity.
 
   ## Required positional parameters:
-   • :entity_id (t:string String.t/0) (entityId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:entity_id` (`t:string`) The ID of the entity.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the entity.
 
   ## Optional parameters:
   """
@@ -3728,8 +3729,8 @@ defmodule AWS.IoTTwinMaker do
   Updates a scene.
 
   ## Required positional parameters:
-   • :scene_id (t:string String.t/0) (sceneId)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:scene_id` (`t:string`) The ID of the scene.
+  * `:workspace_id` (`t:string`) The ID of the workspace that contains the scene.
 
   ## Optional parameters:
   """
@@ -3754,7 +3755,7 @@ defmodule AWS.IoTTwinMaker do
   Updates a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace.
 
   ## Optional parameters:
   """

@@ -223,7 +223,7 @@ defmodule AWS.EKSAuth do
   SDKs use them automatically.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of the cluster for the request.
 
   ## Optional parameters:
   """

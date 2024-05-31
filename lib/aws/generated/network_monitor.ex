@@ -677,7 +677,7 @@ defmodule AWS.NetworkMonitor do
   probe for.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor to associated with the probe. 
 
   ## Optional parameters:
   """
@@ -713,7 +713,7 @@ defmodule AWS.NetworkMonitor do
   `ListMonitors` to get a list of monitor names.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.  
 
   ## Optional parameters:
   """
@@ -754,8 +754,8 @@ defmodule AWS.NetworkMonitor do
   single probe at a time using this action.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
-   • :probe_id (t:string String.t/0) (probeId)
+  * `:monitor_name` (`t:string`) The name of the monitor to delete. 
+  * `:probe_id` (`t:string`) The ID of the probe to delete. 
 
   ## Optional parameters:
   """
@@ -793,7 +793,7 @@ defmodule AWS.NetworkMonitor do
   `ListMonitors` to get a list of monitor names.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor that details are returned for.
 
   ## Optional parameters:
   """
@@ -826,8 +826,8 @@ defmodule AWS.NetworkMonitor do
   `GetMonitor` to get a list of probes and probe IDs.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
-   • :probe_id (t:string String.t/0) (probeId)
+  * `:monitor_name` (`t:string`) The name of the monitor associated with the probe. Run <code>ListMonitors</code> to get a list of monitor names.
+  * `:probe_id` (`t:string`) The ID of the probe to get information about. Run <code>GetMonitor</code> action to get a list of probes and probe IDs for the  monitor.
 
   ## Optional parameters:
   """
@@ -858,9 +858,10 @@ defmodule AWS.NetworkMonitor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :state (t:String.t/0) (state)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call.
+  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:state` (`t:`) The list of all monitors and their states.
   """
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
@@ -913,7 +914,7 @@ defmodule AWS.NetworkMonitor do
   Lists the tags assigned to this resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The 
 
   ## Optional parameters:
   """
@@ -941,7 +942,7 @@ defmodule AWS.NetworkMonitor do
   Adds key-value pairs to a monitor or probe.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the monitor or probe to tag.
 
   ## Optional parameters:
   """
@@ -974,10 +975,10 @@ defmodule AWS.NetworkMonitor do
   Removes a key-value pair from a monitor or probe.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag should be removed from. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]`) The key-value pa
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1018,7 +1019,7 @@ defmodule AWS.NetworkMonitor do
   Run `ListMonitors` to get a list of monitor names.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor to update. 
 
   ## Optional parameters:
   """
@@ -1087,8 +1088,8 @@ defmodule AWS.NetworkMonitor do
   probe.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (monitorName)
-   • :probe_id (t:string String.t/0) (probeId)
+  * `:monitor_name` (`t:string`) The name of the monitor that the probe was updated for.
+  * `:probe_id` (`t:string`) The ID of the probe to update.
 
   ## Optional parameters:
   """

@@ -851,7 +851,7 @@ defmodule AWS.Braket do
   Cancels an Amazon Braket job.
 
   ## Required positional parameters:
-   • :job_arn (t:string String.t/0) (jobArn)
+  * `:job_arn` (`t:string`) The ARN of the Amazon Braket job to cancel.
 
   ## Optional parameters:
   """
@@ -874,7 +874,7 @@ defmodule AWS.Braket do
   Cancels the specified task.
 
   ## Required positional parameters:
-   • :quantum_task_arn (t:string String.t/0) (quantumTaskArn)
+  * `:quantum_task_arn` (`t:string`) The ARN of the task to cancel.
 
   ## Optional parameters:
   """
@@ -979,7 +979,7 @@ defmodule AWS.Braket do
   this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.
 
   ## Required positional parameters:
-   • :device_arn (t:string String.t/0) (deviceArn)
+  * `:device_arn` (`t:string`) The ARN of the device to retrieve.
 
   ## Optional parameters:
   """
@@ -1007,10 +1007,10 @@ defmodule AWS.Braket do
   Retrieves the specified Amazon Braket job.
 
   ## Required positional parameters:
-   • :job_arn (t:string String.t/0) (jobArn)
+  * `:job_arn` (`t:string`) The ARN of the job to retrieve.
 
   ## Optional parameters:
-   • :additional_attribute_names (t:String.t/0) (additionalAttributeNames)
+  * `:additional_attribute_names` (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of attributes to return information for.
   """
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
@@ -1045,10 +1045,10 @@ defmodule AWS.Braket do
   Retrieves the specified quantum task.
 
   ## Required positional parameters:
-   • :quantum_task_arn (t:string String.t/0) (quantumTaskArn)
+  * `:quantum_task_arn` (`t:string`) The ARN of the task to retrieve.
 
   ## Optional parameters:
-   • :additional_attribute_names (t:String.t/0) (additionalAttributeNames)
+  * `:additional_attribute_names` (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list of attributes to return information for.
   """
   @spec get_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_quantum_task_response(), any()}
@@ -1083,7 +1083,7 @@ defmodule AWS.Braket do
   Shows the tags associated with this resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> for the resource whose tags to display.
 
   ## Optional parameters:
   """
@@ -1207,7 +1207,8 @@ defmodule AWS.Braket do
   Add a tag to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> of the resource to which a tag will be
+         added.
 
   ## Optional parameters:
   """
@@ -1240,10 +1241,11 @@ defmodule AWS.Braket do
   Remove tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> for the resource from which to remove the
+         tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specify the keys for the tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

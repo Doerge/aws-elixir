@@ -415,9 +415,9 @@ defmodule AWS.Artifact do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :report_id (t:String.t/0) (reportId)
-   • :report_version (t:String.t/0) (reportVersion)
-   • :term_token (t:String.t/0) (termToken)
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+  * `:report_version` (`t:long`) Version for the report resource.
+  * `:term_token` (`t:string`) Unique download token provided by GetTermForReport API.
   """
   @spec get_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_response(), any()}
@@ -472,8 +472,8 @@ defmodule AWS.Artifact do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :report_id (t:String.t/0) (reportId)
-   • :report_version (t:String.t/0) (reportVersion)
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+  * `:report_version` (`t:long`) Version for the report resource.
   """
   @spec get_report_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_metadata_response(), any()}
@@ -519,8 +519,8 @@ defmodule AWS.Artifact do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :report_id (t:String.t/0) (reportId)
-   • :report_version (t:String.t/0) (reportVersion)
+  * `:report_id` (`t:string`) Unique resource ID for the report resource.
+  * `:report_version` (`t:long`) Version for the report resource.
   """
   @spec get_term_for_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_term_for_report_response(), any()}
@@ -566,8 +566,8 @@ defmodule AWS.Artifact do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of resources to return in the paginated response.
+  * `:next_token` (`t:string`) Pagination token to request the next page of resources.
   """
   @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}

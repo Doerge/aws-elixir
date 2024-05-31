@@ -340,13 +340,19 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
 
   ## Required positional parameters:
-   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
+      
 
   ## Optional parameters:
-   • :deletion_mode (t:String.t/0) (DeletionMode)
-   • :event_time (t:String.t/0) (EventTime)
-   • :record_identifier_value_as_string (t:String.t/0) (RecordIdentifierValueAsString)
-   • :target_stores (t:String.t/0) (TargetStores)
+  * `:deletion_mode` (`t:enum["HARD_DELETE|SOFT_DELETE"]`) The name of the deletion mode for deleting the record. By default, the deletion mode is
+         set to <code>SoftDelete</code>.
+  * `:event_time` (`t:string`) Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
+         used to query data at a certain point in time.
+  * `:record_identifier_value_as_string` (`t:string`) The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in
+         string format. 
+  * `:target_stores` (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of stores from which you&#39;re deleting the record. By default, Feature Store
+         deletes the record from all of the stores that you&#39;re using for the
+            <code>FeatureGroup</code>.
   """
   @spec delete_record(AWS.Client.t(), String.t(), delete_record_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -389,12 +395,17 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   `RecordIdentifierValue` is found, then an empty result is returned.
 
   ## Required positional parameters:
-   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group from which you want to
+         retrieve a record.
 
   ## Optional parameters:
-   • :expiration_time_response (t:String.t/0) (ExpirationTimeResponse)
-   • :feature_names (t:String.t/0) (FeatureName)
-   • :record_identifier_value_as_string (t:String.t/0) (RecordIdentifierValueAsString)
+  * `:expiration_time_response` (`t:enum["DISABLED|ENABLED"]`) Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
+            <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
+         null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.
+  * `:feature_names` (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of names of Features to be retrieved. If not specified, the latest value for all
+         the Features are returned.
+  * `:record_identifier_value_as_string` (`t:string`) The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
+         the record in the <code>FeatureGroup</code>. 
   """
   @spec get_record(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_record_response(), any()}
@@ -472,7 +483,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   the group level `TtlDuration`.
 
   ## Required positional parameters:
-   • :feature_group_name (t:string String.t/0) (FeatureGroupName)
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
+         record into.
 
   ## Optional parameters:
   """

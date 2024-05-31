@@ -4774,10 +4774,10 @@ defmodule AWS.Macie2 do
   Deletes an allow list.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
-   • :ignore_job_checks (t:String.t/0) (ignoreJobChecks)
+  * `:ignore_job_checks` (`t:string`) Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.
   """
   @spec delete_allow_list(AWS.Client.t(), String.t(), delete_allow_list_request(), Keyword.t()) ::
           {:ok, delete_allow_list_response(), any()}
@@ -4813,7 +4813,7 @@ defmodule AWS.Macie2 do
   Soft deletes a custom data identifier.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -4851,7 +4851,7 @@ defmodule AWS.Macie2 do
   Deletes a findings filter.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -4923,7 +4923,7 @@ defmodule AWS.Macie2 do
   account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -4989,7 +4989,7 @@ defmodule AWS.Macie2 do
   Retrieves the status and settings for a classification job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier for the classification job.
 
   ## Optional parameters:
   """
@@ -5081,7 +5081,7 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :admin_account_id (t:String.t/0) (adminAccountId)
+  * `:admin_account_id` (`t:string`) The Amazon Web Services account ID of the delegated Amazon Macie administrator account.
   """
   @spec disable_organization_admin_account(
           AWS.Client.t(),
@@ -5197,7 +5197,7 @@ defmodule AWS.Macie2 do
   Disassociates an Amazon Macie administrator account from a member account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5333,7 +5333,7 @@ defmodule AWS.Macie2 do
   Retrieves the settings and status of an allow list.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5449,7 +5449,7 @@ defmodule AWS.Macie2 do
   Retrieves the classification scope settings for an account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5477,7 +5477,7 @@ defmodule AWS.Macie2 do
   Retrieves the criteria and other settings for a custom data identifier.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5569,7 +5569,7 @@ defmodule AWS.Macie2 do
   Retrieves the criteria and other settings for a findings filter.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5710,7 +5710,7 @@ defmodule AWS.Macie2 do
   administrator account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5741,7 +5741,7 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
   """
   @spec get_resource_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_profile_response(), any()}
@@ -5804,7 +5804,7 @@ defmodule AWS.Macie2 do
   Retrieves occurrences of sensitive data reported by a finding.
 
   ## Required positional parameters:
-   • :finding_id (t:string String.t/0) (findingId)
+  * `:finding_id` (`t:string`) The unique identifier for the finding.
 
   ## Optional parameters:
   """
@@ -5832,7 +5832,7 @@ defmodule AWS.Macie2 do
   Checks whether occurrences of sensitive data can be retrieved for a finding.
 
   ## Required positional parameters:
-   • :finding_id (t:string String.t/0) (findingId)
+  * `:finding_id` (`t:string`) The unique identifier for the finding.
 
   ## Optional parameters:
   """
@@ -5860,7 +5860,7 @@ defmodule AWS.Macie2 do
   Retrieves the settings for the sensitivity inspection template for an account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -5922,7 +5922,7 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :time_range (t:String.t/0) (timeRange)
+  * `:time_range` (`t:string`) The inclusive time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you don&#39;t specify a value for this parameter, Amazon Macie provides aggregated usage data for the preceding 30 days.
   """
   @spec get_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_usage_totals_response(), any()}
@@ -5959,8 +5959,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_allow_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_allow_lists_response(), any()}
@@ -6038,8 +6038,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:name` (`t:string`) The name of the classification scope to retrieve the unique identifier for.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_classification_scopes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_classification_scopes_response(), any()}
@@ -6154,8 +6154,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_findings_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_filters_response(), any()}
@@ -6202,8 +6202,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -6286,9 +6286,9 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :only_associated (t:String.t/0) (onlyAssociated)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:only_associated` (`t:string`) Specifies which accounts to include in the response, based on the status of an account&#39;s relationship with the administrator account. By default, the response includes only current member accounts. To include all accounts, set this value to false.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -6344,8 +6344,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -6392,8 +6392,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
   """
   @spec list_resource_profile_artifacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
@@ -6440,9 +6440,9 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
   """
   @spec list_resource_profile_detections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_detections_response(), any()}
@@ -6498,8 +6498,8 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
   """
   @spec list_sensitivity_inspection_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
@@ -6544,7 +6544,7 @@ defmodule AWS.Macie2 do
   resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -6658,7 +6658,7 @@ defmodule AWS.Macie2 do
   Amazon Macie resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -6726,10 +6726,10 @@ defmodule AWS.Macie2 do
   Removes one or more tags (keys and values) from an Amazon Macie resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.macie2#__string]`) One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, separated by an ampersand (&amp;).
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6764,7 +6764,7 @@ defmodule AWS.Macie2 do
   Updates the settings for an allow list.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -6813,7 +6813,7 @@ defmodule AWS.Macie2 do
   Changes the status of a classification job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier for the classification job.
 
   ## Optional parameters:
   """
@@ -6851,7 +6851,7 @@ defmodule AWS.Macie2 do
   Updates the classification scope settings for an account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -6889,7 +6889,7 @@ defmodule AWS.Macie2 do
   Updates the criteria and other settings for a findings filter.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -6961,7 +6961,7 @@ defmodule AWS.Macie2 do
   account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """
@@ -7038,7 +7038,7 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
   """
   @spec update_resource_profile(AWS.Client.t(), update_resource_profile_request(), Keyword.t()) ::
           {:ok, update_resource_profile_response(), any()}
@@ -7076,7 +7076,7 @@ defmodule AWS.Macie2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
   """
   @spec update_resource_profile_detections(
           AWS.Client.t(),
@@ -7143,7 +7143,7 @@ defmodule AWS.Macie2 do
   Updates the settings for the sensitivity inspection template for an account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
 
   ## Optional parameters:
   """

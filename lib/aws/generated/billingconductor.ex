@@ -1927,7 +1927,9 @@ defmodule AWS.Billingconductor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) 
+      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
+    
   """
   @spec create_billing_group(AWS.Client.t(), create_billing_group_input(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
@@ -1971,7 +1973,9 @@ defmodule AWS.Billingconductor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) 
+      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
+    
   """
   @spec create_custom_line_item(AWS.Client.t(), create_custom_line_item_input(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
@@ -2011,7 +2015,9 @@ defmodule AWS.Billingconductor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) 
+      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
+    
   """
   @spec create_pricing_plan(AWS.Client.t(), create_pricing_plan_input(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
@@ -2052,7 +2058,8 @@ defmodule AWS.Billingconductor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`)  The token that&#39;s needed to support idempotency. Idempotency isn&#39;t currently supported,
+      but will be implemented in a future update. 
   """
   @spec create_pricing_rule(AWS.Client.t(), create_pricing_rule_input(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
@@ -2686,7 +2693,9 @@ defmodule AWS.Billingconductor do
   A list the tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+      The Amazon Resource Name (ARN) that identifies the resource to list the tags.
+    
 
   ## Optional parameters:
   """
@@ -2718,7 +2727,9 @@ defmodule AWS.Billingconductor do
   changed.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+      The Amazon Resource Name (ARN) of the resource to which to add tags.
+    
 
   ## Optional parameters:
   """
@@ -2752,10 +2763,14 @@ defmodule AWS.Billingconductor do
   Deletes specified tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+      The Amazon Resource Name (ARN) of the resource to which to delete tags.
+    
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) 
+      The tags to delete from the resource as a list of key-value pairs.
+    
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

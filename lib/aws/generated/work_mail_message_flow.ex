@@ -149,7 +149,7 @@ defmodule AWS.WorkMailMessageFlow do
   Retrieves the raw content of an in-transit email message, in MIME format.
 
   ## Required positional parameters:
-   • :message_id (t:string String.t/0) (messageId)
+  * `:message_id` (`t:string`) The identifier of the email message to retrieve.
 
   ## Optional parameters:
   """
@@ -195,7 +195,7 @@ defmodule AWS.WorkMailMessageFlow do
   message.
 
   ## Required positional parameters:
-   • :message_id (t:string String.t/0) (messageId)
+  * `:message_id` (`t:string`) The identifier of the email message being updated.
 
   ## Optional parameters:
   """

@@ -2341,7 +2341,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Deletes the media pipeline.
 
   ## Required positional parameters:
-   • :media_pipeline_id (t:string String.t/0) (MediaPipelineId)
+  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline being deleted. 
 
   ## Optional parameters:
   """
@@ -2379,7 +2379,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Deletes the specified configuration settings.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be deleted. Valid values include the name and ARN of the media insights pipeline configuration.
 
   ## Optional parameters:
   """
@@ -2422,7 +2422,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Deletes the media pipeline.
 
   ## Required positional parameters:
-   • :media_pipeline_id (t:string String.t/0) (MediaPipelineId)
+  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline to delete.
 
   ## Optional parameters:
   """
@@ -2460,7 +2460,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Deletes an Kinesis video stream pool.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The ID of the pool being deleted.
 
   ## Optional parameters:
   """
@@ -2503,7 +2503,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Gets an existing media pipeline.
 
   ## Required positional parameters:
-   • :media_pipeline_id (t:string String.t/0) (MediaPipelineId)
+  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
 
   ## Optional parameters:
   """
@@ -2531,7 +2531,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Gets the configuration settings for a media insights pipeline.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.  Valid values include the name and ARN of the media insights pipeline configuration.
 
   ## Optional parameters:
   """
@@ -2559,7 +2559,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Gets an existing media pipeline.
 
   ## Required positional parameters:
-   • :media_pipeline_id (t:string String.t/0) (MediaPipelineId)
+  * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
 
   ## Optional parameters:
   """
@@ -2587,7 +2587,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Gets an Kinesis video stream pool.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The ID of the video stream pool.
 
   ## Optional parameters:
   """
@@ -2615,8 +2615,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Retrieves the details of the specified speaker search task.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
-   • :speaker_search_task_id (t:string String.t/0) (SpeakerSearchTaskId)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
 
   ## Optional parameters:
   """
@@ -2650,8 +2650,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Retrieves the details of a voice tone analysis task.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
-   • :voice_tone_analysis_task_id (t:string String.t/0) (VoiceToneAnalysisTaskId)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
 
   ## Optional parameters:
   """
@@ -2687,8 +2687,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
   """
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
@@ -2734,8 +2734,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_media_insights_pipeline_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_insights_pipeline_configurations_response(), any()}
@@ -2781,8 +2781,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results. 
   """
   @spec list_media_pipeline_kinesis_video_stream_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
@@ -2828,8 +2828,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
   """
   @spec list_media_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipelines_response(), any()}
@@ -2875,7 +2875,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (arn)
+  * `:resource_arn` (`t:string`) The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline&#39;s region, resource ID, and pipeline ID.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2916,7 +2916,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   SDK.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -2966,7 +2966,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   SDK.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -3006,8 +3006,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Stops a speaker search task.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
-   • :speaker_search_task_id (t:string String.t/0) (SpeakerSearchTaskId)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
 
   ## Optional parameters:
   """
@@ -3054,8 +3054,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Stops a voice tone analysis task.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
-   • :voice_tone_analysis_task_id (t:string String.t/0) (VoiceToneAnalysisTaskId)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
 
   ## Optional parameters:
   """
@@ -3168,7 +3168,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Updates the media insights pipeline's configuration settings.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier for the resource to be updated. Valid values include the name and ARN of the media insights pipeline configuration.
 
   ## Optional parameters:
   """
@@ -3201,7 +3201,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Updates the status of a media insights pipeline.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -3229,7 +3229,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   Updates an Kinesis video stream pool in a media pipeline.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The ID of the video stream pool.
 
   ## Optional parameters:
   """

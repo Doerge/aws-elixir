@@ -1295,9 +1295,13 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :upload_id (t:string String.t/0) (uploadId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:upload_id` (`t:string`) The upload ID of the multipart upload to delete.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1367,8 +1371,12 @@ defmodule AWS.Glacier do
   associated with the vault.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1418,8 +1426,12 @@ defmodule AWS.Glacier do
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1521,13 +1533,21 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :upload_id (t:string String.t/0) (uploadId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:upload_id` (`t:string`) The upload ID of the multipart upload.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :archive_size (t:String.t/0) (x-amz-archive-size)
-   • :checksum (t:String.t/0) (x-amz-sha256-tree-hash)
+  * `:archive_size` (`t:string`) The total size, in bytes, of the entire archive. This value should be the sum of all
+         the sizes of the individual parts that you uploaded.
+  * `:checksum` (`t:string`) The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash
+         of the individual parts. If the value you specify in the request does not match the SHA256
+         tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), 
+         Glacier returns an error and the request fails.
   """
   @spec complete_multipart_upload(
           AWS.Client.t(),
@@ -1611,9 +1631,13 @@ defmodule AWS.Glacier do
   error.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :lock_id (t:string String.t/0) (lockId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
+  * `:lock_id` (`t:string`) The <code>lockId</code> value is the lock ID obtained from a <a>InitiateVaultLock</a> request.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1694,8 +1718,12 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon S3
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1761,9 +1789,13 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :archive_id (t:string String.t/0) (archiveId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:archive_id` (`t:string`) The ID of the archive to delete.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1835,8 +1867,12 @@ defmodule AWS.Glacier do
   *Amazon S3 Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1882,8 +1918,12 @@ defmodule AWS.Glacier do
   [Amazon Glacier Access Control with Vault Access Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -1946,8 +1986,12 @@ defmodule AWS.Glacier do
   in the Amazon S3 Glacier Developer Guide.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2018,9 +2062,13 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :job_id (t:string String.t/0) (jobId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:job_id` (`t:string`) The ID of the job to describe.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2080,8 +2128,12 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2114,7 +2166,11 @@ defmodule AWS.Glacier do
   [Amazon Glacier Data Retrieval Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID. 
 
   ## Optional parameters:
   """
@@ -2203,12 +2259,18 @@ defmodule AWS.Glacier do
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html)
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :job_id (t:string String.t/0) (jobId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:job_id` (`t:string`) The job ID whose data is downloaded.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :range (t:String.t/0) (Range)
+  * `:range` (`t:string`) The range of bytes to retrieve from the output. For example, if you want to download
+         the first 1,048,576 bytes, specify the range as <code>bytes=0-1048575</code>. By default, this operation
+         downloads the entire output.
   """
   @spec get_job_output(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_output_output(), any()}
@@ -2265,8 +2327,12 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2328,8 +2394,12 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2380,8 +2450,12 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2416,8 +2490,12 @@ defmodule AWS.Glacier do
   Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2512,12 +2590,17 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :archive_description (t:String.t/0) (x-amz-archive-description)
-   • :part_size (t:String.t/0) (x-amz-part-size)
+  * `:archive_description` (`t:string`) The archive description that you are uploading in parts.
+  * `:part_size` (`t:string`) The size of each part except the last, in bytes. The last part can be smaller than
+         this part size.
   """
   @spec initiate_multipart_upload(
           AWS.Client.t(),
@@ -2604,8 +2687,12 @@ defmodule AWS.Glacier do
   before you can initiate a new vault lock policy.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -2701,14 +2788,25 @@ defmodule AWS.Glacier do
   see the documentation for the underlying REST API [List Jobs](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :completed (t:String.t/0) (completed)
-   • :limit (t:String.t/0) (limit)
-   • :marker (t:String.t/0) (marker)
-   • :statuscode (t:String.t/0) (statuscode)
+  * `:completed` (`t:string`) The state of the jobs to return. You can specify <code>true</code> or
+            <code>false</code>.
+  * `:limit` (`t:`) The maximum number of jobs to be returned. The default limit is 50. The number of
+         jobs returned might be fewer than the specified limit, but the number of returned jobs
+         never exceeds the limit.
+  * `:marker` (`t:string`) An opaque string used for pagination. This value specifies the job at which the
+         listing of jobs should begin. Get the marker value from a previous List Jobs response. You
+         only need to include the marker if you are continuing the pagination of results started in
+         a previous List Jobs request.
+  * `:statuscode` (`t:string`) The type of job status to return. You can specify the following values:
+            <code>InProgress</code>, <code>Succeeded</code>, or <code>Failed</code>.
   """
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_output(), any()}
@@ -2809,12 +2907,20 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :marker (t:String.t/0) (marker)
+  * `:limit` (`t:`) Specifies the maximum number of uploads returned in the response body. If this value
+         is not specified, the List Uploads operation returns up to 50 uploads.
+  * `:marker` (`t:string`) An opaque string used for pagination. This value specifies the upload at which the
+         listing of uploads should begin. Get the marker value from a previous List Uploads
+         response. You need only include the marker if you are continuing the pagination of results
+         started in a previous List Uploads request.
   """
   @spec list_multipart_uploads(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_multipart_uploads_output(), any()}
@@ -2892,13 +2998,22 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :upload_id (t:string String.t/0) (uploadId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:upload_id` (`t:string`) The upload ID of the multipart upload.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :marker (t:String.t/0) (marker)
+  * `:limit` (`t:`) The maximum number of parts to be returned. The default limit is 50. The number of
+         parts returned might be fewer than the specified limit, but the number of returned parts
+         never exceeds the limit.
+  * `:marker` (`t:string`) An opaque string used for pagination. This value specifies the part at which the
+         listing of parts should begin. Get the marker value from the response of a previous List
+         Parts response. You need only include the marker if you are continuing the pagination of
+         results started in a previous List Parts request.
   """
   @spec list_parts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_parts_output(), any()}
@@ -2944,7 +3059,10 @@ defmodule AWS.Glacier do
   account.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
+  * `:account_id` (`t:string`) The AWS account ID of the account that owns the vault. You can either specify an AWS
+         account ID or optionally a single &#39;-&#39; (hyphen), in which case Amazon S3 Glacier uses the AWS
+         account ID associated with the credentials used to sign the request. If you use an account
+         ID, don&#39;t include any hyphens (&#39;-&#39;) in the ID. 
 
   ## Optional parameters:
   """
@@ -2976,8 +3094,12 @@ defmodule AWS.Glacier do
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -3035,11 +3157,18 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :marker (t:String.t/0) (marker)
+  * `:limit` (`t:`) The maximum number of vaults to be returned. The default limit is 10. The number of
+         vaults returned might be fewer than the specified limit, but the number of returned vaults
+         never exceeds the limit.
+  * `:marker` (`t:string`) A string used for pagination. The marker specifies the vault ARN after which the
+         listing of vaults should begin.
   """
   @spec list_vaults(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vaults_output(), any()}
@@ -3083,7 +3212,10 @@ defmodule AWS.Glacier do
   This operation purchases a provisioned capacity unit for an AWS account.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
+  * `:account_id` (`t:string`) The AWS account ID of the account that owns the vault. You can either specify an AWS
+         account ID or optionally a single &#39;-&#39; (hyphen), in which case Amazon S3 Glacier uses the AWS
+         account ID associated with the credentials used to sign the request. If you use an account
+         ID, don&#39;t include any hyphens (&#39;-&#39;) in the ID. 
 
   ## Optional parameters:
   """
@@ -3135,8 +3267,12 @@ defmodule AWS.Glacier do
   attached to the vault.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -3188,7 +3324,11 @@ defmodule AWS.Glacier do
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
+         account ID associated with the credentials used to sign the request. You can either specify
+         an AWS account ID or optionally a single &#39;<code>-</code>&#39; (hyphen), in which case Amazon
+         Glacier uses the AWS account ID associated with the credentials used to sign the request.
+         If you specify your account ID, do not include any hyphens (&#39;-&#39;) in the ID.
 
   ## Optional parameters:
   """
@@ -3226,8 +3366,12 @@ defmodule AWS.Glacier do
   see [Amazon Glacier Access Control with Vault Access Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -3306,8 +3450,12 @@ defmodule AWS.Glacier do
   in the *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
   """
@@ -3389,12 +3537,16 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :archive_description (t:String.t/0) (x-amz-archive-description)
-   • :checksum (t:String.t/0) (x-amz-sha256-tree-hash)
+  * `:archive_description` (`t:string`) The optional description of the archive you are uploading.
+  * `:checksum` (`t:string`) The SHA256 tree hash of the data being uploaded.
   """
   @spec upload_archive(
           AWS.Client.t(),
@@ -3515,13 +3667,20 @@ defmodule AWS.Glacier do
   *Amazon Glacier Developer Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :upload_id (t:string String.t/0) (uploadId)
-   • :vault_name (t:string String.t/0) (vaultName)
+  * `:account_id` (`t:string`) The <code>AccountId</code> value is the AWS account ID of the account that owns the
+         vault. You can either specify an AWS account ID or optionally a single &#39;<code>-</code>&#39;
+         (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+         credentials used to sign the request. If you use an account ID, do not include any hyphens
+         (&#39;-&#39;) in the ID. 
+  * `:upload_id` (`t:string`) The upload ID of the multipart upload.
+  * `:vault_name` (`t:string`) The name of the vault.
 
   ## Optional parameters:
-   • :checksum (t:String.t/0) (x-amz-sha256-tree-hash)
-   • :range (t:String.t/0) (Content-Range)
+  * `:checksum` (`t:string`) The SHA256 tree hash of the data being uploaded.
+  * `:range` (`t:string`) Identifies the range of bytes in the assembled archive that will be uploaded in this
+         part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence.
+         The format of this header follows RFC 2616. An example header is Content-Range:bytes
+         0-4194303/*.
   """
   @spec upload_multipart_part(
           AWS.Client.t(),

@@ -2533,7 +2533,7 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The unique identifier that identifies the query to be canceled.
 
   ## Optional parameters:
   """
@@ -2582,7 +2582,7 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster..
 
   ## Required positional parameters:
-   • :load_id (t: String.t/0) (loadId)
+  * `:load_id` (`t:`) The ID of the load job to be deleted.
 
   ## Optional parameters:
   """
@@ -2624,11 +2624,15 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the data-processing job.
 
   ## Optional parameters:
-   • :clean (t:String.t/0) (clean)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:clean` (`t:`) If set to <code>TRUE</code>, this flag specifies that all
+      Neptune ML S3 artifacts should be deleted when the job is stopped.
+      The default is <code>FALSE</code>.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+    and Amazon S3 resources. This must be listed in your DB cluster
+    parameter group or an error will occur.
   """
   @spec cancel_ml_data_processing_job(
           AWS.Client.t(),
@@ -2679,11 +2683,15 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the model-training job to be canceled.
 
   ## Optional parameters:
-   • :clean (t:String.t/0) (clean)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:clean` (`t:`) If set to <code>TRUE</code>, this flag specifies that all
+    Amazon S3 artifacts should be deleted when the job is stopped.
+    The default is <code>FALSE</code>.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec cancel_ml_model_training_job(
           AWS.Client.t(),
@@ -2734,11 +2742,14 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique ID of the model transform job to be canceled.
 
   ## Optional parameters:
-   • :clean (t:String.t/0) (clean)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:clean` (`t:`) If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts
+      should be deleted when the job is stopped. The default is <code>FALSE</code>.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec cancel_ml_model_transform_job(
           AWS.Client.t(),
@@ -2790,10 +2801,11 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The unique ID of the openCypher query to cancel.
 
   ## Optional parameters:
-   • :silent (t:String.t/0) (silent)
+  * `:silent` (`t:`) If set to <code>TRUE</code>, causes the cancelation of the
+      openCypher query to happen silently.
   """
   @spec cancel_open_cypher_query(
           AWS.Client.t(),
@@ -2887,11 +2899,15 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the inference endpoint.
 
   ## Optional parameters:
-   • :clean (t:String.t/0) (clean)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:clean` (`t:`) If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts
+      should be deleted when the job is stopped. The default is
+      <code>FALSE</code>.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role providing Neptune access to SageMaker and
+      Amazon S3 resources. This must be listed in your DB cluster parameter
+      group or an error will be thrown.
   """
   @spec delete_ml_endpoint(AWS.Client.t(), String.t(), delete_ml_endpoint_input(), Keyword.t()) ::
           {:ok, delete_ml_endpoint_output(), any()}
@@ -3208,7 +3224,10 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :serializer (t:String.t/0) (accept)
+  * `:serializer` (`t:`) If non-null, the query results are returned in a serialized response
+    message in the format specified by this parameter. See the <a href="https://tinkerpop.apache.org/docs/current/reference/#_graphson">GraphSON</a>
+    section in the TinkerPop documentation for a list of the formats that
+    are currently supported.
   """
   @spec execute_gremlin_query(AWS.Client.t(), execute_gremlin_query_input(), Keyword.t()) ::
           {:ok, execute_gremlin_query_output(), any()}
@@ -3411,7 +3430,7 @@ defmodule AWS.Neptunedata do
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The unique identifier that identifies the Gremlin query.
 
   ## Optional parameters:
   """
@@ -3452,13 +3471,21 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster..
 
   ## Required positional parameters:
-   • :load_id (t: String.t/0) (loadId)
+  * `:load_id` (`t:`) The load ID of the load job to get the status of.
 
   ## Optional parameters:
-   • :details (t:String.t/0) (details)
-   • :errors (t:String.t/0) (errors)
-   • :errors_per_page (t:String.t/0) (errorsPerPage)
-   • :page (t:String.t/0) (page)
+  * `:details` (`t:`) Flag indicating whether or not to include details beyond the
+       overall status (<code>TRUE</code> or <code>FALSE</code>; the default
+       is <code>FALSE</code>).
+  * `:errors` (`t:`) Flag indicating whether or not to include a list of errors
+      encountered (<code>TRUE</code> or <code>FALSE</code>; the default
+       is <code>FALSE</code>).
+  * `:errors_per_page` (`t:integer`) The number of errors returned in each page (a positive integer; the
+      default is <code>10</code>). Only valid when the <code>errors</code>
+      parameter set to <code>TRUE</code>.
+  * `:page` (`t:integer`) The error page number (a positive integer; the default is <code>1</code>).
+      Only valid when the <code>errors</code> parameter is set to
+      <code>TRUE</code>.
   """
   @spec get_loader_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_loader_job_status_output(), any()}
@@ -3529,10 +3556,12 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the data-processing job to be retrieved.
 
   ## Optional parameters:
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec get_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
@@ -3576,10 +3605,12 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the inference endpoint.
 
   ## Optional parameters:
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+    and Amazon S3 resources. This must be listed in your DB cluster parameter
+    group or an error will occur.
   """
   @spec get_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_endpoint_output(), any()}
@@ -3623,10 +3654,12 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the model-training job to retrieve.
 
   ## Optional parameters:
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec get_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_training_job_output(), any()}
@@ -3670,10 +3703,12 @@ defmodule AWS.Neptunedata do
   IAM action in that cluster.
 
   ## Required positional parameters:
-   • :id (t: String.t/0) (id)
+  * `:id` (`t:`) The unique identifier of the model-transform job to be reetrieved.
 
   ## Optional parameters:
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec get_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
@@ -3719,7 +3754,8 @@ defmodule AWS.Neptunedata do
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The unique ID of the openCypher query for which to retrieve
+      the query status.
 
   ## Optional parameters:
   """
@@ -3820,11 +3856,20 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :commit_num (t:String.t/0) (commitNum)
-   • :iterator_type (t:String.t/0) (iteratorType)
-   • :limit (t:String.t/0) (limit)
-   • :op_num (t:String.t/0) (opNum)
-   • :encoding (t:String.t/0) (Accept-Encoding)
+  * `:commit_num` (`t:`) The commit number of the starting record to read from the
+      change-log stream. This parameter is required when <code>iteratorType</code>
+      is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and
+      ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or
+      <code>LATEST</code>.
+  * `:iterator_type` (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`) Can be one of:
+  * `:limit` (`t:`) Specifies the maximum number of records to return. There
+      is also a size limit of 10 MB on the response that can&#39;t be modified
+      and that takes precedence over the number of records specified in
+      the <code>limit</code> parameter. The response does include a
+      threshold-breaching record if the 10 MB limit was reached.
+  * `:op_num` (`t:`) The operation sequence number within the specified commit to
+      start reading from in the change-log stream data. The default is <code>1</code>.
+  * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response using gzip encoding.
   """
   @spec get_propertygraph_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_stream_output(), any()}
@@ -3904,7 +3949,8 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :mode (t:String.t/0) (mode)
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: <code>BASIC</code> (the default),
+      and <code>DETAILED</code>.
   """
   @spec get_propertygraph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_summary_output(), any()}
@@ -3947,7 +3993,8 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :mode (t:String.t/0) (mode)
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: <code>BASIC</code> (the default),
+      and <code>DETAILED</code>.
   """
   @spec get_r_d_f_graph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
@@ -4035,11 +4082,20 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :commit_num (t:String.t/0) (commitNum)
-   • :iterator_type (t:String.t/0) (iteratorType)
-   • :limit (t:String.t/0) (limit)
-   • :op_num (t:String.t/0) (opNum)
-   • :encoding (t:String.t/0) (Accept-Encoding)
+  * `:commit_num` (`t:`) The commit number of the starting record to read from the
+      change-log stream. This parameter is required when <code>iteratorType</code>
+      is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and
+      ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or
+      <code>LATEST</code>.
+  * `:iterator_type` (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`) Can be one of:
+  * `:limit` (`t:`) Specifies the maximum number of records to return. There
+      is also a size limit of 10 MB on the response that can&#39;t be modified
+      and that takes precedence over the number of records specified in
+      the <code>limit</code> parameter. The response does include a
+      threshold-breaching record if the 10 MB limit was reached.
+  * `:op_num` (`t:`) The operation sequence number within the specified commit to
+      start reading from in the change-log stream data. The default is <code>1</code>.
+  * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response using gzip encoding.
   """
   @spec get_sparql_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_stream_output(), any()}
@@ -4128,7 +4184,8 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_waiting (t:String.t/0) (includeWaiting)
+  * `:include_waiting` (`t:`) If set to <code>TRUE</code>, the list returned includes waiting
+      queries. The default is <code>FALSE</code>;
   """
   @spec list_gremlin_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gremlin_queries_output(), any()}
@@ -4172,8 +4229,12 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_queued_loads (t:String.t/0) (includeQueuedLoads)
-   • :limit (t:String.t/0) (limit)
+  * `:include_queued_loads` (`t:`) An optional parameter that can be used to exclude the load
+      IDs of queued load requests when requesting a list of load IDs by
+      setting the parameter to <code>FALSE</code>. The default value
+      is <code>TRUE</code>.
+  * `:limit` (`t:integer`) The number of load IDs to list. Must be a positive integer
+      greater than zero and not more than <code>100</code> (which is the default).
   """
   @spec list_loader_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_loader_jobs_output(), any()}
@@ -4228,8 +4289,10 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to 1024; the default is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec list_ml_data_processing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
@@ -4284,8 +4347,11 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to 1024; the default
+      is 10.
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec list_ml_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_endpoints_output(), any()}
@@ -4340,8 +4406,11 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to 1024; the default
+    is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec list_ml_model_training_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
@@ -4396,8 +4465,11 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :neptune_iam_role_arn (t:String.t/0) (neptuneIamRoleArn)
+  * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to 1024; the
+      default is 10).
+  * `:neptune_iam_role_arn` (`t:`) The ARN of an IAM role that provides Neptune access to SageMaker
+      and Amazon S3 resources. This must be listed in your DB cluster
+      parameter group or an error will occur.
   """
   @spec list_ml_model_transform_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
@@ -4458,7 +4530,9 @@ defmodule AWS.Neptunedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_waiting (t:String.t/0) (includeWaiting)
+  * `:include_waiting` (`t:`)  When set to <code>TRUE</code> and other parameters are not
+      present, causes status information to be returned for waiting
+      queries as well as for running queries.
   """
   @spec list_open_cypher_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_open_cypher_queries_output(), any()}

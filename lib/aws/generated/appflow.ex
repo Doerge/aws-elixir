@@ -3487,7 +3487,7 @@ defmodule AWS.Appflow do
   Retrieves the tags that are associated with a specified flow.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the specified flow. 
 
   ## Optional parameters:
   """
@@ -3672,7 +3672,7 @@ defmodule AWS.Appflow do
   Applies a tag to the specified flow.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the flow that you want to tag. 
 
   ## Optional parameters:
   """
@@ -3739,10 +3739,10 @@ defmodule AWS.Appflow do
   Removes a tag from the specified flow.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the flow that you want to untag. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.appflow#TagKey]`)  The tag keys associated with the tag that you want to remove from your flow. 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

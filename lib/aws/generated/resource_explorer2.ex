@@ -1502,7 +1502,7 @@ defmodule AWS.ResourceExplorer2 do
   Lists the tags that are attached to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.
 
   ## Optional parameters:
   """
@@ -1623,7 +1623,8 @@ defmodule AWS.ResourceExplorer2 do
   Explorer view or index.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the view or index that you want to attach tags
+            to.
 
   ## Optional parameters:
   """
@@ -1657,10 +1658,12 @@ defmodule AWS.ResourceExplorer2 do
   Explorer view or index.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the view or index that you want to remove tags
+            from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) A list of the keys for the tags that you want to remove from the specified view or
+            index.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

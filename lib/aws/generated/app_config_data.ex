@@ -238,7 +238,11 @@ defmodule AWS.AppConfigData do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :configuration_token (t:String.t/0) (configuration_token)
+  * `:configuration_token` (`t:string`) Token describing the current state of the configuration session. To obtain a token,
+         first call the <a>StartConfigurationSession</a> API. Note that every call to
+            <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
+            (<code>NextPollConfigurationToken</code> in the response) and <i>must</i>
+         be provided to subsequent <code>GetLatestConfiguration</code> API calls.
   """
   @spec get_latest_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_latest_configuration_response(), any()}

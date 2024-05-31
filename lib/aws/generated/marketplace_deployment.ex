@@ -248,7 +248,7 @@ defmodule AWS.MarketplaceDeployment do
   Lists all tags that have been added to a deployment parameter resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to list tags on.
 
   ## Optional parameters:
   """
@@ -277,8 +277,9 @@ defmodule AWS.MarketplaceDeployment do
   `agreementId`.
 
   ## Required positional parameters:
-   • :catalog (t:string String.t/0) (catalog)
-   • :product_id (t:string String.t/0) (productId)
+  * `:catalog` (`t:string`) The catalog related to the request. Fixed value: <code>AWS Marketplace</code>
+         
+  * `:product_id` (`t:string`) The product for which AWS Marketplace will save secrets for the buyer’s account.
 
   ## Optional parameters:
   """
@@ -319,7 +320,7 @@ defmodule AWS.MarketplaceDeployment do
   Tags a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the resource you want to tag.
 
   ## Optional parameters:
   """
@@ -352,10 +353,10 @@ defmodule AWS.MarketplaceDeployment do
   Removes a tag or list of tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) A list of key names of tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

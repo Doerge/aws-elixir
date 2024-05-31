@@ -1322,7 +1322,7 @@ defmodule AWS.Pipes do
   for specialized knowledge and integration code.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """
@@ -1358,7 +1358,7 @@ defmodule AWS.Pipes do
   in the Amazon EventBridge User Guide.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """
@@ -1394,7 +1394,7 @@ defmodule AWS.Pipes do
   in the Amazon EventBridge User Guide.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """
@@ -1427,13 +1427,16 @@ defmodule AWS.Pipes do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :current_state (t:String.t/0) (CurrentState)
-   • :desired_state (t:String.t/0) (DesiredState)
-   • :limit (t:String.t/0) (Limit)
-   • :name_prefix (t:String.t/0) (NamePrefix)
-   • :next_token (t:String.t/0) (NextToken)
-   • :source_prefix (t:String.t/0) (SourcePrefix)
-   • :target_prefix (t:String.t/0) (TargetPrefix)
+  * `:current_state` (`t:string`) The state the pipe is in.
+  * `:desired_state` (`t:string`) The state the pipe should be in.
+  * `:limit` (`t:integer`) The maximum number of pipes to include in the response.
+  * `:name_prefix` (`t:string`) A value that will return a subset of the pipes associated with this account. For example, <code>&quot;NamePrefix&quot;: &quot;ABC&quot;</code> will return 
+         all endpoints with &quot;ABC&quot; in the name.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. 
+         Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination 
+         token will return an HTTP 400 InvalidToken error.
+  * `:source_prefix` (`t:string`) The prefix matching the pipe source.
+  * `:target_prefix` (`t:string`) The prefix matching the pipe target.
   """
   @spec list_pipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipes_response(), any()}
@@ -1522,7 +1525,7 @@ defmodule AWS.Pipes do
   Displays the tags associated with a pipe.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the pipe for which you want to view tags.
 
   ## Optional parameters:
   """
@@ -1550,7 +1553,7 @@ defmodule AWS.Pipes do
   Start an existing pipe.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """
@@ -1583,7 +1586,7 @@ defmodule AWS.Pipes do
   Stop an existing pipe.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """
@@ -1636,7 +1639,7 @@ defmodule AWS.Pipes do
   You can associate as many as 50 tags with a pipe.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the pipe.
 
   ## Optional parameters:
   """
@@ -1669,10 +1672,10 @@ defmodule AWS.Pipes do
   Removes one or more tags from the specified pipes.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the pipe.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.pipes#TagKey]`) The list of tag keys to remove from the pipe.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1725,7 +1728,7 @@ defmodule AWS.Pipes do
   in the Amazon EventBridge User Guide.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the pipe.
 
   ## Optional parameters:
   """

@@ -804,7 +804,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -846,9 +846,9 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) 
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -906,9 +906,9 @@ defmodule AWS.CognitoSync do
   credentials to make this API call.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) 
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -997,7 +997,7 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1082,8 +1082,8 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1115,7 +1115,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1157,7 +1157,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool ID for the request
 
   ## Optional parameters:
   """
@@ -1240,7 +1240,8 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+         Amazon Cognito. This is the ID of the pool for which to return a configuration.
 
   ## Optional parameters:
   """
@@ -1337,12 +1338,12 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_datasets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -1454,8 +1455,8 @@ defmodule AWS.CognitoSync do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_identity_pool_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_pool_usage_response(), any()}
@@ -1564,15 +1565,15 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) 
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
-   • :last_sync_count (t:String.t/0) (lastSyncCount)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sync_session_token (t:String.t/0) (syncSessionToken)
+  * `:last_sync_count` (`t:long`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:sync_session_token` (`t:string`) 
   """
   @spec list_records(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_records_response(), any()}
@@ -1687,8 +1688,9 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_id` (`t:string`) The unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+         Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 
   ## Optional parameters:
   """
@@ -1736,7 +1738,7 @@ defmodule AWS.CognitoSync do
   with the temporary user credentials provided by Cognito Identity.
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) The Cognito Identity Pool to use when configuring Cognito Events
 
   ## Optional parameters:
   """
@@ -1827,7 +1829,8 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+         Amazon Cognito. This is the ID of the pool to modify.
 
   ## Optional parameters:
   """
@@ -1917,10 +1920,11 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) The name of the dataset to subcribe to.
+  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
+  * `:identity_id` (`t:string`) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+         Amazon Cognito. The ID of the pool to which the identity belongs.
 
   ## Optional parameters:
   """
@@ -2024,10 +2028,11 @@ defmodule AWS.CognitoSync do
   </examples>
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) The name of the dataset from which to unsubcribe.
+  * `:device_id` (`t:string`) The unique ID generated for this device by Cognito.
+  * `:identity_id` (`t:string`) Unique ID for this identity.
+  * `:identity_pool_id` (`t:string`) A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by
+         Amazon Cognito. The ID of the pool to which this identity belongs.
 
   ## Optional parameters:
   """
@@ -2093,12 +2098,12 @@ defmodule AWS.CognitoSync do
   Identity or with developer credentials.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (DatasetName)
-   • :identity_id (t:string String.t/0) (IdentityId)
-   • :identity_pool_id (t:string String.t/0) (IdentityPoolId)
+  * `:dataset_name` (`t:string`) 
+  * `:identity_id` (`t:string`) 
+  * `:identity_pool_id` (`t:string`) 
 
   ## Optional parameters:
-   • :client_context (t:String.t/0) (x-amz-Client-Context)
+  * `:client_context` (`t:string`) 
   """
   @spec update_records(
           AWS.Client.t(),

@@ -313,20 +313,45 @@ defmodule AWS.CloudSearchDomain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cursor (t:String.t/0) (cursor)
-   • :expr (t:String.t/0) (expr)
-   • :facet (t:String.t/0) (facet)
-   • :filter_query (t:String.t/0) (fq)
-   • :highlight (t:String.t/0) (highlight)
-   • :partial (t:String.t/0) (partial)
-   • :query (t:String.t/0) (q)
-   • :query_options (t:String.t/0) (q.options)
-   • :query_parser (t:String.t/0) (q.parser)
-   • :return (t:String.t/0) (return)
-   • :size (t:String.t/0) (size)
-   • :sort (t:String.t/0) (sort)
-   • :start (t:String.t/0) (start)
-   • :stats (t:String.t/0) (stats)
+  * `:cursor` (`t:string`) Retrieves a cursor value you can use to page through large result sets.
+         Use the <code>size</code> parameter to control the number of hits to include in each response. You can specify either the <code>cursor</code> or
+         <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response. 
+  * `:expr` (`t:string`) Defines one or more numeric expressions that can be used to sort results or specify search or filter
+         criteria. You can also specify expressions as return fields. 
+  * `:facet` (`t:string`) Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{&quot;FIELD&quot;:{&quot;OPTION&quot;:VALUE,&quot;OPTION:&quot;STRING&quot;},&quot;FIELD&quot;:{&quot;OPTION&quot;:VALUE,&quot;OPTION&quot;:&quot;STRING&quot;}}</code>.
+  * `:filter_query` (`t:string`) Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax. 
+  * `:highlight` (`t:string`) Retrieves highlights for matches in the specified <code>text</code> or
+         <code>text-array</code> fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{&quot;FIELD&quot;:{&quot;OPTION&quot;:VALUE,&quot;OPTION:&quot;STRING&quot;},&quot;FIELD&quot;:{&quot;OPTION&quot;:VALUE,&quot;OPTION&quot;:&quot;STRING&quot;}}</code>.
+  * `:partial` (`t:boolean`) Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users&#39; search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.
+  * `:query` (`t:string`) Specifies the search criteria for the request. How you specify the search
+         criteria depends on the query parser used for the request and the parser options
+         specified in the <code>queryOptions</code> parameter. By default,
+         the <code>simple</code> query parser is used to process requests. To use
+         the <code>structured</code>, <code>lucene</code>, or <code>dismax</code> query parser,
+         you must also specify the <code>queryParser</code> parameter. 
+  * `:query_options` (`t:string`) Configures options for the query parser specified in the <code>queryParser</code> parameter. You specify the options in JSON using the following form <code>{&quot;OPTION1&quot;:&quot;VALUE1&quot;,&quot;OPTION2&quot;:VALUE2&quot;...&quot;OPTIONN&quot;:&quot;VALUEN&quot;}.</code>
+  * `:query_parser` (`t:enum["dismax|lucene|simple|structured"]`) Specifies which
+         query parser to use to process the request. If <code>queryParser</code> is not specified, Amazon CloudSearch
+         uses the <code>simple</code> query parser. 
+  * `:return` (`t:string`) Specifies the field and expression values to include in the response. Multiple fields or expressions are specified as a comma-separated list. By default, a search response includes all
+         return enabled fields (<code>_all_fields</code>).
+         To  return only the document IDs for the matching documents,
+         specify <code>_no_fields</code>.
+         To retrieve the relevance score calculated for each document,
+         specify <code>_score</code>.  
+  * `:size` (`t:long`) Specifies the maximum number of search hits to include in the response. 
+  * `:sort` (`t:string`) Specifies the fields or custom expressions to use to sort the search
+         results. Multiple fields or expressions are specified as a comma-separated list.
+         You must specify the sort direction (<code>asc</code> or
+         <code>desc</code>) for each field; for example, <code>year
+            desc,title asc</code>. To use a field to sort results, the field must be sort-enabled in
+         the domain configuration. Array type fields cannot be used for sorting.
+         If no <code>sort</code> parameter is specified, results are sorted by
+         their default relevance scores in descending order: <code>_score
+            desc</code>. You can also sort by document ID
+         (<code>_id asc</code>) and version (<code>_version desc</code>).
+  * `:start` (`t:long`) Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.  
+  * `:stats` (`t:string`) Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:
   """
   @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_response(), any()}
@@ -497,9 +522,9 @@ defmodule AWS.CloudSearchDomain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :query (t:String.t/0) (q)
-   • :size (t:String.t/0) (size)
-   • :suggester (t:String.t/0) (suggester)
+  * `:query` (`t:string`) Specifies the string for which you want to get suggestions.
+  * `:size` (`t:long`) Specifies the maximum number of suggestions to return. 
+  * `:suggester` (`t:string`) Specifies the name of the suggester to use to find suggested matches.
   """
   @spec suggest(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, suggest_response(), any()}
@@ -576,7 +601,7 @@ defmodule AWS.CloudSearchDomain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:enum["application_json|application_xml"]`) The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
   """
   @spec upload_documents(AWS.Client.t(), upload_documents_request(), Keyword.t()) ::
           {:ok, upload_documents_response(), any()}

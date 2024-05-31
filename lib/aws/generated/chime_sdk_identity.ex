@@ -1340,7 +1340,7 @@ defmodule AWS.ChimeSDKIdentity do
   role.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1448,7 +1448,7 @@ defmodule AWS.ChimeSDKIdentity do
   Deletes an `AppInstance` and all associated data asynchronously.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1490,8 +1490,8 @@ defmodule AWS.ChimeSDKIdentity do
   does not delete the user.
 
   ## Required positional parameters:
-   • :app_instance_admin_arn (t:string String.t/0) (AppInstanceAdminArn)
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the <code>AppInstance</code>&#39;s administrator.
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1538,7 +1538,7 @@ defmodule AWS.ChimeSDKIdentity do
   Deletes an `AppInstanceBot`.
 
   ## Required positional parameters:
-   • :app_instance_bot_arn (t:string String.t/0) (AppInstanceBotArn)
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code> being deleted.
 
   ## Optional parameters:
   """
@@ -1576,7 +1576,7 @@ defmodule AWS.ChimeSDKIdentity do
   Deletes an `AppInstanceUser`.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being deleted.
 
   ## Optional parameters:
   """
@@ -1614,8 +1614,8 @@ defmodule AWS.ChimeSDKIdentity do
   Deregisters an `AppInstanceUserEndpoint`.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
-   • :endpoint_id (t:string String.t/0) (EndpointId)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
 
   ## Optional parameters:
   """
@@ -1662,7 +1662,7 @@ defmodule AWS.ChimeSDKIdentity do
   Returns the full details of an `AppInstance`.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1690,8 +1690,8 @@ defmodule AWS.ChimeSDKIdentity do
   Returns the full details of an `AppInstanceAdmin`.
 
   ## Required positional parameters:
-   • :app_instance_admin_arn (t:string String.t/0) (AppInstanceAdminArn)
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the <code>AppInstanceAdmin</code>.
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1725,7 +1725,7 @@ defmodule AWS.ChimeSDKIdentity do
   The `AppInstanceBot's` information.
 
   ## Required positional parameters:
-   • :app_instance_bot_arn (t:string String.t/0) (AppInstanceBotArn)
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code>.
 
   ## Optional parameters:
   """
@@ -1753,7 +1753,7 @@ defmodule AWS.ChimeSDKIdentity do
   Returns the full details of an `AppInstanceUser`.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
 
   ## Optional parameters:
   """
@@ -1781,8 +1781,8 @@ defmodule AWS.ChimeSDKIdentity do
   Returns the full details of an `AppInstanceUserEndpoint`.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
-   • :endpoint_id (t:string String.t/0) (EndpointId)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
 
   ## Optional parameters:
   """
@@ -1816,7 +1816,7 @@ defmodule AWS.ChimeSDKIdentity do
   Gets the retention settings for an `AppInstance`.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -1844,11 +1844,12 @@ defmodule AWS.ChimeSDKIdentity do
   Returns a list of the administrators in the `AppInstance`.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of administrators that you want to return.
+  * `:next_token` (`t:string`) The token returned from previous API requests until the number of administrators is
+         reached.
   """
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
@@ -1894,9 +1895,9 @@ defmodule AWS.ChimeSDKIdentity do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_arn (t:String.t/0) (app-instance-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  * `:max_results` (`t:integer`) The maximum number of requests to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested bots are returned.
   """
   @spec list_app_instance_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_bots_response(), any()}
@@ -1950,11 +1951,11 @@ defmodule AWS.ChimeSDKIdentity do
   `AppInstanceUser`.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of endpoints that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested endpoints are returned.
   """
   @spec list_app_instance_user_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
@@ -2001,9 +2002,9 @@ defmodule AWS.ChimeSDKIdentity do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_arn (t:String.t/0) (app-instance-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  * `:max_results` (`t:integer`) The maximum number of requests that you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested users are returned.
   """
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
@@ -2059,8 +2060,9 @@ defmodule AWS.ChimeSDKIdentity do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of <code>AppInstance</code>s that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API requests until you reach the maximum number of
+            <code>AppInstances</code>.
   """
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
@@ -2106,7 +2108,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (arn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2142,7 +2144,7 @@ defmodule AWS.ChimeSDKIdentity do
   data.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -2183,7 +2185,7 @@ defmodule AWS.ChimeSDKIdentity do
   their expiration settings. The system honors the new settings.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
 
   ## Optional parameters:
   """
@@ -2221,7 +2223,7 @@ defmodule AWS.ChimeSDKIdentity do
   is a mobile device used to receive mobile push notifications for a user.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
 
   ## Optional parameters:
   """
@@ -2329,7 +2331,7 @@ defmodule AWS.ChimeSDKIdentity do
   Updates `AppInstance` metadata.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
 
   ## Optional parameters:
   """
@@ -2357,7 +2359,7 @@ defmodule AWS.ChimeSDKIdentity do
   Updates the name and metadata of an `AppInstanceBot`.
 
   ## Required positional parameters:
-   • :app_instance_bot_arn (t:string String.t/0) (AppInstanceBotArn)
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code>.
 
   ## Optional parameters:
   """
@@ -2388,7 +2390,7 @@ defmodule AWS.ChimeSDKIdentity do
   metadata.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
 
   ## Optional parameters:
   """
@@ -2418,8 +2420,8 @@ defmodule AWS.ChimeSDKIdentity do
   You can update the name and `AllowMessage` values.
 
   ## Required positional parameters:
-   • :app_instance_user_arn (t:string String.t/0) (AppInstanceUserArn)
-   • :endpoint_id (t:string String.t/0) (EndpointId)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
 
   ## Optional parameters:
   """

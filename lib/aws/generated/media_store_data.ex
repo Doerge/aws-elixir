@@ -234,7 +234,8 @@ defmodule AWS.MediaStoreData do
   Deletes an object at the specified path.
 
   ## Required positional parameters:
-   • :path (t:string String.t/0) (Path)
+  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
+         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
 
   ## Optional parameters:
   """
@@ -267,7 +268,8 @@ defmodule AWS.MediaStoreData do
   Gets the headers for an object at the specified path.
 
   ## Required positional parameters:
-   • :path (t:string String.t/0) (Path)
+  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
+         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
 
   ## Optional parameters:
   """
@@ -316,10 +318,12 @@ defmodule AWS.MediaStoreData do
   MediaStore downloads the object even if it’s still uploading the object.
 
   ## Required positional parameters:
-   • :path (t:string String.t/0) (Path)
+  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
+         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
 
   ## Optional parameters:
-   • :range (t:String.t/0) (Range)
+  * `:range` (`t:string`) The range bytes of an object to retrieve. For more information about the
+          <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.
   """
   @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_response(), any()}
@@ -379,9 +383,18 @@ defmodule AWS.MediaStoreData do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :path (t:String.t/0) (Path)
+  * `:max_results` (`t:integer`) The maximum number of results to return per API request. For example, you submit a
+            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
+         items match your request, the service returns no more than the first 500 items. (The
+         service also returns a <code>NextToken</code> value that you can use to fetch the next
+         batch of results.) The service might return fewer results than the <code>MaxResults</code>
+         value.
+  * `:next_token` (`t:string`) The token that identifies which batch of results that you want to see. For example,
+         you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The
+         service returns the first batch of results (up to 500) and a <code>NextToken</code> value.
+         To see the next batch of results, you can submit the <code>ListItems</code> request a
+         second time and specify the <code>NextToken</code> value.
+  * `:path` (`t:string`) The path in the container from which to retrieve items. Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
   """
   @spec list_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_items_response(), any()}
@@ -437,13 +450,19 @@ defmodule AWS.MediaStoreData do
   streaming upload availability.
 
   ## Required positional parameters:
-   • :path (t:string String.t/0) (Path)
+  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
+         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
 
   ## Optional parameters:
-   • :cache_control (t:String.t/0) (Cache-Control)
-   • :content_type (t:String.t/0) (Content-Type)
-   • :storage_class (t:String.t/0) (x-amz-storage-class)
-   • :upload_availability (t:String.t/0) (x-amz-upload-availability)
+  * `:cache_control` (`t:string`) An optional <code>CacheControl</code> header that allows the caller to control the
+         object&#39;s cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.
+  * `:content_type` (`t:string`) The content type of the object.
+  * `:storage_class` (`t:enum["TEMPORAL"]`) Indicates the storage class of a <code>Put</code> request. Defaults to
+         high-performance temporal storage class, and objects are persisted into durable storage
+         shortly after being received.
+  * `:upload_availability` (`t:enum["STANDARD|STREAMING"]`) Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
+            downloading after some initial buffering but before the object is uploaded completely. If the value is set to <code>standard</code>, the object is
+            available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.
   """
   @spec put_object(AWS.Client.t(), String.t(), put_object_request(), Keyword.t()) ::
           {:ok, put_object_response(), any()}

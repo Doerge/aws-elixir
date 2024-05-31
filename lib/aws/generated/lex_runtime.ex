@@ -513,9 +513,9 @@ defmodule AWS.LexRuntime do
   Removes session information for a specified bot, alias, and user ID.
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The identifier of the user associated with the session data.
 
   ## Optional parameters:
   """
@@ -558,12 +558,14 @@ defmodule AWS.LexRuntime do
   ID.
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses this to identify a
+      user&#39;s conversation with your bot. 
 
   ## Optional parameters:
-   • :checkpoint_label_filter (t:String.t/0) (checkpointLabelFilter)
+  * `:checkpoint_label_filter` (`t:string`) A string used to filter the intents returned in the
+        <code>recentIntentSummaryView</code> structure. 
   """
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
@@ -673,16 +675,22 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_alias` (`t:string`) Alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string`) Name of the Amazon Lex bot.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses this to identify a
+      user&#39;s conversation with your bot. At runtime, each request must contain
+      the <code>userID</code> field.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
-   • :active_contexts (t:String.t/0) (x-amz-lex-active-contexts)
-   • :content_type (t:String.t/0) (Content-Type)
-   • :request_attributes (t:String.t/0) (x-amz-lex-request-attributes)
-   • :session_attributes (t:String.t/0) (x-amz-lex-session-attributes)
+  * `:accept` (`t:string`)  You pass this value as the <code>Accept</code> HTTP header. 
+  * `:active_contexts` (`t:string`) A list of contexts active for the request. A context can be activated
+      when a previous intent is fulfilled, or by including the context in the
+      request,
+  * `:content_type` (`t:string`)  You pass this value as the <code>Content-Type</code> HTTP header. 
+  * `:request_attributes` (`t:string`) You pass this value as the <code>x-amz-lex-request-attributes</code>
+      HTTP header.
+  * `:session_attributes` (`t:string`) You pass this value as the <code>x-amz-lex-session-attributes</code>
+      HTTP header.
   """
   @spec post_content(
           AWS.Client.t(),
@@ -828,9 +836,11 @@ defmodule AWS.LexRuntime do
   Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_alias` (`t:string`) The alias of the Amazon Lex bot.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses this to identify a
+      user&#39;s conversation with your bot. At runtime, each request must contain
+      the <code>userID</code> field.
 
   ## Optional parameters:
   """
@@ -878,12 +888,14 @@ defmodule AWS.LexRuntime do
   For more information, see [Managing Sessions](https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html).
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_alias` (`t:string`) The alias in use for the bot that contains the session data.
+  * `:bot_name` (`t:string`) The name of the bot that contains the session data.
+  * `:user_id` (`t:string`) The ID of the client application user. Amazon Lex uses this to identify a
+      user&#39;s conversation with your bot. 
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
+  * `:accept` (`t:string`) The message that Amazon Lex returns in the response can be either text or
+      speech based depending on the value of this field.
   """
   @spec put_session(
           AWS.Client.t(),

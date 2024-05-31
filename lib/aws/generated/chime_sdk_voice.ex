@@ -3532,7 +3532,7 @@ defmodule AWS.ChimeSDKVoice do
   Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -3578,7 +3578,7 @@ defmodule AWS.ChimeSDKVoice do
   group.
 
   ## Required positional parameters:
-   • :voice_connector_group_id (t:string String.t/0) (VoiceConnectorGroupId)
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector group ID.
 
   ## Optional parameters:
   """
@@ -3749,7 +3749,7 @@ defmodule AWS.ChimeSDKVoice do
   the specified participant phone numbers.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -3830,7 +3830,7 @@ defmodule AWS.ChimeSDKVoice do
   `sipMediaApplicationId`.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
 
   ## Optional parameters:
   """
@@ -4093,7 +4093,7 @@ defmodule AWS.ChimeSDKVoice do
   they are deleted permanently.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
   """
@@ -4132,8 +4132,8 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :proxy_session_id (t:string String.t/0) (ProxySessionId)
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4180,7 +4180,7 @@ defmodule AWS.ChimeSDKVoice do
   Deletes a SIP media application.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -4223,7 +4223,7 @@ defmodule AWS.ChimeSDKVoice do
   Deletes a SIP rule.
 
   ## Required positional parameters:
-   • :sip_rule_id (t:string String.t/0) (SipRuleId)
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
   """
@@ -4261,7 +4261,7 @@ defmodule AWS.ChimeSDKVoice do
   can be deleted.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4300,7 +4300,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4349,7 +4349,7 @@ defmodule AWS.ChimeSDKVoice do
   deleted.
 
   ## Required positional parameters:
-   • :voice_connector_group_id (t:string String.t/0) (VoiceConnectorGroupId)
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector Group ID.
 
   ## Optional parameters:
   """
@@ -4396,7 +4396,7 @@ defmodule AWS.ChimeSDKVoice do
   deleted prior to deleting the origination settings.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4440,7 +4440,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4480,7 +4480,7 @@ defmodule AWS.ChimeSDKVoice do
   Deletes a Voice Connector's streaming configuration.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4529,7 +4529,7 @@ defmodule AWS.ChimeSDKVoice do
   deleted prior to deleting the termination settings.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4573,7 +4573,7 @@ defmodule AWS.ChimeSDKVoice do
   authenticate during call termination.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4620,7 +4620,7 @@ defmodule AWS.ChimeSDKVoice do
   WARNING: This action is not reversible.
 
   ## Required positional parameters:
-   • :voice_profile_id (t:string String.t/0) (VoiceProfileId)
+  * `:voice_profile_id` (`t:string`) The voice profile ID.
 
   ## Optional parameters:
   """
@@ -4660,7 +4660,7 @@ defmodule AWS.ChimeSDKVoice do
   WARNING: This action is not reversible.
 
   ## Required positional parameters:
-   • :voice_profile_domain_id (t:string String.t/0) (VoiceProfileDomainId)
+  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
 
   ## Optional parameters:
   """
@@ -4704,7 +4704,7 @@ defmodule AWS.ChimeSDKVoice do
   Amazon Chime SDK Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4751,7 +4751,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector group.
 
   ## Required positional parameters:
-   • :voice_connector_group_id (t:string String.t/0) (VoiceConnectorGroupId)
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
 
   ## Optional parameters:
   """
@@ -4825,7 +4825,7 @@ defmodule AWS.ChimeSDKVoice do
   capabilities, and product type.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
   """
@@ -4855,7 +4855,7 @@ defmodule AWS.ChimeSDKVoice do
   order status.
 
   ## Required positional parameters:
-   • :phone_number_order_id (t:string String.t/0) (PhoneNumberOrderId)
+  * `:phone_number_order_id` (`t:string`) The ID of the phone number order .
 
   ## Optional parameters:
   """
@@ -4912,8 +4912,8 @@ defmodule AWS.ChimeSDKVoice do
   Voice Connector.
 
   ## Required positional parameters:
-   • :proxy_session_id (t:string String.t/0) (ProxySessionId)
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -4943,7 +4943,7 @@ defmodule AWS.ChimeSDKVoice do
   AWS Region, and endpoints.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID .
 
   ## Optional parameters:
   """
@@ -4975,7 +4975,7 @@ defmodule AWS.ChimeSDKVoice do
   the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -5012,7 +5012,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the logging configuration for the specified SIP media application.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -5046,7 +5046,7 @@ defmodule AWS.ChimeSDKVoice do
   target endpoints.
 
   ## Required positional parameters:
-   • :sip_rule_id (t:string String.t/0) (SipRuleId)
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
   """
@@ -5074,8 +5074,8 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of the specified speaker search task.
 
   ## Required positional parameters:
-   • :speaker_search_task_id (t:string String.t/0) (SpeakerSearchTaskId)
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5110,7 +5110,7 @@ defmodule AWS.ChimeSDKVoice do
   timestamps,name, outbound host, and encryption requirements.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5139,7 +5139,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5177,7 +5177,7 @@ defmodule AWS.ChimeSDKVoice do
   such as timestamps,name, and associated `VoiceConnectorItems`.
 
   ## Required positional parameters:
-   • :voice_connector_group_id (t:string String.t/0) (VoiceConnectorGroupId)
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
 
   ## Optional parameters:
   """
@@ -5208,7 +5208,7 @@ defmodule AWS.ChimeSDKVoice do
   Logs.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5241,7 +5241,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the origination settings for the specified Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5271,7 +5271,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5305,7 +5305,7 @@ defmodule AWS.ChimeSDKVoice do
   data.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5338,7 +5338,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the termination setting details for the specified Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5369,7 +5369,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5401,7 +5401,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of the specified voice profile.
 
   ## Required positional parameters:
-   • :voice_profile_id (t:string String.t/0) (VoiceProfileId)
+  * `:voice_profile_id` (`t:string`) The voice profile ID.
 
   ## Optional parameters:
   """
@@ -5429,7 +5429,7 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of the specified voice profile domain.
 
   ## Required positional parameters:
-   • :voice_profile_domain_id (t:string String.t/0) (VoiceProfileDomainId)
+  * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
 
   ## Optional parameters:
   """
@@ -5457,11 +5457,11 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of a voice tone analysis task.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
-   • :voice_tone_analysis_task_id (t:string String.t/0) (VoiceToneAnalysisTaskId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis task.
 
   ## Optional parameters:
-   • :is_caller (t:String.t/0) (isCaller)
+  * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the caller (originator) or the callee (responder).
   """
   @spec get_voice_tone_analysis_task(
           AWS.Client.t(),
@@ -5539,8 +5539,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
   """
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
@@ -5589,12 +5589,12 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :filter_name (t:String.t/0) (filter-name)
-   • :filter_value (t:String.t/0) (filter-value)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :product_type (t:String.t/0) (product-type)
-   • :status (t:String.t/0) (status)
+  * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`) The filter to limit the number of results.
+  * `:filter_value` (`t:string`) The filter value.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The phone number product types.
+  * `:status` (`t:string`) The status of your organization&#39;s phone numbers.
   """
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -5674,12 +5674,12 @@ defmodule AWS.ChimeSDKVoice do
   Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proxy_sessions_response(), any()}
@@ -5734,8 +5734,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
@@ -5781,9 +5781,9 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :sip_media_application_id (t:String.t/0) (sip-media-application)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Defaults to 100.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_rules_response(), any()}
@@ -5838,7 +5838,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :product_type (t:String.t/0) (product-type)
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The phone number product type.
   """
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
@@ -5875,7 +5875,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (arn)
+  * `:resource_arn` (`t:string`) The resource ARN.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -5913,8 +5913,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.  
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
@@ -5958,7 +5958,7 @@ defmodule AWS.ChimeSDKVoice do
   Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -5994,8 +5994,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
@@ -6041,8 +6041,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_profile_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_profile_domains_response(), any()}
@@ -6088,9 +6088,9 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :voice_profile_domain_id (t:String.t/0) (voice-profile-domain-id)
+  * `:max_results` (`t:integer`) The maximum number of results in the request.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:voice_profile_domain_id` (`t:string`) The ID of the voice profile domain.
   """
   @spec list_voice_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_profiles_response(), any()}
@@ -6147,7 +6147,7 @@ defmodule AWS.ChimeSDKVoice do
   the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -6182,7 +6182,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the logging configuration for the specified SIP media application.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -6217,7 +6217,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's emergency calling configuration.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6252,7 +6252,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's logging configuration.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6287,7 +6287,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's origination settings.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6321,7 +6321,7 @@ defmodule AWS.ChimeSDKVoice do
   Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6351,7 +6351,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's streaming configuration settings.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6386,7 +6386,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's termination settings.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6419,7 +6419,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates a Voice Connector's termination credentials.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6464,7 +6464,7 @@ defmodule AWS.ChimeSDKVoice do
   Restores a deleted phone number.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) The ID of the phone number being restored.
 
   ## Optional parameters:
   """
@@ -6504,14 +6504,14 @@ defmodule AWS.ChimeSDKVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :area_code (t:String.t/0) (area-code)
-   • :city (t:String.t/0) (city)
-   • :country (t:String.t/0) (country)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :phone_number_type (t:String.t/0) (phone-number-type)
-   • :state (t:String.t/0) (state)
-   • :toll_free_prefix (t:String.t/0) (toll-free-prefix)
+  * `:area_code` (`t:string`) Confines a search to just the phone numbers associated with the specified area code.
+  * `:city` (`t:string`) Confines a search to just the phone numbers associated with the specified city.
+  * `:country` (`t:string`) Confines a search to just the phone numbers associated with the specified country.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
+  * `:phone_number_type` (`t:enum["Local|TollFree"]`) Confines a search to just the phone numbers associated with the specified phone number type, either <b>local</b> or <b>toll-free</b>.
+  * `:state` (`t:string`) Confines a search to just the phone numbers associated with the specified state.
+  * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers associated with the specified toll-free prefix.
   """
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -6615,7 +6615,7 @@ defmodule AWS.ChimeSDKVoice do
   SDK.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6663,7 +6663,7 @@ defmodule AWS.ChimeSDKVoice do
   SDK.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6703,8 +6703,8 @@ defmodule AWS.ChimeSDKVoice do
   Stops a speaker search task.
 
   ## Required positional parameters:
-   • :speaker_search_task_id (t:string String.t/0) (SpeakerSearchTaskId)
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -6751,8 +6751,8 @@ defmodule AWS.ChimeSDKVoice do
   Stops a voice tone analysis task.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
-   • :voice_tone_analysis_task_id (t:string String.t/0) (VoiceToneAnalysisTaskId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
 
   ## Optional parameters:
   """
@@ -6900,7 +6900,7 @@ defmodule AWS.ChimeSDKVoice do
   update.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
   """
@@ -6969,8 +6969,8 @@ defmodule AWS.ChimeSDKVoice do
   Updates the specified proxy session details, such as voice or SMS capabilities.
 
   ## Required positional parameters:
-   • :proxy_session_id (t:string String.t/0) (ProxySessionId)
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:proxy_session_id` (`t:string`) The proxy session ID.
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -7017,7 +7017,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the details of the specified SIP media application.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
+  * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
   """
@@ -7054,8 +7054,8 @@ defmodule AWS.ChimeSDKVoice do
   of actions.
 
   ## Required positional parameters:
-   • :sip_media_application_id (t:string String.t/0) (SipMediaApplicationId)
-   • :transaction_id (t:string String.t/0) (TransactionId)
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application handling the call.
+  * `:transaction_id` (`t:string`) The ID of the call transaction.
 
   ## Optional parameters:
   """
@@ -7102,7 +7102,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the details of the specified SIP rule.
 
   ## Required positional parameters:
-   • :sip_rule_id (t:string String.t/0) (SipRuleId)
+  * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
   """
@@ -7125,7 +7125,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the details for the specified Amazon Chime SDK Voice Connector.
 
   ## Required positional parameters:
-   • :voice_connector_id (t:string String.t/0) (VoiceConnectorId)
+  * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -7153,7 +7153,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the settings for the specified Amazon Chime SDK Voice Connector group.
 
   ## Required positional parameters:
-   • :voice_connector_group_id (t:string String.t/0) (VoiceConnectorGroupId)
+  * `:voice_connector_group_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
   """
@@ -7202,7 +7202,7 @@ defmodule AWS.ChimeSDKVoice do
   with AWS governing your use of the service.
 
   ## Required positional parameters:
-   • :voice_profile_id (t:string String.t/0) (VoiceProfileId)
+  * `:voice_profile_id` (`t:string`) The profile ID.
 
   ## Optional parameters:
   """
@@ -7230,7 +7230,7 @@ defmodule AWS.ChimeSDKVoice do
   Updates the settings for the specified voice profile domain.
 
   ## Required positional parameters:
-   • :voice_profile_domain_id (t:string String.t/0) (VoiceProfileDomainId)
+  * `:voice_profile_domain_id` (`t:string`) The domain ID.
 
   ## Optional parameters:
   """

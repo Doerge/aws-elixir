@@ -2077,8 +2077,9 @@ defmodule AWS.IoTAnalytics do
   Cancels the reprocessing of data through the pipeline.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (pipelineName)
-   • :reprocessing_id (t:string String.t/0) (reprocessingId)
+  * `:pipeline_name` (`t:string`) The name of pipeline for which data reprocessing is canceled.
+  * `:reprocessing_id` (`t:string`) The ID of the reprocessing task (returned by
+      <code>StartPipelineReprocessing</code>).
 
   ## Optional parameters:
   """
@@ -2201,7 +2202,7 @@ defmodule AWS.IoTAnalytics do
   `containerAction` (executing a containerized application).
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset.
 
   ## Optional parameters:
   """
@@ -2310,7 +2311,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (channelName)
+  * `:channel_name` (`t:string`) The name of the channel to delete.
 
   ## Optional parameters:
   """
@@ -2346,7 +2347,7 @@ defmodule AWS.IoTAnalytics do
   operation.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset to delete.
 
   ## Optional parameters:
   """
@@ -2379,10 +2380,12 @@ defmodule AWS.IoTAnalytics do
   Deletes the content of the specified dataset.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset whose content is deleted.
 
   ## Optional parameters:
-   • :version_id (t:String.t/0) (versionId)
+  * `:version_id` (`t:string`) The version of the dataset whose content is deleted. You can also use the strings
+      &quot;$LATEST&quot; or &quot;$LATEST_SUCCEEDED&quot; to delete the latest or latest successfully completed data
+      set. If not specified, &quot;$LATEST_SUCCEEDED&quot; is the default.
   """
   @spec delete_dataset_content(
           AWS.Client.t(),
@@ -2423,7 +2426,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified data store.
 
   ## Required positional parameters:
-   • :datastore_name (t:string String.t/0) (datastoreName)
+  * `:datastore_name` (`t:string`) The name of the data store to delete.
 
   ## Optional parameters:
   """
@@ -2456,7 +2459,7 @@ defmodule AWS.IoTAnalytics do
   Deletes the specified pipeline.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (pipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
 
   ## Optional parameters:
   """
@@ -2489,10 +2492,11 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (channelName)
+  * `:channel_name` (`t:string`) The name of the channel whose information is retrieved.
 
   ## Optional parameters:
-   • :include_statistics (t:String.t/0) (includeStatistics)
+  * `:include_statistics` (`t:boolean`) If true, additional statistical information about the channel is included in the response.
+      This feature can&#39;t be used with a channel whose S3 storage is customer-managed.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -2527,7 +2531,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a dataset.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset whose information is retrieved.
 
   ## Optional parameters:
   """
@@ -2555,10 +2559,12 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a data store.
 
   ## Required positional parameters:
-   • :datastore_name (t:string String.t/0) (datastoreName)
+  * `:datastore_name` (`t:string`) The name of the data store
 
   ## Optional parameters:
-   • :include_statistics (t:String.t/0) (includeStatistics)
+  * `:include_statistics` (`t:boolean`) If true, additional statistical information about the data store is included in the
+      response. This feature can&#39;t be used with a data store whose S3 storage is
+      customer-managed.
   """
   @spec describe_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_datastore_response(), any()}
@@ -2620,7 +2626,7 @@ defmodule AWS.IoTAnalytics do
   Retrieves information about a pipeline.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (pipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline whose information is retrieved.
 
   ## Optional parameters:
   """
@@ -2648,10 +2654,12 @@ defmodule AWS.IoTAnalytics do
   Retrieves the contents of a dataset as presigned URIs.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents are retrieved.
 
   ## Optional parameters:
-   • :version_id (t:String.t/0) (versionId)
+  * `:version_id` (`t:string`) The version of the dataset whose contents are retrieved. You can also use the strings
+      &quot;$LATEST&quot; or &quot;$LATEST_SUCCEEDED&quot; to retrieve the contents of the latest or latest successfully
+      completed dataset. If not specified, &quot;$LATEST_SUCCEEDED&quot; is the default.
   """
   @spec get_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_content_response(), any()}
@@ -2688,8 +2696,8 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -2733,13 +2741,17 @@ defmodule AWS.IoTAnalytics do
   Lists information about dataset contents that have been created.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents information you want to list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :scheduled_before (t:String.t/0) (scheduledBefore)
-   • :scheduled_on_or_after (t:String.t/0) (scheduledOnOrAfter)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:scheduled_before` (`t:timestamp`) A filter to limit results to those dataset contents whose creation is scheduled before the
+      given time. See the field <code>triggers.schedule</code> in the <code>CreateDataset</code>
+      request. (timestamp)
+  * `:scheduled_on_or_after` (`t:timestamp`) A filter to limit results to those dataset contents whose creation is scheduled on or
+      after the given time. See the field <code>triggers.schedule</code> in the
+        <code>CreateDataset</code> request. (timestamp)
   """
   @spec list_dataset_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_contents_response(), any()}
@@ -2803,8 +2815,8 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2850,8 +2862,8 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
@@ -2897,8 +2909,8 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -2944,7 +2956,7 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to list.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3043,12 +3055,13 @@ defmodule AWS.IoTAnalytics do
   Up to 10 messages can be retrieved.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (channelName)
+  * `:channel_name` (`t:string`) The name of the channel whose message samples are retrieved.
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (endTime)
-   • :max_messages (t:String.t/0) (maxMessages)
-   • :start_time (t:String.t/0) (startTime)
+  * `:end_time` (`t:timestamp`) The end of the time window from which sample messages are retrieved.
+  * `:max_messages` (`t:integer`) The number of sample messages to be retrieved. The limit is 10. The default is also
+      10.
+  * `:start_time` (`t:timestamp`) The start of the time window from which sample messages are retrieved.
   """
   @spec sample_channel_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sample_channel_data_response(), any()}
@@ -3101,7 +3114,7 @@ defmodule AWS.IoTAnalytics do
   Starts the reprocessing of raw message data through the pipeline.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (pipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline on which to start reprocessing.
 
   ## Optional parameters:
   """
@@ -3144,7 +3157,7 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to modify.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3182,8 +3195,8 @@ defmodule AWS.IoTAnalytics do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]`) The keys of those tags which you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3220,7 +3233,7 @@ defmodule AWS.IoTAnalytics do
   Used to update the settings of a channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (channelName)
+  * `:channel_name` (`t:string`) The name of the channel to be updated.
 
   ## Optional parameters:
   """
@@ -3243,7 +3256,7 @@ defmodule AWS.IoTAnalytics do
   Updates the settings of a dataset.
 
   ## Required positional parameters:
-   • :dataset_name (t:string String.t/0) (datasetName)
+  * `:dataset_name` (`t:string`) The name of the dataset to update.
 
   ## Optional parameters:
   """
@@ -3266,7 +3279,7 @@ defmodule AWS.IoTAnalytics do
   Used to update the settings of a data store.
 
   ## Required positional parameters:
-   • :datastore_name (t:string String.t/0) (datastoreName)
+  * `:datastore_name` (`t:string`) The name of the data store to be updated.
 
   ## Optional parameters:
   """
@@ -3293,7 +3306,7 @@ defmodule AWS.IoTAnalytics do
   `pipelineActivities` array.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (pipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
 
   ## Optional parameters:
   """

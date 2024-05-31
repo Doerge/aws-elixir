@@ -2027,8 +2027,13 @@ defmodule AWS.RAM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
-   • :permission_arn (t:String.t/0) (permissionArn)
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to
+             ensure the idempotency of the request. This lets you safely retry the request without
+             accidentally performing the same operation a second time. Passing the same value to a
+             later call to an operation requires that you also pass the same value for all other 
+             parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of 
+             value.</a>.
+  * `:permission_arn` (`t:string`) Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to delete.
   """
   @spec delete_permission(AWS.Client.t(), delete_permission_request(), Keyword.t()) ::
           {:ok, delete_permission_response(), any()}
@@ -2074,9 +2079,14 @@ defmodule AWS.RAM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
-   • :permission_arn (t:String.t/0) (permissionArn)
-   • :permission_version (t:String.t/0) (permissionVersion)
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to
+             ensure the idempotency of the request. This lets you safely retry the request without
+             accidentally performing the same operation a second time. Passing the same value to a
+             later call to an operation requires that you also pass the same value for all other 
+             parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of 
+             value.</a>.
+  * `:permission_arn` (`t:string`) Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission with the version you want to delete.
+  * `:permission_version` (`t:integer`) Specifies the version number to delete.
   """
   @spec delete_permission_version(
           AWS.Client.t(),
@@ -2124,8 +2134,13 @@ defmodule AWS.RAM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
-   • :resource_share_arn (t:String.t/0) (resourceShareArn)
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to
+             ensure the idempotency of the request. This lets you safely retry the request without
+             accidentally performing the same operation a second time. Passing the same value to a
+             later call to an operation requires that you also pass the same value for all other 
+             parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of 
+             value.</a>.
+  * `:resource_share_arn` (`t:string`) Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share to delete.
   """
   @spec delete_resource_share(AWS.Client.t(), delete_resource_share_request(), Keyword.t()) ::
           {:ok, delete_resource_share_response(), any()}
@@ -2886,7 +2901,7 @@ defmodule AWS.RAM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_share_arn (t:String.t/0) (resourceShareArn)
+  * `:resource_share_arn` (`t:string`) Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share to promote.
   """
   @spec promote_resource_share_created_from_policy(
           AWS.Client.t(),

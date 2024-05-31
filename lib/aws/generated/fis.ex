@@ -1401,8 +1401,8 @@ defmodule AWS.Fis do
   in the *Fault Injection Service User Guide*.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :experiment_template_id (t:string String.t/0) (experimentTemplateId)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  * `:experiment_template_id` (`t:string`) The experiment template ID.
 
   ## Optional parameters:
   """
@@ -1449,7 +1449,7 @@ defmodule AWS.Fis do
   Deletes the specified experiment template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """
@@ -1487,8 +1487,8 @@ defmodule AWS.Fis do
   Deletes the specified target account configuration of the experiment template.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :experiment_template_id (t:string String.t/0) (experimentTemplateId)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """
@@ -1535,7 +1535,7 @@ defmodule AWS.Fis do
   Gets information about the specified FIS action.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the action.
 
   ## Optional parameters:
   """
@@ -1563,7 +1563,7 @@ defmodule AWS.Fis do
   Gets information about the specified experiment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
   """
@@ -1592,8 +1592,8 @@ defmodule AWS.Fis do
   experiment.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :experiment_id (t:string String.t/0) (experimentId)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
   """
@@ -1632,7 +1632,7 @@ defmodule AWS.Fis do
   Gets information about the specified experiment template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """
@@ -1661,8 +1661,8 @@ defmodule AWS.Fis do
   experiment template.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :experiment_template_id (t:string String.t/0) (experimentTemplateId)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """
@@ -1696,7 +1696,7 @@ defmodule AWS.Fis do
   Gets information about the specified resource type.
 
   ## Required positional parameters:
-   • :resource_type (t:string String.t/0) (resourceType)
+  * `:resource_type` (`t:string`) The resource type.
 
   ## Optional parameters:
   """
@@ -1726,8 +1726,8 @@ defmodule AWS.Fis do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_actions_response(), any()}
@@ -1771,12 +1771,13 @@ defmodule AWS.Fis do
   Lists the resolved targets information of the specified experiment.
 
   ## Required positional parameters:
-   • :experiment_id (t:string String.t/0) (experimentId)
+  * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :target_name (t:String.t/0) (targetName)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, 
+      make another call with the returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:target_name` (`t:string`) The name of the target.
   """
   @spec list_experiment_resolved_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiment_resolved_targets_response(), any()}
@@ -1829,10 +1830,10 @@ defmodule AWS.Fis do
   Lists the target account configurations of the specified experiment.
 
   ## Required positional parameters:
-   • :experiment_id (t:string String.t/0) (experimentId)
+  * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiment_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiment_target_account_configurations_response(), any()}
@@ -1873,8 +1874,8 @@ defmodule AWS.Fis do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiment_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_experiment_templates_response(), any()}
@@ -1920,9 +1921,9 @@ defmodule AWS.Fis do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :experiment_template_id (t:String.t/0) (experimentTemplateId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
@@ -1975,7 +1976,7 @@ defmodule AWS.Fis do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2002,11 +2003,12 @@ defmodule AWS.Fis do
   Lists the target account configurations of the specified experiment template.
 
   ## Required positional parameters:
-   • :experiment_template_id (t:string String.t/0) (experimentTemplateId)
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, 
+      make another call with the returned nextToken value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_target_account_configurations_response(), any()}
@@ -2057,8 +2059,8 @@ defmodule AWS.Fis do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_resource_types_response(), any()}
@@ -2134,7 +2136,7 @@ defmodule AWS.Fis do
   Stops the specified experiment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
   """
@@ -2167,7 +2169,7 @@ defmodule AWS.Fis do
   Applies the specified tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2199,10 +2201,10 @@ defmodule AWS.Fis do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.fis#TagKey]`) The tag keys to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2237,7 +2239,7 @@ defmodule AWS.Fis do
   Updates the specified experiment template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """
@@ -2275,8 +2277,8 @@ defmodule AWS.Fis do
   Updates the target account configuration for the specified experiment template.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :experiment_template_id (t:string String.t/0) (experimentTemplateId)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
   """

@@ -2251,10 +2251,12 @@ defmodule AWS.Nimble do
   Accept EULAs.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec accept_eulas(AWS.Client.t(), String.t(), accept_eulas_request(), Keyword.t()) ::
           {:ok, accept_eulas_response(), any()}
@@ -2291,10 +2293,12 @@ defmodule AWS.Nimble do
   Create a launch profile.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_launch_profile(
           AWS.Client.t(),
@@ -2336,10 +2340,12 @@ defmodule AWS.Nimble do
   Creates a streaming image resource in a studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_streaming_image(
           AWS.Client.t(),
@@ -2385,10 +2391,12 @@ defmodule AWS.Nimble do
   session is in the `READY` state.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_streaming_session(
           AWS.Client.t(),
@@ -2434,11 +2442,13 @@ defmodule AWS.Nimble do
   to poll the resource until it is in the `READY` state.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_streaming_session_stream(
           AWS.Client.t(),
@@ -2522,7 +2532,9 @@ defmodule AWS.Nimble do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_studio(AWS.Client.t(), create_studio_request(), Keyword.t()) ::
           {:ok, create_studio_response(), any()}
@@ -2559,10 +2571,12 @@ defmodule AWS.Nimble do
   Creates a studio component resource.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec create_studio_component(
           AWS.Client.t(),
@@ -2604,11 +2618,13 @@ defmodule AWS.Nimble do
   Permanently delete a launch profile.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_launch_profile(
           AWS.Client.t(),
@@ -2658,12 +2674,14 @@ defmodule AWS.Nimble do
   Delete a user from launch profile membership.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :principal_id (t:string String.t/0) (principalId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_launch_profile_member(
           AWS.Client.t(),
@@ -2715,11 +2733,13 @@ defmodule AWS.Nimble do
   Delete streaming image.
 
   ## Required positional parameters:
-   • :streaming_image_id (t:string String.t/0) (streamingImageId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:streaming_image_id` (`t:string`) The streaming image ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_streaming_image(
           AWS.Client.t(),
@@ -2777,11 +2797,13 @@ defmodule AWS.Nimble do
   `DELETED`.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_streaming_session(
           AWS.Client.t(),
@@ -2825,10 +2847,12 @@ defmodule AWS.Nimble do
   Delete a studio resource.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_studio(AWS.Client.t(), String.t(), delete_studio_request(), Keyword.t()) ::
           {:ok, delete_studio_response(), any()}
@@ -2865,11 +2889,13 @@ defmodule AWS.Nimble do
   Deletes a studio component resource.
 
   ## Required positional parameters:
-   • :studio_component_id (t:string String.t/0) (studioComponentId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_component_id` (`t:string`) The studio component ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_studio_component(
           AWS.Client.t(),
@@ -2919,11 +2945,13 @@ defmodule AWS.Nimble do
   Delete a user from studio membership.
 
   ## Required positional parameters:
-   • :principal_id (t:string String.t/0) (principalId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec delete_studio_member(
           AWS.Client.t(),
@@ -2967,7 +2995,7 @@ defmodule AWS.Nimble do
   Get EULA.
 
   ## Required positional parameters:
-   • :eula_id (t:string String.t/0) (eulaId)
+  * `:eula_id` (`t:string`) The EULA ID.
 
   ## Optional parameters:
   """
@@ -2995,8 +3023,8 @@ defmodule AWS.Nimble do
   Get a launch profile.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3032,8 +3060,8 @@ defmodule AWS.Nimble do
   description of streaming images that can be used with this launch profile.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3062,13 +3090,13 @@ defmodule AWS.Nimble do
   Get a launch profile initialization.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :launch_profile_protocol_versions (t:String.t/0) (launchProfileProtocolVersions)
-   • :launch_purpose (t:String.t/0) (launchPurpose)
-   • :platform (t:String.t/0) (platform)
+  * `:launch_profile_protocol_versions` (`t:list[com.amazonaws.nimble#String]`) The launch profile protocol versions supported by the client.
+  * `:launch_purpose` (`t:string`) The launch purpose.
+  * `:platform` (`t:string`) The platform where this Launch Profile will be used, either Windows or Linux.
   """
   @spec get_launch_profile_initialization(
           AWS.Client.t(),
@@ -3139,9 +3167,9 @@ defmodule AWS.Nimble do
   Get a user persona in launch profile membership.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :principal_id (t:string String.t/0) (principalId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3176,8 +3204,8 @@ defmodule AWS.Nimble do
   Get streaming image.
 
   ## Required positional parameters:
-   • :streaming_image_id (t:string String.t/0) (streamingImageId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:streaming_image_id` (`t:string`) The streaming image ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3210,8 +3238,8 @@ defmodule AWS.Nimble do
   a session.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3243,8 +3271,8 @@ defmodule AWS.Nimble do
   streaming session.
 
   ## Required positional parameters:
-   • :backup_id (t:string String.t/0) (backupId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:backup_id` (`t:string`) The ID of the backup.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3279,9 +3307,9 @@ defmodule AWS.Nimble do
   the url property will contain a stream to be used with the DCV streaming client.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :stream_id (t:string String.t/0) (streamId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID.
+  * `:stream_id` (`t:string`) The streaming session stream ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3322,7 +3350,7 @@ defmodule AWS.Nimble do
   Get a studio resource.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3350,8 +3378,8 @@ defmodule AWS.Nimble do
   Gets a studio component resource.
 
   ## Required positional parameters:
-   • :studio_component_id (t:string String.t/0) (studioComponentId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_component_id` (`t:string`) The studio component ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3380,8 +3408,8 @@ defmodule AWS.Nimble do
   Get a user's membership in a studio.
 
   ## Required positional parameters:
-   • :principal_id (t:string String.t/0) (principalId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
   """
@@ -3410,11 +3438,11 @@ defmodule AWS.Nimble do
   List EULA acceptances.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :eula_ids (t:String.t/0) (eulaIds)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that have been previously accepted.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_eula_acceptances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_eula_acceptances_response(), any()}
@@ -3460,8 +3488,8 @@ defmodule AWS.Nimble do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :eula_ids (t:String.t/0) (eulaIds)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:eula_ids` (`t:list[com.amazonaws.nimble#String]`) The list of EULA IDs that should be returned
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_eulas(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_eulas_response(), any()}
@@ -3505,12 +3533,12 @@ defmodule AWS.Nimble do
   Get all users in a given launch profile membership.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The max number of results to return in the response.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_launch_profile_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profile_members_response(), any()}
@@ -3555,13 +3583,13 @@ defmodule AWS.Nimble do
   List all the launch profiles a studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :principal_id (t:String.t/0) (principalId)
-   • :states (t:String.t/0) (states)
+  * `:max_results` (`t:integer`) The max number of results to return in the response.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:states` (`t:list[com.amazonaws.nimble#LaunchProfileState]`) Filter this request to launch profiles in any of the given states.
   """
   @spec list_launch_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launch_profiles_response(), any()}
@@ -3626,11 +3654,11 @@ defmodule AWS.Nimble do
   streaming images that you have created in your studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :owner (t:String.t/0) (owner)
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:owner` (`t:string`) Filter this request to streaming images with the given owner
   """
   @spec list_streaming_images(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_images_response(), any()}
@@ -3674,11 +3702,11 @@ defmodule AWS.Nimble do
   Lists the backups of a streaming session in a studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :owned_by (t:String.t/0) (ownedBy)
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:owned_by` (`t:string`) The user ID of the user that owns the streaming session.
   """
   @spec list_streaming_session_backups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_session_backups_response(), any()}
@@ -3722,13 +3750,13 @@ defmodule AWS.Nimble do
   Lists the streaming sessions in a studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :created_by (t:String.t/0) (createdBy)
-   • :next_token (t:String.t/0) (nextToken)
-   • :owned_by (t:String.t/0) (ownedBy)
-   • :session_ids (t:String.t/0) (sessionIds)
+  * `:created_by` (`t:string`) Filters the request to streaming sessions created by the given user.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:owned_by` (`t:string`) Filters the request to streaming session owned by the given user
+  * `:session_ids` (`t:string`) Filters the request to only the provided session IDs.
   """
   @spec list_streaming_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_streaming_sessions_response(), any()}
@@ -3790,13 +3818,13 @@ defmodule AWS.Nimble do
   Lists the `StudioComponents` in a studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :states (t:String.t/0) (states)
-   • :types (t:String.t/0) (types)
+  * `:max_results` (`t:integer`) The max number of results to return in the response.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:states` (`t:list[com.amazonaws.nimble#StudioComponentState]`) Filters the request to studio components that are in one of the given states. 
+  * `:types` (`t:list[com.amazonaws.nimble#StudioComponentType]`) Filters the request to studio components that are of one of the given types.
   """
   @spec list_studio_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_components_response(), any()}
@@ -3860,11 +3888,11 @@ defmodule AWS.Nimble do
   `ListStudioMembers` only returns admin members.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The max number of results to return in the response.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_studio_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_studio_members_response(), any()}
@@ -3911,7 +3939,7 @@ defmodule AWS.Nimble do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_studios(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_studios_response(), any()}
@@ -3954,7 +3982,7 @@ defmodule AWS.Nimble do
   have to create this ARN yourself.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which you want to list tags.
 
   ## Optional parameters:
   """
@@ -3982,11 +4010,13 @@ defmodule AWS.Nimble do
   Add/update users with given persona to launch profile membership.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec put_launch_profile_members(
           AWS.Client.t(),
@@ -4036,10 +4066,12 @@ defmodule AWS.Nimble do
   Add/update users with given persona to studio membership.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec put_studio_members(AWS.Client.t(), String.t(), put_studio_members_request(), Keyword.t()) ::
           {:ok, put_studio_members_response(), any()}
@@ -4080,11 +4112,13 @@ defmodule AWS.Nimble do
   `STOPPED` and `READY` states.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID for the <code>StartStreamingSessionRequest</code>.
+  * `:studio_id` (`t:string`) The studio ID for the StartStreamingSessionRequest.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec start_streaming_session(
           AWS.Client.t(),
@@ -4140,10 +4174,12 @@ defmodule AWS.Nimble do
   Nimble Studio console to add administrators and users to your studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec start_studio_s_s_o_configuration_repair(
           AWS.Client.t(),
@@ -4179,11 +4215,13 @@ defmodule AWS.Nimble do
   `READY` and `STOPPED` states.
 
   ## Required positional parameters:
-   • :session_id (t:string String.t/0) (sessionId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:session_id` (`t:string`) The streaming session ID for the <code>StopStreamingSessionRequest</code>.
+  * `:studio_id` (`t:string`) The studioId for the StopStreamingSessionRequest.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec stop_streaming_session(
           AWS.Client.t(),
@@ -4227,7 +4265,7 @@ defmodule AWS.Nimble do
   Creates tags for a resource, given its ARN.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to add tags to. 
 
   ## Optional parameters:
   """
@@ -4260,10 +4298,10 @@ defmodule AWS.Nimble do
   Deletes the tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Identifies the Amazon Resource Name(ARN) key from which you are removing tags. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.nimble#String]`) One or more tag keys. Specify only the tag keys, not the tag values.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4299,11 +4337,13 @@ defmodule AWS.Nimble do
   Update a launch profile.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec update_launch_profile(
           AWS.Client.t(),
@@ -4353,12 +4393,14 @@ defmodule AWS.Nimble do
   Update a user persona in launch profile membership.
 
   ## Required positional parameters:
-   • :launch_profile_id (t:string String.t/0) (launchProfileId)
-   • :principal_id (t:string String.t/0) (principalId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:launch_profile_id` (`t:string`) The ID of the launch profile used to control access from the streaming session.
+  * `:principal_id` (`t:string`) The principal ID. This currently supports a IAM Identity Center UserId. 
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec update_launch_profile_member(
           AWS.Client.t(),
@@ -4410,11 +4452,13 @@ defmodule AWS.Nimble do
   Update streaming image.
 
   ## Required positional parameters:
-   • :streaming_image_id (t:string String.t/0) (streamingImageId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:streaming_image_id` (`t:string`) The streaming image ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec update_streaming_image(
           AWS.Client.t(),
@@ -4467,10 +4511,12 @@ defmodule AWS.Nimble do
   studio.
 
   ## Required positional parameters:
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec update_studio(AWS.Client.t(), String.t(), update_studio_request(), Keyword.t()) ::
           {:ok, update_studio_response(), any()}
@@ -4507,11 +4553,13 @@ defmodule AWS.Nimble do
   Updates a studio component resource.
 
   ## Required positional parameters:
-   • :studio_component_id (t:string String.t/0) (studioComponentId)
-   • :studio_id (t:string String.t/0) (studioId)
+  * `:studio_component_id` (`t:string`) The studio component ID.
+  * `:studio_id` (`t:string`) The studio ID. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amz-Client-Token)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+            generates a client token and uses it for the request to ensure idempotency.
   """
   @spec update_studio_component(
           AWS.Client.t(),

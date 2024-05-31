@@ -3729,14 +3729,21 @@ defmodule AWS.Resiliencehub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_arn (t:String.t/0) (appArn)
-   • :assessment_name (t:String.t/0) (assessmentName)
-   • :assessment_status (t:String.t/0) (assessmentStatus)
-   • :compliance_status (t:String.t/0) (complianceStatus)
-   • :invoker (t:String.t/0) (invoker)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reverse_order (t:String.t/0) (reverseOrder)
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: 
+  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, 
+  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+                    Amazon Resource Names (ARNs)</a> in the 
+                    <i>Amazon Web Services General Reference</i> guide.
+  * `:assessment_name` (`t:string`) The name for the assessment.
+  * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`) The current status of the assessment for the resiliency policy.
+  * `:compliance_status` (`t:string`) The current status of compliance for the resiliency policy.
+  * `:invoker` (`t:string`) Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
+        <code>System</code>.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
+  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending <b>startTime</b>.
+  To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.
   """
   @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
@@ -4101,13 +4108,18 @@ defmodule AWS.Resiliencehub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_arn (t:String.t/0) (appArn)
-   • :from_last_assessment_time (t:String.t/0) (fromLastAssessmentTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reverse_order (t:String.t/0) (reverseOrder)
-   • :to_last_assessment_time (t:String.t/0) (toLastAssessmentTime)
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: 
+  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, 
+  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+                    Amazon Resource Names (ARNs)</a> in the 
+                    <i>Amazon Web Services General Reference</i> guide.
+  * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the range that is used to filter applications based on their last assessment times.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
+  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:name` (`t:string`) The name for the one of the listed applications.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:reverse_order` (`t:boolean`) The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.
+  * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
@@ -4198,13 +4210,19 @@ defmodule AWS.Resiliencehub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :assessment_arn (t:String.t/0) (assessmentArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :recommendation_template_arn (t:String.t/0) (recommendationTemplateArn)
-   • :reverse_order (t:String.t/0) (reverseOrder)
-   • :status (t:String.t/0) (status)
+  * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment. The format for this ARN is: 
+  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, 
+  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+                    Amazon Resource Names (ARNs)</a> in the 
+                    <i>Amazon Web Services General Reference</i> guide.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
+  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:name` (`t:string`) The name for one of the listed recommendation templates.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for a recommendation template.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending <b>startTime</b>.
+  To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.
+  * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`) Status of the action.
   """
   @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
@@ -4296,9 +4314,10 @@ defmodule AWS.Resiliencehub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :policy_name (t:String.t/0) (policyName)
+  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
+  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:policy_name` (`t:string`) The name of the policy
   """
   @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resiliency_policies_response(), any()}
@@ -4387,8 +4406,9 @@ defmodule AWS.Resiliencehub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
+  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
   """
   @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
@@ -4432,7 +4452,8 @@ defmodule AWS.Resiliencehub do
   Lists the tags for your resources in your Resilience Hub applications.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
+      application.
 
   ## Optional parameters:
   """
@@ -4710,7 +4731,7 @@ defmodule AWS.Resiliencehub do
   Applies one or more tags to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -4743,10 +4764,10 @@ defmodule AWS.Resiliencehub do
   Removes one or more tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the tags you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

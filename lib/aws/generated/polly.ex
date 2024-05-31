@@ -623,7 +623,8 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the lexicon to delete. Must be an existing lexicon in
+      the region.
 
   ## Optional parameters:
   """
@@ -679,10 +680,22 @@ defmodule AWS.Polly do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine (t:String.t/0) (Engine)
-   • :include_additional_language_codes (t:String.t/0) (IncludeAdditionalLanguageCodes)
-   • :language_code (t:String.t/0) (LanguageCode)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the engine (<code>standard</code>, <code>neural</code>,
+      <code>long-form</code> or <code>generative</code>) used by Amazon Polly when
+      processing input text for speech synthesis. 
+  * `:include_additional_language_codes` (`t:boolean`) Boolean value indicating whether to return any bilingual voices that
+      use the specified language as an additional language. For instance, if you
+      request all languages that use US English (es-US), and there is an Italian
+      voice that speaks both Italian (it-IT) and US English, that voice will be
+      included if you specify <code>yes</code> but not if you specify
+        <code>no</code>.
+  * `:language_code` (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)  The language identification tag (ISO 639 code for the language
+      name-ISO 3166 country code) for filtering the list of voices returned. If
+      you don&#39;t specify this optional parameter, all available voices are
+      returned. 
+  * `:next_token` (`t:string`) An opaque pagination token returned from the previous
+        <code>DescribeVoices</code> operation. If present, this indicates where
+      to continue the listing.
   """
   @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_voices_output(), any()}
@@ -748,7 +761,7 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) Name of the lexicon.
 
   ## Optional parameters:
   """
@@ -780,7 +793,7 @@ defmodule AWS.Polly do
   the output of the task.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (TaskId)
+  * `:task_id` (`t:string`) The Amazon Polly generated identifier for a speech synthesis task.
 
   ## Optional parameters:
   """
@@ -813,7 +826,9 @@ defmodule AWS.Polly do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) An opaque pagination token returned from previous
+        <code>ListLexicons</code> operation. If present, indicates where to
+      continue the list of lexicons.
   """
   @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lexicons_output(), any()}
@@ -854,9 +869,12 @@ defmodule AWS.Polly do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :status (t:String.t/0) (Status)
+  * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned in a List
+      operation.
+  * `:next_token` (`t:string`) The pagination token to use in the next request to continue the
+      listing of speech synthesis tasks. 
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the speech synthesis tasks returned in a List
+      operation
   """
   @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
@@ -917,7 +935,9 @@ defmodule AWS.Polly do
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) Name of the lexicon. The name must follow the regular express
+      format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
+      alphanumeric string up to 20 characters long. 
 
   ## Optional parameters:
   """

@@ -475,8 +475,8 @@ defmodule AWS.BackupStorage do
   Delete Object from the incremental base Backup.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
-   • :object_name (t:string String.t/0) (ObjectName)
+  * `:backup_job_id` (`t:string`) 
+  * `:object_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -511,8 +511,8 @@ defmodule AWS.BackupStorage do
   Gets the specified object's chunk.
 
   ## Required positional parameters:
-   • :chunk_token (t:string String.t/0) (ChunkToken)
-   • :storage_job_id (t:string String.t/0) (StorageJobId)
+  * `:chunk_token` (`t:string`) 
+  * `:storage_job_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -552,8 +552,8 @@ defmodule AWS.BackupStorage do
   Get metadata associated with an Object.
 
   ## Required positional parameters:
-   • :object_token (t:string String.t/0) (ObjectToken)
-   • :storage_job_id (t:string String.t/0) (StorageJobId)
+  * `:object_token` (`t:string`) 
+  * `:storage_job_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -594,12 +594,12 @@ defmodule AWS.BackupStorage do
   List chunks in a given Object
 
   ## Required positional parameters:
-   • :object_token (t:string String.t/0) (ObjectToken)
-   • :storage_job_id (t:string String.t/0) (StorageJobId)
+  * `:object_token` (`t:string`) 
+  * `:storage_job_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_chunks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_chunks_output(), any()}
@@ -644,15 +644,15 @@ defmodule AWS.BackupStorage do
   List all Objects in a given Backup.
 
   ## Required positional parameters:
-   • :storage_job_id (t:string String.t/0) (StorageJobId)
+  * `:storage_job_id` (`t:string`) 
 
   ## Optional parameters:
-   • :created_after (t:String.t/0) (created-after)
-   • :created_before (t:String.t/0) (created-before)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :starting_object_name (t:String.t/0) (starting-object-name)
-   • :starting_object_prefix (t:String.t/0) (starting-object-prefix)
+  * `:created_after` (`t:timestamp`) 
+  * `:created_before` (`t:timestamp`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:starting_object_name` (`t:string`) 
+  * `:starting_object_prefix` (`t:string`) 
   """
   @spec list_objects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_objects_output(), any()}
@@ -732,16 +732,16 @@ defmodule AWS.BackupStorage do
   Complete upload
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
-   • :upload_id (t:string String.t/0) (UploadId)
+  * `:backup_job_id` (`t:string`) 
+  * `:upload_id` (`t:string`) 
 
   ## Optional parameters:
-   • :metadata_blob_checksum (t:String.t/0) (metadata-checksum)
-   • :metadata_blob_checksum_algorithm (t:String.t/0) (metadata-checksum-algorithm)
-   • :metadata_blob_length (t:String.t/0) (metadata-blob-length)
-   • :metadata_string (t:String.t/0) (metadata-string)
-   • :object_checksum (t:String.t/0) (checksum)
-   • :object_checksum_algorithm (t:String.t/0) (checksum-algorithm)
+  * `:metadata_blob_checksum` (`t:string`) 
+  * `:metadata_blob_checksum_algorithm` (`t:enum["SHA256"]`) 
+  * `:metadata_blob_length` (`t:long`) 
+  * `:metadata_string` (`t:string`) 
+  * `:object_checksum` (`t:string`) 
+  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`) 
   """
   @spec notify_object_complete(
           AWS.Client.t(),
@@ -780,14 +780,14 @@ defmodule AWS.BackupStorage do
   Upload chunk.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
-   • :chunk_index (t:long String.t/0) (ChunkIndex)
-   • :upload_id (t:string String.t/0) (UploadId)
+  * `:backup_job_id` (`t:string`) 
+  * `:chunk_index` (`t:long`) 
+  * `:upload_id` (`t:string`) 
 
   ## Optional parameters:
-   • :checksum (t:String.t/0) (checksum)
-   • :checksum_algorithm (t:String.t/0) (checksum-algorithm)
-   • :length (t:String.t/0) (length)
+  * `:checksum` (`t:string`) 
+  * `:checksum_algorithm` (`t:enum["SHA256"]`) 
+  * `:length` (`t:long`) 
   """
   @spec put_chunk(
           AWS.Client.t(),
@@ -825,17 +825,17 @@ defmodule AWS.BackupStorage do
   call using inline chunk field.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
-   • :object_name (t:string String.t/0) (ObjectName)
+  * `:backup_job_id` (`t:string`) 
+  * `:object_name` (`t:string`) 
 
   ## Optional parameters:
-   • :inline_chunk_checksum (t:String.t/0) (checksum)
-   • :inline_chunk_checksum_algorithm (t:String.t/0) (checksum-algorithm)
-   • :inline_chunk_length (t:String.t/0) (length)
-   • :metadata_string (t:String.t/0) (metadata-string)
-   • :object_checksum (t:String.t/0) (object-checksum)
-   • :object_checksum_algorithm (t:String.t/0) (object-checksum-algorithm)
-   • :throw_on_duplicate (t:String.t/0) (throwOnDuplicate)
+  * `:inline_chunk_checksum` (`t:string`) 
+  * `:inline_chunk_checksum_algorithm` (`t:string`) 
+  * `:inline_chunk_length` (`t:long`) 
+  * `:metadata_string` (`t:string`) 
+  * `:object_checksum` (`t:string`) 
+  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`) 
+  * `:throw_on_duplicate` (`t:boolean`) 
   """
   @spec put_object(AWS.Client.t(), String.t(), String.t(), put_object_input(), Keyword.t()) ::
           {:ok, put_object_output(), any()}
@@ -869,8 +869,8 @@ defmodule AWS.BackupStorage do
   Start upload containing one or many chunks.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
-   • :object_name (t:string String.t/0) (ObjectName)
+  * `:backup_job_id` (`t:string`) 
+  * `:object_name` (`t:string`) 
 
   ## Optional parameters:
   """

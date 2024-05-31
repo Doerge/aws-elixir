@@ -1274,7 +1274,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   in the *Refactor Spaces User Guide*.
 
   ## Required positional parameters:
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:environment_identifier` (`t:string`) The unique identifier of the environment.
 
   ## Optional parameters:
   """
@@ -1462,8 +1462,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   in the *Refactor Spaces User Guide*.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application within which the route is being created.
+  * `:environment_identifier` (`t:string`) The ID of the environment in which the route is created.
 
   ## Optional parameters:
   """
@@ -1517,8 +1517,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   cross-account constraints, apply your own security group.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application which the service is created.
+  * `:environment_identifier` (`t:string`) The ID of the environment in which the service is created.
 
   ## Optional parameters:
   """
@@ -1568,8 +1568,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   delete any services or routes within the application.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application.
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
   """
@@ -1619,7 +1619,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   delete any applications and services within the environment.
 
   ## Required positional parameters:
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
   """
@@ -1652,7 +1652,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Deletes the resource policy set for the environment.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) Amazon Resource Name (ARN) of the resource associated with the policy. 
 
   ## Optional parameters:
   """
@@ -1690,9 +1690,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Deletes an Amazon Web Services Migration Hub Refactor Spaces route.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
-   • :route_identifier (t:string String.t/0) (RouteIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application to delete the route from.
+  * `:environment_identifier` (`t:string`) The ID of the environment to delete the route from.
+  * `:route_identifier` (`t:string`) The ID of the route to delete.
 
   ## Optional parameters:
   """
@@ -1741,9 +1741,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Deletes an Amazon Web Services Migration Hub Refactor Spaces service.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
-   • :service_identifier (t:string String.t/0) (ServiceIdentifier)
+  * `:application_identifier` (`t:string`) Deletes a Refactor Spaces service.
+  * `:environment_identifier` (`t:string`) The ID of the environment that the service is in.
+  * `:service_identifier` (`t:string`) The ID of the service to delete.
 
   ## Optional parameters:
   """
@@ -1792,8 +1792,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Gets an Amazon Web Services Migration Hub Refactor Spaces application.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application.
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
   """
@@ -1827,7 +1827,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Gets an Amazon Web Services Migration Hub Refactor Spaces environment.
 
   ## Required positional parameters:
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:environment_identifier` (`t:string`) The ID of the environment.
 
   ## Optional parameters:
   """
@@ -1855,7 +1855,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Gets the resource-based permission policy that is set for the given environment.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) of the resource associated with the policy. 
 
   ## Optional parameters:
   """
@@ -1883,9 +1883,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Gets an Amazon Web Services Migration Hub Refactor Spaces route.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
-   • :route_identifier (t:string String.t/0) (RouteIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application. 
+  * `:environment_identifier` (`t:string`) The ID of the environment.
+  * `:route_identifier` (`t:string`) The ID of the route.
 
   ## Optional parameters:
   """
@@ -1920,9 +1920,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Gets an Amazon Web Services Migration Hub Refactor Spaces service.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
-   • :service_identifier (t:string String.t/0) (ServiceIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application.
+  * `:environment_identifier` (`t:string`) The ID of the environment.
+  * `:service_identifier` (`t:string`) The ID of the service.
 
   ## Optional parameters:
   """
@@ -1958,11 +1958,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   within an environment.
 
   ## Required positional parameters:
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining
+      results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_applications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -2008,11 +2009,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   environment.
 
   ## Required positional parameters:
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining
+      results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_environment_vpcs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_vpcs_response(), any()}
@@ -2060,8 +2062,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining
+      results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -2106,12 +2109,13 @@ defmodule AWS.MigrationHubRefactorSpaces do
   application.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application. 
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining
+      results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routes_response(), any()}
@@ -2162,12 +2166,13 @@ defmodule AWS.MigrationHubRefactorSpaces do
   an application.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
+  * `:application_identifier` (`t:string`) The ID of the application. 
+  * `:environment_identifier` (`t:string`) The ID of the environment. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining
+      results, make another call with the returned <code>nextToken</code> value.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_services(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_services_response(), any()}
@@ -2220,7 +2225,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   `OwnerAccountId`. Listing tags in other accounts is not supported.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -2286,7 +2291,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   environment’s transit gateway.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2324,10 +2329,10 @@ defmodule AWS.MigrationHubRefactorSpaces do
   `OwnerAccountId`. Untagging resources across accounts is not supported.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhubrefactorspaces#String]`) The list of keys of the tags to be removed from the resource. 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2363,9 +2368,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Updates an Amazon Web Services Migration Hub Refactor Spaces route.
 
   ## Required positional parameters:
-   • :application_identifier (t:string String.t/0) (ApplicationIdentifier)
-   • :environment_identifier (t:string String.t/0) (EnvironmentIdentifier)
-   • :route_identifier (t:string String.t/0) (RouteIdentifier)
+  * `:application_identifier` (`t:string`)  The ID of the application within which the route is being updated. 
+  * `:environment_identifier` (`t:string`)  The ID of the environment in which the route is being updated. 
+  * `:route_identifier` (`t:string`)  The unique identifier of the route to update. 
 
   ## Optional parameters:
   """

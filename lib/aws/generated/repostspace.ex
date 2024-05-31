@@ -483,7 +483,7 @@ defmodule AWS.Repostspace do
   Deletes an AWS re:Post Private private re:Post.
 
   ## Required positional parameters:
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:space_id` (`t:string`) The unique ID of the private re:Post.
 
   ## Optional parameters:
   """
@@ -517,8 +517,8 @@ defmodule AWS.Repostspace do
   re:Post.
 
   ## Required positional parameters:
-   • :admin_id (t:string String.t/0) (adminId)
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:admin_id` (`t:string`) The ID of the admin to remove.
+  * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin from.
 
   ## Optional parameters:
   """
@@ -557,7 +557,7 @@ defmodule AWS.Repostspace do
   Displays information about the AWS re:Post Private private re:Post.
 
   ## Required positional parameters:
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:space_id` (`t:string`) The ID of the private re:Post.
 
   ## Optional parameters:
   """
@@ -588,8 +588,8 @@ defmodule AWS.Repostspace do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of private re:Posts to include in the results.
+  * `:next_token` (`t:`) The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.
   """
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
@@ -636,7 +636,7 @@ defmodule AWS.Repostspace do
   The only resource that can be tagged is a private re:Post.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tags are associated with.
 
   ## Optional parameters:
   """
@@ -664,8 +664,8 @@ defmodule AWS.Repostspace do
   Adds a user or group to the list of administrators of the private re:Post.
 
   ## Required positional parameters:
-   • :admin_id (t:string String.t/0) (adminId)
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:admin_id` (`t:string`) The ID of the administrator.
+  * `:space_id` (`t:string`) The ID of the private re:Post.
 
   ## Optional parameters:
   """
@@ -704,7 +704,7 @@ defmodule AWS.Repostspace do
   Sends an invitation email to selected users and groups.
 
   ## Required positional parameters:
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:space_id` (`t:string`) The ID of the private re:Post.
 
   ## Optional parameters:
   """
@@ -743,7 +743,7 @@ defmodule AWS.Repostspace do
   previous value for that tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tag is associated with.
 
   ## Optional parameters:
   """
@@ -776,10 +776,10 @@ defmodule AWS.Repostspace do
   Removes the association of the tag with the AWS re:Post Private resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -815,7 +815,7 @@ defmodule AWS.Repostspace do
   Modifies an existing AWS re:Post Private private re:Post.
 
   ## Required positional parameters:
-   • :space_id (t:string String.t/0) (spaceId)
+  * `:space_id` (`t:string`) The unique ID of this private re:Post.
 
   ## Optional parameters:
   """

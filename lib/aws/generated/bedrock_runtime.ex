@@ -241,14 +241,16 @@ defmodule AWS.BedrockRuntime do
   This operation requires permission for the `bedrock:InvokeModel` action.
 
   ## Required positional parameters:
-   • :model_id (t:string String.t/0) (modelId)
+  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run inference.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
-   • :content_type (t:String.t/0) (Content-Type)
-   • :guardrail_identifier (t:String.t/0) (X-Amzn-Bedrock-GuardrailIdentifier)
-   • :guardrail_version (t:String.t/0) (X-Amzn-Bedrock-GuardrailVersion)
-   • :trace (t:String.t/0) (X-Amzn-Bedrock-Trace)
+  * `:accept` (`t:string`) The desired MIME type of the inference body in the response. The default value is <code>application/json</code>.
+  * `:content_type` (`t:string`) The MIME type of the input data in the request. The default value is
+            <code>application/json</code>.
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail that you want to use. If you don&#39;t provide a value, no guardrail is applied
+            to the invocation.
+  * `:guardrail_version` (`t:string`) The version number for the guardrail. The value can also be <code>DRAFT</code>.
+  * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
   @spec invoke_model(AWS.Client.t(), String.t(), invoke_model_request(), Keyword.t()) ::
           {:ok, invoke_model_response(), any()}
@@ -311,14 +313,17 @@ defmodule AWS.BedrockRuntime do
   `bedrock:InvokeModelWithResponseStream` action.
 
   ## Required positional parameters:
-   • :model_id (t:string String.t/0) (modelId)
+  * `:model_id` (`t:string`) The unique identifier of the model to invoke to run inference.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (X-Amzn-Bedrock-Accept)
-   • :content_type (t:String.t/0) (Content-Type)
-   • :guardrail_identifier (t:String.t/0) (X-Amzn-Bedrock-GuardrailIdentifier)
-   • :guardrail_version (t:String.t/0) (X-Amzn-Bedrock-GuardrailVersion)
-   • :trace (t:String.t/0) (X-Amzn-Bedrock-Trace)
+  * `:accept` (`t:string`) The desired MIME type of the inference body in the response. The default value is
+            <code>application/json</code>.
+  * `:content_type` (`t:string`) The MIME type of the input data in the request. The default value is
+            <code>application/json</code>.
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail that you want to use. If you don&#39;t provide a value, no guardrail is applied
+            to the invocation.
+  * `:guardrail_version` (`t:string`) The version number for the guardrail. The value can also be <code>DRAFT</code>.
+  * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
   @spec invoke_model_with_response_stream(
           AWS.Client.t(),

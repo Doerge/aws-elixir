@@ -1929,7 +1929,7 @@ defmodule AWS.Evidently do
   default variation.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that contains the feature being evaluated.
 
   ## Optional parameters:
   """
@@ -1984,7 +1984,7 @@ defmodule AWS.Evidently do
   [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that you want to create the new experiment in.
 
   ## Optional parameters:
   """
@@ -2024,7 +2024,7 @@ defmodule AWS.Evidently do
   [UpdateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateFeature.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that is to contain the new feature.
 
   ## Optional parameters:
   """
@@ -2072,7 +2072,7 @@ defmodule AWS.Evidently do
   [UpdateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateLaunch.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that you want to create the launch in.
 
   ## Optional parameters:
   """
@@ -2206,8 +2206,8 @@ defmodule AWS.Evidently do
   [StopExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html).
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment to delete.
 
   ## Optional parameters:
   """
@@ -2248,8 +2248,8 @@ defmodule AWS.Evidently do
   Deletes an Evidently feature.
 
   ## Required positional parameters:
-   • :feature (t:string String.t/0) (feature)
-   • :project (t:string String.t/0) (project)
+  * `:feature` (`t:string`) The name of the feature to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the feature to delete.
 
   ## Optional parameters:
   """
@@ -2295,8 +2295,8 @@ defmodule AWS.Evidently do
   [StopLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html).
 
   ## Required positional parameters:
-   • :launch (t:string String.t/0) (launch)
-   • :project (t:string String.t/0) (project)
+  * `:launch` (`t:string`) The name of the launch to delete.
+  * `:project` (`t:string`) The name or ARN of the project that contains the launch to delete.
 
   ## Optional parameters:
   """
@@ -2339,7 +2339,7 @@ defmodule AWS.Evidently do
   [DeleteFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to delete.
 
   ## Optional parameters:
   """
@@ -2376,7 +2376,7 @@ defmodule AWS.Evidently do
   launch or experiment is not currently running.
 
   ## Required positional parameters:
-   • :segment (t:string String.t/0) (segment)
+  * `:segment` (`t:string`) Specifies the segment to delete.
 
   ## Optional parameters:
   """
@@ -2450,8 +2450,8 @@ defmodule AWS.Evidently do
   default variation.
 
   ## Required positional parameters:
-   • :feature (t:string String.t/0) (feature)
-   • :project (t:string String.t/0) (project)
+  * `:feature` (`t:string`) The name of the feature being evaluated.
+  * `:project` (`t:string`) The name or ARN of the project that contains this feature.
 
   ## Optional parameters:
   """
@@ -2496,8 +2496,8 @@ defmodule AWS.Evidently do
   [ListExperiments](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html).
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment that you want to see the details of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment.
 
   ## Optional parameters:
   """
@@ -2540,8 +2540,8 @@ defmodule AWS.Evidently do
   of CloudWatch data retention policies.
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment to retrieve the results of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment that you want to see the results of.
 
   ## Optional parameters:
   """
@@ -2586,8 +2586,8 @@ defmodule AWS.Evidently do
   [ListFeatures](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html).
 
   ## Required positional parameters:
-   • :feature (t:string String.t/0) (feature)
-   • :project (t:string String.t/0) (project)
+  * `:feature` (`t:string`) The name of the feature that you want to retrieve information for.
+  * `:project` (`t:string`) The name or ARN of the project that contains the feature.
 
   ## Optional parameters:
   """
@@ -2620,8 +2620,8 @@ defmodule AWS.Evidently do
   [ListLaunches](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html).
 
   ## Required positional parameters:
-   • :launch (t:string String.t/0) (launch)
-   • :project (t:string String.t/0) (project)
+  * `:launch` (`t:string`) The name of the launch that you want to see the details of.
+  * `:project` (`t:string`) The name or ARN of the project that contains the launch.
 
   ## Optional parameters:
   """
@@ -2653,7 +2653,7 @@ defmodule AWS.Evidently do
   [ListProjects](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that you want to see the details of.
 
   ## Optional parameters:
   """
@@ -2684,7 +2684,7 @@ defmodule AWS.Evidently do
   by specifying its ARN.
 
   ## Required positional parameters:
-   • :segment (t:string String.t/0) (segment)
+  * `:segment` (`t:string`) The ARN of the segment to return information for.
 
   ## Optional parameters:
   """
@@ -2713,12 +2713,13 @@ defmodule AWS.Evidently do
   project.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to return the experiment list from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+       <code>ListExperiments</code> operation.
+  * `:status` (`t:string`) Use this optional parameter to limit the returned results to only the experiments with the status that you specify here.
   """
   @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
@@ -2771,11 +2772,12 @@ defmodule AWS.Evidently do
   Returns configuration details about all the features in the specified project.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to return the feature list from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+       <code>ListFeatures</code> operation.
   """
   @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_features_response(), any()}
@@ -2819,12 +2821,13 @@ defmodule AWS.Evidently do
   Returns configuration details about all the launches in the specified project.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to return the launch list from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+       <code>ListLaunches</code> operation.
+  * `:status` (`t:string`) Use this optional parameter to limit the returned results to only the launches with the status that you specify here.
   """
   @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launches_response(), any()}
@@ -2881,8 +2884,9 @@ defmodule AWS.Evidently do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+       <code>ListProjects</code> operation.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -2927,12 +2931,13 @@ defmodule AWS.Evidently do
   segment.
 
   ## Required positional parameters:
-   • :segment (t:string String.t/0) (segment)
+  * `:segment` (`t:string`) The ARN of the segment that you want to view information for.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :type (t:String.t/0) (type)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response. If you omit this, the default of 50 is used.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+      <code>ListSegmentReferences</code> operation.
+  * `:type` (`t:string`) Specifies whether to return information about launches or experiments that use this segment.
   """
   @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_segment_references_response(), any()}
@@ -2988,8 +2993,9 @@ defmodule AWS.Evidently do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to include in the response. If you omit this, the default of 50 is used.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from a previous 
+      <code>ListSegments</code> operation.
   """
   @spec list_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_segments_response(), any()}
@@ -3033,7 +3039,7 @@ defmodule AWS.Evidently do
   Displays the tags associated with an Evidently resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that you want to see the tags of.
 
   ## Optional parameters:
   """
@@ -3064,7 +3070,7 @@ defmodule AWS.Evidently do
   an experiment.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to write the events to.
 
   ## Optional parameters:
   """
@@ -3101,8 +3107,8 @@ defmodule AWS.Evidently do
   [CreateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html).
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment to start.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment to start.
 
   ## Optional parameters:
   """
@@ -3147,8 +3153,8 @@ defmodule AWS.Evidently do
   [CreateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html).
 
   ## Required positional parameters:
-   • :launch (t:string String.t/0) (launch)
-   • :project (t:string String.t/0) (project)
+  * `:launch` (`t:string`) The name of the launch to start.
+  * `:project` (`t:string`) The name or ARN of the project that contains the launch to start.
 
   ## Optional parameters:
   """
@@ -3186,8 +3192,8 @@ defmodule AWS.Evidently do
   resume it or restart it.
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment to stop.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment to stop.
 
   ## Optional parameters:
   """
@@ -3236,8 +3242,8 @@ defmodule AWS.Evidently do
   will be served the default variation after the launch is stopped.
 
   ## Required positional parameters:
-   • :launch (t:string String.t/0) (launch)
-   • :project (t:string String.t/0) (project)
+  * `:launch` (`t:string`) The name of the launch to stop.
+  * `:project` (`t:string`) The name or ARN of the project that contains the launch that you want to stop.
 
   ## Optional parameters:
   """
@@ -3295,7 +3301,7 @@ defmodule AWS.Evidently do
   For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -3364,10 +3370,10 @@ defmodule AWS.Evidently do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch Evidently resource that you&#39;re removing tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3406,8 +3412,8 @@ defmodule AWS.Evidently do
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
 
   ## Required positional parameters:
-   • :experiment (t:string String.t/0) (experiment)
-   • :project (t:string String.t/0) (project)
+  * `:experiment` (`t:string`) The name of the experiment to update.
+  * `:project` (`t:string`) The name or ARN of the project that contains the experiment that you want to update.
 
   ## Optional parameters:
   """
@@ -3452,8 +3458,8 @@ defmodule AWS.Evidently do
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
 
   ## Required positional parameters:
-   • :feature (t:string String.t/0) (feature)
-   • :project (t:string String.t/0) (project)
+  * `:feature` (`t:string`) The name of the feature to be updated.
+  * `:project` (`t:string`) The name or ARN of the project that contains the feature to be updated.
 
   ## Optional parameters:
   """
@@ -3497,8 +3503,8 @@ defmodule AWS.Evidently do
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
 
   ## Required positional parameters:
-   • :launch (t:string String.t/0) (launch)
-   • :project (t:string String.t/0) (project)
+  * `:launch` (`t:string`) The name of the launch that is to be updated.
+  * `:project` (`t:string`) The name or ARN of the project that contains the launch that you want to update.
 
   ## Optional parameters:
   """
@@ -3545,7 +3551,7 @@ defmodule AWS.Evidently do
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project to update.
 
   ## Optional parameters:
   """
@@ -3588,7 +3594,7 @@ defmodule AWS.Evidently do
   operation.
 
   ## Required positional parameters:
-   • :project (t:string String.t/0) (project)
+  * `:project` (`t:string`) The name or ARN of the project that you want to modify the data storage options for.
 
   ## Optional parameters:
   """

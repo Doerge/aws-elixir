@@ -2037,7 +2037,7 @@ defmodule AWS.ControlTower do
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -2141,7 +2141,7 @@ defmodule AWS.ControlTower do
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged.
 
   ## Optional parameters:
   """
@@ -2178,10 +2178,10 @@ defmodule AWS.ControlTower do
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]`) Tag keys to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

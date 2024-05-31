@@ -139,7 +139,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Delete the connection with the provided id.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -178,7 +178,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Get information about the connection with the provided id.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -206,7 +206,7 @@ defmodule AWS.ApiGatewayManagementApi do
   Sends the provided data to the specified connection.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) The identifier of the connection that a specific client is using.
 
   ## Optional parameters:
   """

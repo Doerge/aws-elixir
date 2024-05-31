@@ -1916,7 +1916,8 @@ defmodule AWS.LexModelBuilding do
   `lex:CreateBotVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the bot that you want to create a new version of. The
+      name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -1966,7 +1967,8 @@ defmodule AWS.LexModelBuilding do
   `lex:CreateIntentVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the intent that you want to create a new version of.
+      The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2021,7 +2023,8 @@ defmodule AWS.LexModelBuilding do
   `lex:CreateSlotTypeVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the slot type that you want to create a new version
+      for. The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2081,7 +2084,7 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteBot` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the bot. The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2123,8 +2126,9 @@ defmodule AWS.LexModelBuilding do
   `DeleteBotAlias` operation is successful.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
-   • :name (t:string String.t/0) (name)
+  * `:bot_name` (`t:string`) The name of the bot that the alias points to.
+  * `:name` (`t:string`) The name of the alias to delete. The name is case sensitive.
+    
 
   ## Optional parameters:
   """
@@ -2167,9 +2171,10 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteBotChannelAssociation` action.
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :name (t:string String.t/0) (name)
+  * `:bot_alias` (`t:string`) An alias that points to the specific version of the Amazon Lex bot to
+      which this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:name` (`t:string`) The name of the association. The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2224,8 +2229,11 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteBotVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version (t:string String.t/0) (version)
+  * `:name` (`t:string`) The name of the bot.
+  * `:version` (`t:string`) The version of the bot to delete. You cannot delete the
+        <code>$LATEST</code> version of the bot. To delete the
+        <code>$LATEST</code> version, use the <a>DeleteBot</a>
+      operation.
 
   ## Optional parameters:
   """
@@ -2283,7 +2291,7 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteIntent` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the intent. The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2322,8 +2330,11 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteIntentVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version (t:string String.t/0) (version)
+  * `:name` (`t:string`) The name of the intent.
+  * `:version` (`t:string`) The version of the intent to delete. You cannot delete the
+        <code>$LATEST</code> version of the intent. To delete the
+        <code>$LATEST</code> version, use the <a>DeleteIntent</a>
+      operation.
 
   ## Optional parameters:
   """
@@ -2381,7 +2392,7 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteSlotType` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the slot type. The name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2420,8 +2431,11 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteSlotTypeVersion` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version (t:string String.t/0) (version)
+  * `:name` (`t:string`) The name of the slot type.
+  * `:version` (`t:string`) The version of the slot type to delete. You cannot delete the
+        <code>$LATEST</code> version of the slot type. To delete the
+        <code>$LATEST</code> version, use the <a>DeleteSlotType</a>
+      operation.
 
   ## Optional parameters:
   """
@@ -2475,8 +2489,10 @@ defmodule AWS.LexModelBuilding do
   `lex:DeleteUtterances` action.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
-   • :user_id (t:string String.t/0) (userId)
+  * `:bot_name` (`t:string`) The name of the bot that stored the utterances.
+  * `:user_id` (`t:string`)  The unique identifier for the user that made the utterances. This
+      is the user ID that was sent in the <a href="http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a> or <a href="http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a> operation request that contained the
+      utterance.
 
   ## Optional parameters:
   """
@@ -2521,8 +2537,8 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBot` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version_or_alias (t:string String.t/0) (versionOrAlias)
+  * `:name` (`t:string`) The name of the bot. The name is case sensitive. 
+  * `:version_or_alias` (`t:string`) The version or alias of the bot.
 
   ## Optional parameters:
   """
@@ -2557,8 +2573,8 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBotAlias` action.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
-   • :name (t:string String.t/0) (name)
+  * `:bot_name` (`t:string`) The name of the bot.
+  * `:name` (`t:string`) The name of the bot alias. The name is case sensitive.
 
   ## Optional parameters:
   """
@@ -2589,12 +2605,18 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBotAliases` action.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
+  * `:bot_name` (`t:string`) The name of the bot.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of aliases to return in the response. The
+      default is 50. . 
+  * `:name_contains` (`t:string`) Substring to match in bot alias names. An alias will be returned if
+      any part of its name matches the substring. For example, &quot;xyz&quot; matches
+      both &quot;xyzabc&quot; and &quot;abcxyz.&quot;
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of aliases. If the
+      response to this call is truncated, Amazon Lex returns a pagination token in
+      the response. To fetch the next page of aliases, specify the pagination
+      token in the next request. 
   """
   @spec get_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_aliases_response(), any()}
@@ -2651,9 +2673,11 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBotChannelAssociation` action.
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
-   • :name (t:string String.t/0) (name)
+  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the Amazon Lex bot to which
+      this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot.
+  * `:name` (`t:string`) The name of the association between the bot and the channel. The
+      name is case sensitive. 
 
   ## Optional parameters:
   """
@@ -2693,13 +2717,22 @@ defmodule AWS.LexModelBuilding do
   action.
 
   ## Required positional parameters:
-   • :bot_alias (t:string String.t/0) (botAlias)
-   • :bot_name (t:string String.t/0) (botName)
+  * `:bot_alias` (`t:string`) An alias pointing to the specific version of the Amazon Lex bot to which
+      this association is being made.
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot in the association.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of associations to return in the response. The
+      default is 50. 
+  * `:name_contains` (`t:string`) Substring to match in channel association names. An association
+      will be returned if any part of its name matches the substring. For
+      example, &quot;xyz&quot; matches both &quot;xyzabc&quot; and &quot;abcxyz.&quot; To return all bot
+      channel associations, use a hyphen (&quot;-&quot;) as the <code>nameContains</code>
+      parameter.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of associations. If
+      the response to this call is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch the next page of associations, specify the
+      pagination token in the next request. 
   """
   @spec get_bot_channel_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_channel_associations_response(), any()}
@@ -2766,11 +2799,16 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBotVersions` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the bot for which versions should be
+      returned.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of bot versions to return in the response. The
+      default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of bot versions. If
+      the response to this call is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch the next page of versions, specify the
+      pagination token in the next request. 
   """
   @spec get_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_versions_response(), any()}
@@ -2829,9 +2867,15 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of bots to return in the response that the
+      request will return. The default is 10.
+  * `:name_contains` (`t:string`) Substring to match in bot names. A bot will be returned if any part
+      of its name matches the substring. For example, &quot;xyz&quot; matches both
+      &quot;xyzabc&quot; and &quot;abcxyz.&quot;
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of bots. If the
+      response to this call is truncated, Amazon Lex returns a pagination token in
+      the response. To fetch the next page of bots, specify the pagination token
+      in the next request. 
   """
   @spec get_bots(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_bots_response(), any()}
@@ -2887,7 +2931,9 @@ defmodule AWS.LexModelBuilding do
   `lex:GetBuiltinIntent` action.
 
   ## Required positional parameters:
-   • :signature (t:string String.t/0) (signature)
+  * `:signature` (`t:string`) The unique identifier for a built-in intent. To find the signature
+      for an intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
+        Kit</i>.
 
   ## Optional parameters:
   """
@@ -2921,10 +2967,18 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :locale (t:String.t/0) (locale)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :signature_contains (t:String.t/0) (signatureContains)
+  * `:locale` (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`) A list of locales that the intent supports.
+  * `:max_results` (`t:integer`) The maximum number of intents to return in the response. The
+      default is 10.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of intents. If this
+      API call is truncated, Amazon Lex returns a pagination token in the response.
+      To fetch the next page of intents, use the pagination token in the next
+      request.
+  * `:signature_contains` (`t:string`) Substring to match in built-in intent signatures. An intent will be
+      returned if any part of its signature matches the substring. For example,
+      &quot;xyz&quot; matches both &quot;xyzabc&quot; and &quot;abcxyz.&quot; To find the signature for an
+      intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
+        Kit</i>.
   """
   @spec get_builtin_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_intents_response(), any()}
@@ -2996,10 +3050,16 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :locale (t:String.t/0) (locale)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :signature_contains (t:String.t/0) (signatureContains)
+  * `:locale` (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`) A list of locales that the slot type supports.
+  * `:max_results` (`t:integer`) The maximum number of slot types to return in the response. The
+      default is 10.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of slot types. If the
+      response to this API call is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch the next page of slot types, specify the
+      pagination token in the next request.
+  * `:signature_contains` (`t:string`) Substring to match in built-in slot type signatures. A slot type
+      will be returned if any part of its signature matches the substring. For
+      example, &quot;xyz&quot; matches both &quot;xyzabc&quot; and &quot;abcxyz.&quot;
   """
   @spec get_builtin_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_slot_types_response(), any()}
@@ -3063,10 +3123,10 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :export_type (t:String.t/0) (exportType)
-   • :name (t:String.t/0) (name)
-   • :resource_type (t:String.t/0) (resourceType)
-   • :version (t:String.t/0) (version)
+  * `:export_type` (`t:enum["ALEXA_SKILLS_KIT|LEX"]`) The format of the exported data.
+  * `:name` (`t:string`) The name of the bot to export.
+  * `:resource_type` (`t:enum["BOT|INTENT|SLOT_TYPE"]`) The type of resource to export. 
+  * `:version` (`t:string`) The version of the bot to export.
   """
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_response(), any()}
@@ -3129,7 +3189,7 @@ defmodule AWS.LexModelBuilding do
   `StartImport` operation.
 
   ## Required positional parameters:
-   • :import_id (t:string String.t/0) (importId)
+  * `:import_id` (`t:string`) The identifier of the import job information to return.
 
   ## Optional parameters:
   """
@@ -3163,8 +3223,8 @@ defmodule AWS.LexModelBuilding do
   `lex:GetIntent` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version (t:string String.t/0) (version)
+  * `:name` (`t:string`) The name of the intent. The name is case sensitive. 
+  * `:version` (`t:string`) The version of the intent.
 
   ## Optional parameters:
   """
@@ -3205,11 +3265,16 @@ defmodule AWS.LexModelBuilding do
   `lex:GetIntentVersions` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the intent for which versions should be
+      returned.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of intent versions to return in the response.
+      The default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of intent versions.
+      If the response to this call is truncated, Amazon Lex returns a pagination
+      token in the response. To fetch the next page of versions, specify the
+      pagination token in the next request. 
   """
   @spec get_intent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_versions_response(), any()}
@@ -3268,9 +3333,15 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of intents to return in the response. The
+      default is 10.
+  * `:name_contains` (`t:string`) Substring to match in intent names. An intent will be returned if
+      any part of its name matches the substring. For example, &quot;xyz&quot; matches
+      both &quot;xyzabc&quot; and &quot;abcxyz.&quot;
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of intents. If the
+      response to this API call is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch the next page of intents, specify the pagination
+      token in the next request. 
   """
   @spec get_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_intents_response(), any()}
@@ -3327,7 +3398,8 @@ defmodule AWS.LexModelBuilding do
   alerts and warnings related to the migration.
 
   ## Required positional parameters:
-   • :migration_id (t:string String.t/0) (migrationId)
+  * `:migration_id` (`t:string`) The unique identifier of the migration to view. The
+        <code>migrationID</code> is returned by the  operation.
 
   ## Optional parameters:
   """
@@ -3357,12 +3429,19 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :migration_status_equals (t:String.t/0) (migrationStatusEquals)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sort_by_attribute (t:String.t/0) (sortByAttribute)
-   • :sort_by_order (t:String.t/0) (sortByOrder)
-   • :v1_bot_name_contains (t:String.t/0) (v1BotNameContains)
+  * `:max_results` (`t:integer`) The maximum number of migrations to return in the response. The
+      default is 10.
+  * `:migration_status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS"]`) Filters the list to contain only migrations in the specified state.
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of migrations. If the
+      response to this operation is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch the next page of migrations, specify the
+      pagination token in the request.
+  * `:sort_by_attribute` (`t:enum["MIGRATION_DATE_TIME|V1_BOT_NAME"]`) The field to sort the list of migrations by. You can sort by the
+      Amazon Lex V1 bot name or the date and time that the migration was
+      started.
+  * `:sort_by_order` (`t:enum["ASCENDING|DESCENDING"]`) The order so sort the list.
+  * `:v1_bot_name_contains` (`t:string`) Filters the list to contain only bots whose name contains the
+      specified string. The string is matched anywhere in bot name.
   """
   @spec get_migrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_migrations_response(), any()}
@@ -3449,8 +3528,8 @@ defmodule AWS.LexModelBuilding do
   `lex:GetSlotType` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :version (t:string String.t/0) (version)
+  * `:name` (`t:string`) The name of the slot type. The name is case sensitive. 
+  * `:version` (`t:string`) The version of the slot type. 
 
   ## Optional parameters:
   """
@@ -3491,11 +3570,16 @@ defmodule AWS.LexModelBuilding do
   `lex:GetSlotTypeVersions` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the slot type for which versions should be
+      returned.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of slot type versions to return in the response.
+      The default is 10.
+  * `:next_token` (`t:string`) A pagination token for fetching the next page of slot type
+      versions. If the response to this call is truncated, Amazon Lex returns a
+      pagination token in the response. To fetch the next page of versions,
+      specify the pagination token in the next request. 
   """
   @spec get_slot_type_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_versions_response(), any()}
@@ -3554,9 +3638,15 @@ defmodule AWS.LexModelBuilding do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of slot types to return in the response. The
+      default is 10.
+  * `:name_contains` (`t:string`) Substring to match in slot type names. A slot type will be returned
+      if any part of its name matches the substring. For example, &quot;xyz&quot; matches
+      both &quot;xyzabc&quot; and &quot;abcxyz.&quot;
+  * `:next_token` (`t:string`) A pagination token that fetches the next page of slot types. If the
+      response to this API call is truncated, Amazon Lex returns a pagination token
+      in the response. To fetch next page of slot types, specify the pagination
+      token in the next request.
   """
   @spec get_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_slot_types_response(), any()}
@@ -3639,11 +3729,15 @@ defmodule AWS.LexModelBuilding do
   `lex:GetUtterancesView` action.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
+  * `:bot_name` (`t:string`) The name of the bot for which utterance information should be
+      returned.
 
   ## Optional parameters:
-   • :bot_versions (t:String.t/0) (bot_versions)
-   • :status_type (t:String.t/0) (status_type)
+  * `:bot_versions` (`t:list[com.amazonaws.lexmodelbuildingservice#Version]`) An array of bot versions for which utterance information should be
+      returned. The limit is 5 versions per request.
+  * `:status_type` (`t:enum["DETECTED|MISSED"]`) To return utterances that were recognized and handled, use
+        <code>Detected</code>. To return utterances that were not recognized,
+      use <code>Missed</code>.
   """
   @spec get_utterances_view(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_utterances_view_response(), any()}
@@ -3690,7 +3784,8 @@ defmodule AWS.LexModelBuilding do
   bot aliases, and bot channels can have tags associated with them.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to get a list of tags
+      for.
 
   ## Optional parameters:
   """
@@ -3737,7 +3832,8 @@ defmodule AWS.LexModelBuilding do
   action. For more information, see `security-iam`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the bot. The name is <i>not</i> case
+      sensitive. 
 
   ## Optional parameters:
   """
@@ -3768,8 +3864,9 @@ defmodule AWS.LexModelBuilding do
   `lex:PutBotAlias` action.
 
   ## Required positional parameters:
-   • :bot_name (t:string String.t/0) (botName)
-   • :name (t:string String.t/0) (name)
+  * `:bot_name` (`t:string`) The name of the bot.
+  * `:name` (`t:string`) The name of the alias. The name is <i>not</i> case
+      sensitive.
 
   ## Optional parameters:
   """
@@ -3856,7 +3953,8 @@ defmodule AWS.LexModelBuilding do
   `lex:PutIntent` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the intent. The name is <i>not</i> case
+      sensitive. 
 
   ## Optional parameters:
   """
@@ -3896,7 +3994,8 @@ defmodule AWS.LexModelBuilding do
   `lex:PutSlotType` action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the slot type. The name is <i>not</i>
+      case sensitive. 
 
   ## Optional parameters:
   """
@@ -3992,7 +4091,8 @@ defmodule AWS.LexModelBuilding do
   already exists, the existing value is replaced with the new value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
+      to tag.
 
   ## Optional parameters:
   """
@@ -4025,10 +4125,12 @@ defmodule AWS.LexModelBuilding do
   Removes tags from a bot, bot alias or bot channel.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to remove the tags
+      from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.lexmodelbuildingservice#TagKey]`) A list of tag keys to remove from the resource. If a tag key does not
+      exist on the resource, it is ignored.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

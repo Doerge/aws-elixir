@@ -655,19 +655,31 @@ defmodule AWS.TranscribeStreaming do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :content_identification_type (t:String.t/0) (x-amzn-transcribe-content-identification-type)
-   • :content_redaction_type (t:String.t/0) (x-amzn-transcribe-content-redaction-type)
-   • :enable_partial_results_stabilization (t:String.t/0) (x-amzn-transcribe-enable-partial-results-stabilization)
-   • :language_code (t:String.t/0) (x-amzn-transcribe-language-code)
-   • :language_model_name (t:String.t/0) (x-amzn-transcribe-language-model-name)
-   • :media_encoding (t:String.t/0) (x-amzn-transcribe-media-encoding)
-   • :media_sample_rate_hertz (t:String.t/0) (x-amzn-transcribe-sample-rate)
-   • :partial_results_stability (t:String.t/0) (x-amzn-transcribe-partial-results-stability)
-   • :pii_entity_types (t:String.t/0) (x-amzn-transcribe-pii-entity-types)
-   • :session_id (t:String.t/0) (x-amzn-transcribe-session-id)
-   • :vocabulary_filter_method (t:String.t/0) (x-amzn-transcribe-vocabulary-filter-method)
-   • :vocabulary_filter_name (t:String.t/0) (x-amzn-transcribe-vocabulary-filter-name)
-   • :vocabulary_name (t:String.t/0) (x-amzn-transcribe-vocabulary-name)
+  * `:content_identification_type` (`t:enum["PII"]`) Labels all personally identifiable information (PII) identified in your transcript.
+  * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally identifiable information (PII) identified in your transcript.
+  * `:enable_partial_results_stabilization` (`t:boolean`) Enables partial result stabilization for your transcription. Partial result stabilization can reduce
+      latency in your output, but may impact accuracy. For more information, see 
+      <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result 
+        stabilization</a>.
+  * `:language_code` (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|IT_IT|PT_BR"]`) Specify the language code that represents the language spoken in your audio.
+  * `:language_model_name` (`t:string`) Specify the name of the custom language model that you want to use when processing your
+      transcription. Note that language model names are case sensitive.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
+      is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
+      Note that the sample rate you specify must match that of your audio.
+  * `:partial_results_stability` (`t:enum["HIGH|LOW|MEDIUM"]`) Specify the level of stability to use when you enable partial results stabilization 
+      (<code>EnablePartialResultsStabilization</code>).
+  * `:pii_entity_types` (`t:string`) Specify which types of personally identifiable information (PII) you want to redact in your 
+      transcript. You can include as many types as you&#39;d like, or you can select 
+      <code>ALL</code>.
+  * `:session_id` (`t:string`) Specify a name for your Call Analytics transcription session. If you don&#39;t include this parameter
+      in your request, Amazon Transcribe generates an ID and returns it in the response.
+  * `:vocabulary_filter_method` (`t:enum["MASK|REMOVE|TAG"]`) Specify how you want your vocabulary filter applied to your transcript.
+  * `:vocabulary_filter_name` (`t:string`) Specify the name of the custom vocabulary filter that you want to use when processing your
+      transcription. Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that you want to use when processing your
+      transcription. Note that vocabulary names are case sensitive.
   """
   @spec start_call_analytics_stream_transcription(
           AWS.Client.t(),
@@ -766,17 +778,26 @@ defmodule AWS.TranscribeStreaming do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :content_identification_type (t:String.t/0) (x-amzn-transcribe-content-identification-type)
-   • :enable_channel_identification (t:String.t/0) (x-amzn-transcribe-enable-channel-identification)
-   • :language_code (t:String.t/0) (x-amzn-transcribe-language-code)
-   • :media_encoding (t:String.t/0) (x-amzn-transcribe-media-encoding)
-   • :media_sample_rate_hertz (t:String.t/0) (x-amzn-transcribe-sample-rate)
-   • :number_of_channels (t:String.t/0) (x-amzn-transcribe-number-of-channels)
-   • :session_id (t:String.t/0) (x-amzn-transcribe-session-id)
-   • :show_speaker_label (t:String.t/0) (x-amzn-transcribe-show-speaker-label)
-   • :specialty (t:String.t/0) (x-amzn-transcribe-specialty)
-   • :type (t:String.t/0) (x-amzn-transcribe-type)
-   • :vocabulary_name (t:String.t/0) (x-amzn-transcribe-vocabulary-name)
+  * `:content_identification_type` (`t:enum["PHI"]`) Labels all personal health information (PHI) identified in your transcript.
+  * `:enable_channel_identification` (`t:boolean`) Enables channel identification in multi-channel audio.
+  * `:language_code` (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`) Specify the language code that represents the language spoken in your audio.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding used for the input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio (in hertz). Amazon Transcribe Medical supports a
+            range from 16,000 Hz to 48,000 Hz. Note that the sample rate you specify must match that
+            of your audio.
+  * `:number_of_channels` (`t:integer`) Specify the number of channels in your audio stream. Up to two channels are
+            supported.
+  * `:session_id` (`t:string`) Specify a name for your transcription session. If you don&#39;t include this parameter in 
+            your request, Amazon Transcribe Medical generates an ID and returns it in the
+            response.
+  * `:show_speaker_label` (`t:boolean`) Enables speaker partitioning (diarization) in your transcription output. Speaker
+            partitioning labels the speech from individual speakers in your media file.
+  * `:specialty` (`t:enum["CARDIOLOGY|NEUROLOGY|ONCOLOGY|PRIMARYCARE|RADIOLOGY|UROLOGY"]`) Specify the medical specialty contained in your audio.
+  * `:type` (`t:enum["CONVERSATION|DICTATION"]`) Specify the type of input audio. For example, choose <code>DICTATION</code> for a 
+            provider dictating patient notes and <code>CONVERSATION</code> for a dialogue between a
+            patient and a medical professional.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that you want to use when processing your
+            transcription. Note that vocabulary names are case sensitive.
   """
   @spec start_medical_stream_transcription(
           AWS.Client.t(),
@@ -868,28 +889,47 @@ defmodule AWS.TranscribeStreaming do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :content_identification_type (t:String.t/0) (x-amzn-transcribe-content-identification-type)
-   • :content_redaction_type (t:String.t/0) (x-amzn-transcribe-content-redaction-type)
-   • :enable_channel_identification (t:String.t/0) (x-amzn-transcribe-enable-channel-identification)
-   • :enable_partial_results_stabilization (t:String.t/0) (x-amzn-transcribe-enable-partial-results-stabilization)
-   • :identify_language (t:String.t/0) (x-amzn-transcribe-identify-language)
-   • :identify_multiple_languages (t:String.t/0) (x-amzn-transcribe-identify-multiple-languages)
-   • :language_code (t:String.t/0) (x-amzn-transcribe-language-code)
-   • :language_model_name (t:String.t/0) (x-amzn-transcribe-language-model-name)
-   • :language_options (t:String.t/0) (x-amzn-transcribe-language-options)
-   • :media_encoding (t:String.t/0) (x-amzn-transcribe-media-encoding)
-   • :media_sample_rate_hertz (t:String.t/0) (x-amzn-transcribe-sample-rate)
-   • :number_of_channels (t:String.t/0) (x-amzn-transcribe-number-of-channels)
-   • :partial_results_stability (t:String.t/0) (x-amzn-transcribe-partial-results-stability)
-   • :pii_entity_types (t:String.t/0) (x-amzn-transcribe-pii-entity-types)
-   • :preferred_language (t:String.t/0) (x-amzn-transcribe-preferred-language)
-   • :session_id (t:String.t/0) (x-amzn-transcribe-session-id)
-   • :show_speaker_label (t:String.t/0) (x-amzn-transcribe-show-speaker-label)
-   • :vocabulary_filter_method (t:String.t/0) (x-amzn-transcribe-vocabulary-filter-method)
-   • :vocabulary_filter_name (t:String.t/0) (x-amzn-transcribe-vocabulary-filter-name)
-   • :vocabulary_filter_names (t:String.t/0) (x-amzn-transcribe-vocabulary-filter-names)
-   • :vocabulary_name (t:String.t/0) (x-amzn-transcribe-vocabulary-name)
-   • :vocabulary_names (t:String.t/0) (x-amzn-transcribe-vocabulary-names)
+  * `:content_identification_type` (`t:enum["PII"]`) Labels all personally identifiable information (PII) identified in your transcript.
+  * `:content_redaction_type` (`t:enum["PII"]`) Redacts all personally identifiable information (PII) identified in your transcript.
+  * `:enable_channel_identification` (`t:boolean`) Enables channel identification in multi-channel audio.
+  * `:enable_partial_results_stabilization` (`t:boolean`) Enables partial result stabilization for your transcription. Partial result stabilization can reduce
+      latency in your output, but may impact accuracy. For more information, see 
+      <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result 
+      stabilization</a>.
+  * `:identify_language` (`t:boolean`) Enables automatic language identification for your transcription.
+  * `:identify_multiple_languages` (`t:boolean`) Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.
+  * `:language_code` (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`) Specify the language code that represents the language spoken in your audio.
+  * `:language_model_name` (`t:string`) Specify the name of the custom language model that you want to use when processing your
+      transcription. Note that language model names are case sensitive.
+  * `:language_options` (`t:string`) Specify two or more language codes that represent the languages you think may be present 
+      in your media; including more than five is not recommended. If you&#39;re unsure what languages are present, do
+      not include this parameter.
+  * `:media_encoding` (`t:enum["FLAC|OGG_OPUS|PCM"]`) Specify the encoding of your input audio. Supported formats are:
+  * `:media_sample_rate_hertz` (`t:integer`) The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
+      is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
+      Note that the sample rate you specify must match that of your audio.
+  * `:number_of_channels` (`t:integer`) Specify the number of channels in your audio stream. Up to two channels are
+      supported.
+  * `:partial_results_stability` (`t:enum["HIGH|LOW|MEDIUM"]`) Specify the level of stability to use when you enable partial results stabilization 
+      (<code>EnablePartialResultsStabilization</code>).
+  * `:pii_entity_types` (`t:string`) Specify which types of personally identifiable information (PII) you want to redact in your 
+      transcript. You can include as many types as you&#39;d like, or you can select 
+      <code>ALL</code>.
+  * `:preferred_language` (`t:enum["DE_DE|EN_AU|EN_GB|EN_US|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|TH_TH|ZH_CN"]`) Specify a preferred language from the subset of languages codes you specified in 
+      <code>LanguageOptions</code>.
+  * `:session_id` (`t:string`) Specify a name for your transcription session. If you don&#39;t include this parameter in your request, 
+      Amazon Transcribe generates an ID and returns it in the response.
+  * `:show_speaker_label` (`t:boolean`) Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning 
+      labels the speech from individual speakers in your media file.
+  * `:vocabulary_filter_method` (`t:enum["MASK|REMOVE|TAG"]`) Specify how you want your vocabulary filter applied to your transcript.
+  * `:vocabulary_filter_name` (`t:string`) Specify the name of the custom vocabulary filter that you want to use when processing your
+      transcription. Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_filter_names` (`t:string`) Specify the names of the custom vocabulary filters that you want to use when processing
+      your transcription. Note that vocabulary filter names are case sensitive.
+  * `:vocabulary_name` (`t:string`) Specify the name of the custom vocabulary that you want to use when processing your
+      transcription. Note that vocabulary names are case sensitive.
+  * `:vocabulary_names` (`t:string`) Specify the names of the custom vocabularies that you want to use when processing your
+      transcription. Note that vocabulary names are case sensitive.
   """
   @spec start_stream_transcription(
           AWS.Client.t(),

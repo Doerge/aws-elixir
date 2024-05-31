@@ -3926,7 +3926,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec add_facet_to_object(AWS.Client.t(), add_facet_to_object_request(), Keyword.t()) ::
           {:ok, add_facet_to_object_response(), any()}
@@ -3957,7 +3958,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      into which the schema is copied. For more information, see <a>arns</a>.
   """
   @spec apply_schema(AWS.Client.t(), apply_schema_request(), Keyword.t()) ::
           {:ok, apply_schema_response(), any()}
@@ -3995,7 +3997,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where both objects reside. For more information, see <a>arns</a>.
   """
   @spec attach_object(AWS.Client.t(), attach_object_request(), Keyword.t()) ::
           {:ok, attach_object_response(), any()}
@@ -4027,7 +4030,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where both objects reside. For more information, see <a>arns</a>.
   """
   @spec attach_policy(AWS.Client.t(), attach_policy_request(), Keyword.t()) ::
           {:ok, attach_policy_response(), any()}
@@ -4056,7 +4060,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where the object and index
+      exist.
   """
   @spec attach_to_index(AWS.Client.t(), attach_to_index_request(), Keyword.t()) ::
           {:ok, attach_to_index_response(), any()}
@@ -4087,7 +4092,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to attach the typed
+      link.
   """
   @spec attach_typed_link(AWS.Client.t(), attach_typed_link_request(), Keyword.t()) ::
           {:ok, attach_typed_link_response(), any()}
@@ -4116,8 +4122,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+      For more information, see <a>arns</a>.
   """
   @spec batch_read(AWS.Client.t(), batch_read_request(), Keyword.t()) ::
           {:ok, batch_read_response(), any()}
@@ -4160,7 +4168,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+      For more information, see <a>arns</a>.
   """
   @spec batch_write(AWS.Client.t(), batch_write_request(), Keyword.t()) ::
           {:ok, batch_write_response(), any()}
@@ -4196,7 +4205,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the published schema that will be copied into the
+      data <a>Directory</a>. For more information, see <a>arns</a>.
   """
   @spec create_directory(AWS.Client.t(), create_directory_request(), Keyword.t()) ::
           {:ok, create_directory_response(), any()}
@@ -4228,7 +4238,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The schema ARN in which the new <a>Facet</a> will be created. For more
+      information, see <a>arns</a>.
   """
   @spec create_facet(AWS.Client.t(), create_facet_request(), Keyword.t()) ::
           {:ok, create_facet_response(), any()}
@@ -4260,7 +4271,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory where the index should be created.
   """
   @spec create_index(AWS.Client.t(), create_index_request(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
@@ -4295,7 +4306,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      in which the object will be created. For more information, see <a>arns</a>.
   """
   @spec create_object(AWS.Client.t(), create_object_request(), Keyword.t()) ::
           {:ok, create_object_response(), any()}
@@ -4369,7 +4381,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec create_typed_link_facet(AWS.Client.t(), create_typed_link_facet_request(), Keyword.t()) ::
           {:ok, create_typed_link_facet_response(), any()}
@@ -4403,7 +4416,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory to delete.
   """
   @spec delete_directory(AWS.Client.t(), delete_directory_request(), Keyword.t()) ::
           {:ok, delete_directory_response(), any()}
@@ -4437,7 +4450,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+      For more information, see <a>arns</a>.
   """
   @spec delete_facet(AWS.Client.t(), delete_facet_request(), Keyword.t()) ::
           {:ok, delete_facet_response(), any()}
@@ -4471,7 +4485,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec delete_object(AWS.Client.t(), delete_object_request(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
@@ -4502,7 +4517,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development schema. For more information, see
+        <a>arns</a>.
   """
   @spec delete_schema(AWS.Client.t(), delete_schema_request(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
@@ -4533,7 +4549,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec delete_typed_link_facet(AWS.Client.t(), delete_typed_link_facet_request(), Keyword.t()) ::
           {:ok, delete_typed_link_facet_response(), any()}
@@ -4562,7 +4579,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory the index and object exist
+      in.
   """
   @spec detach_from_index(AWS.Client.t(), detach_from_index_request(), Keyword.t()) ::
           {:ok, detach_from_index_response(), any()}
@@ -4594,7 +4612,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where objects reside. For more information, see <a>arns</a>.
   """
   @spec detach_object(AWS.Client.t(), detach_object_request(), Keyword.t()) ::
           {:ok, detach_object_response(), any()}
@@ -4623,7 +4642,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where both objects reside. For more information, see <a>arns</a>.
   """
   @spec detach_policy(AWS.Client.t(), detach_policy_request(), Keyword.t()) ::
           {:ok, detach_policy_response(), any()}
@@ -4654,7 +4674,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to detach the typed
+      link.
   """
   @spec detach_typed_link(AWS.Client.t(), detach_typed_link_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4686,7 +4707,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory to disable.
   """
   @spec disable_directory(AWS.Client.t(), disable_directory_request(), Keyword.t()) ::
           {:ok, disable_directory_response(), any()}
@@ -4718,7 +4739,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory to enable.
   """
   @spec enable_directory(AWS.Client.t(), enable_directory_request(), Keyword.t()) ::
           {:ok, enable_directory_response(), any()}
@@ -4783,7 +4804,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory.
   """
   @spec get_directory(AWS.Client.t(), get_directory_request(), Keyword.t()) ::
           {:ok, get_directory_response(), any()}
@@ -4826,7 +4847,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+      For more information, see <a>arns</a>.
   """
   @spec get_facet(AWS.Client.t(), get_facet_request(), Keyword.t()) ::
           {:ok, get_facet_response(), any()}
@@ -4865,7 +4887,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.
   """
   @spec get_link_attributes(AWS.Client.t(), get_link_attributes_request(), Keyword.t()) ::
           {:ok, get_link_attributes_response(), any()}
@@ -4904,8 +4926,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level at which to retrieve the attributes on an object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides.
   """
   @spec get_object_attributes(AWS.Client.t(), get_object_attributes_request(), Keyword.t()) ::
           {:ok, get_object_attributes_response(), any()}
@@ -4945,8 +4967,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level at which to retrieve the object information.
+  * `:directory_arn` (`t:string`) The ARN of the directory being retrieved.
   """
   @spec get_object_information(AWS.Client.t(), get_object_information_request(), Keyword.t()) ::
           {:ok, get_object_information_response(), any()}
@@ -4989,7 +5011,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The ARN of the schema to retrieve.
   """
   @spec get_schema_as_json(AWS.Client.t(), get_schema_as_json_request(), Keyword.t()) ::
           {:ok, get_schema_as_json_response(), any()}
@@ -5030,7 +5052,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec get_typed_link_facet_information(
           AWS.Client.t(),
@@ -5107,8 +5130,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level to use for this operation.
+  * `:directory_arn` (`t:string`) The ARN of the directory.
   """
   @spec list_attached_indices(AWS.Client.t(), list_attached_indices_request(), Keyword.t()) ::
           {:ok, list_attached_indices_response(), any()}
@@ -5217,7 +5240,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The ARN of the schema where the facet resides.
   """
   @spec list_facet_attributes(AWS.Client.t(), list_facet_attributes_request(), Keyword.t()) ::
           {:ok, list_facet_attributes_response(), any()}
@@ -5256,7 +5279,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) to retrieve facet names from.
   """
   @spec list_facet_names(AWS.Client.t(), list_facet_names_request(), Keyword.t()) ::
           {:ok, list_facet_names_response(), any()}
@@ -5299,7 +5322,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to list the typed
+      links.
   """
   @spec list_incoming_typed_links(
           AWS.Client.t(),
@@ -5342,8 +5366,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level to execute the request at.
+  * `:directory_arn` (`t:string`) The ARN of the directory that the index exists in.
   """
   @spec list_index(AWS.Client.t(), list_index_request(), Keyword.t()) ::
           {:ok, list_index_response(), any()}
@@ -5418,8 +5442,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec list_object_attributes(AWS.Client.t(), list_object_attributes_request(), Keyword.t()) ::
           {:ok, list_object_attributes_response(), any()}
@@ -5460,8 +5486,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec list_object_children(AWS.Client.t(), list_object_children_request(), Keyword.t()) ::
           {:ok, list_object_children_response(), any()}
@@ -5517,7 +5545,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory to which the parent path applies.
   """
   @spec list_object_parent_paths(AWS.Client.t(), list_object_parent_paths_request(), Keyword.t()) ::
           {:ok, list_object_parent_paths_response(), any()}
@@ -5557,8 +5585,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec list_object_parents(AWS.Client.t(), list_object_parents_request(), Keyword.t()) ::
           {:ok, list_object_parents_response(), any()}
@@ -5598,8 +5628,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where objects reside. For more information, see <a>arns</a>.
   """
   @spec list_object_policies(AWS.Client.t(), list_object_policies_request(), Keyword.t()) ::
           {:ok, list_object_policies_response(), any()}
@@ -5643,7 +5675,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to list the typed
+      links.
   """
   @spec list_outgoing_typed_links(
           AWS.Client.t(),
@@ -5686,8 +5719,10 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :consistency_level (t:String.t/0) (x-amz-consistency-level)
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
+      is reflected in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where objects reside. For more information, see <a>arns</a>.
   """
   @spec list_policy_attachments(AWS.Client.t(), list_policy_attachments_request(), Keyword.t()) ::
           {:ok, list_policy_attachments_response(), any()}
@@ -5806,7 +5841,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec list_typed_link_facet_attributes(
           AWS.Client.t(),
@@ -5851,7 +5887,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec list_typed_link_facet_names(
           AWS.Client.t(),
@@ -5905,7 +5942,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+      For more information, see <a>arns</a>.
   """
   @spec lookup_policy(AWS.Client.t(), lookup_policy_request(), Keyword.t()) ::
           {:ok, lookup_policy_response(), any()}
@@ -5945,7 +5983,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :development_schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:development_schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the development schema. For
+      more information, see <a>arns</a>.
   """
   @spec publish_schema(AWS.Client.t(), publish_schema_request(), Keyword.t()) ::
           {:ok, publish_schema_response(), any()}
@@ -5977,7 +6016,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The ARN of the schema to update.
   """
   @spec put_schema_from_json(AWS.Client.t(), put_schema_from_json_request(), Keyword.t()) ::
           {:ok, put_schema_from_json_response(), any()}
@@ -6006,7 +6045,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The ARN of the directory in which the object resides.
   """
   @spec remove_facet_from_object(AWS.Client.t(), remove_facet_from_object_request(), Keyword.t()) ::
           {:ok, remove_facet_from_object_response(), any()}
@@ -6089,7 +6128,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
+      For more information, see <a>arns</a>.
   """
   @spec update_facet(AWS.Client.t(), update_facet_request(), Keyword.t()) ::
           {:ok, update_facet_response(), any()}
@@ -6121,7 +6161,7 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.
   """
   @spec update_link_attributes(AWS.Client.t(), update_link_attributes_request(), Keyword.t()) ::
           {:ok, update_link_attributes_response(), any()}
@@ -6160,7 +6200,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :directory_arn (t:String.t/0) (x-amz-data-partition)
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.
   """
   @spec update_object_attributes(AWS.Client.t(), update_object_attributes_request(), Keyword.t()) ::
           {:ok, update_object_attributes_response(), any()}
@@ -6192,7 +6233,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development schema. For more information, see
+        <a>arns</a>.
   """
   @spec update_schema(AWS.Client.t(), update_schema_request(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
@@ -6223,7 +6265,8 @@ defmodule AWS.CloudDirectory do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :schema_arn (t:String.t/0) (x-amz-data-partition)
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
+      information, see <a>arns</a>.
   """
   @spec update_typed_link_facet(AWS.Client.t(), update_typed_link_facet_request(), Keyword.t()) ::
           {:ok, update_typed_link_facet_response(), any()}

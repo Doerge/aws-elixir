@@ -706,7 +706,7 @@ defmodule AWS.TrustedAdvisor do
   recommendations.
 
   ## Required positional parameters:
-   • :organization_recommendation_identifier (t:string String.t/0) (organizationRecommendationIdentifier)
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
   """
@@ -739,7 +739,7 @@ defmodule AWS.TrustedAdvisor do
   Get a specific Recommendation
 
   ## Required positional parameters:
-   • :recommendation_identifier (t:string String.t/0) (recommendationIdentifier)
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
   """
@@ -769,12 +769,14 @@ defmodule AWS.TrustedAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :aws_service (t:String.t/0) (awsService)
-   • :language (t:String.t/0) (language)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :pillar (t:String.t/0) (pillar)
-   • :source (t:String.t/0) (source)
+  * `:aws_service` (`t:string`) The aws service associated with the check
+  * `:language` (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`) The ISO 639-1 code for the language that you want your checks to appear in.
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
+  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the check
+  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the check
   """
   @spec list_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_checks_response(), any()}
@@ -858,12 +860,14 @@ defmodule AWS.TrustedAdvisor do
   supports prioritized recommendations.
 
   ## Required positional parameters:
-   • :organization_recommendation_identifier (t:string String.t/0) (organizationRecommendationIdentifier)
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
-   • :affected_account_id (t:String.t/0) (affectedAccountId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:affected_account_id` (`t:string`) An account affected by this organization recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
   """
   @spec list_organization_recommendation_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
@@ -924,15 +928,17 @@ defmodule AWS.TrustedAdvisor do
   recommendations.
 
   ## Required positional parameters:
-   • :organization_recommendation_identifier (t:string String.t/0) (organizationRecommendationIdentifier)
+  * `:organization_recommendation_identifier` (`t:string`) The AWS Organization organization&#39;s Recommendation identifier
 
   ## Optional parameters:
-   • :affected_account_id (t:String.t/0) (affectedAccountId)
-   • :exclusion_status (t:String.t/0) (exclusionStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :region_code (t:String.t/0) (regionCode)
-   • :status (t:String.t/0) (status)
+  * `:affected_account_id` (`t:string`) An account affected by this organization recommendation
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of the resource
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
+  * `:region_code` (`t:`) The AWS Region code of the resource
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
   @spec list_organization_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
@@ -1022,16 +1028,18 @@ defmodule AWS.TrustedAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :after_last_updated_at (t:String.t/0) (afterLastUpdatedAt)
-   • :aws_service (t:String.t/0) (awsService)
-   • :before_last_updated_at (t:String.t/0) (beforeLastUpdatedAt)
-   • :check_identifier (t:String.t/0) (checkIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :pillar (t:String.t/0) (pillar)
-   • :source (t:String.t/0) (source)
-   • :status (t:String.t/0) (status)
-   • :type (t:String.t/0) (type)
+  * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
+  * `:aws_service` (`t:string`) The aws service associated with the Recommendation
+  * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
+  * `:check_identifier` (`t:string`) The check identifier of the Recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
+  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the Recommendation
+  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the Recommendation
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
+  * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
   @spec list_organization_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_recommendations_response(), any()}
@@ -1147,14 +1155,16 @@ defmodule AWS.TrustedAdvisor do
   List Resources of a Recommendation
 
   ## Required positional parameters:
-   • :recommendation_identifier (t:string String.t/0) (recommendationIdentifier)
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
-   • :exclusion_status (t:String.t/0) (exclusionStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :region_code (t:String.t/0) (regionCode)
-   • :status (t:String.t/0) (status)
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of the resource
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
+  * `:region_code` (`t:`) The AWS Region code of the resource
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
   @spec list_recommendation_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_resources_response(), any()}
@@ -1227,16 +1237,18 @@ defmodule AWS.TrustedAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :after_last_updated_at (t:String.t/0) (afterLastUpdatedAt)
-   • :aws_service (t:String.t/0) (awsService)
-   • :before_last_updated_at (t:String.t/0) (beforeLastUpdatedAt)
-   • :check_identifier (t:String.t/0) (checkIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :pillar (t:String.t/0) (pillar)
-   • :source (t:String.t/0) (source)
-   • :status (t:String.t/0) (status)
-   • :type (t:String.t/0) (type)
+  * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
+  * `:aws_service` (`t:string`) The aws service associated with the Recommendation
+  * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
+  * `:check_identifier` (`t:string`) The check identifier of the Recommendation
+  * `:max_results` (`t:`) The maximum number of results to return per page.
+  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
+            to retrieve the next set of results.
+        
+  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the Recommendation
+  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the Recommendation
+  * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
+  * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
   @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
@@ -1355,7 +1367,7 @@ defmodule AWS.TrustedAdvisor do
   recommendations.
 
   ## Required positional parameters:
-   • :organization_recommendation_identifier (t:string String.t/0) (organizationRecommendationIdentifier)
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier for AWS Trusted Advisor Priority recommendations
 
   ## Optional parameters:
   """
@@ -1392,7 +1404,7 @@ defmodule AWS.TrustedAdvisor do
   This API only supports prioritized recommendations.
 
   ## Required positional parameters:
-   • :recommendation_identifier (t:string String.t/0) (recommendationIdentifier)
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier for AWS Trusted Advisor Priority recommendations
 
   ## Optional parameters:
   """

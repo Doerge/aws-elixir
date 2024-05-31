@@ -903,7 +903,7 @@ defmodule AWS.ChimeSDKMeetings do
   *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK ID of the meeting to which you&#39;re adding attendees.
 
   ## Optional parameters:
   """
@@ -981,7 +981,7 @@ defmodule AWS.ChimeSDKMeetings do
   and the Amazon Chime back-end server.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The ID of the meeting associated with the update request.
 
   ## Optional parameters:
   """
@@ -1022,7 +1022,7 @@ defmodule AWS.ChimeSDKMeetings do
   *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The unique ID of the meeting.
 
   ## Optional parameters:
   """
@@ -1148,8 +1148,8 @@ defmodule AWS.ChimeSDKMeetings do
   in the *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :attendee_id (t:string String.t/0) (AttendeeId)
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
   ## Optional parameters:
   """
@@ -1196,7 +1196,7 @@ defmodule AWS.ChimeSDKMeetings do
   *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
   ## Optional parameters:
   """
@@ -1235,8 +1235,8 @@ defmodule AWS.ChimeSDKMeetings do
   in the *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :attendee_id (t:string String.t/0) (AttendeeId)
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:attendee_id` (`t:string`) The Amazon Chime SDK attendee ID.
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
   ## Optional parameters:
   """
@@ -1269,7 +1269,7 @@ defmodule AWS.ChimeSDKMeetings do
   in the *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
   ## Optional parameters:
   """
@@ -1302,11 +1302,11 @@ defmodule AWS.ChimeSDKMeetings do
   in the *Amazon Chime Developer Guide*.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The Amazon Chime SDK meeting ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:next_token` (`t:string`) The token to use to retrieve the next page of results.
   """
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
@@ -1352,7 +1352,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (arn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1414,7 +1414,7 @@ defmodule AWS.ChimeSDKMeetings do
   Amazon Web Services Organizations.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The unique ID of the meeting being transcribed.
 
   ## Optional parameters:
   """
@@ -1471,7 +1471,7 @@ defmodule AWS.ChimeSDKMeetings do
   policy using Amazon Web Services Organizations.
 
   ## Required positional parameters:
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:meeting_id` (`t:string`) The unique ID of the meeting for which you stop transcription.
 
   ## Optional parameters:
   """
@@ -1639,8 +1639,8 @@ defmodule AWS.ChimeSDKMeetings do
   and the Amazon Chime back-end server.
 
   ## Required positional parameters:
-   • :attendee_id (t:string String.t/0) (AttendeeId)
-   • :meeting_id (t:string String.t/0) (MeetingId)
+  * `:attendee_id` (`t:string`) The ID of the attendee associated with the update request.
+  * `:meeting_id` (`t:string`) The ID of the meeting associated with the update request.
 
   ## Optional parameters:
   """

@@ -752,8 +752,9 @@ defmodule AWS.QLDB do
   expires.
 
   ## Required positional parameters:
-   • :ledger_name (t:string String.t/0) (LedgerName)
-   • :stream_id (t:string String.t/0) (StreamId)
+  * `:ledger_name` (`t:string`) The name of the ledger.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the QLDB journal stream to be
+         canceled.
 
   ## Optional parameters:
   """
@@ -839,7 +840,7 @@ defmodule AWS.QLDB do
   parameter to `false`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger that you want to delete.
 
   ## Optional parameters:
   """
@@ -883,8 +884,9 @@ defmodule AWS.QLDB do
   Guide*.
 
   ## Required positional parameters:
-   • :ledger_name (t:string String.t/0) (LedgerName)
-   • :stream_id (t:string String.t/0) (StreamId)
+  * `:ledger_name` (`t:string`) The name of the ledger.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the QLDB journal stream to
+         describe.
 
   ## Optional parameters:
   """
@@ -928,8 +930,9 @@ defmodule AWS.QLDB do
   `ResourceNotFoundException`.
 
   ## Required positional parameters:
-   • :export_id (t:string String.t/0) (ExportId)
-   • :name (t:string String.t/0) (Name)
+  * `:export_id` (`t:string`) The UUID (represented in Base62-encoded text) of the journal export job to
+         describe.
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -960,7 +963,7 @@ defmodule AWS.QLDB do
   rest settings, and when it was created.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger that you want to describe.
 
   ## Optional parameters:
   """
@@ -1004,7 +1007,7 @@ defmodule AWS.QLDB do
   this limit, journal export requests throw `LimitExceededException`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1058,7 +1061,7 @@ defmodule AWS.QLDB do
   `InvalidParameterException`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1094,7 +1097,7 @@ defmodule AWS.QLDB do
   response includes a 256-bit hash value and a block address.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1131,7 +1134,7 @@ defmodule AWS.QLDB do
   is provided.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1174,11 +1177,16 @@ defmodule AWS.QLDB do
   multiple times.
 
   ## Required positional parameters:
-   • :ledger_name (t:string String.t/0) (LedgerName)
+  * `:ledger_name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single
+            <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results
+         returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
+         you received a value for <code>NextToken</code> in the response from a previous
+            <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as input
+         here.
   """
   @spec list_journal_kinesis_streams_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
@@ -1235,8 +1243,12 @@ defmodule AWS.QLDB do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single <code>ListJournalS3Exports</code>
+         request. (The actual number of results returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
+         you received a value for <code>NextToken</code> in the response from a previous
+            <code>ListJournalS3Exports</code> call, then you should use that value as input
+         here.
   """
   @spec list_journal_s3_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_response(), any()}
@@ -1288,11 +1300,16 @@ defmodule AWS.QLDB do
   Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single
+            <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results
+         returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
+         you received a value for <code>NextToken</code> in the response from a previous
+            <code>ListJournalS3ExportsForLedger</code> call, then you should use that value as input
+         here.
   """
   @spec list_journal_s3_exports_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
@@ -1342,8 +1359,11 @@ defmodule AWS.QLDB do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of results to return in a single <code>ListLedgers</code> request.
+         (The actual number of results returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
+         you received a value for <code>NextToken</code> in the response from a previous
+            <code>ListLedgers</code> call, then you should use that value as input here.
   """
   @spec list_ledgers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ledgers_response(), any()}
@@ -1386,7 +1406,7 @@ defmodule AWS.QLDB do
   Returns all tags for a specified Amazon QLDB resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for which to list the tags. For example:
 
   ## Optional parameters:
   """
@@ -1419,7 +1439,7 @@ defmodule AWS.QLDB do
   specified Amazon Kinesis Data Streams resource.
 
   ## Required positional parameters:
-   • :ledger_name (t:string String.t/0) (LedgerName)
+  * `:ledger_name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1460,7 +1480,7 @@ defmodule AWS.QLDB do
   resource, your request fails and returns an error.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to which you want to add the tags. For example:
 
   ## Optional parameters:
   """
@@ -1496,10 +1516,10 @@ defmodule AWS.QLDB do
   tag keys to remove.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) from which to remove the tags. For example:
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]`) The list of tag keys to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1535,7 +1555,7 @@ defmodule AWS.QLDB do
   Updates properties on a ledger.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """
@@ -1575,7 +1595,7 @@ defmodule AWS.QLDB do
   Developer Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
   """

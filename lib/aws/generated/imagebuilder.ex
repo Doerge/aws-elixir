@@ -4588,7 +4588,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :component_build_version_arn (t:String.t/0) (componentBuildVersionArn)
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the component build version to delete.
   """
   @spec delete_component(AWS.Client.t(), delete_component_request(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
@@ -4626,7 +4626,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :container_recipe_arn (t:String.t/0) (containerRecipeArn)
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe to delete.
   """
   @spec delete_container_recipe(AWS.Client.t(), delete_container_recipe_request(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
@@ -4664,7 +4664,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :distribution_configuration_arn (t:String.t/0) (distributionConfigurationArn)
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the distribution configuration to delete.
   """
   @spec delete_distribution_configuration(
           AWS.Client.t(),
@@ -4731,7 +4731,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_build_version_arn (t:String.t/0) (imageBuildVersionArn)
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the Image Builder image resource to delete.
   """
   @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
@@ -4769,7 +4769,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_pipeline_arn (t:String.t/0) (imagePipelineArn)
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image pipeline to delete.
   """
   @spec delete_image_pipeline(AWS.Client.t(), delete_image_pipeline_request(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
@@ -4807,7 +4807,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_recipe_arn (t:String.t/0) (imageRecipeArn)
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe to delete.
   """
   @spec delete_image_recipe(AWS.Client.t(), delete_image_recipe_request(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
@@ -4845,7 +4845,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :infrastructure_configuration_arn (t:String.t/0) (infrastructureConfigurationArn)
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.
   """
   @spec delete_infrastructure_configuration(
           AWS.Client.t(),
@@ -4887,7 +4887,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :lifecycle_policy_arn (t:String.t/0) (lifecyclePolicyArn)
+  * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the lifecycle policy resource to delete.
   """
   @spec delete_lifecycle_policy(AWS.Client.t(), delete_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -4925,7 +4925,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :workflow_build_version_arn (t:String.t/0) (workflowBuildVersionArn)
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the workflow resource to delete.
   """
   @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
@@ -4963,7 +4963,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :component_build_version_arn (t:String.t/0) (componentBuildVersionArn)
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the component that you want to get. Regex requires
+  	the suffix <code>/\d+$</code>.
   """
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
@@ -5001,7 +5002,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :component_arn (t:String.t/0) (componentArn)
+  * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component whose policy you want to
+  	retrieve.
   """
   @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
@@ -5038,7 +5040,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :container_recipe_arn (t:String.t/0) (containerRecipeArn)
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe to retrieve.
   """
   @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
@@ -5075,7 +5077,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :container_recipe_arn (t:String.t/0) (containerRecipeArn)
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe for the policy being
+  	requested.
   """
   @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
@@ -5112,7 +5115,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :distribution_configuration_arn (t:String.t/0) (distributionConfigurationArn)
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the distribution configuration that you want to
+  	retrieve.
   """
   @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
@@ -5154,7 +5158,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_build_version_arn (t:String.t/0) (imageBuildVersionArn)
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the image that you want to get.
   """
   @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
@@ -5191,7 +5195,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_pipeline_arn (t:String.t/0) (imagePipelineArn)
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve.
   """
   @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
@@ -5228,7 +5232,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_arn (t:String.t/0) (imageArn)
+  * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.
   """
   @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
@@ -5265,7 +5269,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_recipe_arn (t:String.t/0) (imageRecipeArn)
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.
   """
   @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
@@ -5302,7 +5306,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :image_recipe_arn (t:String.t/0) (imageRecipeArn)
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe whose policy you want to
+  	retrieve.
   """
   @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
@@ -5339,7 +5344,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :infrastructure_configuration_arn (t:String.t/0) (infrastructureConfigurationArn)
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
+  	retrieve.
   """
   @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
@@ -5382,7 +5388,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :lifecycle_execution_id (t:String.t/0) (lifecycleExecutionId)
+  * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.
   """
   @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
@@ -5419,7 +5425,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :lifecycle_policy_arn (t:String.t/0) (lifecyclePolicyArn)
+  * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the image lifecycle policy resource to get.
   """
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
@@ -5456,7 +5462,7 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :workflow_build_version_arn (t:String.t/0) (workflowBuildVersionArn)
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the workflow resource that you want to get.
   """
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
@@ -5494,7 +5500,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :workflow_execution_id (t:String.t/0) (workflowExecutionId)
+  * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime instance of the workflow to get 
+  	runtime details.
   """
   @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
@@ -5532,7 +5539,8 @@ defmodule AWS.Imagebuilder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :step_execution_id (t:String.t/0) (stepExecutionId)
+  * `:step_execution_id` (`t:string`) Use the unique identifier for a specific runtime instance of the workflow step to 
+  	get runtime details for that step.
   """
   @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
@@ -6229,7 +6237,7 @@ defmodule AWS.Imagebuilder do
   Returns the list of tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
 
   ## Optional parameters:
   """
@@ -6639,7 +6647,7 @@ defmodule AWS.Imagebuilder do
   Adds a tag to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to tag.
 
   ## Optional parameters:
   """
@@ -6672,10 +6680,10 @@ defmodule AWS.Imagebuilder do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

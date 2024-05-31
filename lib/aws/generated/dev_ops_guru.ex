@@ -2355,7 +2355,7 @@ defmodule AWS.DevOpsGuru do
   recommendations.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the insight.
 
   ## Optional parameters:
   """
@@ -2460,10 +2460,10 @@ defmodule AWS.DevOpsGuru do
   Returns details about an anomaly that you specify using its ID.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`)  The ID of the anomaly. 
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (AccountId)
+  * `:account_id` (`t:string`) The ID of the member account.
   """
   @spec describe_anomaly(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_anomaly_response(), any()}
@@ -2574,10 +2574,10 @@ defmodule AWS.DevOpsGuru do
   Returns details about an insight that you specify using its ID.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`)  The ID of the insight. 
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (AccountId)
+  * `:account_id` (`t:string`) The ID of the member account in the organization.
   """
   @spec describe_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_insight_response(), any()}
@@ -2740,10 +2740,14 @@ defmodule AWS.DevOpsGuru do
   CloudFormation stacks.
 
   ## Required positional parameters:
-   • :resource_collection_type (t:enum String.t/0) (ResourceCollectionType)
+  * `:resource_collection_type` (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`)  An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
+  	are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and 
+          Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze 
+      	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) The pagination token to use to retrieve 
+   the next page of results for this operation. If this value is null, it retrieves the first page.
   """
   @spec describe_resource_collection_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_collection_health_response(), any()}
@@ -2823,7 +2827,8 @@ defmodule AWS.DevOpsGuru do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) The pagination token to use to retrieve 
+   the next page of results for this operation. If this value is null, it retrieves the first page.
   """
   @spec get_cost_estimation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cost_estimation_response(), any()}
@@ -2867,10 +2872,12 @@ defmodule AWS.DevOpsGuru do
   CloudFormation stacks.
 
   ## Required positional parameters:
-   • :resource_collection_type (t:enum String.t/0) (ResourceCollectionType)
+  * `:resource_collection_type` (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`)  The type of Amazon Web Services resource collections to return. The one valid value is
+  		<code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) The pagination token to use to retrieve 
+   the next page of results for this operation. If this value is null, it retrieves the first page.
   """
   @spec get_resource_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_collection_response(), any()}
@@ -2907,7 +2914,7 @@ defmodule AWS.DevOpsGuru do
   ID.
 
   ## Required positional parameters:
-   • :insight_id (t:string String.t/0) (InsightId)
+  * `:insight_id` (`t:string`)  The ID of the insight. The returned anomalies belong to this insight. 
 
   ## Optional parameters:
   """
@@ -3228,7 +3235,7 @@ defmodule AWS.DevOpsGuru do
   operations.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`)  The ID of the notification channel to be removed. 
 
   ## Optional parameters:
   """

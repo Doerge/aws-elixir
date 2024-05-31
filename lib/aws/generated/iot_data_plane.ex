@@ -401,10 +401,10 @@ defmodule AWS.IoTDataPlane do
   in the IoT Developer Guide.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :shadow_name (t:String.t/0) (name)
+  * `:shadow_name` (`t:string`) The name of the shadow.
   """
   @spec delete_thing_shadow(
           AWS.Client.t(),
@@ -455,7 +455,7 @@ defmodule AWS.IoTDataPlane do
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
 
   ## Required positional parameters:
-   • :topic (t:string String.t/0) (topic)
+  * `:topic` (`t:string`) The topic name of the retained message to retrieve.
 
   ## Optional parameters:
   """
@@ -491,10 +491,10 @@ defmodule AWS.IoTDataPlane do
   IoT Developer Guide.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :shadow_name (t:String.t/0) (name)
+  * `:shadow_name` (`t:string`) The name of the shadow.
   """
   @spec get_thing_shadow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_thing_shadow_response(), any()}
@@ -533,11 +533,11 @@ defmodule AWS.IoTDataPlane do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
   @spec list_named_shadows_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_named_shadows_for_thing_response(), any()}
@@ -597,8 +597,10 @@ defmodule AWS.IoTDataPlane do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+      value from a previous response; otherwise <b>null</b> to receive
+      the first set of results.
   """
   @spec list_retained_messages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_retained_messages_response(), any()}
@@ -652,17 +654,27 @@ defmodule AWS.IoTDataPlane do
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
 
   ## Required positional parameters:
-   • :topic (t:string String.t/0) (topic)
+  * `:topic` (`t:string`) The name of the MQTT topic.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (contentType)
-   • :message_expiry (t:String.t/0) (messageExpiry)
-   • :qos (t:String.t/0) (qos)
-   • :response_topic (t:String.t/0) (responseTopic)
-   • :retain (t:String.t/0) (retain)
-   • :correlation_data (t:String.t/0) (x-amz-mqtt5-correlation-data)
-   • :payload_format_indicator (t:String.t/0) (x-amz-mqtt5-payload-format-indicator)
-   • :user_properties (t:String.t/0) (x-amz-mqtt5-user-properties)
+  * `:content_type` (`t:string`) A UTF-8 encoded string that describes the content of the publishing message.
+  * `:message_expiry` (`t:long`) A user-defined integer value that represents the message expiry interval in seconds. If
+      absent, the message doesn&#39;t expire. For more information about the limits of
+        <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits">Amazon Web Services IoT Core message broker and
+        protocol limits and quotas </a> from the Amazon Web Services Reference Guide.
+  * `:qos` (`t:integer`) The Quality of Service (QoS) level. The default QoS level is 0.
+  * `:response_topic` (`t:string`) A UTF-8 encoded string that&#39;s used as the topic name for a response message. The response
+      topic is used to describe the topic which the receiver should publish to as part of the
+      request-response flow. The topic must not contain wildcard characters.
+  * `:retain` (`t:boolean`) A Boolean value that determines whether to set the RETAIN flag when the message is published.
+  * `:correlation_data` (`t:string`) The base64-encoded binary data used by the sender of the request message to identify which
+      request the response message is for when it&#39;s received. <code>correlationData</code> is an
+      HTTP header value in the API.
+  * `:payload_format_indicator` (`t:enum["UNSPECIFIED_BYTES|UTF8_DATA"]`) An <code>Enum</code> string value that indicates whether the payload is formatted as
+      UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.
+  * `:user_properties` (`t:string`) A JSON string that contains an array of JSON objects. If you don’t use Amazon Web Services SDK or CLI,
+      you must encode the JSON string to base64 format before adding it to the HTTP header.
+        <code>userProperties</code> is an HTTP header value in the API.
   """
   @spec publish(AWS.Client.t(), String.t(), publish_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -717,10 +729,10 @@ defmodule AWS.IoTDataPlane do
   IoT Developer Guide.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :shadow_name (t:String.t/0) (name)
+  * `:shadow_name` (`t:string`) The name of the shadow.
   """
   @spec update_thing_shadow(
           AWS.Client.t(),

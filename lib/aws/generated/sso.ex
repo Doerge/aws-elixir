@@ -245,9 +245,10 @@ defmodule AWS.SSO do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (account_id)
-   • :role_name (t:String.t/0) (role_name)
-   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned to the user.
+  * `:role_name` (`t:string`) The friendly name of the role that is assigned to the user.
+  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
+        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
   """
   @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_role_credentials_response(), any()}
@@ -303,10 +304,11 @@ defmodule AWS.SSO do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (account_id)
-   • :max_results (t:String.t/0) (max_result)
-   • :next_token (t:String.t/0) (next_token)
-   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned to the user.
+  * `:max_results` (`t:integer`) The number of items that clients can request per page.
+  * `:next_token` (`t:string`) The page token from the previous response output when you request subsequent pages.
+  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
+        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
   """
   @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_account_roles_response(), any()}
@@ -376,9 +378,11 @@ defmodule AWS.SSO do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_result)
-   • :next_token (t:String.t/0) (next_token)
-   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
+  * `:max_results` (`t:integer`) This is the number of items clients can request per page.
+  * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this is the page token from the previous
+      response output.
+  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
+        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
   """
   @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
@@ -453,7 +457,8 @@ defmodule AWS.SSO do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :access_token (t:String.t/0) (x-amz-sso_bearer_token)
+  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
+        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
   """
   @spec logout(AWS.Client.t(), logout_request(), Keyword.t()) ::
           {:ok, nil, any()}

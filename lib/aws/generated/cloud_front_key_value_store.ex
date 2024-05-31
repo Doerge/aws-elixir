@@ -323,11 +323,11 @@ defmodule AWS.CloudFrontKeyValueStore do
   Deletes the key value pair specified by the key.
 
   ## Required positional parameters:
-   • :key (t:string String.t/0) (Key)
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:key` (`t:string`) The key to delete.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.
   """
   @spec delete_key(AWS.Client.t(), String.t(), String.t(), delete_key_request(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -372,7 +372,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   Returns metadata information about Key Value Store.
 
   ## Required positional parameters:
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
   """
@@ -407,8 +407,8 @@ defmodule AWS.CloudFrontKeyValueStore do
   Returns a key value pair.
 
   ## Required positional parameters:
-   • :key (t:string String.t/0) (Key)
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:key` (`t:string`) The key to get.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
   """
@@ -437,11 +437,11 @@ defmodule AWS.CloudFrontKeyValueStore do
   Returns a list of key value pairs.
 
   ## Required positional parameters:
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:`) Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.
+  * `:next_token` (`t:`) If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.
   """
   @spec list_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
@@ -485,11 +485,11 @@ defmodule AWS.CloudFrontKeyValueStore do
   Creates a new key value pair or replaces the value of an existing key.
 
   ## Required positional parameters:
-   • :key (t:string String.t/0) (Key)
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:key` (`t:string`) The key to put.
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.
   """
   @spec put_key(AWS.Client.t(), String.t(), String.t(), put_key_request(), Keyword.t()) ::
           {:ok, put_key_response(), any()}
@@ -524,10 +524,10 @@ defmodule AWS.CloudFrontKeyValueStore do
   Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
 
   ## Required positional parameters:
-   • :kvs_arn (t:string String.t/0) (KvsARN)
+  * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.
   """
   @spec update_keys(AWS.Client.t(), String.t(), update_keys_request(), Keyword.t()) ::
           {:ok, update_keys_response(), any()}

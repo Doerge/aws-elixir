@@ -13539,7 +13539,7 @@ defmodule AWS.SecurityHub do
   already sent to Amazon CloudWatch Events using the custom action.
 
   ## Required positional parameters:
-   • :action_target_arn (t:string String.t/0) (ActionTargetArn)
+  * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom action target to delete.
 
   ## Optional parameters:
   """
@@ -13584,7 +13584,9 @@ defmodule AWS.SecurityHub do
   `StartConfigurationPolicyDisassociation` operation.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
+            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+        
 
   ## Optional parameters:
   """
@@ -13628,7 +13630,7 @@ defmodule AWS.SecurityHub do
   and finding updates are not aggregated.
 
   ## Required positional parameters:
-   • :finding_aggregator_arn (t:string String.t/0) (FindingAggregatorArn)
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.
 
   ## Optional parameters:
   """
@@ -13668,7 +13670,7 @@ defmodule AWS.SecurityHub do
   Deletes the insight specified by the `InsightArn`.
 
   ## Required positional parameters:
-   • :insight_arn (t:string String.t/0) (InsightArn)
+  * `:insight_arn` (`t:string`) The ARN of the insight to delete.
 
   ## Optional parameters:
   """
@@ -13812,7 +13814,7 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :hub_arn (t:String.t/0) (HubArn)
+  * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
   """
   @spec describe_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_hub_response(), any()}
@@ -13888,9 +13890,11 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :product_arn (t:String.t/0) (ProductArn)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>DescribeProducts</code> operation, set the value of this parameter to
+            <code>NULL</code>.
+  * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
   @spec describe_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_products_response(), any()}
@@ -13948,8 +13952,10 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of standards to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>DescribeStandards</code> operation, set the value of this parameter to
+            <code>NULL</code>.
   """
   @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
@@ -13997,11 +14003,14 @@ defmodule AWS.SecurityHub do
   the severity, and a link to remediation information.
 
   ## Required positional parameters:
-   • :standards_subscription_arn (t:string String.t/0) (StandardsSubscriptionArn)
+  * `:standards_subscription_arn` (`t:string`) The ARN of a resource that represents your subscription to a supported standard. To get
+         the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of security standard controls to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>DescribeStandardsControls</code> operation, set the value of this parameter to
+            <code>NULL</code>.
   """
   @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
@@ -14049,7 +14058,7 @@ defmodule AWS.SecurityHub do
   disabled, findings from that product are no longer sent to Security Hub.
 
   ## Required positional parameters:
-   • :product_subscription_arn (t:string String.t/0) (ProductSubscriptionArn)
+  * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to disable the integration for.
 
   ## Optional parameters:
   """
@@ -14497,7 +14506,9 @@ defmodule AWS.SecurityHub do
   this operation from the home Region.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
+            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+        
 
   ## Optional parameters:
   """
@@ -14600,7 +14611,7 @@ defmodule AWS.SecurityHub do
   Returns the current finding aggregation configuration.
 
   ## Required positional parameters:
-   • :finding_aggregator_arn (t:string String.t/0) (FindingAggregatorArn)
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.
 
   ## Optional parameters:
   """
@@ -14701,7 +14712,7 @@ defmodule AWS.SecurityHub do
   Lists the results of the Security Hub insight specified by the insight ARN.
 
   ## Required positional parameters:
-   • :insight_arn (t:string String.t/0) (InsightArn)
+  * `:insight_arn` (`t:string`) The ARN of the insight for which to return results.
 
   ## Optional parameters:
   """
@@ -14880,7 +14891,9 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :security_control_id (t:String.t/0) (SecurityControlId)
+  * `:security_control_id` (`t:string`) 
+            The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+        
   """
   @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
@@ -14964,8 +14977,13 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`)  The maximum number of rules to return in the response. This currently ranges from 1 to
+         100. 
+  * `:next_token` (`t:string`) 
+         A token to specify where to start paginating the response. This is the <code>NextToken</code> 
+         from a previously truncated response. On your first call to the <code>ListAutomationRules</code> 
+         API, set the value of this parameter to <code>NULL</code>.
+      
   """
   @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
@@ -15016,8 +15034,20 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) 
+            The maximum number of results that&#39;s returned by <code>ListConfigurationPolicies</code> in each page of the response. 
+            When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a 
+            single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request 
+            by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A 
+            valid range for <code>MaxResults</code> is between 1 and 100.
+        
+  * `:next_token` (`t:string`) 
+            The NextToken value that&#39;s returned from a previous paginated <code>ListConfigurationPolicies</code> request where 
+            <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the 
+            <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the 
+            end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when 
+            there are no more results to return.
+        
   """
   @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
@@ -15107,8 +15137,10 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to return in the response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
+            <code>NULL</code>.
   """
   @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
@@ -15157,8 +15189,8 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return. This operation currently only returns a single result.
+  * `:next_token` (`t:string`) The token returned with the previous set of results. Identifies the next set of results to return.
   """
   @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
@@ -15209,8 +15241,10 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to return in the response. 
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>ListInvitations</code> operation, set the value of this parameter to
+            <code>NULL</code>.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -15262,9 +15296,12 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :only_associated (t:String.t/0) (OnlyAssociated)
+  * `:max_results` (`t:integer`) The maximum number of items to return in the response. 
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>ListMembers</code> operation, set the value of this parameter to
+         <code>NULL</code>.
+  * `:only_associated` (`t:boolean`) Specifies which member accounts to include in the response based on their relationship
+         status with the administrator account. The default value is <code>TRUE</code>.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -15322,8 +15359,11 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to return in the response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
+            <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
+            <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
+         the value of this parameter to the value returned from the previous response. 
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -15370,9 +15410,17 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :standards_arn (t:String.t/0) (StandardsArn)
+  * `:max_results` (`t:integer`)  An optional parameter that limits the total results of the API response to the
+         specified number. If this parameter isn&#39;t provided in the request, the results include the
+         first 25 security controls that apply to the specified standard. The results also include a
+            <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+         next 25 controls. This repeats until all controls for the standard are returned. 
+  * `:next_token` (`t:string`) 
+         Optional pagination parameter.
+      
+  * `:standards_arn` (`t:string`) 
+         The Amazon Resource Name (ARN) of the standard that you want to view controls for.
+      
   """
   @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
@@ -15429,9 +15477,20 @@ defmodule AWS.SecurityHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :security_control_id (t:String.t/0) (SecurityControlId)
+  * `:max_results` (`t:integer`)  An optional parameter that limits the total results of the API response to the
+         specified number. If this parameter isn&#39;t provided in the request, the results include the
+         first 25 standard and control associations. The results also include a
+            <code>NextToken</code> parameter that you can use in a subsequent API call to get the
+         next 25 associations. This repeats until all associations for the specified control are
+         returned. The number of results is limited by the number of supported Security Hub
+         standards that you&#39;ve enabled in the calling account. 
+  * `:next_token` (`t:string`) 
+         Optional pagination parameter.
+      
+  * `:security_control_id` (`t:string`) 
+         The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you 
+         want to determine the enablement status of in each enabled standard. 
+      
   """
   @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_standards_control_associations_response(), any()}
@@ -15484,7 +15543,7 @@ defmodule AWS.SecurityHub do
   Returns a list of tags associated with a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve tags for.
 
   ## Optional parameters:
   """
@@ -15602,7 +15661,7 @@ defmodule AWS.SecurityHub do
   Adds one or more tags to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource to apply the tags to.
 
   ## Optional parameters:
   """
@@ -15635,10 +15694,10 @@ defmodule AWS.SecurityHub do
   Removes one or more tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource to remove the tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -15674,7 +15733,7 @@ defmodule AWS.SecurityHub do
   Updates the name and description of a custom action target in Security Hub.
 
   ## Required positional parameters:
-   • :action_target_arn (t:string String.t/0) (ActionTargetArn)
+  * `:action_target_arn` (`t:string`) The ARN of the custom action target to update.
 
   ## Optional parameters:
   """
@@ -15716,7 +15775,9 @@ defmodule AWS.SecurityHub do
   administrator can invoke this operation from the home Region.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
+            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+        
 
   ## Optional parameters:
   """
@@ -15841,7 +15902,7 @@ defmodule AWS.SecurityHub do
   Updates the Security Hub insight identified by the specified insight ARN.
 
   ## Required positional parameters:
-   • :insight_arn (t:string String.t/0) (InsightArn)
+  * `:insight_arn` (`t:string`) The ARN of the insight that you want to update.
 
   ## Optional parameters:
   """
@@ -15983,7 +16044,7 @@ defmodule AWS.SecurityHub do
   disabled.
 
   ## Required positional parameters:
-   • :standards_control_arn (t:string String.t/0) (StandardsControlArn)
+  * `:standards_control_arn` (`t:string`) The ARN of the security standard control to enable or disable.
 
   ## Optional parameters:
   """

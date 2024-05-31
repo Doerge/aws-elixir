@@ -11182,8 +11182,8 @@ defmodule AWS.Connect do
   the form.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11234,7 +11234,7 @@ defmodule AWS.Connect do
   You can associate only one dataset in a single call.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11264,7 +11264,7 @@ defmodule AWS.Connect do
   Associates an approved origin to an Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11295,7 +11295,7 @@ defmodule AWS.Connect do
   or Amazon Lex V2 bot.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11321,8 +11321,10 @@ defmodule AWS.Connect do
   and real-time analysis sessions for the given language.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :language_code (t:enum String.t/0) (LanguageCode)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:language_code` (`t:enum["AR_AE|DE_CH|DE_DE|EN_AB|EN_AU|EN_GB|EN_IE|EN_IN|EN_NZ|EN_US|EN_WL|EN_ZA|ES_ES|ES_US|FR_CA|FR_FR|HI_IN|IT_IT|JA_JP|KO_KR|PT_BR|PT_PT|ZH_CN"]`) The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see 
+  <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+         
 
   ## Optional parameters:
   """
@@ -11359,7 +11361,7 @@ defmodule AWS.Connect do
   Associates a connect resource to a flow.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11394,7 +11396,7 @@ defmodule AWS.Connect do
   bucket, exists when being used for association.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11425,7 +11427,7 @@ defmodule AWS.Connect do
   function.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11456,7 +11458,7 @@ defmodule AWS.Connect do
   V1 bot. This API only supports the association of Amazon Lex V1 bots.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11493,7 +11495,7 @@ defmodule AWS.Connect do
   `ResourceNotFoundException`.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
   ## Optional parameters:
   """
@@ -11528,8 +11530,8 @@ defmodule AWS.Connect do
   Associates a set of quick connects with a queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -11576,8 +11578,8 @@ defmodule AWS.Connect do
   Associates a set of queues with a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -11626,7 +11628,7 @@ defmodule AWS.Connect do
   Associates a security key to the instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11654,7 +11656,9 @@ defmodule AWS.Connect do
   Associates an agent with a traffic distribution group.
 
   ## Required positional parameters:
-   • :traffic_distribution_group_id (t:string String.t/0) (TrafficDistributionGroupId)
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
@@ -11689,8 +11693,9 @@ defmodule AWS.Connect do
   >Associates a set of proficiencies with a user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN of the instance).
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -11735,7 +11740,7 @@ defmodule AWS.Connect do
   account. You can associate multiple datasets in a single call.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11767,7 +11772,7 @@ defmodule AWS.Connect do
   You can disassociate multiple datasets in a single call.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11809,10 +11814,11 @@ defmodule AWS.Connect do
   AssociatedResourceArn.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
 
   ## Optional parameters:
-   • :associated_resource_arn (t:String.t/0) (associatedResourceArn)
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   current supported resource.
   """
   @spec batch_get_attached_file_metadata(
           AWS.Client.t(),
@@ -11853,7 +11859,7 @@ defmodule AWS.Connect do
   Retrieve the flow associations for the given resources.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -11905,7 +11911,7 @@ defmodule AWS.Connect do
   BatchPutContact.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12005,11 +12011,12 @@ defmodule AWS.Connect do
   provided in the StartAttachedFileUpload API.
 
   ## Required positional parameters:
-   • :file_id (t:string String.t/0) (FileId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
 
   ## Optional parameters:
-   • :associated_resource_arn (t:String.t/0) (associatedResourceArn)
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   current supported resource.
   """
   @spec complete_attached_file_upload(
           AWS.Client.t(),
@@ -12061,7 +12068,7 @@ defmodule AWS.Connect do
   Creates an agent status for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12092,7 +12099,7 @@ defmodule AWS.Connect do
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
   """
@@ -12120,7 +12127,7 @@ defmodule AWS.Connect do
   Creates a flow module for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12155,7 +12162,7 @@ defmodule AWS.Connect do
   form.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12185,7 +12192,7 @@ defmodule AWS.Connect do
   Creates hours of operation.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12250,7 +12257,7 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12318,8 +12325,9 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :initial_contact_id (t:string String.t/0) (InitialContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:initial_contact_id` (`t:string`) This is the contactId of the current contact that the
+    <code>CreatePersistentContactAssociation</code> API is being called from.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12366,7 +12374,8 @@ defmodule AWS.Connect do
   Creates a new predefined attribute for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12399,7 +12408,7 @@ defmodule AWS.Connect do
   Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12451,7 +12460,7 @@ defmodule AWS.Connect do
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12474,7 +12483,7 @@ defmodule AWS.Connect do
   Creates a quick connect for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12502,7 +12511,7 @@ defmodule AWS.Connect do
   Creates a new routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12534,7 +12543,7 @@ defmodule AWS.Connect do
   code conditions for the rule.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12567,7 +12576,7 @@ defmodule AWS.Connect do
   Creates a security profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12595,7 +12604,7 @@ defmodule AWS.Connect do
   Creates a new task template in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12663,8 +12672,8 @@ defmodule AWS.Connect do
   Creates a use case for an integration association.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :integration_association_id (t:string String.t/0) (IntegrationAssociationId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration association.
 
   ## Optional parameters:
   """
@@ -12713,7 +12722,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12736,7 +12745,7 @@ defmodule AWS.Connect do
   Creates a new user hierarchy group.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12775,7 +12784,8 @@ defmodule AWS.Connect do
   is idempotent if ClientToken is provided.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
 
   ## Optional parameters:
   """
@@ -12806,8 +12816,10 @@ defmodule AWS.Connect do
   the `$LATEST` alias.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
 
   ## Optional parameters:
   """
@@ -12844,7 +12856,7 @@ defmodule AWS.Connect do
   language.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12880,8 +12892,8 @@ defmodule AWS.Connect do
   it is no longer available for users to start new evaluations based on the form.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -12931,11 +12943,12 @@ defmodule AWS.Connect do
   versioning is not enabled.
 
   ## Required positional parameters:
-   • :file_id (t:string String.t/0) (FileId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
 
   ## Optional parameters:
-   • :associated_resource_arn (t:String.t/0) (associatedResourceArn)
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   current supported resource.
   """
   @spec delete_attached_file(
           AWS.Client.t(),
@@ -12979,8 +12992,8 @@ defmodule AWS.Connect do
   Deletes a contact evaluation in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :evaluation_id (t:string String.t/0) (EvaluationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13027,8 +13040,8 @@ defmodule AWS.Connect do
   Deletes a flow for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :contact_flow_id (t:string String.t/0) (ContactFlowId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13069,8 +13082,8 @@ defmodule AWS.Connect do
   Deletes the specified flow module.
 
   ## Required positional parameters:
-   • :contact_flow_module_id (t:string String.t/0) (ContactFlowModuleId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13125,11 +13138,11 @@ defmodule AWS.Connect do
   If no version is provided, then the full form (all versions) is deleted.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :evaluation_form_version (t:String.t/0) (version)
+  * `:evaluation_form_version` (`t:integer`) The unique identifier for the evaluation form.
   """
   @spec delete_evaluation_form(
           AWS.Client.t(),
@@ -13181,8 +13194,8 @@ defmodule AWS.Connect do
   Deletes an hours of operation.
 
   ## Required positional parameters:
-   • :hours_of_operation_id (t:string String.t/0) (HoursOfOperationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13238,7 +13251,7 @@ defmodule AWS.Connect do
   your account.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13275,8 +13288,8 @@ defmodule AWS.Connect do
   association must not have any use cases associated with it.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :integration_association_id (t:string String.t/0) (IntegrationAssociationId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration association.
 
   ## Optional parameters:
   """
@@ -13323,8 +13336,9 @@ defmodule AWS.Connect do
   Deletes a predefined attribute from the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :name (t:string String.t/0) (Name)
+  * `:instance_id` (`t:string`)  The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:name` (`t:string`)  The name of the predefined attribute.
 
   ## Optional parameters:
   """
@@ -13365,8 +13379,8 @@ defmodule AWS.Connect do
   Deletes a prompt.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :prompt_id (t:string String.t/0) (PromptId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
@@ -13405,8 +13419,8 @@ defmodule AWS.Connect do
   Deletes a queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -13458,8 +13472,8 @@ defmodule AWS.Connect do
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :quick_connect_id (t:string String.t/0) (QuickConnectId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
@@ -13506,8 +13520,8 @@ defmodule AWS.Connect do
   Deletes a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -13554,8 +13568,8 @@ defmodule AWS.Connect do
   Deletes a rule for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :rule_id (t:string String.t/0) (RuleId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
@@ -13588,8 +13602,8 @@ defmodule AWS.Connect do
   Deletes a security profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :security_profile_id (t:string String.t/0) (SecurityProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
@@ -13636,8 +13650,8 @@ defmodule AWS.Connect do
   Deletes the task template.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :task_template_id (t:string String.t/0) (TaskTemplateId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
   """
@@ -13693,7 +13707,9 @@ defmodule AWS.Connect do
   the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :traffic_distribution_group_id (t:string String.t/0) (TrafficDistributionGroupId)
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
@@ -13736,9 +13752,9 @@ defmodule AWS.Connect do
   Deletes a use case from an integration association.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :integration_association_id (t:string String.t/0) (IntegrationAssociationId)
-   • :use_case_id (t:string String.t/0) (UseCaseId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration association.
+  * `:use_case_id` (`t:string`) The identifier for the use case.
 
   ## Optional parameters:
   """
@@ -13811,8 +13827,8 @@ defmodule AWS.Connect do
   Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user.
 
   ## Optional parameters:
   """
@@ -13848,8 +13864,8 @@ defmodule AWS.Connect do
   any active child groups.
 
   ## Required positional parameters:
-   • :hierarchy_group_id (t:string String.t/0) (HierarchyGroupId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -13899,8 +13915,10 @@ defmodule AWS.Connect do
   aliases).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
 
   ## Optional parameters:
   """
@@ -13933,9 +13951,11 @@ defmodule AWS.Connect do
   Deletes the particular version specified in `ViewVersion` identifier.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
-   • :view_version (t:integer String.t/0) (ViewVersion)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
+  * `:view_version` (`t:integer`) The version number of the view.
 
   ## Optional parameters:
   """
@@ -13984,8 +14004,8 @@ defmodule AWS.Connect do
   Deletes the vocabulary that has the given identifier.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :vocabulary_id (t:string String.t/0) (VocabularyId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
 
   ## Optional parameters:
   """
@@ -14028,8 +14048,8 @@ defmodule AWS.Connect do
   Describes an agent status.
 
   ## Required positional parameters:
-   • :agent_status_id (t:string String.t/0) (AgentStatusId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:agent_status_id` (`t:string`) The identifier for the agent status.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14067,8 +14087,8 @@ defmodule AWS.Connect do
   API.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14096,8 +14116,8 @@ defmodule AWS.Connect do
   Describes a contact evaluation in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :evaluation_id (t:string String.t/0) (EvaluationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14140,8 +14160,8 @@ defmodule AWS.Connect do
   `SAVED` | `PUBLISHED`
 
   ## Required positional parameters:
-   • :contact_flow_id (t:string String.t/0) (ContactFlowId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
   """
@@ -14176,8 +14196,8 @@ defmodule AWS.Connect do
   published.
 
   ## Required positional parameters:
-   • :contact_flow_module_id (t:string String.t/0) (ContactFlowModuleId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14215,11 +14235,11 @@ defmodule AWS.Connect do
   described.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :evaluation_form_version (t:String.t/0) (version)
+  * `:evaluation_form_version` (`t:integer`) A version of the evaluation form.
   """
   @spec describe_evaluation_form(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_evaluation_form_response(), any()}
@@ -14257,8 +14277,8 @@ defmodule AWS.Connect do
   Describes the hours of operation.
 
   ## Required positional parameters:
-   • :hours_of_operation_id (t:string String.t/0) (HoursOfOperationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hours_of_operation_id` (`t:string`) The identifier for the hours of operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14302,7 +14322,7 @@ defmodule AWS.Connect do
   CreateInstance API was invoked.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14332,8 +14352,8 @@ defmodule AWS.Connect do
   Describes the specified instance attribute.
 
   ## Required positional parameters:
-   • :attribute_type (t:enum String.t/0) (AttributeType)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:attribute_type` (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`) The type of attribute.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14366,11 +14386,11 @@ defmodule AWS.Connect do
   ID, and instance ID.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (AssociationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:association_id` (`t:string`) The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:resource_type` (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`) A valid resource type.
   """
   @spec describe_instance_storage_config(
           AWS.Client.t(),
@@ -14434,7 +14454,7 @@ defmodule AWS.Connect do
   `ResourceNotFoundException`.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
   ## Optional parameters:
   """
@@ -14462,8 +14482,9 @@ defmodule AWS.Connect do
   Describes a predefined attribute for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :name (t:string String.t/0) (Name)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:name` (`t:string`) The name of the predefined attribute.
 
   ## Optional parameters:
   """
@@ -14492,8 +14513,8 @@ defmodule AWS.Connect do
   Describes the prompt.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :prompt_id (t:string String.t/0) (PromptId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
@@ -14523,8 +14544,8 @@ defmodule AWS.Connect do
   Describes the specified queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -14552,8 +14573,8 @@ defmodule AWS.Connect do
   Describes the quick connect.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :quick_connect_id (t:string String.t/0) (QuickConnectId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
@@ -14582,8 +14603,8 @@ defmodule AWS.Connect do
   Describes the specified routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -14612,8 +14633,8 @@ defmodule AWS.Connect do
   Describes a rule for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :rule_id (t:string String.t/0) (RuleId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
@@ -14641,8 +14662,8 @@ defmodule AWS.Connect do
   Gets basic information about the security profle.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :security_profile_id (t:string String.t/0) (SecurityProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
@@ -14676,7 +14697,9 @@ defmodule AWS.Connect do
   Gets details and status of a traffic distribution group.
 
   ## Required positional parameters:
-   • :traffic_distribution_group_id (t:string String.t/0) (TrafficDistributionGroupId)
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
@@ -14712,8 +14735,8 @@ defmodule AWS.Connect do
   user IDs. Instead, list the users and note the IDs provided in the output.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -14741,8 +14764,8 @@ defmodule AWS.Connect do
   Describes the specified hierarchy group.
 
   ## Required positional parameters:
-   • :hierarchy_group_id (t:string String.t/0) (HierarchyGroupId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14776,7 +14799,7 @@ defmodule AWS.Connect do
   Describes the hierarchy structure of the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14817,8 +14840,9 @@ defmodule AWS.Connect do
   managed views.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The ViewId of the view. This must be an ARN for Amazon Web Services managed views.
 
   ## Optional parameters:
   """
@@ -14846,8 +14870,8 @@ defmodule AWS.Connect do
   Describes the specified vocabulary.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :vocabulary_id (t:string String.t/0) (VocabularyId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:vocabulary_id` (`t:string`) The identifier of the custom vocabulary.
 
   ## Optional parameters:
   """
@@ -14878,7 +14902,7 @@ defmodule AWS.Connect do
   Removes the dataset ID associated with a given Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14918,10 +14942,10 @@ defmodule AWS.Connect do
   Revokes access to integrated applications from Amazon Connect.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :origin (t:String.t/0) (origin)
+  * `:origin` (`t:string`) The domain URL of the integrated application.
   """
   @spec disassociate_approved_origin(
           AWS.Client.t(),
@@ -14966,7 +14990,7 @@ defmodule AWS.Connect do
   bot.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -14999,9 +15023,9 @@ defmodule AWS.Connect do
   Disassociates a connect resource from a flow.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :resource_id (t:string String.t/0) (ResourceId)
-   • :resource_type (t:enum String.t/0) (ResourceType)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_id` (`t:string`) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
 
   ## Optional parameters:
   """
@@ -15054,11 +15078,11 @@ defmodule AWS.Connect do
   ID.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (AssociationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:association_id` (`t:string`) The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:resource_type` (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`) A valid resource type.
   """
   @spec disassociate_instance_storage_config(
           AWS.Client.t(),
@@ -15111,10 +15135,10 @@ defmodule AWS.Connect do
   flow blocks.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance..
 
   ## Optional parameters:
-   • :function_arn (t:String.t/0) (functionArn)
+  * `:function_arn` (`t:string`) The Amazon Resource Name (ARN) of the Lambda function being disassociated.
   """
   @spec disassociate_lambda_function(
           AWS.Client.t(),
@@ -15159,11 +15183,11 @@ defmodule AWS.Connect do
   bot.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :bot_name (t:String.t/0) (botName)
-   • :lex_region (t:String.t/0) (lexRegion)
+  * `:bot_name` (`t:string`) The name of the Amazon Lex bot. Maximum character limit of 50.
+  * `:lex_region` (`t:string`) The Amazon Web Services Region in which the Amazon Lex bot has been created.
   """
   @spec disassociate_lex_bot(
           AWS.Client.t(),
@@ -15218,10 +15242,10 @@ defmodule AWS.Connect do
   `ResourceNotFoundException`.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
   ## Optional parameters:
-   • :instance_id (t:String.t/0) (instanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
   """
   @spec disassociate_phone_number_contact_flow(
           AWS.Client.t(),
@@ -15269,8 +15293,8 @@ defmodule AWS.Connect do
   Disassociates a set of quick connects from a queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -15317,8 +15341,8 @@ defmodule AWS.Connect do
   Disassociates a set of queues from a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -15367,8 +15391,8 @@ defmodule AWS.Connect do
   Deletes the specified security key.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (AssociationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:association_id` (`t:string`) The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -15415,11 +15439,13 @@ defmodule AWS.Connect do
   Disassociates an agent from a traffic distribution group.
 
   ## Required positional parameters:
-   • :traffic_distribution_group_id (t:string String.t/0) (TrafficDistributionGroupId)
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
-   • :instance_id (t:String.t/0) (InstanceId)
-   • :user_id (t:String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier for the user. This can be the ID or the ARN of the user.
   """
   @spec disassociate_traffic_distribution_group_user(
           AWS.Client.t(),
@@ -15468,8 +15494,9 @@ defmodule AWS.Connect do
   Disassociates a set of proficiencies from a user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -15523,8 +15550,9 @@ defmodule AWS.Connect do
   Stream](https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -15570,12 +15598,14 @@ defmodule AWS.Connect do
   file is `APPROVED`.
 
   ## Required positional parameters:
-   • :file_id (t:string String.t/0) (FileId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:file_id` (`t:string`) The unique identifier of the attached file resource.
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
 
   ## Optional parameters:
-   • :associated_resource_arn (t:String.t/0) (associatedResourceArn)
-   • :url_expiry_in_seconds (t:String.t/0) (urlExpiryInSeconds)
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   current supported resource.
+  * `:url_expiry_in_seconds` (`t:integer`) Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is
+   300.
   """
   @spec get_attached_file(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attached_file_response(), any()}
@@ -15626,8 +15656,8 @@ defmodule AWS.Connect do
   Retrieves the contact attributes for the specified contact.
 
   ## Required positional parameters:
-   • :initial_contact_id (t:string String.t/0) (InitialContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:initial_contact_id` (`t:string`) The identifier of the initial contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
   """
@@ -15659,7 +15689,7 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -15697,7 +15727,7 @@ defmodule AWS.Connect do
   Gets the real-time active user data from the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -15753,7 +15783,7 @@ defmodule AWS.Connect do
   ```
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -15781,9 +15811,9 @@ defmodule AWS.Connect do
   Retrieves the flow associated for a given resource.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :resource_id (t:string String.t/0) (ResourceId)
-   • :resource_type (t:enum String.t/0) (ResourceType)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:resource_id` (`t:string`) The identifier of the resource.
+  * `:resource_type` (`t:enum["SMS_PHONE_NUMBER"]`) A valid resource type.
 
   ## Optional parameters:
   """
@@ -15835,7 +15865,7 @@ defmodule AWS.Connect do
   of the week.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -15914,8 +15944,8 @@ defmodule AWS.Connect do
   Gets the prompt file.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :prompt_id (t:string String.t/0) (PromptId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
@@ -15945,11 +15975,12 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :task_template_id (t:string String.t/0) (TaskTemplateId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
-   • :snapshot_version (t:String.t/0) (snapshotVersion)
+  * `:snapshot_version` (`t:string`) The system generated version of a task template that is associated with a task, when the
+   task is created.
   """
   @spec get_task_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_task_template_response(), any()}
@@ -15986,7 +16017,9 @@ defmodule AWS.Connect do
   group.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
   """
@@ -16053,12 +16086,13 @@ defmodule AWS.Connect do
   Lists agent statuses.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :agent_status_types (t:String.t/0) (AgentStatusTypes)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:agent_status_types` (`t:list[com.amazonaws.connect#AgentStatusType]`) Available agent status types.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_agent_statuses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_status_response(), any()}
@@ -16114,12 +16148,13 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :data_set_id (t:String.t/0) (DataSetId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:data_set_id` (`t:string`) The identifier of the dataset to get the association status.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_analytics_data_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analytics_data_associations_response(), any()}
@@ -16174,11 +16209,12 @@ defmodule AWS.Connect do
   Returns a paginated list of all approved origins associated with the instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_approved_origins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_approved_origins_response(), any()}
@@ -16226,12 +16262,13 @@ defmodule AWS.Connect do
   both Amazon Lex V1 and V2 bots.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :lex_version (t:String.t/0) (lexVersion)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:lex_version` (`t:enum["V1|V2"]`) The version of Amazon Lex or Amazon Lex V2.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_bots(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
@@ -16284,11 +16321,12 @@ defmodule AWS.Connect do
   Lists contact evaluations in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :contact_id (t:String.t/0) (contactId)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of Amazon Connect. 
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_contact_evaluations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_evaluations_response(), any()}
@@ -16333,12 +16371,13 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :contact_flow_module_state (t:String.t/0) (state)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:contact_flow_module_state` (`t:enum["ACTIVE|ARCHIVED"]`) The state of the flow module.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_contact_flow_modules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flow_modules_response(), any()}
@@ -16399,12 +16438,13 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :contact_flow_types (t:String.t/0) (contactFlowTypes)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:contact_flow_types` (`t:list[com.amazonaws.connect#ContactFlowType]`) The type of flow.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_contact_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_flows_response(), any()}
@@ -16461,12 +16501,13 @@ defmodule AWS.Connect do
   contact, such as emails, attachments, or URLs.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the initial contact.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :reference_types (t:String.t/0) (referenceTypes)
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:reference_types` (`t:list[com.amazonaws.connect#ReferenceType]`) The type of reference.
   """
   @spec list_contact_references(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_contact_references_response(), any()}
@@ -16517,7 +16558,7 @@ defmodule AWS.Connect do
   Lists the default vocabularies for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -16555,12 +16596,13 @@ defmodule AWS.Connect do
   Lists versions of an evaluation form in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_evaluation_form_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_form_versions_response(), any()}
@@ -16610,11 +16652,12 @@ defmodule AWS.Connect do
   Lists evaluation forms in the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_evaluation_forms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_evaluation_forms_response(), any()}
@@ -16658,12 +16701,13 @@ defmodule AWS.Connect do
   List the flow association based on the filters.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_type (t:String.t/0) (ResourceType)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:resource_type` (`t:enum["VOICE_PHONE_NUMBER"]`) A valid resource type.
   """
   @spec list_flow_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_associations_response(), any()}
@@ -16722,11 +16766,12 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_hours_of_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_hours_of_operations_response(), any()}
@@ -16772,11 +16817,12 @@ defmodule AWS.Connect do
   Returns a paginated list of all attribute types for the given instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_instance_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_attributes_response(), any()}
@@ -16824,12 +16870,13 @@ defmodule AWS.Connect do
   type.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:resource_type` (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`) A valid resource type.
   """
   @spec list_instance_storage_configs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_storage_configs_response(), any()}
@@ -16890,8 +16937,9 @@ defmodule AWS.Connect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
@@ -16937,13 +16985,14 @@ defmodule AWS.Connect do
   specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :integration_arn (t:String.t/0) (integrationArn)
-   • :integration_type (t:String.t/0) (integrationType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:integration_arn` (`t:string`) The Amazon Resource Name (ARN) of the integration.
+  * `:integration_type` (`t:enum["APPLICATION|CASES_DOMAIN|EVENT|FILE_SCANNER|PINPOINT_APP|VOICE_ID|WISDOM_ASSISTANT|WISDOM_KNOWLEDGE_BASE|WISDOM_QUICK_RESPONSES"]`) The integration type.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integration_associations_response(), any()}
@@ -17009,11 +17058,12 @@ defmodule AWS.Connect do
   relevant flow blocks.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_lambda_functions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lambda_functions_response(), any()}
@@ -17063,11 +17113,13 @@ defmodule AWS.Connect do
   API.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. If no value is specified, the default is 10.
+   
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_lex_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lex_bots_response(), any()}
@@ -17135,13 +17187,14 @@ defmodule AWS.Connect do
   resources.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :phone_number_country_codes (t:String.t/0) (phoneNumberCountryCodes)
-   • :phone_number_types (t:String.t/0) (phoneNumberTypes)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:phone_number_country_codes` (`t:list[com.amazonaws.connect#PhoneNumberCountryCode]`) The ISO country code.
+  * `:phone_number_types` (`t:list[com.amazonaws.connect#PhoneNumberType]`) The type of phone number.
   """
   @spec list_phone_numbers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -17255,11 +17308,13 @@ defmodule AWS.Connect do
   Lists predefined attributes for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. 
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous response in
+   the next request to retrieve the next set of results.
   """
   @spec list_predefined_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_predefined_attributes_response(), any()}
@@ -17304,11 +17359,12 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous response in
+   the next request to retrieve the next set of results.
   """
   @spec list_prompts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prompts_response(), any()}
@@ -17354,12 +17410,13 @@ defmodule AWS.Connect do
   Lists the quick connects associated with a queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_queue_quick_connects(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_quick_connects_response(), any()}
@@ -17414,12 +17471,13 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :queue_types (t:String.t/0) (queueTypes)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:queue_types` (`t:list[com.amazonaws.connect#QueueType]`) The type of queue.
   """
   @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
@@ -17473,12 +17531,14 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :quick_connect_types (t:String.t/0) (QuickConnectTypes)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:quick_connect_types` (`t:list[com.amazonaws.connect#QuickConnectType]`) The type of quick connect. In the Amazon Connect admin website, when you create a quick connect, you are
+   prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
   """
   @spec list_quick_connects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_connects_response(), any()}
@@ -17531,8 +17591,8 @@ defmodule AWS.Connect do
   Provides a list of analysis segments for a real-time analysis session.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of Amazon Connect. 
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -17579,12 +17639,13 @@ defmodule AWS.Connect do
   Lists the queues associated with a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_routing_profile_queues(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profile_queues_response(), any()}
@@ -17640,11 +17701,12 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_routing_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_profiles_response(), any()}
@@ -17688,13 +17750,14 @@ defmodule AWS.Connect do
   List all rules for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :event_source_name (t:String.t/0) (eventSourceName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :publish_status (t:String.t/0) (publishStatus)
+  * `:event_source_name` (`t:enum["OnCaseCreate|OnCaseUpdate|OnContactEvaluationSubmit|OnMetricDataUpdate|OnPostCallAnalysisAvailable|OnPostChatAnalysisAvailable|OnRealTimeCallAnalysisAvailable|OnRealTimeChatAnalysisAvailable|OnSalesforceCaseCreate|OnZendeskTicketCreate|OnZendeskTicketStatusUpdate"]`) The name of the event source.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:publish_status` (`t:enum["DRAFT|PUBLISHED"]`) The publish status of the rule.
   """
   @spec list_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
@@ -17758,11 +17821,12 @@ defmodule AWS.Connect do
   Returns a paginated list of all security keys associated with the instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_security_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_keys_response(), any()}
@@ -17806,12 +17870,13 @@ defmodule AWS.Connect do
   Returns a list of third-party applications in a specific security profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :security_profile_id (t:string String.t/0) (SecurityProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_security_profile_applications(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_applications_response(), any()}
@@ -17861,12 +17926,13 @@ defmodule AWS.Connect do
   Lists the permissions granted to a security profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :security_profile_id (t:string String.t/0) (SecurityProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_security_profile_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profile_permissions_response(), any()}
@@ -17921,11 +17987,12 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_security_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
@@ -17974,7 +18041,8 @@ defmodule AWS.Connect do
   Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing
+   profiles, etc) have an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Amazon Connect instance ID/ARN</a>. 
 
   ## Optional parameters:
   """
@@ -18002,13 +18070,16 @@ defmodule AWS.Connect do
   Lists task templates for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:name` (`t:string`) The name of the task template.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it. 
+  Tasks can only be created from <code>ACTIVE</code> templates.
+  If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.
   """
   @spec list_task_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_task_templates_response(), any()}
@@ -18070,11 +18141,14 @@ defmodule AWS.Connect do
   Lists traffic distribution group users.
 
   ## Required positional parameters:
-   • :traffic_distribution_group_id (t:string String.t/0) (TrafficDistributionGroupId)
+  * `:traffic_distribution_group_id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_traffic_distribution_group_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
@@ -18125,9 +18199,10 @@ defmodule AWS.Connect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :instance_id (t:String.t/0) (instanceId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_traffic_distribution_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
@@ -18180,12 +18255,13 @@ defmodule AWS.Connect do
   Lists the use cases for the integration association.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :integration_association_id (t:string String.t/0) (IntegrationAssociationId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:integration_association_id` (`t:string`) The identifier for the integration association.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_use_cases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_use_cases_response(), any()}
@@ -18236,11 +18312,12 @@ defmodule AWS.Connect do
   *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_user_hierarchy_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
@@ -18284,12 +18361,14 @@ defmodule AWS.Connect do
   Lists proficiencies associated with a user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous response in
+   the next request to retrieve the next set of results.
   """
   @spec list_user_proficiencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_proficiencies_response(), any()}
@@ -18335,11 +18414,12 @@ defmodule AWS.Connect do
   instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -18387,12 +18467,15 @@ defmodule AWS.Connect do
   Results will be sorted from highest to lowest.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous response in
+   the next request to retrieve the next set of results.
   """
   @spec list_view_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_view_versions_response(), any()}
@@ -18439,12 +18522,14 @@ defmodule AWS.Connect do
   Results are sorted primarily by type, and secondarily by name.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :type (t:String.t/0) (type)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page. The default MaxResult size is 100.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous response in
+   the next request to retrieve the next set of results.
+  * `:type` (`t:enum["AWS_MANAGED|CUSTOMER_MANAGED"]`) The type of the view.
   """
   @spec list_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_views_response(), any()}
@@ -18572,8 +18657,8 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user.
 
   ## Optional parameters:
   """
@@ -18640,10 +18725,13 @@ defmodule AWS.Connect do
   open an Amazon Web Services support ticket.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If not provided, the Amazon Web Services
+            SDK populates this field. For more information about idempotency, see
+            <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.
   """
   @spec release_phone_number(
           AWS.Client.t(),
@@ -18692,7 +18780,7 @@ defmodule AWS.Connect do
   Administrator Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.
 
   ## Optional parameters:
   """
@@ -19243,7 +19331,7 @@ defmodule AWS.Connect do
   `State`, `NameStartsWith`, and `LanguageCode`.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -19340,10 +19428,11 @@ defmodule AWS.Connect do
   You may only use this API to upload attachments to a [Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The unique identifier of the Connect instance.
 
   ## Optional parameters:
-   • :associated_resource_arn (t:String.t/0) (associatedResourceArn)
+  * `:associated_resource_arn` (`t:string`) The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   current supported resource.
   """
   @spec start_attached_file_upload(
           AWS.Client.t(),
@@ -19438,7 +19527,7 @@ defmodule AWS.Connect do
   automation.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -19858,8 +19947,8 @@ defmodule AWS.Connect do
   resubmission.
 
   ## Required positional parameters:
-   • :evaluation_id (t:string String.t/0) (EvaluationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20004,7 +20093,7 @@ defmodule AWS.Connect do
   Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -20101,11 +20190,12 @@ defmodule AWS.Connect do
   usage](https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html).
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of Amazon Connect. 
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (TagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.connect#ContactTagKey]`) A list of tag keys. Existing tags on the contact whose keys are members of this list will be
+   removed.
   """
   @spec untag_contact(
           AWS.Client.t(),
@@ -20149,10 +20239,10 @@ defmodule AWS.Connect do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.connect#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -20190,8 +20280,8 @@ defmodule AWS.Connect do
   Updates agent status.
 
   ## Required positional parameters:
-   • :agent_status_id (t:string String.t/0) (AgentStatusId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:agent_status_id` (`t:string`) The identifier of the agent status.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20240,8 +20330,9 @@ defmodule AWS.Connect do
   contacts.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact. This is the identifier of the contact associated with the
+   first interaction with your contact center.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20347,8 +20438,8 @@ defmodule AWS.Connect do
   object (`{}`) to the question identifier.
 
   ## Required positional parameters:
-   • :evaluation_id (t:string String.t/0) (EvaluationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_id` (`t:string`) A unique identifier for the contact evaluation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20404,8 +20495,8 @@ defmodule AWS.Connect do
   published.
 
   ## Required positional parameters:
-   • :contact_flow_id (t:string String.t/0) (ContactFlowId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
   """
@@ -20452,8 +20543,8 @@ defmodule AWS.Connect do
   Updates metadata about specified flow.
 
   ## Required positional parameters:
-   • :contact_flow_id (t:string String.t/0) (ContactFlowId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20506,8 +20597,8 @@ defmodule AWS.Connect do
   published.
 
   ## Required positional parameters:
-   • :contact_flow_module_id (t:string String.t/0) (ContactFlowModuleId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20554,8 +20645,8 @@ defmodule AWS.Connect do
   Updates metadata about specified flow module.
 
   ## Required positional parameters:
-   • :contact_flow_module_id (t:string String.t/0) (ContactFlowModuleId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_module_id` (`t:string`) The identifier of the flow module.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20605,8 +20696,8 @@ defmodule AWS.Connect do
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   ## Required positional parameters:
-   • :contact_flow_id (t:string String.t/0) (ContactFlowId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_flow_id` (`t:string`) The identifier of the flow.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance.
 
   ## Optional parameters:
   """
@@ -20672,8 +20763,8 @@ defmodule AWS.Connect do
   both.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of Amazon Connect. 
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20761,8 +20852,8 @@ defmodule AWS.Connect do
   form content.
 
   ## Required positional parameters:
-   • :evaluation_form_id (t:string String.t/0) (EvaluationFormId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:evaluation_form_id` (`t:string`) The unique identifier for the evaluation form.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20801,8 +20892,8 @@ defmodule AWS.Connect do
   Updates the hours of operation.
 
   ## Required positional parameters:
-   • :hours_of_operation_id (t:string String.t/0) (HoursOfOperationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hours_of_operation_id` (`t:string`) The identifier of the hours of operation.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20851,8 +20942,8 @@ defmodule AWS.Connect do
   Updates the value for the specified attribute type.
 
   ## Required positional parameters:
-   • :attribute_type (t:enum String.t/0) (AttributeType)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:attribute_type` (`t:enum["AUTO_RESOLVE_BEST_VOICES|CONTACTFLOW_LOGS|CONTACT_LENS|EARLY_MEDIA|ENHANCED_CHAT_MONITORING|ENHANCED_CONTACT_MONITORING|HIGH_VOLUME_OUTBOUND|INBOUND_CALLS|MULTI_PARTY_CONFERENCE|OUTBOUND_CALLS|USE_CUSTOM_TTS_VOICES"]`) The type of attribute.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -20901,11 +20992,11 @@ defmodule AWS.Connect do
   Updates an existing configuration for a resource type. This API is idempotent.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (AssociationId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:association_id` (`t:string`) The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:resource_type` (`t:enum["AGENT_EVENTS|ATTACHMENTS|CALL_RECORDINGS|CHAT_TRANSCRIPTS|CONTACT_EVALUATIONS|CONTACT_TRACE_RECORDS|MEDIA_STREAMS|REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_SEGMENTS|REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS|SCHEDULED_REPORTS|SCREEN_RECORDINGS"]`) A valid resource type.
   """
   @spec update_instance_storage_config(
           AWS.Client.t(),
@@ -20974,8 +21065,8 @@ defmodule AWS.Connect do
   [Set up chat timeouts for human participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (ContactId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:contact_id` (`t:string`) The identifier of the contact in this instance of Amazon Connect. 
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -21029,7 +21120,7 @@ defmodule AWS.Connect do
   operation.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) A unique identifier for the phone number.
 
   ## Optional parameters:
   """
@@ -21061,7 +21152,7 @@ defmodule AWS.Connect do
   API.
 
   ## Required positional parameters:
-   • :phone_number_id (t:string String.t/0) (PhoneNumberId)
+  * `:phone_number_id` (`t:string`) The Amazon Resource Name (ARN) or resource ID of the phone number.
 
   ## Optional parameters:
   """
@@ -21089,8 +21180,9 @@ defmodule AWS.Connect do
   Updates a predefined attribute for the specified Amazon Connect instance.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :name (t:string String.t/0) (Name)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:name` (`t:string`) The name of the predefined attribute.
 
   ## Optional parameters:
   """
@@ -21131,8 +21223,8 @@ defmodule AWS.Connect do
   Updates a prompt.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :prompt_id (t:string String.t/0) (PromptId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:prompt_id` (`t:string`) A unique identifier for the prompt.
 
   ## Optional parameters:
   """
@@ -21173,8 +21265,8 @@ defmodule AWS.Connect do
   Updates the hours of operation for the specified queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -21225,8 +21317,8 @@ defmodule AWS.Connect do
   full.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -21270,8 +21362,8 @@ defmodule AWS.Connect do
   must be provided.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -21341,8 +21433,8 @@ defmodule AWS.Connect do
   Region](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_resource-level-policy-examples.html#allow-deny-queue-actions-replica-region).
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -21391,8 +21483,8 @@ defmodule AWS.Connect do
   Updates the status of the queue.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :queue_id (t:string String.t/0) (QueueId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:queue_id` (`t:string`) The identifier for the queue.
 
   ## Optional parameters:
   """
@@ -21433,8 +21525,8 @@ defmodule AWS.Connect do
   Updates the configuration settings for the specified quick connect.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :quick_connect_id (t:string String.t/0) (QuickConnectId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
@@ -21484,8 +21576,8 @@ defmodule AWS.Connect do
   `Description` must be provided.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :quick_connect_id (t:string String.t/0) (QuickConnectId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:quick_connect_id` (`t:string`) The identifier for the quick connect.
 
   ## Optional parameters:
   """
@@ -21535,8 +21627,8 @@ defmodule AWS.Connect do
   time*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -21585,8 +21677,8 @@ defmodule AWS.Connect do
   profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -21633,8 +21725,8 @@ defmodule AWS.Connect do
   Updates the default outbound queue of a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -21684,8 +21776,8 @@ defmodule AWS.Connect do
   At least `Name` or `Description` must be provided.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -21732,8 +21824,8 @@ defmodule AWS.Connect do
   Updates the properties associated with a set of queues for a routing profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :routing_profile_id (t:string String.t/0) (RoutingProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:routing_profile_id` (`t:string`) The identifier of the routing profile.
 
   ## Optional parameters:
   """
@@ -21784,8 +21876,8 @@ defmodule AWS.Connect do
   code conditions for the rule.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :rule_id (t:string String.t/0) (RuleId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:rule_id` (`t:string`) A unique identifier for the rule.
 
   ## Optional parameters:
   """
@@ -21808,8 +21900,8 @@ defmodule AWS.Connect do
   Updates a security profile.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :security_profile_id (t:string String.t/0) (SecurityProfileId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:security_profile_id` (`t:string`) The identifier for the security profle.
 
   ## Optional parameters:
   """
@@ -21861,8 +21953,8 @@ defmodule AWS.Connect do
   content.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :task_template_id (t:string String.t/0) (TaskTemplateId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:task_template_id` (`t:string`) A unique identifier for the task template.
 
   ## Optional parameters:
   """
@@ -21922,7 +22014,9 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator Guide*.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the traffic distribution group.
+  This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+  The ARN must be provided if the call is from the replicated Region. 
 
   ## Optional parameters:
   """
@@ -21950,8 +22044,8 @@ defmodule AWS.Connect do
   Assigns the specified hierarchy group to the specified user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -21992,8 +22086,8 @@ defmodule AWS.Connect do
   Updates the name of the user hierarchy group.
 
   ## Required positional parameters:
-   • :hierarchy_group_id (t:string String.t/0) (HierarchyGroupId)
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:hierarchy_group_id` (`t:string`) The identifier of the hierarchy group.
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -22041,7 +22135,7 @@ defmodule AWS.Connect do
   levels.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
 
   ## Optional parameters:
   """
@@ -22091,8 +22185,8 @@ defmodule AWS.Connect do
   Guide*.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -22133,8 +22227,8 @@ defmodule AWS.Connect do
   Updates the phone configuration settings for the specified user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -22175,8 +22269,9 @@ defmodule AWS.Connect do
   Updates the properties associated with the proficiencies of a user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`)  The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -22217,8 +22312,8 @@ defmodule AWS.Connect do
   Assigns the specified routing profile to the specified user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -22259,8 +22354,8 @@ defmodule AWS.Connect do
   Assigns the specified security profiles to the specified user.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :user_id (t:string String.t/0) (UserId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.
+  * `:user_id` (`t:string`) The identifier of the user account.
 
   ## Optional parameters:
   """
@@ -22314,8 +22409,10 @@ defmodule AWS.Connect do
   content will only be updated if `Status` is `PUBLISHED`.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
 
   ## Optional parameters:
   """
@@ -22357,8 +22454,10 @@ defmodule AWS.Connect do
   must be provided.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (InstanceId)
-   • :view_id (t:string String.t/0) (ViewId)
+  * `:instance_id` (`t:string`) The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   the instance.
+  * `:view_id` (`t:string`) The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
+   used.
 
   ## Optional parameters:
   """

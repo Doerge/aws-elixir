@@ -4263,7 +4263,7 @@ defmodule AWS.RoboMaker do
   Lists all tags on a AWS RoboMaker resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The AWS RoboMaker Amazon Resource Name (ARN) with tags to be listed.
 
   ## Optional parameters:
   """
@@ -4573,7 +4573,7 @@ defmodule AWS.RoboMaker do
   User Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.
 
   ## Optional parameters:
   """
@@ -4612,10 +4612,12 @@ defmodule AWS.RoboMaker do
   ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are removing
+         tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]`) A map that contains tag keys and tag values that will be unattached from the
+         resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

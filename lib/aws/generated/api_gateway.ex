@@ -3316,7 +3316,7 @@ defmodule AWS.APIGateway do
   Adds a new Authorizer resource to an existing RestApi resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3349,7 +3349,7 @@ defmodule AWS.APIGateway do
   Creates a new BasePathMapping resource.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to create.
 
   ## Optional parameters:
   """
@@ -3388,7 +3388,7 @@ defmodule AWS.APIGateway do
   internet.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3421,7 +3421,7 @@ defmodule AWS.APIGateway do
   Creates a documentation part.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3459,7 +3459,7 @@ defmodule AWS.APIGateway do
   Creates a documentation version
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3529,7 +3529,7 @@ defmodule AWS.APIGateway do
   Adds a new Model resource to an existing RestApi resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model will be created.
 
   ## Optional parameters:
   """
@@ -3562,7 +3562,7 @@ defmodule AWS.APIGateway do
   Creates a RequestValidator of a given RestApi.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3600,8 +3600,8 @@ defmodule AWS.APIGateway do
   Creates a Resource resource.
 
   ## Required positional parameters:
-   • :parent_id (t:string String.t/0) (parentId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:parent_id` (`t:string`) The parent resource&#39;s identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3675,7 +3675,7 @@ defmodule AWS.APIGateway do
   API.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3741,7 +3741,7 @@ defmodule AWS.APIGateway do
   Creates a usage plan key for adding an existing API key to a usage plan.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing the usage plan containing the to-be-created UsagePlanKey resource representing a plan customer.
 
   ## Optional parameters:
   """
@@ -3815,7 +3815,7 @@ defmodule AWS.APIGateway do
   Deletes the ApiKey resource.
 
   ## Required positional parameters:
-   • :api_key (t:string String.t/0) (apiKey)
+  * `:api_key` (`t:string`) The identifier of the ApiKey resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3848,8 +3848,8 @@ defmodule AWS.APIGateway do
   Deletes an existing Authorizer resource.
 
   ## Required positional parameters:
-   • :authorizer_id (t:string String.t/0) (authorizerId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -3890,8 +3890,8 @@ defmodule AWS.APIGateway do
   Deletes the BasePathMapping resource.
 
   ## Required positional parameters:
-   • :base_path (t:string String.t/0) (basePath)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:base_path` (`t:string`) The base path name of the BasePathMapping resource to delete.
+  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to delete.
 
   ## Optional parameters:
   """
@@ -3932,7 +3932,7 @@ defmodule AWS.APIGateway do
   Deletes the ClientCertificate resource.
 
   ## Required positional parameters:
-   • :client_certificate_id (t:string String.t/0) (clientCertificateId)
+  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3973,8 +3973,8 @@ defmodule AWS.APIGateway do
   associated with it.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:deployment_id` (`t:string`) The identifier of the Deployment resource to delete.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4015,8 +4015,8 @@ defmodule AWS.APIGateway do
   Deletes a documentation part
 
   ## Required positional parameters:
-   • :documentation_part_id (t:string String.t/0) (documentationPartId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_part_id` (`t:string`) The identifier of the to-be-deleted documentation part.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4063,8 +4063,8 @@ defmodule AWS.APIGateway do
   Deletes a documentation version.
 
   ## Required positional parameters:
-   • :documentation_version (t:string String.t/0) (documentationVersion)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_version` (`t:string`) The version identifier of a to-be-deleted documentation snapshot.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4111,7 +4111,7 @@ defmodule AWS.APIGateway do
   Deletes the DomainName resource.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The name of the DomainName resource to be deleted.
 
   ## Optional parameters:
   """
@@ -4145,8 +4145,8 @@ defmodule AWS.APIGateway do
   the given RestApi and resets it with the default settings.
 
   ## Required positional parameters:
-   • :response_type (t:enum String.t/0) (responseType)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:response_type` (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4193,9 +4193,9 @@ defmodule AWS.APIGateway do
   Represents a delete integration.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies a delete integration request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a delete integration request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4244,10 +4244,10 @@ defmodule AWS.APIGateway do
   Represents a delete integration response.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) Specifies a delete integration response request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a delete integration response request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) Specifies a delete integration response request&#39;s status code.
 
   ## Optional parameters:
   """
@@ -4298,9 +4298,9 @@ defmodule AWS.APIGateway do
   Deletes an existing Method resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4349,10 +4349,10 @@ defmodule AWS.APIGateway do
   Deletes an existing MethodResponse resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) The status code identifier for the MethodResponse resource.
 
   ## Optional parameters:
   """
@@ -4403,8 +4403,8 @@ defmodule AWS.APIGateway do
   Deletes a model.
 
   ## Required positional parameters:
-   • :model_name (t:string String.t/0) (modelName)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:model_name` (`t:string`) The name of the model to delete.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4439,8 +4439,8 @@ defmodule AWS.APIGateway do
   Deletes a RequestValidator of a given RestApi.
 
   ## Required positional parameters:
-   • :request_validator_id (t:string String.t/0) (requestValidatorId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to be deleted.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4487,8 +4487,8 @@ defmodule AWS.APIGateway do
   Deletes a Resource resource.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:resource_id` (`t:string`) The identifier of the Resource resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4529,7 +4529,7 @@ defmodule AWS.APIGateway do
   Deletes the specified API.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -4562,8 +4562,8 @@ defmodule AWS.APIGateway do
   Deletes a Stage resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the Stage resource to delete.
 
   ## Optional parameters:
   """
@@ -4598,7 +4598,7 @@ defmodule AWS.APIGateway do
   Deletes a usage plan of a given plan Id.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The Id of the to-be-deleted usage plan.
 
   ## Optional parameters:
   """
@@ -4632,8 +4632,8 @@ defmodule AWS.APIGateway do
   usage plan.
 
   ## Required positional parameters:
-   • :key_id (t:string String.t/0) (keyId)
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:key_id` (`t:string`) The Id of the UsagePlanKey resource to be deleted.
+  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing the usage plan containing the to-be-deleted UsagePlanKey resource representing a plan customer.
 
   ## Optional parameters:
   """
@@ -4674,7 +4674,7 @@ defmodule AWS.APIGateway do
   Deletes an existing VpcLink of a specified identifier.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (vpcLinkId)
+  * `:vpc_link_id` (`t:string`) The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.
 
   ## Optional parameters:
   """
@@ -4707,8 +4707,8 @@ defmodule AWS.APIGateway do
   Flushes all authorizer cache entries on a stage.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the stage to flush.
 
   ## Optional parameters:
   """
@@ -4755,8 +4755,8 @@ defmodule AWS.APIGateway do
   Flushes a stage's cache.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the stage to flush its cache.
 
   ## Optional parameters:
   """
@@ -4860,10 +4860,10 @@ defmodule AWS.APIGateway do
   Gets information about the current ApiKey resource.
 
   ## Required positional parameters:
-   • :api_key (t:string String.t/0) (apiKey)
+  * `:api_key` (`t:string`) The identifier of the ApiKey resource.
 
   ## Optional parameters:
-   • :include_value (t:String.t/0) (includeValue)
+  * `:include_value` (`t:boolean`) A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.
   """
   @spec get_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
@@ -4900,11 +4900,11 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :customer_id (t:String.t/0) (customerId)
-   • :include_values (t:String.t/0) (includeValues)
-   • :limit (t:String.t/0) (limit)
-   • :name_query (t:String.t/0) (name)
-   • :position (t:String.t/0) (position)
+  * `:customer_id` (`t:string`) The identifier of a customer in Amazon Web Services Marketplace or an external system, such as a developer portal.
+  * `:include_values` (`t:boolean`) A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:name_query` (`t:string`) The name of queried API keys.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_api_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_keys(), any()}
@@ -4975,8 +4975,8 @@ defmodule AWS.APIGateway do
   Describe an existing Authorizer resource.
 
   ## Required positional parameters:
-   • :authorizer_id (t:string String.t/0) (authorizerId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5005,11 +5005,11 @@ defmodule AWS.APIGateway do
   Describe an existing Authorizers resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizers(), any()}
@@ -5053,8 +5053,8 @@ defmodule AWS.APIGateway do
   Describe a BasePathMapping resource.
 
   ## Required positional parameters:
-   • :base_path (t:string String.t/0) (basePath)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:base_path` (`t:string`) The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify &#39;(none)&#39; if you do not want callers to specify any base path name after the domain name.
+  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to be described.
 
   ## Optional parameters:
   """
@@ -5083,11 +5083,11 @@ defmodule AWS.APIGateway do
   Represents a collection of BasePathMapping resources.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The domain name of a BasePathMapping resource.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_base_path_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mappings(), any()}
@@ -5131,7 +5131,7 @@ defmodule AWS.APIGateway do
   Gets information about the current ClientCertificate resource.
 
   ## Required positional parameters:
-   • :client_certificate_id (t:string String.t/0) (clientCertificateId)
+  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate resource to be described.
 
   ## Optional parameters:
   """
@@ -5161,8 +5161,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_client_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificates(), any()}
@@ -5206,11 +5206,11 @@ defmodule AWS.APIGateway do
   Gets information about a Deployment resource.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:deployment_id` (`t:string`) The identifier of the Deployment resource to get information about.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :embed (t:String.t/0) (embed)
+  * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to retrieve the specified embedded resources of the returned Deployment resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>&quot;apisummary&quot;</code> string.  For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.
   """
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -5246,11 +5246,11 @@ defmodule AWS.APIGateway do
   Gets information about a Deployments collection.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
@@ -5294,8 +5294,8 @@ defmodule AWS.APIGateway do
   Gets a documentation part.
 
   ## Required positional parameters:
-   • :documentation_part_id (t:string String.t/0) (documentationPartId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_part_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5329,15 +5329,15 @@ defmodule AWS.APIGateway do
   Gets documentation parts.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :location_status (t:String.t/0) (locationStatus)
-   • :name_query (t:String.t/0) (name)
-   • :path (t:String.t/0) (path)
-   • :position (t:String.t/0) (position)
-   • :type (t:String.t/0) (type)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:location_status` (`t:enum["DOCUMENTED|UNDOCUMENTED"]`) The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code> for DocumentationPart resources without content.
+  * `:name_query` (`t:string`) The name of API entities of the to-be-retrieved documentation parts.
+  * `:path` (`t:string`) The path of API entities of the to-be-retrieved documentation parts.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
+  * `:type` (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`) The type of API entities of the to-be-retrieved documentation parts. 
   """
   @spec get_documentation_parts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_parts(), any()}
@@ -5417,8 +5417,8 @@ defmodule AWS.APIGateway do
   Gets a documentation version.
 
   ## Required positional parameters:
-   • :documentation_version (t:string String.t/0) (documentationVersion)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_version` (`t:string`) The version identifier of the to-be-retrieved documentation snapshot.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5452,11 +5452,11 @@ defmodule AWS.APIGateway do
   Gets documentation versions.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_documentation_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_versions(), any()}
@@ -5501,7 +5501,7 @@ defmodule AWS.APIGateway do
   can be called.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The name of the DomainName resource.
 
   ## Optional parameters:
   """
@@ -5531,8 +5531,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_names(), any()}
@@ -5576,13 +5576,14 @@ defmodule AWS.APIGateway do
   Exports a deployed version of a RestApi in a specified format.
 
   ## Required positional parameters:
-   • :export_type (t:string String.t/0) (exportType)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:export_type` (`t:string`) The type of export. Acceptable values are &#39;oas30&#39; for OpenAPI 3.0.x and &#39;swagger&#39; for Swagger/OpenAPI 2.0.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the Stage that will be exported.
 
   ## Optional parameters:
-   • :parameters (t:String.t/0) (parameters)
-   • :accepts (t:String.t/0) (Accept)
+  * `:parameters` (`t:map`) A key-value map of query string parameters that specify properties of the export, depending on the requested <code>exportType</code>. For <code>exportType</code>
+            <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions=&#39;integrations&#39;</code> or <code>extensions=&#39;apigateway&#39;</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions=&#39;authorizers&#39;</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool
+  * `:accepts` (`t:string`) The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.
   """
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_response(), any()}
@@ -5635,8 +5636,8 @@ defmodule AWS.APIGateway do
   Gets a GatewayResponse of a specified response type on the given RestApi.
 
   ## Required positional parameters:
-   • :response_type (t:enum String.t/0) (responseType)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:response_type` (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5669,11 +5670,11 @@ defmodule AWS.APIGateway do
   the supported response types.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The GatewayResponses collection does not support pagination and the limit does not apply here.
+  * `:position` (`t:string`) The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here.
   """
   @spec get_gateway_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_responses(), any()}
@@ -5717,9 +5718,9 @@ defmodule AWS.APIGateway do
   Get the integration settings.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies a get integration request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a get integration request&#39;s resource identifier
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5748,10 +5749,10 @@ defmodule AWS.APIGateway do
   Represents a get integration response.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) Specifies a get integration response request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a get integration response request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) Specifies a get integration response request&#39;s status code.
 
   ## Optional parameters:
   """
@@ -5794,9 +5795,9 @@ defmodule AWS.APIGateway do
   Describe an existing Method resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies the method request&#39;s HTTP method type.
+  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5825,10 +5826,10 @@ defmodule AWS.APIGateway do
   Describes a MethodResponse resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) The status code for the MethodResponse resource.
 
   ## Optional parameters:
   """
@@ -5871,11 +5872,11 @@ defmodule AWS.APIGateway do
   Describes an existing model defined for a RestApi resource.
 
   ## Required positional parameters:
-   • :model_name (t:string String.t/0) (modelName)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:model_name` (`t:string`) The name of the model as an identifier.
+  * `:rest_api_id` (`t:string`) The RestApi identifier under which the Model exists.
 
   ## Optional parameters:
-   • :flatten (t:String.t/0) (flatten)
+  * `:flatten` (`t:boolean`) A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.
   """
   @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
@@ -5912,8 +5913,8 @@ defmodule AWS.APIGateway do
   the structure of a model.
 
   ## Required positional parameters:
-   • :model_name (t:string String.t/0) (modelName)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:model_name` (`t:string`) The name of the model for which to generate a template.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -5942,11 +5943,11 @@ defmodule AWS.APIGateway do
   Describes existing Models defined for a RestApi resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, models(), any()}
@@ -5990,8 +5991,8 @@ defmodule AWS.APIGateway do
   Gets a RequestValidator of a given RestApi.
 
   ## Required positional parameters:
-   • :request_validator_id (t:string String.t/0) (requestValidatorId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:request_validator_id` (`t:string`) The identifier of the RequestValidator to be retrieved.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -6020,11 +6021,11 @@ defmodule AWS.APIGateway do
   Gets the RequestValidators collection of a given RestApi.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_request_validators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validators(), any()}
@@ -6068,11 +6069,11 @@ defmodule AWS.APIGateway do
   Lists information about a resource.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:resource_id` (`t:string`) The identifier for the Resource resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :embed (t:String.t/0) (embed)
+  * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>&quot;methods&quot;</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.
   """
   @spec get_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
@@ -6108,12 +6109,12 @@ defmodule AWS.APIGateway do
   Lists information about a collection of Resource resources.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :embed (t:String.t/0) (embed)
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>&quot;methods&quot;</code> string. For example, <code>GET /restapis/{restapi_id}/resources?embed=methods</code>.
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resources(), any()}
@@ -6166,7 +6167,7 @@ defmodule AWS.APIGateway do
   Lists the RestApi resource in the collection.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -6196,8 +6197,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_rest_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_apis(), any()}
@@ -6241,12 +6242,12 @@ defmodule AWS.APIGateway do
   Generates a client SDK for a RestApi and Stage.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :sdk_type (t:string String.t/0) (sdkType)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:sdk_type` (`t:string`) The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS), and <code>ruby</code>  are supported.
+  * `:stage_name` (`t:string`) The name of the Stage that the SDK will use.
 
   ## Optional parameters:
-   • :parameters (t:String.t/0) (parameters)
+  * `:parameters` (`t:map`) A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. 
   """
   @spec get_sdk(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_response(), any()}
@@ -6289,7 +6290,7 @@ defmodule AWS.APIGateway do
   Gets an SDK type.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The identifier of the queried SdkType instance.
 
   ## Optional parameters:
   """
@@ -6319,8 +6320,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_sdk_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, sdk_types(), any()}
@@ -6364,8 +6365,8 @@ defmodule AWS.APIGateway do
   Gets information about a Stage resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the Stage resource to get information about.
 
   ## Optional parameters:
   """
@@ -6394,10 +6395,10 @@ defmodule AWS.APIGateway do
   Gets information about one or more Stage resources.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :deployment_id (t:String.t/0) (deploymentId)
+  * `:deployment_id` (`t:string`) The stages&#39; deployment identifiers.
   """
   @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stages(), any()}
@@ -6432,11 +6433,11 @@ defmodule AWS.APIGateway do
   Gets the Tags collection for a given resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) (Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) (Not currently supported) The current pagination position in the paged result set.
   """
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tags(), any()}
@@ -6480,14 +6481,14 @@ defmodule AWS.APIGateway do
   Gets the usage data of a usage plan in a specified time interval.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the usage data.
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (endDate)
-   • :key_id (t:String.t/0) (keyId)
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
-   • :start_date (t:String.t/0) (startDate)
+  * `:end_date` (`t:string`) The ending date (e.g., 2016-12-31) of the usage data.
+  * `:key_id` (`t:string`) The Id of the API key associated with the resultant usage data.
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
+  * `:start_date` (`t:string`) The starting date (e.g., 2016-01-01) of the usage data.
   """
   @spec get_usage(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
@@ -6558,7 +6559,7 @@ defmodule AWS.APIGateway do
   Gets a usage plan of a given plan identifier.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The identifier of the UsagePlan resource to be retrieved.
 
   ## Optional parameters:
   """
@@ -6586,8 +6587,8 @@ defmodule AWS.APIGateway do
   Gets a usage plan key of a given key identifier.
 
   ## Required positional parameters:
-   • :key_id (t:string String.t/0) (keyId)
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:key_id` (`t:string`) The key Id of the to-be-retrieved UsagePlanKey resource representing a plan customer.
+  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing the usage plan containing the to-be-retrieved UsagePlanKey resource representing a plan customer.
 
   ## Optional parameters:
   """
@@ -6617,12 +6618,12 @@ defmodule AWS.APIGateway do
   usage plan.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The Id of the UsagePlan resource representing the usage plan containing the to-be-retrieved UsagePlanKey resource representing a plan customer.
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :name_query (t:String.t/0) (name)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:name_query` (`t:string`) A query parameter specifying the name of the to-be-returned usage plan keys.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_usage_plan_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_keys(), any()}
@@ -6677,9 +6678,9 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :key_id (t:String.t/0) (keyId)
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:key_id` (`t:string`) The identifier of the API key associated with the usage plans.
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_usage_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plans(), any()}
@@ -6732,7 +6733,7 @@ defmodule AWS.APIGateway do
   Gets a specified VPC link under the caller's account in a region.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (vpcLinkId)
+  * `:vpc_link_id` (`t:string`) The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.
 
   ## Optional parameters:
   """
@@ -6762,8 +6763,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :limit (t:String.t/0) (limit)
-   • :position (t:String.t/0) (position)
+  * `:limit` (`t:integer`) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+  * `:position` (`t:string`) The current pagination position in the paged result set.
   """
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_links(), any()}
@@ -6809,8 +6810,8 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :fail_on_warnings (t:String.t/0) (failonwarnings)
-   • :format (t:String.t/0) (format)
+  * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>) or not (<code>false</code>) when error is encountered.
+  * `:format` (`t:enum["csv"]`) A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.
   """
   @spec import_api_keys(AWS.Client.t(), import_api_keys_request(), Keyword.t()) ::
           {:ok, api_key_ids(), any()}
@@ -6847,11 +6848,11 @@ defmodule AWS.APIGateway do
   Imports documentation parts
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :fail_on_warnings (t:String.t/0) (failonwarnings)
-   • :mode (t:String.t/0) (mode)
+  * `:fail_on_warnings` (`t:boolean`) A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.
+  * `:mode` (`t:enum["Merge|Overwrite"]`) A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing DocumentationParts definition or to merge (<code>merge</code>) the new definition into the existing one. The default value is <code>merge</code>.
   """
   @spec import_documentation_parts(
           AWS.Client.t(),
@@ -6886,8 +6887,9 @@ defmodule AWS.APIGateway do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :parameters (t:String.t/0) (parameters)
-   • :fail_on_warnings (t:String.t/0) (failonwarnings)
+  * `:parameters` (`t:map`) A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.
+  * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to rollback the API creation (<code>true</code>) or not (<code>false</code>)
+            when a warning is encountered. The default value is <code>false</code>.
   """
   @spec import_rest_api(AWS.Client.t(), import_rest_api_request(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -6925,8 +6927,8 @@ defmodule AWS.APIGateway do
   status code on the given RestApi.
 
   ## Required positional parameters:
-   • :response_type (t:enum String.t/0) (responseType)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:response_type` (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`) The response type of the associated GatewayResponse
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -6957,9 +6959,9 @@ defmodule AWS.APIGateway do
   Sets up a method's integration.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies the HTTP method for the integration.
+  * `:resource_id` (`t:string`) Specifies a put integration request&#39;s resource ID.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -6998,10 +7000,10 @@ defmodule AWS.APIGateway do
   Represents a put integration.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) Specifies a put integration response request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a put integration response request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) Specifies the status code that is used to map the integration response to an existing MethodResponse.
 
   ## Optional parameters:
   """
@@ -7042,9 +7044,9 @@ defmodule AWS.APIGateway do
   Add a method to an existing Resource resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies the method request&#39;s HTTP method type.
+  * `:resource_id` (`t:string`) The Resource identifier for the new Method resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7076,10 +7078,10 @@ defmodule AWS.APIGateway do
   Adds a MethodResponse to an existing Method resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) The method response&#39;s status code.
 
   ## Optional parameters:
   """
@@ -7124,12 +7126,14 @@ defmodule AWS.APIGateway do
   existing API or overwriting the existing API.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
-   • :parameters (t:String.t/0) (parameters)
-   • :fail_on_warnings (t:String.t/0) (failonwarnings)
-   • :mode (t:String.t/0) (mode)
+  * `:parameters` (`t:map`) Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body &#39;file:///path/to/imported-api-body.json&#39;</code>.
+  * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
+            when a warning is encountered. The default value is <code>false</code>.
+  * `:mode` (`t:enum["Merge|Overwrite"]`) The <code>mode</code> query parameter to specify the update mode. Valid values are &quot;merge&quot; and &quot;overwrite&quot;. By default,
+        the update mode is &quot;merge&quot;.
   """
   @spec put_rest_api(AWS.Client.t(), String.t(), put_rest_api_request(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -7157,7 +7161,7 @@ defmodule AWS.APIGateway do
   Adds or updates a tag on a given resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
 
   ## Optional parameters:
   """
@@ -7181,8 +7185,8 @@ defmodule AWS.APIGateway do
   parameters, and an incoming request body.
 
   ## Required positional parameters:
-   • :authorizer_id (t:string String.t/0) (authorizerId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:authorizer_id` (`t:string`) Specifies a test invoke authorizer request&#39;s Authorizer ID.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7224,9 +7228,9 @@ defmodule AWS.APIGateway do
   and an incoming request body.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Specifies a test invoke method request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies a test invoke method request&#39;s resource ID.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7275,10 +7279,10 @@ defmodule AWS.APIGateway do
   Removes a tag from a given resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of a resource that can be tagged.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.apigateway#String]`) The Tag keys to delete.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7346,7 +7350,7 @@ defmodule AWS.APIGateway do
   Changes information about an ApiKey resource.
 
   ## Required positional parameters:
-   • :api_key (t:string String.t/0) (apiKey)
+  * `:api_key` (`t:string`) The identifier of the ApiKey resource to be updated.
 
   ## Optional parameters:
   """
@@ -7379,8 +7383,8 @@ defmodule AWS.APIGateway do
   Updates an existing Authorizer resource.
 
   ## Required positional parameters:
-   • :authorizer_id (t:string String.t/0) (authorizerId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7421,8 +7425,8 @@ defmodule AWS.APIGateway do
   Changes information about the BasePathMapping resource.
 
   ## Required positional parameters:
-   • :base_path (t:string String.t/0) (basePath)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:base_path` (`t:string`) The base path of the BasePathMapping resource to change.
+  * `:domain_name` (`t:string`) The domain name of the BasePathMapping resource to change.
 
   ## Optional parameters:
   """
@@ -7463,7 +7467,7 @@ defmodule AWS.APIGateway do
   Changes information about an ClientCertificate resource.
 
   ## Required positional parameters:
-   • :client_certificate_id (t:string String.t/0) (clientCertificateId)
+  * `:client_certificate_id` (`t:string`) The identifier of the ClientCertificate resource to be updated.
 
   ## Optional parameters:
   """
@@ -7501,8 +7505,8 @@ defmodule AWS.APIGateway do
   Changes information about a Deployment resource.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:deployment_id` (`t:string`) The replacement identifier for the Deployment resource to change information about.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7543,8 +7547,8 @@ defmodule AWS.APIGateway do
   Updates a documentation part.
 
   ## Required positional parameters:
-   • :documentation_part_id (t:string String.t/0) (documentationPartId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_part_id` (`t:string`) The identifier of the to-be-updated documentation part.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7591,8 +7595,8 @@ defmodule AWS.APIGateway do
   Updates a documentation version.
 
   ## Required positional parameters:
-   • :documentation_version (t:string String.t/0) (documentationVersion)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:documentation_version` (`t:string`) The version identifier of the to-be-updated documentation version.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7639,7 +7643,7 @@ defmodule AWS.APIGateway do
   Changes information about the DomainName resource.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The name of the DomainName resource to be changed.
 
   ## Optional parameters:
   """
@@ -7672,8 +7676,8 @@ defmodule AWS.APIGateway do
   Updates a GatewayResponse of a specified response type on the given RestApi.
 
   ## Required positional parameters:
-   • :response_type (t:enum String.t/0) (responseType)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:response_type` (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`) The response type of the associated GatewayResponse.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7720,9 +7724,9 @@ defmodule AWS.APIGateway do
   Represents an update integration.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) Represents an update integration request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Represents an update integration request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7771,10 +7775,10 @@ defmodule AWS.APIGateway do
   Represents an update integration response.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) Specifies an update integration response request&#39;s HTTP method.
+  * `:resource_id` (`t:string`) Specifies an update integration response request&#39;s resource identifier.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) Specifies an update integration response request&#39;s status code.
 
   ## Optional parameters:
   """
@@ -7825,9 +7829,9 @@ defmodule AWS.APIGateway do
   Updates an existing Method resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the Method resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7876,10 +7880,10 @@ defmodule AWS.APIGateway do
   Updates an existing MethodResponse resource.
 
   ## Required positional parameters:
-   • :http_method (t:string String.t/0) (httpMethod)
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :status_code (t:string String.t/0) (statusCode)
+  * `:http_method` (`t:string`) The HTTP verb of the Method resource.
+  * `:resource_id` (`t:string`) The Resource identifier for the MethodResponse resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:status_code` (`t:string`) The status code for the MethodResponse resource.
 
   ## Optional parameters:
   """
@@ -7932,8 +7936,8 @@ defmodule AWS.APIGateway do
   The maximum size of the model is 400 KB.
 
   ## Required positional parameters:
-   • :model_name (t:string String.t/0) (modelName)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:model_name` (`t:string`) The name of the model to update.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -7968,8 +7972,8 @@ defmodule AWS.APIGateway do
   Updates a RequestValidator of a given RestApi.
 
   ## Required positional parameters:
-   • :request_validator_id (t:string String.t/0) (requestValidatorId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:request_validator_id` (`t:string`) The identifier of RequestValidator to be updated.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -8016,8 +8020,8 @@ defmodule AWS.APIGateway do
   Changes information about a Resource resource.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (resourceId)
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:resource_id` (`t:string`) The identifier of the Resource resource.
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -8058,7 +8062,7 @@ defmodule AWS.APIGateway do
   Changes information about the specified API.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
 
   ## Optional parameters:
   """
@@ -8091,8 +8095,8 @@ defmodule AWS.APIGateway do
   Changes information about a Stage resource.
 
   ## Required positional parameters:
-   • :rest_api_id (t:string String.t/0) (restApiId)
-   • :stage_name (t:string String.t/0) (stageName)
+  * `:rest_api_id` (`t:string`) The string identifier of the associated RestApi.
+  * `:stage_name` (`t:string`) The name of the Stage resource to change information about.
 
   ## Optional parameters:
   """
@@ -8128,8 +8132,8 @@ defmodule AWS.APIGateway do
   with a specified API key.
 
   ## Required positional parameters:
-   • :key_id (t:string String.t/0) (keyId)
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:key_id` (`t:string`) The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+  * `:usage_plan_id` (`t:string`) The Id of the usage plan associated with the usage data.
 
   ## Optional parameters:
   """
@@ -8164,7 +8168,7 @@ defmodule AWS.APIGateway do
   Updates a usage plan of a given plan Id.
 
   ## Required positional parameters:
-   • :usage_plan_id (t:string String.t/0) (usagePlanId)
+  * `:usage_plan_id` (`t:string`) The Id of the to-be-updated usage plan.
 
   ## Optional parameters:
   """
@@ -8197,7 +8201,7 @@ defmodule AWS.APIGateway do
   Updates an existing VpcLink of a specified identifier.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (vpcLinkId)
+  * `:vpc_link_id` (`t:string`) The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.
 
   ## Optional parameters:
   """

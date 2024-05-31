@@ -1425,8 +1425,8 @@ defmodule AWS.PcaConnectorAd do
   account.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (ConnectorArn)
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
   """
@@ -1512,7 +1512,7 @@ defmodule AWS.PcaConnectorAd do
   autoenrolling with the template based on the group security identifiers (SIDs).
 
   ## Required positional parameters:
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -1563,7 +1563,7 @@ defmodule AWS.PcaConnectorAd do
   action.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (ConnectorArn)
+  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
 
   ## Optional parameters:
   """
@@ -1599,7 +1599,7 @@ defmodule AWS.PcaConnectorAd do
   Amazon Web Services Private CA with the directory.
 
   ## Required positional parameters:
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
   """
@@ -1644,8 +1644,8 @@ defmodule AWS.PcaConnectorAd do
   Active Directory.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (ConnectorArn)
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
   """
@@ -1695,7 +1695,7 @@ defmodule AWS.PcaConnectorAd do
   are revoked or expired.
 
   ## Required positional parameters:
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -1728,8 +1728,9 @@ defmodule AWS.PcaConnectorAd do
   Deletes a group access control entry.
 
   ## Required positional parameters:
-   • :group_security_identifier (t:string String.t/0) (GroupSecurityIdentifier)
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
+         &quot;S-&quot;.
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -1779,7 +1780,7 @@ defmodule AWS.PcaConnectorAd do
   (Amazon Resource Name).
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (ConnectorArn)
+  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
 
   ## Optional parameters:
   """
@@ -1807,7 +1808,7 @@ defmodule AWS.PcaConnectorAd do
   A structure that contains information about your directory registration.
 
   ## Required positional parameters:
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
   """
@@ -1836,8 +1837,8 @@ defmodule AWS.PcaConnectorAd do
   Active Directory.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (ConnectorArn)
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
   """
@@ -1873,7 +1874,7 @@ defmodule AWS.PcaConnectorAd do
   private CA.
 
   ## Required positional parameters:
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -1901,8 +1902,9 @@ defmodule AWS.PcaConnectorAd do
   Retrieves the group access control entries for a template.
 
   ## Required positional parameters:
-   • :group_security_identifier (t:string String.t/0) (GroupSecurityIdentifier)
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
+         &quot;S-&quot;.
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -1945,8 +1947,14 @@ defmodule AWS.PcaConnectorAd do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
+         return in the response on each page. If additional items exist beyond the number you
+         specify, the <code>NextToken</code> element is sent in the response. Use this
+            <code>NextToken</code> value in a subsequent request to retrieve additional
+         items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
+         response with truncated results. Set it to the value of the <code>NextToken</code>
+         parameter from the response you just received.
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -1994,8 +2002,14 @@ defmodule AWS.PcaConnectorAd do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
+         return in the response on each page. If additional items exist beyond the number you
+         specify, the <code>NextToken</code> element is sent in the response. Use this
+            <code>NextToken</code> value in a subsequent request to retrieve additional
+         items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
+         response with truncated results. Set it to the value of the <code>NextToken</code>
+         parameter from the response you just received.
   """
   @spec list_directory_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directory_registrations_response(), any()}
@@ -2040,11 +2054,17 @@ defmodule AWS.PcaConnectorAd do
   Active Directory.
 
   ## Required positional parameters:
-   • :directory_registration_arn (t:string String.t/0) (DirectoryRegistrationArn)
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
+         return in the response on each page. If additional items exist beyond the number you
+         specify, the <code>NextToken</code> element is sent in the response. Use this
+            <code>NextToken</code> value in a subsequent request to retrieve additional
+         items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
+         response with truncated results. Set it to the value of the <code>NextToken</code>
+         parameter from the response you just received.
   """
   @spec list_service_principal_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_principal_names_response(), any()}
@@ -2089,7 +2109,7 @@ defmodule AWS.PcaConnectorAd do
   Lists the tags, if any, that are associated with your resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource. 
 
   ## Optional parameters:
   """
@@ -2117,11 +2137,17 @@ defmodule AWS.PcaConnectorAd do
   Lists group access control entries you created.
 
   ## Required positional parameters:
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
+         return in the response on each page. If additional items exist beyond the number you
+         specify, the <code>NextToken</code> element is sent in the response. Use this
+            <code>NextToken</code> value in a subsequent request to retrieve additional
+         items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
+         response with truncated results. Set it to the value of the <code>NextToken</code>
+         parameter from the response you just received.
   """
   @spec list_template_group_access_control_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_group_access_control_entries_response(), any()}
@@ -2167,9 +2193,15 @@ defmodule AWS.PcaConnectorAd do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connector_arn (t:String.t/0) (ConnectorArn)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
+         return in the response on each page. If additional items exist beyond the number you
+         specify, the <code>NextToken</code> element is sent in the response. Use this
+            <code>NextToken</code> value in a subsequent request to retrieve additional
+         items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
+         response with truncated results. Set it to the value of the <code>NextToken</code>
+         parameter from the response you just received.
   """
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -2222,7 +2254,7 @@ defmodule AWS.PcaConnectorAd do
   Adds one or more tags to your resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource. 
 
   ## Optional parameters:
   """
@@ -2255,10 +2287,11 @@ defmodule AWS.PcaConnectorAd do
   Removes one or more tags from your resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that you want to remove from the specified
+         resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2295,7 +2328,7 @@ defmodule AWS.PcaConnectorAd do
   certificates.
 
   ## Required positional parameters:
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """
@@ -2329,8 +2362,9 @@ defmodule AWS.PcaConnectorAd do
   [CreateTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html).
 
   ## Required positional parameters:
-   • :group_security_identifier (t:string String.t/0) (GroupSecurityIdentifier)
-   • :template_arn (t:string String.t/0) (TemplateArn)
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
+         &quot;S-&quot;.
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
 
   ## Optional parameters:
   """

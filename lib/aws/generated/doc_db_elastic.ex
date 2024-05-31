@@ -726,7 +726,7 @@ defmodule AWS.DocDBElastic do
   Copies a snapshot of an elastic cluster.
 
   ## Required positional parameters:
-   • :snapshot_arn (t: String.t/0) (snapshotArn)
+  * `:snapshot_arn` (`t:`) The Amazon Resource Name (ARN) identifier of the elastic cluster snapshot.
 
   ## Optional parameters:
   """
@@ -829,7 +829,7 @@ defmodule AWS.DocDBElastic do
   Delete an elastic cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t: String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster that is to be deleted.
 
   ## Optional parameters:
   """
@@ -862,7 +862,7 @@ defmodule AWS.DocDBElastic do
   Delete an elastic cluster snapshot.
 
   ## Required positional parameters:
-   • :snapshot_arn (t: String.t/0) (snapshotArn)
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot that is to be deleted.
 
   ## Optional parameters:
   """
@@ -900,7 +900,7 @@ defmodule AWS.DocDBElastic do
   Returns information about a specific elastic cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t: String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
@@ -928,7 +928,7 @@ defmodule AWS.DocDBElastic do
   Returns information about a specific elastic cluster snapshot
 
   ## Required positional parameters:
-   • :snapshot_arn (t: String.t/0) (snapshotArn)
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
 
   ## Optional parameters:
   """
@@ -958,10 +958,11 @@ defmodule AWS.DocDBElastic do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cluster_arn (t:String.t/0) (clusterArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :snapshot_type (t:String.t/0) (snapshotType)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request. 
+      If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.
+  * `:snapshot_type` (`t:`) The type of cluster snapshots to be returned. You can specify one of the following values:
   """
   @spec list_cluster_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cluster_snapshots_output(), any()}
@@ -1025,8 +1026,9 @@ defmodule AWS.DocDBElastic do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request. 
+      If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
@@ -1070,7 +1072,7 @@ defmodule AWS.DocDBElastic do
   Lists all tags on a elastic cluster resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
 
   ## Optional parameters:
   """
@@ -1098,7 +1100,7 @@ defmodule AWS.DocDBElastic do
   Restores an elastic cluster from a snapshot.
 
   ## Required positional parameters:
-   • :snapshot_arn (t: String.t/0) (snapshotArn)
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
 
   ## Optional parameters:
   """
@@ -1136,7 +1138,7 @@ defmodule AWS.DocDBElastic do
   Restarts the stopped elastic cluster that is specified by `clusterARN`.
 
   ## Required positional parameters:
-   • :cluster_arn (t: String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
@@ -1171,7 +1173,7 @@ defmodule AWS.DocDBElastic do
   The elastic cluster must be in the *available* state.
 
   ## Required positional parameters:
-   • :cluster_arn (t: String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """
@@ -1204,7 +1206,7 @@ defmodule AWS.DocDBElastic do
   Adds metadata tags to an elastic cluster resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
 
   ## Optional parameters:
   """
@@ -1237,10 +1239,10 @@ defmodule AWS.DocDBElastic do
   Removes metadata tags from an elastic cluster resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be removed from the elastic cluster resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1279,7 +1281,7 @@ defmodule AWS.DocDBElastic do
   upgrading the API version, and setting up a backup window and maintenance window
 
   ## Required positional parameters:
-   • :cluster_arn (t: String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
   """

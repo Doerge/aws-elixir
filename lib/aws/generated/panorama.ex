@@ -1887,7 +1887,7 @@ defmodule AWS.Panorama do
   Deletes a device.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
+  * `:device_id` (`t:string`) The device&#39;s ID.
 
   ## Optional parameters:
   """
@@ -1924,10 +1924,11 @@ defmodule AWS.Panorama do
   the AWS Panorama API.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageId)
+  * `:package_id` (`t:string`) The package&#39;s ID.
 
   ## Optional parameters:
-   • :force_delete (t:String.t/0) (ForceDelete)
+  * `:force_delete` (`t:boolean`) Delete the package even if it has artifacts stored in its access point. Deletes the package&#39;s artifacts from
+      Amazon S3.
   """
   @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
@@ -1963,13 +1964,13 @@ defmodule AWS.Panorama do
   Deregisters a package version.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageId)
-   • :package_version (t:string String.t/0) (PackageVersion)
-   • :patch_version (t:string String.t/0) (PatchVersion)
+  * `:package_id` (`t:string`) A package ID.
+  * `:package_version` (`t:string`) A package version.
+  * `:patch_version` (`t:string`) A patch version.
 
   ## Optional parameters:
-   • :owner_account (t:String.t/0) (OwnerAccount)
-   • :updated_latest_patch_version (t:String.t/0) (UpdatedLatestPatchVersion)
+  * `:owner_account` (`t:string`) An owner account.
+  * `:updated_latest_patch_version` (`t:string`) If the version was marked latest, the new version to maker as latest.
   """
   @spec deregister_package_version(
           AWS.Client.t(),
@@ -2022,7 +2023,7 @@ defmodule AWS.Panorama do
   Returns information about an application instance on a device.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2050,7 +2051,7 @@ defmodule AWS.Panorama do
   Returns information about an application instance's configuration manifest.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2082,7 +2083,7 @@ defmodule AWS.Panorama do
   Returns information about a device.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
+  * `:device_id` (`t:string`) The device&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2110,7 +2111,7 @@ defmodule AWS.Panorama do
   Returns information about a device job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The job&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2138,10 +2139,10 @@ defmodule AWS.Panorama do
   Returns information about a node.
 
   ## Required positional parameters:
-   • :node_id (t:string String.t/0) (NodeId)
+  * `:node_id` (`t:string`) The node&#39;s ID.
 
   ## Optional parameters:
-   • :owner_account (t:String.t/0) (OwnerAccount)
+  * `:owner_account` (`t:string`) The account ID of the node&#39;s owner.
   """
   @spec describe_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_response(), any()}
@@ -2176,7 +2177,7 @@ defmodule AWS.Panorama do
   Returns information about a job to create a camera stream node.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The job&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2204,7 +2205,7 @@ defmodule AWS.Panorama do
   Returns information about a package.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageId)
+  * `:package_id` (`t:string`) The package&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2232,7 +2233,7 @@ defmodule AWS.Panorama do
   Returns information about a package import job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The job&#39;s ID.
 
   ## Optional parameters:
   """
@@ -2260,12 +2261,12 @@ defmodule AWS.Panorama do
   Returns information about a package version.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageId)
-   • :package_version (t:string String.t/0) (PackageVersion)
+  * `:package_id` (`t:string`) The version&#39;s ID.
+  * `:package_version` (`t:string`) The version&#39;s version.
 
   ## Optional parameters:
-   • :owner_account (t:String.t/0) (OwnerAccount)
-   • :patch_version (t:String.t/0) (PatchVersion)
+  * `:owner_account` (`t:string`) The version&#39;s owner account.
+  * `:patch_version` (`t:string`) The version&#39;s patch version.
   """
   @spec describe_package_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_version_response(), any()}
@@ -2310,11 +2311,11 @@ defmodule AWS.Panorama do
   Returns a list of application instance dependencies.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of application instance dependencies to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_application_instance_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_dependencies_response(), any()}
@@ -2363,11 +2364,11 @@ defmodule AWS.Panorama do
   Returns a list of application node instances.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) The node instances&#39; application instance ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of node instances to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_application_instance_node_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_node_instances_response(), any()}
@@ -2418,10 +2419,10 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :device_id (t:String.t/0) (deviceId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status_filter (t:String.t/0) (statusFilter)
+  * `:device_id` (`t:string`) The application instances&#39; device ID.
+  * `:max_results` (`t:integer`) The maximum number of application instances to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:status_filter` (`t:string`) Only include instances with a specific status.
   """
   @spec list_application_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_instances_response(), any()}
@@ -2485,12 +2486,12 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :device_aggregated_status_filter (t:String.t/0) (DeviceAggregatedStatusFilter)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :name_filter (t:String.t/0) (NameFilter)
-   • :next_token (t:String.t/0) (NextToken)
-   • :sort_by (t:String.t/0) (SortBy)
-   • :sort_order (t:String.t/0) (SortOrder)
+  * `:device_aggregated_status_filter` (`t:string`) Filter based on a device&#39;s status.
+  * `:max_results` (`t:integer`) The maximum number of devices to return in one page of results.
+  * `:name_filter` (`t:string`) Filter based on device&#39;s name. Prefixes supported.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:sort_by` (`t:string`) The target column to be sorted on. Default column sort is CREATED_TIME.
+  * `:sort_order` (`t:string`) The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -2573,9 +2574,9 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :device_id (t:String.t/0) (DeviceId)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:device_id` (`t:string`) Filter results by the job&#39;s target device ID.
+  * `:max_results` (`t:integer`) The maximum number of device jobs to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_devices_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_jobs_response(), any()}
@@ -2630,8 +2631,8 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of node from template jobs to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_node_from_template_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_node_from_template_jobs_response(), any()}
@@ -2677,13 +2678,13 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :category (t:String.t/0) (category)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :owner_account (t:String.t/0) (ownerAccount)
-   • :package_name (t:String.t/0) (packageName)
-   • :package_version (t:String.t/0) (packageVersion)
-   • :patch_version (t:String.t/0) (patchVersion)
+  * `:category` (`t:string`) Search for nodes by category.
+  * `:max_results` (`t:integer`) The maximum number of nodes to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:owner_account` (`t:string`) Search for nodes by the account ID of the nodes&#39; owner.
+  * `:package_name` (`t:string`) Search for nodes by name.
+  * `:package_version` (`t:string`) Search for nodes by version.
+  * `:patch_version` (`t:string`) Search for nodes by patch version.
   """
   @spec list_nodes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
@@ -2774,8 +2775,8 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of package import jobs to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_package_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_package_import_jobs_response(), any()}
@@ -2821,8 +2822,8 @@ defmodule AWS.Panorama do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of packages to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
   """
   @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
@@ -2866,7 +2867,7 @@ defmodule AWS.Panorama do
   Returns a list of tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
 
   ## Optional parameters:
   """
@@ -2933,9 +2934,9 @@ defmodule AWS.Panorama do
   Registers a package version.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageId)
-   • :package_version (t:string String.t/0) (PackageVersion)
-   • :patch_version (t:string String.t/0) (PatchVersion)
+  * `:package_id` (`t:string`) A package ID.
+  * `:package_version` (`t:string`) A package version.
+  * `:patch_version` (`t:string`) A patch version.
 
   ## Optional parameters:
   """
@@ -2974,7 +2975,7 @@ defmodule AWS.Panorama do
   Removes an application instance.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) An application instance ID.
 
   ## Optional parameters:
   """
@@ -3017,7 +3018,7 @@ defmodule AWS.Panorama do
   Signal camera nodes to stop or resume.
 
   ## Required positional parameters:
-   • :application_instance_id (t:string String.t/0) (ApplicationInstanceId)
+  * `:application_instance_id` (`t:string`) An application instance ID.
 
   ## Optional parameters:
   """
@@ -3052,7 +3053,7 @@ defmodule AWS.Panorama do
   Tags a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
 
   ## Optional parameters:
   """
@@ -3085,10 +3086,10 @@ defmodule AWS.Panorama do
   Removes tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.panorama#TagKey]`) Tag keys to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3124,7 +3125,7 @@ defmodule AWS.Panorama do
   Updates a device's metadata.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
+  * `:device_id` (`t:string`) The device&#39;s ID.
 
   ## Optional parameters:
   """

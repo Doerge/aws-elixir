@@ -1660,7 +1660,7 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you&#39;re deleting.
   """
   @spec delete_replication_set(AWS.Client.t(), delete_replication_set_input(), Keyword.t()) ::
           {:ok, delete_replication_set_output(), any()}
@@ -1800,7 +1800,7 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the incident record.
   """
   @spec get_incident_record(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_incident_record_output(), any()}
@@ -1837,7 +1837,7 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you want to retrieve.
   """
   @spec get_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_replication_set_output(), any()}
@@ -1874,7 +1874,8 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan with the attached resource policy.
+    
   """
   @spec get_resource_policies(AWS.Client.t(), get_resource_policies_input(), Keyword.t()) ::
           {:ok, get_resource_policies_output(), any()}
@@ -1912,7 +1913,7 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan.
   """
   @spec get_response_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_response_plan_output(), any()}
@@ -1949,8 +1950,9 @@ defmodule AWS.SSMIncidents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :event_id (t:String.t/0) (eventId)
-   • :incident_record_arn (t:String.t/0) (incidentRecordArn)
+  * `:event_id` (`t:string`) The ID of the event. You can get an event&#39;s ID when you create it, or by using
+        <code>ListTimelineEvents</code>.
+  * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the incident that includes the timeline event.
   """
   @spec get_timeline_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_timeline_event_output(), any()}
@@ -2163,7 +2165,7 @@ defmodule AWS.SSMIncidents do
   Lists the tags that are attached to the specified response plan or incident.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan or incident.
 
   ## Optional parameters:
   """
@@ -2293,7 +2295,7 @@ defmodule AWS.SSMIncidents do
   Adds a tag to a response plan.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan you&#39;re adding the tags to.
 
   ## Optional parameters:
   """
@@ -2326,10 +2328,10 @@ defmodule AWS.SSMIncidents do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan you&#39;re removing a tag from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag to remove from the response plan.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

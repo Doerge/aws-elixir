@@ -1209,8 +1209,10 @@ defmodule AWS.AppFabric do
   call the APIs of the application.
 
   ## Required positional parameters:
-   • :app_authorization_identifier (t:string String.t/0) (appAuthorizationIdentifier)
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
+         authorization to use for the request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         that contains the app authorization to use for the request.
 
   ## Optional parameters:
   """
@@ -1259,7 +1261,8 @@ defmodule AWS.AppFabric do
   application.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -1329,7 +1332,8 @@ defmodule AWS.AppFabric do
   Creates a data ingestion for an application.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -1364,8 +1368,10 @@ defmodule AWS.AppFabric do
   processed by Amazon Web Services AppFabric and where it's delivered.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -1415,8 +1421,10 @@ defmodule AWS.AppFabric do
   delete an app authorization.
 
   ## Required positional parameters:
-   • :app_authorization_identifier (t:string String.t/0) (appAuthorizationIdentifier)
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
+         authorization to use for the request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -1466,7 +1474,7 @@ defmodule AWS.AppFabric do
   delete an app bundle.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the app bundle that needs to be deleted.
 
   ## Optional parameters:
   """
@@ -1502,8 +1510,10 @@ defmodule AWS.AppFabric do
   associated ingestion destinations before you can delete an app ingestion.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -1559,9 +1569,12 @@ defmodule AWS.AppFabric do
   disabled.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_destination_identifier (t:string String.t/0) (ingestionDestinationIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+         destination to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -1610,8 +1623,10 @@ defmodule AWS.AppFabric do
   Returns information about an app authorization.
 
   ## Required positional parameters:
-   • :app_authorization_identifier (t:string String.t/0) (appAuthorizationIdentifier)
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
+         authorization to use for the request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -1645,7 +1660,8 @@ defmodule AWS.AppFabric do
   Returns information about an app bundle.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -1673,8 +1689,10 @@ defmodule AWS.AppFabric do
   Returns information about an ingestion.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -1708,9 +1726,12 @@ defmodule AWS.AppFabric do
   Returns information about an ingestion destination.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_destination_identifier (t:string String.t/0) (ingestionDestinationIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+         destination to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -1745,11 +1766,17 @@ defmodule AWS.AppFabric do
   Returns a list of all app authorizations configured for an app bundle.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+            <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_app_authorizations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_authorizations_response(), any()}
@@ -1795,8 +1822,13 @@ defmodule AWS.AppFabric do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+            <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_app_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_bundles_response(), any()}
@@ -1840,12 +1872,19 @@ defmodule AWS.AppFabric do
   Returns a list of all ingestion destinations configured for an ingestion.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+            <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_ingestion_destinations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestion_destinations_response(), any()}
@@ -1895,11 +1934,17 @@ defmodule AWS.AppFabric do
   Returns a list of all ingestions configured for an app bundle.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+            <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_ingestions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
@@ -1943,7 +1988,8 @@ defmodule AWS.AppFabric do
   Returns a list of tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which you want to retrieve
+         tags.
 
   ## Optional parameters:
   """
@@ -1971,8 +2017,10 @@ defmodule AWS.AppFabric do
   Starts (enables) an ingestion, which collects data from an application.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -2054,8 +2102,10 @@ defmodule AWS.AppFabric do
   Stops (disables) an ingestion.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """
@@ -2102,7 +2152,7 @@ defmodule AWS.AppFabric do
   Assigns one or more tags (key-value pairs) to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to tag.
 
   ## Optional parameters:
   """
@@ -2135,10 +2185,11 @@ defmodule AWS.AppFabric do
   Removes a tag or tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.appfabric#TagKey]`) The keys of the key-value pairs for the tag or tags you want to remove from the
+         specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2179,8 +2230,10 @@ defmodule AWS.AppFabric do
   authorization will set it back to a `PendingConnect` state.
 
   ## Required positional parameters:
-   • :app_authorization_identifier (t:string String.t/0) (appAuthorizationIdentifier)
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
+  * `:app_authorization_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
+         authorization to use for the request.
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
 
   ## Optional parameters:
   """
@@ -2229,9 +2282,12 @@ defmodule AWS.AppFabric do
   processed by Amazon Web Services AppFabric and where it's delivered.
 
   ## Required positional parameters:
-   • :app_bundle_identifier (t:string String.t/0) (appBundleIdentifier)
-   • :ingestion_destination_identifier (t:string String.t/0) (ingestionDestinationIdentifier)
-   • :ingestion_identifier (t:string String.t/0) (ingestionIdentifier)
+  * `:app_bundle_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
+         to use for the request.
+  * `:ingestion_destination_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
+         destination to use for the request.
+  * `:ingestion_identifier` (`t:string`) The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
+         use for the request.
 
   ## Optional parameters:
   """

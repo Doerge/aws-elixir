@@ -995,7 +995,7 @@ defmodule AWS.InternetMonitor do
   Deletes a monitor in Amazon CloudWatch Internet Monitor.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
 
   ## Optional parameters:
   """
@@ -1039,11 +1039,15 @@ defmodule AWS.InternetMonitor do
   the impact type and total traffic impact.
 
   ## Required positional parameters:
-   • :event_id (t:string String.t/0) (EventId)
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:event_id` (`t:string`) The internally-generated identifier of a health event. Because <code>EventID</code> contains the forward slash (“/”) character, you must 
+  	URL-encode the <code>EventID</code> field in the request URL.
+  * `:monitor_name` (`t:string`) The name of the monitor.
 
   ## Optional parameters:
-   • :linked_account_id (t:String.t/0) (LinkedAccountId)
+  * `:linked_account_id` (`t:string`) The account ID for an account that you&#39;ve set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+  	sharing by using Amazon CloudWatch Observability Access Manager. For more information, see 
+  	<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+  	observability</a> in the Amazon CloudWatch Internet Monitor User Guide.
   """
   @spec get_health_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_health_event_output(), any()}
@@ -1090,7 +1094,7 @@ defmodule AWS.InternetMonitor do
   and the status (`ACTIVE` or `RESOLVED`).
 
   ## Required positional parameters:
-   • :event_id (t:string String.t/0) (EventId)
+  * `:event_id` (`t:string`) The <code>EventId</code> of the internet event to return information for. 
 
   ## Optional parameters:
   """
@@ -1122,10 +1126,13 @@ defmodule AWS.InternetMonitor do
   modified time, resources included in the monitor, and status information.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor.
 
   ## Optional parameters:
-   • :linked_account_id (t:String.t/0) (LinkedAccountId)
+  * `:linked_account_id` (`t:string`) The account ID for an account that you&#39;ve set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+  	sharing by using Amazon CloudWatch Observability Access Manager. For more information, see 
+  	<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+  		observability</a> in the Amazon CloudWatch Internet Monitor User Guide.
   """
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
@@ -1168,12 +1175,13 @@ defmodule AWS.InternetMonitor do
   in the Amazon CloudWatch Internet Monitor User Guide.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
-   • :query_id (t: String.t/0) (QueryId)
+  * `:monitor_name` (`t:string`) The name of the monitor to return data for.
+  * `:query_id` (`t:`) The ID of the query that you want to return data results for. A <code>QueryId</code> is an 
+  	internally-generated identifier for a specific query.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of query results that you want to return with this call.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this token from a previous call.
   """
   @spec get_query_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
@@ -1242,8 +1250,9 @@ defmodule AWS.InternetMonitor do
   `CANCELED`: The query was canceled.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
-   • :query_id (t: String.t/0) (QueryId)
+  * `:monitor_name` (`t:string`) The name of the monitor.
+  * `:query_id` (`t:`) The ID of the query that you want to return the status for. A <code>QueryId</code> is an internally-generated 
+  	dentifier for a specific query.
 
   ## Optional parameters:
   """
@@ -1279,15 +1288,18 @@ defmodule AWS.InternetMonitor do
   not included in the list of health events.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor.
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (EndTime)
-   • :event_status (t:String.t/0) (EventStatus)
-   • :linked_account_id (t:String.t/0) (LinkedAccountId)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :start_time (t:String.t/0) (StartTime)
+  * `:end_time` (`t:`) The time when a health event ended. If the health event is still ongoing, then the end time is not set.
+  * `:event_status` (`t:string`) The status of a health event.
+  * `:linked_account_id` (`t:string`) The account ID for an account that you&#39;ve set up cross-account sharing for in Amazon CloudWatch Internet Monitor. You configure cross-account
+  	sharing by using Amazon CloudWatch Observability Access Manager. For more information, see 
+  	<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+  		observability</a> in the Amazon CloudWatch Internet Monitor User Guide.
+  * `:max_results` (`t:integer`) The number of health event objects that you want to return with this call. 
+  * `:next_token` (`t:`) The token for the next set of results. You receive this token from a previous call.
+  * `:start_time` (`t:`) The time when a health event started.
   """
   @spec list_health_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_health_events_output(), any()}
@@ -1384,12 +1396,12 @@ defmodule AWS.InternetMonitor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (EndTime)
-   • :event_status (t:String.t/0) (EventStatus)
-   • :event_type (t:String.t/0) (EventType)
-   • :max_results (t:String.t/0) (InternetEventMaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :start_time (t:String.t/0) (StartTime)
+  * `:end_time` (`t:`) The end time of the time window that you want to get a list of internet events for.
+  * `:event_status` (`t:`) The status of an internet event.
+  * `:event_type` (`t:`) The type of network impairment.
+  * `:max_results` (`t:integer`) The number of query results that you want to return with this call.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this token from a previous call.
+  * `:start_time` (`t:`) The start time of the time window that you want to get a list of internet events for.
   """
   @spec list_internet_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_internet_events_output(), any()}
@@ -1472,10 +1484,14 @@ defmodule AWS.InternetMonitor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_linked_accounts (t:String.t/0) (IncludeLinkedAccounts)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :monitor_status (t:String.t/0) (MonitorStatus)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:include_linked_accounts` (`t:`) A boolean option that you can set to <code>TRUE</code> to include monitors for linked accounts in a list of
+  	monitors, when you&#39;ve set up cross-account sharing in Amazon CloudWatch Internet Monitor. You configure cross-account
+  	sharing by using Amazon CloudWatch Observability Access Manager. For more information, see 
+  	<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet Monitor cross-account
+  		observability</a> in the Amazon CloudWatch Internet Monitor User Guide.
+  * `:max_results` (`t:integer`) The number of monitor objects that you want to return with this call.
+  * `:monitor_status` (`t:`) The status of a monitor. This includes the status of the data processing for the monitor and the status of the monitor itself.
+  * `:next_token` (`t:`) The token for the next set of results. You receive this token from a previous call.
   """
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_output(), any()}
@@ -1539,7 +1555,7 @@ defmodule AWS.InternetMonitor do
   Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
   """
@@ -1578,7 +1594,7 @@ defmodule AWS.InternetMonitor do
   in the Amazon CloudWatch Internet Monitor User Guide.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor to query.
 
   ## Optional parameters:
   """
@@ -1611,8 +1627,8 @@ defmodule AWS.InternetMonitor do
   Stop a query that is progress for a specific monitor.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
-   • :query_id (t: String.t/0) (QueryId)
+  * `:monitor_name` (`t:string`) The name of the monitor.
+  * `:query_id` (`t:`) The ID of the query that you want to stop. A <code>QueryId</code> is an internally-generated identifier for a specific query.
 
   ## Optional parameters:
   """
@@ -1653,7 +1669,7 @@ defmodule AWS.InternetMonitor do
   the `TagResource` request with 0 tags.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.
 
   ## Optional parameters:
   """
@@ -1686,10 +1702,10 @@ defmodule AWS.InternetMonitor do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a tag you remove a resource from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.internetmonitor#TagKey]`) Tag keys that you remove from a resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1735,7 +1751,7 @@ defmodule AWS.InternetMonitor do
   in the *Amazon CloudWatch User Guide*.
 
   ## Required positional parameters:
-   • :monitor_name (t:string String.t/0) (MonitorName)
+  * `:monitor_name` (`t:string`) The name of the monitor. 
 
   ## Optional parameters:
   """

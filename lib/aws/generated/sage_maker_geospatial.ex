@@ -1404,7 +1404,7 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to delete an Earth Observation job.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation job being deleted.
 
   ## Optional parameters:
   """
@@ -1442,7 +1442,7 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to delete a Vector Enrichment job.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.
 
   ## Optional parameters:
   """
@@ -1554,7 +1554,7 @@ defmodule AWS.SageMakerGeospatial do
   Get the details for a previously initiated Earth Observation job.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation job.
 
   ## Optional parameters:
   """
@@ -1582,7 +1582,7 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to get details of a specific raster data collection.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the raster data collection.
 
   ## Optional parameters:
   """
@@ -1610,20 +1610,20 @@ defmodule AWS.SageMakerGeospatial do
   Gets a web mercator tile for the given Earth Observation job.
 
   ## Required positional parameters:
-   • :x (t: String.t/0) (x)
-   • :y (t: String.t/0) (y)
-   • :z (t: String.t/0) (z)
+  * `:x` (`t:`) The x coordinate of the tile input.
+  * `:y` (`t:`) The y coordinate of the tile input.
+  * `:z` (`t:`) The z coordinate of the tile input.
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (Arn)
-   • :execution_role_arn (t:String.t/0) (ExecutionRoleArn)
-   • :image_assets (t:String.t/0) (ImageAssets)
-   • :image_mask (t:String.t/0) (ImageMask)
-   • :output_data_type (t:String.t/0) (OutputDataType)
-   • :output_format (t:String.t/0) (OutputFormat)
-   • :property_filters (t:String.t/0) (PropertyFilters)
-   • :target (t:String.t/0) (Target)
-   • :time_range_filter (t:String.t/0) (TimeRangeFilter)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the tile operation.
+  * `:execution_role_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM role that you specify.
+  * `:image_assets` (`t:list[smithy.api#String]`) The particular assets or bands to tile.
+  * `:image_mask` (`t:`) Determines whether or not to return a valid data mask.
+  * `:output_data_type` (`t:string`) The output data type of the tile operation.
+  * `:output_format` (`t:`) The data format of the output tile. The formats include .npy, .png and .jpg.
+  * `:property_filters` (`t:`) Property filters for the imagery to tile.
+  * `:target` (`t:string`) Determines what part of the Earth Observation job to tile. &#39;INPUT&#39; or &#39;OUTPUT&#39; are the valid options.
+  * `:time_range_filter` (`t:`) Time range filter applied to imagery to find the images to tile.
   """
   @spec get_tile(
           AWS.Client.t(),
@@ -1741,7 +1741,7 @@ defmodule AWS.SageMakerGeospatial do
   Name (ARN).
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment job.
 
   ## Optional parameters:
   """
@@ -1808,8 +1808,9 @@ defmodule AWS.SageMakerGeospatial do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:`) The total number of items to return.
+  * `:next_token` (`t:string`) If the previous response was truncated, you receive this token.
+         Use it in your next request to receive the next set of results.
   """
   @spec list_raster_data_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_raster_data_collections_output(), any()}
@@ -1853,7 +1854,7 @@ defmodule AWS.SageMakerGeospatial do
   Lists the tags attached to the resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to tag.
 
   ## Optional parameters:
   """
@@ -2101,7 +2102,7 @@ defmodule AWS.SageMakerGeospatial do
   The resource you want to tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to tag.
 
   ## Optional parameters:
   """
@@ -2124,10 +2125,10 @@ defmodule AWS.SageMakerGeospatial do
   The resource you want to untag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) Keys of the tags you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

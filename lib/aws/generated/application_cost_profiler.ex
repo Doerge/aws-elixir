@@ -318,7 +318,7 @@ defmodule AWS.ApplicationCostProfiler do
   generated.
 
   ## Required positional parameters:
-   • :report_id (t:string String.t/0) (reportId)
+  * `:report_id` (`t:string`) Required. ID of the report to delete.
 
   ## Optional parameters:
   """
@@ -357,7 +357,7 @@ defmodule AWS.ApplicationCostProfiler do
   Profiler.
 
   ## Required positional parameters:
-   • :report_id (t:string String.t/0) (reportId)
+  * `:report_id` (`t:string`) ID of the report to retrieve.
 
   ## Optional parameters:
   """
@@ -427,8 +427,8 @@ defmodule AWS.ApplicationCostProfiler do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token value from a previous call to access the next page of results.
   """
   @spec list_report_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_definitions_result(), any()}
@@ -504,7 +504,7 @@ defmodule AWS.ApplicationCostProfiler do
   Updates existing report in AWS Application Cost Profiler.
 
   ## Required positional parameters:
-   • :report_id (t:string String.t/0) (reportId)
+  * `:report_id` (`t:string`) Required. ID of the report to update.
 
   ## Optional parameters:
   """

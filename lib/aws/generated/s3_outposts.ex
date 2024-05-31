@@ -372,8 +372,8 @@ defmodule AWS.S3Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :endpoint_id (t:String.t/0) (endpointId)
-   • :outpost_id (t:String.t/0) (outpostId)
+  * `:endpoint_id` (`t:string`) The ID of the endpoint.
+  * `:outpost_id` (`t:string`) The ID of the Outposts. 
   """
   @spec delete_endpoint(AWS.Client.t(), delete_endpoint_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -422,8 +422,9 @@ defmodule AWS.S3Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included a <code>NextToken</code> value, 
+            provide that value here to retrieve the next page of results.
   """
   @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_endpoints_result(), any()}
@@ -474,8 +475,11 @@ defmodule AWS.S3Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of Outposts to return. The limit is 100.
+  * `:next_token` (`t:string`) When you can get additional results from the <code>ListOutpostsWithS3</code> call, a
+                <code>NextToken</code> parameter is returned in the output. You can then pass in a
+            subsequent command to the <code>NextToken</code> parameter to continue listing
+            additional Outposts.
   """
   @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_with_s3_result(), any()}
@@ -532,9 +536,10 @@ defmodule AWS.S3Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :outpost_id (t:String.t/0) (outpostId)
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included a <code>NextToken</code> value, you
+            can provide that value here to retrieve the next page of results.
+  * `:outpost_id` (`t:string`) The ID of the Amazon Web Services Outpost.
   """
   @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_shared_endpoints_result(), any()}

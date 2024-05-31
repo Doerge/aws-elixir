@@ -443,7 +443,9 @@ defmodule AWS.ElasticInference do
   service.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) 
+            The ARN of the Elastic Inference Accelerator to list the tags for.
+        
 
   ## Optional parameters:
   """
@@ -481,7 +483,9 @@ defmodule AWS.ElasticInference do
   service.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) 
+            The ARN of the Elastic Inference Accelerator to tag.
+        
 
   ## Optional parameters:
   """
@@ -524,10 +528,14 @@ defmodule AWS.ElasticInference do
   service.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) 
+            The ARN of the Elastic Inference Accelerator to untag.
+        
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]`) 
+            The list of tags to remove from the Elastic Inference Accelerator.
+        
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}

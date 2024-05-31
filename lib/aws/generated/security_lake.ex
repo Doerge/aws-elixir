@@ -1685,7 +1685,7 @@ defmodule AWS.SecurityLake do
   subscriber.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) The subscriber ID for the notification subscription.
 
   ## Optional parameters:
   """
@@ -1771,10 +1771,11 @@ defmodule AWS.SecurityLake do
   source to Security Lake.
 
   ## Required positional parameters:
-   • :source_name (t:string String.t/0) (sourceName)
+  * `:source_name` (`t:string`) The source name of custom log source that you want to delete.
 
   ## Optional parameters:
-   • :source_version (t:String.t/0) (sourceVersion)
+  * `:source_version` (`t:string`) The source version for the third-party custom source. You can limit the custom source
+         removal to the specified source version.
   """
   @spec delete_custom_log_source(
           AWS.Client.t(),
@@ -1949,7 +1950,7 @@ defmodule AWS.SecurityLake do
   Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) A value created by Security Lake that uniquely identifies your <code>DeleteSubscriber</code> API request.
 
   ## Optional parameters:
   """
@@ -1984,7 +1985,7 @@ defmodule AWS.SecurityLake do
   you specify.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) The ID of the Security Lake subscriber account.
 
   ## Optional parameters:
   """
@@ -2161,7 +2162,8 @@ defmodule AWS.SecurityLake do
   information about a specific subscriber.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) A value created by Amazon Security Lake that uniquely identifies your
+            <code>GetSubscriber</code> API request.
 
   ## Optional parameters:
   """
@@ -2233,7 +2235,7 @@ defmodule AWS.SecurityLake do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :regions (t:String.t/0) (regions)
+  * `:regions` (`t:list[com.amazonaws.securitylake#Region]`) The list of Regions where Security Lake is enabled.
   """
   @spec list_data_lakes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_lakes_response(), any()}
@@ -2306,8 +2308,9 @@ defmodule AWS.SecurityLake do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of accounts for which the configuration is displayed.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results available. You can repeat the call
+         using the returned token to retrieve the next page.
   """
   @spec list_subscribers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscribers_response(), any()}
@@ -2353,7 +2356,7 @@ defmodule AWS.SecurityLake do
   your Amazon Web Services account in a particular Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Security Lake resource for which you want to retrieve the tags.
 
   ## Optional parameters:
   """
@@ -2437,7 +2440,7 @@ defmodule AWS.SecurityLake do
   *Amazon Security Lake User Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Security Lake resource to add or update the tags for.
 
   ## Optional parameters:
   """
@@ -2472,10 +2475,10 @@ defmodule AWS.SecurityLake do
   Amazon Web Services account in a particular Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Security Lake resource to remove one or more tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.securitylake#TagKey]`) A list of one or more tag keys. For each value in the list, specify the tag key for a tag to remove from the Amazon Security Lake resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2567,7 +2570,7 @@ defmodule AWS.SecurityLake do
   a subscriber by changing the sources that the subscriber consumes data from.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) A value created by Security Lake that uniquely identifies your subscription.
 
   ## Optional parameters:
   """
@@ -2592,7 +2595,7 @@ defmodule AWS.SecurityLake do
   switches the notification subscription endpoint for a subscriber.
 
   ## Required positional parameters:
-   • :subscriber_id (t:string String.t/0) (subscriberId)
+  * `:subscriber_id` (`t:string`) The subscription ID for which the subscription notification is specified.
 
   ## Optional parameters:
   """

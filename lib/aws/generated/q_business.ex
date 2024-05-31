@@ -3151,8 +3151,9 @@ defmodule AWS.QBusiness do
   process, by using CloudWatch.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index that contains the documents to
+            delete.
 
   ## Optional parameters:
   """
@@ -3209,8 +3210,8 @@ defmodule AWS.QBusiness do
   process, by using CloudWatch.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index to add the documents to. 
 
   ## Optional parameters:
   """
@@ -3251,14 +3252,15 @@ defmodule AWS.QBusiness do
   Starts or continues a streaming Amazon Q Business conversation.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business
+            conversation.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
-   • :conversation_id (t:String.t/0) (conversationId)
-   • :parent_message_id (t:String.t/0) (parentMessageId)
-   • :user_groups (t:String.t/0) (userGroups)
-   • :user_id (t:String.t/0) (userId)
+  * `:client_token` (`t:string`) A token that you provide to identify the chat input.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business conversation.
+  * `:parent_message_id` (`t:string`) The identifier used to associate a user message with a AI generated response.
+  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a user associated with the chat input belongs to.
+  * `:user_id` (`t:string`) The identifier of the user attached to the chat input. 
   """
   @spec chat(AWS.Client.t(), String.t(), chat_input(), Keyword.t()) ::
           {:ok, chat_output(), any()}
@@ -3298,11 +3300,12 @@ defmodule AWS.QBusiness do
   Starts or continues a non-streaming Amazon Q Business conversation.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the Amazon Q Business
+            conversation.
 
   ## Optional parameters:
-   • :user_groups (t:String.t/0) (userGroups)
-   • :user_id (t:String.t/0) (userId)
+  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a user associated with the chat input belongs to.
+  * `:user_id` (`t:string`) The identifier of the user attached to the chat input.
   """
   @spec chat_sync(AWS.Client.t(), String.t(), chat_sync_input(), Keyword.t()) ::
           {:ok, chat_sync_output(), any()}
@@ -3382,8 +3385,10 @@ defmodule AWS.QBusiness do
   the data source was successfully created. Otherwise, an exception is raised.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`)  The identifier of the Amazon Q Business application the data source will be attached
+            to.
+  * `:index_id` (`t:string`) The identifier of the index that you want to use with the data source
+            connector.
 
   ## Optional parameters:
   """
@@ -3436,7 +3441,7 @@ defmodule AWS.QBusiness do
   API.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the index.
 
   ## Optional parameters:
   """
@@ -3469,7 +3474,7 @@ defmodule AWS.QBusiness do
   Creates an Amazon Q Business plugin.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application that will contain the plugin.
 
   ## Optional parameters:
   """
@@ -3502,7 +3507,7 @@ defmodule AWS.QBusiness do
   Adds a retriever to your Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of your Amazon Q Business application.
 
   ## Optional parameters:
   """
@@ -3537,7 +3542,7 @@ defmodule AWS.QBusiness do
   within an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application for which the user mapping will be created.
 
   ## Optional parameters:
   """
@@ -3570,7 +3575,7 @@ defmodule AWS.QBusiness do
   Creates an Amazon Q Business web experience.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business web experience.
 
   ## Optional parameters:
   """
@@ -3608,7 +3613,7 @@ defmodule AWS.QBusiness do
   Deletes an Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
 
   ## Optional parameters:
   """
@@ -3641,7 +3646,7 @@ defmodule AWS.QBusiness do
   Deletes chat controls configured for an existing Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application the chat controls have been configured for.
 
   ## Optional parameters:
   """
@@ -3679,11 +3684,12 @@ defmodule AWS.QBusiness do
   Deletes an Amazon Q Business web experience conversation.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :conversation_id (t:string String.t/0) (conversationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application associated with the
+            conversation.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web experience conversation being deleted.
 
   ## Optional parameters:
-   • :user_id (t:String.t/0) (userId)
+  * `:user_id` (`t:string`) The identifier of the user who is deleting the conversation.
   """
   @spec delete_conversation(
           AWS.Client.t(),
@@ -3737,9 +3743,10 @@ defmodule AWS.QBusiness do
   `DescribeDataSource` API is set to `DELETING`.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application used with the data source
+            connector.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector that you want to delete. 
+  * `:index_id` (`t:string`) The identifier of the index used with the data source connector.
 
   ## Optional parameters:
   """
@@ -3803,12 +3810,12 @@ defmodule AWS.QBusiness do
   when calling `PutGroup`.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :group_name (t:string String.t/0) (groupName)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the application in which the group mapping belongs.
+  * `:group_name` (`t:string`) The name of the group you want to delete.
+  * `:index_id` (`t:string`) The identifier of the index you want to delete the group from.
 
   ## Optional parameters:
-   • :data_source_id (t:String.t/0) (dataSourceId)
+  * `:data_source_id` (`t:string`) The identifier of the data source linked to the group
   """
   @spec delete_group(
           AWS.Client.t(),
@@ -3853,8 +3860,9 @@ defmodule AWS.QBusiness do
   Deletes an Amazon Q Business index.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application the Amazon Q Business index is linked
+            to.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
 
   ## Optional parameters:
   """
@@ -3889,8 +3897,8 @@ defmodule AWS.QBusiness do
   Deletes an Amazon Q Business plugin.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :plugin_id (t:string String.t/0) (pluginId)
+  * `:application_id` (`t:string`) The identifier the application attached to the Amazon Q Business plugin.
+  * `:plugin_id` (`t:string`) The identifier of the plugin being deleted.
 
   ## Optional parameters:
   """
@@ -3931,8 +3939,8 @@ defmodule AWS.QBusiness do
   Deletes the retriever used by an Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :retriever_id (t:string String.t/0) (retrieverId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
+  * `:retriever_id` (`t:string`) The identifier of the retriever being deleted.
 
   ## Optional parameters:
   """
@@ -3973,8 +3981,8 @@ defmodule AWS.QBusiness do
   Deletes a user by email id.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :user_id (t:string String.t/0) (userId)
+  * `:application_id` (`t:string`) The identifier of the application from which the user is being deleted.
+  * `:user_id` (`t:string`) The user email being deleted.
 
   ## Optional parameters:
   """
@@ -4009,8 +4017,9 @@ defmodule AWS.QBusiness do
   Deletes an Amazon Q Business web experience.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :web_experience_id (t:string String.t/0) (webExperienceId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the Amazon Q Business web
+            experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience being deleted.
 
   ## Optional parameters:
   """
@@ -4057,7 +4066,7 @@ defmodule AWS.QBusiness do
   Gets information about an existing Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
 
   ## Optional parameters:
   """
@@ -4087,11 +4096,14 @@ defmodule AWS.QBusiness do
   application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application for which the chat controls are configured.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of configured chat controls to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of Amazon Q Business chat controls
+            configured.
   """
   @spec get_chat_controls_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_chat_controls_configuration_response(), any()}
@@ -4135,9 +4147,9 @@ defmodule AWS.QBusiness do
   Gets information about an existing Amazon Q Business data source connector.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identfier of the index used with the data source connector.
 
   ## Optional parameters:
   """
@@ -4166,12 +4178,12 @@ defmodule AWS.QBusiness do
   Describes a group by group name.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :group_name (t:string String.t/0) (groupName)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the application id the group is attached to.
+  * `:group_name` (`t:string`) The name of the group.
+  * `:index_id` (`t:string`) The identifier of the index the group is attached to.
 
   ## Optional parameters:
-   • :data_source_id (t:String.t/0) (dataSourceId)
+  * `:data_source_id` (`t:string`) The identifier of the data source the group is attached to.
   """
   @spec get_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
@@ -4207,8 +4219,8 @@ defmodule AWS.QBusiness do
   Gets information about an existing Amazon Q Business index.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index you want information on.
 
   ## Optional parameters:
   """
@@ -4237,8 +4249,8 @@ defmodule AWS.QBusiness do
   Gets information about an existing Amazon Q Business plugin.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :plugin_id (t:string String.t/0) (pluginId)
+  * `:application_id` (`t:string`) The identifier of the application which contains the plugin.
+  * `:plugin_id` (`t:string`) The identifier of the plugin.
 
   ## Optional parameters:
   """
@@ -4268,8 +4280,8 @@ defmodule AWS.QBusiness do
   application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :retriever_id (t:string String.t/0) (retrieverId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
+  * `:retriever_id` (`t:string`) The identifier of the retriever.
 
   ## Optional parameters:
   """
@@ -4300,8 +4312,8 @@ defmodule AWS.QBusiness do
   data source.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :user_id (t:string String.t/0) (userId)
+  * `:application_id` (`t:string`) The identifier of the application connected to the user.
+  * `:user_id` (`t:string`) The user email address attached to the user.
 
   ## Optional parameters:
   """
@@ -4330,8 +4342,8 @@ defmodule AWS.QBusiness do
   Gets information about an existing Amazon Q Business web experience.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :web_experience_id (t:string String.t/0) (webExperienceId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the web experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience. 
 
   ## Optional parameters:
   """
@@ -4362,8 +4374,10 @@ defmodule AWS.QBusiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business applications to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of Amazon Q Business applications.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -4407,12 +4421,15 @@ defmodule AWS.QBusiness do
   Lists one or more Amazon Q Business conversations.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :user_id (t:String.t/0) (userId)
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business conversations to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of Amazon Q Business conversations.
+  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q Business web experience conversation.
+        
   """
   @spec list_conversations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_conversations_response(), any()}
@@ -4466,16 +4483,19 @@ defmodule AWS.QBusiness do
   synchronization.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the data source.
+  * `:data_source_id` (`t:string`)  The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q Business data source connector.
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (endTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
-   • :status_filter (t:String.t/0) (syncStatus)
+  * `:end_time` (`t:timestamp`)  The end time of the data source connector sync.
+  * `:max_results` (`t:integer`) The maximum number of synchronization jobs to return in the response.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incpmplete because there is more data to
+            retriever, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of responses.
+  * `:start_time` (`t:timestamp`)  The start time of the data source connector sync. 
+  * `:status_filter` (`t:enum["ABORTED|FAILED|INCOMPLETE|STOPPING|SUCCEEDED|SYNCING|SYNCING_INDEXING"]`) Only returns synchronization jobs with the <code>Status</code> field equal to the
+            specified status.
   """
   @spec list_data_source_sync_jobs(
           AWS.Client.t(),
@@ -4559,12 +4579,16 @@ defmodule AWS.QBusiness do
   Lists the Amazon Q Business data source connectors that you have created.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the data source
+            connectors.
+  * `:index_id` (`t:string`) The identifier of the index used with one or more data source connectors.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of data source connectors to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of Amazon Q Business data source
+            connectors.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
@@ -4609,13 +4633,15 @@ defmodule AWS.QBusiness do
   A list of documents attached to an index.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the application id the documents are attached to.
+  * `:index_id` (`t:string`) The identifier of the index the documents are attached to.
 
   ## Optional parameters:
-   • :data_source_ids (t:String.t/0) (dataSourceIds)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:data_source_ids` (`t:list[com.amazonaws.qbusiness#DataSourceId]`) The identifier of the data sources the documents are attached to.
+  * `:max_results` (`t:integer`) The maximum number of documents to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of documents.
   """
   @spec list_documents(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_documents_response(), any()}
@@ -4669,14 +4695,17 @@ defmodule AWS.QBusiness do
   Provides a list of groups that are mapped to users.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the application for getting a list of groups mapped to users.
+  * `:index_id` (`t:string`) The identifier of the index for getting a list of groups mapped to users.
 
   ## Optional parameters:
-   • :data_source_id (t:String.t/0) (dataSourceId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :updated_earlier_than (t:String.t/0) (updatedEarlierThan)
+  * `:data_source_id` (`t:string`) The identifier of the data source for getting a list of groups mapped to users.
+  * `:max_results` (`t:integer`) The maximum number of returned groups that are mapped to users.
+  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more data to retrieve),
+            Amazon Q Business returns a pagination token in the response. You can use this pagination
+            token to retrieve the next set of groups that are mapped to users.
+  * `:updated_earlier_than` (`t:timestamp`) The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
+            action for mapping users to their groups.
   """
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -4745,11 +4774,13 @@ defmodule AWS.QBusiness do
   Lists the Amazon Q Business indices you have created.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of indices to return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because there is more data to retrieve,
+            Amazon Q Business returns a pagination token in the response. You can use this pagination
+            token to retrieve the next set of Amazon Q Business indices.
   """
   @spec list_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
@@ -4793,13 +4824,15 @@ defmodule AWS.QBusiness do
   Gets a list of messages associated with an Amazon Q Business web experience.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :conversation_id (t:string String.t/0) (conversationId)
+  * `:application_id` (`t:string`) The identifier for the Amazon Q Business application.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web experience conversation.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :user_id (t:String.t/0) (userId)
+  * `:max_results` (`t:integer`) The maximum number of messages to return.
+  * `:next_token` (`t:string`) If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
+            returns a next token as a pagination token to retrieve the next set of messages.
+  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q Business web experience
+            conversation.
   """
   @spec list_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_messages_response(), any()}
@@ -4853,11 +4886,13 @@ defmodule AWS.QBusiness do
   Lists configured Amazon Q Business plugins.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application the plugin is attached to.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of documents to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of plugins.
   """
   @spec list_plugins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
@@ -4901,11 +4936,13 @@ defmodule AWS.QBusiness do
   Lists the retriever used by an Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of retrievers returned.
+  * `:next_token` (`t:string`) If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
+            returns a next token as a pagination token to retrieve the next set of
+            retrievers.
   """
   @spec list_retrievers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_retrievers_response(), any()}
@@ -4952,7 +4989,8 @@ defmodule AWS.QBusiness do
   and data sources can have tags associated with them.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
+            a list of tags for.
 
   ## Optional parameters:
   """
@@ -4980,11 +5018,14 @@ defmodule AWS.QBusiness do
   Lists one or more Amazon Q Business Web Experiences.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the listed web
+            experiences.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business Web Experiences to return.
+  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
+            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
+            pagination token to retrieve the next set of Amazon Q Business conversations.
   """
   @spec list_web_experiences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_web_experiences_response(), any()}
@@ -5030,12 +5071,12 @@ defmodule AWS.QBusiness do
   responses.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :conversation_id (t:string String.t/0) (conversationId)
-   • :message_id (t:string String.t/0) (messageId)
+  * `:application_id` (`t:string`) The identifier of the application associated with the feedback.
+  * `:conversation_id` (`t:string`) The identifier of the conversation the feedback is attached to.
+  * `:message_id` (`t:string`) The identifier of the chat message that the feedback was given for.
 
   ## Optional parameters:
-   • :user_id (t:String.t/0) (userId)
+  * `:user_id` (`t:string`) The identifier of the user giving the feedback.
   """
   @spec put_feedback(
           AWS.Client.t(),
@@ -5098,8 +5139,8 @@ defmodule AWS.QBusiness do
   can see top-secret company documents in their Amazon Q Business chat results.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the application in which the user and group mapping belongs.
+  * `:index_id` (`t:string`) The identifier of the index in which you want to map users to their groups.
 
   ## Optional parameters:
   """
@@ -5127,9 +5168,9 @@ defmodule AWS.QBusiness do
   already in progress, Amazon Q Business returns a `ConflictException`.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of Amazon Q Business application the data source is connected to.
+  * `:data_source_id` (`t:string`)  The identifier of the data source connector. 
+  * `:index_id` (`t:string`) The identifier of the index used with the data source connector.
 
   ## Optional parameters:
   """
@@ -5179,9 +5220,10 @@ defmodule AWS.QBusiness do
   progress.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application that the data source is connected
+            to.
+  * `:data_source_id` (`t:string`)  The identifier of the data source connector. 
+  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q Business data source connector.
 
   ## Optional parameters:
   """
@@ -5235,7 +5277,8 @@ defmodule AWS.QBusiness do
   value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to
+            tag.
 
   ## Optional parameters:
   """
@@ -5268,10 +5311,12 @@ defmodule AWS.QBusiness do
   Removes a tag from an Amazon Q Business application or a data source.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to
+            remove the tag from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.qbusiness#TagKey]`) A list of tag keys to remove from the Amazon Q Business application or data source. If a
+            tag key does not exist on the resource, it is ignored.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5307,7 +5352,7 @@ defmodule AWS.QBusiness do
   Updates an existing Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
 
   ## Optional parameters:
   """
@@ -5331,7 +5376,7 @@ defmodule AWS.QBusiness do
   application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application for which the chat controls are configured.
 
   ## Optional parameters:
   """
@@ -5369,9 +5414,10 @@ defmodule AWS.QBusiness do
   Updates an existing Amazon Q Business data source connector.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`)  The identifier of the Amazon Q Business application the data source is attached
+            to.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index attached to the data source connector.
 
   ## Optional parameters:
   """
@@ -5410,8 +5456,8 @@ defmodule AWS.QBusiness do
   Updates an Amazon Q Business index.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :index_id (t:string String.t/0) (indexId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
 
   ## Optional parameters:
   """
@@ -5436,8 +5482,8 @@ defmodule AWS.QBusiness do
   Updates an Amazon Q Business plugin.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :plugin_id (t:string String.t/0) (pluginId)
+  * `:application_id` (`t:string`) The identifier of the application the plugin is attached to.
+  * `:plugin_id` (`t:string`) The identifier of the plugin.
 
   ## Optional parameters:
   """
@@ -5468,8 +5514,8 @@ defmodule AWS.QBusiness do
   Updates the retriever used for your Amazon Q Business application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :retriever_id (t:string String.t/0) (retrieverId)
+  * `:application_id` (`t:string`) The identifier of your Amazon Q Business application.
+  * `:retriever_id` (`t:string`) The identifier of your retriever.
 
   ## Optional parameters:
   """
@@ -5500,8 +5546,8 @@ defmodule AWS.QBusiness do
   Updates a information associated with a user id.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :user_id (t:string String.t/0) (userId)
+  * `:application_id` (`t:string`) The identifier of the application the user is attached to.
+  * `:user_id` (`t:string`) The email id attached to the user.
 
   ## Optional parameters:
   """
@@ -5526,8 +5572,8 @@ defmodule AWS.QBusiness do
   Updates an Amazon Q Business web experience.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :web_experience_id (t:string String.t/0) (webExperienceId)
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application attached to the web experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience.
 
   ## Optional parameters:
   """

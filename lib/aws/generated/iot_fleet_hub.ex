@@ -380,10 +380,11 @@ defmodule AWS.IoTFleetHub do
   Deletes a Fleet Hub for IoT Device Management web application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -419,7 +420,7 @@ defmodule AWS.IoTFleetHub do
   Gets information about a Fleet Hub for IoT Device Management web application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:
   """
@@ -450,7 +451,7 @@ defmodule AWS.IoTFleetHub do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -485,7 +486,7 @@ defmodule AWS.IoTFleetHub do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -515,7 +516,7 @@ defmodule AWS.IoTFleetHub do
   Tags are metadata which can be used to manage a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -548,10 +549,10 @@ defmodule AWS.IoTFleetHub do
   Removes the specified tags (metadata) from the resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]`) A list of the keys of the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -587,7 +588,7 @@ defmodule AWS.IoTFleetHub do
   Updates information about a Fleet Hub for IoT Device Management web application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:
   """

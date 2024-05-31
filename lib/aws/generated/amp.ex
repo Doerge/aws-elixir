@@ -1116,7 +1116,7 @@ defmodule AWS.Amp do
   `PutAlertManagerDefinition`.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the alert manager definition to.
 
   ## Optional parameters:
   """
@@ -1158,7 +1158,7 @@ defmodule AWS.Amp do
   the logs will be published to.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to create the logging configuration for.
 
   ## Optional parameters:
   """
@@ -1204,7 +1204,7 @@ defmodule AWS.Amp do
   rule groups namespace, use `PutRuleGroupsNamespace`.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the rule groups namespace.
 
   ## Optional parameters:
   """
@@ -1337,10 +1337,11 @@ defmodule AWS.Amp do
   Deletes the alert manager definition from a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete the alert manager definition from.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
+            Case-sensitive.
   """
   @spec delete_alert_manager_definition(
           AWS.Client.t(),
@@ -1381,10 +1382,11 @@ defmodule AWS.Amp do
   Deletes the logging configuration for a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the logging configuration to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
+            Case-sensitive.
   """
   @spec delete_logging_configuration(
           AWS.Client.t(),
@@ -1425,11 +1427,13 @@ defmodule AWS.Amp do
   Deletes one rule groups namespace and its associated rule groups definition.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:name` (`t:string`) The name of the rule groups namespace to delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespace and definition to
+            delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
+            Case-sensitive.
   """
   @spec delete_rule_groups_namespace(
           AWS.Client.t(),
@@ -1474,10 +1478,11 @@ defmodule AWS.Amp do
   collection that the scraper performs.
 
   ## Required positional parameters:
-   • :scraper_id (t:string String.t/0) (scraperId)
+  * `:scraper_id` (`t:string`) The ID of the scraper to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier that you can provide to ensure the 
+            idempotency of the request.
   """
   @spec delete_scraper(AWS.Client.t(), String.t(), delete_scraper_request(), Keyword.t()) ::
           {:ok, delete_scraper_response(), any()}
@@ -1516,10 +1521,11 @@ defmodule AWS.Amp do
   immediately deleted. It will be permanently deleted within one month.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
+            Case-sensitive.
   """
   @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1556,7 +1562,7 @@ defmodule AWS.Amp do
   workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to retrieve the alert manager definition from.
 
   ## Optional parameters:
   """
@@ -1585,7 +1591,7 @@ defmodule AWS.Amp do
   workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to describe the logging configuration for.
 
   ## Optional parameters:
   """
@@ -1616,8 +1622,8 @@ defmodule AWS.Amp do
   rule groups namespaces, use `ListRuleGroupsNamespaces`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:name` (`t:string`) The name of the rule groups namespace that you want information for.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespace.
 
   ## Optional parameters:
   """
@@ -1647,7 +1653,7 @@ defmodule AWS.Amp do
   scraper.
 
   ## Required positional parameters:
-   • :scraper_id (t:string String.t/0) (scraperId)
+  * `:scraper_id` (`t:string`) The ID of the scraper to describe.
 
   ## Optional parameters:
   """
@@ -1675,7 +1681,7 @@ defmodule AWS.Amp do
   Returns information about an existing workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to describe.
 
   ## Optional parameters:
   """
@@ -1731,12 +1737,15 @@ defmodule AWS.Amp do
   Returns a list of rule groups namespaces in a workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespaces.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of results to return. The default is 100.
+  * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces that are returned. Only the
+            namespaces with names that begin with the value that you specify are returned.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You receive this token from a previous
+            call, and use it to get the next page of results. The other parameters must be the same
+            as the initial call.
   """
   @spec list_rule_groups_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
@@ -1795,9 +1804,14 @@ defmodule AWS.Amp do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :filters (t:String.t/0) (filters)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list of scrapers returned.
+            Keys include <code>status</code>, <code>sourceArn</code>, 
+            <code>destinationArn</code>, and <code>alias</code>.
+  * `:max_results` (`t:`) Optional) The maximum number of
+            scrapers to return in one <code>ListScrapers</code> operation. The range is
+            1-1000.
+  * `:next_token` (`t:string`) (Optional) The token for the next set of
+            items to return. (You received this token from a previous call.)
   """
   @spec list_scrapers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scrapers_response(), any()}
@@ -1854,7 +1868,8 @@ defmodule AWS.Amp do
   tagged are workspaces and rule groups namespaces.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The ARN of the resource to list tages for. Must be a workspace or rule groups
+            namespace resource.
 
   ## Optional parameters:
   """
@@ -1888,9 +1903,12 @@ defmodule AWS.Amp do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :alias (t:String.t/0) (alias)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:alias` (`t:string`) If this is included, it filters the results to only the workspaces with names that
+            start with the value that you specify here.
+  * `:max_results` (`t:`) The maximum number of workspaces to return per request. The default is 100.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You receive this token from a previous
+            call, and use it to get the next page of results. The other parameters must be the same
+            as the initial call.
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -1947,7 +1965,7 @@ defmodule AWS.Amp do
   Instead, use `CreateAlertManagerDefinition`.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the alert manager definition in.
 
   ## Optional parameters:
   """
@@ -1987,8 +2005,8 @@ defmodule AWS.Amp do
   Instead, use `TagResource`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:name` (`t:string`) The name of the rule groups namespace that you are updating.
+  * `:workspace_id` (`t:string`) The ID of the workspace where you are updating the rule groups namespace.
 
   ## Optional parameters:
   """
@@ -2032,7 +2050,7 @@ defmodule AWS.Amp do
   that tag.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace to apply tags to.
 
   ## Optional parameters:
   """
@@ -2069,10 +2087,10 @@ defmodule AWS.Amp do
   that can be tagged are workspaces and rule groups namespaces.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]`) The keys of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2109,7 +2127,7 @@ defmodule AWS.Amp do
   configuration.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the logging configuration for.
 
   ## Optional parameters:
   """
@@ -2137,7 +2155,7 @@ defmodule AWS.Amp do
   Updates the alias of an existing workspace.
 
   ## Required positional parameters:
-   • :workspace_id (t:string String.t/0) (workspaceId)
+  * `:workspace_id` (`t:string`) The ID of the workspace to update.
 
   ## Optional parameters:
   """

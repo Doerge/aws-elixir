@@ -1406,8 +1406,8 @@ defmodule AWS.Finspacedata do
   perform in FinSpace.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
-   • :user_id (t:string String.t/0) (userId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
   """
@@ -1454,7 +1454,8 @@ defmodule AWS.Finspacedata do
   Creates a new Changeset in a FinSpace Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset where the Changeset will be created.
+    
 
   ## Optional parameters:
   """
@@ -1487,7 +1488,7 @@ defmodule AWS.Finspacedata do
   Creates a Dataview for a Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique Dataset identifier that is used to create a Dataview.
 
   ## Optional parameters:
   """
@@ -1617,10 +1618,10 @@ defmodule AWS.Finspacedata do
   Deletes a FinSpace Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier of the Dataset to be deleted.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
@@ -1658,10 +1659,10 @@ defmodule AWS.Finspacedata do
   This action is irreversible.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group that you want to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_permission_group(
           AWS.Client.t(),
@@ -1702,7 +1703,7 @@ defmodule AWS.Finspacedata do
   Denies access to the FinSpace web application and API for the specified user.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to deactivate.
 
   ## Optional parameters:
   """
@@ -1735,11 +1736,11 @@ defmodule AWS.Finspacedata do
   Removes a user from a permission group.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
-   • :user_id (t:string String.t/0) (userId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec disassociate_user_from_permission_group(
           AWS.Client.t(),
@@ -1789,7 +1790,7 @@ defmodule AWS.Finspacedata do
   Allows the specified user to access the FinSpace web application and API.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to activate.
 
   ## Optional parameters:
   """
@@ -1822,8 +1823,8 @@ defmodule AWS.Finspacedata do
   Get information about a Changeset.
 
   ## Required positional parameters:
-   • :changeset_id (t:string String.t/0) (changesetId)
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:changeset_id` (`t:string`) The unique identifier of the Changeset for which to get data.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset where the Changeset is created.
 
   ## Optional parameters:
   """
@@ -1852,8 +1853,8 @@ defmodule AWS.Finspacedata do
   Gets information about a Dataview.
 
   ## Required positional parameters:
-   • :data_view_id (t:string String.t/0) (dataViewId)
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:data_view_id` (`t:string`) The unique identifier for the Dataview.
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset used in the Dataview.
 
   ## Optional parameters:
   """
@@ -1882,7 +1883,7 @@ defmodule AWS.Finspacedata do
   Returns information about a Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier for a Dataset.
 
   ## Optional parameters:
   """
@@ -1919,8 +1920,8 @@ defmodule AWS.Finspacedata do
   to access has `Read Dataset Data` permissions.
 
   ## Required positional parameters:
-   • :data_view_id (t:string String.t/0) (dataViewId)
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:data_view_id` (`t:string`) The unique identifier for the Dataview that you want to access.
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset.
 
   ## Optional parameters:
   """
@@ -1967,7 +1968,7 @@ defmodule AWS.Finspacedata do
   Retrieves the details of a specific permission group.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
 
   ## Optional parameters:
   """
@@ -2000,8 +2001,8 @@ defmodule AWS.Finspacedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :duration_in_minutes (t:String.t/0) (durationInMinutes)
-   • :environment_id (t:String.t/0) (environmentId)
+  * `:duration_in_minutes` (`t:long`) The time duration in which the credentials remain valid. 
+  * `:environment_id` (`t:string`) The FinSpace environment identifier.
   """
   @spec get_programmatic_access_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
@@ -2045,7 +2046,7 @@ defmodule AWS.Finspacedata do
   Retrieves details for a specific user.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier of the user to get data for.
 
   ## Optional parameters:
   """
@@ -2107,11 +2108,11 @@ defmodule AWS.Finspacedata do
   Lists the FinSpace Changesets for a Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset to which the Changeset belongs.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_changesets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changesets_response(), any()}
@@ -2155,11 +2156,11 @@ defmodule AWS.Finspacedata do
   Lists all available Dataviews for a Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier of the Dataset for which to retrieve Dataviews.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_data_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_views_response(), any()}
@@ -2205,8 +2206,8 @@ defmodule AWS.Finspacedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2252,8 +2253,8 @@ defmodule AWS.Finspacedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_permission_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_response(), any()}
@@ -2297,11 +2298,11 @@ defmodule AWS.Finspacedata do
   Lists all the permission groups that are associated with a specific user.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_permission_groups_by_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
@@ -2347,8 +2348,8 @@ defmodule AWS.Finspacedata do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -2392,11 +2393,11 @@ defmodule AWS.Finspacedata do
   Lists details of all the users in a specific permission group.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results per page.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_users_by_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_by_permission_group_response(), any()}
@@ -2448,7 +2449,7 @@ defmodule AWS.Finspacedata do
   immediately invalidates the previous password associated with the user.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier of the user that a temporary password is requested for.
 
   ## Optional parameters:
   """
@@ -2486,8 +2487,8 @@ defmodule AWS.Finspacedata do
   Updates a FinSpace Changeset.
 
   ## Required positional parameters:
-   • :changeset_id (t:string String.t/0) (changesetId)
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:changeset_id` (`t:string`) The unique identifier for the Changeset to update.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset in which the Changeset is created.
 
   ## Optional parameters:
   """
@@ -2518,7 +2519,7 @@ defmodule AWS.Finspacedata do
   Updates a FinSpace Dataset.
 
   ## Required positional parameters:
-   • :dataset_id (t:string String.t/0) (datasetId)
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset to update.
 
   ## Optional parameters:
   """
@@ -2543,7 +2544,7 @@ defmodule AWS.Finspacedata do
   You cannot modify a `permissionGroupID`.
 
   ## Required positional parameters:
-   • :permission_group_id (t:string String.t/0) (permissionGroupId)
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission group to update.
 
   ## Optional parameters:
   """
@@ -2573,7 +2574,7 @@ defmodule AWS.Finspacedata do
   You cannot update the `userId` for a user.
 
   ## Required positional parameters:
-   • :user_id (t:string String.t/0) (userId)
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to update.
 
   ## Optional parameters:
   """

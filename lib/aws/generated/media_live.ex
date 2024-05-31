@@ -7138,7 +7138,7 @@ defmodule AWS.MediaLive do
   The ownership of the device will transfer to your AWS account.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7272,7 +7272,7 @@ defmodule AWS.MediaLive do
   Update a channel schedule
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7300,7 +7300,7 @@ defmodule AWS.MediaLive do
   Cancel an input device transfer that you have requested.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7654,7 +7654,7 @@ defmodule AWS.MediaLive do
   Create a new program in the multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7692,7 +7692,7 @@ defmodule AWS.MediaLive do
   Create a partner input
 
   ## Required positional parameters:
-   • :input_id (t:string String.t/0) (InputId)
+  * `:input_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7765,7 +7765,7 @@ defmodule AWS.MediaLive do
   Create tags for a resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7800,7 +7800,7 @@ defmodule AWS.MediaLive do
   The associated outputs are also deleted.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7833,7 +7833,7 @@ defmodule AWS.MediaLive do
   Deletes a cloudwatch alarm template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7874,7 +7874,7 @@ defmodule AWS.MediaLive do
   templates are moved to another group or deleted.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7917,7 +7917,7 @@ defmodule AWS.MediaLive do
   Deletes an eventbridge rule template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -7958,7 +7958,7 @@ defmodule AWS.MediaLive do
   templates are moved to another group or deleted.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8001,7 +8001,7 @@ defmodule AWS.MediaLive do
   Deletes the input end point
 
   ## Required positional parameters:
-   • :input_id (t:string String.t/0) (InputId)
+  * `:input_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8034,7 +8034,7 @@ defmodule AWS.MediaLive do
   Deletes an Input Security Group
 
   ## Required positional parameters:
-   • :input_security_group_id (t:string String.t/0) (InputSecurityGroupId)
+  * `:input_security_group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8079,7 +8079,7 @@ defmodule AWS.MediaLive do
   The multiplex must be idle.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8112,8 +8112,8 @@ defmodule AWS.MediaLive do
   Delete a program from a multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:multiplex_id` (`t:string`) 
+  * `:program_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8160,7 +8160,7 @@ defmodule AWS.MediaLive do
   Delete an expired reservation.
 
   ## Required positional parameters:
-   • :reservation_id (t:string String.t/0) (ReservationId)
+  * `:reservation_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8193,7 +8193,7 @@ defmodule AWS.MediaLive do
   Delete all schedule actions on a channel.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8226,7 +8226,7 @@ defmodule AWS.MediaLive do
   Deletes the specified signal map.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8259,10 +8259,10 @@ defmodule AWS.MediaLive do
   Removes tags for a resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]`) 
   """
   @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8325,7 +8325,7 @@ defmodule AWS.MediaLive do
   Gets details about a channel
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8353,7 +8353,7 @@ defmodule AWS.MediaLive do
   Produces details about an input
 
   ## Required positional parameters:
-   • :input_id (t:string String.t/0) (InputId)
+  * `:input_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8381,7 +8381,7 @@ defmodule AWS.MediaLive do
   Gets the details for the input device
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8409,10 +8409,10 @@ defmodule AWS.MediaLive do
   Get the latest thumbnail data for the input device.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (accept)
+  * `:accept` (`t:enum["image_jpeg"]`) 
   """
   @spec describe_input_device_thumbnail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
@@ -8460,7 +8460,7 @@ defmodule AWS.MediaLive do
   Produces a summary of an Input Security Group
 
   ## Required positional parameters:
-   • :input_security_group_id (t:string String.t/0) (InputSecurityGroupId)
+  * `:input_security_group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8488,7 +8488,7 @@ defmodule AWS.MediaLive do
   Gets details about a multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8516,8 +8516,8 @@ defmodule AWS.MediaLive do
   Get the details for a program in a multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:multiplex_id` (`t:string`) 
+  * `:program_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8546,7 +8546,7 @@ defmodule AWS.MediaLive do
   Get details for an offering.
 
   ## Required positional parameters:
-   • :offering_id (t:string String.t/0) (OfferingId)
+  * `:offering_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8574,7 +8574,7 @@ defmodule AWS.MediaLive do
   Get details for a reservation.
 
   ## Required positional parameters:
-   • :reservation_id (t:string String.t/0) (ReservationId)
+  * `:reservation_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8602,11 +8602,11 @@ defmodule AWS.MediaLive do
   Get a channel schedule
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
@@ -8650,11 +8650,11 @@ defmodule AWS.MediaLive do
   Describe the latest thumbnails data.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
-   • :pipeline_id (t:String.t/0) (pipelineId)
-   • :thumbnail_type (t:String.t/0) (thumbnailType)
+  * `:pipeline_id` (`t:string`) 
+  * `:thumbnail_type` (`t:string`) 
   """
   @spec describe_thumbnails(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thumbnails_response(), any()}
@@ -8704,7 +8704,7 @@ defmodule AWS.MediaLive do
   Retrieves the specified cloudwatch alarm template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8732,7 +8732,7 @@ defmodule AWS.MediaLive do
   Retrieves the specified cloudwatch alarm template group.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8760,7 +8760,7 @@ defmodule AWS.MediaLive do
   Retrieves the specified eventbridge rule template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8788,7 +8788,7 @@ defmodule AWS.MediaLive do
   Retrieves the specified eventbridge rule template group.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8816,7 +8816,7 @@ defmodule AWS.MediaLive do
   Retrieves the specified signal map.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -8846,8 +8846,8 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -8893,10 +8893,10 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :scope (t:String.t/0) (scope)
-   • :signal_map_identifier (t:String.t/0) (signalMapIdentifier)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:scope` (`t:string`) 
+  * `:signal_map_identifier` (`t:string`) 
   """
   @spec list_cloud_watch_alarm_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
@@ -8960,11 +8960,11 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :group_identifier (t:String.t/0) (groupIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :scope (t:String.t/0) (scope)
-   • :signal_map_identifier (t:String.t/0) (signalMapIdentifier)
+  * `:group_identifier` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:scope` (`t:string`) 
+  * `:signal_map_identifier` (`t:string`) 
   """
   @spec list_cloud_watch_alarm_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
@@ -9037,9 +9037,9 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :signal_map_identifier (t:String.t/0) (signalMapIdentifier)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:signal_map_identifier` (`t:string`) 
   """
   @spec list_event_bridge_rule_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
@@ -9094,10 +9094,10 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :group_identifier (t:String.t/0) (groupIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :signal_map_identifier (t:String.t/0) (signalMapIdentifier)
+  * `:group_identifier` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:signal_map_identifier` (`t:string`) 
   """
   @spec list_event_bridge_rule_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
@@ -9164,9 +9164,9 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :transfer_type (t:String.t/0) (transferType)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:transfer_type` (`t:string`) 
   """
   @spec list_input_device_transfers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_input_device_transfers_response(), any()}
@@ -9221,8 +9221,8 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_input_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_devices_response(), any()}
@@ -9268,8 +9268,8 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_input_security_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_security_groups_response(), any()}
@@ -9315,8 +9315,8 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
@@ -9360,11 +9360,11 @@ defmodule AWS.MediaLive do
   List the programs that currently exist for a specific multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_multiplex_programs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multiplex_programs_response(), any()}
@@ -9410,8 +9410,8 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_multiplexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multiplexes_response(), any()}
@@ -9457,18 +9457,18 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :channel_class (t:String.t/0) (channelClass)
-   • :channel_configuration (t:String.t/0) (channelConfiguration)
-   • :codec (t:String.t/0) (codec)
-   • :duration (t:String.t/0) (duration)
-   • :max_results (t:String.t/0) (maxResults)
-   • :maximum_bitrate (t:String.t/0) (maximumBitrate)
-   • :maximum_framerate (t:String.t/0) (maximumFramerate)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resolution (t:String.t/0) (resolution)
-   • :resource_type (t:String.t/0) (resourceType)
-   • :special_feature (t:String.t/0) (specialFeature)
-   • :video_quality (t:String.t/0) (videoQuality)
+  * `:channel_class` (`t:string`) 
+  * `:channel_configuration` (`t:string`) 
+  * `:codec` (`t:string`) 
+  * `:duration` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:maximum_bitrate` (`t:string`) 
+  * `:maximum_framerate` (`t:string`) 
+  * `:next_token` (`t:string`) 
+  * `:resolution` (`t:string`) 
+  * `:resource_type` (`t:string`) 
+  * `:special_feature` (`t:string`) 
+  * `:video_quality` (`t:string`) 
   """
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
@@ -9604,16 +9604,16 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :channel_class (t:String.t/0) (channelClass)
-   • :codec (t:String.t/0) (codec)
-   • :max_results (t:String.t/0) (maxResults)
-   • :maximum_bitrate (t:String.t/0) (maximumBitrate)
-   • :maximum_framerate (t:String.t/0) (maximumFramerate)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resolution (t:String.t/0) (resolution)
-   • :resource_type (t:String.t/0) (resourceType)
-   • :special_feature (t:String.t/0) (specialFeature)
-   • :video_quality (t:String.t/0) (videoQuality)
+  * `:channel_class` (`t:string`) 
+  * `:codec` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:maximum_bitrate` (`t:string`) 
+  * `:maximum_framerate` (`t:string`) 
+  * `:next_token` (`t:string`) 
+  * `:resolution` (`t:string`) 
+  * `:resource_type` (`t:string`) 
+  * `:special_feature` (`t:string`) 
+  * `:video_quality` (`t:string`) 
   """
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
@@ -9731,10 +9731,10 @@ defmodule AWS.MediaLive do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cloud_watch_alarm_template_group_identifier (t:String.t/0) (cloudWatchAlarmTemplateGroupIdentifier)
-   • :event_bridge_rule_template_group_identifier (t:String.t/0) (eventBridgeRuleTemplateGroupIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:cloud_watch_alarm_template_group_identifier` (`t:string`) 
+  * `:event_bridge_rule_template_group_identifier` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_signal_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signal_maps_response(), any()}
@@ -9804,7 +9804,7 @@ defmodule AWS.MediaLive do
   Produces list of tags that have been created for a resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -9832,7 +9832,7 @@ defmodule AWS.MediaLive do
   Purchase an offering and create a reservation.
 
   ## Required positional parameters:
-   • :offering_id (t:string String.t/0) (OfferingId)
+  * `:offering_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -9869,7 +9869,7 @@ defmodule AWS.MediaLive do
   connected.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -9907,7 +9907,7 @@ defmodule AWS.MediaLive do
   Reject the transfer of the specified input device to your AWS account.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -9945,7 +9945,7 @@ defmodule AWS.MediaLive do
   Restart pipelines in one channel that is currently running.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -9983,7 +9983,7 @@ defmodule AWS.MediaLive do
   Starts an existing channel
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10016,7 +10016,7 @@ defmodule AWS.MediaLive do
   Initiates a deployment to delete the monitor of the specified signal map.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10057,7 +10057,7 @@ defmodule AWS.MediaLive do
   MediaLive starts the device when the channel starts.)
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10098,7 +10098,7 @@ defmodule AWS.MediaLive do
   connected to the internet for the duration of the maintenance.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10143,7 +10143,7 @@ defmodule AWS.MediaLive do
   Initiates a deployment to deploy the latest monitor of the specified signal map.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10184,7 +10184,7 @@ defmodule AWS.MediaLive do
   each channel.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10219,7 +10219,7 @@ defmodule AWS.MediaLive do
   Will discover a new signal map if a changed discoveryEntryPointArn is provided.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10257,7 +10257,7 @@ defmodule AWS.MediaLive do
   Stops a running channel
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10293,7 +10293,7 @@ defmodule AWS.MediaLive do
   MediaLive automatically stops the device when the channel stops.)
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10328,7 +10328,7 @@ defmodule AWS.MediaLive do
   If the multiplex isn't running, this action has no effect.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10364,7 +10364,7 @@ defmodule AWS.MediaLive do
   transfer.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10428,7 +10428,7 @@ defmodule AWS.MediaLive do
   Updates a channel.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10451,7 +10451,7 @@ defmodule AWS.MediaLive do
   Changes the class of the channel.
 
   ## Required positional parameters:
-   • :channel_id (t:string String.t/0) (ChannelId)
+  * `:channel_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10479,7 +10479,7 @@ defmodule AWS.MediaLive do
   Updates the specified cloudwatch alarm template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10517,7 +10517,7 @@ defmodule AWS.MediaLive do
   Updates the specified cloudwatch alarm template group.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10560,7 +10560,7 @@ defmodule AWS.MediaLive do
   Updates the specified eventbridge rule template.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10598,7 +10598,7 @@ defmodule AWS.MediaLive do
   Updates the specified eventbridge rule template group.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10641,7 +10641,7 @@ defmodule AWS.MediaLive do
   Updates an input.
 
   ## Required positional parameters:
-   • :input_id (t:string String.t/0) (InputId)
+  * `:input_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10664,7 +10664,7 @@ defmodule AWS.MediaLive do
   Updates the parameters for the input device.
 
   ## Required positional parameters:
-   • :input_device_id (t:string String.t/0) (InputDeviceId)
+  * `:input_device_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10692,7 +10692,7 @@ defmodule AWS.MediaLive do
   Update an Input Security Group's Whilelists.
 
   ## Required positional parameters:
-   • :input_security_group_id (t:string String.t/0) (InputSecurityGroupId)
+  * `:input_security_group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10725,7 +10725,7 @@ defmodule AWS.MediaLive do
   Updates a multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
+  * `:multiplex_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10748,8 +10748,8 @@ defmodule AWS.MediaLive do
   Update a program in a multiplex.
 
   ## Required positional parameters:
-   • :multiplex_id (t:string String.t/0) (MultiplexId)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:multiplex_id` (`t:string`) 
+  * `:program_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -10786,7 +10786,7 @@ defmodule AWS.MediaLive do
   Update reservation.
 
   ## Required positional parameters:
-   • :reservation_id (t:string String.t/0) (ReservationId)
+  * `:reservation_id` (`t:string`) 
 
   ## Optional parameters:
   """

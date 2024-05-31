@@ -3650,8 +3650,8 @@ defmodule AWS.Mgn do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum results to be returned in DescribeVcenterClients.
+  * `:next_token` (`t:string`) Next pagination token to be provided for DescribeVcenterClients.
   """
   @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
@@ -4215,7 +4215,7 @@ defmodule AWS.Mgn do
   List all tags for your Application Migration Service resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) List tags for resource request by ARN.
 
   ## Optional parameters:
   """
@@ -4779,7 +4779,7 @@ defmodule AWS.Mgn do
   and optional value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Tag resource by ARN.
 
   ## Optional parameters:
   """
@@ -4916,10 +4916,10 @@ defmodule AWS.Mgn do
   Migration Service resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Untag resource by ARN.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mgn#TagKey]`) Untag resource by Keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}

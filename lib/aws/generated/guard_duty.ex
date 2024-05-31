@@ -4270,7 +4270,7 @@ defmodule AWS.GuardDuty do
   administrator account that sent the invitation.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -4308,7 +4308,7 @@ defmodule AWS.GuardDuty do
   Accepts the invitation to be monitored by a GuardDuty administrator account.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -4344,7 +4344,8 @@ defmodule AWS.GuardDuty do
   permission to archive findings from their accounts.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
+      archive.
 
   ## Optional parameters:
   """
@@ -4442,7 +4443,8 @@ defmodule AWS.GuardDuty do
   [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector belonging to the GuardDuty account that you want to create a filter
+      for.
 
   ## Optional parameters:
   """
@@ -4484,7 +4486,8 @@ defmodule AWS.GuardDuty do
   operation.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to create an IPSet
+      for.
 
   ## Optional parameters:
   """
@@ -4555,7 +4558,8 @@ defmodule AWS.GuardDuty do
   member accounts again only by calling the CreateMembers API.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to associate member
+      accounts with.
 
   ## Optional parameters:
   """
@@ -4591,7 +4595,7 @@ defmodule AWS.GuardDuty do
   must exist before you use this operation.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the GuardDuty detector associated with the publishing destination.
 
   ## Optional parameters:
   """
@@ -4633,7 +4637,7 @@ defmodule AWS.GuardDuty do
   finding types.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector to create sample findings for.
 
   ## Optional parameters:
   """
@@ -4676,7 +4680,8 @@ defmodule AWS.GuardDuty do
   account can use this operation.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to create a
+      threatIntelSet for.
 
   ## Optional parameters:
   """
@@ -4748,7 +4753,7 @@ defmodule AWS.GuardDuty do
   Deletes an Amazon GuardDuty detector that is specified by the detector ID.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that you want to delete.
 
   ## Optional parameters:
   """
@@ -4781,8 +4786,8 @@ defmodule AWS.GuardDuty do
   Deletes the filter specified by the filter name.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :filter_name (t:string String.t/0) (FilterName)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
+  * `:filter_name` (`t:string`) The name of the filter that you want to delete.
 
   ## Optional parameters:
   """
@@ -4860,8 +4865,8 @@ defmodule AWS.GuardDuty do
   lists in the console user interface.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :ip_set_id (t:string String.t/0) (IpSetId)
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the IPSet.
+  * `:ip_set_id` (`t:string`) The unique ID of the IPSet to delete.
 
   ## Optional parameters:
   """
@@ -4908,7 +4913,8 @@ defmodule AWS.GuardDuty do
   account in your organization.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
+      delete.
 
   ## Optional parameters:
   """
@@ -4941,8 +4947,8 @@ defmodule AWS.GuardDuty do
   Deletes the publishing definition with the specified `destinationId`.
 
   ## Required positional parameters:
-   • :destination_id (t:string String.t/0) (DestinationId)
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:destination_id` (`t:string`) The ID of the publishing destination to delete.
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the publishing destination to delete.
 
   ## Optional parameters:
   """
@@ -4989,8 +4995,8 @@ defmodule AWS.GuardDuty do
   Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :threat_intel_set_id (t:string String.t/0) (ThreatIntelSetId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
+  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that you want to delete.
 
   ## Optional parameters:
   """
@@ -5046,7 +5052,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the request is associated with.
 
   ## Optional parameters:
   """
@@ -5091,11 +5097,16 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector to retrieve information about the delegated administrator
+      from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
+      response.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill
+        <code>nextToken</code> in the request with the value of <code>NextToken</code> from the
+      previous response to continue listing data.
   """
   @spec describe_organization_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -5140,8 +5151,9 @@ defmodule AWS.GuardDuty do
   `destinationId`.
 
   ## Required positional parameters:
-   • :destination_id (t:string String.t/0) (DestinationId)
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:destination_id` (`t:string`) The ID of the publishing destination to retrieve.
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the publishing destination to
+      retrieve.
 
   ## Optional parameters:
   """
@@ -5233,7 +5245,7 @@ defmodule AWS.GuardDuty do
   account.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -5290,7 +5302,7 @@ defmodule AWS.GuardDuty do
   API.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -5364,7 +5376,8 @@ defmodule AWS.GuardDuty do
   member accounts again only by calling the CreateMembers API.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
+      disassociate from the administrator account.
 
   ## Optional parameters:
   """
@@ -5449,7 +5462,7 @@ defmodule AWS.GuardDuty do
   it will return success (`HTTP 200`) but no content.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -5484,7 +5497,7 @@ defmodule AWS.GuardDuty do
   on their resources.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the GuardDuty detector associated to the coverage statistics.
 
   ## Optional parameters:
   """
@@ -5527,7 +5540,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that you want to get.
 
   ## Optional parameters:
   """
@@ -5555,8 +5568,8 @@ defmodule AWS.GuardDuty do
   Returns the details of the filter specified by the filter name.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :filter_name (t:string String.t/0) (FilterName)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
+  * `:filter_name` (`t:string`) The name of the filter you want to get.
 
   ## Optional parameters:
   """
@@ -5585,7 +5598,8 @@ defmodule AWS.GuardDuty do
   Describes Amazon GuardDuty findings specified by finding IDs.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
+      retrieve.
 
   ## Optional parameters:
   """
@@ -5622,7 +5636,8 @@ defmodule AWS.GuardDuty do
   is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings&#39; statistics you
+      want to retrieve.
 
   ## Optional parameters:
   """
@@ -5689,8 +5704,8 @@ defmodule AWS.GuardDuty do
   Retrieves the IPSet specified by the `ipSetId`.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :ip_set_id (t:string String.t/0) (IpSetId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is associated with.
+  * `:ip_set_id` (`t:string`) The unique ID of the IPSet to retrieve.
 
   ## Optional parameters:
   """
@@ -5724,7 +5739,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the scan setting is associated with.
 
   ## Optional parameters:
   """
@@ -5754,7 +5769,7 @@ defmodule AWS.GuardDuty do
   GuardDuty member account.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -5787,7 +5802,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The detector ID for the administrator account.
 
   ## Optional parameters:
   """
@@ -5827,7 +5842,8 @@ defmodule AWS.GuardDuty do
   specified by the account IDs.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
+      retrieve.
 
   ## Optional parameters:
   """
@@ -5894,7 +5910,7 @@ defmodule AWS.GuardDuty do
   period.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
 
   ## Optional parameters:
   """
@@ -5932,8 +5948,8 @@ defmodule AWS.GuardDuty do
   Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :threat_intel_set_id (t:string String.t/0) (ThreatIntelSetId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
+  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that you want to get.
 
   ## Optional parameters:
   """
@@ -5971,7 +5987,8 @@ defmodule AWS.GuardDuty do
   [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose usage statistics you
+      want to retrieve.
 
   ## Optional parameters:
   """
@@ -6056,7 +6073,8 @@ defmodule AWS.GuardDuty do
   member accounts again only by calling the CreateMembers API.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to invite members
+      with.
 
   ## Optional parameters:
   """
@@ -6097,7 +6115,7 @@ defmodule AWS.GuardDuty do
   their resources.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector whose coverage details you want to retrieve.
 
   ## Optional parameters:
   """
@@ -6132,8 +6150,12 @@ defmodule AWS.GuardDuty do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill nextToken
+      in the request with the value of NextToken from the previous response to continue listing
+      data.
   """
   @spec list_detectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}
@@ -6177,11 +6199,15 @@ defmodule AWS.GuardDuty do
   Returns a paginated list of the current filters.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill nextToken
+      in the request with the value of NextToken from the previous response to continue listing
+      data.
   """
   @spec list_filters(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
@@ -6229,7 +6255,8 @@ defmodule AWS.GuardDuty do
   is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
+      list.
 
   ## Optional parameters:
   """
@@ -6266,8 +6293,12 @@ defmodule AWS.GuardDuty do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill nextToken
+      in the request with the value of NextToken from the previous response to continue listing
+      data.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -6316,11 +6347,15 @@ defmodule AWS.GuardDuty do
   administrator account.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is associated with.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill nextToken
+      in the request with the value of NextToken from the previous response to continue listing
+      data.
   """
   @spec list_ip_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
@@ -6365,12 +6400,21 @@ defmodule AWS.GuardDuty do
   account.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector the member is associated with.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :only_associated (t:String.t/0) (onlyAssociated)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
+      null on your first call to the list action. For subsequent calls to the action, fill nextToken
+      in the request with the value of NextToken from the previous response to continue listing
+      data.
+  * `:only_associated` (`t:string`) Specifies whether to only return associated members or to return all members (including
+      members who haven&#39;t been invited yet or have been disassociated). Member accounts must have
+      been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
+               <code>Create
+          Members</code>
+            </a>. 
   """
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -6428,8 +6472,11 @@ defmodule AWS.GuardDuty do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token to use for paginating results that are returned in the response. Set the value of
+      this parameter to null for the first request to a list action. For subsequent calls, use the
+        <code>NextToken</code> value returned from the previous request to continue listing results
+      after the first page.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -6474,11 +6521,14 @@ defmodule AWS.GuardDuty do
   `detectorId`.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector to retrieve publishing destinations for.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) A token to use for paginating results that are returned in the response. Set the value of
+      this parameter to null for the first request to a list action. For subsequent calls, use the
+        <code>NextToken</code> value returned from the previous request to continue listing results
+      after the first page.
   """
   @spec list_publishing_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_publishing_destinations_response(), any()}
@@ -6528,7 +6578,7 @@ defmodule AWS.GuardDuty do
   operation returns all assigned tags for a given resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the given GuardDuty resource. 
 
   ## Optional parameters:
   """
@@ -6561,11 +6611,15 @@ defmodule AWS.GuardDuty do
   administrator account are returned.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
+      response. The default value is 50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter to paginate results in the response. Set the value of this
+      parameter to null on your first call to the list action. For subsequent calls to the action,
+      fill nextToken in the request with the value of NextToken from the previous response to
+      continue listing data.
   """
   @spec list_threat_intel_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_threat_intel_sets_response(), any()}
@@ -6655,7 +6709,8 @@ defmodule AWS.GuardDuty do
   operation.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty administrator account associated with the
+      member accounts to monitor.
 
   ## Optional parameters:
   """
@@ -6701,7 +6756,8 @@ defmodule AWS.GuardDuty do
   accounts in your organization.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the GuardDuty administrator account that is
+      monitoring member accounts.
 
   ## Optional parameters:
   """
@@ -6739,7 +6795,7 @@ defmodule AWS.GuardDuty do
   Adds tags to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.
 
   ## Optional parameters:
   """
@@ -6772,7 +6828,7 @@ defmodule AWS.GuardDuty do
   Unarchives GuardDuty findings specified by the `findingIds`.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector associated with the findings to unarchive.
 
   ## Optional parameters:
   """
@@ -6805,10 +6861,10 @@ defmodule AWS.GuardDuty do
   Removes tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource to remove tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]`) The tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6856,7 +6912,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector to update.
 
   ## Optional parameters:
   """
@@ -6889,8 +6945,9 @@ defmodule AWS.GuardDuty do
   Updates the filter specified by the filter name.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :filter_name (t:string String.t/0) (FilterName)
+  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the GuardDuty service where you want to
+      update a filter.
+  * `:filter_name` (`t:string`) The name of the filter.
 
   ## Optional parameters:
   """
@@ -6931,7 +6988,7 @@ defmodule AWS.GuardDuty do
   Marks the specified GuardDuty findings as useful or not useful.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector associated with the findings to update feedback for.
 
   ## Optional parameters:
   """
@@ -6969,8 +7026,8 @@ defmodule AWS.GuardDuty do
   Updates the IPSet specified by the IPSet ID.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :ip_set_id (t:string String.t/0) (IpSetId)
+  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty service whose IPSet you want to update.
+  * `:ip_set_id` (`t:string`) The unique ID that specifies the IPSet that you want to update.
 
   ## Optional parameters:
   """
@@ -7016,7 +7073,8 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the GuardDuty service where you want to
+      update scan settings.
 
   ## Optional parameters:
   """
@@ -7066,7 +7124,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The detector ID of the administrator account.
 
   ## Optional parameters:
   """
@@ -7120,7 +7178,7 @@ defmodule AWS.GuardDuty do
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:detector_id` (`t:string`) The ID of the detector that configures the delegated administrator.
 
   ## Optional parameters:
   """
@@ -7159,8 +7217,8 @@ defmodule AWS.GuardDuty do
   `destinationId`.
 
   ## Required positional parameters:
-   • :destination_id (t:string String.t/0) (DestinationId)
-   • :detector_id (t:string String.t/0) (DetectorId)
+  * `:destination_id` (`t:string`) The ID of the publishing destination to update.
+  * `:detector_id` (`t:string`) The ID of the detector associated with the publishing destinations to update.
 
   ## Optional parameters:
   """
@@ -7207,8 +7265,9 @@ defmodule AWS.GuardDuty do
   Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
 
   ## Required positional parameters:
-   • :detector_id (t:string String.t/0) (DetectorId)
-   • :threat_intel_set_id (t:string String.t/0) (ThreatIntelSetId)
+  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
+      update.
+  * `:threat_intel_set_id` (`t:string`) The unique ID that specifies the ThreatIntelSet that you want to update.
 
   ## Optional parameters:
   """

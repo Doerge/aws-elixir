@@ -1843,7 +1843,7 @@ defmodule AWS.IoTEvents do
   are also deleted. This action can't be undone.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
   """
@@ -1879,7 +1879,7 @@ defmodule AWS.IoTEvents do
   deleted.
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model to be deleted.
 
   ## Optional parameters:
   """
@@ -1917,7 +1917,7 @@ defmodule AWS.IoTEvents do
   Deletes an input.
 
   ## Required positional parameters:
-   • :input_name (t:string String.t/0) (inputName)
+  * `:input_name` (`t:string`) The name of the input to delete.
 
   ## Optional parameters:
   """
@@ -1953,10 +1953,10 @@ defmodule AWS.IoTEvents do
   `alarmModelVersion` parameter, the latest version is returned.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
-   • :alarm_model_version (t:String.t/0) (version)
+  * `:alarm_model_version` (`t:string`) The version of the alarm model.
   """
   @spec describe_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_model_response(), any()}
@@ -1994,10 +1994,10 @@ defmodule AWS.IoTEvents do
   information about the latest version is returned.
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model.
 
   ## Optional parameters:
-   • :detector_model_version (t:String.t/0) (version)
+  * `:detector_model_version` (`t:string`) The version of the detector model.
   """
   @spec describe_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_response(), any()}
@@ -2035,7 +2035,7 @@ defmodule AWS.IoTEvents do
   hours to retrieve the analysis results.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (analysisId)
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -2063,7 +2063,7 @@ defmodule AWS.IoTEvents do
   Describes an input.
 
   ## Required positional parameters:
-   • :input_name (t:string String.t/0) (inputName)
+  * `:input_name` (`t:string`) The name of the input.
 
   ## Optional parameters:
   """
@@ -2121,11 +2121,11 @@ defmodule AWS.IoTEvents do
   hours to retrieve the analysis results.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (analysisId)
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to retrieve.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec get_detector_model_analysis_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
@@ -2172,11 +2172,11 @@ defmodule AWS.IoTEvents do
   associated with each alarm model version.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_alarm_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarm_model_versions_response(), any()}
@@ -2225,8 +2225,8 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_alarm_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_models_response(), any()}
@@ -2273,11 +2273,11 @@ defmodule AWS.IoTEvents do
   detector model version is returned.
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model whose versions are returned.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_detector_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detector_model_versions_response(), any()}
@@ -2326,8 +2326,8 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_detector_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detector_models_response(), any()}
@@ -2406,8 +2406,8 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
@@ -2453,7 +2453,7 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2561,7 +2561,7 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2599,8 +2599,8 @@ defmodule AWS.IoTEvents do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]`) A list of the keys of the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2640,7 +2640,7 @@ defmodule AWS.IoTEvents do
   deleted and then created again as new data arrives.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
   """
@@ -2676,7 +2676,7 @@ defmodule AWS.IoTEvents do
   deleted and then re-created as new inputs arrive.
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model that is updated.
 
   ## Optional parameters:
   """
@@ -2714,7 +2714,7 @@ defmodule AWS.IoTEvents do
   Updates an input.
 
   ## Required positional parameters:
-   • :input_name (t:string String.t/0) (inputName)
+  * `:input_name` (`t:string`) The name of the input you want to update.
 
   ## Optional parameters:
   """

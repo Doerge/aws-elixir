@@ -818,7 +818,9 @@ defmodule AWS.Route53Profiles do
   Before you can delete a profile, you must first disassociate it from all VPCs.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (ProfileId)
+  * `:profile_id` (`t:string`) 
+  The ID of the Profile that you want to delete.
+
 
   ## Optional parameters:
   """
@@ -852,8 +854,12 @@ defmodule AWS.Route53Profiles do
   Dissociates a specified Route 53 Profile from the specified VPC.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (ProfileId)
-   • :resource_id (t:string String.t/0) (ResourceId)
+  * `:profile_id` (`t:string`) 
+  ID of the Profile.
+
+  * `:resource_id` (`t:string`) 
+  The ID of the VPC.
+
 
   ## Optional parameters:
   """
@@ -895,8 +901,11 @@ defmodule AWS.Route53Profiles do
   Dissoaciated a specified resource, from the Route 53 Profile.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (ProfileId)
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:profile_id` (`t:string`) 
+  The ID of the Profile.
+
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+
 
   ## Optional parameters:
   """
@@ -945,7 +954,9 @@ defmodule AWS.Route53Profiles do
   the Profile is shared, and the current status of the Profile.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (ProfileId)
+  * `:profile_id` (`t:string`) 
+  ID of the Profile.
+
 
   ## Optional parameters:
   """
@@ -977,7 +988,9 @@ defmodule AWS.Route53Profiles do
   with up to 5000 VPCs.
 
   ## Required positional parameters:
-   • :profile_association_id (t:string String.t/0) (ProfileAssociationId)
+  * `:profile_association_id` (`t:string`) 
+  The identifier of the association you want to get information about.
+
 
   ## Optional parameters:
   """
@@ -1006,7 +1019,10 @@ defmodule AWS.Route53Profiles do
   Returns information about a specified Route 53 Profile resource association.
 
   ## Required positional parameters:
-   • :profile_resource_association_id (t:string String.t/0) (ProfileResourceAssociationId)
+  * `:profile_resource_association_id` (`t:string`) 
+
+  The ID of the profile resource association that you want to get information about.
+
 
   ## Optional parameters:
   """
@@ -1042,10 +1058,18 @@ defmodule AWS.Route53Profiles do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :profile_id (t:String.t/0) (profileId)
-   • :resource_id (t:String.t/0) (resourceId)
+  * `:max_results` (`t:integer`) 
+  The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
+  a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
+  * `:next_token` (`t:string`) 
+  For the first call to this list request, omit this value.
+
+  * `:profile_id` (`t:string`) 
+  ID of the Profile.
+
+  * `:resource_id` (`t:string`) 
+  ID of the VPC.
+
   """
   @spec list_profile_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_associations_response(), any()}
@@ -1108,12 +1132,20 @@ defmodule AWS.Route53Profiles do
   Lists all the resource associations for the specified Route 53 Profile.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (ProfileId)
+  * `:profile_id` (`t:string`) 
+  The ID of the Profile.
+
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:max_results` (`t:integer`) 
+    The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
+    a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
+  * `:next_token` (`t:string`) 
+    For the first call to this list request, omit this value.
+
+  * `:resource_type` (`t:string`) 
+  ID of a resource if you want information on only one type.
+
   """
   @spec list_profile_resource_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_resource_associations_response(), any()}
@@ -1170,8 +1202,12 @@ defmodule AWS.Route53Profiles do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+    The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
+    a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
+  * `:next_token` (`t:string`) 
+    For the first call to this list request, omit this value.
+
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1216,7 +1252,9 @@ defmodule AWS.Route53Profiles do
   Lists the tags that you associated with the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+  The Amazon Resource Name (ARN) for the resource that you want to list the tags for.
+
 
   ## Optional parameters:
   """
@@ -1245,7 +1283,9 @@ defmodule AWS.Route53Profiles do
   Adds one or more tags to a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+  The Amazon Resource Name (ARN) for the resource that you want to add tags to. 
+
 
   ## Optional parameters:
   """
@@ -1279,10 +1319,14 @@ defmodule AWS.Route53Profiles do
   Removes one or more tags from a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+  The Amazon Resource Name (ARN) for the resource that you want to remove tags from.
+
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]`) 
+  The tags that you want to remove to the specified resource.
+
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1319,7 +1363,9 @@ defmodule AWS.Route53Profiles do
   Updates the specified Route 53 Profile resourse association.
 
   ## Required positional parameters:
-   • :profile_resource_association_id (t:string String.t/0) (ProfileResourceAssociationId)
+  * `:profile_resource_association_id` (`t:string`) 
+  ID of the resource association.
+
 
   ## Optional parameters:
   """

@@ -2083,8 +2083,8 @@ defmodule AWS.BedrockAgent do
   user.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which you want to associate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent with which you want to associate the knowledge base.
 
   ## Optional parameters:
   """
@@ -2186,8 +2186,8 @@ defmodule AWS.BedrockAgent do
   reprompting the user for more information.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to create the action group.
+  * `:agent_version` (`t:string`) The version of the agent for which to create the action group.
 
   ## Optional parameters:
   """
@@ -2218,7 +2218,7 @@ defmodule AWS.BedrockAgent do
   Creates an alias of an agent that can be used to deploy the agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -2243,7 +2243,7 @@ defmodule AWS.BedrockAgent do
   You can't change the `chunkingConfiguration` after you create the data source.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which to add the data source.
 
   ## Optional parameters:
   """
@@ -2330,10 +2330,10 @@ defmodule AWS.BedrockAgent do
   Deletes an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent to delete.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
   """
   @spec delete_agent(AWS.Client.t(), String.t(), delete_agent_request(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
@@ -2369,12 +2369,12 @@ defmodule AWS.BedrockAgent do
   Deletes an action group in an agent.
 
   ## Required positional parameters:
-   • :action_group_id (t:string String.t/0) (actionGroupId)
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:action_group_id` (`t:string`) The unique identifier of the action group to delete.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group belongs to.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_action_group(
           AWS.Client.t(),
@@ -2426,8 +2426,8 @@ defmodule AWS.BedrockAgent do
   Deletes an alias of an agent.
 
   ## Required positional parameters:
-   • :agent_alias_id (t:string String.t/0) (agentAliasId)
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias to delete.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the alias belongs to.
 
   ## Optional parameters:
   """
@@ -2468,11 +2468,11 @@ defmodule AWS.BedrockAgent do
   Deletes a version of an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the version belongs to.
+  * `:agent_version` (`t:string`) The version of the agent to delete.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_version(
           AWS.Client.t(),
@@ -2516,8 +2516,8 @@ defmodule AWS.BedrockAgent do
   Deletes a data source from a knowledge base.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to delete.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base from which to delete the data source.
 
   ## Optional parameters:
   """
@@ -2569,7 +2569,7 @@ defmodule AWS.BedrockAgent do
   request.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to delete.
 
   ## Optional parameters:
   """
@@ -2607,9 +2607,9 @@ defmodule AWS.BedrockAgent do
   Disassociates a knowledge base from an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent from which to disassociate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent from which to disassociate the knowledge base.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to disassociate.
 
   ## Optional parameters:
   """
@@ -2658,7 +2658,7 @@ defmodule AWS.BedrockAgent do
   Gets information about an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -2686,9 +2686,9 @@ defmodule AWS.BedrockAgent do
   Gets information about an action group for an agent.
 
   ## Required positional parameters:
-   • :action_group_id (t:string String.t/0) (actionGroupId)
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:action_group_id` (`t:string`) The unique identifier of the action group for which to get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group belongs to.
 
   ## Optional parameters:
   """
@@ -2723,8 +2723,8 @@ defmodule AWS.BedrockAgent do
   Gets information about an alias of an agent.
 
   ## Required positional parameters:
-   • :agent_alias_id (t:string String.t/0) (agentAliasId)
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias for which to get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias to get information belongs.
 
   ## Optional parameters:
   """
@@ -2753,9 +2753,9 @@ defmodule AWS.BedrockAgent do
   Gets information about a knowledge base associated with an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which the knowledge base is associated.
+  * `:agent_version` (`t:string`) The version of the agent with which the knowledge base is associated.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base associated with the agent.
 
   ## Optional parameters:
   """
@@ -2790,8 +2790,8 @@ defmodule AWS.BedrockAgent do
   Gets details about a version of an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+  * `:agent_version` (`t:string`) The version of the agent.
 
   ## Optional parameters:
   """
@@ -2820,8 +2820,8 @@ defmodule AWS.BedrockAgent do
   Gets information about a data source.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base that the data source was added to.
 
   ## Optional parameters:
   """
@@ -2851,9 +2851,9 @@ defmodule AWS.BedrockAgent do
   knowledge base.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :ingestion_job_id (t:string String.t/0) (ingestionJobId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source in the ingestion job.
+  * `:ingestion_job_id` (`t:string`) The unique identifier of the ingestion job.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which the ingestion job applies.
 
   ## Optional parameters:
   """
@@ -2888,7 +2888,7 @@ defmodule AWS.BedrockAgent do
   Gets information about a knoweldge base.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to get information.
 
   ## Optional parameters:
   """
@@ -2916,8 +2916,8 @@ defmodule AWS.BedrockAgent do
   Lists the action groups for an agent and information about each one.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
+  * `:agent_version` (`t:string`) The version of the agent.
 
   ## Optional parameters:
   """
@@ -2958,7 +2958,7 @@ defmodule AWS.BedrockAgent do
   Lists the aliases of an agent and information about each one.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -2991,8 +2991,8 @@ defmodule AWS.BedrockAgent do
   Lists knowledge bases associated with an agent and information about each one.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to return information about knowledge bases associated with it.
+  * `:agent_version` (`t:string`) The version of the agent for which to return information about knowledge bases associated with it.
 
   ## Optional parameters:
   """
@@ -3039,7 +3039,7 @@ defmodule AWS.BedrockAgent do
   Lists the versions of an agent and information about each version.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -3109,7 +3109,7 @@ defmodule AWS.BedrockAgent do
   Lists the data sources in a knowledge base and information about each one.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to return a list of information.
 
   ## Optional parameters:
   """
@@ -3142,8 +3142,8 @@ defmodule AWS.BedrockAgent do
   Lists the ingestion jobs for a data source and information about each of them.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source for which to return ingestion jobs.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to return ingestion jobs.
 
   ## Optional parameters:
   """
@@ -3222,7 +3222,7 @@ defmodule AWS.BedrockAgent do
   List all the tags for the resource you specify.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which to list tags.
 
   ## Optional parameters:
   """
@@ -3250,7 +3250,7 @@ defmodule AWS.BedrockAgent do
   Creates a `DRAFT` version of the agent that can be used for internal testing.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to create a <code>DRAFT</code> version.
 
   ## Optional parameters:
   """
@@ -3283,8 +3283,8 @@ defmodule AWS.BedrockAgent do
   Begins an ingestion job, in which a data source is added to a knowledge base.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to ingest.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which to add the data source.
 
   ## Optional parameters:
   """
@@ -3324,7 +3324,7 @@ defmodule AWS.BedrockAgent do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to tag.
 
   ## Optional parameters:
   """
@@ -3357,10 +3357,10 @@ defmodule AWS.BedrockAgent do
   Remove tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which to remove tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]`) A list of keys of the tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3396,7 +3396,7 @@ defmodule AWS.BedrockAgent do
   Updates the configuration of an agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -3419,9 +3419,9 @@ defmodule AWS.BedrockAgent do
   Updates the configuration for an action group for an agent.
 
   ## Required positional parameters:
-   • :action_group_id (t:string String.t/0) (actionGroupId)
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
+  * `:action_group_id` (`t:string`) The unique identifier of the action group.
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to update the action group.
+  * `:agent_version` (`t:string`) The unique identifier of the agent version for which to update the action group.
 
   ## Optional parameters:
   """
@@ -3460,8 +3460,8 @@ defmodule AWS.BedrockAgent do
   Updates configurations for an alias of an agent.
 
   ## Required positional parameters:
-   • :agent_alias_id (t:string String.t/0) (agentAliasId)
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias.
+  * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
   """
@@ -3493,9 +3493,9 @@ defmodule AWS.BedrockAgent do
   agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
-   • :agent_version (t:string String.t/0) (agentVersion)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:agent_id` (`t:string`) The unique identifier of the agent associated with the knowledge base that you want to update.
+  * `:agent_version` (`t:string`) The version of the agent associated with the knowledge base that you want to update.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base that has been associated with an agent.
 
   ## Optional parameters:
   """
@@ -3537,8 +3537,8 @@ defmodule AWS.BedrockAgent do
   Specify the existing `chunkingConfiguration`.
 
   ## Required positional parameters:
-   • :data_source_id (t:string String.t/0) (dataSourceId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:data_source_id` (`t:string`) The unique identifier of the data source.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which the data source belongs.
 
   ## Optional parameters:
   """
@@ -3598,7 +3598,7 @@ defmodule AWS.BedrockAgent do
   request and copy the same configurations.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to update.
 
   ## Optional parameters:
   """

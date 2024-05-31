@@ -1585,7 +1585,7 @@ defmodule AWS.GreengrassV2 do
   in the *IoT Greengrass V2 Developer Guide*.
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """
@@ -1635,7 +1635,7 @@ defmodule AWS.GreengrassV2 do
   the core device's connectivity information and certificates.
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """
@@ -1685,7 +1685,7 @@ defmodule AWS.GreengrassV2 do
   anything for that device.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
+  * `:deployment_id` (`t:string`) The ID of the deployment.
 
   ## Optional parameters:
   """
@@ -1853,7 +1853,7 @@ defmodule AWS.GreengrassV2 do
   to use a valid version.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.
 
   ## Optional parameters:
   """
@@ -1894,7 +1894,7 @@ defmodule AWS.GreengrassV2 do
   *IoT API Reference*.
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """
@@ -1937,7 +1937,7 @@ defmodule AWS.GreengrassV2 do
   roll back to a previous deployment that has been deleted.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
+  * `:deployment_id` (`t:string`) The ID of the deployment.
 
   ## Optional parameters:
   """
@@ -1970,7 +1970,7 @@ defmodule AWS.GreengrassV2 do
   Retrieves metadata for a version of a component.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.
 
   ## Optional parameters:
   """
@@ -2041,10 +2041,10 @@ defmodule AWS.GreengrassV2 do
   Gets the recipe for a version of a component.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.
 
   ## Optional parameters:
-   • :recipe_output_format (t:String.t/0) (recipeOutputFormat)
+  * `:recipe_output_format` (`t:enum["JSON|YAML"]`) The format of the recipe.
   """
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
@@ -2084,12 +2084,14 @@ defmodule AWS.GreengrassV2 do
   install.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
-   • :artifact_name (t:string String.t/0) (artifactName)
+  * `:arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version. Specify the ARN of a public or a Lambda component version.
+  * `:artifact_name` (`t:string`) The name of the artifact.
 
   ## Optional parameters:
-   • :s3_endpoint_type (t:String.t/0) (s3EndpointType)
-   • :iot_endpoint_type (t:String.t/0) (x-amz-iot-endpoint-type)
+  * `:s3_endpoint_type` (`t:enum["GLOBAL|REGIONAL"]`) Specifies the endpoint to use when getting Amazon S3 pre-signed URLs.
+  * `:iot_endpoint_type` (`t:enum["fips|standard"]`) Determines if the Amazon S3 URL returned is a FIPS pre-signed URL endpoint. 
+      Specify <code>fips</code> if you want the returned Amazon S3 pre-signed URL to point to 
+      an Amazon S3 FIPS endpoint. If you don&#39;t specify a value, the default is <code>standard</code>.
   """
   @spec get_component_version_artifact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_version_artifact_response(), any()}
@@ -2144,7 +2146,7 @@ defmodule AWS.GreengrassV2 do
   in the *IoT Greengrass Version 2 Developer Guide*.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """
@@ -2201,7 +2203,7 @@ defmodule AWS.GreengrassV2 do
   cloud deployment
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """
@@ -2231,7 +2233,7 @@ defmodule AWS.GreengrassV2 do
   Deployments define the components that run on Greengrass core devices.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (deploymentId)
+  * `:deployment_id` (`t:string`) The ID of the deployment.
 
   ## Optional parameters:
   """
@@ -2294,11 +2296,11 @@ defmodule AWS.GreengrassV2 do
   device.
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
   """
   @spec list_client_devices_associated_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
@@ -2350,11 +2352,11 @@ defmodule AWS.GreengrassV2 do
   first.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
   """
   @spec list_component_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_versions_response(), any()}
@@ -2403,9 +2405,9 @@ defmodule AWS.GreengrassV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :scope (t:String.t/0) (scope)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:scope` (`t:enum["PRIVATE|PUBLIC"]`) The scope of the components to list.
   """
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
@@ -2489,10 +2491,14 @@ defmodule AWS.GreengrassV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
-   • :thing_group_arn (t:String.t/0) (thingGroupArn)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:status` (`t:enum["HEALTHY|UNHEALTHY"]`) The core device status by which to filter. If you specify this parameter, the list
+      includes only core devices that have this status. Choose one of the following options:
+  * `:thing_group_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT thing group by which to filter. If you specify this parameter,
+      the list includes only core devices that have successfully deployed a deployment that targets
+      the thing group. When you remove a core device from a thing group, the list continues to
+      include that core device.
   """
   @spec list_core_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_devices_response(), any()}
@@ -2556,11 +2562,11 @@ defmodule AWS.GreengrassV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :history_filter (t:String.t/0) (historyFilter)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :parent_target_arn (t:String.t/0) (parentTargetArn)
-   • :target_arn (t:String.t/0) (targetArn)
+  * `:history_filter` (`t:enum["ALL|LATEST_ONLY"]`) The filter for the list of deployments. Choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:parent_target_arn` (`t:string`) The parent deployment&#39;s target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.
+  * `:target_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.
   """
   @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -2632,11 +2638,11 @@ defmodule AWS.GreengrassV2 do
   Greengrass core devices.
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
   """
   @spec list_effective_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_effective_deployments_response(), any()}
@@ -2716,12 +2722,12 @@ defmodule AWS.GreengrassV2 do
   cloud deployment
 
   ## Required positional parameters:
-   • :core_device_thing_name (t:string String.t/0) (coreDeviceThingName)
+  * `:core_device_thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :topology_filter (t:String.t/0) (topologyFilter)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:topology_filter` (`t:enum["ALL|ROOT"]`) The filter for the list of components. Choose from the following options:
   """
   @spec list_installed_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_installed_components_response(), any()}
@@ -2775,7 +2781,7 @@ defmodule AWS.GreengrassV2 do
   Retrieves the list of tags for an IoT Greengrass resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.
 
   ## Optional parameters:
   """
@@ -2865,7 +2871,7 @@ defmodule AWS.GreengrassV2 do
   updates the tag's value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to tag.
 
   ## Optional parameters:
   """
@@ -2898,10 +2904,10 @@ defmodule AWS.GreengrassV2 do
   Removes a tag from an IoT Greengrass resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.greengrassv2#TagKey]`) A list of keys for tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2946,7 +2952,7 @@ defmodule AWS.GreengrassV2 do
   in the *IoT Greengrass Version 2 Developer Guide*.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the core device. This is also the name of the IoT thing.
 
   ## Optional parameters:
   """

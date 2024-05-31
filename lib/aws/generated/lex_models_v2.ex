@@ -6949,9 +6949,12 @@ defmodule AWS.LexModelsV2 do
   custom vocabulary.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom vocabulary.
+  * `:bot_version` (`t:string`) The identifier of the version of the bot associated with this 
+         custom vocabulary.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this custom vocabulary 
+         is used. The string must match one of the supported locales. For more 
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.
 
   ## Optional parameters:
   """
@@ -6991,9 +6994,12 @@ defmodule AWS.LexModelsV2 do
   custom vocabulary.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom vocabulary.
+  * `:bot_version` (`t:string`) The identifier of the version of the bot associated with this custom 
+         vocabulary.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this custom vocabulary is 
+         used. The string must match one of the supported locales. 
+         For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.
 
   ## Optional parameters:
   """
@@ -7043,9 +7049,12 @@ defmodule AWS.LexModelsV2 do
   vocabulary.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with this custom vocabulary
+  * `:bot_version` (`t:string`) The identifier of the version of the bot associated with this custom 
+         vocabulary.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this custom vocabulary 
+         is used. The string must match one of the supported locales. For more 
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.
 
   ## Optional parameters:
   """
@@ -7088,9 +7097,14 @@ defmodule AWS.LexModelsV2 do
   is used to choose a specific build of the bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot to build. The identifier is returned in
+         the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation.
+  * `:bot_version` (`t:string`) The version of the bot to build. This can only be the draft version
+         of the bot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that the bot will be used
+         in. The string must match one of the supported locales. All of the
+         intents, slot types, and slots used in the bot must have the same
+         locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -7161,7 +7175,7 @@ defmodule AWS.LexModelsV2 do
   applications use to call the Amazon Lex bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that the alias applies to.
 
   ## Optional parameters:
   """
@@ -7189,8 +7203,9 @@ defmodule AWS.LexModelsV2 do
   you can add intents and slot types to the bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
+  * `:bot_id` (`t:string`) The identifier of the bot to create the locale for.
+  * `:bot_version` (`t:string`) The version of the bot to create the locale for. This can only be
+         the draft version of the bot.
 
   ## Optional parameters:
   """
@@ -7221,7 +7236,7 @@ defmodule AWS.LexModelsV2 do
   Action to create a replication of the source bot in the secondary region.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The request for the unique bot ID of the source bot to be replicated in the secondary region.
 
   ## Optional parameters:
   """
@@ -7252,7 +7267,7 @@ defmodule AWS.LexModelsV2 do
   is deleted, that bot version number will not be reused.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier of the bot to create the version for.
 
   ## Optional parameters:
   """
@@ -7346,9 +7361,12 @@ defmodule AWS.LexModelsV2 do
   For example, "Do you want a drink with your pizza?"
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with this intent.
+  * `:bot_version` (`t:string`) The version of the bot associated with this
+         intent.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this intent is used.
+         All of the bots, slot types, and slots used by the intent must have the
+         same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -7381,7 +7399,8 @@ defmodule AWS.LexModelsV2 do
   statements.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that the
+         resource policy is attached to.
 
   ## Optional parameters:
   """
@@ -7426,10 +7445,13 @@ defmodule AWS.LexModelsV2 do
   cross-account access.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that the
+         resource policy is attached to.
 
   ## Optional parameters:
-   • :expected_revision_id (t:String.t/0) (expectedRevisionId)
+  * `:expected_revision_id` (`t:string`) The identifier of the revision of the policy to edit. If this
+         revision ID doesn&#39;t match the current revision ID, Amazon Lex throws an
+         exception.
   """
   @spec create_resource_policy_statement(
           AWS.Client.t(),
@@ -7476,10 +7498,13 @@ defmodule AWS.LexModelsV2 do
   user.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot.
+  * `:bot_version` (`t:string`) The version of the bot associated with the slot.
+  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that the slot will be used
+         in. The string must match one of the supported locales. All of the
+         bots, intents, slot types used by the slot must have the same locale.
+         For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -7524,9 +7549,13 @@ defmodule AWS.LexModelsV2 do
   assume.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with this slot type.
+  * `:bot_version` (`t:string`) The identifier of the bot version associated with this slot
+         type.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that the slot type will be
+         used in. The string must match one of the supported locales. All of the
+         bots, intents, and slots used by the slot type must have the same
+         locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -7558,7 +7587,7 @@ defmodule AWS.LexModelsV2 do
   Create a report that describes the differences between the bot and the test set.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The test set Id for the test set discrepancy report.
 
   ## Optional parameters:
   """
@@ -7642,10 +7671,15 @@ defmodule AWS.LexModelsV2 do
   parameter to `true`.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier of the bot to delete. 
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if any other resource, such as an alias or 
+         bot network, is using the bot version before it is deleted and throws a 
+         <code>ResourceInUseException</code> exception if the bot is 
+         being used by another resource. Set this parameter to <code>true</code>
+         to skip this check and remove the bot even if it is being used by 
+         another resource.
   """
   @spec delete_bot(AWS.Client.t(), String.t(), delete_bot_request(), Keyword.t()) ::
           {:ok, delete_bot_response(), any()}
@@ -7681,11 +7715,17 @@ defmodule AWS.LexModelsV2 do
   Deletes the specified bot alias.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_alias_id` (`t:string`) The unique identifier of the bot alias to delete.
+  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the alias to
+         delete.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if any other resource, such as a bot network, 
+         is using the bot alias before it is deleted and throws a 
+         <code>ResourceInUseException</code> exception if the alias is 
+         being used by another resource. Set this parameter to <code>true</code>
+         to skip this check and remove the alias even if it is being used by 
+         another resource.
   """
   @spec delete_bot_alias(
           AWS.Client.t(),
@@ -7732,9 +7772,11 @@ defmodule AWS.LexModelsV2 do
   for the locale are also deleted.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the locale.
+  * `:bot_version` (`t:string`) The version of the bot that contains the locale. 
+  * `:locale_id` (`t:string`) The identifier of the language and locale that will be deleted. The
+         string must match one of the supported locales. For more information,
+         see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -7776,8 +7818,8 @@ defmodule AWS.LexModelsV2 do
   The action to delete the replicated bot in the secondary region.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :replica_region (t:string String.t/0) (replicaRegion)
+  * `:bot_id` (`t:string`) The unique ID of the replicated bot to be deleted from the secondary region
+  * `:replica_region` (`t:string`) The secondary region of the replicated bot that will be deleted.
 
   ## Optional parameters:
   """
@@ -7823,11 +7865,16 @@ defmodule AWS.LexModelsV2 do
   operation.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the version.
+  * `:bot_version` (`t:string`) The version of the bot to delete.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:boolean`) By default, Amazon Lex checks if any other resource, such as an alias or bot network, 
+         is using the bot version before it is deleted and throws a 
+         <code>ResourceInUseException</code> exception if the version is 
+         being used by another resource. Set this parameter to <code>true</code>
+         to skip this check and remove the version even if it is being used by 
+         another resource.
   """
   @spec delete_bot_version(
           AWS.Client.t(),
@@ -7872,9 +7919,12 @@ defmodule AWS.LexModelsV2 do
   in the specified bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot to remove the custom
+      vocabulary from.
+  * `:bot_version` (`t:string`) The version of the bot to remove the custom vocabulary
+      from.
+  * `:locale_id` (`t:string`) The locale identifier for the locale that contains the
+      custom vocabulary to remove.
 
   ## Optional parameters:
   """
@@ -7924,7 +7974,7 @@ defmodule AWS.LexModelsV2 do
   bucket.
 
   ## Required positional parameters:
-   • :export_id (t:string String.t/0) (exportId)
+  * `:export_id` (`t:string`) The unique identifier of the export to delete.
 
   ## Optional parameters:
   """
@@ -7958,7 +8008,7 @@ defmodule AWS.LexModelsV2 do
   bucket.
 
   ## Required positional parameters:
-   • :import_id (t:string String.t/0) (importId)
+  * `:import_id` (`t:string`) The unique identifier of the import to delete.
 
   ## Optional parameters:
   """
@@ -7994,10 +8044,12 @@ defmodule AWS.LexModelsV2 do
   intent.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the intent.
+  * `:bot_version` (`t:string`) The version of the bot associated with the intent.
+  * `:intent_id` (`t:string`) The unique identifier of the intent to delete.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where the bot will be
+         deleted. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -8051,10 +8103,12 @@ defmodule AWS.LexModelsV2 do
   doesn't have a policy attached, Amazon Lex returns an exception.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that has the
+         resource policy attached.
 
   ## Optional parameters:
-   • :expected_revision_id (t:String.t/0) (expectedRevisionId)
+  * `:expected_revision_id` (`t:string`) The identifier of the revision to edit. If this ID doesn&#39;t match the
+         current revision number, Amazon Lex returns an exception
   """
   @spec delete_resource_policy(
           AWS.Client.t(),
@@ -8101,11 +8155,14 @@ defmodule AWS.LexModelsV2 do
   exception.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
-   • :statement_id (t:string String.t/0) (statementId)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that the
+         resource policy is attached to.
+  * `:statement_id` (`t:string`) The name of the statement (SID) to delete from the policy.
 
   ## Optional parameters:
-   • :expected_revision_id (t:String.t/0) (expectedRevisionId)
+  * `:expected_revision_id` (`t:string`) The identifier of the revision of the policy to delete the statement
+         from. If this revision ID doesn&#39;t match the current revision ID, Amazon Lex
+         throws an exception.
   """
   @spec delete_resource_policy_statement(
           AWS.Client.t(),
@@ -8155,11 +8212,13 @@ defmodule AWS.LexModelsV2 do
   Deletes the specified slot from an intent.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_id (t:string String.t/0) (slotId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot to delete.
+  * `:bot_version` (`t:string`) The version of the bot associated with the slot to delete.
+  * `:intent_id` (`t:string`) The identifier of the intent associated with the slot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that the slot will be
+         deleted from. The string must match one of the supported locales. For
+         more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_id` (`t:string`) The identifier of the slot to delete. 
 
   ## Optional parameters:
   """
@@ -8217,13 +8276,19 @@ defmodule AWS.LexModelsV2 do
   `true`.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_type_id (t:string String.t/0) (slotTypeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot type.
+  * `:bot_version` (`t:string`) The version of the bot associated with the slot type.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that the slot type will be
+         deleted from. The string must match one of the supported locales. For
+         more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_type_id` (`t:string`) The identifier of the slot type to delete.
 
   ## Optional parameters:
-   • :skip_resource_in_use_check (t:String.t/0) (skipResourceInUseCheck)
+  * `:skip_resource_in_use_check` (`t:boolean`) By default, the <code>DeleteSlotType</code> operations throws a
+            <code>ResourceInUseException</code> exception if you try to delete a
+         slot type used by a slot. Set the <code>skipResourceInUseCheck</code>
+         parameter to <code>true</code> to skip this check and remove the slot
+         type even if a slot uses it.
   """
   @spec delete_slot_type(
           AWS.Client.t(),
@@ -8277,7 +8342,7 @@ defmodule AWS.LexModelsV2 do
   The action to delete the selected test set.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The test set Id of the test set to be deleted.
 
   ## Optional parameters:
   """
@@ -8325,11 +8390,16 @@ defmodule AWS.LexModelsV2 do
   days.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the
+         utterances.
 
   ## Optional parameters:
-   • :locale_id (t:String.t/0) (localeId)
-   • :session_id (t:String.t/0) (sessionId)
+  * `:locale_id` (`t:string`) The identifier of the language and locale where the utterances were
+         collected. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+         languages</a>.
+  * `:session_id` (`t:string`) The unique identifier of the session with the user. The ID is
+         returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.
   """
   @spec delete_utterances(AWS.Client.t(), String.t(), delete_utterances_request(), Keyword.t()) ::
           {:ok, delete_utterances_response(), any()}
@@ -8366,7 +8436,7 @@ defmodule AWS.LexModelsV2 do
   Provides metadata information about a bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot to describe.
 
   ## Optional parameters:
   """
@@ -8394,8 +8464,9 @@ defmodule AWS.LexModelsV2 do
   Get information about a specific bot alias.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_alias_id` (`t:string`) The identifier of the bot alias to describe.
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the bot alias to
+         describe.
 
   ## Optional parameters:
   """
@@ -8424,9 +8495,11 @@ defmodule AWS.LexModelsV2 do
   Describes the settings that a bot has for a specific locale.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the locale.
+  * `:bot_version` (`t:string`) The version of the bot associated with the
+         locale.
+  * `:locale_id` (`t:string`) The unique identifier of the locale to describe. The string must
+         match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. 
 
   ## Optional parameters:
   """
@@ -8461,10 +8534,14 @@ defmodule AWS.LexModelsV2 do
   recommendation.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_recommendation_id (t:string String.t/0) (botRecommendationId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the bot
+         recommendation.
+  * `:bot_recommendation_id` (`t:string`) The identifier of the bot recommendation to describe.
+  * `:bot_version` (`t:string`) The version of the bot associated with the bot
+         recommendation.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot recommendation
+         to describe. The string must match one of the supported locales. For
+         more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -8507,8 +8584,8 @@ defmodule AWS.LexModelsV2 do
   Monitors the bot replication status through the UI console.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :replica_region (t:string String.t/0) (replicaRegion)
+  * `:bot_id` (`t:string`) The request for the unique bot ID of the replicated bot being monitored.
+  * `:replica_region` (`t:string`) The request for the region of the replicated bot being monitored.
 
   ## Optional parameters:
   """
@@ -8544,10 +8621,11 @@ defmodule AWS.LexModelsV2 do
   then modify and import this configuration.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :generation_id (t:string String.t/0) (generationId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot for which to return the generation details.
+  * `:bot_version` (`t:string`) The version of the bot for which to return the generation details.
+  * `:generation_id` (`t:string`) The unique identifier of the generation request for which to 
+         return the generation details.
+  * `:locale_id` (`t:string`) The locale of the bot for which to return the generation details.
 
   ## Optional parameters:
   """
@@ -8590,8 +8668,9 @@ defmodule AWS.LexModelsV2 do
   Provides metadata about a version of a bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
+  * `:bot_id` (`t:string`) The identifier of the bot containing the version to return metadata
+         for.
+  * `:bot_version` (`t:string`) The version of the bot to return metadata for.
 
   ## Optional parameters:
   """
@@ -8620,9 +8699,10 @@ defmodule AWS.LexModelsV2 do
   Provides metadata information about a custom vocabulary.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the custom vocabulary.
+  * `:bot_version` (`t:string`) The bot version of the bot to return metadata for.
+  * `:locale_id` (`t:string`) The locale to return the custom vocabulary information for.
+      The locale must be <code>en_GB</code>.
 
   ## Optional parameters:
   """
@@ -8663,7 +8743,7 @@ defmodule AWS.LexModelsV2 do
   Gets information about a specific export.
 
   ## Required positional parameters:
-   • :export_id (t:string String.t/0) (exportId)
+  * `:export_id` (`t:string`) The unique identifier of the export to describe.
 
   ## Optional parameters:
   """
@@ -8691,7 +8771,7 @@ defmodule AWS.LexModelsV2 do
   Gets information about a specific import.
 
   ## Required positional parameters:
-   • :import_id (t:string String.t/0) (importId)
+  * `:import_id` (`t:string`) The unique identifier of the import to describe.
 
   ## Optional parameters:
   """
@@ -8719,10 +8799,12 @@ defmodule AWS.LexModelsV2 do
   Returns metadata about an intent.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the intent.
+  * `:bot_version` (`t:string`) The version of the bot associated with the intent.
+  * `:intent_id` (`t:string`) The identifier of the intent to describe.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the intent to describe.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -8766,7 +8848,8 @@ defmodule AWS.LexModelsV2 do
   alias.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that the
+         resource policy is attached to.
 
   ## Optional parameters:
   """
@@ -8794,11 +8877,13 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about a slot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_id (t:string String.t/0) (slotId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot.
+  * `:bot_version` (`t:string`) The version of the bot associated with the slot.
+  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the slot to describe.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_id` (`t:string`) The unique identifier for the slot.
 
   ## Optional parameters:
   """
@@ -8843,10 +8928,12 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about a slot type.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_type_id (t:string String.t/0) (slotTypeId)
+  * `:bot_id` (`t:string`) The identifier of the bot associated with the slot type.
+  * `:bot_version` (`t:string`) The version of the bot associated with the slot type.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the slot type to
+         describe. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_type_id` (`t:string`) The identifier of the slot type.
 
   ## Optional parameters:
   """
@@ -8889,7 +8976,7 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about the test execution.
 
   ## Required positional parameters:
-   • :test_execution_id (t:string String.t/0) (testExecutionId)
+  * `:test_execution_id` (`t:string`) The execution Id of the test set execution.
 
   ## Optional parameters:
   """
@@ -8917,7 +9004,7 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about the test set.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The test set Id for the test set request.
 
   ## Optional parameters:
   """
@@ -8945,7 +9032,7 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about the test set discrepancy report.
 
   ## Required positional parameters:
-   • :test_set_discrepancy_report_id (t:string String.t/0) (testSetDiscrepancyReportId)
+  * `:test_set_discrepancy_report_id` (`t:string`) The unique identifier of the test set discrepancy report.
 
   ## Optional parameters:
   """
@@ -8977,7 +9064,7 @@ defmodule AWS.LexModelsV2 do
   Gets metadata information about the test set generation.
 
   ## Required positional parameters:
-   • :test_set_generation_id (t:string String.t/0) (testSetGenerationId)
+  * `:test_set_generation_id` (`t:string`) The unique identifier of the test set generation.
 
   ## Optional parameters:
   """
@@ -9005,9 +9092,9 @@ defmodule AWS.LexModelsV2 do
   Generates sample utterances for an intent.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The bot unique Id for the bot request to generate utterances.
+  * `:bot_version` (`t:string`) The bot version for the bot request to generate utterances.
+  * `:locale_id` (`t:string`) The unique locale Id for the bot request to generate utterances.
 
   ## Optional parameters:
   """
@@ -9056,7 +9143,7 @@ defmodule AWS.LexModelsV2 do
   The pre-signed Amazon S3 URL to download the test execution result artifacts.
 
   ## Required positional parameters:
-   • :test_execution_id (t:string String.t/0) (testExecutionId)
+  * `:test_execution_id` (`t:string`) The unique identifier of the completed test execution.
 
   ## Optional parameters:
   """
@@ -9110,7 +9197,8 @@ defmodule AWS.LexModelsV2 do
   You opted out of participating in improving Amazon Lex.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot associated with this
+         request.
 
   ## Optional parameters:
   """
@@ -9148,8 +9236,8 @@ defmodule AWS.LexModelsV2 do
   The action to list the replicated bots created from the source bot alias.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :replica_region (t:string String.t/0) (replicaRegion)
+  * `:bot_id` (`t:string`) The request for the unique bot ID of the replicated bot created from the source bot alias.
+  * `:replica_region` (`t:string`) The request for the secondary region of the replicated bot created from the source bot alias.
 
   ## Optional parameters:
   """
@@ -9190,7 +9278,7 @@ defmodule AWS.LexModelsV2 do
   Gets a list of aliases for the specified bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier of the bot to list aliases for.
 
   ## Optional parameters:
   """
@@ -9223,8 +9311,8 @@ defmodule AWS.LexModelsV2 do
   Gets a list of locales for the specified bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
+  * `:bot_id` (`t:string`) The identifier of the bot to list locales for.
+  * `:bot_version` (`t:string`) The version of the bot to list locales for.
 
   ## Optional parameters:
   """
@@ -9266,9 +9354,12 @@ defmodule AWS.LexModelsV2 do
   criteria.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the bot
+         recommendation list.
+  * `:bot_version` (`t:string`) The version of the bot that contains the bot recommendation
+         list.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot recommendation
+         list.
 
   ## Optional parameters:
   """
@@ -9317,7 +9408,7 @@ defmodule AWS.LexModelsV2 do
   The action to list the replicated bots.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The request for the unique bot IDs in the list of replicated bots.
 
   ## Optional parameters:
   """
@@ -9350,9 +9441,12 @@ defmodule AWS.LexModelsV2 do
   Lists the generation requests made for a bot locale.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot whose generation 
+      requests you want to view.
+  * `:bot_version` (`t:string`) The version of the bot whose generation 
+         requests you want to view.
+  * `:locale_id` (`t:string`) The locale of the bot whose generation 
+         requests you want to view.
 
   ## Optional parameters:
   """
@@ -9402,8 +9496,8 @@ defmodule AWS.LexModelsV2 do
   Global Resiliency.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :replica_region (t:string String.t/0) (replicaRegion)
+  * `:bot_id` (`t:string`) The request for the unique ID in the list of replicated bots.
+  * `:replica_region` (`t:string`) The request for the region used in the list of replicated bots.
 
   ## Optional parameters:
   """
@@ -9453,7 +9547,7 @@ defmodule AWS.LexModelsV2 do
   one version, the `DRAFT` version.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier of the bot to list versions for.
 
   ## Optional parameters:
   """
@@ -9525,7 +9619,9 @@ defmodule AWS.LexModelsV2 do
   [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html).
 
   ## Required positional parameters:
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the intents to list.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -9564,7 +9660,9 @@ defmodule AWS.LexModelsV2 do
   criteria.
 
   ## Required positional parameters:
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the slot types to list.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -9603,9 +9701,14 @@ defmodule AWS.LexModelsV2 do
   custom vocabulary.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the version of the bot associated with this custom 
+         vocabulary.
+  * `:bot_version` (`t:string`) The bot version of the bot to the list custom vocabulary 
+         request.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this custom vocabulary 
+         is used. The string must match one of the supported locales. For more 
+         information, see Supported 
+         languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).
 
   ## Optional parameters:
   """
@@ -9753,7 +9856,7 @@ defmodule AWS.LexModelsV2 do
   only one `order` in a given request.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve intent metrics.
 
   ## Optional parameters:
   """
@@ -9809,7 +9912,7 @@ defmodule AWS.LexModelsV2 do
   Use the optional `filters` field to filter the results.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve intent path metrics.
 
   ## Optional parameters:
   """
@@ -9873,7 +9976,7 @@ defmodule AWS.LexModelsV2 do
   specify one `order` in a given request.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve intent stage metrics.
 
   ## Optional parameters:
   """
@@ -9911,9 +10014,11 @@ defmodule AWS.LexModelsV2 do
   Get a list of intents that meet the specified criteria.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the intent.
+  * `:bot_version` (`t:string`) The version of the bot that contains the intent.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the intents to list.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -9959,10 +10064,13 @@ defmodule AWS.LexModelsV2 do
   response are ordered by relevance.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_recommendation_id (t:string String.t/0) (botRecommendationId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the recommended
+         intents.
+  * `:bot_recommendation_id` (`t:string`) The identifier of the bot recommendation that contains the
+         recommended intents.
+  * `:bot_version` (`t:string`) The version of the bot that contains the recommended intents.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the recommended
+         intents.
 
   ## Optional parameters:
   """
@@ -10026,7 +10134,7 @@ defmodule AWS.LexModelsV2 do
   response does not return the full set of results.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve session analytics.
 
   ## Optional parameters:
   """
@@ -10095,7 +10203,7 @@ defmodule AWS.LexModelsV2 do
   can specify it in either field, but not in both.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve session metrics.
 
   ## Optional parameters:
   """
@@ -10133,9 +10241,12 @@ defmodule AWS.LexModelsV2 do
   Gets a list of slot types that match the specified criteria.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the slot
+         types.
+  * `:bot_version` (`t:string`) The version of the bot that contains the slot type.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the slot types to list.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -10177,10 +10288,12 @@ defmodule AWS.LexModelsV2 do
   Gets a list of slots that match the specified criteria.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the slot.
+  * `:bot_version` (`t:string`) The version of the bot that contains the slot.
+  * `:intent_id` (`t:string`) The unique identifier of the intent that contains the slot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the slots to list. The
+         string must match one of the supported locales. For more information,
+         see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -10234,7 +10347,8 @@ defmodule AWS.LexModelsV2 do
   aliases, and bot channels can have tags associated with them.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to get a list of tags
+         for.
 
   ## Optional parameters:
   """
@@ -10262,7 +10376,7 @@ defmodule AWS.LexModelsV2 do
   Gets a list of test execution result items.
 
   ## Required positional parameters:
-   • :test_execution_id (t:string String.t/0) (testExecutionId)
+  * `:test_execution_id` (`t:string`) The unique identifier of the test execution to list the result items.
 
   ## Optional parameters:
   """
@@ -10337,7 +10451,7 @@ defmodule AWS.LexModelsV2 do
   The list of test set records.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The identifier of the test set to list its test set records.
 
   ## Optional parameters:
   """
@@ -10434,7 +10548,7 @@ defmodule AWS.LexModelsV2 do
   response does not return the full set of results.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve utterance analytics.
 
   ## Optional parameters:
   """
@@ -10512,7 +10626,7 @@ defmodule AWS.LexModelsV2 do
   can specify it in either field, but not in both.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The identifier for the bot for which you want to retrieve utterance metrics.
 
   ## Optional parameters:
   """
@@ -10551,10 +10665,16 @@ defmodule AWS.LexModelsV2 do
   criteria.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_recommendation_id (t:string String.t/0) (botRecommendationId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot associated with the transcripts
+         that you are searching.
+  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot recommendation associated with the
+         transcripts to search.
+  * `:bot_version` (`t:string`) The version of the bot containing the transcripts that you are
+         searching.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the transcripts to
+         search. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+         
 
   ## Optional parameters:
   """
@@ -10606,9 +10726,13 @@ defmodule AWS.LexModelsV2 do
   recommendation process.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot
+         recommendation.
+  * `:bot_version` (`t:string`) The version of the bot containing the bot recommendation.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot recommendation
+         to start. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+         
 
   ## Optional parameters:
   """
@@ -10656,9 +10780,9 @@ defmodule AWS.LexModelsV2 do
   then modify and import this configuration.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot for which to generate intents and slot types.
+  * `:bot_version` (`t:string`) The version of the bot for which to generate intents and slot types.
+  * `:locale_id` (`t:string`) The locale of the bot for which to generate intents and slot types.
 
   ## Optional parameters:
   """
@@ -10720,7 +10844,7 @@ defmodule AWS.LexModelsV2 do
   The action to start test set execution.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The test set Id for the test set execution.
 
   ## Optional parameters:
   """
@@ -10784,10 +10908,15 @@ defmodule AWS.LexModelsV2 do
   Stop an already running Bot Recommendation request.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_recommendation_id (t:string String.t/0) (botRecommendationId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot
+         recommendation to be stopped.
+  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot recommendation to be
+         stopped.
+  * `:bot_version` (`t:string`) The version of the bot containing the bot recommendation.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot recommendation
+         to stop. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+         
 
   ## Optional parameters:
   """
@@ -10832,7 +10961,8 @@ defmodule AWS.LexModelsV2 do
   value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
+         to tag.
 
   ## Optional parameters:
   """
@@ -10865,10 +10995,12 @@ defmodule AWS.LexModelsV2 do
   Removes tags from a bot, bot alias, or bot channel.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceARN)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to remove the tags
+         from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.lexmodelsv2#TagKey]`) A list of tag keys to remove from the resource. If a tag key does
+         not exist on the resource, it is ignored.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -10904,7 +11036,8 @@ defmodule AWS.LexModelsV2 do
   Updates the configuration of an existing bot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot to update. This identifier is
+         returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation.
 
   ## Optional parameters:
   """
@@ -10927,8 +11060,8 @@ defmodule AWS.LexModelsV2 do
   Updates the configuration of an existing bot alias.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
+  * `:bot_alias_id` (`t:string`) The unique identifier of the bot alias.
+  * `:bot_id` (`t:string`) The identifier of the bot with the updated alias.
 
   ## Optional parameters:
   """
@@ -10959,9 +11092,11 @@ defmodule AWS.LexModelsV2 do
   Updates the settings that a bot has for a specific locale.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the locale.
+  * `:bot_version` (`t:string`) The version of the bot that contains the locale to be updated. The
+         version can only be the <code>DRAFT</code> version.
+  * `:locale_id` (`t:string`) The identifier of the language and locale to update. The string must
+         match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -10993,10 +11128,16 @@ defmodule AWS.LexModelsV2 do
   Updates an existing bot recommendation request.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_recommendation_id (t:string String.t/0) (botRecommendationId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot containing the bot recommendation
+         to be updated.
+  * `:bot_recommendation_id` (`t:string`) The unique identifier of the bot recommendation to be
+         updated.
+  * `:bot_version` (`t:string`) The version of the bot containing the bot recommendation to be
+         updated.
+  * `:locale_id` (`t:string`) The identifier of the language and locale of the bot recommendation
+         to update. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>
+         
 
   ## Optional parameters:
   """
@@ -11043,7 +11184,7 @@ defmodule AWS.LexModelsV2 do
   operation.
 
   ## Required positional parameters:
-   • :export_id (t:string String.t/0) (exportId)
+  * `:export_id` (`t:string`) The unique identifier Amazon Lex assigned to the export.
 
   ## Optional parameters:
   """
@@ -11066,10 +11207,13 @@ defmodule AWS.LexModelsV2 do
   Updates the settings for an intent.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the intent.
+  * `:bot_version` (`t:string`) The version of the bot that contains the intent. Must be
+            <code>DRAFT</code>.
+  * `:intent_id` (`t:string`) The unique identifier of the intent to update.
+  * `:locale_id` (`t:string`) The identifier of the language and locale where this intent is used.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
 
   ## Optional parameters:
   """
@@ -11114,10 +11258,13 @@ defmodule AWS.LexModelsV2 do
   exception.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the bot or bot alias that the
+         resource policy is attached to.
 
   ## Optional parameters:
-   • :expected_revision_id (t:String.t/0) (expectedRevisionId)
+  * `:expected_revision_id` (`t:string`) The identifier of the revision of the policy to update. If this
+         revision ID doesn&#39;t match the current revision ID, Amazon Lex throws an
+         exception.
   """
   @spec update_resource_policy(
           AWS.Client.t(),
@@ -11148,11 +11295,14 @@ defmodule AWS.LexModelsV2 do
   Updates the settings for a slot.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :intent_id (t:string String.t/0) (intentId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_id (t:string String.t/0) (slotId)
+  * `:bot_id` (`t:string`) The unique identifier of the bot that contains the slot.
+  * `:bot_version` (`t:string`) The version of the bot that contains the slot. Must always be
+            <code>DRAFT</code>.
+  * `:intent_id` (`t:string`) The identifier of the intent that contains the slot.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that contains the slot.
+         The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_id` (`t:string`) The unique identifier for the slot to update.
 
   ## Optional parameters:
   """
@@ -11195,10 +11345,13 @@ defmodule AWS.LexModelsV2 do
   Updates the configuration of an existing slot type.
 
   ## Required positional parameters:
-   • :bot_id (t:string String.t/0) (botId)
-   • :bot_version (t:string String.t/0) (botVersion)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :slot_type_id (t:string String.t/0) (slotTypeId)
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the slot type.
+  * `:bot_version` (`t:string`) The version of the bot that contains the slot type. Must be
+            <code>DRAFT</code>.
+  * `:locale_id` (`t:string`) The identifier of the language and locale that contains the slot
+         type. The string must match one of the supported locales. For more
+         information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.
+  * `:slot_type_id` (`t:string`) The unique identifier of the slot type to update.
 
   ## Optional parameters:
   """
@@ -11239,7 +11392,7 @@ defmodule AWS.LexModelsV2 do
   The action to update the test set.
 
   ## Required positional parameters:
-   • :test_set_id (t:string String.t/0) (testSetId)
+  * `:test_set_id` (`t:string`) The test set Id for which update test operation to be performed.
 
   ## Optional parameters:
   """

@@ -1268,7 +1268,7 @@ defmodule AWS.NeptuneGraph do
   Deletes the specified import task.
 
   ## Required positional parameters:
-   • :task_identifier (t:string String.t/0) (taskIdentifier)
+  * `:task_identifier` (`t:string`) The unique identifier of the import task.
 
   ## Optional parameters:
   """
@@ -1301,10 +1301,10 @@ defmodule AWS.NeptuneGraph do
   Cancels a specified query.
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The unique identifier of the query to cancel.
 
   ## Optional parameters:
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
   """
   @spec cancel_query(AWS.Client.t(), String.t(), cancel_query_input(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1453,7 +1453,7 @@ defmodule AWS.NeptuneGraph do
   VPC endpoint charges apply.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
   """
@@ -1493,10 +1493,12 @@ defmodule AWS.NeptuneGraph do
   Graphs cannot be deleted if delete-protection is enabled.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
-   • :skip_snapshot (t:String.t/0) (skipSnapshot)
+  * `:skip_snapshot` (`t:`) Determines whether a final graph snapshot is created before the graph is deleted.
+      If <code>true</code> is specified, no graph snapshot is created. If <code>false</code>
+      is specified, a graph snapshot is created before the graph is deleted.
   """
   @spec delete_graph(AWS.Client.t(), String.t(), delete_graph_input(), Keyword.t()) ::
           {:ok, delete_graph_output(), any()}
@@ -1532,7 +1534,7 @@ defmodule AWS.NeptuneGraph do
   Deletes the specifed graph snapshot.
 
   ## Required positional parameters:
-   • :snapshot_identifier (t:string String.t/0) (snapshotIdentifier)
+  * `:snapshot_identifier` (`t:string`) ID of the graph snapshot to be deleted.
 
   ## Optional parameters:
   """
@@ -1570,8 +1572,8 @@ defmodule AWS.NeptuneGraph do
   Deletes a private graph endpoint.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
-   • :vpc_id (t:string String.t/0) (vpcId)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is located.
 
   ## Optional parameters:
   """
@@ -1634,7 +1636,7 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
   """
   @spec execute_query(AWS.Client.t(), execute_query_input(), Keyword.t()) ::
           {:ok, execute_query_output(), any()}
@@ -1671,7 +1673,7 @@ defmodule AWS.NeptuneGraph do
   Gets information about a specified graph.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
   """
@@ -1699,7 +1701,7 @@ defmodule AWS.NeptuneGraph do
   Retrieves a specified graph snapshot.
 
   ## Required positional parameters:
-   • :snapshot_identifier (t:string String.t/0) (snapshotIdentifier)
+  * `:snapshot_identifier` (`t:string`) The ID of the snapshot to retrieve.
 
   ## Optional parameters:
   """
@@ -1729,8 +1731,9 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :mode (t:String.t/0) (mode)
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two values: <code>basic</code> (the default), and
+   <code>detailed</code>.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
   """
   @spec get_graph_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_summary_output(), any()}
@@ -1775,7 +1778,7 @@ defmodule AWS.NeptuneGraph do
   Retrieves a specified import task.
 
   ## Required positional parameters:
-   • :task_identifier (t:string String.t/0) (taskIdentifier)
+  * `:task_identifier` (`t:string`) The unique identifier of the import task.
 
   ## Optional parameters:
   """
@@ -1803,8 +1806,8 @@ defmodule AWS.NeptuneGraph do
   Retrieves information about a specified private endpoint.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
-   • :vpc_id (t:string String.t/0) (vpcId)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is located.
 
   ## Optional parameters:
   """
@@ -1837,10 +1840,10 @@ defmodule AWS.NeptuneGraph do
   `neptune-graph:GetQueryStatus` IAM action attached.
 
   ## Required positional parameters:
-   • :query_id (t: String.t/0) (queryId)
+  * `:query_id` (`t:`) The ID of the query in question.
 
   ## Optional parameters:
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
   """
   @spec get_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_output(), any()}
@@ -1878,9 +1881,9 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graph_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graph_snapshots_output(), any()}
@@ -1935,8 +1938,8 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_output(), any()}
@@ -1982,8 +1985,8 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_tasks_output(), any()}
@@ -2027,11 +2030,11 @@ defmodule AWS.NeptuneGraph do
   Lists private endpoints for a specified Neptune Analytics graph.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_private_graph_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_private_graph_endpoints_output(), any()}
@@ -2077,9 +2080,9 @@ defmodule AWS.NeptuneGraph do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :state (t:String.t/0) (state)
-   • :graph_identifier (t:String.t/0) (graphIdentifier)
+  * `:max_results` (`t:`) The maximum number of results to be fetched by the API.
+  * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries based on state.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
   """
   @spec list_queries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queries_output(), any()}
@@ -2133,7 +2136,7 @@ defmodule AWS.NeptuneGraph do
   Lists tags associated with a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -2161,7 +2164,7 @@ defmodule AWS.NeptuneGraph do
   Empties the data from a specified Neptune Analytics graph.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) ID of the graph to reset.
 
   ## Optional parameters:
   """
@@ -2184,7 +2187,7 @@ defmodule AWS.NeptuneGraph do
   Restores a graph from a snapshot.
 
   ## Required positional parameters:
-   • :snapshot_identifier (t:string String.t/0) (snapshotIdentifier)
+  * `:snapshot_identifier` (`t:string`) The ID of the snapshot in question.
 
   ## Optional parameters:
   """
@@ -2225,7 +2228,7 @@ defmodule AWS.NeptuneGraph do
   The graph needs to be empty and in the AVAILABLE state.
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
   """
@@ -2258,7 +2261,7 @@ defmodule AWS.NeptuneGraph do
   Adds tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags need to be added.
 
   ## Optional parameters:
   """
@@ -2291,10 +2294,10 @@ defmodule AWS.NeptuneGraph do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource whose tag needs to be removed.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]`) Tag keys for the tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2330,7 +2333,7 @@ defmodule AWS.NeptuneGraph do
   Updates the configuration of a specified Neptune Analytics graph
 
   ## Required positional parameters:
-   • :graph_identifier (t:string String.t/0) (graphIdentifier)
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
 
   ## Optional parameters:
   """

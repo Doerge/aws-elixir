@@ -4002,7 +4002,7 @@ defmodule AWS.MediaConvert do
   Once you have canceled a job, you can't start it again.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4175,7 +4175,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a job template you have created.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4245,7 +4245,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a preset you have created.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4278,7 +4278,7 @@ defmodule AWS.MediaConvert do
   Permanently delete a queue you have created.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4346,7 +4346,7 @@ defmodule AWS.MediaConvert do
   resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4384,7 +4384,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific transcoding job.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4412,7 +4412,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific job template.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4467,7 +4467,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific preset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4495,7 +4495,7 @@ defmodule AWS.MediaConvert do
   Retrieve the JSON for a specific queue.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4528,11 +4528,11 @@ defmodule AWS.MediaConvert do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :category (t:String.t/0) (category)
-   • :list_by (t:String.t/0) (listBy)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :order (t:String.t/0) (order)
+  * `:category` (`t:string`) 
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -4609,11 +4609,11 @@ defmodule AWS.MediaConvert do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :order (t:String.t/0) (order)
-   • :queue (t:String.t/0) (queue)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
+  * `:queue` (`t:string`) 
+  * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`) 
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -4689,11 +4689,11 @@ defmodule AWS.MediaConvert do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :category (t:String.t/0) (category)
-   • :list_by (t:String.t/0) (listBy)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :order (t:String.t/0) (order)
+  * `:category` (`t:string`) 
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
   """
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
@@ -4769,10 +4769,10 @@ defmodule AWS.MediaConvert do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :list_by (t:String.t/0) (listBy)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :order (t:String.t/0) (order)
+  * `:list_by` (`t:enum["CREATION_DATE|NAME"]`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
   """
   @spec list_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
@@ -4834,7 +4834,7 @@ defmodule AWS.MediaConvert do
   Retrieve the tags for a MediaConvert resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4925,7 +4925,7 @@ defmodule AWS.MediaConvert do
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4948,7 +4948,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing job templates.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4976,7 +4976,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing presets.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4999,7 +4999,7 @@ defmodule AWS.MediaConvert do
   Modify one of your existing queues.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
 
   ## Optional parameters:
   """

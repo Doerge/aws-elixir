@@ -7117,10 +7117,10 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
 
   ## Required positional parameters:
-   • :target_distribution_id (t:string String.t/0) (TargetDistributionId)
+  * `:target_distribution_id` (`t:string`) The ID of the distribution that you&#39;re associating the alias with.
 
   ## Optional parameters:
-   • :alias (t:String.t/0) (Alias)
+  * `:alias` (`t:string`) The alias (also known as a CNAME) to add to the target distribution.
   """
   @spec associate_alias(AWS.Client.t(), String.t(), associate_alias_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7171,11 +7171,16 @@ defmodule AWS.CloudFront do
   [CopyDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html)
 
   ## Required positional parameters:
-   • :primary_distribution_id (t:string String.t/0) (PrimaryDistributionId)
+  * `:primary_distribution_id` (`t:string`) The identifier of the primary distribution whose configuration you are copying. To get
+  	a distribution ID, use <code>ListDistributions</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
-   • :staging (t:String.t/0) (Staging)
+  * `:if_match` (`t:string`) The version identifier of the primary distribution whose configuration you are
+  	copying. This is the <code>ETag</code> value returned in the response to
+  		<code>GetDistribution</code> and <code>GetDistributionConfig</code>.
+  * `:staging` (`t:boolean`) The type of distribution that your primary distribution will be copied to. The only
+  	valid value is <code>True</code>, indicating that you are copying to a staging
+  	distribution.
   """
   @spec copy_distribution(AWS.Client.t(), String.t(), copy_distribution_request(), Keyword.t()) ::
           {:ok, copy_distribution_result(), any()}
@@ -7632,7 +7637,7 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
+  * `:distribution_id` (`t:string`) The distribution&#39;s id.
 
   ## Optional parameters:
   """
@@ -7782,7 +7787,7 @@ defmodule AWS.CloudFront do
   the *Amazon CloudFront Developer Guide*.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are enabling metrics for.
 
   ## Optional parameters:
   """
@@ -8209,10 +8214,14 @@ defmodule AWS.CloudFront do
   `GetCachePolicy`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the cache policy that you are deleting. To get the
+  	identifier, you can use <code>ListCachePolicies</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the cache policy that you are deleting. The version is the cache
+  	policy&#39;s <code>ETag</code> value, which you can get using
+  	<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
+  		<code>GetCachePolicyConfig</code>.
   """
   @spec delete_cache_policy(
           AWS.Client.t(),
@@ -8254,10 +8263,12 @@ defmodule AWS.CloudFront do
   Delete an origin access identity.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The origin access identity&#39;s ID.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header you received from a previous
+  		<code>GET</code> or <code>PUT</code> request. For example:
+  		<code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_cloud_front_origin_access_identity(
           AWS.Client.t(),
@@ -8304,10 +8315,11 @@ defmodule AWS.CloudFront do
   then you can delete the policy.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are deleting.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the continuous deployment policy that
+  	you are deleting.
   """
   @spec delete_continuous_deployment_policy(
           AWS.Client.t(),
@@ -8349,10 +8361,11 @@ defmodule AWS.CloudFront do
   Delete a distribution.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The distribution ID.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when you disabled the
+  	distribution. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_distribution(
           AWS.Client.t(),
@@ -8394,10 +8407,11 @@ defmodule AWS.CloudFront do
   Remove a field-level encryption configuration.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the configuration you want to delete from CloudFront.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_field_level_encryption_config(
           AWS.Client.t(),
@@ -8439,10 +8453,11 @@ defmodule AWS.CloudFront do
   Remove a field-level encryption profile.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) Request the ID of the profile you want to delete from CloudFront.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_field_level_encryption_profile(
           AWS.Client.t(),
@@ -8494,10 +8509,11 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function that you are deleting.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are deleting,
+  	which you can get using <code>DescribeFunction</code>.
   """
   @spec delete_function(AWS.Client.t(), String.t(), delete_function_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8545,10 +8561,13 @@ defmodule AWS.CloudFront do
   `GetKeyGroupConfig`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the key group that you are deleting. To get the identifier, use
+  		<code>ListKeyGroups</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the key group that you are deleting. The version is the key group&#39;s
+  		<code>ETag</code> value. To get the <code>ETag</code>, use <code>GetKeyGroup</code>
+  	or <code>GetKeyGroupConfig</code>.
   """
   @spec delete_key_group(AWS.Client.t(), String.t(), delete_key_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8585,10 +8604,10 @@ defmodule AWS.CloudFront do
   Specifies the key value store to delete.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the key value store.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The key value store to delete, if a match occurs.
   """
   @spec delete_key_value_store(
           AWS.Client.t(),
@@ -8631,7 +8650,7 @@ defmodule AWS.CloudFront do
   distribution.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are disabling metrics for.
 
   ## Optional parameters:
   """
@@ -8676,10 +8695,11 @@ defmodule AWS.CloudFront do
   origin access control.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier of the origin access control that you are deleting.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the origin access control that you
+  	are deleting.
   """
   @spec delete_origin_access_control(
           AWS.Client.t(),
@@ -8731,10 +8751,14 @@ defmodule AWS.CloudFront do
   `GetOriginRequestPolicy`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the origin request policy that you are deleting. To get the
+  	identifier, you can use <code>ListOriginRequestPolicies</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the origin request policy that you are deleting. The version is the
+  	origin request policy&#39;s <code>ETag</code> value, which you can get using
+  		<code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or
+  		<code>GetOriginRequestPolicyConfig</code>.
   """
   @spec delete_origin_request_policy(
           AWS.Client.t(),
@@ -8776,10 +8800,11 @@ defmodule AWS.CloudFront do
   Remove a public key you previously added to CloudFront.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the public key you want to remove from CloudFront.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the public
+  	key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_public_key(AWS.Client.t(), String.t(), delete_public_key_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8875,10 +8900,10 @@ defmodule AWS.CloudFront do
   `GetResponseHeadersPolicy`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier for the response headers policy that you are deleting.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the response headers policy that you are deleting.
   """
   @spec delete_response_headers_policy(
           AWS.Client.t(),
@@ -8987,10 +9012,11 @@ defmodule AWS.CloudFront do
   in the *Amazon CloudFront Developer Guide*.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The distribution ID.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when you disabled the
+  	streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec delete_streaming_distribution(
           AWS.Client.t(),
@@ -9041,10 +9067,10 @@ defmodule AWS.CloudFront do
   `ListFunctions`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function that you are getting information about.
 
   ## Optional parameters:
-   • :stage (t:String.t/0) (Stage)
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function&#39;s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.
   """
   @spec describe_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_function_result(), any()}
@@ -9086,7 +9112,7 @@ defmodule AWS.CloudFront do
   Specifies the key value store and its configuration.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the key value store.
 
   ## Optional parameters:
   """
@@ -9135,7 +9161,11 @@ defmodule AWS.CloudFront do
   `ListCachePolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache policy is attached to a
+  	distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
+  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
+  	is not attached to a cache behavior, you can get the identifier using
+  		<code>ListCachePolicies</code>.
 
   ## Optional parameters:
   """
@@ -9179,7 +9209,11 @@ defmodule AWS.CloudFront do
   `ListCachePolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache policy is attached to a
+  	distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
+  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
+  	is not attached to a cache behavior, you can get the identifier using
+  		<code>ListCachePolicies</code>.
 
   ## Optional parameters:
   """
@@ -9214,7 +9248,7 @@ defmodule AWS.CloudFront do
   Get the information about an origin access identity.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identity&#39;s ID.
 
   ## Optional parameters:
   """
@@ -9249,7 +9283,7 @@ defmodule AWS.CloudFront do
   Get the configuration information about an origin access identity.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identity&#39;s ID.
 
   ## Optional parameters:
   """
@@ -9286,7 +9320,7 @@ defmodule AWS.CloudFront do
   the date and time when the policy was last modified).
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are getting.
 
   ## Optional parameters:
   """
@@ -9321,7 +9355,8 @@ defmodule AWS.CloudFront do
   Gets configuration information about a continuous deployment policy.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the continuous deployment policy whose configuration you are
+  	getting.
 
   ## Optional parameters:
   """
@@ -9356,7 +9391,8 @@ defmodule AWS.CloudFront do
   Get the information about a distribution.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The distribution&#39;s ID. If the ID is empty, an empty distribution configuration is
+  	returned.
 
   ## Optional parameters:
   """
@@ -9391,7 +9427,8 @@ defmodule AWS.CloudFront do
   Get the configuration information about a distribution.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The distribution&#39;s ID. If the ID is empty, an empty distribution configuration is
+  	returned.
 
   ## Optional parameters:
   """
@@ -9426,7 +9463,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption configuration information.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) Request the ID for the field-level encryption configuration information.
 
   ## Optional parameters:
   """
@@ -9461,7 +9498,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption configuration information.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) Request the ID for the field-level encryption configuration information.
 
   ## Optional parameters:
   """
@@ -9496,7 +9533,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption profile information.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) Get the ID for the field-level encryption profile information.
 
   ## Optional parameters:
   """
@@ -9531,7 +9568,7 @@ defmodule AWS.CloudFront do
   Get the field-level encryption profile configuration information.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) Get the ID for the field-level encryption profile configuration information.
 
   ## Optional parameters:
   """
@@ -9573,10 +9610,10 @@ defmodule AWS.CloudFront do
   values, you can use `ListFunctions`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function whose code you are getting.
 
   ## Optional parameters:
-   • :stage (t:String.t/0) (Stage)
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function&#39;s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.
   """
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_result(), any()}
@@ -9618,8 +9655,9 @@ defmodule AWS.CloudFront do
   Get the information about an invalidation.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
-   • :id (t:string String.t/0) (Id)
+  * `:distribution_id` (`t:string`) The distribution&#39;s ID.
+  * `:id` (`t:string`) The identifier for the invalidation request, for example,
+  	<code>IDFDVBD632BHDS5</code>.
 
   ## Optional parameters:
   """
@@ -9657,7 +9695,8 @@ defmodule AWS.CloudFront do
   `ListKeyGroups`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the key group that you are getting. To get the identifier, use
+  		<code>ListKeyGroups</code>.
 
   ## Optional parameters:
   """
@@ -9701,7 +9740,8 @@ defmodule AWS.CloudFront do
   `ListKeyGroups`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the key group whose configuration you are getting. To get the
+  	identifier, use <code>ListKeyGroups</code>.
 
   ## Optional parameters:
   """
@@ -9737,7 +9777,7 @@ defmodule AWS.CloudFront do
   specified CloudFront distribution.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are getting metrics information for.
 
   ## Optional parameters:
   """
@@ -9766,7 +9806,7 @@ defmodule AWS.CloudFront do
   Gets a CloudFront origin access control, including its unique identifier.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier of the origin access control.
 
   ## Optional parameters:
   """
@@ -9801,7 +9841,7 @@ defmodule AWS.CloudFront do
   Gets a CloudFront origin access control configuration.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier of the origin access control.
 
   ## Optional parameters:
   """
@@ -9851,7 +9891,11 @@ defmodule AWS.CloudFront do
   `ListOriginRequestPolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the origin request policy. If the origin request policy is
+  	attached to a distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
+  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
+  	request policy is not attached to a cache behavior, you can get the identifier using
+  		<code>ListOriginRequestPolicies</code>.
 
   ## Optional parameters:
   """
@@ -9894,7 +9938,11 @@ defmodule AWS.CloudFront do
   `ListOriginRequestPolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the origin request policy. If the origin request policy is
+  	attached to a distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
+  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
+  	request policy is not attached to a cache behavior, you can get the identifier using
+  		<code>ListOriginRequestPolicies</code>.
 
   ## Optional parameters:
   """
@@ -9929,7 +9977,7 @@ defmodule AWS.CloudFront do
   Gets a public key.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the public key you are getting.
 
   ## Optional parameters:
   """
@@ -9964,7 +10012,7 @@ defmodule AWS.CloudFront do
   Gets a public key configuration.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the public key whose configuration you are getting.
 
   ## Optional parameters:
   """
@@ -10048,7 +10096,7 @@ defmodule AWS.CloudFront do
   `ListResponseHeadersPolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier for the response headers policy.
 
   ## Optional parameters:
   """
@@ -10090,7 +10138,7 @@ defmodule AWS.CloudFront do
   `ListResponseHeadersPolicies`.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier for the response headers policy.
 
   ## Optional parameters:
   """
@@ -10126,7 +10174,7 @@ defmodule AWS.CloudFront do
   configuration.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The streaming distribution&#39;s ID.
 
   ## Optional parameters:
   """
@@ -10161,7 +10209,7 @@ defmodule AWS.CloudFront do
   Get the configuration information about a streaming distribution.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The streaming distribution&#39;s ID.
 
   ## Optional parameters:
   """
@@ -10211,9 +10259,13 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :type (t:String.t/0) (Type)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	cache policies. The response includes cache policies in the list that occur after the
+  	marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of cache policies that you want in the response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified kinds of cache policies. Valid values
+  	are:
   """
   @spec list_cache_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cache_policies_result(), any()}
@@ -10268,8 +10320,12 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of origin
+  	access identities. The results include identities in the list that occur after the
+  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
+  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
+  	the last identity on that page).
+  * `:max_items` (`t:integer`) The maximum number of origin access identities you want in the response body.
   """
   @spec list_cloud_front_origin_access_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
@@ -10351,10 +10407,14 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :alias (t:String.t/0) (Alias)
-   • :distribution_id (t:String.t/0) (DistributionId)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:alias` (`t:string`) The alias (also called a CNAME) to search for conflicting aliases.
+  * `:distribution_id` (`t:string`) The ID of a distribution in your account that has an attached SSL/TLS certificate that
+  	includes the provided alias.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in the list of
+  	conflicting aliases. The response includes conflicting aliases in the list that occur
+  	after the marker. To get the next page of the list, set this field&#39;s value to the value
+  	of <code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of conflicting aliases that you want in the response.
   """
   @spec list_conflicting_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_conflicting_aliases_result(), any()}
@@ -10428,8 +10488,12 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	continuous deployment policies. The response includes policies in the list that occur
+  	after the marker. To get the next page of the list, set this field&#39;s value to the value
+  	of <code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of continuous deployment policies that you want returned in the
+  	response.
   """
   @spec list_continuous_deployment_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
@@ -10475,8 +10539,12 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of
+  	distributions. The results include distributions in the list that occur after the
+  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
+  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
+  	the last distribution on that page).
+  * `:max_items` (`t:integer`) The maximum number of distributions you want in the response body.
   """
   @spec list_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_result(), any()}
@@ -10531,11 +10599,14 @@ defmodule AWS.CloudFront do
   response as the `Marker` value in the subsequent request.
 
   ## Required positional parameters:
-   • :cache_policy_id (t:string String.t/0) (CachePolicyId)
+  * `:cache_policy_id` (`t:string`) The ID of the cache policy whose associated distribution IDs you want to list.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	distribution IDs. The response includes distribution IDs in the list that occur after
+  	the marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
   """
   @spec list_distributions_by_cache_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
@@ -10590,11 +10661,14 @@ defmodule AWS.CloudFront do
   response as the `Marker` value in the subsequent request.
 
   ## Required positional parameters:
-   • :key_group_id (t:string String.t/0) (KeyGroupId)
+  * `:key_group_id` (`t:string`) The ID of the key group whose associated distribution IDs you are listing.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	distribution IDs. The response includes distribution IDs in the list that occur after
+  	the marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
   """
   @spec list_distributions_by_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_key_group_result(), any()}
@@ -10649,11 +10723,15 @@ defmodule AWS.CloudFront do
   response as the `Marker` value in the subsequent request.
 
   ## Required positional parameters:
-   • :origin_request_policy_id (t:string String.t/0) (OriginRequestPolicyId)
+  * `:origin_request_policy_id` (`t:string`) The ID of the origin request policy whose associated distribution IDs you want to
+  	list.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	distribution IDs. The response includes distribution IDs in the list that occur after
+  	the marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
   """
   @spec list_distributions_by_origin_request_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
@@ -10766,11 +10844,15 @@ defmodule AWS.CloudFront do
   response as the `Marker` value in the subsequent request.
 
   ## Required positional parameters:
-   • :response_headers_policy_id (t:string String.t/0) (ResponseHeadersPolicyId)
+  * `:response_headers_policy_id` (`t:string`) The ID of the response headers policy whose associated distribution IDs you want to
+  	list.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	distribution IDs. The response includes distribution IDs in the list that occur after
+  	the marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want to get in the response.
   """
   @spec list_distributions_by_response_headers_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
@@ -10819,11 +10901,19 @@ defmodule AWS.CloudFront do
   List the distributions that are associated with a specified WAF web ACL.
 
   ## Required positional parameters:
-   • :web_acl_id (t:string String.t/0) (WebACLId)
+  * `:web_acl_id` (`t:string`) The ID of the WAF web ACL that you want to list the associated distributions. If you
+  	specify &quot;null&quot; for the ID, the request returns a list of the distributions that aren&#39;t
+  	associated with a web ACL. 
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If
+  	you have more than <code>MaxItems</code> distributions that satisfy the request, the
+  	response includes a <code>NextMarker</code> element. To get the next page of results,
+  	submit another request. For the value of <code>Marker</code>, specify the value of
+  		<code>NextMarker</code> from the last response. (For the first request, omit
+  		<code>Marker</code>.)
+  * `:max_items` (`t:integer`) The maximum number of distributions that you want CloudFront to return in the response body.
+  	The maximum and default values are both 100.
   """
   @spec list_distributions_by_web_acl_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
@@ -10871,8 +10961,13 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of
+  	configurations. The results include configurations in the list that occur after the
+  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
+  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
+  	the last configuration on that page).
+  * `:max_items` (`t:integer`) The maximum number of field-level encryption configurations you want in the response
+  	body.
   """
   @spec list_field_level_encryption_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
@@ -10920,8 +11015,13 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of profiles.
+  	The results include profiles in the list that occur after the marker. To get the next
+  	page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
+  	from the current page&#39;s response (which is also the ID of the last profile on that
+  	page).
+  * `:max_items` (`t:integer`) The maximum number of field-level encryption profiles you want in the response body.
+
   """
   @spec list_field_level_encryption_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
@@ -10979,9 +11079,13 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :stage (t:String.t/0) (Stage)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	functions. The response includes functions in the list that occur after the marker. To
+  	get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of functions that you want in the response.
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) An optional filter to return only the functions that are in the specified stage,
+  	either <code>DEVELOPMENT</code> or <code>LIVE</code>.
   """
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_result(), any()}
@@ -11034,11 +11138,17 @@ defmodule AWS.CloudFront do
   Lists invalidation batches.
 
   ## Required positional parameters:
-   • :distribution_id (t:string String.t/0) (DistributionId)
+  * `:distribution_id` (`t:string`) The distribution&#39;s ID.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this parameter when paginating results to indicate where to begin in your list of
+  	invalidation batches. Because the results are returned in decreasing order from most
+  	recent to oldest, the most recent results are on the first page, the second page will
+  	contain earlier results, and so on. To get the next page of results, set
+  		<code>Marker</code> to the value of the <code>NextMarker</code> from the current
+  	page&#39;s response. This value is the same as the ID of the last invalidation batch on that
+  	page.
+  * `:max_items` (`t:integer`) The maximum number of invalidation batches that you want in the response body.
   """
   @spec list_invalidations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_invalidations_result(), any()}
@@ -11093,8 +11203,11 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of key
+  	groups. The response includes key groups in the list that occur after the marker. To get
+  	the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of key groups that you want in the response.
   """
   @spec list_key_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_groups_result(), any()}
@@ -11140,9 +11253,9 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :status (t:String.t/0) (Status)
+  * `:marker` (`t:string`) The marker associated with the key value stores list.
+  * `:max_items` (`t:integer`) The maximum number of items in the key value stores list.
+  * `:status` (`t:string`) The status of the request for the key value stores list.
   """
   @spec list_key_value_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_value_stores_result(), any()}
@@ -11207,8 +11320,11 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	origin access controls. The response includes the items in the list that occur after the
+  	marker. To get the next page of the list, set this field&#39;s value to the value of
+  		<code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of origin access controls that you want in the response.
   """
   @spec list_origin_access_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_access_controls_result(), any()}
@@ -11267,9 +11383,13 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :type (t:String.t/0) (Type)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	origin request policies. The response includes origin request policies in the list that
+  	occur after the marker. To get the next page of the list, set this field&#39;s value to the
+  	value of <code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of origin request policies that you want in the response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified kinds of origin request policies. Valid values
+  	are:
   """
   @spec list_origin_request_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_request_policies_result(), any()}
@@ -11324,8 +11444,12 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of public
+  	keys. The results include public keys in the list that occur after the marker. To get
+  	the next page of results, set the <code>Marker</code> to the value of the
+  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
+  	the last public key on that page).
+  * `:max_items` (`t:integer`) The maximum number of public keys you want in the response body.
   """
   @spec list_public_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_public_keys_result(), any()}
@@ -11380,8 +11504,12 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	real-time log configurations. The response includes real-time log configurations in the
+  	list that occur after the marker. To get the next page of the list, set this field&#39;s
+  	value to the value of <code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of real-time log configurations that you want in the
+  	response.
   """
   @spec list_realtime_log_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_realtime_log_configs_result(), any()}
@@ -11440,9 +11568,14 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :type (t:String.t/0) (Type)
+  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
+  	response headers policies. The response includes response headers policies in the list
+  	that occur after the marker. To get the next page of the list, set this field&#39;s value to
+  	the value of <code>NextMarker</code> from the current page&#39;s response.
+  * `:max_items` (`t:integer`) The maximum number of response headers policies that you want to get in the
+  	response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to get only the specified kind of response headers policies. Valid values
+  	are:
   """
   @spec list_response_headers_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_headers_policies_result(), any()}
@@ -11497,8 +11630,8 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) The value that you provided for the <code>Marker</code> request parameter.
+  * `:max_items` (`t:integer`) The value that you provided for the <code>MaxItems</code> request parameter.
   """
   @spec list_streaming_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streaming_distributions_result(), any()}
@@ -11544,7 +11677,7 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource (t:String.t/0) (Resource)
+  * `:resource` (`t:string`) An ARN of a CloudFront resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -11594,10 +11727,11 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function that you are publishing.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are publishing,
+  	which you can get using <code>DescribeFunction</code>.
   """
   @spec publish_function(AWS.Client.t(), String.t(), publish_function_request(), Keyword.t()) ::
           {:ok, publish_function_result(), any()}
@@ -11636,7 +11770,7 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource (t:String.t/0) (Resource)
+  * `:resource` (`t:string`) An ARN of a CloudFront resource.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -11688,10 +11822,11 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function that you are testing.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are testing,
+  	which you can get using <code>DescribeFunction</code>.
   """
   @spec test_function(AWS.Client.t(), String.t(), test_function_request(), Keyword.t()) ::
           {:ok, test_function_result(), any()}
@@ -11730,7 +11865,7 @@ defmodule AWS.CloudFront do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource (t:String.t/0) (Resource)
+  * `:resource` (`t:string`) An ARN of a CloudFront resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -11784,10 +11919,14 @@ defmodule AWS.CloudFront do
   didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the cache policy that you are updating. The identifier is
+  	returned in a cache behavior&#39;s <code>CachePolicyId</code> field in the response to
+  		<code>GetDistributionConfig</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the cache policy that you are updating. The version is returned in the
+  	cache policy&#39;s <code>ETag</code> field in the response to
+  		<code>GetCachePolicyConfig</code>.
   """
   @spec update_cache_policy(
           AWS.Client.t(),
@@ -11826,10 +11965,11 @@ defmodule AWS.CloudFront do
   Update an origin access identity.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identity&#39;s id.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	identity&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_cloud_front_origin_access_identity(
           AWS.Client.t(),
@@ -11893,10 +12033,11 @@ defmodule AWS.CloudFront do
   modified and those that you didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the continuous deployment policy that
+  	you are updating.
   """
   @spec update_continuous_deployment_policy(
           AWS.Client.t(),
@@ -11967,10 +12108,11 @@ defmodule AWS.CloudFront do
   ones that you modified and also the ones that you didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The distribution&#39;s id.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	distribution&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_distribution(
           AWS.Client.t(),
@@ -12038,11 +12180,13 @@ defmodule AWS.CloudFront do
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the primary distribution to which you are copying a staging distribution&#39;s
+  	configuration.
 
   ## Optional parameters:
-   • :staging_distribution_id (t:String.t/0) (StagingDistributionId)
-   • :if_match (t:String.t/0) (If-Match)
+  * `:staging_distribution_id` (`t:string`) The identifier of the staging distribution whose configuration you are copying to the primary distribution.
+  * `:if_match` (`t:string`) The current versions (<code>ETag</code> values) of both primary and staging distributions.
+  	Provide these in the following format:
   """
   @spec update_distribution_with_staging_config(
           AWS.Client.t(),
@@ -12085,10 +12229,11 @@ defmodule AWS.CloudFront do
   Update a field-level encryption configuration.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the configuration you want to update.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_field_level_encryption_config(
           AWS.Client.t(),
@@ -12127,10 +12272,11 @@ defmodule AWS.CloudFront do
   Update a field-level encryption profile.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the field-level encryption profile request.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_field_level_encryption_profile(
           AWS.Client.t(),
@@ -12177,10 +12323,11 @@ defmodule AWS.CloudFront do
   `ListFunctions` and `DescribeFunction`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the function that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are updating,
+  	which you can get using <code>DescribeFunction</code>.
   """
   @spec update_function(AWS.Client.t(), String.t(), update_function_request(), Keyword.t()) ::
           {:ok, update_function_result(), any()}
@@ -12232,10 +12379,11 @@ defmodule AWS.CloudFront do
   the fields that you modified and those that you didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the key group that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the key group that you are updating. The version is the key group&#39;s
+  		<code>ETag</code> value.
   """
   @spec update_key_group(AWS.Client.t(), String.t(), update_key_group_request(), Keyword.t()) ::
           {:ok, update_key_group_result(), any()}
@@ -12269,10 +12417,10 @@ defmodule AWS.CloudFront do
   Specifies the key value store to update.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the key value store to update.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The key value store to update, if a match occurs.
   """
   @spec update_key_value_store(
           AWS.Client.t(),
@@ -12311,10 +12459,11 @@ defmodule AWS.CloudFront do
   Updates a CloudFront origin access control.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier of the origin access control that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the origin access control that you
+  	are updating.
   """
   @spec update_origin_access_control(
           AWS.Client.t(),
@@ -12372,10 +12521,14 @@ defmodule AWS.CloudFront do
   that you didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The unique identifier for the origin request policy that you are updating. The
+  	identifier is returned in a cache behavior&#39;s <code>OriginRequestPolicyId</code> field in
+  	the response to <code>GetDistributionConfig</code>.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the origin request policy that you are updating. The version is
+  	returned in the origin request policy&#39;s <code>ETag</code> field in the response to
+  		<code>GetOriginRequestPolicyConfig</code>.
   """
   @spec update_origin_request_policy(
           AWS.Client.t(),
@@ -12417,10 +12570,11 @@ defmodule AWS.CloudFront do
   comment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the public key that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the public
+  	key to update. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_public_key(AWS.Client.t(), String.t(), update_public_key_request(), Keyword.t()) ::
           {:ok, update_public_key_result(), any()}
@@ -12521,10 +12675,10 @@ defmodule AWS.CloudFront do
   that you didn't.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier for the response headers policy that you are updating.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The version of the response headers policy that you are updating.
   """
   @spec update_response_headers_policy(
           AWS.Client.t(),
@@ -12563,10 +12717,11 @@ defmodule AWS.CloudFront do
   Update a streaming distribution.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The streaming distribution&#39;s id.
 
   ## Optional parameters:
-   • :if_match (t:String.t/0) (If-Match)
+  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
+  	streaming distribution&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
   """
   @spec update_streaming_distribution(
           AWS.Client.t(),

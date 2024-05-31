@@ -1330,8 +1330,8 @@ defmodule AWS.Outposts do
   Cancels the capacity task.
 
   ## Required positional parameters:
-   • :capacity_task_id (t:string String.t/0) (CapacityTaskId)
-   • :outpost_identifier (t:string String.t/0) (OutpostIdentifier)
+  * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to cancel.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with the capacity task that you want to cancel.
 
   ## Optional parameters:
   """
@@ -1378,7 +1378,7 @@ defmodule AWS.Outposts do
   Cancels the specified order for an Outpost.
 
   ## Required positional parameters:
-   • :order_id (t:string String.t/0) (OrderId)
+  * `:order_id` (`t:string`)  The ID of the order. 
 
   ## Optional parameters:
   """
@@ -1509,7 +1509,7 @@ defmodule AWS.Outposts do
   Deletes the specified Outpost.
 
   ## Required positional parameters:
-   • :outpost_id (t:string String.t/0) (OutpostId)
+  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
 
   ## Optional parameters:
   """
@@ -1542,7 +1542,7 @@ defmodule AWS.Outposts do
   Deletes the specified site.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
   """
@@ -1575,8 +1575,8 @@ defmodule AWS.Outposts do
   Gets details of the specified capacity task.
 
   ## Required positional parameters:
-   • :capacity_task_id (t:string String.t/0) (CapacityTaskId)
-   • :outpost_identifier (t:string String.t/0) (OutpostIdentifier)
+  * `:capacity_task_id` (`t:string`) ID of the capacity task.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with the specified capacity task.
 
   ## Optional parameters:
   """
@@ -1605,7 +1605,7 @@ defmodule AWS.Outposts do
   Gets information about the specified catalog item.
 
   ## Required positional parameters:
-   • :catalog_item_id (t:string String.t/0) (CatalogItemId)
+  * `:catalog_item_id` (`t:string`) The ID of the catalog item.
 
   ## Optional parameters:
   """
@@ -1647,7 +1647,7 @@ defmodule AWS.Outposts do
   in the *Amazon Web Services Outposts User Guide*.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`)  The ID of the connection. 
 
   ## Optional parameters:
   """
@@ -1675,7 +1675,7 @@ defmodule AWS.Outposts do
   Gets information about the specified order.
 
   ## Required positional parameters:
-   • :order_id (t:string String.t/0) (OrderId)
+  * `:order_id` (`t:string`) The ID of the order.
 
   ## Optional parameters:
   """
@@ -1703,7 +1703,7 @@ defmodule AWS.Outposts do
   Gets information about the specified Outpost.
 
   ## Required positional parameters:
-   • :outpost_id (t:string String.t/0) (OutpostId)
+  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
 
   ## Optional parameters:
   """
@@ -1731,11 +1731,11 @@ defmodule AWS.Outposts do
   Gets the instance types for the specified Outpost.
 
   ## Required positional parameters:
-   • :outpost_id (t:string String.t/0) (OutpostId)
+  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec get_outpost_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_instance_types_output(), any()}
@@ -1785,12 +1785,12 @@ defmodule AWS.Outposts do
   capacity configuration.
 
   ## Required positional parameters:
-   • :outpost_identifier (t:string String.t/0) (OutpostIdentifier)
+  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :order_id (t:String.t/0) (OrderId)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:order_id` (`t:string`) The ID for the Amazon Web Services Outposts order.
   """
   @spec get_outpost_supported_instance_types(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
@@ -1848,7 +1848,7 @@ defmodule AWS.Outposts do
   Gets information about the specified Outpost site.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
   """
@@ -1876,10 +1876,10 @@ defmodule AWS.Outposts do
   Gets the site address of the specified site.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
-   • :address_type (t:String.t/0) (AddressType)
+  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of the address you request. 
   """
   @spec get_site_address(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_address_output(), any()}
@@ -1920,13 +1920,13 @@ defmodule AWS.Outposts do
   items that match any of the values that you specify for the filter.
 
   ## Required positional parameters:
-   • :outpost_identifier (t:string String.t/0) (OutpostIdentifier)
+  * `:outpost_identifier` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the Outpost. 
 
   ## Optional parameters:
-   • :host_id_filter (t:String.t/0) (HostIdFilter)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :status_filter (t:String.t/0) (StatusFilter)
+  * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the results by the host ID of a Dedicated Host.
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the results by state.
   """
   @spec list_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assets_output(), any()}
@@ -1996,10 +1996,11 @@ defmodule AWS.Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :capacity_task_status_filter (t:String.t/0) (CapacityTaskStatusFilter)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :outpost_identifier_filter (t:String.t/0) (OutpostIdentifierFilter)
+  * `:capacity_task_status_filter` (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses. For example,
+        <code>REQUESTED</code> or <code>WAITING_FOR_EVACUATION</code>.
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID or an Outpost ARN.
   """
   @spec list_capacity_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_capacity_tasks_output(), any()}
@@ -2070,11 +2071,11 @@ defmodule AWS.Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ec2_family_filter (t:String.t/0) (EC2FamilyFilter)
-   • :item_class_filter (t:String.t/0) (ItemClassFilter)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :supported_storage_filter (t:String.t/0) (SupportedStorageFilter)
+  * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the results by EC2 family (for example, M5).
+  * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`) Filters the results by item class.
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:supported_storage_filter` (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results by storage option.
   """
   @spec list_catalog_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_catalog_items_output(), any()}
@@ -2147,9 +2148,9 @@ defmodule AWS.Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :outpost_identifier_filter (t:String.t/0) (OutpostIdentifierFilter)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:outpost_identifier_filter` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the Outpost. 
   """
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_output(), any()}
@@ -2210,11 +2211,11 @@ defmodule AWS.Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :availability_zone_filter (t:String.t/0) (AvailabilityZoneFilter)
-   • :availability_zone_id_filter (t:String.t/0) (AvailabilityZoneIdFilter)
-   • :life_cycle_status_filter (t:String.t/0) (LifeCycleStatusFilter)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:availability_zone_filter` (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by Availability Zone (for example, <code>us-east-1a</code>).
+  * `:availability_zone_id_filter` (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by AZ ID (for example, <code>use1-az1</code>).
+  * `:life_cycle_status_filter` (`t:list[com.amazonaws.outposts#LifeCycleStatus]`) Filters the results by the lifecycle status.
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_outposts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_output(), any()}
@@ -2297,11 +2298,11 @@ defmodule AWS.Outposts do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :operating_address_city_filter (t:String.t/0) (OperatingAddressCityFilter)
-   • :operating_address_country_code_filter (t:String.t/0) (OperatingAddressCountryCodeFilter)
-   • :operating_address_state_or_region_filter (t:String.t/0) (OperatingAddressStateOrRegionFilter)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`) Filters the results by city.
+  * `:operating_address_country_code_filter` (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by country code.
+  * `:operating_address_state_or_region_filter` (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by state or region.
   """
   @spec list_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sites_output(), any()}
@@ -2381,7 +2382,7 @@ defmodule AWS.Outposts do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2411,7 +2412,7 @@ defmodule AWS.Outposts do
   You can have one active capacity task for an order.
 
   ## Required positional parameters:
-   • :outpost_identifier (t:string String.t/0) (OutpostIdentifier)
+  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated with the specified capacity task.
 
   ## Optional parameters:
   """
@@ -2490,7 +2491,7 @@ defmodule AWS.Outposts do
   Adds tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2523,10 +2524,10 @@ defmodule AWS.Outposts do
   Removes tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.outposts#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2562,7 +2563,7 @@ defmodule AWS.Outposts do
   Updates an Outpost.
 
   ## Required positional parameters:
-   • :outpost_id (t:string String.t/0) (OutpostId)
+  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
 
   ## Optional parameters:
   """
@@ -2595,7 +2596,7 @@ defmodule AWS.Outposts do
   Updates the specified site.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
   """
@@ -2636,7 +2637,7 @@ defmodule AWS.Outposts do
   Outposts that belong to the site have been deactivated.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
   """
@@ -2667,7 +2668,7 @@ defmodule AWS.Outposts do
   the order to complete or cancel the order.
 
   ## Required positional parameters:
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
 
   ## Optional parameters:
   """

@@ -1291,10 +1291,12 @@ defmodule AWS.PrivateNetworks do
   5G*.
 
   ## Required positional parameters:
-   • :network_arn (t:string String.t/0) (networkArn)
+  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+                idempotency</a>.
   """
   @spec delete_network(AWS.Client.t(), String.t(), delete_network_request(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
@@ -1336,10 +1338,12 @@ defmodule AWS.PrivateNetworks do
   Guide*.
 
   ## Required positional parameters:
-   • :network_site_arn (t:string String.t/0) (networkSiteArn)
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network site.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+                idempotency</a>.
   """
   @spec delete_network_site(
           AWS.Client.t(),
@@ -1380,7 +1384,7 @@ defmodule AWS.PrivateNetworks do
   Gets the specified device identifier.
 
   ## Required positional parameters:
-   • :device_identifier_arn (t:string String.t/0) (deviceIdentifierArn)
+  * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the device identifier.
 
   ## Optional parameters:
   """
@@ -1408,7 +1412,7 @@ defmodule AWS.PrivateNetworks do
   Gets the specified network.
 
   ## Required positional parameters:
-   • :network_arn (t:string String.t/0) (networkArn)
+  * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
 
   ## Optional parameters:
   """
@@ -1436,7 +1440,7 @@ defmodule AWS.PrivateNetworks do
   Gets the specified network resource.
 
   ## Required positional parameters:
-   • :network_resource_arn (t:string String.t/0) (networkResourceArn)
+  * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the network resource.
 
   ## Optional parameters:
   """
@@ -1464,7 +1468,7 @@ defmodule AWS.PrivateNetworks do
   Gets the specified network site.
 
   ## Required positional parameters:
-   • :network_site_arn (t:string String.t/0) (networkSiteArn)
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network site.
 
   ## Optional parameters:
   """
@@ -1492,7 +1496,7 @@ defmodule AWS.PrivateNetworks do
   Gets the specified order.
 
   ## Required positional parameters:
-   • :order_arn (t:string String.t/0) (orderArn)
+  * `:order_arn` (`t:string`) The Amazon Resource Name (ARN) of the order.
 
   ## Optional parameters:
   """
@@ -1710,7 +1714,7 @@ defmodule AWS.PrivateNetworks do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1820,7 +1824,7 @@ defmodule AWS.PrivateNetworks do
   Adds tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -1853,10 +1857,10 @@ defmodule AWS.PrivateNetworks do
   Removes tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.privatenetworks#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

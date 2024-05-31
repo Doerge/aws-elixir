@@ -1490,7 +1490,7 @@ defmodule AWS.AppConfig do
   User Guide*.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
   """
@@ -1582,7 +1582,7 @@ defmodule AWS.AppConfig do
   configuration.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
   """
@@ -1647,7 +1647,9 @@ defmodule AWS.AppConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :latest_version_number (t:String.t/0) (Latest-Version-Number)
+  * `:latest_version_number` (`t:integer`) You can omit this field when you create an extension. When you create a new version,
+         specify the most recent current version number. For example, you create version 3, enter 2
+         for this field.
   """
   @spec create_extension(AWS.Client.t(), create_extension_request(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -1743,14 +1745,20 @@ defmodule AWS.AppConfig do
   store.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
-   • :description (t:String.t/0) (Description)
-   • :latest_version_number (t:String.t/0) (Latest-Version-Number)
-   • :version_label (t:String.t/0) (VersionLabel)
+  * `:content_type` (`t:string`) A standard MIME type describing the format of the configuration content. For more
+         information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.
+  * `:description` (`t:string`) A description of the configuration.
+  * `:latest_version_number` (`t:integer`) An optional locking token used to prevent race conditions from overwriting configuration
+         updates when creating a new version. To ensure your data is not overwritten when creating
+         multiple hosted configuration versions in rapid succession, specify the version number of
+         the latest hosted configuration version.
+  * `:version_label` (`t:string`) An optional, user-defined label for the AppConfig hosted configuration
+         version. This value must contain at least one non-numeric character. For example,
+         &quot;v2.2.0&quot;.
   """
   @spec create_hosted_configuration_version(
           AWS.Client.t(),
@@ -1821,7 +1829,7 @@ defmodule AWS.AppConfig do
   host.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The ID of the application to delete.
 
   ## Optional parameters:
   """
@@ -1857,8 +1865,8 @@ defmodule AWS.AppConfig do
   configuration from a host.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The application ID that includes the configuration profile you want to delete.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile you want to delete.
 
   ## Optional parameters:
   """
@@ -1908,7 +1916,7 @@ defmodule AWS.AppConfig do
   configuration from a host.
 
   ## Required positional parameters:
-   • :deployment_strategy_id (t:string String.t/0) (DeploymentStrategyId)
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you want to delete.
 
   ## Optional parameters:
   """
@@ -1949,8 +1957,8 @@ defmodule AWS.AppConfig do
   host.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The application ID that includes the environment that you want to delete.
+  * `:environment_id` (`t:string`) The ID of the environment that you want to delete.
 
   ## Optional parameters:
   """
@@ -1994,10 +2002,11 @@ defmodule AWS.AppConfig do
   extension before you delete the extension.
 
   ## Required positional parameters:
-   • :extension_identifier (t:string String.t/0) (ExtensionIdentifier)
+  * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.
 
   ## Optional parameters:
-   • :version_number (t:String.t/0) (version)
+  * `:version_number` (`t:integer`) A specific version of an extension to delete. If omitted, the highest version is
+         deleted.
   """
   @spec delete_extension(AWS.Client.t(), String.t(), delete_extension_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2036,7 +2045,7 @@ defmodule AWS.AppConfig do
   association.
 
   ## Required positional parameters:
-   • :extension_association_id (t:string String.t/0) (ExtensionAssociationId)
+  * `:extension_association_id` (`t:string`) The ID of the extension association to delete.
 
   ## Optional parameters:
   """
@@ -2080,9 +2089,9 @@ defmodule AWS.AppConfig do
   store.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
-   • :version_number (t:integer String.t/0) (VersionNumber)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:version_number` (`t:integer`) The versions number to delete.
 
   ## Optional parameters:
   """
@@ -2131,7 +2140,7 @@ defmodule AWS.AppConfig do
   Retrieves information about an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The ID of the application you want to get.
 
   ## Optional parameters:
   """
@@ -2173,13 +2182,19 @@ defmodule AWS.AppConfig do
   [Pricing](https://aws.amazon.com/systems-manager/pricing/).
 
   ## Required positional parameters:
-   • :application (t:string String.t/0) (Application)
-   • :configuration (t:string String.t/0) (Configuration)
-   • :environment (t:string String.t/0) (Environment)
+  * `:application` (`t:string`) The application to get. Specify either the application name or the application
+         ID.
+  * `:configuration` (`t:string`) The configuration to get. Specify either the configuration name or the configuration
+         ID.
+  * `:environment` (`t:string`) The environment to get. Specify either the environment name or the environment
+         ID.
 
   ## Optional parameters:
-   • :client_configuration_version (t:String.t/0) (client_configuration_version)
-   • :client_id (t:String.t/0) (client_id)
+  * `:client_configuration_version` (`t:string`) The configuration version returned in the most recent <code>GetConfiguration</code>
+         response.
+  * `:client_id` (`t:string`) The clientId parameter in the following command is a unique, user-specified ID to
+         identify the client for the configuration. This ID enables AppConfig to deploy
+         the configuration in intervals, as defined in the deployment strategy. 
   """
   @spec get_configuration(
           AWS.Client.t(),
@@ -2249,8 +2264,9 @@ defmodule AWS.AppConfig do
   Retrieves information about a configuration profile.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The ID of the application that includes the configuration profile you want to
+         get.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile that you want to get.
 
   ## Optional parameters:
   """
@@ -2284,9 +2300,9 @@ defmodule AWS.AppConfig do
   Retrieves information about a configuration deployment.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :deployment_number (t:integer String.t/0) (DeploymentNumber)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The ID of the application that includes the deployment you want to get. 
+  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
+  * `:environment_id` (`t:string`) The ID of the environment that includes the deployment you want to get. 
 
   ## Optional parameters:
   """
@@ -2330,7 +2346,7 @@ defmodule AWS.AppConfig do
   grows, and bake time.
 
   ## Required positional parameters:
-   • :deployment_strategy_id (t:string String.t/0) (DeploymentStrategyId)
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to get.
 
   ## Optional parameters:
   """
@@ -2366,8 +2382,8 @@ defmodule AWS.AppConfig do
   configuration.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The ID of the application that includes the environment you want to get.
+  * `:environment_id` (`t:string`) The ID of the environment that you want to get.
 
   ## Optional parameters:
   """
@@ -2396,10 +2412,11 @@ defmodule AWS.AppConfig do
   Returns information about an AppConfig extension.
 
   ## Required positional parameters:
-   • :extension_identifier (t:string String.t/0) (ExtensionIdentifier)
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 
   ## Optional parameters:
-   • :version_number (t:String.t/0) (version_number)
+  * `:version_number` (`t:integer`) The extension version number. If no version number was defined, AppConfig uses
+         the highest version.
   """
   @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -2438,7 +2455,7 @@ defmodule AWS.AppConfig do
   in the *AppConfig User Guide*.
 
   ## Required positional parameters:
-   • :extension_association_id (t:string String.t/0) (ExtensionAssociationId)
+  * `:extension_association_id` (`t:string`) The extension association ID to get.
 
   ## Optional parameters:
   """
@@ -2466,9 +2483,9 @@ defmodule AWS.AppConfig do
   Retrieves information about a specific configuration version.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
-   • :version_number (t:integer String.t/0) (VersionNumber)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
+  * `:version_number` (`t:integer`) The version.
 
   ## Optional parameters:
   """
@@ -2526,8 +2543,12 @@ defmodule AWS.AppConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Next token is a pagination token generated by AppConfig to describe what page the previous List call ended on. For the first List
+         request, the nextToken should not be set. On subsequent calls, the nextToken parameter
+         should be set to the previous responses nextToken value. Use this token to get the next set
+         of results. 
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
@@ -2571,12 +2592,14 @@ defmodule AWS.AppConfig do
   Lists the configuration profiles for an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
-   • :type (t:String.t/0) (type)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
+  * `:type` (`t:string`) A filter based on the type of configurations that the configuration profile contains. A
+         configuration can be a feature flag or a freeform configuration.
   """
   @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
@@ -2631,8 +2654,9 @@ defmodule AWS.AppConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
   """
   @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
@@ -2676,12 +2700,16 @@ defmodule AWS.AppConfig do
   Lists the deployments for an environment in descending deployment number order.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of items that may be returned for this call. If there are items that
+         have not yet been returned, the response will include a non-null <code>NextToken</code>
+         that you can provide in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) The token returned by a prior call to this operation indicating the next set of results
+         to be returned. If not specified, the operation will return the first set of
+         results.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
@@ -2726,11 +2754,12 @@ defmodule AWS.AppConfig do
   Lists the environments for an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
   """
   @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
@@ -2780,11 +2809,13 @@ defmodule AWS.AppConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :extension_identifier (t:String.t/0) (extension_identifier)
-   • :extension_version_number (t:String.t/0) (extension_version_number)
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
-   • :resource_identifier (t:String.t/0) (resource_identifier)
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+  * `:extension_version_number` (`t:integer`) The version number for the extension defined in the association.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results or pass null to
+         get the first set of results. 
+  * `:resource_identifier` (`t:string`) The ARN of an application, configuration profile, or environment.
   """
   @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
@@ -2861,9 +2892,10 @@ defmodule AWS.AppConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (next_token)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:name` (`t:string`) The extension name.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results. 
   """
   @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
@@ -2917,13 +2949,16 @@ defmodule AWS.AppConfig do
   version.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (next_token)
-   • :version_label (t:String.t/0) (version_label)
+  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
+         you can specify in a subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results. 
+  * `:version_label` (`t:string`) An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a
+         wildcard, for example &quot;v2*&quot;. If you don&#39;t specify an asterisk at the end of the value, only
+         an exact match is returned.
   """
   @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
@@ -2982,7 +3017,7 @@ defmodule AWS.AppConfig do
   Retrieves the list of key-value tags assigned to the resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN.
 
   ## Optional parameters:
   """
@@ -3010,8 +3045,8 @@ defmodule AWS.AppConfig do
   Starts a deployment.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
 
   ## Optional parameters:
   """
@@ -3056,9 +3091,9 @@ defmodule AWS.AppConfig do
   `ROLLED_BACK`.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :deployment_number (t:integer String.t/0) (DeploymentNumber)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:deployment_number` (`t:integer`) The sequence number of the deployment.
+  * `:environment_id` (`t:string`) The environment ID.
 
   ## Optional parameters:
   """
@@ -3111,7 +3146,7 @@ defmodule AWS.AppConfig do
   of which you define. You can specify a maximum of 50 tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve tags.
 
   ## Optional parameters:
   """
@@ -3144,10 +3179,10 @@ defmodule AWS.AppConfig do
   Deletes a tag key and value from an AppConfig resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which to remove tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.appconfig#TagKey]`) The tag keys to delete.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3183,7 +3218,7 @@ defmodule AWS.AppConfig do
   Updates an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
   """
@@ -3216,8 +3251,8 @@ defmodule AWS.AppConfig do
   Updates a configuration profile.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile.
 
   ## Optional parameters:
   """
@@ -3264,7 +3299,7 @@ defmodule AWS.AppConfig do
   Updates a deployment strategy.
 
   ## Required positional parameters:
-   • :deployment_strategy_id (t:string String.t/0) (DeploymentStrategyId)
+  * `:deployment_strategy_id` (`t:string`) The deployment strategy ID.
 
   ## Optional parameters:
   """
@@ -3302,8 +3337,8 @@ defmodule AWS.AppConfig do
   Updates an environment.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :environment_id (t:string String.t/0) (EnvironmentId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:environment_id` (`t:string`) The environment ID.
 
   ## Optional parameters:
   """
@@ -3348,7 +3383,7 @@ defmodule AWS.AppConfig do
   in the *AppConfig User Guide*.
 
   ## Required positional parameters:
-   • :extension_identifier (t:string String.t/0) (ExtensionIdentifier)
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 
   ## Optional parameters:
   """
@@ -3385,7 +3420,7 @@ defmodule AWS.AppConfig do
   in the *AppConfig User Guide*.
 
   ## Required positional parameters:
-   • :extension_association_id (t:string String.t/0) (ExtensionAssociationId)
+  * `:extension_association_id` (`t:string`) The system-generated ID for the association.
 
   ## Optional parameters:
   """
@@ -3428,11 +3463,11 @@ defmodule AWS.AppConfig do
   Uses the validators in a configuration profile to validate a configuration.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :configuration_profile_id (t:string String.t/0) (ConfigurationProfileId)
+  * `:application_id` (`t:string`) The application ID.
+  * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-   • :configuration_version (t:String.t/0) (configuration_version)
+  * `:configuration_version` (`t:string`) The version of the configuration to validate.
   """
   @spec validate_configuration(
           AWS.Client.t(),

@@ -2882,7 +2882,7 @@ defmodule AWS.MediaConnect do
   Adds outputs to an existing bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -2915,7 +2915,7 @@ defmodule AWS.MediaConnect do
   Adds sources to an existing bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -2951,7 +2951,7 @@ defmodule AWS.MediaConnect do
   and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -2991,7 +2991,7 @@ defmodule AWS.MediaConnect do
   You can create up to 50 outputs per flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3024,7 +3024,7 @@ defmodule AWS.MediaConnect do
   Adds Sources to flow
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3057,7 +3057,7 @@ defmodule AWS.MediaConnect do
   Adds VPC interfaces to flow
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3200,7 +3200,7 @@ defmodule AWS.MediaConnect do
   Before you can delete a bridge, you must stop the bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3235,7 +3235,7 @@ defmodule AWS.MediaConnect do
   Before you can delete a flow, you must stop the flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3271,7 +3271,7 @@ defmodule AWS.MediaConnect do
   its bridges.
 
   ## Required positional parameters:
-   • :gateway_arn (t:string String.t/0) (GatewayArn)
+  * `:gateway_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3308,10 +3308,10 @@ defmodule AWS.MediaConnect do
   must use the --force option.
 
   ## Required positional parameters:
-   • :gateway_instance_arn (t:string String.t/0) (GatewayInstanceArn)
+  * `:gateway_instance_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :force (t:String.t/0) (force)
+  * `:force` (`t:boolean`) 
   """
   @spec deregister_gateway_instance(
           AWS.Client.t(),
@@ -3352,7 +3352,7 @@ defmodule AWS.MediaConnect do
   Displays the details of a bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3383,7 +3383,7 @@ defmodule AWS.MediaConnect do
   details about the source, outputs, and entitlements.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3414,7 +3414,7 @@ defmodule AWS.MediaConnect do
   programs.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3445,7 +3445,7 @@ defmodule AWS.MediaConnect do
   about the networks.
 
   ## Required positional parameters:
-   • :gateway_arn (t:string String.t/0) (GatewayArn)
+  * `:gateway_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3473,7 +3473,7 @@ defmodule AWS.MediaConnect do
   Displays the details of an instance.
 
   ## Required positional parameters:
-   • :gateway_instance_arn (t:string String.t/0) (GatewayInstanceArn)
+  * `:gateway_instance_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3504,7 +3504,7 @@ defmodule AWS.MediaConnect do
   price, and Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :offering_arn (t:string String.t/0) (OfferingArn)
+  * `:offering_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3536,7 +3536,7 @@ defmodule AWS.MediaConnect do
   duration, and outbound bandwidth).
 
   ## Required positional parameters:
-   • :reservation_arn (t:string String.t/0) (ReservationArn)
+  * `:reservation_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3564,7 +3564,7 @@ defmodule AWS.MediaConnect do
   Grants entitlements to an existing flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3607,9 +3607,9 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :filter_arn (t:String.t/0) (filterArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:filter_arn` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_bridges(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bridges_response(), any()}
@@ -3666,8 +3666,8 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_entitlements(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entitlements_response(), any()}
@@ -3715,8 +3715,8 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
@@ -3766,9 +3766,9 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :filter_arn (t:String.t/0) (filterArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:filter_arn` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_gateway_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateway_instances_response(), any()}
@@ -3825,8 +3825,8 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
@@ -3877,8 +3877,8 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
@@ -3927,8 +3927,8 @@ defmodule AWS.MediaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
@@ -3972,7 +3972,7 @@ defmodule AWS.MediaConnect do
   List all tags on an AWS Elemental MediaConnect resource
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4002,7 +4002,7 @@ defmodule AWS.MediaConnect do
   If you already have an active reservation, you can't purchase another offering.
 
   ## Required positional parameters:
-   • :offering_arn (t:string String.t/0) (OfferingArn)
+  * `:offering_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4035,8 +4035,8 @@ defmodule AWS.MediaConnect do
   Removes an output from a bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
-   • :output_name (t:string String.t/0) (OutputName)
+  * `:bridge_arn` (`t:string`) 
+  * `:output_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4077,8 +4077,8 @@ defmodule AWS.MediaConnect do
   Removes a source from a bridge.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
-   • :source_name (t:string String.t/0) (SourceName)
+  * `:bridge_arn` (`t:string`) 
+  * `:source_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4122,8 +4122,8 @@ defmodule AWS.MediaConnect do
   source or output.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :media_stream_name (t:string String.t/0) (MediaStreamName)
+  * `:flow_arn` (`t:string`) 
+  * `:media_stream_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4175,8 +4175,8 @@ defmodule AWS.MediaConnect do
   automatically removes the associated output.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :output_arn (t:string String.t/0) (OutputArn)
+  * `:flow_arn` (`t:string`) 
+  * `:output_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4219,8 +4219,8 @@ defmodule AWS.MediaConnect do
   This request can be made only if there is more than one source on the flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :source_arn (t:string String.t/0) (SourceArn)
+  * `:flow_arn` (`t:string`) 
+  * `:source_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4266,8 +4266,8 @@ defmodule AWS.MediaConnect do
   reference the VPC interface.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :vpc_interface_name (t:string String.t/0) (VpcInterfaceName)
+  * `:flow_arn` (`t:string`) 
+  * `:vpc_interface_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4317,8 +4317,8 @@ defmodule AWS.MediaConnect do
   subscriber and the associated output is removed.
 
   ## Required positional parameters:
-   • :entitlement_arn (t:string String.t/0) (EntitlementArn)
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:entitlement_arn` (`t:string`) 
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4359,7 +4359,7 @@ defmodule AWS.MediaConnect do
   Starts a flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4392,7 +4392,7 @@ defmodule AWS.MediaConnect do
   Stops a flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4429,7 +4429,7 @@ defmodule AWS.MediaConnect do
   resource are deleted as well.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4462,10 +4462,10 @@ defmodule AWS.MediaConnect do
   Deletes specified tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]`) 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4501,7 +4501,7 @@ defmodule AWS.MediaConnect do
   Updates the bridge
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4524,8 +4524,8 @@ defmodule AWS.MediaConnect do
   Updates an existing bridge output.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
-   • :output_name (t:string String.t/0) (OutputName)
+  * `:bridge_arn` (`t:string`) 
+  * `:output_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4556,8 +4556,8 @@ defmodule AWS.MediaConnect do
   Updates an existing bridge source.
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
-   • :source_name (t:string String.t/0) (SourceName)
+  * `:bridge_arn` (`t:string`) 
+  * `:source_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4588,7 +4588,7 @@ defmodule AWS.MediaConnect do
   Updates the bridge state
 
   ## Required positional parameters:
-   • :bridge_arn (t:string String.t/0) (BridgeArn)
+  * `:bridge_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4616,7 +4616,7 @@ defmodule AWS.MediaConnect do
   Updates flow
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4642,8 +4642,8 @@ defmodule AWS.MediaConnect do
   used by the subscribers that are removed.
 
   ## Required positional parameters:
-   • :entitlement_arn (t:string String.t/0) (EntitlementArn)
-   • :flow_arn (t:string String.t/0) (FlowArn)
+  * `:entitlement_arn` (`t:string`) 
+  * `:flow_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4674,8 +4674,8 @@ defmodule AWS.MediaConnect do
   Updates an existing media stream.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :media_stream_name (t:string String.t/0) (MediaStreamName)
+  * `:flow_arn` (`t:string`) 
+  * `:media_stream_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4712,8 +4712,8 @@ defmodule AWS.MediaConnect do
   Updates an existing flow output.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :output_arn (t:string String.t/0) (OutputArn)
+  * `:flow_arn` (`t:string`) 
+  * `:output_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4744,8 +4744,8 @@ defmodule AWS.MediaConnect do
   Updates the source of a flow.
 
   ## Required positional parameters:
-   • :flow_arn (t:string String.t/0) (FlowArn)
-   • :source_arn (t:string String.t/0) (SourceArn)
+  * `:flow_arn` (`t:string`) 
+  * `:source_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4776,7 +4776,7 @@ defmodule AWS.MediaConnect do
   Updates the configuration of an existing Gateway Instance.
 
   ## Required positional parameters:
-   • :gateway_instance_arn (t:string String.t/0) (GatewayInstanceArn)
+  * `:gateway_instance_arn` (`t:string`) 
 
   ## Optional parameters:
   """

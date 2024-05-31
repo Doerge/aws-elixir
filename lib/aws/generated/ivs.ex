@@ -2835,7 +2835,7 @@ defmodule AWS.Ivs do
   Gets information about Amazon Web Services tags for the specified ARN.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN must be URL-encoded.
 
   ## Optional parameters:
   """
@@ -2989,7 +2989,8 @@ defmodule AWS.Ivs do
   ARN.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be added or updated. The ARN must be
+      URL-encoded.
 
   ## Optional parameters:
   """
@@ -3022,10 +3023,13 @@ defmodule AWS.Ivs do
   Removes tags from the resource with the specified ARN.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.ivs#TagKey]`) Array of tags to be removed. Array of maps, each of the form <code>string:string
+        (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+      that apply to tags and &quot;Tag naming limits and requirements&quot;; Amazon IVS has no
+      service-specific constraints beyond what is documented there.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

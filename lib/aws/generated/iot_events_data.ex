@@ -1183,10 +1183,11 @@ defmodule AWS.IoTEventsData do
   Retrieves information about an alarm.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
-   • :key_value (t:String.t/0) (keyValue)
+  * `:key_value` (`t:string`) The value of the key used as a filter to select only the alarms associated with the 
+  <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.
   """
   @spec describe_alarm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_response(), any()}
@@ -1221,10 +1222,12 @@ defmodule AWS.IoTEventsData do
   Returns information about the specified detector (instance).
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model whose detectors (instances) you want information
+      about.
 
   ## Optional parameters:
-   • :key_value (t:String.t/0) (keyValue)
+  * `:key_value` (`t:string`) A filter used to limit results to detectors (instances) created because of the given key
+      ID.
   """
   @spec describe_detector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_response(), any()}
@@ -1262,11 +1265,11 @@ defmodule AWS.IoTEventsData do
   alarm.
 
   ## Required positional parameters:
-   • :alarm_model_name (t:string String.t/0) (alarmModelName)
+  * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
   """
   @spec list_alarms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarms_response(), any()}
@@ -1310,12 +1313,12 @@ defmodule AWS.IoTEventsData do
   Lists detectors (the instances of a detector model).
 
   ## Required positional parameters:
-   • :detector_model_name (t:string String.t/0) (detectorModelName)
+  * `:detector_model_name` (`t:string`) The name of the detector model whose detectors (instances) are listed.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :state_name (t:String.t/0) (stateName)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:state_name` (`t:string`) A filter that limits results to those detectors (instances) in the given state.
   """
   @spec list_detectors(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}

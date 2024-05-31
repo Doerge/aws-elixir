@@ -1541,7 +1541,7 @@ defmodule AWS.GroundStation do
   Cancels a contact with a specified contact ID.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (contactId)
+  * `:contact_id` (`t:string`) UUID of a contact.
 
   ## Optional parameters:
   """
@@ -1719,8 +1719,8 @@ defmodule AWS.GroundStation do
   Deletes a `Config`.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (configId)
-   • :config_type (t:string String.t/0) (configType)
+  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
+  * `:config_type` (`t:string`) Type of a <code>Config</code>.
 
   ## Optional parameters:
   """
@@ -1759,7 +1759,7 @@ defmodule AWS.GroundStation do
   Deletes a dataflow endpoint group.
 
   ## Required positional parameters:
-   • :dataflow_endpoint_group_id (t:string String.t/0) (dataflowEndpointGroupId)
+  * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
 
   ## Optional parameters:
   """
@@ -1802,7 +1802,7 @@ defmodule AWS.GroundStation do
   Deletes an ephemeris
 
   ## Required positional parameters:
-   • :ephemeris_id (t:string String.t/0) (ephemerisId)
+  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
   """
@@ -1835,7 +1835,7 @@ defmodule AWS.GroundStation do
   Deletes a mission profile.
 
   ## Required positional parameters:
-   • :mission_profile_id (t:string String.t/0) (missionProfileId)
+  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:
   """
@@ -1873,7 +1873,7 @@ defmodule AWS.GroundStation do
   Describes an existing contact.
 
   ## Required positional parameters:
-   • :contact_id (t:string String.t/0) (contactId)
+  * `:contact_id` (`t:string`) UUID of a contact.
 
   ## Optional parameters:
   """
@@ -1901,7 +1901,7 @@ defmodule AWS.GroundStation do
   Describes an existing ephemeris.
 
   ## Required positional parameters:
-   • :ephemeris_id (t:string String.t/0) (ephemerisId)
+  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
   """
@@ -1932,7 +1932,7 @@ defmodule AWS.GroundStation do
   Gets the latest configuration information for a registered agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) UUID of agent to get configuration information for.
 
   ## Optional parameters:
   """
@@ -1962,8 +1962,8 @@ defmodule AWS.GroundStation do
   Only one `Config` response can be returned.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (configId)
-   • :config_type (t:string String.t/0) (configType)
+  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
+  * `:config_type` (`t:string`) Type of a <code>Config</code>.
 
   ## Optional parameters:
   """
@@ -1991,7 +1991,7 @@ defmodule AWS.GroundStation do
   Returns the dataflow endpoint group.
 
   ## Required positional parameters:
-   • :dataflow_endpoint_group_id (t:string String.t/0) (dataflowEndpointGroupId)
+  * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
 
   ## Optional parameters:
   """
@@ -2051,7 +2051,7 @@ defmodule AWS.GroundStation do
   Returns a mission profile.
 
   ## Required positional parameters:
-   • :mission_profile_id (t:string String.t/0) (missionProfileId)
+  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:
   """
@@ -2079,7 +2079,7 @@ defmodule AWS.GroundStation do
   Returns a satellite.
 
   ## Required positional parameters:
-   • :satellite_id (t:string String.t/0) (satelliteId)
+  * `:satellite_id` (`t:string`) UUID of a satellite.
 
   ## Optional parameters:
   """
@@ -2109,8 +2109,8 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of <code>Configs</code> returned.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.
   """
   @spec list_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configs_response(), any()}
@@ -2191,8 +2191,8 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups returned.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.
   """
   @spec list_dataflow_endpoint_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
@@ -2238,8 +2238,8 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of ephemerides to return.
+  * `:next_token` (`t:string`) Pagination token.
   """
   @spec list_ephemerides(AWS.Client.t(), list_ephemerides_request(), Keyword.t()) ::
           {:ok, list_ephemerides_response(), any()}
@@ -2278,9 +2278,9 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :satellite_id (t:String.t/0) (satelliteId)
+  * `:max_results` (`t:integer`) Maximum number of ground stations returned.
+  * `:next_token` (`t:string`) Next token that can be supplied in the next call to get the next page of ground stations.
+  * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground stations.
   """
   @spec list_ground_stations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ground_stations_response(), any()}
@@ -2335,8 +2335,8 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of mission profiles returned.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.
   """
   @spec list_mission_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mission_profiles_response(), any()}
@@ -2382,8 +2382,8 @@ defmodule AWS.GroundStation do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Maximum number of satellites returned.
+  * `:next_token` (`t:string`) Next token that can be supplied in the next call to get the next page of satellites.
   """
   @spec list_satellites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_satellites_response(), any()}
@@ -2427,7 +2427,7 @@ defmodule AWS.GroundStation do
   Returns a list of tags for a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of a resource.
 
   ## Optional parameters:
   """
@@ -2522,7 +2522,7 @@ defmodule AWS.GroundStation do
   Assigns a tag to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of a resource tag.
 
   ## Optional parameters:
   """
@@ -2555,10 +2555,10 @@ defmodule AWS.GroundStation do
   Deassigns a resource tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of a resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]`) Keys of a resource tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2597,7 +2597,7 @@ defmodule AWS.GroundStation do
   Update the status of the agent.
 
   ## Required positional parameters:
-   • :agent_id (t:string String.t/0) (agentId)
+  * `:agent_id` (`t:string`) UUID of agent to update.
 
   ## Optional parameters:
   """
@@ -2628,8 +2628,8 @@ defmodule AWS.GroundStation do
   for existing future contacts scheduled with this `Config`.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (configId)
-   • :config_type (t:string String.t/0) (configType)
+  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
+  * `:config_type` (`t:string`) Type of a <code>Config</code>.
 
   ## Optional parameters:
   """
@@ -2658,7 +2658,7 @@ defmodule AWS.GroundStation do
   Updates an existing ephemeris
 
   ## Required positional parameters:
-   • :ephemeris_id (t:string String.t/0) (ephemerisId)
+  * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
   """
@@ -2684,7 +2684,7 @@ defmodule AWS.GroundStation do
   for existing future contacts.
 
   ## Required positional parameters:
-   • :mission_profile_id (t:string String.t/0) (missionProfileId)
+  * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:
   """

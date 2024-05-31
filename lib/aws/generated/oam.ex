@@ -1056,7 +1056,7 @@ defmodule AWS.OAM do
   Both sinks and links support tagging.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the  resource that you want to view tags for.
 
   ## Optional parameters:
   """
@@ -1170,7 +1170,7 @@ defmodule AWS.OAM do
   sinks.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the  resource that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -1199,10 +1199,10 @@ defmodule AWS.OAM do
   sinks.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that you&#39;re removing tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

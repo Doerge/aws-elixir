@@ -322,8 +322,8 @@ defmodule AWS.ControlCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results.
   """
   @spec list_common_controls(AWS.Client.t(), list_common_controls_request(), Keyword.t()) ::
           {:ok, list_common_controls_response(), any()}
@@ -363,8 +363,8 @@ defmodule AWS.ControlCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results.
   """
   @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -408,8 +408,8 @@ defmodule AWS.ControlCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results.
   """
   @spec list_objectives(AWS.Client.t(), list_objectives_request(), Keyword.t()) ::
           {:ok, list_objectives_response(), any()}

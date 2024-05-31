@@ -1564,7 +1564,7 @@ defmodule AWS.Amplify do
   code.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1602,7 +1602,7 @@ defmodule AWS.Amplify do
   Creates a new branch for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1643,8 +1643,8 @@ defmodule AWS.Amplify do
   fail.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`)  The name of the branch to use for the job. 
 
   ## Optional parameters:
   """
@@ -1688,7 +1688,7 @@ defmodule AWS.Amplify do
   domain with the Amplify app
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1726,7 +1726,7 @@ defmodule AWS.Amplify do
   Creates a new webhook on an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1759,7 +1759,7 @@ defmodule AWS.Amplify do
   Deletes an existing Amplify app specified by an app ID.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1800,8 +1800,8 @@ defmodule AWS.Amplify do
   code.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :environment_name (t:string String.t/0) (environmentName)
+  * `:app_id` (`t:string`) The unique ID of an Amplify app. 
+  * `:environment_name` (`t:string`) The name of a backend environment of an Amplify app. 
 
   ## Optional parameters:
   """
@@ -1848,8 +1848,8 @@ defmodule AWS.Amplify do
   Deletes a branch for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch. 
 
   ## Optional parameters:
   """
@@ -1888,8 +1888,8 @@ defmodule AWS.Amplify do
   Deletes a domain association for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:app_id` (`t:string`)  The unique id for an Amplify app. 
+  * `:domain_name` (`t:string`)  The name of the domain. 
 
   ## Optional parameters:
   """
@@ -1928,9 +1928,9 @@ defmodule AWS.Amplify do
   Deletes a job for a branch of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
+  * `:job_id` (`t:string`)  The unique ID for the job. 
 
   ## Optional parameters:
   """
@@ -1972,7 +1972,7 @@ defmodule AWS.Amplify do
   Deletes a webhook.
 
   ## Required positional parameters:
-   • :webhook_id (t:string String.t/0) (webhookId)
+  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
 
   ## Optional parameters:
   """
@@ -2005,7 +2005,7 @@ defmodule AWS.Amplify do
   Returns the website access logs for a specific time range using a presigned URL.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -2043,7 +2043,7 @@ defmodule AWS.Amplify do
   Returns an existing Amplify app specified by an app ID.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -2071,7 +2071,7 @@ defmodule AWS.Amplify do
   Returns the artifact info that corresponds to an artifact id.
 
   ## Required positional parameters:
-   • :artifact_id (t:string String.t/0) (artifactId)
+  * `:artifact_id` (`t:string`) The unique ID for an artifact. 
 
   ## Optional parameters:
   """
@@ -2107,8 +2107,8 @@ defmodule AWS.Amplify do
   code.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :environment_name (t:string String.t/0) (environmentName)
+  * `:app_id` (`t:string`) The unique id for an Amplify app. 
+  * `:environment_name` (`t:string`) The name for the backend environment. 
 
   ## Optional parameters:
   """
@@ -2137,8 +2137,8 @@ defmodule AWS.Amplify do
   Returns a branch for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch. 
 
   ## Optional parameters:
   """
@@ -2166,8 +2166,8 @@ defmodule AWS.Amplify do
   Returns the domain information for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:app_id` (`t:string`)  The unique id for an Amplify app. 
+  * `:domain_name` (`t:string`)  The name of the domain. 
 
   ## Optional parameters:
   """
@@ -2195,9 +2195,9 @@ defmodule AWS.Amplify do
   Returns a job for a branch of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
+  * `:job_id` (`t:string`) The unique ID for the job. 
 
   ## Optional parameters:
   """
@@ -2226,7 +2226,7 @@ defmodule AWS.Amplify do
   Returns the webhook information that corresponds to a specified webhook ID.
 
   ## Required positional parameters:
-   • :webhook_id (t:string String.t/0) (webhookId)
+  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
 
   ## Optional parameters:
   """
@@ -2256,8 +2256,9 @@ defmodule AWS.Amplify do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. If non-null, the pagination token is returned in a result. Pass
+            its value in another request to retrieve more entries. 
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_result(), any()}
@@ -2301,13 +2302,15 @@ defmodule AWS.Amplify do
   Returns a list of artifacts for a specified app, branch, and job.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of a branch that is part of an Amplify app. 
+  * `:job_id` (`t:string`) The unique ID for a job. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing artifacts from start. If a non-null
+            pagination token is returned in a result, pass its value in here to list more artifacts.
+        
   """
   @spec list_artifacts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
@@ -2360,12 +2363,14 @@ defmodule AWS.Amplify do
   code.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
-   • :environment_name (t:String.t/0) (environmentName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:environment_name` (`t:string`) The name of the backend environment 
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing backend environments from the start.
+            If a non-null pagination token is returned in a result, pass its value in here to list
+            more backend environments. 
   """
   @spec list_backend_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backend_environments_result(), any()}
@@ -2418,11 +2423,13 @@ defmodule AWS.Amplify do
   Lists the branches of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing branches from the start. If a
+            non-null pagination token is returned in a result, pass its value in here to list more
+            branches. 
   """
   @spec list_branches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_branches_result(), any()}
@@ -2466,11 +2473,13 @@ defmodule AWS.Amplify do
   Returns the domain associations for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`)  A pagination token. Set to null to start listing apps from the start. If non-null, a
+            pagination token is returned in a result. Pass its value in here to list more projects.
+        
   """
   @spec list_domain_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_associations_result(), any()}
@@ -2514,12 +2523,14 @@ defmodule AWS.Amplify do
   Lists the jobs for a branch of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the request. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing steps from the start. If a non-null
+            pagination token is returned in a result, pass its value in here to list more steps.
+        
   """
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
@@ -2564,7 +2575,7 @@ defmodule AWS.Amplify do
   Returns a list of tags for a specified Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to list tags. 
 
   ## Optional parameters:
   """
@@ -2592,11 +2603,13 @@ defmodule AWS.Amplify do
   Returns a list of webhooks for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing webhooks from the start. If
+            non-null,the pagination token is returned in a result. Pass its value in here to list
+            more webhooks. 
   """
   @spec list_webhooks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_webhooks_result(), any()}
@@ -2648,8 +2661,8 @@ defmodule AWS.Amplify do
   fail.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
 
   ## Optional parameters:
   """
@@ -2690,8 +2703,8 @@ defmodule AWS.Amplify do
   Starts a new job for a branch of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
 
   ## Optional parameters:
   """
@@ -2726,9 +2739,9 @@ defmodule AWS.Amplify do
   Stops a job that is in progress for a branch of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch to use for the stop job request. 
+  * `:job_id` (`t:string`)  The unique id for the job. 
 
   ## Optional parameters:
   """
@@ -2770,7 +2783,7 @@ defmodule AWS.Amplify do
   Tags the resource with a tag key and value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) to use to tag a resource. 
 
   ## Optional parameters:
   """
@@ -2803,10 +2816,10 @@ defmodule AWS.Amplify do
   Untags a resource with a specified Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to untag a resource. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]`) The tag keys to use to untag a resource. 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2842,7 +2855,7 @@ defmodule AWS.Amplify do
   Updates an existing Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
+  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
 
   ## Optional parameters:
   """
@@ -2875,8 +2888,8 @@ defmodule AWS.Amplify do
   Updates a branch for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :branch_name (t:string String.t/0) (branchName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:branch_name` (`t:string`) The name of the branch. 
 
   ## Optional parameters:
   """
@@ -2915,8 +2928,8 @@ defmodule AWS.Amplify do
   Creates a new domain association for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :domain_name (t:string String.t/0) (domainName)
+  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  * `:domain_name` (`t:string`)  The name of the domain. 
 
   ## Optional parameters:
   """
@@ -2955,7 +2968,7 @@ defmodule AWS.Amplify do
   Updates a webhook.
 
   ## Required positional parameters:
-   • :webhook_id (t:string String.t/0) (webhookId)
+  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
 
   ## Optional parameters:
   """

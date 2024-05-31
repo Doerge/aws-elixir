@@ -538,7 +538,7 @@ defmodule AWS.Rbin do
   in the *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
   """
@@ -571,7 +571,7 @@ defmodule AWS.Rbin do
   Gets information about a Recycle Bin retention rule.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
   """
@@ -631,7 +631,7 @@ defmodule AWS.Rbin do
   Lists the tags assigned to a retention rule.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
 
   ## Optional parameters:
   """
@@ -661,7 +661,7 @@ defmodule AWS.Rbin do
   A locked retention rule can't be modified or deleted.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
   """
@@ -694,7 +694,7 @@ defmodule AWS.Rbin do
   Assigns tags to the specified retention rule.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
 
   ## Optional parameters:
   """
@@ -730,7 +730,7 @@ defmodule AWS.Rbin do
   only after the unlock delay period expires.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
   """
@@ -763,10 +763,10 @@ defmodule AWS.Rbin do
   Unassigns a tag from a retention rule.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]`) The tag keys of the tags to unassign. All tags that have the specified tag key are unassigned.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -810,7 +810,7 @@ defmodule AWS.Rbin do
   in the *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
   """

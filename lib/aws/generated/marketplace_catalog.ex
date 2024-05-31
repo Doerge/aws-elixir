@@ -1576,8 +1576,10 @@ defmodule AWS.MarketplaceCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :catalog (t:String.t/0) (catalog)
-   • :change_set_id (t:String.t/0) (changeSetId)
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
+            <code>AWSMarketplace</code>.
+  * `:change_set_id` (`t:string`) Required. The unique identifier of the <code>StartChangeSet</code> request that you
+            want to cancel.
   """
   @spec cancel_change_set(AWS.Client.t(), cancel_change_set_request(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
@@ -1617,7 +1619,8 @@ defmodule AWS.MarketplaceCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity resource that is associated with the
+            resource policy.
   """
   @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -1655,8 +1658,11 @@ defmodule AWS.MarketplaceCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :catalog (t:String.t/0) (catalog)
-   • :change_set_id (t:String.t/0) (changeSetId)
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
+            <code>AWSMarketplace</code>
+         
+  * `:change_set_id` (`t:string`) Required. The unique identifier for the <code>StartChangeSet</code> request that you
+            want to describe the details for.
   """
   @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
@@ -1702,8 +1708,10 @@ defmodule AWS.MarketplaceCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :catalog (t:String.t/0) (catalog)
-   • :entity_id (t:String.t/0) (entityId)
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
+            <code>AWSMarketplace</code>
+         
+  * `:entity_id` (`t:string`) Required. The unique ID of the entity to describe.
   """
   @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
@@ -1750,7 +1758,8 @@ defmodule AWS.MarketplaceCatalog do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity resource that is associated with the
+            resource policy.
   """
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}

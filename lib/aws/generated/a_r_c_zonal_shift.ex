@@ -592,7 +592,7 @@ defmodule AWS.ARCZonalShift do
   autoshift.
 
   ## Required positional parameters:
-   • :zonal_shift_id (t:string String.t/0) (zonalShiftId)
+  * `:zonal_shift_id` (`t:string`) The internally-generated identifier of a zonal shift.
 
   ## Optional parameters:
   """
@@ -681,7 +681,8 @@ defmodule AWS.ARCZonalShift do
   enabled.
 
   ## Required positional parameters:
-   • :resource_identifier (t:string String.t/0) (resourceIdentifier)
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you want to delete the practice
+  	run configuration for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
@@ -734,7 +735,7 @@ defmodule AWS.ARCZonalShift do
   balancing turned off.
 
   ## Required positional parameters:
-   • :resource_identifier (t:string String.t/0) (resourceIdentifier)
+  * `:resource_identifier` (`t:string`) The identifier for the resource to shift away traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
@@ -764,9 +765,11 @@ defmodule AWS.ARCZonalShift do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the 
+  	previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous 
+  	call&#39;s <code>NextToken</code> response to request the next page of results.
+  * `:status` (`t:enum["ACTIVE|COMPLETED"]`) The status of the autoshift.
   """
   @spec list_autoshifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_autoshifts_response(), any()}
@@ -829,8 +832,10 @@ defmodule AWS.ARCZonalShift do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the 
+   		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous 
+   		call&#39;s <code>NextToken</code> response to request the next page of results.
   """
   @spec list_managed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_resources_response(), any()}
@@ -887,10 +892,13 @@ defmodule AWS.ARCZonalShift do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_identifier (t:String.t/0) (resourceIdentifier)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:`) Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the 
+   		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous 
+   		call&#39;s <code>NextToken</code> response to request the next page of results.
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you want to list zonal shifts for.
+  	The identifier is the Amazon Resource Name (ARN) for the resource.
+  * `:status` (`t:enum["ACTIVE|CANCELED|EXPIRED"]`) A status for a zonal shift.
   """
   @spec list_zonal_shifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_zonal_shifts_response(), any()}
@@ -1007,7 +1015,8 @@ defmodule AWS.ARCZonalShift do
   or remove blocking dates or time windows.
 
   ## Required positional parameters:
-   • :resource_identifier (t:string String.t/0) (resourceIdentifier)
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you want to update the practice
+  	run configuration for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
@@ -1058,7 +1067,8 @@ defmodule AWS.ARCZonalShift do
   affect customers.
 
   ## Required positional parameters:
-   • :resource_identifier (t:string String.t/0) (resourceIdentifier)
+  * `:resource_identifier` (`t:string`) The identifier for the resource that you want to update the zonal autoshift
+  	configuration for. The identifier is the Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
@@ -1095,7 +1105,7 @@ defmodule AWS.ARCZonalShift do
   edit or replace the comment for the zonal shift.
 
   ## Required positional parameters:
-   • :zonal_shift_id (t:string String.t/0) (zonalShiftId)
+  * `:zonal_shift_id` (`t:string`) The identifier of a zonal shift.
 
   ## Optional parameters:
   """

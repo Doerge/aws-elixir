@@ -10904,10 +10904,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
-   • :set_as_active (t:String.t/0) (setAsActive)
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
   @spec accept_certificate_transfer(
           AWS.Client.t(),
@@ -11020,10 +11021,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
 
   ## Optional parameters:
-   • :namespace_id (t:String.t/0) (namespaceId)
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
   """
   @spec associate_targets_with_job(
           AWS.Client.t(),
@@ -11069,7 +11070,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The name of the policy to attach.
 
   ## Optional parameters:
   """
@@ -11101,10 +11102,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
-   • :principal (t:String.t/0) (x-amzn-iot-principal)
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as returned from the CreateCertificate
+         operation) or an Amazon Cognito ID.
   """
   @spec attach_principal_policy(
           AWS.Client.t(),
@@ -11144,10 +11146,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The security profile that is attached.
 
   ## Optional parameters:
-   • :security_profile_target_arn (t:String.t/0) (securityProfileTargetArn)
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing group) to which the security profile is attached.
   """
   @spec attach_security_profile(
           AWS.Client.t(),
@@ -11185,10 +11187,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :principal (t:String.t/0) (x-amzn-principal)
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as returned from the
+  	CreateCertificate operation) or an Amazon Cognito ID.
   """
   @spec attach_thing_principal(
           AWS.Client.t(),
@@ -11228,7 +11231,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The unique identifier for the task that you want to cancel. 
 
   ## Optional parameters:
   """
@@ -11263,7 +11266,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The ID of the audit you want to cancel. You can only cancel an
+              audit that is &quot;IN_PROGRESS&quot;.
 
   ## Optional parameters:
   """
@@ -11301,7 +11305,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
   """
@@ -11344,7 +11349,9 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) 
+      The unique identifier of the task.
+    
 
   ## Optional parameters:
   """
@@ -11376,10 +11383,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
 
   ## Optional parameters:
-   • :force (t:String.t/0) (force)
+  * `:force` (`t:boolean`) (Optional) If <code>true</code> job executions with status &quot;IN_PROGRESS&quot; and &quot;QUEUED&quot; 
+          are canceled, otherwise only job executions with status &quot;QUEUED&quot; are canceled. The default 
+          is <code>false</code>.
   """
   @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
@@ -11409,11 +11418,15 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:job_id` (`t:string`) The ID of the job to be canceled.
+  * `:thing_name` (`t:string`) The name of the thing whose execution of the job will be canceled.
 
   ## Optional parameters:
-   • :force (t:String.t/0) (force)
+  * `:force` (`t:boolean`) (Optional) If <code>true</code> the job execution will be canceled if it has status 
+          IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status 
+          QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set 
+          <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> 
+          will be thrown. The default is <code>false</code>.
   """
   @spec cancel_job_execution(
           AWS.Client.t(),
@@ -11493,7 +11506,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :confirmation_token (t:string String.t/0) (confirmationToken)
+  * `:confirmation_token` (`t:string`) The token used to confirm ownership or access to the topic rule confirmation URL.
 
   ## Optional parameters:
   """
@@ -11562,7 +11575,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :authorizer_name (t:string String.t/0) (authorizerName)
+  * `:authorizer_name` (`t:string`) The authorizer name.
 
   ## Optional parameters:
   """
@@ -11599,7 +11612,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :billing_group_name (t:string String.t/0) (billingGroupName)
+  * `:billing_group_name` (`t:string`) The name you wish to give to the billing group.
 
   ## Optional parameters:
   """
@@ -11702,7 +11715,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :set_as_active (t:String.t/0) (setAsActive)
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
   @spec create_certificate_from_csr(
           AWS.Client.t(),
@@ -11762,7 +11775,7 @@ defmodule AWS.IoT do
   this behavior to change after a certificate provider is created.
 
   ## Required positional parameters:
-   • :certificate_provider_name (t:string String.t/0) (certificateProviderName)
+  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
 
   ## Optional parameters:
   """
@@ -11812,7 +11825,9 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`)  The name of the custom metric. This will be used in the metric report submitted from the
+      device/thing. The name can&#39;t begin with <code>aws:</code>. You can&#39;t change the name after you
+      define it.
 
   ## Optional parameters:
   """
@@ -11859,7 +11874,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 
   ## Optional parameters:
   """
@@ -11896,7 +11911,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :domain_configuration_name (t:string String.t/0) (domainConfigurationName)
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration. This value must be unique to a region.
 
   ## Optional parameters:
   """
@@ -11943,7 +11958,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The dynamic thing group name to create.
 
   ## Optional parameters:
   """
@@ -11985,7 +12000,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) The name of the fleet metric to create.
 
   ## Optional parameters:
   """
@@ -12017,7 +12032,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
+            characters, &quot;-&quot; and &quot;_&quot; are valid for use here.
 
   ## Optional parameters:
   """
@@ -12044,7 +12060,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_template_id (t:string String.t/0) (jobTemplateId)
+  * `:job_template_id` (`t:string`) A unique identifier for the job template. We recommend using a UUID. Alpha-numeric 
+        characters, &quot;-&quot;, and &quot;_&quot; are valid for use here.
 
   ## Optional parameters:
   """
@@ -12085,7 +12102,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :set_as_active (t:String.t/0) (setAsActive)
+  * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
   """
   @spec create_keys_and_certificate(
           AWS.Client.t(),
@@ -12134,7 +12151,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :action_name (t:string String.t/0) (actionName)
+  * `:action_name` (`t:string`) A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).
 
   ## Optional parameters:
   """
@@ -12176,7 +12193,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :ota_update_id (t:string String.t/0) (otaUpdateId)
+  * `:ota_update_id` (`t:string`) The ID of the OTA update to be created.
 
   ## Optional parameters:
   """
@@ -12214,10 +12231,11 @@ defmodule AWS.IoT do
   actions.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
+  * `:package_name` (`t:string`) The name of the new software package.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec create_package(AWS.Client.t(), String.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
@@ -12248,11 +12266,12 @@ defmodule AWS.IoT do
   actions.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
-   • :version_name (t:string String.t/0) (versionName)
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the new package version.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec create_package_version(
           AWS.Client.t(),
@@ -12295,7 +12314,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
   """
@@ -12343,10 +12362,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
-   • :set_as_default (t:String.t/0) (setAsDefault)
+  * `:set_as_default` (`t:boolean`) Specifies whether the policy version is set as the default. When this parameter is
+         true, the new policy version becomes the operative version (that is, the version that is in
+         effect for the certificates to which the policy is attached).
   """
   @spec create_policy_version(
           AWS.Client.t(),
@@ -12391,7 +12412,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the provisioning template to use.
 
   ## Optional parameters:
   """
@@ -12473,10 +12494,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
-   • :set_as_default (t:String.t/0) (setAsDefault)
+  * `:set_as_default` (`t:boolean`) Sets a fleet provision template version as the default version.
   """
   @spec create_provisioning_template_version(
           AWS.Client.t(),
@@ -12526,7 +12547,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :role_alias (t:string String.t/0) (roleAlias)
+  * `:role_alias` (`t:string`) The role alias that points to a role ARN. This allows you to change the role without
+         having to update the device.
 
   ## Optional parameters:
   """
@@ -12564,7 +12586,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :scheduled_audit_name (t:string String.t/0) (scheduledAuditName)
+  * `:scheduled_audit_name` (`t:string`) The name you want to give to the scheduled audit. (Max. 128 chars)
 
   ## Optional parameters:
   """
@@ -12606,7 +12628,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The name you are giving to the security profile.
 
   ## Optional parameters:
   """
@@ -12653,7 +12675,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :stream_id (t:string String.t/0) (streamId)
+  * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
   """
@@ -12700,7 +12722,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing to create.
 
   ## Optional parameters:
   """
@@ -12744,7 +12766,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The thing group name to create.
 
   ## Optional parameters:
   """
@@ -12781,7 +12803,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_type_name (t:string String.t/0) (thingTypeName)
+  * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
   """
@@ -12821,10 +12843,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
-   • :tags (t:String.t/0) (x-amz-tagging)
+  * `:tags` (`t:string`) Metadata which can be used to manage the topic rule.
   """
   @spec create_topic_rule(AWS.Client.t(), String.t(), create_topic_rule_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -12913,7 +12935,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :delete_scheduled_audits (t:String.t/0) (deleteScheduledAudits)
+  * `:delete_scheduled_audits` (`t:boolean`) If true, all scheduled audits are deleted.
   """
   @spec delete_account_audit_configuration(
           AWS.Client.t(),
@@ -12994,7 +13016,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :authorizer_name (t:string String.t/0) (authorizerName)
+  * `:authorizer_name` (`t:string`) The name of the authorizer to delete.
 
   ## Optional parameters:
   """
@@ -13031,10 +13053,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :billing_group_name (t:string String.t/0) (billingGroupName)
+  * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the billing group. If the version of the billing group does
+  	not match the expected version specified in the request, the
+  		<code>DeleteBillingGroup</code> request is rejected with a
+  		<code>VersionConflictException</code>.
   """
   @spec delete_billing_group(
           AWS.Client.t(),
@@ -13079,7 +13104,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate to delete. (The last part of the certificate ARN contains
+         the certificate ID.)
 
   ## Optional parameters:
   """
@@ -13128,10 +13154,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
-   • :force_delete (t:String.t/0) (forceDelete)
+  * `:force_delete` (`t:boolean`) Forces the deletion of a certificate if it is inactive and is not attached to an IoT
+         thing.
   """
   @spec delete_certificate(AWS.Client.t(), String.t(), delete_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -13175,7 +13203,7 @@ defmodule AWS.IoT do
   certificates signed by IoT from a certificate signing request (CSR).
 
   ## Required positional parameters:
-   • :certificate_provider_name (t:string String.t/0) (certificateProviderName)
+  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
 
   ## Optional parameters:
   """
@@ -13231,7 +13259,9 @@ defmodule AWS.IoT do
   API with `metricName` set to your custom metric name.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) 
+      The name of the custom metric.
+    
 
   ## Optional parameters:
   """
@@ -13273,7 +13303,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The unique identifier for the dimension that you want to delete.
 
   ## Optional parameters:
   """
@@ -13310,7 +13340,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :domain_configuration_name (t:string String.t/0) (domainConfigurationName)
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration to be deleted.
 
   ## Optional parameters:
   """
@@ -13357,10 +13387,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to delete.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the dynamic thing group to delete.
   """
   @spec delete_dynamic_thing_group(
           AWS.Client.t(),
@@ -13408,10 +13438,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) The name of the fleet metric to delete.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the fleet metric to delete.
   """
   @spec delete_fleet_metric(
           AWS.Client.t(),
@@ -13465,11 +13495,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The ID of the job to be deleted.
 
   ## Optional parameters:
-   • :force (t:String.t/0) (force)
-   • :namespace_id (t:String.t/0) (namespaceId)
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job which is &quot;IN_PROGRESS&quot;. Otherwise, you can
+        only delete a job which is in a terminal state (&quot;COMPLETED&quot; or &quot;CANCELED&quot;) or an exception 
+        will occur. The default is false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
   """
   @spec delete_job(AWS.Client.t(), String.t(), delete_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -13510,13 +13542,16 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :execution_number (t:long String.t/0) (executionNumber)
-   • :job_id (t:string String.t/0) (jobId)
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:execution_number` (`t:long`) The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the 
+        execution of a particular job on a particular device.
+  * `:job_id` (`t:string`) The ID of the job whose execution on a particular device will be deleted.
+  * `:thing_name` (`t:string`) The name of the thing whose job execution will be deleted.
 
   ## Optional parameters:
-   • :force (t:String.t/0) (force)
-   • :namespace_id (t:String.t/0) (namespaceId)
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job execution which is &quot;IN_PROGRESS&quot;. Otherwise, 
+        you can only delete a job execution which is in a terminal state (&quot;SUCCEEDED&quot;, &quot;FAILED&quot;,
+        &quot;REJECTED&quot;, &quot;REMOVED&quot; or &quot;CANCELED&quot;) or an exception will occur. The default is false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
   """
   @spec delete_job_execution(
           AWS.Client.t(),
@@ -13569,7 +13604,7 @@ defmodule AWS.IoT do
   Deletes the specified job template.
 
   ## Required positional parameters:
-   • :job_template_id (t:string String.t/0) (jobTemplateId)
+  * `:job_template_id` (`t:string`) The unique identifier of the job template to delete.
 
   ## Optional parameters:
   """
@@ -13611,7 +13646,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :action_name (t:string String.t/0) (actionName)
+  * `:action_name` (`t:string`) The name of the mitigation action that you want to delete.
 
   ## Optional parameters:
   """
@@ -13653,11 +13688,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :ota_update_id (t:string String.t/0) (otaUpdateId)
+  * `:ota_update_id` (`t:string`) The ID of the OTA update to delete.
 
   ## Optional parameters:
-   • :delete_stream (t:String.t/0) (deleteStream)
-   • :force_delete_aws_job (t:String.t/0) (forceDeleteAWSJob)
+  * `:delete_stream` (`t:boolean`) When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
+            Ignored if the stream specified in the OTAUpdate is supplied by the user.
+  * `:force_delete_aws_job` (`t:boolean`) When true, deletes the IoT job created by the OTAUpdate process even if it is &quot;IN_PROGRESS&quot;. Otherwise, if the 
+            job is not in a terminal state (&quot;COMPLETED&quot; or &quot;CANCELED&quot;) an exception will occur. The default is false.
   """
   @spec delete_ota_update(AWS.Client.t(), String.t(), delete_ota_update_request(), Keyword.t()) ::
           {:ok, delete_ota_update_response(), any()}
@@ -13701,10 +13738,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
+  * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
@@ -13743,11 +13781,12 @@ defmodule AWS.IoT do
   designation from the software package using the `UpdatePackage` action.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
-   • :version_name (t:string String.t/0) (versionName)
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the target package version.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec delete_package_version(
           AWS.Client.t(),
@@ -13812,7 +13851,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The name of the policy to delete.
 
   ## Optional parameters:
   """
@@ -13855,8 +13894,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
-   • :policy_version_id (t:string String.t/0) (policyVersionId)
+  * `:policy_name` (`t:string`) The name of the policy.
+  * `:policy_version_id` (`t:string`) The policy version ID.
 
   ## Optional parameters:
   """
@@ -13907,7 +13946,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the fleet provision template to delete.
 
   ## Optional parameters:
   """
@@ -13949,8 +13988,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
-   • :version_id (t:integer String.t/0) (versionId)
+  * `:template_name` (`t:string`) The name of the provisioning template version to delete.
+  * `:version_id` (`t:integer`) The provisioning template version ID to delete.
 
   ## Optional parameters:
   """
@@ -14037,7 +14076,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :role_alias (t:string String.t/0) (roleAlias)
+  * `:role_alias` (`t:string`) The role alias to delete.
 
   ## Optional parameters:
   """
@@ -14074,7 +14113,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :scheduled_audit_name (t:string String.t/0) (scheduledAuditName)
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit you want to delete.
 
   ## Optional parameters:
   """
@@ -14116,10 +14155,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The name of the security profile to be deleted.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the security profile. A new version is generated whenever
+        the security profile is updated. If you specify a value that is different from the actual
+        version, a <code>VersionConflictException</code> is thrown.
   """
   @spec delete_security_profile(
           AWS.Client.t(),
@@ -14164,7 +14205,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :stream_id (t:string String.t/0) (streamId)
+  * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
   """
@@ -14204,10 +14245,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing to delete.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the thing record in the registry. If the version of the
+  	record in the registry does not match the expected version specified in the request, the
+  		<code>DeleteThing</code> request is rejected with a
+  		<code>VersionConflictException</code>.
   """
   @spec delete_thing(AWS.Client.t(), String.t(), delete_thing_request(), Keyword.t()) ::
           {:ok, delete_thing_response(), any()}
@@ -14247,10 +14291,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The name of the thing group to delete.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the thing group to delete.
   """
   @spec delete_thing_group(AWS.Client.t(), String.t(), delete_thing_group_request(), Keyword.t()) ::
           {:ok, delete_thing_group_response(), any()}
@@ -14296,7 +14340,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_type_name (t:string String.t/0) (thingTypeName)
+  * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
   """
@@ -14333,7 +14377,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
   """
@@ -14370,7 +14414,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The ARN of the topic rule destination to delete.
 
   ## Optional parameters:
   """
@@ -14414,8 +14458,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :target_name (t:String.t/0) (targetName)
-   • :target_type (t:String.t/0) (targetType)
+  * `:target_name` (`t:string`) The name of the resource for which you are configuring logging.
+  * `:target_type` (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type of resource for which you are configuring logging. Must be
+            <code>THING_Group</code>.
   """
   @spec delete_v2_logging_level(AWS.Client.t(), delete_v2_logging_level_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -14459,7 +14504,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_type_name (t:string String.t/0) (thingTypeName)
+  * `:thing_type_name` (`t:string`) The name of the thing type to deprecate.
 
   ## Optional parameters:
   """
@@ -14541,7 +14586,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :finding_id (t:string String.t/0) (findingId)
+  * `:finding_id` (`t:string`) A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
 
   ## Optional parameters:
   """
@@ -14573,7 +14618,7 @@ defmodule AWS.IoT do
   being applied, the task status, and aggregated task statistics.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The unique identifier for the audit mitigation task.
 
   ## Optional parameters:
   """
@@ -14642,7 +14687,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The ID of the audit whose information you want to get.
 
   ## Optional parameters:
   """
@@ -14674,7 +14719,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :authorizer_name (t:string String.t/0) (authorizerName)
+  * `:authorizer_name` (`t:string`) The name of the authorizer to describe.
 
   ## Optional parameters:
   """
@@ -14706,7 +14751,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :billing_group_name (t:string String.t/0) (billingGroupName)
+  * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
   """
@@ -14738,7 +14783,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The CA certificate identifier.
 
   ## Optional parameters:
   """
@@ -14770,7 +14815,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
   """
@@ -14802,7 +14848,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_provider_name (t:string String.t/0) (certificateProviderName)
+  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
 
   ## Optional parameters:
   """
@@ -14835,7 +14881,9 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) 
+      The name of the custom metric.
+    
 
   ## Optional parameters:
   """
@@ -14899,7 +14947,9 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) 
+      The unique identifier of the task.
+    
 
   ## Optional parameters:
   """
@@ -14932,7 +14982,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The unique identifier for the dimension.
 
   ## Optional parameters:
   """
@@ -14964,7 +15014,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :domain_configuration_name (t:string String.t/0) (domainConfigurationName)
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration.
 
   ## Optional parameters:
   """
@@ -15003,7 +15053,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :endpoint_type (t:String.t/0) (endpointType)
+  * `:endpoint_type` (`t:string`) The endpoint type. Valid endpoint types include:
   """
   @spec describe_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_endpoint_response(), any()}
@@ -15073,7 +15123,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) The name of the fleet metric to describe.
 
   ## Optional parameters:
   """
@@ -15105,7 +15155,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (indexName)
+  * `:index_name` (`t:string`) The index name.
 
   ## Optional parameters:
   """
@@ -15137,7 +15187,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
 
   ## Optional parameters:
   """
@@ -15169,11 +15219,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  * `:thing_name` (`t:string`) The name of the thing on which the job execution is running.
 
   ## Optional parameters:
-   • :execution_number (t:String.t/0) (executionNumber)
+  * `:execution_number` (`t:long`) A string (consisting of the digits &quot;0&quot; through &quot;9&quot; which is used to specify a particular job execution
+            on a particular device.
   """
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
@@ -15208,7 +15259,7 @@ defmodule AWS.IoT do
   Returns information about a job template.
 
   ## Required positional parameters:
-   • :job_template_id (t:string String.t/0) (jobTemplateId)
+  * `:job_template_id` (`t:string`) The unique identifier of the job template.
 
   ## Optional parameters:
   """
@@ -15236,10 +15287,11 @@ defmodule AWS.IoT do
   View details of a managed job template.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The unique name of a managed job template, which is required.
 
   ## Optional parameters:
-   • :template_version (t:String.t/0) (templateVersion)
+  * `:template_version` (`t:string`) An optional parameter to specify version of a managed template. If not specified, the 
+            pre-defined default version is returned.
   """
   @spec describe_managed_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_job_template_response(), any()}
@@ -15278,7 +15330,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :action_name (t:string String.t/0) (actionName)
+  * `:action_name` (`t:string`) The friendly name that uniquely identifies the mitigation action.
 
   ## Optional parameters:
   """
@@ -15310,7 +15362,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
   """
@@ -15342,8 +15394,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
-   • :version_id (t:integer String.t/0) (versionId)
+  * `:template_name` (`t:string`) The template name.
+  * `:version_id` (`t:integer`) The provisioning template version ID.
 
   ## Optional parameters:
   """
@@ -15386,7 +15438,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :role_alias (t:string String.t/0) (roleAlias)
+  * `:role_alias` (`t:string`) The role alias to describe.
 
   ## Optional parameters:
   """
@@ -15418,7 +15470,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :scheduled_audit_name (t:string String.t/0) (scheduledAuditName)
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit whose information you want to get.
 
   ## Optional parameters:
   """
@@ -15450,7 +15502,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The name of the security profile
+      whose information you want to get.
 
   ## Optional parameters:
   """
@@ -15482,7 +15535,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :stream_id (t:string String.t/0) (streamId)
+  * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
   """
@@ -15514,7 +15567,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
   """
@@ -15546,7 +15599,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The name of the thing group.
 
   ## Optional parameters:
   """
@@ -15578,7 +15631,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The task ID.
 
   ## Optional parameters:
   """
@@ -15610,7 +15663,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_type_name (t:string String.t/0) (thingTypeName)
+  * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
   """
@@ -15646,7 +15699,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy to detach.
 
   ## Optional parameters:
   """
@@ -15687,10 +15740,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The name of the policy to detach.
 
   ## Optional parameters:
-   • :principal (t:String.t/0) (x-amzn-iot-principal)
+  * `:principal` (`t:string`) The principal.
   """
   @spec detach_principal_policy(
           AWS.Client.t(),
@@ -15737,10 +15790,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The security profile that is detached.
 
   ## Optional parameters:
-   • :security_profile_target_arn (t:String.t/0) (securityProfileTargetArn)
+  * `:security_profile_target_arn` (`t:string`) The ARN of the thing group from which the security profile is detached.
   """
   @spec detach_security_profile(
           AWS.Client.t(),
@@ -15793,10 +15846,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :principal (t:String.t/0) (x-amzn-principal)
+  * `:principal` (`t:string`) If the principal is a certificate, this value must be ARN of the certificate. If
+  	the principal is an Amazon Cognito identity, this value must be the ID of the Amazon
+  	Cognito identity.
   """
   @spec detach_thing_principal(
           AWS.Client.t(),
@@ -15842,7 +15897,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the rule to disable.
 
   ## Optional parameters:
   """
@@ -15879,7 +15934,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the topic rule to enable.
 
   ## Optional parameters:
   """
@@ -15919,9 +15974,15 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :security_profile_name (t:String.t/0) (securityProfileName)
+  * `:max_results` (`t:integer`) 
+      The maximum number of results to return at one time. The default is 10.
+    
+  * `:next_token` (`t:string`) 
+      The token for the next set of results.
+    
+  * `:security_profile_name` (`t:string`) 
+      The name of the security profile.
+    
   """
   @spec get_behavior_model_training_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_behavior_model_training_summaries_response(), any()}
@@ -16054,7 +16115,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :thing_name (t:String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The thing name.
   """
   @spec get_effective_policies(AWS.Client.t(), get_effective_policies_request(), Keyword.t()) ::
           {:ok, get_effective_policies_response(), any()}
@@ -16125,7 +16186,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
 
   ## Optional parameters:
   """
@@ -16191,7 +16252,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :ota_update_id (t:string String.t/0) (otaUpdateId)
+  * `:ota_update_id` (`t:string`) The OTA update ID.
 
   ## Optional parameters:
   """
@@ -16223,7 +16284,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
+  * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
   """
@@ -16286,8 +16347,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
-   • :version_name (t:string String.t/0) (versionName)
+  * `:package_name` (`t:string`) The name of the associated package.
+  * `:version_name` (`t:string`) The name of the target package version.
 
   ## Optional parameters:
   """
@@ -16373,7 +16434,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The name of the policy.
 
   ## Optional parameters:
   """
@@ -16405,8 +16466,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
-   • :policy_version_id (t:string String.t/0) (policyVersionId)
+  * `:policy_name` (`t:string`) The name of the policy.
+  * `:policy_version_id` (`t:string`) The policy version ID.
 
   ## Optional parameters:
   """
@@ -16515,7 +16576,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
   """
@@ -16547,7 +16608,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The ARN of the topic rule destination.
 
   ## Optional parameters:
   """
@@ -16612,13 +16673,17 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :behavior_criteria_type (t:String.t/0) (behaviorCriteriaType)
-   • :list_suppressed_alerts (t:String.t/0) (listSuppressedAlerts)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :security_profile_name (t:String.t/0) (securityProfileName)
-   • :thing_name (t:String.t/0) (thingName)
-   • :verification_state (t:String.t/0) (verificationState)
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`) 
+      The criteria for a behavior.
+    
+  * `:list_suppressed_alerts` (`t:boolean`) 
+      A list of all suppressed alerts.
+    
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) The name of the Device Defender security profile for which violations are listed.
+  * `:thing_name` (`t:string`) The name of the thing whose active violations are listed.
+  * `:verification_state` (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The verification state of the violation (detect alarm).
   """
   @spec list_active_violations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_active_violations_response(), any()}
@@ -16711,12 +16776,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :target (t:string String.t/0) (target)
+  * `:target` (`t:string`) The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :recursive (t:String.t/0) (recursive)
+  * `:marker` (`t:string`) The token to retrieve the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to be returned per request.
+  * `:recursive` (`t:boolean`) When true, recursively list attached policies.
   """
   @spec list_attached_policies(
           AWS.Client.t(),
@@ -16805,11 +16870,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :action_status (t:String.t/0) (actionStatus)
-   • :finding_id (t:String.t/0) (findingId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :task_id (t:String.t/0) (taskId)
+  * `:action_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS|PENDING|SKIPPED"]`) Specify this filter to limit results to those with a specific status.
+  * `:finding_id` (`t:string`) Specify this filter to limit results to those that were applied to a specific audit finding.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:task_id` (`t:string`) Specify this filter to limit results to actions for a specific audit mitigation actions task.
   """
   @spec list_audit_mitigation_actions_executions(
           AWS.Client.t(),
@@ -16896,13 +16961,13 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :audit_task_id (t:String.t/0) (auditTaskId)
-   • :end_time (t:String.t/0) (endTime)
-   • :finding_id (t:String.t/0) (findingId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
-   • :task_status (t:String.t/0) (taskStatus)
+  * `:audit_task_id` (`t:string`) Specify this filter to limit results to tasks that were applied to results for a specific audit.
+  * `:end_time` (`t:timestamp`) Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
+  * `:finding_id` (`t:string`) Specify this filter to limit results to tasks that were applied to a specific audit finding.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) Specify this filter to limit results to tasks that began on or after a specific date and time.
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) Specify this filter to limit results to tasks that are in a specific state.
   """
   @spec list_audit_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_mitigation_actions_tasks_response(), any()}
@@ -17035,12 +17100,16 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (endTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
-   • :task_status (t:String.t/0) (taskStatus)
-   • :task_type (t:String.t/0) (taskType)
+  * `:end_time` (`t:timestamp`) The end of the time period.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) The beginning of the time period. Audit information is retained for a 
+              limited time (90 days). Requesting a start time prior to what is retained 
+              results in an &quot;InvalidRequestException&quot;.
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) A filter to limit the output to audits with the specified completion
+            status: can be one of &quot;IN_PROGRESS&quot;, &quot;COMPLETED&quot;, &quot;FAILED&quot;, or &quot;CANCELED&quot;.
+  * `:task_type` (`t:enum["ON_DEMAND_AUDIT_TASK|SCHEDULED_AUDIT_TASK"]`) A filter to limit the output to the specified type of audit: can be one of
+            &quot;ON_DEMAND_AUDIT_TASK&quot; or &quot;SCHEDULED__AUDIT_TASK&quot;.
   """
   @spec list_audit_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_tasks_response(), any()}
@@ -17126,10 +17195,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :status (t:String.t/0) (status)
+  * `:ascending_order` (`t:boolean`) Return the list of authorizers in ascending alphabetical order.
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status of the list authorizers request.
   """
   @spec list_authorizers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_authorizers_response(), any()}
@@ -17197,9 +17266,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_prefix_filter (t:String.t/0) (namePrefixFilter)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per request.
+  * `:name_prefix_filter` (`t:string`) Limit the results to billing groups whose names have the given prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
   """
   @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_response(), any()}
@@ -17262,10 +17333,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :template_name (t:String.t/0) (templateName)
+  * `:ascending_order` (`t:boolean`) Determines the order of the results.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:template_name` (`t:string`) The name of the provisioning template.
   """
   @spec list_ca_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ca_certificates_response(), any()}
@@ -17333,8 +17404,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:ascending_order` (`t:boolean`) Returns the list of certificate providers in ascending alphabetical order.
+  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> if there are no more results.
   """
   @spec list_certificate_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_certificate_providers_response(), any()}
@@ -17388,9 +17459,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
+         order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
   @spec list_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_certificates_response(), any()}
@@ -17447,12 +17519,14 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :ca_certificate_id (t:string String.t/0) (caCertificateId)
+  * `:ca_certificate_id` (`t:string`) The ID of the CA certificate. This operation will list all registered device
+         certificate that were signed by this CA certificate.
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
+         order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
   @spec list_certificates_by_ca(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_certificates_by_ca_response(), any()}
@@ -17512,8 +17586,12 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+      The maximum number of results to return at one time. The default is 25.
+    
+  * `:next_token` (`t:string`) 
+      The token for the next set of results.
+    
   """
   @spec list_custom_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_metrics_response(), any()}
@@ -17565,13 +17643,28 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (endTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
-   • :task_id (t:String.t/0) (taskId)
-   • :thing_name (t:String.t/0) (thingName)
-   • :violation_id (t:String.t/0) (violationId)
+  * `:end_time` (`t:timestamp`) 
+      The end of the time period for which ML Detect mitigation actions executions are returned.
+    
+  * `:max_results` (`t:integer`) 
+      The maximum number of results to return at one time. The default is 25.
+    
+  * `:next_token` (`t:string`) 
+      The token for the next set of results.
+    
+  * `:start_time` (`t:timestamp`) 
+      A filter to limit results to those found after the specified time. You must
+      specify either the startTime and endTime or the taskId, but not both.
+    
+  * `:task_id` (`t:string`) 
+      The unique identifier of the task.
+    
+  * `:thing_name` (`t:string`) 
+      The name of the thing whose mitigation actions are listed.
+    
+  * `:violation_id` (`t:string`) 
+      The unique identifier of the violation.
+    
   """
   @spec list_detect_mitigation_actions_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_executions_response(), any()}
@@ -17667,10 +17760,17 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :end_time (t:String.t/0) (endTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
+  * `:end_time` (`t:timestamp`) 
+      The end of the time period for which ML Detect mitigation actions tasks are returned.
+    
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) 
+      The token for the next set of results.
+    
+  * `:start_time` (`t:timestamp`) 
+      A filter to limit results to those found after the specified time. You must
+      specify either the startTime and endTime or the taskId, but not both.
+    
   """
   @spec list_detect_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_tasks_response(), any()}
@@ -17744,8 +17844,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to retrieve at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_dimensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dimensions_response(), any()}
@@ -17798,9 +17898,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :service_type (t:String.t/0) (serviceType)
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:service_type` (`t:enum["CREDENTIAL_PROVIDER|DATA|JOBS"]`) The type of service delivered by the endpoint.
   """
   @spec list_domain_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_configurations_response(), any()}
@@ -17859,8 +17959,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code> value from a previous response; 
+       otherwise <code>null</code> to receive the first set of results.
   """
   @spec list_fleet_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleet_metrics_response(), any()}
@@ -17910,8 +18011,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token used to get the next set of results, or <code>null</code> if there are no additional
+      results.
   """
   @spec list_indices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
@@ -17959,12 +18061,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`) The status of the job.
   """
   @spec list_job_executions_for_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_job_response(), any()}
@@ -18021,14 +18123,14 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The thing name.
 
   ## Optional parameters:
-   • :job_id (t:String.t/0) (jobId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :namespace_id (t:String.t/0) (namespaceId)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`) An optional filter that lets you search for jobs that have the specified status.
   """
   @spec list_job_executions_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_thing_response(), any()}
@@ -18105,8 +18207,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the list.
+  * `:next_token` (`t:string`) The token to use to return the next set of results in the list.
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -18156,13 +18258,16 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :namespace_id (t:String.t/0) (namespaceId)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
-   • :target_selection (t:String.t/0) (targetSelection)
-   • :thing_group_id (t:String.t/0) (thingGroupId)
-   • :thing_group_name (t:String.t/0) (thingGroupName)
+  * `:max_results` (`t:integer`) The maximum number of results to return per request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:status` (`t:enum["CANCELED|COMPLETED|DELETION_IN_PROGRESS|IN_PROGRESS|SCHEDULED"]`) An optional filter that lets you search for jobs that have the specified status.
+  * `:target_selection` (`t:enum["CONTINUOUS|SNAPSHOT"]`) Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+            target group, even after the job was completed by all things originally in the group. 
+  * `:thing_group_id` (`t:string`) A filter that limits the returned jobs to those for the specified group.
+  * `:thing_group_name` (`t:string`) A filter that limits the returned jobs to those for the specified group.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -18253,9 +18358,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :template_name (t:String.t/0) (templateName)
+  * `:max_results` (`t:integer`) Maximum number of entries that can be returned.
+  * `:next_token` (`t:string`) The token to retrieve the next set of results.
+  * `:template_name` (`t:string`) An optional parameter for template name. If specified, only the versions of the
+            managed job templates that have the specified template name will be returned.
   """
   @spec list_managed_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_job_templates_response(), any()}
@@ -18312,14 +18418,14 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :dimension_name (t:String.t/0) (dimensionName)
-   • :dimension_value_operator (t:String.t/0) (dimensionValueOperator)
-   • :end_time (t:String.t/0) (endTime)
-   • :max_results (t:String.t/0) (maxResults)
-   • :metric_name (t:String.t/0) (metricName)
-   • :next_token (t:String.t/0) (nextToken)
-   • :start_time (t:String.t/0) (startTime)
-   • :thing_name (t:String.t/0) (thingName)
+  * `:dimension_name` (`t:string`) The dimension name.
+  * `:dimension_value_operator` (`t:enum["IN|NOT_IN"]`) The dimension value operator.
+  * `:end_time` (`t:timestamp`) The end of the time period for which metric values are returned.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:metric_name` (`t:string`) The name of the security profile metric for which values are returned.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) The start of the time period for which metric values are returned.
+  * `:thing_name` (`t:string`) The name of the thing for which security profile metric values are returned.
   """
   @spec list_metric_values(
           AWS.Client.t(),
@@ -18437,9 +18543,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :action_type (t:String.t/0) (actionType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:action_type` (`t:enum["ADD_THINGS_TO_THING_GROUP|ENABLE_IOT_LOGGING|PUBLISH_FINDING_TO_SNS|REPLACE_DEFAULT_POLICY_VERSION|UPDATE_CA_CERTIFICATE|UPDATE_DEVICE_CERTIFICATE"]`) Specify a value to limit the result to mitigation actions with a specific action type.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_mitigation_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mitigation_actions_response(), any()}
@@ -18498,9 +18604,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :ota_update_status (t:String.t/0) (otaUpdateStatus)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) A token used to retrieve the next set of results.
+  * `:ota_update_status` (`t:enum["CREATE_COMPLETE|CREATE_FAILED|CREATE_IN_PROGRESS|CREATE_PENDING|DELETE_FAILED|DELETE_IN_PROGRESS"]`) The OTA update job status.
   """
   @spec list_ota_updates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ota_updates_response(), any()}
@@ -18559,9 +18665,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
+         order, based on the creation date.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
   @spec list_outgoing_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outgoing_certificates_response(), any()}
@@ -18618,12 +18725,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
+  * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:status` (`t:enum["DEPRECATED|DRAFT|PUBLISHED"]`) The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.
   """
   @spec list_package_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_package_versions_response(), any()}
@@ -18682,8 +18789,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results returned at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
@@ -18733,9 +18840,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the results are returned in ascending
+         creation order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
   """
   @spec list_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policies_response(), any()}
@@ -18798,10 +18906,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :policy_name (t:String.t/0) (x-amzn-iot-policy)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the results are returned in ascending
+         creation order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:policy_name` (`t:string`) The policy name.
   """
   @spec list_policy_principals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_principals_response(), any()}
@@ -18869,7 +18978,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
   """
@@ -18910,10 +19019,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
-   • :principal (t:String.t/0) (x-amzn-iot-principal)
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, results are returned in ascending creation
+         order.
+  * `:marker` (`t:string`) The marker for the next set of results.
+  * `:page_size` (`t:integer`) The result page size.
+  * `:principal` (`t:string`) The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).
   """
   @spec list_principal_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_principal_policies_response(), any()}
@@ -18987,9 +19097,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :principal (t:String.t/0) (x-amzn-principal)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:principal` (`t:string`) The principal.
   """
   @spec list_principal_things(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_principal_things_response(), any()}
@@ -19047,11 +19159,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
   @spec list_provisioning_template_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioning_template_versions_response(), any()}
@@ -19101,8 +19213,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
   @spec list_provisioning_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioning_templates_response(), any()}
@@ -19186,9 +19298,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :finding_id (t:String.t/0) (findingId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:finding_id` (`t:string`) The finding Id.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) A token that can be used to retrieve the next set of results, 
+      or <code>null</code> if there are no additional results.
   """
   @spec list_related_resources_for_audit_finding(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
@@ -19247,9 +19360,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:ascending_order` (`t:boolean`) Return the list of role aliases in ascending alphabetical order.
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
   """
   @spec list_role_aliases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_role_aliases_response(), any()}
@@ -19308,8 +19421,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_scheduled_audits(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scheduled_audits_response(), any()}
@@ -19365,10 +19478,13 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :dimension_name (t:String.t/0) (dimensionName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :metric_name (t:String.t/0) (metricName)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:dimension_name` (`t:string`) A filter to limit results to the security profiles that use the defined dimension.
+      Cannot be used with <code>metricName</code>
+         
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:metric_name` (`t:string`)  The name of the custom metric.
+      Cannot be used with <code>dimensionName</code>. 
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_security_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_profiles_response(), any()}
@@ -19436,10 +19552,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :recursive (t:String.t/0) (recursive)
-   • :security_profile_target_arn (t:String.t/0) (securityProfileTargetArn)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:recursive` (`t:boolean`) If true, return child groups too.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing group) whose attached security profiles you want to get.
   """
   @spec list_security_profiles_for_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_for_target_response(), any()}
@@ -19512,9 +19628,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending_order (t:String.t/0) (isAscendingOrder)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:ascending_order` (`t:boolean`) Set to true to return the list of streams in ascending order.
+  * `:max_results` (`t:integer`) The maximum number of results to return at a time.
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
   @spec list_streams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streams_response(), any()}
@@ -19573,8 +19689,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -19622,11 +19740,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
+  * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (marker)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:marker` (`t:string`) A marker used to get the next set of results.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
   """
   @spec list_targets_for_policy(
           AWS.Client.t(),
@@ -19673,11 +19791,11 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The security profile.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_targets_for_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_targets_for_security_profile_response(), any()}
@@ -19727,11 +19845,13 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_prefix_filter (t:String.t/0) (namePrefixFilter)
-   • :next_token (t:String.t/0) (nextToken)
-   • :parent_group (t:String.t/0) (parentGroup)
-   • :recursive (t:String.t/0) (recursive)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:name_prefix_filter` (`t:string`) A filter that limits the results to those with the specified name prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:parent_group` (`t:string`) A filter that limits the results to those with the specified parent group.
+  * `:recursive` (`t:boolean`) If true, return child groups as well.
   """
   @spec list_thing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_groups_response(), any()}
@@ -19806,11 +19926,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The thing name.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
   """
   @spec list_thing_groups_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_groups_for_thing_response(), any()}
@@ -19863,11 +19985,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
   """
   @spec list_thing_principals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_principals_response(), any()}
@@ -19911,12 +20035,14 @@ defmodule AWS.IoT do
   Information about the thing registration tasks.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The id of the task.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :report_type (t:String.t/0) (reportType)
+  * `:max_results` (`t:integer`) The maximum number of results to return per request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  the first set of results.
+  * `:report_type` (`t:enum["ERRORS|RESULTS"]`) The type of task report.
   """
   @spec list_thing_registration_task_reports(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_registration_task_reports_response(), any()}
@@ -19980,9 +20106,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:status` (`t:enum["Cancelled|Cancelling|Completed|Failed|InProgress"]`) The status of the bulk thing provisioning task.
   """
   @spec list_thing_registration_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_registration_tasks_response(), any()}
@@ -20041,9 +20169,11 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :thing_type_name (t:String.t/0) (thingTypeName)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:thing_type_name` (`t:string`) The name of the thing type.
   """
   @spec list_thing_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_types_response(), any()}
@@ -20115,12 +20245,15 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :attribute_name (t:String.t/0) (attributeName)
-   • :attribute_value (t:String.t/0) (attributeValue)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :thing_type_name (t:String.t/0) (thingTypeName)
-   • :use_prefix_attribute_value (t:String.t/0) (usePrefixAttributeValue)
+  * `:attribute_name` (`t:string`) The attribute name used to search for things.
+  * `:attribute_value` (`t:string`) The attribute value used to search for things.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:thing_type_name` (`t:string`) The name of the thing type used to search for things.
+  * `:use_prefix_attribute_value` (`t:boolean`) When <code>true</code>, the action returns the thing resources with attribute values
+                     that start with the <code>attributeValue</code> provided.
   """
   @spec list_things(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_things_response(), any()}
@@ -20204,11 +20337,13 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :billing_group_name (t:string String.t/0) (billingGroupName)
+  * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
   """
   @spec list_things_in_billing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_billing_group_response(), any()}
@@ -20256,12 +20391,15 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The thing group name.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :recursive (t:String.t/0) (recursive)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+  	value from a previous response; otherwise <b>null</b> to receive
+  	the first set of results.
+  * `:recursive` (`t:boolean`) When true, list things in this thing group and in all child groups as
+  	well.
   """
   @spec list_things_in_thing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_thing_group_response(), any()}
@@ -20320,8 +20458,10 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+         value from a previous response; otherwise <b>null</b> to receive
+         the first set of results.
   """
   @spec list_topic_rule_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_topic_rule_destinations_response(), any()}
@@ -20371,10 +20511,12 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :rule_disabled (t:String.t/0) (ruleDisabled)
-   • :topic (t:String.t/0) (topic)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+         value from a previous response; otherwise <b>null</b> to receive
+         the first set of results.
+  * `:rule_disabled` (`t:boolean`) Specifies whether the rule is disabled.
+  * `:topic` (`t:string`) The topic.
   """
   @spec list_topic_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_topic_rules_response(), any()}
@@ -20442,9 +20584,12 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :target_type (t:String.t/0) (targetType)
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
+         value from a previous response; otherwise <b>null</b> to receive
+         the first set of results.
+  * `:target_type` (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type of resource for which you are configuring logging. Must be
+            <code>THING_Group</code>.
   """
   @spec list_v2_logging_levels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_v2_logging_levels_response(), any()}
@@ -20508,15 +20653,19 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :behavior_criteria_type (t:String.t/0) (behaviorCriteriaType)
-   • :end_time (t:String.t/0) (endTime)
-   • :list_suppressed_alerts (t:String.t/0) (listSuppressedAlerts)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :security_profile_name (t:String.t/0) (securityProfileName)
-   • :start_time (t:String.t/0) (startTime)
-   • :thing_name (t:String.t/0) (thingName)
-   • :verification_state (t:String.t/0) (verificationState)
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`) 
+      The criteria for a behavior.
+    
+  * `:end_time` (`t:timestamp`) The end time for the alerts to be listed.
+  * `:list_suppressed_alerts` (`t:boolean`) 
+      A list of all suppressed alerts.
+    
+  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) A filter to limit results to those alerts generated by the specified security profile.
+  * `:start_time` (`t:timestamp`) The start time for the alerts to be listed.
+  * `:thing_name` (`t:string`) A filter to limit results to those alerts caused by the specified thing.
+  * `:verification_state` (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The verification state of the violation (detect alarm).
   """
   @spec list_violation_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_violation_events_response(), any()}
@@ -20624,7 +20773,7 @@ defmodule AWS.IoT do
   a violation (detect alarm).
 
   ## Required positional parameters:
-   • :violation_id (t:string String.t/0) (violationId)
+  * `:violation_id` (`t:string`) The violation ID.
 
   ## Optional parameters:
   """
@@ -20673,8 +20822,9 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :allow_auto_registration (t:String.t/0) (allowAutoRegistration)
-   • :set_as_active (t:String.t/0) (setAsActive)
+  * `:allow_auto_registration` (`t:boolean`) Allows this CA certificate to be used for auto registration of device
+         certificates.
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the CA certificate is set to active.
   """
   @spec register_ca_certificate(AWS.Client.t(), register_ca_certificate_request(), Keyword.t()) ::
           {:ok, register_ca_certificate_response(), any()}
@@ -20723,7 +20873,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :set_as_active (t:String.t/0) (setAsActive)
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the certificate is set to active.
   """
   @spec register_certificate(AWS.Client.t(), register_certificate_request(), Keyword.t()) ::
           {:ok, register_certificate_response(), any()}
@@ -20857,7 +21007,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
   """
@@ -20972,7 +21123,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :rule_name (t:string String.t/0) (ruleName)
+  * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
   """
@@ -21090,8 +21241,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :policy_name (t:string String.t/0) (policyName)
-   • :policy_version_id (t:string String.t/0) (policyVersionId)
+  * `:policy_name` (`t:string`) The policy name.
+  * `:policy_version_id` (`t:string`) The policy version ID.
 
   ## Optional parameters:
   """
@@ -21253,7 +21404,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
 
   ## Optional parameters:
   """
@@ -21296,7 +21447,9 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) 
+      The unique identifier of the task.
+    
 
   ## Optional parameters:
   """
@@ -21408,7 +21561,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :task_id (t:string String.t/0) (taskId)
+  * `:task_id` (`t:string`) The bulk thing provisioning task ID.
 
   ## Optional parameters:
   """
@@ -21485,7 +21638,7 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_id (t:String.t/0) (clientId)
+  * `:client_id` (`t:string`) The MQTT client ID.
   """
   @spec test_authorization(AWS.Client.t(), test_authorization_request(), Keyword.t()) ::
           {:ok, test_authorization_response(), any()}
@@ -21530,7 +21683,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :authorizer_name (t:string String.t/0) (authorizerName)
+  * `:authorizer_name` (`t:string`) The custom authorizer name.
 
   ## Optional parameters:
   """
@@ -21586,10 +21739,11 @@ defmodule AWS.IoT do
   `DetachPolicy` action to detach them.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
-   • :target_aws_account (t:String.t/0) (targetAwsAccount)
+  * `:target_aws_account` (`t:string`) The Amazon Web Services account.
   """
   @spec transfer_certificate(
           AWS.Client.t(),
@@ -21746,7 +21900,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :authorizer_name (t:string String.t/0) (authorizerName)
+  * `:authorizer_name` (`t:string`) The authorizer name.
 
   ## Optional parameters:
   """
@@ -21773,7 +21927,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :billing_group_name (t:string String.t/0) (billingGroupName)
+  * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
   """
@@ -21815,11 +21969,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The CA certificate identifier.
 
   ## Optional parameters:
-   • :new_auto_registration_status (t:String.t/0) (newAutoRegistrationStatus)
-   • :new_status (t:String.t/0) (newStatus)
+  * `:new_auto_registration_status` (`t:enum["DISABLE|ENABLE"]`) The new value for the auto registration status. Valid values are: &quot;ENABLE&quot; or
+         &quot;DISABLE&quot;.
+  * `:new_status` (`t:enum["ACTIVE|INACTIVE"]`) The updated status of the CA certificate.
   """
   @spec update_ca_certificate(
           AWS.Client.t(),
@@ -21867,10 +22022,11 @@ defmodule AWS.IoT do
   use a certificate that is not in the ACTIVE state to reconnect.
 
   ## Required positional parameters:
-   • :certificate_id (t:string String.t/0) (certificateId)
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
+         certificate ID.)
 
   ## Optional parameters:
-   • :new_status (t:String.t/0) (newStatus)
+  * `:new_status` (`t:enum["ACTIVE|INACTIVE|PENDING_ACTIVATION|PENDING_TRANSFER|REGISTER_INACTIVE|REVOKED"]`) The new status.
   """
   @spec update_certificate(AWS.Client.t(), String.t(), update_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -21900,7 +22056,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :certificate_provider_name (t:string String.t/0) (certificateProviderName)
+  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
 
   ## Optional parameters:
   """
@@ -21938,7 +22094,8 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`)  The name of the custom metric.
+      Cannot be updated. 
 
   ## Optional parameters:
   """
@@ -21987,7 +22144,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 
   ## Optional parameters:
   """
@@ -22027,7 +22184,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :domain_configuration_name (t:string String.t/0) (domainConfigurationName)
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration to be updated.
 
   ## Optional parameters:
   """
@@ -22064,7 +22221,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to update.
 
   ## Optional parameters:
   """
@@ -22146,7 +22303,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :metric_name (t:string String.t/0) (metricName)
+  * `:metric_name` (`t:string`) The name of the fleet metric to update.
 
   ## Optional parameters:
   """
@@ -22228,10 +22385,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The ID of the job to be updated.
 
   ## Optional parameters:
-   • :namespace_id (t:String.t/0) (namespaceId)
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
   """
   @spec update_job(AWS.Client.t(), String.t(), update_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -22271,7 +22428,10 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :action_name (t:string String.t/0) (actionName)
+  * `:action_name` (`t:string`) The friendly name for the mitigation action. You cannot change the name by using
+        <code>UpdateMitigationAction</code>. Instead, you must delete and
+      recreate the
+      mitigation action with the new name.
 
   ## Optional parameters:
   """
@@ -22314,10 +22474,11 @@ defmodule AWS.IoT do
   actions.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
+  * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec update_package(AWS.Client.t(), String.t(), update_package_request(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
@@ -22360,7 +22521,8 @@ defmodule AWS.IoT do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec update_package_configuration(
           AWS.Client.t(),
@@ -22405,11 +22567,12 @@ defmodule AWS.IoT do
   actions.
 
   ## Required positional parameters:
-   • :package_name (t:string String.t/0) (packageName)
-   • :version_name (t:string String.t/0) (versionName)
+  * `:package_name` (`t:string`) The name of the associated software package.
+  * `:version_name` (`t:string`) The name of the target package version.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
+      Don&#39;t reuse this client token if a new idempotent request is required.
   """
   @spec update_package_version(
           AWS.Client.t(),
@@ -22457,7 +22620,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (templateName)
+  * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
   """
@@ -22499,7 +22662,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :role_alias (t:string String.t/0) (roleAlias)
+  * `:role_alias` (`t:string`) The role alias to update.
 
   ## Optional parameters:
   """
@@ -22527,7 +22690,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :scheduled_audit_name (t:string String.t/0) (scheduledAuditName)
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit. (Max. 128 chars)
 
   ## Optional parameters:
   """
@@ -22569,10 +22732,12 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :security_profile_name (t:string String.t/0) (securityProfileName)
+  * `:security_profile_name` (`t:string`) The name of the security profile you want to update.
 
   ## Optional parameters:
-   • :expected_version (t:String.t/0) (expectedVersion)
+  * `:expected_version` (`t:long`) The expected version of the security profile. A new version is generated whenever
+        the security profile is updated. If you specify a value that is different from the actual
+        version, a <code>VersionConflictException</code> is thrown.
   """
   @spec update_security_profile(
           AWS.Client.t(),
@@ -22619,7 +22784,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :stream_id (t:string String.t/0) (streamId)
+  * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
   """
@@ -22646,7 +22811,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing to update.
 
   ## Optional parameters:
   """
@@ -22683,7 +22848,7 @@ defmodule AWS.IoT do
   action.
 
   ## Required positional parameters:
-   • :thing_group_name (t:string String.t/0) (thingGroupName)
+  * `:thing_group_name` (`t:string`) The thing group to update.
 
   ## Optional parameters:
   """

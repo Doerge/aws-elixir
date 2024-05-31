@@ -739,7 +739,7 @@ defmodule AWS.DLM do
   For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
 
   ## Required positional parameters:
-   • :policy_id (t:string String.t/0) (PolicyId)
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:
   """
@@ -782,12 +782,13 @@ defmodule AWS.DLM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :default_policy_type (t:String.t/0) (defaultPolicyType)
-   • :policy_ids (t:String.t/0) (policyIds)
-   • :resource_types (t:String.t/0) (resourceTypes)
-   • :state (t:String.t/0) (state)
-   • :tags_to_add (t:String.t/0) (tagsToAdd)
-   • :target_tags (t:String.t/0) (targetTags)
+  * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) 
+            <b>[Default policies only]</b> Specifies the type of default policy to get. Specify one of the following:
+  * `:policy_ids` (`t:list[com.amazonaws.dlm#PolicyId]`) The identifiers of the data lifecycle policies.
+  * `:resource_types` (`t:list[com.amazonaws.dlm#ResourceTypeValues]`) The resource type.
+  * `:state` (`t:enum["DISABLED|ENABLED|ERROR"]`) The activation state.
+  * `:tags_to_add` (`t:list[com.amazonaws.dlm#TagFilter]`) The tags to add to objects created by the policy.
+  * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a policy.
   """
   @spec get_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policies_response(), any()}
@@ -867,7 +868,7 @@ defmodule AWS.DLM do
   Gets detailed information about the specified lifecycle policy.
 
   ## Required positional parameters:
-   • :policy_id (t:string String.t/0) (PolicyId)
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:
   """
@@ -895,7 +896,7 @@ defmodule AWS.DLM do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -923,7 +924,7 @@ defmodule AWS.DLM do
   Adds the specified tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -956,10 +957,10 @@ defmodule AWS.DLM do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.dlm#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -997,7 +998,7 @@ defmodule AWS.DLM do
   For more information about updating a policy, see [Modify lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify).
 
   ## Required positional parameters:
-   • :policy_id (t:string String.t/0) (PolicyId)
+  * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:
   """

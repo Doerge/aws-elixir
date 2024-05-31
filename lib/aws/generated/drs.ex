@@ -3502,8 +3502,8 @@ defmodule AWS.Drs do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of staging Accounts to retrieve.
+  * `:next_token` (`t:string`) The token of the next staging Account to retrieve.
   """
   @spec list_staging_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_staging_accounts_response(), any()}
@@ -3547,7 +3547,7 @@ defmodule AWS.Drs do
   List all tags for your Elastic Disaster Recovery resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags should be returned.
 
   ## Optional parameters:
   """
@@ -3978,7 +3978,7 @@ defmodule AWS.Drs do
   and optional value.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be added or updated.
 
   ## Optional parameters:
   """
@@ -4050,10 +4050,10 @@ defmodule AWS.Drs do
   Recovery resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be removed.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.drs#TagKey]`) Array of tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}

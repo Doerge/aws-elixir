@@ -1065,7 +1065,7 @@ defmodule AWS.AppIntegrations do
   Only Applications that don't have any Application Associations can be deleted.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
   """
@@ -1109,7 +1109,7 @@ defmodule AWS.AppIntegrations do
   API.
 
   ## Required positional parameters:
-   • :data_integration_identifier (t:string String.t/0) (DataIntegrationIdentifier)
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the DataIntegration.
 
   ## Optional parameters:
   """
@@ -1155,7 +1155,7 @@ defmodule AWS.AppIntegrations do
   with clients, the request is rejected.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:
   """
@@ -1195,7 +1195,7 @@ defmodule AWS.AppIntegrations do
   Get an Application resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
   """
@@ -1229,7 +1229,7 @@ defmodule AWS.AppIntegrations do
   API.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) A unique identifier.
 
   ## Optional parameters:
   """
@@ -1257,7 +1257,7 @@ defmodule AWS.AppIntegrations do
   Returns information about the event integration.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the event integration. 
 
   ## Optional parameters:
   """
@@ -1285,11 +1285,12 @@ defmodule AWS.AppIntegrations do
   Returns a paginated list of application associations for an application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) A unique identifier for the Application.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_application_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_associations_response(), any()}
@@ -1337,8 +1338,9 @@ defmodule AWS.AppIntegrations do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1388,11 +1390,12 @@ defmodule AWS.AppIntegrations do
   API.
 
   ## Required positional parameters:
-   • :data_integration_identifier (t:string String.t/0) (DataIntegrationIdentifier)
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the DataIntegration.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_data_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_integration_associations_response(), any()}
@@ -1449,8 +1452,9 @@ defmodule AWS.AppIntegrations do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_data_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_integrations_response(), any()}
@@ -1494,11 +1498,12 @@ defmodule AWS.AppIntegrations do
   Returns a paginated list of event integration associations in the account.
 
   ## Required positional parameters:
-   • :event_integration_name (t:string String.t/0) (EventIntegrationName)
+  * `:event_integration_name` (`t:string`) The name of the event integration. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_event_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_integration_associations_response(), any()}
@@ -1548,8 +1553,9 @@ defmodule AWS.AppIntegrations do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_event_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_integrations_response(), any()}
@@ -1593,7 +1599,7 @@ defmodule AWS.AppIntegrations do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -1621,7 +1627,7 @@ defmodule AWS.AppIntegrations do
   Adds the specified tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1654,10 +1660,10 @@ defmodule AWS.AppIntegrations do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.appintegrations#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1695,7 +1701,7 @@ defmodule AWS.AppIntegrations do
   Updates and persists an Application resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
   """
@@ -1734,7 +1740,7 @@ defmodule AWS.AppIntegrations do
   API.
 
   ## Required positional parameters:
-   • :identifier (t:string String.t/0) (Identifier)
+  * `:identifier` (`t:string`) A unique identifier for the DataIntegration.
 
   ## Optional parameters:
   """
@@ -1772,7 +1778,7 @@ defmodule AWS.AppIntegrations do
   Updates the description of an event integration.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:
   """

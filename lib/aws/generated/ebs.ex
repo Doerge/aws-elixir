@@ -427,13 +427,16 @@ defmodule AWS.EBS do
   *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :snapshot_id (t:string String.t/0) (SnapshotId)
+  * `:snapshot_id` (`t:string`) The ID of the snapshot.
 
   ## Optional parameters:
-   • :changed_blocks_count (t:String.t/0) (x-amz-ChangedBlocksCount)
-   • :checksum (t:String.t/0) (x-amz-Checksum)
-   • :checksum_aggregation_method (t:String.t/0) (x-amz-Checksum-Aggregation-Method)
-   • :checksum_algorithm (t:String.t/0) (x-amz-Checksum-Algorithm)
+  * `:changed_blocks_count` (`t:integer`) The number of blocks that were written to the snapshot.
+  * `:checksum` (`t:string`) An aggregated Base-64 SHA256 checksum based on the checksums of each written
+            block.
+  * `:checksum_aggregation_method` (`t:enum["CHECKSUM_AGGREGATION_LINEAR"]`) The aggregation method used to generate the checksum. Currently, the only supported
+            aggregation method is <code>LINEAR</code>.
+  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm used to generate the checksum. Currently, the only supported algorithm
+            is <code>SHA256</code>.
   """
   @spec complete_snapshot(AWS.Client.t(), String.t(), complete_snapshot_request(), Keyword.t()) ::
           {:ok, complete_snapshot_response(), any()}
@@ -479,11 +482,16 @@ defmodule AWS.EBS do
   *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :block_index (t:integer String.t/0) (BlockIndex)
-   • :snapshot_id (t:string String.t/0) (SnapshotId)
+  * `:block_index` (`t:integer`) The block index of the block in which to read the data. A block index is a logical 
+            index in units of <code>512</code> KiB blocks. To identify the block index, divide 
+            the logical offset of the data in the logical volume by the block size (logical offset 
+            of data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
+            KiB aligned.
+  * `:snapshot_id` (`t:string`) The ID of the snapshot containing the block from which to get data.
 
   ## Optional parameters:
-   • :block_token (t:String.t/0) (blockToken)
+  * `:block_token` (`t:string`) The block token of the block from which to get data. You can obtain the <code>BlockToken</code> 
+            by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.
   """
   @spec get_snapshot_block(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_snapshot_block_response(), any()}
@@ -537,13 +545,13 @@ defmodule AWS.EBS do
   *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :second_snapshot_id (t:string String.t/0) (SecondSnapshotId)
+  * `:second_snapshot_id` (`t:string`) The ID of the second snapshot to use for the comparison.
 
   ## Optional parameters:
-   • :first_snapshot_id (t:String.t/0) (firstSnapshotId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (pageToken)
-   • :starting_block_index (t:String.t/0) (startingBlockIndex)
+  * `:first_snapshot_id` (`t:string`) The ID of the first snapshot to use for the comparison.
+  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by the request.
+  * `:next_token` (`t:string`) The token to request the next page of results.
+  * `:starting_block_index` (`t:integer`) The block index from which the comparison should start.
   """
   @spec list_changed_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changed_blocks_response(), any()}
@@ -611,12 +619,13 @@ defmodule AWS.EBS do
   *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :snapshot_id (t:string String.t/0) (SnapshotId)
+  * `:snapshot_id` (`t:string`) The ID of the snapshot from which to get block indexes and block tokens.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (pageToken)
-   • :starting_block_index (t:String.t/0) (startingBlockIndex)
+  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by the request.
+  * `:next_token` (`t:string`) The token to request the next page of results.
+  * `:starting_block_index` (`t:integer`) The block index from which the list should start. The list in the response will start
+            from this block index or the next valid block index in the snapshot.
   """
   @spec list_snapshot_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_snapshot_blocks_response(), any()}
@@ -681,14 +690,21 @@ defmodule AWS.EBS do
   *Amazon Elastic Compute Cloud User Guide*.
 
   ## Required positional parameters:
-   • :block_index (t:integer String.t/0) (BlockIndex)
-   • :snapshot_id (t:string String.t/0) (SnapshotId)
+  * `:block_index` (`t:integer`) The block index of the block in which to write the data. A block index is a logical 
+    	index in units of <code>512</code> KiB blocks. To identify the block index, divide 
+        	the logical offset of the data in the logical volume by the block size (logical offset of 
+        	data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
+        	KiB aligned.
+  * `:snapshot_id` (`t:string`) The ID of the snapshot.
 
   ## Optional parameters:
-   • :checksum (t:String.t/0) (x-amz-Checksum)
-   • :checksum_algorithm (t:String.t/0) (x-amz-Checksum-Algorithm)
-   • :data_length (t:String.t/0) (x-amz-Data-Length)
-   • :progress (t:String.t/0) (x-amz-Progress)
+  * `:checksum` (`t:string`) A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
+            supported.
+  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm used to generate the checksum. Currently, the only supported algorithm
+            is <code>SHA256</code>.
+  * `:data_length` (`t:integer`) The size of the data to write to the block, in bytes. Currently, the only supported
+            size is <code>524288</code> bytes.
+  * `:progress` (`t:integer`) The progress of the write process, as a percentage.
   """
   @spec put_snapshot_block(
           AWS.Client.t(),

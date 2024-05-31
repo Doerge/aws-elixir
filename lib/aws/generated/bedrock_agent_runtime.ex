@@ -1185,9 +1185,9 @@ defmodule AWS.BedrockAgentRuntime do
   Errors are also surfaced in the response.
 
   ## Required positional parameters:
-   • :agent_alias_id (t:string String.t/0) (agentAliasId)
-   • :agent_id (t:string String.t/0) (agentId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:agent_alias_id` (`t:string`) The alias of the agent to use.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to use.
+  * `:session_id` (`t:string`) The unique identifier of the session. Use the same value across requests to continue the same conversation.
 
   ## Optional parameters:
   """
@@ -1239,7 +1239,7 @@ defmodule AWS.BedrockAgentRuntime do
   Queries a knowledge base and retrieves information from it.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to query.
 
   ## Optional parameters:
   """

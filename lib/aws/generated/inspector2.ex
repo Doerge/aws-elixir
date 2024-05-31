@@ -4902,8 +4902,8 @@ defmodule AWS.Inspector2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_type (t:String.t/0) (resourceType)
-   • :scan_type (t:String.t/0) (scanType)
+  * `:resource_type` (`t:string`) The resource type the key encrypts.
+  * `:scan_type` (`t:string`) The scan type the key encrypts.
   """
   @spec get_encryption_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_encryption_key_response(), any()}
@@ -5458,7 +5458,7 @@ defmodule AWS.Inspector2 do
   Lists all tags attached to a given resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon resource number (ARN) of the resource to list tags of.
 
   ## Optional parameters:
   """
@@ -5691,7 +5691,7 @@ defmodule AWS.Inspector2 do
   Adds tags to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to apply a tag to.
 
   ## Optional parameters:
   """
@@ -5724,10 +5724,10 @@ defmodule AWS.Inspector2 do
   Removes tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource to remove tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]`) The tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

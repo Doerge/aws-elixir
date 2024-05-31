@@ -1658,8 +1658,8 @@ defmodule AWS.CodeCatalyst do
   defaults apply to a Dev Environment created programmatically.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1689,7 +1689,7 @@ defmodule AWS.CodeCatalyst do
   Creates a project in a specified space.
 
   ## Required positional parameters:
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1714,9 +1714,9 @@ defmodule AWS.CodeCatalyst do
   created with an initial empty commit with a default branch named `main`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the source repository. For more information about name requirements, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html">Quotas for source repositories</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1757,10 +1757,10 @@ defmodule AWS.CodeCatalyst do
   CodeCatalyst. You cannot use this API to create a branch in a linked repository.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :project_name (t:string String.t/0) (projectName)
-   • :source_repository_name (t:string String.t/0) (sourceRepositoryName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name for the branch you&#39;re creating.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the repository where you want to create a branch.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1802,7 +1802,7 @@ defmodule AWS.CodeCatalyst do
   A personal access token can only be deleted by the user who created it.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the personal access token to delete. You can find the IDs of all PATs associated with your Amazon Web Services Builder ID in a space by calling <a>ListAccessTokens</a>.
 
   ## Optional parameters:
   """
@@ -1839,9 +1839,9 @@ defmodule AWS.CodeCatalyst do
   Deletes a Dev Environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment you want to delete. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1889,8 +1889,8 @@ defmodule AWS.CodeCatalyst do
   Deletes a project in a space.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the project in the space. To retrieve a list of project names, use <a>ListProjects</a>.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1933,9 +1933,9 @@ defmodule AWS.CodeCatalyst do
   delete a Amazon CodeCatalyst source repository.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the source repository.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -1986,7 +1986,7 @@ defmodule AWS.CodeCatalyst do
   unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the space.  To retrieve a list of space names, use <a>ListSpaces</a>.
 
   ## Optional parameters:
   """
@@ -2021,9 +2021,9 @@ defmodule AWS.CodeCatalyst do
   Dev Environments are specific to the user who creates them.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2051,8 +2051,8 @@ defmodule AWS.CodeCatalyst do
   Returns information about a project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2080,9 +2080,9 @@ defmodule AWS.CodeCatalyst do
   Returns information about a source repository.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the source repository.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2112,9 +2112,9 @@ defmodule AWS.CodeCatalyst do
   repository.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :source_repository_name (t:string String.t/0) (sourceRepositoryName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the source repository.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2154,7 +2154,7 @@ defmodule AWS.CodeCatalyst do
   Returns information about an space.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2183,7 +2183,7 @@ defmodule AWS.CodeCatalyst do
   and the billing plan for the space.
 
   ## Required positional parameters:
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2212,8 +2212,8 @@ defmodule AWS.CodeCatalyst do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :id (t:String.t/0) (id)
-   • :user_name (t:String.t/0) (userName)
+  * `:id` (`t:`) The system-generated unique ID of the user. 
+  * `:user_name` (`t:`) The name of the user as displayed in Amazon CodeCatalyst.
   """
   @spec get_user_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_user_details_response(), any()}
@@ -2256,9 +2256,9 @@ defmodule AWS.CodeCatalyst do
   Returns information about a workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The ID of the workflow. To rerieve a list of workflow IDs, use <a>ListWorkflows</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2286,9 +2286,9 @@ defmodule AWS.CodeCatalyst do
   Returns information about a specified run of a workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The ID of the workflow run. To retrieve a list of workflow run IDs, use <a>ListWorkflowRuns</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2350,9 +2350,9 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of active sessions for a Dev Environment in a project.
 
   ## Required positional parameters:
-   • :dev_environment_id (t:string String.t/0) (devEnvironmentId)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:dev_environment_id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2400,7 +2400,7 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of Dev Environments in a project.
 
   ## Required positional parameters:
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2453,7 +2453,7 @@ defmodule AWS.CodeCatalyst do
   trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
 
   ## Required positional parameters:
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2485,7 +2485,7 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of projects.
 
   ## Required positional parameters:
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2517,8 +2517,8 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of source repositories in a project.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2558,9 +2558,9 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of branches in a specified source repository.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :source_repository_name (t:string String.t/0) (sourceRepositoryName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:source_repository_name` (`t:string`) The name of the source repository.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2639,13 +2639,13 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of workflow runs of a specified workflow.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:max_results` (`t:`) The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the next batch of results to return, if any.
+  * `:workflow_id` (`t:string`) The ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.
   """
   @spec list_workflow_runs(
           AWS.Client.t(),
@@ -2690,12 +2690,12 @@ defmodule AWS.CodeCatalyst do
   Retrieves a list of workflows in a specified project.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the next batch of results to return, if any.
   """
   @spec list_workflows(
           AWS.Client.t(),
@@ -2739,9 +2739,9 @@ defmodule AWS.CodeCatalyst do
   Starts a specified Dev Environment and puts it into an active state.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2779,9 +2779,9 @@ defmodule AWS.CodeCatalyst do
   Starts a session for a specified Dev Environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2819,11 +2819,11 @@ defmodule AWS.CodeCatalyst do
   Begins a run of a specified workflow.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:workflow_id` (`t:string`) The system-generated unique ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.
   """
   @spec start_workflow_run(
           AWS.Client.t(),
@@ -2858,9 +2858,9 @@ defmodule AWS.CodeCatalyst do
   Stopped Dev Environments do not consume compute minutes.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2891,10 +2891,10 @@ defmodule AWS.CodeCatalyst do
   Stops a session for a specified Dev Environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :session_id (t: String.t/0) (sessionId)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. To obtain this ID, use <a>ListDevEnvironments</a>.
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:session_id` (`t:`) The system-generated unique ID of the Dev Environment session. This ID is returned by <a>StartDevEnvironmentSession</a>.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2946,9 +2946,9 @@ defmodule AWS.CodeCatalyst do
   Updating certain values of the Dev Environment will cause a restart.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :project_name (t:string String.t/0) (projectName)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  * `:project_name` (`t:string`) The name of the project in the space.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -2996,8 +2996,8 @@ defmodule AWS.CodeCatalyst do
   Changes one or more values for a project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :space_name (t:string String.t/0) (spaceName)
+  * `:name` (`t:string`) The name of the project.
+  * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """
@@ -3037,7 +3037,7 @@ defmodule AWS.CodeCatalyst do
   Changes one or more values for a space.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the space.
 
   ## Optional parameters:
   """

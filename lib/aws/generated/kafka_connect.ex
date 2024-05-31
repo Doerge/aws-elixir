@@ -1427,10 +1427,10 @@ defmodule AWS.KafkaConnect do
   Deletes the specified connector.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (connectorArn)
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector that you want to delete.
 
   ## Optional parameters:
-   • :current_version (t:String.t/0) (currentVersion)
+  * `:current_version` (`t:string`) The current version of the connector that you want to delete.
   """
   @spec delete_connector(AWS.Client.t(), String.t(), delete_connector_request(), Keyword.t()) ::
           {:ok, delete_connector_response(), any()}
@@ -1466,7 +1466,7 @@ defmodule AWS.KafkaConnect do
   Deletes a custom plugin.
 
   ## Required positional parameters:
-   • :custom_plugin_arn (t:string String.t/0) (customPluginArn)
+  * `:custom_plugin_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom plugin that you want to delete.
 
   ## Optional parameters:
   """
@@ -1504,7 +1504,7 @@ defmodule AWS.KafkaConnect do
   Deletes the specified worker configuration.
 
   ## Required positional parameters:
-   • :worker_configuration_arn (t:string String.t/0) (workerConfigurationArn)
+  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the worker configuration that you want to delete.
 
   ## Optional parameters:
   """
@@ -1547,7 +1547,7 @@ defmodule AWS.KafkaConnect do
   Returns summary information about the connector.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (connectorArn)
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector that you want to describe.
 
   ## Optional parameters:
   """
@@ -1575,7 +1575,7 @@ defmodule AWS.KafkaConnect do
   A summary description of the custom plugin.
 
   ## Required positional parameters:
-   • :custom_plugin_arn (t:string String.t/0) (customPluginArn)
+  * `:custom_plugin_arn` (`t:string`) Returns information about a custom plugin.
 
   ## Optional parameters:
   """
@@ -1603,7 +1603,8 @@ defmodule AWS.KafkaConnect do
   Returns information about a worker configuration.
 
   ## Required positional parameters:
-   • :worker_configuration_arn (t:string String.t/0) (workerConfigurationArn)
+  * `:worker_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the worker configuration that you want to get
+         information about.
 
   ## Optional parameters:
   """
@@ -1638,9 +1639,11 @@ defmodule AWS.KafkaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connector_name_prefix (t:String.t/0) (connectorNamePrefix)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:connector_name_prefix` (`t:string`) The name prefix that you want to use to search for and list connectors.
+  * `:max_results` (`t:integer`) The maximum number of connectors to list in one response.
+  * `:next_token` (`t:string`) If the response of a ListConnectors operation is truncated, it will include a NextToken.
+         Send this NextToken in a subsequent request to continue listing from where the previous
+         operation left off.
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -1695,9 +1698,11 @@ defmodule AWS.KafkaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_prefix (t:String.t/0) (namePrefix)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of custom plugins to list in one response.
+  * `:name_prefix` (`t:string`) Lists custom plugin names that start with the specified text string.
+  * `:next_token` (`t:string`) If the response of a ListCustomPlugins operation is truncated, it will include a
+         NextToken. Send this NextToken in a subsequent request to continue listing from where the
+         previous operation left off.
   """
   @spec list_custom_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_plugins_response(), any()}
@@ -1750,7 +1755,7 @@ defmodule AWS.KafkaConnect do
   Lists all the tags attached to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which you want to list all attached tags.
 
   ## Optional parameters:
   """
@@ -1780,9 +1785,11 @@ defmodule AWS.KafkaConnect do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_prefix (t:String.t/0) (namePrefix)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of worker configurations to list in one response.
+  * `:name_prefix` (`t:string`) Lists worker configuration names that start with the specified text string.
+  * `:next_token` (`t:string`) If the response of a ListWorkerConfigurations operation is truncated, it will include a
+         NextToken. Send this NextToken in a subsequent request to continue listing from where the
+         previous operation left off.
   """
   @spec list_worker_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_worker_configurations_response(), any()}
@@ -1835,7 +1842,7 @@ defmodule AWS.KafkaConnect do
   Attaches tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to which you want to attach tags.
 
   ## Optional parameters:
   """
@@ -1868,10 +1875,10 @@ defmodule AWS.KafkaConnect do
   Removes tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which you want to remove tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.kafkaconnect#TagKey]`) The keys of the tags that you want to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1907,10 +1914,10 @@ defmodule AWS.KafkaConnect do
   Updates the specified connector.
 
   ## Required positional parameters:
-   • :connector_arn (t:string String.t/0) (connectorArn)
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) of the connector that you want to update.
 
   ## Optional parameters:
-   • :current_version (t:String.t/0) (currentVersion)
+  * `:current_version` (`t:string`) The current version of the connector that you want to update.
   """
   @spec update_connector(AWS.Client.t(), String.t(), update_connector_request(), Keyword.t()) ::
           {:ok, update_connector_response(), any()}

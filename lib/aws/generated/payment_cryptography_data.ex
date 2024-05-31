@@ -971,7 +971,7 @@ defmodule AWS.PaymentCryptographyData do
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
 
   ## Required positional parameters:
-   • :key_identifier (t:string String.t/0) (KeyIdentifier)
+  * `:key_identifier` (`t:string`) The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography uses for ciphertext decryption.
 
   ## Optional parameters:
   """
@@ -1057,7 +1057,7 @@ defmodule AWS.PaymentCryptographyData do
   `ReEncryptData`
 
   ## Required positional parameters:
-   • :key_identifier (t:string String.t/0) (KeyIdentifier)
+  * `:key_identifier` (`t:string`) The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography uses for plaintext encryption.
 
   ## Optional parameters:
   """
@@ -1324,7 +1324,7 @@ defmodule AWS.PaymentCryptographyData do
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
 
   ## Required positional parameters:
-   • :incoming_key_identifier (t:string String.t/0) (IncomingKeyIdentifier)
+  * `:incoming_key_identifier` (`t:string`) The <code>keyARN</code> of the encryption key of incoming ciphertext data.
 
   ## Optional parameters:
   """

@@ -899,7 +899,7 @@ defmodule AWS.MediaPackageVod do
   Changes the packaging group's properities to configure log subscription
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1022,7 +1022,7 @@ defmodule AWS.MediaPackageVod do
   Deletes an existing MediaPackage VOD Asset resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1055,7 +1055,7 @@ defmodule AWS.MediaPackageVod do
   Deletes a MediaPackage VOD PackagingConfiguration resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1093,7 +1093,7 @@ defmodule AWS.MediaPackageVod do
   Deletes a MediaPackage VOD PackagingGroup resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1131,7 +1131,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD Asset resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1159,7 +1159,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD PackagingConfiguration resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1187,7 +1187,7 @@ defmodule AWS.MediaPackageVod do
   Returns a description of a MediaPackage VOD PackagingGroup resource.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1217,9 +1217,9 @@ defmodule AWS.MediaPackageVod do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :packaging_group_id (t:String.t/0) (packagingGroupId)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:packaging_group_id` (`t:string`) 
   """
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
@@ -1274,9 +1274,9 @@ defmodule AWS.MediaPackageVod do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :packaging_group_id (t:String.t/0) (packagingGroupId)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:packaging_group_id` (`t:string`) 
   """
   @spec list_packaging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_configurations_response(), any()}
@@ -1331,8 +1331,8 @@ defmodule AWS.MediaPackageVod do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_packaging_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_groups_response(), any()}
@@ -1376,7 +1376,7 @@ defmodule AWS.MediaPackageVod do
   Returns a list of the tags assigned to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1405,7 +1405,7 @@ defmodule AWS.MediaPackageVod do
   You can specify one or more tags to add.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1439,10 +1439,10 @@ defmodule AWS.MediaPackageVod do
   You can specify one or more tags to remove.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]`) 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1479,7 +1479,7 @@ defmodule AWS.MediaPackageVod do
   You can't change the id attribute or any other system-generated attributes.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """

@@ -1119,7 +1119,7 @@ defmodule AWS.CleanRoomsML do
   with the job.
 
   ## Required positional parameters:
-   • :audience_generation_job_arn (t:string String.t/0) (audienceGenerationJobArn)
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you want to delete.
 
   ## Optional parameters:
   """
@@ -1165,7 +1165,7 @@ defmodule AWS.CleanRoomsML do
   that depend on the audience model.
 
   ## Required positional parameters:
-   • :audience_model_arn (t:string String.t/0) (audienceModelArn)
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience model that you want to delete.
 
   ## Optional parameters:
   """
@@ -1207,7 +1207,7 @@ defmodule AWS.CleanRoomsML do
   model, it will be removed from any collaborations that it is associated to.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you want to delete.
 
   ## Optional parameters:
   """
@@ -1250,7 +1250,7 @@ defmodule AWS.CleanRoomsML do
   Deletes the specified configured audience model policy.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.
 
   ## Optional parameters:
   """
@@ -1300,7 +1300,7 @@ defmodule AWS.CleanRoomsML do
   This action deletes the metadata.
 
   ## Required positional parameters:
-   • :training_dataset_arn (t:string String.t/0) (trainingDatasetArn)
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the training dataset that you want to delete.
 
   ## Optional parameters:
   """
@@ -1338,7 +1338,7 @@ defmodule AWS.CleanRoomsML do
   Returns information about an audience generation job.
 
   ## Required positional parameters:
-   • :audience_generation_job_arn (t:string String.t/0) (audienceGenerationJobArn)
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
 
   ## Optional parameters:
   """
@@ -1366,7 +1366,7 @@ defmodule AWS.CleanRoomsML do
   Returns information about an audience model
 
   ## Required positional parameters:
-   • :audience_model_arn (t:string String.t/0) (audienceModelArn)
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1394,7 +1394,7 @@ defmodule AWS.CleanRoomsML do
   Returns information about a specified configured audience model.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1426,7 +1426,7 @@ defmodule AWS.CleanRoomsML do
   Returns information about a configured audience model policy.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1459,7 +1459,7 @@ defmodule AWS.CleanRoomsML do
   Returns information about a training dataset.
 
   ## Required positional parameters:
-   • :training_dataset_arn (t:string String.t/0) (trainingDatasetArn)
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the training dataset that you are interested in.
 
   ## Optional parameters:
   """
@@ -1489,9 +1489,9 @@ defmodule AWS.CleanRoomsML do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :audience_generation_job_arn (t:String.t/0) (audienceGenerationJobArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
@@ -1547,10 +1547,10 @@ defmodule AWS.CleanRoomsML do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :collaboration_id (t:String.t/0) (collaborationId)
-   • :configured_audience_model_arn (t:String.t/0) (configuredAudienceModelArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:collaboration_id` (`t:string`) The identifier of the collaboration that contains the audience generation jobs that you are interested in.
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
@@ -1615,8 +1615,8 @@ defmodule AWS.CleanRoomsML do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
@@ -1662,8 +1662,8 @@ defmodule AWS.CleanRoomsML do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
@@ -1707,7 +1707,7 @@ defmodule AWS.CleanRoomsML do
   Returns a list of tags for a provided resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you are interested in.
 
   ## Optional parameters:
   """
@@ -1737,8 +1737,8 @@ defmodule AWS.CleanRoomsML do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
@@ -1782,7 +1782,7 @@ defmodule AWS.CleanRoomsML do
   Create or update the resource policy for a configured audience model.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that the resource policy will govern.
 
   ## Optional parameters:
   """
@@ -1889,7 +1889,7 @@ defmodule AWS.CleanRoomsML do
   Adds metadata tags to a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to assign tags.
 
   ## Optional parameters:
   """
@@ -1922,10 +1922,10 @@ defmodule AWS.CleanRoomsML do
   Removes metadata tags from a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of tags that you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1964,7 +1964,7 @@ defmodule AWS.CleanRoomsML do
   but do not impact currently running jobs.
 
   ## Required positional parameters:
-   • :configured_audience_model_arn (t:string String.t/0) (configuredAudienceModelArn)
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you want to update.
 
   ## Optional parameters:
   """

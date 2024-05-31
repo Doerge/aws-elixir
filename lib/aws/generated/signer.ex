@@ -1036,7 +1036,7 @@ defmodule AWS.Signer do
   Adds cross-account permissions to a signing profile.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) The human-readable name of the signing profile.
 
   ## Optional parameters:
   """
@@ -1079,7 +1079,7 @@ defmodule AWS.Signer do
   cancelation.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) The name of the signing profile to be canceled.
 
   ## Optional parameters:
   """
@@ -1121,7 +1121,7 @@ defmodule AWS.Signer do
   operation.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) The ID of the signing job on input.
 
   ## Optional parameters:
   """
@@ -1153,11 +1153,11 @@ defmodule AWS.Signer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :certificate_hashes (t:String.t/0) (certificateHashes)
-   • :job_arn (t:String.t/0) (jobArn)
-   • :platform_id (t:String.t/0) (platformId)
-   • :profile_version_arn (t:String.t/0) (profileVersionArn)
-   • :signature_timestamp (t:String.t/0) (signatureTimestamp)
+  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]`) A list of composite signed hashes that identify certificates.
+  * `:job_arn` (`t:string`) The ARN of a signing job.
+  * `:platform_id` (`t:string`) The ID of a signing platform. 
+  * `:profile_version_arn` (`t:string`) The version of a signing profile.
+  * `:signature_timestamp` (`t:timestamp`) The timestamp of the signature that validates the profile or job.
   """
   @spec get_revocation_status(
           AWS.Client.t(),
@@ -1244,7 +1244,7 @@ defmodule AWS.Signer do
   Returns information on a specific signing platform.
 
   ## Required positional parameters:
-   • :platform_id (t:string String.t/0) (platformId)
+  * `:platform_id` (`t:string`) The ID of the target signing platform.
 
   ## Optional parameters:
   """
@@ -1272,10 +1272,10 @@ defmodule AWS.Signer do
   Returns information on a specific signing profile.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) The name of the target signing profile.
 
   ## Optional parameters:
-   • :profile_owner (t:String.t/0) (profileOwner)
+  * `:profile_owner` (`t:string`) The AWS account ID of the profile owner.
   """
   @spec get_signing_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signing_profile_response(), any()}
@@ -1310,10 +1310,10 @@ defmodule AWS.Signer do
   Lists the cross-account permissions associated with a signing profile.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) Name of the signing profile containing the cross-account permissions.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) String for specifying the next set of paginated results.
   """
   @spec list_profile_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_permissions_response(), any()}
@@ -1359,15 +1359,25 @@ defmodule AWS.Signer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :is_revoked (t:String.t/0) (isRevoked)
-   • :job_invoker (t:String.t/0) (jobInvoker)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :platform_id (t:String.t/0) (platformId)
-   • :requested_by (t:String.t/0) (requestedBy)
-   • :signature_expires_after (t:String.t/0) (signatureExpiresAfter)
-   • :signature_expires_before (t:String.t/0) (signatureExpiresBefore)
-   • :status (t:String.t/0) (status)
+  * `:is_revoked` (`t:boolean`) Filters results to return only signing jobs with revoked signatures.
+  * `:job_invoker` (`t:string`) Filters results to return only signing jobs initiated by a specified IAM
+  	entity.
+  * `:max_results` (`t:integer`) Specifies the maximum number of items to return in the response. Use this parameter
+  	when paginating results. If additional items exist beyond the number you specify, the
+  		<code>nextToken</code> element is set in the response. Use the
+  		<code>nextToken</code> value in a subsequent request to retrieve additional items.
+
+  * `:next_token` (`t:string`) String for specifying the next set of paginated results to return. After you receive a
+  	response with truncated results, use this parameter in a subsequent request. Set it to
+  	the value of <code>nextToken</code> from the response that you just received.
+  * `:platform_id` (`t:string`) The ID of microcontroller platform that you specified for the distribution of your
+  	code image.
+  * `:requested_by` (`t:string`) The IAM principal that requested the signing job.
+  * `:signature_expires_after` (`t:timestamp`) Filters results to return only signing jobs with signatures expiring after a specified
+  	timestamp.
+  * `:signature_expires_before` (`t:timestamp`) Filters results to return only signing jobs with signatures expiring before a
+  	specified timestamp.
+  * `:status` (`t:enum["Failed|InProgress|Succeeded"]`) A status value with which to filter your results.
   """
   @spec list_signing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_jobs_response(), any()}
@@ -1485,11 +1495,13 @@ defmodule AWS.Signer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :category (t:String.t/0) (category)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :partner (t:String.t/0) (partner)
-   • :target (t:String.t/0) (target)
+  * `:category` (`t:string`) The category type of a signing platform.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned by this operation.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated results to return. After you receive a
+  	response with truncated results, use this parameter in a subsequent request. Set it to
+  	the value of <code>nextToken</code> from the response that you just received.
+  * `:partner` (`t:string`) Any partner entities connected to a signing platform.
+  * `:target` (`t:string`) The validation template that is used by the target signing platform.
   """
   @spec list_signing_platforms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_platforms_response(), any()}
@@ -1571,11 +1583,16 @@ defmodule AWS.Signer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_canceled (t:String.t/0) (includeCanceled)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :platform_id (t:String.t/0) (platformId)
-   • :statuses (t:String.t/0) (statuses)
+  * `:include_canceled` (`t:boolean`) Designates whether to include profiles with the status of
+  	<code>CANCELED</code>.
+  * `:max_results` (`t:integer`) The maximum number of profiles to be returned.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated results to return. After you receive a
+  	response with truncated results, use this parameter in a subsequent request. Set it to
+  	the value of <code>nextToken</code> from the response that you just received.
+  * `:platform_id` (`t:string`) Filters results to return only signing jobs initiated for a specified signing
+  	platform.
+  * `:statuses` (`t:list[com.amazonaws.signer#SigningProfileStatus]`) Filters results to return only signing jobs with statuses in the specified
+  	list.
   """
   @spec list_signing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_profiles_response(), any()}
@@ -1646,7 +1663,7 @@ defmodule AWS.Signer do
   Returns a list of the tags associated with a signing profile resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
 
   ## Optional parameters:
   """
@@ -1677,7 +1694,7 @@ defmodule AWS.Signer do
   carry out a pre-defined signing job.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) The name of the signing profile to be created.
 
   ## Optional parameters:
   """
@@ -1705,11 +1722,11 @@ defmodule AWS.Signer do
   Removes cross-account permissions from a signing profile.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
-   • :statement_id (t:string String.t/0) (statementId)
+  * `:profile_name` (`t:string`) A human-readable name for the signing profile with permissions to be removed.
+  * `:statement_id` (`t:string`) A unique identifier for the cross-account permissions statement.
 
   ## Optional parameters:
-   • :revision_id (t:String.t/0) (revisionId)
+  * `:revision_id` (`t:string`) An identifier for the current revision of the signing profile permissions.
   """
   @spec remove_profile_permission(
           AWS.Client.t(),
@@ -1762,7 +1779,7 @@ defmodule AWS.Signer do
   longer valid.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
+  * `:job_id` (`t:string`) ID of the signing job to be revoked.
 
   ## Optional parameters:
   """
@@ -1789,7 +1806,7 @@ defmodule AWS.Signer do
   valid.
 
   ## Required positional parameters:
-   • :profile_name (t:string String.t/0) (profileName)
+  * `:profile_name` (`t:string`) The name of the signing profile to be revoked.
 
   ## Optional parameters:
   """
@@ -1923,7 +1940,7 @@ defmodule AWS.Signer do
   the tag, use a key-value pair.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
 
   ## Optional parameters:
   """
@@ -1959,10 +1976,10 @@ defmodule AWS.Signer do
   tag keys.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]`) A list of tag keys to be removed from the signing profile.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

@@ -16600,9 +16600,9 @@ defmodule AWS.QuickSight do
   Cancels an ongoing ingestion of data into SPICE.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :ingestion_id (t:string String.t/0) (IngestionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
+  * `:ingestion_id` (`t:string`) An ID for the ingestion.
 
   ## Optional parameters:
   """
@@ -16689,10 +16689,10 @@ defmodule AWS.QuickSight do
   API operation.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.
 
   ## Optional parameters:
-   • :namespace (t:String.t/0) (namespace)
+  * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to add customizations to.
   """
   @spec create_account_customization(
           AWS.Client.t(),
@@ -16770,7 +16770,7 @@ defmodule AWS.QuickSight do
   User Guide*.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account that you&#39;re using to create your Amazon QuickSight account.
 
   ## Optional parameters:
   """
@@ -16810,8 +16810,9 @@ defmodule AWS.QuickSight do
   Analyses can be created either from a template or from an `AnalysisDefinition`.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID for the analysis that you&#39;re creating. This ID displays in the URL of the
+            analysis.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where you are creating an analysis.
 
   ## Optional parameters:
   """
@@ -16872,8 +16873,8 @@ defmodule AWS.QuickSight do
   Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where you want to create the dashboard.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM policy.
 
   ## Optional parameters:
   """
@@ -16916,7 +16917,7 @@ defmodule AWS.QuickSight do
   This operation doesn't support datasets that include uploaded files as a source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
   """
@@ -16949,7 +16950,7 @@ defmodule AWS.QuickSight do
   Creates a data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
   """
@@ -16982,8 +16983,8 @@ defmodule AWS.QuickSight do
   Creates an empty shared folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account where you want to create the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
@@ -17024,10 +17025,10 @@ defmodule AWS.QuickSight do
   Adds an asset, such as a dashboard, analysis, or dataset into a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
-   • :member_id (t:string String.t/0) (MemberId)
-   • :member_type (t:enum String.t/0) (MemberType)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
+  * `:member_id` (`t:string`) The ID of the asset that you want to add to the folder.
+  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The member type of the asset that you want to add to a folder.
 
   ## Optional parameters:
   """
@@ -17082,8 +17083,9 @@ defmodule AWS.QuickSight do
   The response is a group object.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that you want the group to be a part of.
 
   ## Optional parameters:
   """
@@ -17118,10 +17120,11 @@ defmodule AWS.QuickSight do
   Adds an Amazon QuickSight user to an Amazon QuickSight group.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :member_name (t:string String.t/0) (MemberName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the 
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to add the user to.
+  * `:member_name` (`t:string`) The name of the user that you want to add to the group membership.
+  * `:namespace` (`t:string`) The namespace that you want the user to be a part of.
 
   ## Optional parameters:
   """
@@ -17170,8 +17173,8 @@ defmodule AWS.QuickSight do
   unique.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or groups.
+  * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
@@ -17232,9 +17235,9 @@ defmodule AWS.QuickSight do
   dataset, but not on the ingestion resource.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :ingestion_id (t:string String.t/0) (IngestionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
+  * `:ingestion_id` (`t:string`) An ID for the ingestion.
 
   ## Optional parameters:
   """
@@ -17287,7 +17290,7 @@ defmodule AWS.QuickSight do
   Amazon Web Services Support.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.
 
   ## Optional parameters:
   """
@@ -17322,8 +17325,8 @@ defmodule AWS.QuickSight do
   You can create up to 5 different schedules for a single dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -17371,10 +17374,10 @@ defmodule AWS.QuickSight do
   existing role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :member_name (t:string String.t/0) (MemberName)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:member_name` (`t:string`) The name of the group that you want to add to the role.
+  * `:namespace` (`t:string`) The namespace that the role belongs to.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The role that you want to add a group to.
 
   ## Optional parameters:
   """
@@ -17440,8 +17443,9 @@ defmodule AWS.QuickSight do
   and template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:template_id` (`t:string`) An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
+  	each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -17482,9 +17486,11 @@ defmodule AWS.QuickSight do
   Creates a template alias for a template.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:alias_name` (`t:string`) The name that you want to give to the template alias that you&#39;re creating. Don&#39;t start the
+  	alias name with the <code>$</code> character. Alias names that start with <code>$</code>
+  	are reserved by Amazon QuickSight. 
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template that you creating an alias for.
+  * `:template_id` (`t:string`) An ID for the template.
 
   ## Optional parameters:
   """
@@ -17538,8 +17544,9 @@ defmodule AWS.QuickSight do
   in the *Amazon QuickSight User Guide*.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where you want to store the new theme. 
+  * `:theme_id` (`t:string`) An ID for the theme that you want to create. The theme ID is unique per Amazon Web Services Region in
+  	each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -17574,9 +17581,11 @@ defmodule AWS.QuickSight do
   Creates a theme alias for a theme.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:alias_name` (`t:string`) The name that you want to give to the theme alias that you are creating. The
+  	alias name can&#39;t begin with a <code>$</code>. Alias names that start with <code>$</code>
+  	are reserved by Amazon QuickSight. 
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme for the new theme alias.
+  * `:theme_id` (`t:string`) An ID for the theme alias.
 
   ## Optional parameters:
   """
@@ -17625,7 +17634,7 @@ defmodule AWS.QuickSight do
   Creates a new Q topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that you want to create a topic in.
 
   ## Optional parameters:
   """
@@ -17658,8 +17667,9 @@ defmodule AWS.QuickSight do
   Creates a topic refresh schedule.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic
+         you&#39;re creating a refresh schedule for.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -17706,7 +17716,8 @@ defmodule AWS.QuickSight do
   Creates a new VPC connection.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account where you want to create a new VPC
+  	connection.
 
   ## Optional parameters:
   """
@@ -17746,10 +17757,11 @@ defmodule AWS.QuickSight do
   Amazon Web Services account and Amazon QuickSight namespace.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
+            this Amazon Web Services Region.
 
   ## Optional parameters:
-   • :namespace (t:String.t/0) (namespace)
+  * `:namespace` (`t:string`) The Amazon QuickSight namespace that you&#39;re deleting the customizations from.
   """
   @spec delete_account_customization(
           AWS.Client.t(),
@@ -17797,7 +17809,7 @@ defmodule AWS.QuickSight do
   to the `DeleteAccountSubscription` API.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account that you want to delete.
 
   ## Optional parameters:
   """
@@ -17855,12 +17867,16 @@ defmodule AWS.QuickSight do
   dashboards that you publish from it.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis that you&#39;re deleting.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account where you want to delete an analysis.
 
   ## Optional parameters:
-   • :force_delete_without_recovery (t:String.t/0) (force-delete-without-recovery)
-   • :recovery_window_in_days (t:String.t/0) (recovery-window-in-days)
+  * `:force_delete_without_recovery` (`t:boolean`) This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
+            immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
+            You can&#39;t restore an analysis after it&#39;s deleted. 
+  * `:recovery_window_in_days` (`t:long`) A value that specifies the number of days that Amazon QuickSight waits before it deletes the
+            analysis. You can&#39;t use this parameter with the <code>ForceDeleteWithoutRecovery</code>
+            option in the same API call. The default value is 30.
   """
   @spec delete_analysis(
           AWS.Client.t(),
@@ -17905,11 +17921,13 @@ defmodule AWS.QuickSight do
   Deletes a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re
+            deleting.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
-   • :version_number (t:String.t/0) (version-number)
+  * `:version_number` (`t:long`) The version number of the dashboard. If the version number property is provided, only
+            the specified version of the dashboard is deleted.
   """
   @spec delete_dashboard(
           AWS.Client.t(),
@@ -17953,8 +17971,8 @@ defmodule AWS.QuickSight do
   Deletes a dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -17995,8 +18013,8 @@ defmodule AWS.QuickSight do
   Deletes the dataset refresh properties of the dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -18046,8 +18064,8 @@ defmodule AWS.QuickSight do
   all the datasets that reference the deleted data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_source_id (t:string String.t/0) (DataSourceId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -18088,8 +18106,8 @@ defmodule AWS.QuickSight do
   Deletes an empty folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
@@ -18130,10 +18148,10 @@ defmodule AWS.QuickSight do
   Removes an asset, such as a dashboard, analysis, or dataset, from a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
-   • :member_id (t:string String.t/0) (MemberId)
-   • :member_type (t:enum String.t/0) (MemberType)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The Folder ID.
+  * `:member_id` (`t:string`) The ID of the asset that you want to delete.
+  * `:member_type` (`t:enum["ANALYSIS|DASHBOARD|DATASET|DATASOURCE|TOPIC"]`) The member type of the asset that you want to delete from a folder.
 
   ## Optional parameters:
   """
@@ -18184,9 +18202,10 @@ defmodule AWS.QuickSight do
   Removes a user group from Amazon QuickSight.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to delete.
+  * `:namespace` (`t:string`) The namespace of the group that you want to delete.
 
   ## Optional parameters:
   """
@@ -18235,10 +18254,11 @@ defmodule AWS.QuickSight do
   Removes a user from a group so that the user is no longer a member of the group.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :member_name (t:string String.t/0) (MemberName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to delete the user from.
+  * `:member_name` (`t:string`) The name of the user that you want to delete from the group membership.
+  * `:namespace` (`t:string`) The namespace of the group that you want to remove a user from.
 
   ## Optional parameters:
   """
@@ -18289,9 +18309,10 @@ defmodule AWS.QuickSight do
   Deletes an existing IAM policy assignment.
 
   ## Required positional parameters:
-   • :assignment_name (t:string String.t/0) (AssignmentName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:assignment_name` (`t:string`) The name of the assignment. 
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID where you want to delete the IAM
+  	policy assignment.
+  * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
@@ -18344,8 +18365,8 @@ defmodule AWS.QuickSight do
   Identity Center.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :service (t:enum String.t/0) (Service)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.
+  * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.
 
   ## Optional parameters:
   """
@@ -18398,8 +18419,8 @@ defmodule AWS.QuickSight do
   asset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.
+  * `:namespace` (`t:string`) The namespace that you want to delete.
 
   ## Optional parameters:
   """
@@ -18440,9 +18461,9 @@ defmodule AWS.QuickSight do
   Deletes a refresh schedule from a dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :schedule_id (t:string String.t/0) (ScheduleId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
+  * `:schedule_id` (`t:string`) The ID of the refresh schedule.
 
   ## Optional parameters:
   """
@@ -18491,9 +18512,10 @@ defmodule AWS.QuickSight do
   Removes custom permissions from the role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+            Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that includes the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The role that you want to remove permissions from.
 
   ## Optional parameters:
   """
@@ -18542,10 +18564,10 @@ defmodule AWS.QuickSight do
   Removes a group from a role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :member_name (t:string String.t/0) (MemberName)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:member_name` (`t:string`) The name of the group.
+  * `:namespace` (`t:string`) The namespace that contains the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The role that you want to remove permissions from.
 
   ## Optional parameters:
   """
@@ -18596,11 +18618,13 @@ defmodule AWS.QuickSight do
   Deletes a template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template that you&#39;re deleting.
+  * `:template_id` (`t:string`) An ID for the template you want to delete.
 
   ## Optional parameters:
-   • :version_number (t:String.t/0) (version-number)
+  * `:version_number` (`t:long`) Specifies the version of the template that you want to delete.
+  	If you don&#39;t provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
+
   """
   @spec delete_template(
           AWS.Client.t(),
@@ -18647,9 +18671,12 @@ defmodule AWS.QuickSight do
   alias, you delete the version of the template that the alias points to.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:alias_name` (`t:string`) The name for the template alias. To delete a specific alias, you delete the version that the
+  	alias points to. You can specify the alias name, or specify the latest version of the
+  	template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+  	parameter. 
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the item to delete.
+  * `:template_id` (`t:string`) The ID for the template that the specified alias is for.
 
   ## Optional parameters:
   """
@@ -18698,11 +18725,11 @@ defmodule AWS.QuickSight do
   Deletes a theme.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme that you&#39;re deleting.
+  * `:theme_id` (`t:string`) An ID for the theme that you want to delete.
 
   ## Optional parameters:
-   • :version_number (t:String.t/0) (version-number)
+  * `:version_number` (`t:long`) The version of the theme that you want to delete. 
   """
   @spec delete_theme(AWS.Client.t(), String.t(), String.t(), delete_theme_request(), Keyword.t()) ::
           {:ok, delete_theme_response(), any()}
@@ -18743,9 +18770,9 @@ defmodule AWS.QuickSight do
   that the alias points to.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:alias_name` (`t:string`) The unique name for the theme alias to delete.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme alias to delete.
+  * `:theme_id` (`t:string`) The ID for the theme that the specified alias is for.
 
   ## Optional parameters:
   """
@@ -18794,8 +18821,9 @@ defmodule AWS.QuickSight do
   Deletes a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic that you want to
+         delete.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -18830,9 +18858,9 @@ defmodule AWS.QuickSight do
   Deletes a topic refresh schedule.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dataset_id (t:string String.t/0) (DatasetId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:dataset_id` (`t:string`) The ID of the dataset.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -18885,9 +18913,10 @@ defmodule AWS.QuickSight do
   isn't deleted as a result of this call.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :user_name (t:string String.t/0) (UserName)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
+  * `:user_name` (`t:string`) The name of the user that you want to delete.
 
   ## Optional parameters:
   """
@@ -18929,9 +18958,10 @@ defmodule AWS.QuickSight do
   Deletes a user identified by its principal ID.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :principal_id (t:string String.t/0) (PrincipalId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
+  * `:principal_id` (`t:string`) The principal ID of the user.
 
   ## Optional parameters:
   """
@@ -18980,8 +19010,10 @@ defmodule AWS.QuickSight do
   Deletes a VPC connection.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :vpc_connection_id (t:string String.t/0) (VPCConnectionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account where you want to delete a VPC
+  	connection.
+  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that you&#39;re creating. This ID is a unique identifier for each Amazon Web Services Region in an
+  		Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -19098,11 +19130,17 @@ defmodule AWS.QuickSight do
   each Amazon Web Services Region where you want to apply the same customizations.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
+            for.
 
   ## Optional parameters:
-   • :namespace (t:String.t/0) (namespace)
-   • :resolved (t:String.t/0) (resolved)
+  * `:namespace` (`t:string`) The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
+            for.
+  * `:resolved` (`t:boolean`) The <code>Resolved</code> flag works with the other parameters to determine which view
+            of Amazon QuickSight customizations is returned. You can add this flag to your command to use
+            the same view that Amazon QuickSight uses to identify which customizations to apply to the
+            console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
+            that are configured at different levels. 
   """
   @spec describe_account_customization(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_account_customization_response(), any()}
@@ -19148,7 +19186,7 @@ defmodule AWS.QuickSight do
   created in this Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the settings that you want to list.
 
   ## Optional parameters:
   """
@@ -19181,7 +19219,7 @@ defmodule AWS.QuickSight do
   address.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated with your Amazon QuickSight account.
 
   ## Optional parameters:
   """
@@ -19209,8 +19247,10 @@ defmodule AWS.QuickSight do
   Provides a summary of the metadata for an analysis.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis that you&#39;re describing. The ID is part of the URL of the
+            analysis.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis. You must be using the 
+            Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
@@ -19248,8 +19288,10 @@ defmodule AWS.QuickSight do
   instead.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis that you&#39;re describing. The ID is part of the URL of the
+            analysis.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis. You must be using the
+            Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
@@ -19278,8 +19320,10 @@ defmodule AWS.QuickSight do
   Provides the read and write permissions for an analysis.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you&#39;re describing. The ID is part of the
+            analysis URL.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis whose permissions you&#39;re
+            describing. You must be using the Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
@@ -19320,8 +19364,8 @@ defmodule AWS.QuickSight do
   Job descriptions are available for 14 days after the job starts.
 
   ## Required positional parameters:
-   • :asset_bundle_export_job_id (t:string String.t/0) (AssetBundleExportJobId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:asset_bundle_export_job_id` (`t:string`) The ID of the job that you want described. The job ID is set when you start a new job with a <code>StartAssetBundleExportJob</code> API call.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the export job is executed in. 
 
   ## Optional parameters:
   """
@@ -19358,8 +19402,8 @@ defmodule AWS.QuickSight do
   failed. Job descriptions are available for 14 days after job starts.
 
   ## Required positional parameters:
-   • :asset_bundle_import_job_id (t:string String.t/0) (AssetBundleImportJobId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:asset_bundle_import_job_id` (`t:string`) The ID of the job. The job ID is set when you start a new job with a <code>StartAssetBundleImportJob</code> API call.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account the import job was executed in. 
 
   ## Optional parameters:
   """
@@ -19393,12 +19437,14 @@ defmodule AWS.QuickSight do
   Provides a summary for a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re
+            describing.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
-   • :alias_name (t:String.t/0) (alias-name)
-   • :version_number (t:String.t/0) (version-number)
+  * `:alias_name` (`t:string`) The alias name.
+  * `:version_number` (`t:long`) The version number for the dashboard. If a version number isn&#39;t passed, the
+            latest published dashboard version is described. 
   """
   @spec describe_dashboard(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_response(), any()}
@@ -19452,12 +19498,14 @@ defmodule AWS.QuickSight do
   instead.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re
+            describing.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
-   • :alias_name (t:String.t/0) (alias-name)
-   • :version_number (t:String.t/0) (version-number)
+  * `:alias_name` (`t:string`) The alias name.
+  * `:version_number` (`t:long`) The version number for the dashboard. If a version number isn&#39;t passed, the
+            latest published dashboard version is described. 
   """
   @spec describe_dashboard_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dashboard_definition_response(), any()}
@@ -19507,8 +19555,9 @@ defmodule AWS.QuickSight do
   Describes read and write permissions for a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re describing
+            permissions for.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the IAM policy.
 
   ## Optional parameters:
   """
@@ -19545,9 +19594,9 @@ defmodule AWS.QuickSight do
   information on available status codes, see `JobStatus`.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
-   • :snapshot_job_id (t:string String.t/0) (SnapshotJobId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a snapshot job for.
+  * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.
 
   ## Optional parameters:
   """
@@ -19594,9 +19643,9 @@ defmodule AWS.QuickSight do
   `Dashboard Snapshot Job with id has not reached a terminal state.`.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
-   • :snapshot_job_id (t:string String.t/0) (SnapshotJobId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string`) The ID of the dashboard that you have started a snapshot job for.
+  * `:snapshot_job_id` (`t:string`) The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.
 
   ## Optional parameters:
   """
@@ -19639,8 +19688,8 @@ defmodule AWS.QuickSight do
   This operation doesn't support datasets that include uploaded files as a source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -19672,8 +19721,8 @@ defmodule AWS.QuickSight do
   `arn:aws:quicksight:region:aws-account-id:dataset/data-set-id`.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -19707,8 +19756,8 @@ defmodule AWS.QuickSight do
   Describes the refresh properties of a dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -19742,8 +19791,8 @@ defmodule AWS.QuickSight do
   Describes a data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_source_id (t:string String.t/0) (DataSourceId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -19772,8 +19821,8 @@ defmodule AWS.QuickSight do
   Describes the resource permissions for a data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_source_id (t:string String.t/0) (DataSourceId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -19807,8 +19856,8 @@ defmodule AWS.QuickSight do
   Describes a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
@@ -19837,13 +19886,13 @@ defmodule AWS.QuickSight do
   Describes permissions for a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :namespace (t:String.t/0) (namespace)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:namespace` (`t:string`) The namespace of the folder whose permissions you want described.
+  * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
   @spec describe_folder_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_permissions_response(), any()}
@@ -19900,13 +19949,13 @@ defmodule AWS.QuickSight do
   permissions from the ancestor folders.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :namespace (t:String.t/0) (namespace)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:namespace` (`t:string`) The namespace of the folder whose permissions you want described.
+  * `:next_token` (`t:string`) A pagination token for the next set of results.
   """
   @spec describe_folder_resolved_permissions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_resolved_permissions_response(), any()}
@@ -19965,9 +20014,10 @@ defmodule AWS.QuickSight do
   Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to describe.
+  * `:namespace` (`t:string`) The namespace of the group that you want described.
 
   ## Optional parameters:
   """
@@ -20000,10 +20050,11 @@ defmodule AWS.QuickSight do
   group, an associated `GroupMember` object is returned.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :member_name (t:string String.t/0) (MemberName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the 
+         Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to search.
+  * `:member_name` (`t:string`) The user name of the user that you want to search for.
+  * `:namespace` (`t:string`) The namespace that includes the group you are searching within.
 
   ## Optional parameters:
   """
@@ -20047,9 +20098,10 @@ defmodule AWS.QuickSight do
   assignment name.
 
   ## Required positional parameters:
-   • :assignment_name (t:string String.t/0) (AssignmentName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:assignment_name` (`t:string`) The name of the assignment, also called a rule.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the assignment that you want to
+  	describe.
+  * `:namespace` (`t:string`) The namespace that contains the assignment.
 
   ## Optional parameters:
   """
@@ -20090,9 +20142,9 @@ defmodule AWS.QuickSight do
   Describes a SPICE ingestion.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :ingestion_id (t:string String.t/0) (IngestionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
+  * `:ingestion_id` (`t:string`) An ID for the ingestion.
 
   ## Optional parameters:
   """
@@ -20127,7 +20179,7 @@ defmodule AWS.QuickSight do
   Provides a summary and status of IP rules.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the IP rules.
 
   ## Optional parameters:
   """
@@ -20155,10 +20207,10 @@ defmodule AWS.QuickSight do
   Describes all customer managed key registrations in a Amazon QuickSight account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.
 
   ## Optional parameters:
-   • :default_key_only (t:String.t/0) (default-key-only)
+  * `:default_key_only` (`t:boolean`) Determines whether the request returns the default key only.
   """
   @spec describe_key_registration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_registration_response(), any()}
@@ -20193,8 +20245,8 @@ defmodule AWS.QuickSight do
   Describes the current namespace.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.
+  * `:namespace` (`t:string`) The namespace that you want to describe.
 
   ## Optional parameters:
   """
@@ -20223,9 +20275,9 @@ defmodule AWS.QuickSight do
   Provides a summary of a refresh schedule.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :schedule_id (t:string String.t/0) (ScheduleId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
+  * `:schedule_id` (`t:string`) The ID of the refresh schedule.
 
   ## Optional parameters:
   """
@@ -20260,9 +20312,9 @@ defmodule AWS.QuickSight do
   Describes all custom permissions that are mapped to a role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that contains the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The name of the role whose permissions you want described.
 
   ## Optional parameters:
   """
@@ -20303,12 +20355,16 @@ defmodule AWS.QuickSight do
   Describes a template's metadata.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template that you&#39;re describing.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
-   • :alias_name (t:String.t/0) (alias-name)
-   • :version_number (t:String.t/0) (version-number)
+  * `:alias_name` (`t:string`) The alias of the template that you want to describe. If you name a specific alias, you
+  	describe the version that the alias points to. You can specify the latest version of the
+  	template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+  	parameter. The keyword <code>$PUBLISHED</code> doesn&#39;t apply to templates.
+  * `:version_number` (`t:long`) (Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter
+  	value isn&#39;t provided, the latest version of the template is described.
   """
   @spec describe_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_response(), any()}
@@ -20353,9 +20409,13 @@ defmodule AWS.QuickSight do
   Describes the template alias for a template.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:alias_name` (`t:string`) The name of the template alias that you want to describe. If you name a specific alias, you
+  	describe the version that the alias points to. You can specify the latest version of the
+  	template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+  	parameter. The keyword <code>$PUBLISHED</code> doesn&#39;t apply to templates.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template alias that you&#39;re
+  	describing.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
@@ -20399,12 +20459,16 @@ defmodule AWS.QuickSight do
   instead.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template. You must be using the
+  	 Amazon Web Services account that the template is in.
+  * `:template_id` (`t:string`) The ID of the template that you&#39;re describing.
 
   ## Optional parameters:
-   • :alias_name (t:String.t/0) (alias-name)
-   • :version_number (t:String.t/0) (version-number)
+  * `:alias_name` (`t:string`) The alias of the template that you want to describe. If you name a specific alias, you
+  	 describe the version that the alias points to. You can specify the latest version of the
+  	 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+  	 parameter. The keyword <code>$PUBLISHED</code> doesn&#39;t apply to templates.
+  * `:version_number` (`t:long`) The version number of the template.
   """
   @spec describe_template_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_template_definition_response(), any()}
@@ -20449,8 +20513,8 @@ defmodule AWS.QuickSight do
   Describes read and write permissions on a template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template that you&#39;re describing.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
@@ -20484,12 +20548,16 @@ defmodule AWS.QuickSight do
   Describes a theme.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme that you&#39;re describing.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
-   • :alias_name (t:String.t/0) (alias-name)
-   • :version_number (t:String.t/0) (version-number)
+  * `:alias_name` (`t:string`) The alias of the theme that you want to describe. If you name a specific alias, you
+  	describe the version that the alias points to. You can specify the latest version of the
+  	theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+  	parameter. The keyword <code>$PUBLISHED</code> doesn&#39;t apply to themes.
+  * `:version_number` (`t:long`) The version number for the version to describe. If a <code>VersionNumber</code> parameter
+  	value isn&#39;t provided, the latest version of the theme is described.
   """
   @spec describe_theme(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_theme_response(), any()}
@@ -20534,9 +20602,10 @@ defmodule AWS.QuickSight do
   Describes the alias for a theme.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:alias_name` (`t:string`) The name of the theme alias that you want to describe.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme alias that you&#39;re
+  	describing.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
@@ -20571,8 +20640,8 @@ defmodule AWS.QuickSight do
   Describes the read and write permissions for a theme.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme that you&#39;re describing.
+  * `:theme_id` (`t:string`) The ID for the theme that you want to describe permissions for.
 
   ## Optional parameters:
   """
@@ -20601,8 +20670,8 @@ defmodule AWS.QuickSight do
   Describes a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -20631,8 +20700,9 @@ defmodule AWS.QuickSight do
   Describes the permissions of a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic that you want
+         described.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -20661,9 +20731,10 @@ defmodule AWS.QuickSight do
   Describes the status of a topic refresh.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :refresh_id (t:string String.t/0) (RefreshId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic whose refresh you want
+         to describe.
+  * `:refresh_id` (`t:string`) The ID of the refresh, which is performed when the topic is created or updated.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -20698,9 +20769,10 @@ defmodule AWS.QuickSight do
   Deletes a topic refresh schedule.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dataset_id (t:string String.t/0) (DatasetId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:dataset_id` (`t:string`) The ID of the dataset.
+  * `:topic_id` (`t:string`) The ID of the topic that contains the refresh schedule that you want to describe. This
+         ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -20741,9 +20813,10 @@ defmodule AWS.QuickSight do
   Returns information about a user, given the user name.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :user_name (t:string String.t/0) (UserName)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
+  * `:user_name` (`t:string`) The name of the user that you want to describe.
 
   ## Optional parameters:
   """
@@ -20772,8 +20845,10 @@ defmodule AWS.QuickSight do
   Describes a VPC connection.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :vpc_connection_id (t:string String.t/0) (VPCConnectionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account that contains the VPC connection that
+  	you want described.
+  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that
+  	you&#39;re creating. This ID is a unique identifier for each Amazon Web Services Region in an Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -20841,7 +20916,7 @@ defmodule AWS.QuickSight do
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the dashboard that you&#39;re embedding.
 
   ## Optional parameters:
   """
@@ -20922,7 +20997,7 @@ defmodule AWS.QuickSight do
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the dashboard that you&#39;re embedding.
 
   ## Optional parameters:
   """
@@ -20999,18 +21074,30 @@ defmodule AWS.QuickSight do
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the dashboard that you&#39;re embedding.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard, also added to the Identity and Access Management (IAM)
+            policy.
 
   ## Optional parameters:
-   • :additional_dashboard_ids (t:String.t/0) (additional-dashboard-ids)
-   • :identity_type (t:String.t/0) (creds-type)
-   • :namespace (t:String.t/0) (namespace)
-   • :reset_disabled (t:String.t/0) (reset-disabled)
-   • :session_lifetime_in_minutes (t:String.t/0) (session-lifetime)
-   • :state_persistence_enabled (t:String.t/0) (state-persistence-enabled)
-   • :undo_redo_disabled (t:String.t/0) (undo-redo-disabled)
-   • :user_arn (t:String.t/0) (user-arn)
+  * `:additional_dashboard_ids` (`t:list[com.amazonaws.quicksight#ShortRestrictiveResourceId]`) A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set &quot;<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>&quot;, the session can access all three dashboards.
+  * `:identity_type` (`t:enum["ANONYMOUS|IAM|QUICKSIGHT"]`) The authentication method that the user uses to sign in.
+  * `:namespace` (`t:string`) The Amazon QuickSight namespace that contains the dashboard IDs in this request.
+    	   If you&#39;re not using a custom namespace, set <code>Namespace = default</code>.
+  * `:reset_disabled` (`t:boolean`) Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
+  	reset button.
+  * `:session_lifetime_in_minutes` (`t:long`) How many minutes the session is valid. The session lifetime must be 15-600 minutes.
+  * `:state_persistence_enabled` (`t:boolean`) Adds persistence of state for the user session in an embedded dashboard. Persistence
+            applies to the sheet and the parameter settings. These are control settings that the
+            dashboard subscriber (Amazon QuickSight reader) chooses while viewing the dashboard. If this is
+            set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
+            dashboard URL. The state is stored in Amazon QuickSight, not in a browser cookie. If this is
+            set to FALSE, the state of the user session is not persisted. The default is
+                <code>FALSE</code>.
+  * `:undo_redo_disabled` (`t:boolean`) Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
+  	the undo/redo button.
+  * `:user_arn` (`t:string`) The Amazon QuickSight user&#39;s Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
+  	You can use this for any Amazon QuickSight users in your account (readers, authors, or
+  	admins) authenticated as one of the following:
   """
   @spec get_dashboard_embed_url(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_embed_url_response(), any()}
@@ -21152,12 +21239,15 @@ defmodule AWS.QuickSight do
   [Customizing Access to the Amazon QuickSight Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account associated with your Amazon QuickSight subscription.
 
   ## Optional parameters:
-   • :entry_point (t:String.t/0) (entry-point)
-   • :session_lifetime_in_minutes (t:String.t/0) (session-lifetime)
-   • :user_arn (t:String.t/0) (user-arn)
+  * `:entry_point` (`t:string`) The URL you use to access the embedded session. The entry point URL is constrained to
+          the following paths:
+  * `:session_lifetime_in_minutes` (`t:long`) How many minutes the session is valid. The session lifetime must be 15-600 minutes.
+  * `:user_arn` (`t:string`) The Amazon QuickSight user&#39;s Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
+  	You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
+  	admins). They need to be authenticated as one of the following:
   """
   @spec get_session_embed_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_embed_url_response(), any()}
@@ -21212,11 +21302,11 @@ defmodule AWS.QuickSight do
   account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analyses.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_analyses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analyses_response(), any()}
@@ -21265,11 +21355,11 @@ defmodule AWS.QuickSight do
   only returns the most recent job that uses the repeated job ID.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that the export jobs were executed in. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_asset_bundle_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_export_jobs_response(), any()}
@@ -21317,11 +21407,11 @@ defmodule AWS.QuickSight do
   only returns the most recent job that uses the repeated job ID.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that the import jobs were executed in.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_asset_bundle_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_bundle_import_jobs_response(), any()}
@@ -21365,12 +21455,13 @@ defmodule AWS.QuickSight do
   Lists all the versions of the dashboards in the Amazon QuickSight subscription.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re listing versions
+            for.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_dashboard_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboard_versions_response(), any()}
@@ -21415,11 +21506,12 @@ defmodule AWS.QuickSight do
   Lists dashboards in an Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboards that you&#39;re
+            listing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dashboards_response(), any()}
@@ -21467,11 +21559,11 @@ defmodule AWS.QuickSight do
   `arn:aws:quicksight:region:aws-account-id:dataset/*`.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -21516,11 +21608,11 @@ defmodule AWS.QuickSight do
   Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
@@ -21564,12 +21656,12 @@ defmodule AWS.QuickSight do
   List all assets (`DASHBOARD`, `ANALYSIS`, and `DATASET`) in a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_folder_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_folder_members_response(), any()}
@@ -21614,11 +21706,11 @@ defmodule AWS.QuickSight do
   Lists all folders in an account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_folders_response(), any()}
@@ -21662,13 +21754,14 @@ defmodule AWS.QuickSight do
   Lists member users in a group.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to see a membership list of.
+  * `:namespace` (`t:string`) The namespace of the group that you want a list of users from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return from this request.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_group_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
@@ -21719,12 +21812,13 @@ defmodule AWS.QuickSight do
   Lists all user groups in Amazon QuickSight.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that you want a list of groups from.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -21771,13 +21865,14 @@ defmodule AWS.QuickSight do
   account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains these IAM policy
+  	assignments.
+  * `:namespace` (`t:string`) The namespace for the assignments.
 
   ## Optional parameters:
-   • :assignment_status (t:String.t/0) (assignment-status)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:assignment_status` (`t:enum["DISABLED|DRAFT|ENABLED"]`) The status of the assignments.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_iam_policy_assignments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_iam_policy_assignments_response(), any()}
@@ -21837,13 +21932,13 @@ defmodule AWS.QuickSight do
   or groups that the user belongs to.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :user_name (t:string String.t/0) (UserName)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the assignments.
+  * `:namespace` (`t:string`) The namespace of the assignment.
+  * `:user_name` (`t:string`) The name of the user.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_iam_policy_assignments_for_user(
           AWS.Client.t(),
@@ -21904,11 +21999,11 @@ defmodule AWS.QuickSight do
   Identity Center.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contain the identity propagation configurations of.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_identity_propagation_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_propagation_configs_response(), any()}
@@ -21952,12 +22047,12 @@ defmodule AWS.QuickSight do
   Lists the history of SPICE ingestions for a dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset used in the ingestion.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_ingestions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestions_response(), any()}
@@ -22004,11 +22099,11 @@ defmodule AWS.QuickSight do
   This operation doesn't list deleted namespaces.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.
   """
   @spec list_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_namespaces_response(), any()}
@@ -22054,8 +22149,8 @@ defmodule AWS.QuickSight do
   Each dataset can have up to 5 schedules.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -22084,13 +22179,13 @@ defmodule AWS.QuickSight do
   Lists all groups that are associated with a role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that includes the role.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The name of the role.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_role_memberships(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_role_memberships_response(), any()}
@@ -22135,7 +22230,7 @@ defmodule AWS.QuickSight do
   Lists the tags assigned to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want a list of tags for.
 
   ## Optional parameters:
   """
@@ -22163,12 +22258,12 @@ defmodule AWS.QuickSight do
   Lists all the aliases of a template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template aliases that you&#39;re listing.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-result)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_template_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_aliases_response(), any()}
@@ -22214,12 +22309,12 @@ defmodule AWS.QuickSight do
   account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the templates that you&#39;re listing.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
@@ -22264,11 +22359,11 @@ defmodule AWS.QuickSight do
   Lists all the templates in the current Amazon QuickSight account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the templates that you&#39;re listing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-result)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -22312,12 +22407,12 @@ defmodule AWS.QuickSight do
   Lists all the aliases of a theme.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme aliases that you&#39;re listing.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-result)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_theme_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_aliases_response(), any()}
@@ -22362,12 +22457,12 @@ defmodule AWS.QuickSight do
   Lists all the versions of the themes in the current Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the themes that you&#39;re listing.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_theme_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_theme_versions_response(), any()}
@@ -22412,12 +22507,12 @@ defmodule AWS.QuickSight do
   Lists all the themes in the current Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the themes that you&#39;re listing.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :type (t:String.t/0) (type)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
+  * `:type` (`t:enum["ALL|CUSTOM|QUICKSIGHT"]`) The type of themes that you want to list. Valid options include the following:
   """
   @spec list_themes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_themes_response(), any()}
@@ -22470,8 +22565,9 @@ defmodule AWS.QuickSight do
   Lists all of the refresh schedules for a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic whose refresh schedule
+         you want described.
+  * `:topic_id` (`t:string`) The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -22500,11 +22596,12 @@ defmodule AWS.QuickSight do
   Lists all of the topics within an account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topics that you want to
+         list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_topics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_topics_response(), any()}
@@ -22549,13 +22646,14 @@ defmodule AWS.QuickSight do
   of.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :user_name (t:string String.t/0) (UserName)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account
+  	that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
+  * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to list group memberships for.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return from this request.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_user_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_user_groups_response(), any()}
@@ -22600,12 +22698,13 @@ defmodule AWS.QuickSight do
   Returns a list of all of the Amazon QuickSight users belonging to this account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return from this request.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec list_users(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -22652,11 +22751,12 @@ defmodule AWS.QuickSight do
   Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account that contains the VPC connections
+  	that you want to list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if there are no more results.
   """
   @spec list_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
@@ -22700,8 +22800,8 @@ defmodule AWS.QuickSight do
   Creates or updates the dataset refresh properties for the dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -22747,8 +22847,9 @@ defmodule AWS.QuickSight do
   [ Inviting users to access Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users).
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
 
   ## Optional parameters:
   """
@@ -22789,8 +22890,8 @@ defmodule AWS.QuickSight do
   Restores an analysis.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis that you&#39;re restoring.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis.
 
   ## Optional parameters:
   """
@@ -22834,7 +22935,8 @@ defmodule AWS.QuickSight do
   reflect very recent updates and changes.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analyses that you&#39;re searching
+            for.
 
   ## Optional parameters:
   """
@@ -22870,7 +22972,8 @@ defmodule AWS.QuickSight do
   reflect very recent updates and changes.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the user whose dashboards you&#39;re searching
+            for. 
 
   ## Optional parameters:
   """
@@ -22904,7 +23007,7 @@ defmodule AWS.QuickSight do
   account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
   """
@@ -22938,7 +23041,7 @@ defmodule AWS.QuickSight do
   an account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
 
   ## Optional parameters:
   """
@@ -22976,7 +23079,7 @@ defmodule AWS.QuickSight do
   Searches the subfolders in a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder.
 
   ## Optional parameters:
   """
@@ -23010,12 +23113,13 @@ defmodule AWS.QuickSight do
   QuickSight namespace using the supplied filters.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+          Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that you want to search.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return from this request.
+  * `:next_token` (`t:string`) A pagination token that can be used in a subsequent request.
   """
   @spec search_groups(
           AWS.Client.t(),
@@ -23071,7 +23175,7 @@ defmodule AWS.QuickSight do
   each resource before the resources can be exported.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to export assets from.
 
   ## Optional parameters:
   """
@@ -23120,7 +23224,7 @@ defmodule AWS.QuickSight do
   the bundle file before the resources can be imported.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account to import assets into. 
 
   ## Optional parameters:
   """
@@ -23249,8 +23353,9 @@ defmodule AWS.QuickSight do
   The size of the generated snapshots.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
+  * `:dashboard_id` (`t:string`) The ID of the dashboard that you want to start a snapshot job for.
+        
 
   ## Optional parameters:
   """
@@ -23326,7 +23431,7 @@ defmodule AWS.QuickSight do
   Amazon QuickSight doesn't currently support the tag editor for Resource Groups.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to tag.
 
   ## Optional parameters:
   """
@@ -23359,10 +23464,10 @@ defmodule AWS.QuickSight do
   Removes a tag or tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (keys)
+  * `:tag_keys` (`t:list[com.amazonaws.quicksight#TagKey]`) The keys of the key-value pairs for the resource tag or tags assigned to the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -23409,10 +23514,11 @@ defmodule AWS.QuickSight do
   the `DescribeAccountCustomization` API operation.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
+            for.
 
   ## Optional parameters:
-   • :namespace (t:String.t/0) (namespace)
+  * `:namespace` (`t:string`) The namespace that you want to update Amazon QuickSight customizations for.
   """
   @spec update_account_customization(
           AWS.Client.t(),
@@ -23443,7 +23549,8 @@ defmodule AWS.QuickSight do
   Updates the Amazon QuickSight settings in your Amazon Web Services account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
+            list.
 
   ## Optional parameters:
   """
@@ -23471,8 +23578,9 @@ defmodule AWS.QuickSight do
   Updates an analysis in Amazon QuickSight
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID for the analysis that you&#39;re updating. This ID displays in the URL of the
+            analysis.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis that you&#39;re updating.
 
   ## Optional parameters:
   """
@@ -23503,8 +23611,10 @@ defmodule AWS.QuickSight do
   Updates the read and write permissions for an analysis.
 
   ## Required positional parameters:
-   • :analysis_id (t:string String.t/0) (AnalysisId)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:analysis_id` (`t:string`) The ID of the analysis whose permissions you&#39;re updating. The ID is part of the
+            analysis URL.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the analysis whose permissions you&#39;re
+            updating. You must be using the Amazon Web Services account that the analysis is in.
 
   ## Optional parameters:
   """
@@ -23554,8 +23664,9 @@ defmodule AWS.QuickSight do
   API operation.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re
+            updating.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
@@ -23586,8 +23697,8 @@ defmodule AWS.QuickSight do
   Updates the linked analyses on a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard whose links you want to update.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
@@ -23624,8 +23735,9 @@ defmodule AWS.QuickSight do
   Updates read and write permissions on a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard whose permissions you&#39;re
+            updating.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
 
   ## Optional parameters:
   """
@@ -23662,9 +23774,10 @@ defmodule AWS.QuickSight do
   Updates the published version of a dashboard.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dashboard_id (t:string String.t/0) (DashboardId)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the dashboard that you&#39;re
+            updating.
+  * `:dashboard_id` (`t:string`) The ID for the dashboard.
+  * `:version_number` (`t:long`) The version number of the dashboard.
 
   ## Optional parameters:
   """
@@ -23706,8 +23819,9 @@ defmodule AWS.QuickSight do
   Partial updates are not supported by this operation.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region for each
+  	Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -23741,8 +23855,9 @@ defmodule AWS.QuickSight do
   `arn:aws:quicksight:region:aws-account-id:dataset/data-set-id`.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID for the dataset whose permissions you want to update. This ID is unique per
+  	Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -23789,8 +23904,8 @@ defmodule AWS.QuickSight do
   Updates a data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_source_id (t:string String.t/0) (DataSourceId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. 
 
   ## Optional parameters:
   """
@@ -23821,8 +23936,8 @@ defmodule AWS.QuickSight do
   Updates the permissions to a data source.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_source_id (t:string String.t/0) (DataSourceId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_source_id` (`t:string`) The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. 
 
   ## Optional parameters:
   """
@@ -23869,8 +23984,8 @@ defmodule AWS.QuickSight do
   Updates the name of a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder to update.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
@@ -23901,8 +24016,8 @@ defmodule AWS.QuickSight do
   Updates permissions of a folder.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :folder_id (t:string String.t/0) (FolderId)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that contains the folder to update.
+  * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
   """
@@ -23939,9 +24054,10 @@ defmodule AWS.QuickSight do
   Changes a group description.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :group_name (t:string String.t/0) (GroupName)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:group_name` (`t:string`) The name of the group that you want to update.
+  * `:namespace` (`t:string`) The namespace of the group that you want to update.
 
   ## Optional parameters:
   """
@@ -23985,9 +24101,13 @@ defmodule AWS.QuickSight do
   all of the users included in `Identities`.
 
   ## Required positional parameters:
-   • :assignment_name (t:string String.t/0) (AssignmentName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
+  * `:assignment_name` (`t:string`) The name of the assignment, also called a rule.
+  	The
+  	name must be unique within the
+  	Amazon Web Services account.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the IAM policy
+  	assignment. 
+  * `:namespace` (`t:string`) The namespace of the assignment.
 
   ## Optional parameters:
   """
@@ -24030,8 +24150,8 @@ defmodule AWS.QuickSight do
   Identity Center
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :service (t:enum String.t/0) (Service)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the identity propagation configuration that you want to update.
+  * `:service` (`t:enum["REDSHIFT"]`) The name of the Amazon Web Services service that contains the authorized targets that you want to add or update.
 
   ## Optional parameters:
   """
@@ -24083,7 +24203,7 @@ defmodule AWS.QuickSight do
   `DescribeIpRestriction` operation to get the current rule map.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the IP rules.
 
   ## Optional parameters:
   """
@@ -24121,7 +24241,7 @@ defmodule AWS.QuickSight do
   Updates a customer managed key in a Amazon QuickSight account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the customer managed key registration that you want to update.
 
   ## Optional parameters:
   """
@@ -24173,7 +24293,7 @@ defmodule AWS.QuickSight do
   User Guide*.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID associated with your Amazon QuickSight subscription.
 
   ## Optional parameters:
   """
@@ -24201,8 +24321,8 @@ defmodule AWS.QuickSight do
   Updates a refresh schedule for a dataset.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:data_set_id` (`t:string`) The ID of the dataset.
 
   ## Optional parameters:
   """
@@ -24239,9 +24359,9 @@ defmodule AWS.QuickSight do
   Updates the custom permissions that are associated with a role.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :role (t:enum String.t/0) (Role)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace that contains the role that you want to update.
+  * `:role` (`t:enum["ADMIN|ADMIN_PRO|AUTHOR|AUTHOR_PRO|READER|READER_PRO"]`) The name of role tht you want to update.
 
   ## Optional parameters:
   """
@@ -24280,7 +24400,7 @@ defmodule AWS.QuickSight do
   Updates the SPICE capacity configuration for a Amazon QuickSight account.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.
 
   ## Optional parameters:
   """
@@ -24324,8 +24444,8 @@ defmodule AWS.QuickSight do
   template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template that you&#39;re updating.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
@@ -24356,9 +24476,12 @@ defmodule AWS.QuickSight do
   Updates the template alias of a template.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:alias_name` (`t:string`) The alias of the template that you want to update. If you name a specific alias, you update
+  	the version that the alias points to. You can specify the latest version of the template
+  	by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter.
+  	The keyword <code>$PUBLISHED</code> doesn&#39;t apply to templates.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template alias that you&#39;re updating.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
@@ -24397,8 +24520,8 @@ defmodule AWS.QuickSight do
   Updates the resource permissions for a template.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the template.
+  * `:template_id` (`t:string`) The ID for the template.
 
   ## Optional parameters:
   """
@@ -24435,8 +24558,8 @@ defmodule AWS.QuickSight do
   Updates a theme.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme that you&#39;re updating.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
@@ -24461,9 +24584,9 @@ defmodule AWS.QuickSight do
   Updates an alias of a theme.
 
   ## Required positional parameters:
-   • :alias_name (t:string String.t/0) (AliasName)
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:alias_name` (`t:string`) The name of the theme alias that you want to update.
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme alias that you&#39;re updating.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
@@ -24578,8 +24701,8 @@ defmodule AWS.QuickSight do
   To specify no permissions, omit the permissions list.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :theme_id (t:string String.t/0) (ThemeId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the theme.
+  * `:theme_id` (`t:string`) The ID for the theme.
 
   ## Optional parameters:
   """
@@ -24610,8 +24733,9 @@ defmodule AWS.QuickSight do
   Updates a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic that you want to
+         update.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -24636,8 +24760,9 @@ defmodule AWS.QuickSight do
   Updates the permissions of a topic.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic that you want to update
+         the permissions for.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -24668,9 +24793,10 @@ defmodule AWS.QuickSight do
   Updates a topic refresh schedule.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :dataset_id (t:string String.t/0) (DatasetId)
-   • :topic_id (t:string String.t/0) (TopicId)
+  * `:aws_account_id` (`t:string`) The ID of the Amazon Web Services account that contains the topic whose refresh schedule
+         you want to update.
+  * `:dataset_id` (`t:string`) The ID of the dataset.
+  * `:topic_id` (`t:string`) The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -24709,9 +24835,10 @@ defmodule AWS.QuickSight do
   Updates an Amazon QuickSight user.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :namespace (t:string String.t/0) (Namespace)
-   • :user_name (t:string String.t/0) (UserName)
+  * `:aws_account_id` (`t:string`) The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+  	Amazon Web Services account that contains your Amazon QuickSight account.
+  * `:namespace` (`t:string`) The namespace. Currently, you should set this to <code>default</code>.
+  * `:user_name` (`t:string`) The Amazon QuickSight user name that you want to update.
 
   ## Optional parameters:
   """
@@ -24743,8 +24870,11 @@ defmodule AWS.QuickSight do
   Updates a VPC connection.
 
   ## Required positional parameters:
-   • :aws_account_id (t:string String.t/0) (AwsAccountId)
-   • :vpc_connection_id (t:string String.t/0) (VPCConnectionId)
+  * `:aws_account_id` (`t:string`) The Amazon Web Services account ID of the account that contains the VPC connection that
+  	you want to update.
+  * `:vpc_connection_id` (`t:string`) The ID of the VPC connection that
+  	you&#39;re updating. This ID is a unique identifier for each Amazon Web Services Region in an
+  		Amazon Web Services account.
 
   ## Optional parameters:
   """

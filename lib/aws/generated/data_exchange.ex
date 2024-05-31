@@ -1926,7 +1926,7 @@ defmodule AWS.DataExchange do
   Jobs can be cancelled only when they are in the WAITING state.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
   """
@@ -2055,7 +2055,7 @@ defmodule AWS.DataExchange do
   This operation creates a revision for a data set.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
   """
@@ -2088,9 +2088,9 @@ defmodule AWS.DataExchange do
   This operation deletes an asset.
 
   ## Required positional parameters:
-   • :asset_id (t:string String.t/0) (AssetId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2132,7 +2132,7 @@ defmodule AWS.DataExchange do
   This operation deletes a data set.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
   """
@@ -2165,7 +2165,7 @@ defmodule AWS.DataExchange do
   This operation deletes the event action.
 
   ## Required positional parameters:
-   • :event_action_id (t:string String.t/0) (EventActionId)
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
   """
@@ -2203,8 +2203,8 @@ defmodule AWS.DataExchange do
   This operation deletes a revision.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2245,9 +2245,9 @@ defmodule AWS.DataExchange do
   This operation returns information about an asset.
 
   ## Required positional parameters:
-   • :asset_id (t:string String.t/0) (AssetId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2276,7 +2276,7 @@ defmodule AWS.DataExchange do
   This operation returns information about a data set.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
   """
@@ -2304,7 +2304,7 @@ defmodule AWS.DataExchange do
   This operation retrieves information about an event action.
 
   ## Required positional parameters:
-   • :event_action_id (t:string String.t/0) (EventActionId)
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
   """
@@ -2332,7 +2332,7 @@ defmodule AWS.DataExchange do
   This operation returns information about a job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
   """
@@ -2360,8 +2360,8 @@ defmodule AWS.DataExchange do
   This operation returns information about a revision.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2391,11 +2391,11 @@ defmodule AWS.DataExchange do
   order.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_data_set_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_revisions_response(), any()}
@@ -2445,9 +2445,9 @@ defmodule AWS.DataExchange do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :origin (t:String.t/0) (origin)
+  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:origin` (`t:string`) A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
   """
   @spec list_data_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2502,9 +2502,9 @@ defmodule AWS.DataExchange do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :event_source_id (t:String.t/0) (eventSourceId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:event_source_id` (`t:string`) The unique identifier for the event source.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_event_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_actions_response(), any()}
@@ -2559,10 +2559,10 @@ defmodule AWS.DataExchange do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :data_set_id (t:String.t/0) (dataSetId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :revision_id (t:String.t/0) (revisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -2625,12 +2625,12 @@ defmodule AWS.DataExchange do
   order.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_revision_assets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_revision_assets_response(), any()}
@@ -2675,7 +2675,7 @@ defmodule AWS.DataExchange do
   This operation lists the tags on the resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
 
   ## Optional parameters:
   """
@@ -2702,8 +2702,8 @@ defmodule AWS.DataExchange do
   This operation revokes subscribers' access to a revision.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2748,12 +2748,12 @@ defmodule AWS.DataExchange do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :query_string_parameters (t:String.t/0) (QueryStringParameters)
-   • :asset_id (t:String.t/0) (x-amzn-dataexchange-asset-id)
-   • :data_set_id (t:String.t/0) (x-amzn-dataexchange-data-set-id)
-   • :method (t:String.t/0) (x-amzn-dataexchange-http-method)
-   • :path (t:String.t/0) (x-amzn-dataexchange-path)
-   • :revision_id (t:String.t/0) (x-amzn-dataexchange-revision-id)
+  * `:query_string_parameters` (`t:map`) Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
+  * `:asset_id` (`t:string`) Asset ID value for the API request.
+  * `:data_set_id` (`t:string`) Data set ID value for the API request.
+  * `:method` (`t:string`) HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.
+  * `:path` (`t:string`) URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.
+  * `:revision_id` (`t:string`) Revision ID value for the API request.
   """
   @spec send_api_asset(AWS.Client.t(), send_api_asset_request(), Keyword.t()) ::
           {:ok, send_api_asset_response(), any()}
@@ -2812,7 +2812,8 @@ defmodule AWS.DataExchange do
   The type of event associated with the data set.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) Affected
+         data set of the notification.
 
   ## Optional parameters:
   """
@@ -2850,7 +2851,7 @@ defmodule AWS.DataExchange do
   This operation starts a job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
   """
@@ -2883,7 +2884,7 @@ defmodule AWS.DataExchange do
   This operation tags a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
 
   ## Optional parameters:
   """
@@ -2915,10 +2916,10 @@ defmodule AWS.DataExchange do
   This operation removes one or more tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]`) The key tags.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2953,9 +2954,9 @@ defmodule AWS.DataExchange do
   This operation updates an asset.
 
   ## Required positional parameters:
-   • :asset_id (t:string String.t/0) (AssetId)
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:asset_id` (`t:string`) The unique identifier for an asset.
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """
@@ -2997,7 +2998,7 @@ defmodule AWS.DataExchange do
   This operation updates a data set.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
   """
@@ -3030,7 +3031,7 @@ defmodule AWS.DataExchange do
   This operation updates the event action.
 
   ## Required positional parameters:
-   • :event_action_id (t:string String.t/0) (EventActionId)
+  * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
   """
@@ -3068,8 +3069,8 @@ defmodule AWS.DataExchange do
   This operation updates a revision.
 
   ## Required positional parameters:
-   • :data_set_id (t:string String.t/0) (DataSetId)
-   • :revision_id (t:string String.t/0) (RevisionId)
+  * `:data_set_id` (`t:string`) The unique identifier for a data set.
+  * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
   """

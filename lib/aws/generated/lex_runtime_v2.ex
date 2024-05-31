@@ -751,10 +751,11 @@ defmodule AWS.LexRuntimeV2 do
   `BadRequestException`.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that contains the session
+         data.
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the session data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session to delete.
 
   ## Optional parameters:
   """
@@ -815,10 +816,11 @@ defmodule AWS.LexRuntimeV2 do
   `BadRequestException`.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that contains the session
+         data.
+  * `:bot_id` (`t:string`) The identifier of the bot that contains the session data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session to return.
 
   ## Optional parameters:
   """
@@ -851,13 +853,15 @@ defmodule AWS.LexRuntimeV2 do
   the bot.
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier of the bot that receives the session
+         data.
+  * `:bot_id` (`t:string`) The identifier of the bot that receives the session data.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session that receives the session data.
 
   ## Optional parameters:
-   • :response_content_type (t:String.t/0) (ResponseContentType)
+  * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns in the response can be either text or
+         speech depending on the value of this parameter. 
   """
   @spec put_session(
           AWS.Client.t(),
@@ -959,10 +963,12 @@ defmodule AWS.LexRuntimeV2 do
   message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that processes the
+         request.
+  * `:bot_id` (`t:string`) The identifier of the bot that processes the request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the user session that is having the
+         conversation.
 
   ## Optional parameters:
   """
@@ -1078,16 +1084,23 @@ defmodule AWS.LexRuntimeV2 do
   message](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html).
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that should receive the
+         request.
+  * `:bot_id` (`t:string`) The identifier of the bot that should receive the request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the session in use.
 
   ## Optional parameters:
-   • :request_attributes (t:String.t/0) (x-amz-lex-request-attributes)
-   • :request_content_type (t:String.t/0) (Content-Type)
-   • :response_content_type (t:String.t/0) (Response-Content-Type)
-   • :session_state (t:String.t/0) (x-amz-lex-session-state)
+  * `:request_attributes` (`t:string`) Request-specific information passed between the client application
+         and Amazon Lex V2 
+  * `:request_content_type` (`t:string`) Indicates the format for audio input or that the content is text.
+         The header must start with one of the following prefixes:
+  * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns in the response can be either text or
+         speech based on the <code>responseContentType</code> value.
+  * `:session_state` (`t:string`) Sets the state of the session with the user. You can use this to set
+         the current intent, attributes, context, and dialog action. Use the
+         dialog action to determine the next step that Amazon Lex V2 should use in the
+         conversation with the user.
   """
   @spec recognize_utterance(
           AWS.Client.t(),
@@ -1228,13 +1241,18 @@ defmodule AWS.LexRuntimeV2 do
   [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation)
 
   ## Required positional parameters:
-   • :bot_alias_id (t:string String.t/0) (botAliasId)
-   • :bot_id (t:string String.t/0) (botId)
-   • :locale_id (t:string String.t/0) (localeId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:bot_alias_id` (`t:string`) The alias identifier in use for the bot that processes the
+         request.
+  * `:bot_id` (`t:string`) The identifier of the bot to process the request.
+  * `:locale_id` (`t:string`) The locale where the session is in use.
+  * `:session_id` (`t:string`) The identifier of the user session that is having the
+         conversation.
 
   ## Optional parameters:
-   • :conversation_mode (t:String.t/0) (x-amz-lex-conversation-mode)
+  * `:conversation_mode` (`t:enum["AUDIO|TEXT"]`) The conversation type that you are using the Amazon Lex V2. If the
+         conversation mode is <code>AUDIO</code> you can send both audio and
+         DTMF information. If the mode is <code>TEXT</code> you can only send
+         text.
   """
   @spec start_conversation(
           AWS.Client.t(),

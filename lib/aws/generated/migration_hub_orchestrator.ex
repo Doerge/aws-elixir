@@ -1511,7 +1511,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Deletes a migration workflow template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the request to delete a migration workflow template.
 
   ## Optional parameters:
   """
@@ -1547,7 +1547,7 @@ defmodule AWS.MigrationHubOrchestrator do
   delete it.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the migration workflow you want to delete.
 
   ## Optional parameters:
   """
@@ -1588,11 +1588,11 @@ defmodule AWS.MigrationHubOrchestrator do
   step.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step you want to delete.
 
   ## Optional parameters:
-   • :step_group_id (t:String.t/0) (stepGroupId)
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:step_group_id` (`t:string`) The ID of the step group that contains the step you want to delete.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec delete_workflow_step(
           AWS.Client.t(),
@@ -1634,10 +1634,10 @@ defmodule AWS.MigrationHubOrchestrator do
   Delete a step group in a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step group you want to delete.
 
   ## Optional parameters:
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec delete_workflow_step_group(
           AWS.Client.t(),
@@ -1678,7 +1678,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Get the template you want to use for creating a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the template.
 
   ## Optional parameters:
   """
@@ -1706,11 +1706,11 @@ defmodule AWS.MigrationHubOrchestrator do
   Get a specific step in a template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
-   • :step_group_id (t:String.t/0) (stepGroupId)
-   • :template_id (t:String.t/0) (templateId)
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
   """
   @spec get_template_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_response(), any()}
@@ -1754,8 +1754,8 @@ defmodule AWS.MigrationHubOrchestrator do
   Get a step group in a template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :template_id (t:string String.t/0) (templateId)
+  * `:id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
 
   ## Optional parameters:
   """
@@ -1784,7 +1784,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Get migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
   """
@@ -1812,11 +1812,11 @@ defmodule AWS.MigrationHubOrchestrator do
   Get a step in the migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
-   • :step_group_id (t:String.t/0) (stepGroupId)
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec get_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_response(), any()}
@@ -1860,10 +1860,10 @@ defmodule AWS.MigrationHubOrchestrator do
   Get the step group of a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step group.
 
   ## Optional parameters:
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec get_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_group_response(), any()}
@@ -1900,8 +1900,8 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of plugins that can be returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
@@ -1945,7 +1945,7 @@ defmodule AWS.MigrationHubOrchestrator do
   List the tags added to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1973,11 +1973,11 @@ defmodule AWS.MigrationHubOrchestrator do
   List the step groups in a template.
 
   ## Required positional parameters:
-   • :template_id (t:string String.t/0) (templateId)
+  * `:template_id` (`t:string`) The ID of the template.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_step_groups_response(), any()}
@@ -2023,10 +2023,10 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :step_group_id (t:String.t/0) (stepGroupId)
-   • :template_id (t:String.t/0) (templateId)
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:next_token` (`t:string`) The pagination token.
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:template_id` (`t:string`) The ID of the template.
   """
   @spec list_template_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_steps_response(), any()}
@@ -2091,9 +2091,9 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:name` (`t:string`) The name of the template.
+  * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflow_templates_response(), any()}
@@ -2148,9 +2148,9 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:next_token` (`t:string`) The pagination token.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec list_workflow_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_step_groups_response(), any()}
@@ -2203,12 +2203,12 @@ defmodule AWS.MigrationHubOrchestrator do
   List the steps in a workflow.
 
   ## Required positional parameters:
-   • :step_group_id (t:string String.t/0) (stepGroupId)
-   • :workflow_id (t:string String.t/0) (workflowId)
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_steps_response(), any()}
@@ -2255,12 +2255,12 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ads_application_configuration_name (t:String.t/0) (adsApplicationConfigurationName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
-   • :template_id (t:String.t/0) (templateId)
+  * `:ads_application_configuration_name` (`t:string`) The name of the application configured in Application Discovery Service.
+  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:name` (`t:`) The name of the migration workflow.
+  * `:next_token` (`t:string`) The pagination token.
+  * `:status` (`t:string`) The status of the migration workflow.
+  * `:template_id` (`t:string`) The ID of the template.
   """
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_migration_workflows_response(), any()}
@@ -2341,11 +2341,11 @@ defmodule AWS.MigrationHubOrchestrator do
   Retry a failed step in a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
-   • :step_group_id (t:String.t/0) (stepGroupId)
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:step_group_id` (`t:string`) The ID of the step group.
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec retry_workflow_step(
           AWS.Client.t(),
@@ -2387,7 +2387,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Start a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
   """
@@ -2425,7 +2425,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Stop an ongoing migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
   """
@@ -2458,7 +2458,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Tag a resource by specifying its Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to which you want to add tags.
 
   ## Optional parameters:
   """
@@ -2491,10 +2491,11 @@ defmodule AWS.MigrationHubOrchestrator do
   Deletes the tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which you want to remove
+            tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or more tag keys. Specify only the tag keys, not the tag values.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2530,7 +2531,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Updates a migration workflow template.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the request to update a migration workflow template.
 
   ## Optional parameters:
   """
@@ -2563,7 +2564,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Update a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
   """
@@ -2601,7 +2602,7 @@ defmodule AWS.MigrationHubOrchestrator do
   Update a step in a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
   """
@@ -2639,10 +2640,10 @@ defmodule AWS.MigrationHubOrchestrator do
   Update the step group in a migration workflow.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the step group.
 
   ## Optional parameters:
-   • :workflow_id (t:String.t/0) (workflowId)
+  * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec update_workflow_step_group(
           AWS.Client.t(),

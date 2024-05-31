@@ -2841,8 +2841,9 @@ defmodule AWS.EKS do
   in the *Amazon EKS User Guide*.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:principal_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM user or role for the <code>AccessEntry</code>
+            that you&#39;re associating the access policy to. 
 
   ## Optional parameters:
   """
@@ -2894,7 +2895,7 @@ defmodule AWS.EKS do
   without migrating applications to new Amazon EKS clusters.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -2942,7 +2943,7 @@ defmodule AWS.EKS do
   the Kubernetes documentation.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -2999,7 +3000,7 @@ defmodule AWS.EKS do
   *Amazon EKS User Guide*.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -3042,7 +3043,7 @@ defmodule AWS.EKS do
   the *Amazon EKS User Guide*.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -3243,7 +3244,7 @@ defmodule AWS.EKS do
   *Amazon EKS User Guide*.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -3300,7 +3301,7 @@ defmodule AWS.EKS do
   that support Windows on Amazon EKS.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -3354,7 +3355,7 @@ defmodule AWS.EKS do
   clusters.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of the cluster to create the association in.
 
   ## Optional parameters:
   """
@@ -3397,8 +3398,8 @@ defmodule AWS.EKS do
   it.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the <code>AccessEntry</code>.
 
   ## Optional parameters:
   """
@@ -3443,11 +3444,14 @@ defmodule AWS.EKS do
   start an add-on on the cluster using the Kubernetes API.
 
   ## Required positional parameters:
-   • :addon_name (t:string String.t/0) (addonName)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+               <code>ListAddons</code>
+            </a>.
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :preserve (t:String.t/0) (preserve)
+  * `:preserve` (`t:boolean`) Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on. If an IAM
+            account is associated with the add-on, it isn&#39;t removed.
   """
   @spec delete_addon(AWS.Client.t(), String.t(), String.t(), delete_addon_request(), Keyword.t()) ::
           {:ok, delete_addon_response(), any()}
@@ -3499,7 +3503,7 @@ defmodule AWS.EKS do
   `DeleteNodgroup` and `DeleteFargateProfile`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the cluster to delete.
 
   ## Optional parameters:
   """
@@ -3539,7 +3543,7 @@ defmodule AWS.EKS do
   creating a ticket in the Amazon Web Services Support Center.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the subscription.
 
   ## Optional parameters:
   """
@@ -3589,8 +3593,8 @@ defmodule AWS.EKS do
   cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :fargate_profile_name (t:string String.t/0) (fargateProfileName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:fargate_profile_name` (`t:string`) The name of the Fargate profile to delete.
 
   ## Optional parameters:
   """
@@ -3637,8 +3641,8 @@ defmodule AWS.EKS do
   Deletes a managed node group.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :nodegroup_name (t:string String.t/0) (nodegroupName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:nodegroup_name` (`t:string`) The name of the node group to delete.
 
   ## Optional parameters:
   """
@@ -3683,8 +3687,8 @@ defmodule AWS.EKS do
   the temporary session credentials, then go to the role in the IAM console.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (associationId)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:association_id` (`t:string`) The ID of the association to be deleted.
+  * `:cluster_name` (`t:string`) The cluster name that
 
   ## Optional parameters:
   """
@@ -3736,7 +3740,7 @@ defmodule AWS.EKS do
   using the [Amazon EKS Connector](https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the connected cluster to deregister.
 
   ## Optional parameters:
   """
@@ -3769,8 +3773,8 @@ defmodule AWS.EKS do
   Describes an access entry.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the <code>AccessEntry</code>.
 
   ## Optional parameters:
   """
@@ -3799,8 +3803,10 @@ defmodule AWS.EKS do
   Describes an Amazon EKS add-on.
 
   ## Required positional parameters:
-   • :addon_name (t:string String.t/0) (addonName)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+               <code>ListAddons</code>
+            </a>.
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -3831,8 +3837,11 @@ defmodule AWS.EKS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :addon_name (t:String.t/0) (addonName)
-   • :addon_version (t:String.t/0) (addonVersion)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by
+                <code>DescribeAddonVersions</code>.
+  * `:addon_version` (`t:string`) The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+               <code>DescribeAddonVersions</code>
+            </a>.
   """
   @spec describe_addon_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_addon_configuration_response(), any()}
@@ -3883,13 +3892,26 @@ defmodule AWS.EKS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :addon_name (t:String.t/0) (addonName)
-   • :kubernetes_version (t:String.t/0) (kubernetesVersion)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :owners (t:String.t/0) (owners)
-   • :publishers (t:String.t/0) (publishers)
-   • :types (t:String.t/0) (types)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+               <code>ListAddons</code>
+            </a>.
+  * `:kubernetes_version` (`t:string`) The Kubernetes versions that you can use the add-on with.
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
+  * `:owners` (`t:list[com.amazonaws.eks#String]`) The owner of the add-on. For valid <code>owners</code>, don&#39;t specify a value for this
+            property.
+  * `:publishers` (`t:list[com.amazonaws.eks#String]`) The publisher of the add-on. For valid <code>publishers</code>, don&#39;t specify a value
+            for this property.
+  * `:types` (`t:list[com.amazonaws.eks#String]`) The type of the add-on. For valid <code>types</code>, don&#39;t specify a value for this
+            property.
   """
   @spec describe_addon_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_addon_versions_response(), any()}
@@ -3988,7 +4010,7 @@ defmodule AWS.EKS do
   cluster reaches the `ACTIVE` state.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -4016,7 +4038,7 @@ defmodule AWS.EKS do
   Returns descriptive information about a subscription.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the subscription.
 
   ## Optional parameters:
   """
@@ -4044,8 +4066,8 @@ defmodule AWS.EKS do
   Describes an Fargate profile.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :fargate_profile_name (t:string String.t/0) (fargateProfileName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:fargate_profile_name` (`t:string`) The name of the Fargate profile to describe.
 
   ## Optional parameters:
   """
@@ -4079,7 +4101,7 @@ defmodule AWS.EKS do
   Describes an identity provider configuration.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -4117,8 +4139,8 @@ defmodule AWS.EKS do
   Returns details about an insight that you specify using its ID.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :id (t:string String.t/0) (id)
+  * `:cluster_name` (`t:string`) The name of the cluster to describe the insight for.
+  * `:id` (`t:string`) The identity of the insight to describe.
 
   ## Optional parameters:
   """
@@ -4147,8 +4169,8 @@ defmodule AWS.EKS do
   Describes a managed node group.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :nodegroup_name (t:string String.t/0) (nodegroupName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:nodegroup_name` (`t:string`) The name of the node group to describe.
 
   ## Optional parameters:
   """
@@ -4183,8 +4205,8 @@ defmodule AWS.EKS do
   list by namespace or service account.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (associationId)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:association_id` (`t:string`) The ID of the association that you want the description of.
+  * `:cluster_name` (`t:string`) The name of the cluster that the association is in.
 
   ## Optional parameters:
   """
@@ -4222,12 +4244,15 @@ defmodule AWS.EKS do
   for the failure.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
-   • :update_id (t:string String.t/0) (updateId)
+  * `:name` (`t:string`) The name of the Amazon EKS cluster associated with the update.
+  * `:update_id` (`t:string`) The ID of the update to describe.
 
   ## Optional parameters:
-   • :addon_name (t:String.t/0) (addonName)
-   • :nodegroup_name (t:String.t/0) (nodegroupName)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+               <code>ListAddons</code>
+            </a>. This parameter is required if the update is an add-on update.
+  * `:nodegroup_name` (`t:string`) The name of the Amazon EKS node group associated with the update. This
+            parameter is required if the update is a node group update.
   """
   @spec describe_update(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_update_response(), any()}
@@ -4271,9 +4296,10 @@ defmodule AWS.EKS do
   Disassociates an access policy from an access entry.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :policy_arn (t:string String.t/0) (policyArn)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:policy_arn` (`t:string`) The ARN of the policy to disassociate from the access entry. For a list of
+            associated policies ARNs, use <code>ListAssociatedAccessPolicies</code>.
+  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the <code>AccessEntry</code>.
 
   ## Optional parameters:
   """
@@ -4328,7 +4354,7 @@ defmodule AWS.EKS do
   with IAM principals.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -4373,12 +4399,22 @@ defmodule AWS.EKS do
   Lists the access entries for your cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :associated_policy_arn (t:String.t/0) (associatedPolicyArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:associated_policy_arn` (`t:string`) The ARN of an <code>AccessPolicy</code>. When you specify an access policy ARN,
+            only the access entries associated to that access policy are returned. For a list of
+            available policy ARNs, use <code>ListAccessPolicies</code>.
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_access_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_entries_response(), any()}
@@ -4433,8 +4469,16 @@ defmodule AWS.EKS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
@@ -4478,11 +4522,19 @@ defmodule AWS.EKS do
   Lists the installed add-ons.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_addons(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_addons_response(), any()}
@@ -4526,12 +4578,20 @@ defmodule AWS.EKS do
   Lists the access policies associated with an access entry.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the <code>AccessEntry</code>.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_associated_access_policies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_access_policies_response(), any()}
@@ -4584,9 +4644,20 @@ defmodule AWS.EKS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include (t:String.t/0) (include)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:include` (`t:list[com.amazonaws.eks#String]`) Indicates whether external clusters are included in the returned list. Use
+                &#39;<code>all</code>&#39; to return <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html</a>connected clusters, or blank to
+            return only Amazon EKS clusters. &#39;<code>all</code>&#39; must be in lowercase
+            otherwise an error occurs.
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
@@ -4641,9 +4712,18 @@ defmodule AWS.EKS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_status (t:String.t/0) (includeStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:include_status` (`t:list[com.amazonaws.eks#EksAnywhereSubscriptionStatus]`) An array of subscription statuses to filter on.
+  * `:max_results` (`t:integer`) The maximum number of cluster results returned by ListEksAnywhereSubscriptions in
+            paginated output. When you use this parameter, ListEksAnywhereSubscriptions returns only
+            maxResults results in a single page along with a nextToken response element. You can see
+            the remaining results of the initial request by sending another
+            ListEksAnywhereSubscriptions request with the returned nextToken value. This value can
+            be between 1 and 100. If you don&#39;t use this parameter, ListEksAnywhereSubscriptions
+            returns up to 10 results and a nextToken value if applicable.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated
+                <code>ListEksAnywhereSubscriptions</code> request where <code>maxResults</code> was used and the
+            results exceeded the value of that parameter. Pagination continues from the end of the
+            previous results that returned the <code>nextToken</code> value.
   """
   @spec list_eks_anywhere_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_eks_anywhere_subscriptions_response(), any()}
@@ -4697,11 +4777,19 @@ defmodule AWS.EKS do
   your Amazon Web Services account in the specified Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_fargate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fargate_profiles_response(), any()}
@@ -4745,11 +4833,19 @@ defmodule AWS.EKS do
   Lists the identity provider configurations for your cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_identity_provider_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_provider_configs_response(), any()}
@@ -4796,7 +4892,7 @@ defmodule AWS.EKS do
   version, and status.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of the Amazon EKS cluster associated with the insights.
 
   ## Optional parameters:
   """
@@ -4833,11 +4929,19 @@ defmodule AWS.EKS do
   groups aren't listed.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
   """
   @spec list_nodegroups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodegroups_response(), any()}
@@ -4884,13 +4988,25 @@ defmodule AWS.EKS do
   association is in or the service account that the association uses.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:cluster_name` (`t:string`) The name of the cluster that the associations are in.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :namespace (t:String.t/0) (namespace)
-   • :next_token (t:String.t/0) (nextToken)
-   • :service_account (t:String.t/0) (serviceAccount)
+  * `:max_results` (`t:integer`) The maximum number of EKS Pod Identity association results returned by
+                <code>ListPodIdentityAssociations</code> in paginated output. When you use this
+            parameter, <code>ListPodIdentityAssociations</code> returns only <code>maxResults</code>
+            results in a single page along with a <code>nextToken</code> response element. You can
+            see the remaining results of the initial request by sending another
+                <code>ListPodIdentityAssociations</code> request with the returned
+                <code>nextToken</code> value. This value can be between 1 and
+            100. If you don&#39;t use this parameter,
+                <code>ListPodIdentityAssociations</code> returns up to 100 results
+            and a <code>nextToken</code> value if applicable.
+  * `:namespace` (`t:string`) The name of the Kubernetes namespace inside the cluster that the associations are in.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated
+                <code>ListUpdates</code> request where <code>maxResults</code> was used and the
+            results exceeded the value of that parameter. Pagination continues from the end of the
+            previous results that returned the <code>nextToken</code> value.
+  * `:service_account` (`t:string`) The name of the Kubernetes service account that the associations use.
   """
   @spec list_pod_identity_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_pod_identity_associations_response(), any()}
@@ -4952,7 +5068,7 @@ defmodule AWS.EKS do
   List the tags for an Amazon EKS resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the resource to list tags for.
 
   ## Optional parameters:
   """
@@ -4981,13 +5097,21 @@ defmodule AWS.EKS do
   Services account, in the specified Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the Amazon EKS cluster to list updates for.
 
   ## Optional parameters:
-   • :addon_name (t:String.t/0) (addonName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :nodegroup_name (t:String.t/0) (nodegroupName)
+  * `:addon_name` (`t:string`) The names of the installed add-ons that have available updates.
+  * `:max_results` (`t:integer`) The maximum number of results, returned in paginated output. You receive
+                <code>maxResults</code> in a single page, along with a <code>nextToken</code>
+            response element. You can see the remaining results of the initial request by sending
+            another request with the returned <code>nextToken</code> value. This value can be
+            between 1 and 100. If you don&#39;t use this parameter,
+            100 results and a <code>nextToken</code> value, if applicable, are
+            returned.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated request, where <code>maxResults</code> was used and
+            the results exceeded the value of that parameter. Pagination continues from the end of
+            the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return.
+  * `:nodegroup_name` (`t:string`) The name of the Amazon EKS managed node group to list updates for.
   """
   @spec list_updates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_updates_response(), any()}
@@ -5118,7 +5242,7 @@ defmodule AWS.EKS do
   propagate to the subnets and nodes associated with the cluster.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to add tags to.
 
   ## Optional parameters:
   """
@@ -5151,10 +5275,10 @@ defmodule AWS.EKS do
   Deletes specified tags from an Amazon EKS resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to delete tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.eks#TagKey]`) The keys of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5190,8 +5314,8 @@ defmodule AWS.EKS do
   Updates an access entry.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :principal_arn (t:string String.t/0) (principalArn)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:principal_arn` (`t:string`) The ARN of the IAM principal for the <code>AccessEntry</code>.
 
   ## Optional parameters:
   """
@@ -5232,8 +5356,10 @@ defmodule AWS.EKS do
   Updates an Amazon EKS add-on.
 
   ## Required positional parameters:
-   • :addon_name (t:string String.t/0) (addonName)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:addon_name` (`t:string`) The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+               <code>ListAddons</code>
+            </a>.
+  * `:cluster_name` (`t:string`) The name of your cluster.
 
   ## Optional parameters:
   """
@@ -5316,7 +5442,7 @@ defmodule AWS.EKS do
   `Successful`), the cluster status moves to `Active`.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the Amazon EKS cluster to update.
 
   ## Optional parameters:
   """
@@ -5372,7 +5498,7 @@ defmodule AWS.EKS do
   Kubernetes version.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (name)
+  * `:name` (`t:string`) The name of the Amazon EKS cluster to update.
 
   ## Optional parameters:
   """
@@ -5413,7 +5539,7 @@ defmodule AWS.EKS do
   subscription creation.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the subscription.
 
   ## Optional parameters:
   """
@@ -5458,8 +5584,8 @@ defmodule AWS.EKS do
   for a node group or the scaling configuration.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :nodegroup_name (t:string String.t/0) (nodegroupName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:nodegroup_name` (`t:string`) The name of the managed node group to update.
 
   ## Optional parameters:
   """
@@ -5541,8 +5667,8 @@ defmodule AWS.EKS do
   a result of a `Pod` disruption budget issue.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :nodegroup_name (t:string String.t/0) (nodegroupName)
+  * `:cluster_name` (`t:string`) The name of your cluster.
+  * `:nodegroup_name` (`t:string`) The name of the managed node group to update.
 
   ## Optional parameters:
   """
@@ -5595,8 +5721,8 @@ defmodule AWS.EKS do
   association with your desired settings.
 
   ## Required positional parameters:
-   • :association_id (t:string String.t/0) (associationId)
-   • :cluster_name (t:string String.t/0) (clusterName)
+  * `:association_id` (`t:string`) The ID of the association to be updated.
+  * `:cluster_name` (`t:string`) The name of the cluster that you want to update the association in.
 
   ## Optional parameters:
   """

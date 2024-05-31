@@ -304,12 +304,13 @@ defmodule AWS.IoTJobsDataPlane do
   Gets details of a job execution.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was created.
+  * `:thing_name` (`t:string`) The thing name associated with the device the job execution is running on.
 
   ## Optional parameters:
-   • :execution_number (t:String.t/0) (executionNumber)
-   • :include_job_document (t:String.t/0) (includeJobDocument)
+  * `:execution_number` (`t:long`) Optional. A number that identifies a particular job execution on a particular device. If not specified,
+         the latest job execution is returned.
+  * `:include_job_document` (`t:boolean`) Optional. When set to true, the response contains the job document. The default is false.
   """
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
@@ -353,7 +354,7 @@ defmodule AWS.IoTJobsDataPlane do
   Gets the list of all jobs for a thing that are not in a terminal status.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing that is executing the job.
 
   ## Optional parameters:
   """
@@ -382,7 +383,7 @@ defmodule AWS.IoTJobsDataPlane do
   for a thing.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:thing_name` (`t:string`) The name of the thing associated with the device.
 
   ## Optional parameters:
   """
@@ -410,8 +411,8 @@ defmodule AWS.IoTJobsDataPlane do
   Updates the status of a job execution.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :thing_name (t:string String.t/0) (thingName)
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was created.
+  * `:thing_name` (`t:string`) The name of the thing associated with the device.
 
   ## Optional parameters:
   """

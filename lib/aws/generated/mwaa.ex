@@ -632,7 +632,7 @@ defmodule AWS.MWAA do
   To learn more, see [Creating an Apache Airflow CLI token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -665,7 +665,7 @@ defmodule AWS.MWAA do
   Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -690,7 +690,7 @@ defmodule AWS.MWAA do
   To learn more, see [Creating an Apache Airflow web login token](https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -728,7 +728,7 @@ defmodule AWS.MWAA do
   Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -761,7 +761,7 @@ defmodule AWS.MWAA do
   Describes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -791,8 +791,8 @@ defmodule AWS.MWAA do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:`) The maximum number of results to retrieve per page. For example, <code>5</code> environments per page.
+  * `:next_token` (`t:string`) Retrieves the next page of the results.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
@@ -839,7 +839,7 @@ defmodule AWS.MWAA do
   For example, `"Environment": "Staging"`.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -870,7 +870,8 @@ defmodule AWS.MWAA do
   Publishes environment health metrics to Amazon CloudWatch.
 
   ## Required positional parameters:
-   • :environment_name (t:string String.t/0) (EnvironmentName)
+  * `:environment_name` (`t:string`) 
+            <b>Internal only</b>. The name of the environment.
 
   ## Optional parameters:
   """
@@ -904,7 +905,7 @@ defmodule AWS.MWAA do
   Airflow (MWAA) environment.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """
@@ -940,10 +941,10 @@ defmodule AWS.MWAA do
   For example, `"Environment": "Staging"`.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]`) The key-value tag pair you want to remove. For example, <code>&quot;Environment&quot;: &quot;Staging&quot;</code>. 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -979,7 +980,7 @@ defmodule AWS.MWAA do
   Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of your Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.
 
   ## Optional parameters:
   """

@@ -2744,7 +2744,7 @@ defmodule AWS.Elasticsearch do
   connection request.
 
   ## Required positional parameters:
-   • :cross_cluster_search_connection_id (t:string String.t/0) (CrossClusterSearchConnectionId)
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to accept.
 
   ## Optional parameters:
   """
@@ -2816,8 +2816,8 @@ defmodule AWS.Elasticsearch do
   Associates a package with an Amazon ES domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.
 
   ## Optional parameters:
   """
@@ -2859,7 +2859,7 @@ defmodule AWS.Elasticsearch do
   interface VPC endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to provide access to.
 
   ## Optional parameters:
   """
@@ -2899,7 +2899,7 @@ defmodule AWS.Elasticsearch do
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain configuration request to cancel.
 
   ## Optional parameters:
   """
@@ -3119,7 +3119,7 @@ defmodule AWS.Elasticsearch do
   Once a domain is deleted, it cannot be recovered.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3196,7 +3196,7 @@ defmodule AWS.Elasticsearch do
   search connection.
 
   ## Required positional parameters:
-   • :cross_cluster_search_connection_id (t:string String.t/0) (CrossClusterSearchConnectionId)
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3242,7 +3242,7 @@ defmodule AWS.Elasticsearch do
   search connection.
 
   ## Required positional parameters:
-   • :cross_cluster_search_connection_id (t:string String.t/0) (CrossClusterSearchConnectionId)
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the outbound connection that you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3287,7 +3287,7 @@ defmodule AWS.Elasticsearch do
   Delete the package.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) Internal ID of the package that you want to delete. Use <code>DescribePackages</code> to find this value.
 
   ## Optional parameters:
   """
@@ -3320,7 +3320,7 @@ defmodule AWS.Elasticsearch do
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
 
   ## Required positional parameters:
-   • :vpc_endpoint_id (t:string String.t/0) (VpcEndpointId)
+  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint to be deleted.
 
   ## Optional parameters:
   """
@@ -3359,7 +3359,7 @@ defmodule AWS.Elasticsearch do
   as Auto-Tune action type, description, severity, and scheduled date.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) Specifies the domain name for which you want Auto-Tune action details.
 
   ## Optional parameters:
   """
@@ -3389,10 +3389,12 @@ defmodule AWS.Elasticsearch do
   a change ID, status, and progress stages.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain you want to get the progress information about.
 
   ## Optional parameters:
-   • :change_id (t:String.t/0) (changeid)
+  * `:change_id` (`t:string`) The specific change ID for which you want to get progress information. This is an optional parameter.
+        If omitted, the service returns information about the most recent configuration change.
+      
   """
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
@@ -3428,7 +3430,7 @@ defmodule AWS.Elasticsearch do
   domain, including the domain ID, domain endpoint, and domain ARN.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain for which you want information.
 
   ## Optional parameters:
   """
@@ -3458,7 +3460,7 @@ defmodule AWS.Elasticsearch do
   cluster options.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The Elasticsearch domain that you want to get information about.
 
   ## Optional parameters:
   """
@@ -3534,11 +3536,31 @@ defmodule AWS.Elasticsearch do
   to know what Limits are supported for modifying.
 
   ## Required positional parameters:
-   • :elasticsearch_version (t:string String.t/0) (ElasticsearchVersion)
-   • :instance_type (t:enum String.t/0) (InstanceType)
+  * `:elasticsearch_version` (`t:string`) 
+      Version of Elasticsearch for which
+      <code>
+        <a>Limits</a>
+      </code>
+      are needed.
+    
+  * `:instance_type` (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`) 
+      The instance type for an Elasticsearch cluster for which Elasticsearch
+      <code>
+        <a>Limits</a>
+      </code>
+      are needed.
+    
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
+  * `:domain_name` (`t:string`) 
+      DomainName represents the name of the Domain that we are trying to
+      modify. This should be present only if we are
+      querying for Elasticsearch
+      <code>
+        <a>Limits</a>
+      </code>
+      for existing domain.
+    
   """
   @spec describe_elasticsearch_instance_type_limits(
           AWS.Client.t(),
@@ -3692,9 +3714,10 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reserved_elasticsearch_instance_offering_id (t:String.t/0) (offeringId)
+  * `:max_results` (`t:integer`) Set this value to limit the number of results returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
+  containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_offering_id` (`t:string`) The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
   """
   @spec describe_reserved_elasticsearch_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
@@ -3750,9 +3773,10 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reserved_elasticsearch_instance_id (t:String.t/0) (reservationId)
+  * `:max_results` (`t:integer`) Set this value to limit the number of results returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
+  containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_id` (`t:string`) The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.
   """
   @spec describe_reserved_elasticsearch_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
@@ -3838,8 +3862,8 @@ defmodule AWS.Elasticsearch do
   Dissociates a package from the Amazon ES domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.
 
   ## Optional parameters:
   """
@@ -3893,7 +3917,7 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
+  * `:domain_name` (`t:string`) 
   """
   @spec get_compatible_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
@@ -3929,11 +3953,11 @@ defmodule AWS.Elasticsearch do
   commit message.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) Returns an audit history of versions of the package.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Limits results to a maximum number of versions.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
   """
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
@@ -3978,11 +4002,11 @@ defmodule AWS.Elasticsearch do
   the domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
@@ -4027,7 +4051,7 @@ defmodule AWS.Elasticsearch do
   that was performed on the domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4058,7 +4082,7 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`)  Optional parameter to filter the output by domain engine type. Acceptable values are &#39;Elasticsearch&#39; and &#39;OpenSearch&#39;. 
   """
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
@@ -4093,11 +4117,11 @@ defmodule AWS.Elasticsearch do
   Lists all Amazon ES domains associated with the package.
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) The package for which to list domains.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Limits results to a maximum number of domains.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
   """
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
@@ -4142,12 +4166,21 @@ defmodule AWS.Elasticsearch do
   ElasticsearchVersion
 
   ## Required positional parameters:
-   • :elasticsearch_version (t:string String.t/0) (ElasticsearchVersion)
+  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which list of supported elasticsearch
+      instance types are needed.
+    
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are
+      querying for list of available Elasticsearch instance types when modifying existing domain.
+    
+  * `:max_results` (`t:integer`) 
+    Set this value to limit the number of results returned.
+    Value provided must be greater than 30 else it wont be honored.
+
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
+      containing NextToken. It is used for pagination.
+    
   """
   @spec list_elasticsearch_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
@@ -4202,8 +4235,11 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+      Set this value to limit the number of results returned.
+      Value provided must be greater than 10 else it wont be honored.
+    
+  * `:next_token` (`t:string`) 
   """
   @spec list_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
@@ -4247,11 +4283,11 @@ defmodule AWS.Elasticsearch do
   Lists all packages associated with the Amazon ES domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list associated packages.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Limits results to a maximum number of packages.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
   """
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
@@ -4297,7 +4333,7 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`)  Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -4334,10 +4370,10 @@ defmodule AWS.Elasticsearch do
   endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to retrieve access information for.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of paginated results.
   """
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
@@ -4375,7 +4411,7 @@ defmodule AWS.Elasticsearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) Identifier to allow retrieval of paginated results.
   """
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
@@ -4411,10 +4447,10 @@ defmodule AWS.Elasticsearch do
   particular domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) Name of the ElasticSearch domain whose VPC endpoints are to be listed.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of paginated results.
   """
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
@@ -4486,7 +4522,7 @@ defmodule AWS.Elasticsearch do
   connection request.
 
   ## Required positional parameters:
-   • :cross_cluster_search_connection_id (t:string String.t/0) (CrossClusterSearchConnectionId)
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to reject.
 
   ## Optional parameters:
   """
@@ -4555,7 +4591,7 @@ defmodule AWS.Elasticsearch do
   VPC endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
 
   ## Optional parameters:
   """
@@ -4630,7 +4666,7 @@ defmodule AWS.Elasticsearch do
   setting as setting the instance type and the number of instances.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you are updating. 
 
   ## Optional parameters:
   """

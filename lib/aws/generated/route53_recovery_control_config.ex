@@ -1120,7 +1120,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Delete a cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that you&#39;re deleting.
 
   ## Optional parameters:
   """
@@ -1153,7 +1153,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Deletes a control panel.
 
   ## Required positional parameters:
-   • :control_panel_arn (t:string String.t/0) (ControlPanelArn)
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
 
   ## Optional parameters:
   """
@@ -1191,7 +1191,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Deletes a routing control.
 
   ## Required positional parameters:
-   • :routing_control_arn (t:string String.t/0) (RoutingControlArn)
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control that you&#39;re deleting.
 
   ## Optional parameters:
   """
@@ -1231,7 +1231,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   />
 
   ## Required positional parameters:
-   • :safety_rule_arn (t:string String.t/0) (SafetyRuleArn)
+  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
 
   ## Optional parameters:
   """
@@ -1267,7 +1267,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Name (ARN).
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
   """
@@ -1295,7 +1295,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Displays details about a control panel.
 
   ## Required positional parameters:
-   • :control_panel_arn (t:string String.t/0) (ControlPanelArn)
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
 
   ## Optional parameters:
   """
@@ -1330,7 +1330,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   plane) API actions for Amazon Route 53 Application Recovery Controller.
 
   ## Required positional parameters:
-   • :routing_control_arn (t:string String.t/0) (RoutingControlArn)
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control.
 
   ## Optional parameters:
   """
@@ -1358,7 +1358,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Returns information about a safety rule.
 
   ## Required positional parameters:
-   • :safety_rule_arn (t:string String.t/0) (SafetyRuleArn)
+  * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
 
   ## Optional parameters:
   """
@@ -1386,7 +1386,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Get information about the resource policy for a cluster.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1415,11 +1415,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   routing control.
 
   ## Required positional parameters:
-   • :routing_control_arn (t:string String.t/0) (RoutingControlArn)
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_associated_route53_health_checks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
@@ -1470,8 +1470,8 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
@@ -1517,9 +1517,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cluster_arn (t:String.t/0) (ClusterArn)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of a cluster.
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_control_panels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_panels_response(), any()}
@@ -1577,11 +1577,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   to control routing.
 
   ## Required positional parameters:
-   • :control_panel_arn (t:string String.t/0) (ControlPanelArn)
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_routing_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
@@ -1626,11 +1626,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   for the routing controls in a control panel.
 
   ## Required positional parameters:
-   • :control_panel_arn (t:string String.t/0) (ControlPanelArn)
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_safety_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_safety_rules_response(), any()}
@@ -1674,7 +1674,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Lists the tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
 
   ## Optional parameters:
   """
@@ -1702,7 +1702,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   Adds a tag to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
 
   ## Optional parameters:
   """
@@ -1735,10 +1735,10 @@ defmodule AWS.Route53RecoveryControlConfig do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (TagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`) Keys for the tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

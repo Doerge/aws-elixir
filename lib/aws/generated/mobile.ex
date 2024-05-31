@@ -466,9 +466,16 @@ defmodule AWS.Mobile do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :name (t:String.t/0) (name)
-   • :region (t:String.t/0) (region)
-   • :snapshot_id (t:String.t/0) (snapshotId)
+  * `:name` (`t:string`) 
+            Name of the project.
+        
+  * `:region` (`t:string`) 
+            Default region where project resources should be created.
+        
+  * `:snapshot_id` (`t:string`) 
+            Unique identifier for an exported snapshot of project configuration. This
+            snapshot identifier is included in the share URL when a project is exported.
+        
   """
   @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
@@ -507,7 +514,9 @@ defmodule AWS.Mobile do
   Delets a project in AWS Mobile Hub.
 
   ## Required positional parameters:
-   • :project_id (t:string String.t/0) (projectId)
+  * `:project_id` (`t:string`) 
+            Unique project identifier.
+        
 
   ## Optional parameters:
   """
@@ -541,7 +550,9 @@ defmodule AWS.Mobile do
   Get the bundle details for the requested bundle id.
 
   ## Required positional parameters:
-   • :bundle_id (t:string String.t/0) (bundleId)
+  * `:bundle_id` (`t:string`) 
+            Unique bundle identifier.
+        
 
   ## Optional parameters:
   """
@@ -572,8 +583,12 @@ defmodule AWS.Mobile do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :project_id (t:String.t/0) (projectId)
-   • :sync_from_resources (t:String.t/0) (syncFromResources)
+  * `:project_id` (`t:string`) 
+            Unique project identifier.
+        
+  * `:sync_from_resources` (`t:boolean`) 
+            If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
+        
   """
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
@@ -619,11 +634,17 @@ defmodule AWS.Mobile do
   used to integrate mobile web or mobile app clients with backend AWS resources.
 
   ## Required positional parameters:
-   • :bundle_id (t:string String.t/0) (bundleId)
+  * `:bundle_id` (`t:string`) 
+            Unique bundle identifier.
+        
 
   ## Optional parameters:
-   • :platform (t:String.t/0) (platform)
-   • :project_id (t:String.t/0) (projectId)
+  * `:platform` (`t:enum["ANDROID|JAVASCRIPT|LINUX|OBJC|OSX|SWIFT|WINDOWS"]`) 
+            Developer desktop or target application platform.
+        
+  * `:project_id` (`t:string`) 
+            Unique project identifier.
+        
   """
   @spec export_bundle(AWS.Client.t(), String.t(), export_bundle_request(), Keyword.t()) ::
           {:ok, export_bundle_result(), any()}
@@ -665,7 +686,9 @@ defmodule AWS.Mobile do
   can only be shared successfully within the same AWS account.
 
   ## Required positional parameters:
-   • :project_id (t:string String.t/0) (projectId)
+  * `:project_id` (`t:string`) 
+            Unique project identifier.
+        
 
   ## Optional parameters:
   """
@@ -701,8 +724,14 @@ defmodule AWS.Mobile do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+            Maximum number of records to list in a single response.
+        
+  * `:next_token` (`t:string`) 
+            Pagination token. Set to null to start listing bundles from start.
+            If non-null pagination token is returned in a result, then pass its
+            value in here in another request to list more bundles.
+        
   """
   @spec list_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bundles_result(), any()}
@@ -749,8 +778,14 @@ defmodule AWS.Mobile do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+            Maximum number of records to list in a single response.
+        
+  * `:next_token` (`t:string`) 
+            Pagination token. Set to null to start listing projects from start.
+            If non-null pagination token is returned in a result, then pass its
+            value in here in another request to list more projects.
+        
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
@@ -797,7 +832,9 @@ defmodule AWS.Mobile do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :project_id (t:String.t/0) (projectId)
+  * `:project_id` (`t:string`) 
+            Unique project identifier.
+        
   """
   @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}

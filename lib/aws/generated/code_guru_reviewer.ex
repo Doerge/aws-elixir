@@ -1014,7 +1014,8 @@ defmodule AWS.CodeGuruReviewer do
   Returns the metadata associated with the code review along with its status.
 
   ## Required positional parameters:
-   • :code_review_arn (t:string String.t/0) (CodeReviewArn)
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
+      
 
   ## Optional parameters:
   """
@@ -1042,11 +1043,14 @@ defmodule AWS.CodeGuruReviewer do
   Describes the customer feedback for a CodeGuru Reviewer recommendation.
 
   ## Required positional parameters:
-   • :code_review_arn (t:string String.t/0) (CodeReviewArn)
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
+      
 
   ## Optional parameters:
-   • :recommendation_id (t:String.t/0) (RecommendationId)
-   • :user_id (t:String.t/0) (UserId)
+  * `:recommendation_id` (`t:string`) The recommendation ID that can be used to track the provided recommendations and then to
+         collect the feedback.
+  * `:user_id` (`t:string`) Optional parameter to describe the feedback for a given user. If this is not supplied,
+         it defaults to the user making the request.
   """
   @spec describe_recommendation_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recommendation_feedback_response(), any()}
@@ -1098,7 +1102,7 @@ defmodule AWS.CodeGuruReviewer do
   repository association.
 
   ## Required positional parameters:
-   • :association_arn (t:string String.t/0) (AssociationArn)
+  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.
 
   ## Optional parameters:
   """
@@ -1126,7 +1130,7 @@ defmodule AWS.CodeGuruReviewer do
   Removes the association between Amazon CodeGuru Reviewer and a repository.
 
   ## Required positional parameters:
-   • :association_arn (t:string String.t/0) (AssociationArn)
+  * `:association_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.
 
   ## Optional parameters:
   """
@@ -1166,12 +1170,19 @@ defmodule AWS.CodeGuruReviewer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :provider_types (t:String.t/0) (ProviderTypes)
-   • :repository_names (t:String.t/0) (RepositoryNames)
-   • :states (t:String.t/0) (States)
-   • :type (t:String.t/0) (Type)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. The default is 100.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments
+         unchanged.
+  * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List of provider types for filtering that needs to be applied before displaying the
+         result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from
+         GitHub.
+  * `:repository_names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of repository names for filtering that needs to be applied before displaying the
+         result.
+  * `:states` (`t:list[com.amazonaws.codegurureviewer#JobState]`) List of states for filtering that needs to be applied before displaying the result. For
+         example, <code>states=[Pending]</code> lists code reviews in the Pending state.
+  * `:type` (`t:enum["PULL_REQUEST|REPOSITORY_ANALYSIS"]`) The type of code reviews to list in the response.
   """
   @spec list_code_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_code_reviews_response(), any()}
@@ -1254,13 +1265,18 @@ defmodule AWS.CodeGuruReviewer do
   feedback for all CodeGuru Reviewer users.
 
   ## Required positional parameters:
-   • :code_review_arn (t:string String.t/0) (CodeReviewArn)
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
+      
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :recommendation_ids (t:String.t/0) (RecommendationIds)
-   • :user_ids (t:String.t/0) (UserIds)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. The default is 100.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments
+         unchanged.
+  * `:recommendation_ids` (`t:list[com.amazonaws.codegurureviewer#RecommendationId]`) Used to query the recommendation feedback for a given recommendation.
+  * `:user_ids` (`t:list[com.amazonaws.codegurureviewer#UserId]`) An Amazon Web Services user&#39;s account ID or Amazon Resource Name (ARN). Use this ID to query the
+         recommendation feedback for a code review from that user.
   """
   @spec list_recommendation_feedback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_feedback_response(), any()}
@@ -1322,11 +1338,12 @@ defmodule AWS.CodeGuruReviewer do
   Returns the list of all recommendations for a completed code review.
 
   ## Required positional parameters:
-   • :code_review_arn (t:string String.t/0) (CodeReviewArn)
+  * `:code_review_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
+      
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. The default is 100.
+  * `:next_token` (`t:string`) Pagination token.
   """
   @spec list_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
@@ -1380,12 +1397,25 @@ defmodule AWS.CodeGuruReviewer do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :names (t:String.t/0) (Name)
-   • :next_token (t:String.t/0) (NextToken)
-   • :owners (t:String.t/0) (Owner)
-   • :provider_types (t:String.t/0) (ProviderType)
-   • :states (t:String.t/0) (State)
+  * `:max_results` (`t:integer`) The maximum number of repository association results returned by
+            <code>ListRepositoryAssociations</code> in paginated output. When this parameter is
+         used, <code>ListRepositoryAssociations</code> only returns <code>maxResults</code> results
+         in a single page with a <code>nextToken</code> response element. The remaining results of
+         the initial request can be seen by sending another <code>ListRepositoryAssociations</code>
+         request with the returned <code>nextToken</code> value. This value can be between 1 and
+         100. If this parameter is not used, <code>ListRepositoryAssociations</code> returns up to
+         100 results and a <code>nextToken</code> value if applicable. 
+  * `:names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of repository names to use as a filter.
+  * `:next_token` (`t:string`) The <code>nextToken</code> value returned from a previous paginated
+            <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used
+         and the results exceeded the value of that parameter. Pagination continues from the end of
+         the previous results that returned the <code>nextToken</code> value. 
+  * `:owners` (`t:list[com.amazonaws.codegurureviewer#Owner]`) List of owners to use as a filter. For Amazon Web Services CodeCommit, it is the name of the
+         CodeCommit account that was used to associate the repository. For other repository source
+         providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account that
+         was used to associate the repository. 
+  * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List of provider types to use as a filter.
+  * `:states` (`t:list[com.amazonaws.codegurureviewer#RepositoryAssociationState]`) List of repository association states to use as a filter.
   """
   @spec list_repository_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repository_associations_response(), any()}
@@ -1465,7 +1495,7 @@ defmodule AWS.CodeGuruReviewer do
   Returns the list of tags associated with an associated repository resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.
 
   ## Optional parameters:
   """
@@ -1522,7 +1552,7 @@ defmodule AWS.CodeGuruReviewer do
   Adds one or more tags to an associated repository.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.
 
   ## Optional parameters:
   """
@@ -1555,10 +1585,10 @@ defmodule AWS.CodeGuruReviewer do
   Removes a tag from an associated repository.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.codegurureviewer#TagKey]`) A list of the keys for each tag you want to remove from an associated repository.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

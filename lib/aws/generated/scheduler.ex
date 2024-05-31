@@ -733,7 +733,7 @@ defmodule AWS.Scheduler do
   Creates the specified schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule that you are creating.
 
   ## Optional parameters:
   """
@@ -766,7 +766,7 @@ defmodule AWS.Scheduler do
   Creates the specified schedule group.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule group that you are creating.
 
   ## Optional parameters:
   """
@@ -804,11 +804,14 @@ defmodule AWS.Scheduler do
   Deletes the specified schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
-   • :group_name (t:String.t/0) (groupName)
+  * `:client_token` (`t:string`) 
+  Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
+  EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.  
+
+  * `:group_name` (`t:string`) The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.
   """
   @spec delete_schedule(AWS.Client.t(), String.t(), delete_schedule_input(), Keyword.t()) ::
           {:ok, delete_schedule_output(), any()}
@@ -855,10 +858,13 @@ defmodule AWS.Scheduler do
   This operation is eventually consistent.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule group to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) 
+  Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,
+  EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.  
+
   """
   @spec delete_schedule_group(
           AWS.Client.t(),
@@ -899,10 +905,10 @@ defmodule AWS.Scheduler do
   Retrieves the specified schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule to retrieve.
 
   ## Optional parameters:
-   • :group_name (t:String.t/0) (groupName)
+  * `:group_name` (`t:string`) The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.
   """
   @spec get_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schedule_output(), any()}
@@ -937,7 +943,7 @@ defmodule AWS.Scheduler do
   Retrieves the specified schedule group.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule group to retrieve.
 
   ## Optional parameters:
   """
@@ -967,9 +973,9 @@ defmodule AWS.Scheduler do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :name_prefix (t:String.t/0) (NamePrefix)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.
+  * `:name_prefix` (`t:string`) The name prefix that you can use to return a filtered list of your schedule groups.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_schedule_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedule_groups_output(), any()}
@@ -1024,11 +1030,11 @@ defmodule AWS.Scheduler do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :group_name (t:String.t/0) (ScheduleGroup)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :name_prefix (t:String.t/0) (NamePrefix)
-   • :next_token (t:String.t/0) (NextToken)
-   • :state (t:String.t/0) (State)
+  * `:group_name` (`t:string`) If specified, only lists the schedules whose associated schedule group matches the given filter.
+  * `:max_results` (`t:integer`) If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.
+  * `:name_prefix` (`t:string`) Schedule name prefix to return the filtered list of resources.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:state` (`t:string`) If specified, only lists the schedules whose current state matches the given filter.
   """
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_output(), any()}
@@ -1099,7 +1105,7 @@ defmodule AWS.Scheduler do
   Lists the tags associated with the Scheduler resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the EventBridge Scheduler resource for which you want to view tags.
 
   ## Optional parameters:
   """
@@ -1130,7 +1136,7 @@ defmodule AWS.Scheduler do
   You can only assign tags to schedule groups.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule group that you are adding tags to.
 
   ## Optional parameters:
   """
@@ -1164,10 +1170,10 @@ defmodule AWS.Scheduler do
   group.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the schedule group from which you are removing tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (TagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.scheduler#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1214,7 +1220,7 @@ defmodule AWS.Scheduler do
   for your `UpdateSchedule` call.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule that you are updating.
 
   ## Optional parameters:
   """

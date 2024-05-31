@@ -829,10 +829,15 @@ defmodule AWS.WorkSpacesThinClient do
   Deletes a thin client device.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the device to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+         of the request. This lets you safely retry the request without accidentally performing the
+         same operation a second time. Passing the same value to a later call to an operation
+         requires that you also pass the same value for all other parameters. We recommend that you
+         use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
+            value</a>.
   """
   @spec delete_device(AWS.Client.t(), String.t(), delete_device_request(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
@@ -868,10 +873,15 @@ defmodule AWS.WorkSpacesThinClient do
   Deletes an environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the environment to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
+         of the request. This lets you safely retry the request without accidentally performing the
+         same operation a second time. Passing the same value to a later call to an operation
+         requires that you also pass the same value for all other parameters. We recommend that you
+         use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
+            value</a>.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
@@ -907,7 +917,7 @@ defmodule AWS.WorkSpacesThinClient do
   Deregisters a thin client device.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the device to deregister.
 
   ## Optional parameters:
   """
@@ -940,7 +950,7 @@ defmodule AWS.WorkSpacesThinClient do
   Returns information for a thin client device.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the device for which to return information.
 
   ## Optional parameters:
   """
@@ -968,7 +978,7 @@ defmodule AWS.WorkSpacesThinClient do
   Returns information for an environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the environment for which to return information.
 
   ## Optional parameters:
   """
@@ -996,7 +1006,7 @@ defmodule AWS.WorkSpacesThinClient do
   Returns information for a software set.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the software set for which to return information.
 
   ## Optional parameters:
   """
@@ -1026,8 +1036,13 @@ defmodule AWS.WorkSpacesThinClient do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+                <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -1073,8 +1088,13 @@ defmodule AWS.WorkSpacesThinClient do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+                <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -1120,8 +1140,13 @@ defmodule AWS.WorkSpacesThinClient do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
+                <code>nextToken</code> to obtain further pages of results.
+  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
+            <code>nextToken</code> is a unique pagination token for each page. Make the call again
+         using the returned token to retrieve the next page. Keep all other arguments unchanged.
+         Each pagination token expires after 24 hours. Using an expired pagination token will return
+         an <i>HTTP 400 InvalidToken error</i>.
   """
   @spec list_software_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_software_sets_response(), any()}
@@ -1165,7 +1190,8 @@ defmodule AWS.WorkSpacesThinClient do
   Returns a list of tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource for which you want to retrieve
+            tags.
 
   ## Optional parameters:
   """
@@ -1193,7 +1219,7 @@ defmodule AWS.WorkSpacesThinClient do
   Assigns one or more tags (key-value pairs) to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you want to tag.
 
   ## Optional parameters:
   """
@@ -1226,10 +1252,11 @@ defmodule AWS.WorkSpacesThinClient do
   Removes a tag or tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the key-value pairs for the tag or tags you want to remove from the
+            specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1265,7 +1292,7 @@ defmodule AWS.WorkSpacesThinClient do
   Updates a thin client device.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the device to update.
 
   ## Optional parameters:
   """
@@ -1298,7 +1325,7 @@ defmodule AWS.WorkSpacesThinClient do
   Updates an environment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the environment to update.
 
   ## Optional parameters:
   """
@@ -1331,7 +1358,7 @@ defmodule AWS.WorkSpacesThinClient do
   Updates a software set.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the software set to update.
 
   ## Optional parameters:
   """

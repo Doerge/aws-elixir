@@ -2207,10 +2207,10 @@ defmodule AWS.ChimeSDKMessaging do
   that makes the API call as the value in the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
   """
   @spec associate_channel_flow(
           AWS.Client.t(),
@@ -2242,10 +2242,11 @@ defmodule AWS.ChimeSDKMessaging do
   Adds a specified number of users and bots to a channel.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you&#39;re adding users or bots.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec batch_create_channel_membership(
           AWS.Client.t(),
@@ -2300,7 +2301,7 @@ defmodule AWS.ChimeSDKMessaging do
   Make no changes to the message
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
   """
@@ -2348,7 +2349,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
   """
   @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -2399,10 +2400,10 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the ban request.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
   """
   @spec create_channel_ban(AWS.Client.t(), String.t(), create_channel_ban_request(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
@@ -2526,10 +2527,11 @@ defmodule AWS.ChimeSDKMessaging do
   as the value in the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you&#39;re adding users.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec create_channel_membership(
           AWS.Client.t(),
@@ -2593,10 +2595,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec create_channel_moderator(
           AWS.Client.t(),
@@ -2646,10 +2649,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel being deleted.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2691,11 +2695,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the <code>AppInstanceUser</code> was banned.
+  * `:member_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code> that you want to reinstate.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec delete_channel_ban(
           AWS.Client.t(),
@@ -2746,7 +2751,7 @@ defmodule AWS.ChimeSDKMessaging do
   API to disassociate a channel flow from all channels.
 
   ## Required positional parameters:
-   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+  * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
   """
@@ -2788,12 +2793,13 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel from which you want to remove the user.
+  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member that you&#39;re removing from the channel.
 
   ## Optional parameters:
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec delete_channel_membership(
           AWS.Client.t(),
@@ -2850,12 +2856,13 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID of the message being deleted.
 
   ## Optional parameters:
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec delete_channel_message(
           AWS.Client.t(),
@@ -2908,11 +2915,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :channel_moderator_arn (t:string String.t/0) (ChannelModeratorArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the moderator being deleted.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec delete_channel_moderator(
           AWS.Client.t(),
@@ -2966,7 +2974,7 @@ defmodule AWS.ChimeSDKMessaging do
   the *Amazon Chime SDK Developer Guide*.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being deleted.
 
   ## Optional parameters:
   """
@@ -3015,10 +3023,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -3059,11 +3068,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the user is banned.
+  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member being banned.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
@@ -3108,7 +3118,7 @@ defmodule AWS.ChimeSDKMessaging do
   This is a developer API.
 
   ## Required positional parameters:
-   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+  * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
   """
@@ -3141,12 +3151,13 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member.
 
   ## Optional parameters:
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
+         API call.
   """
   @spec describe_channel_membership(
           AWS.Client.t(),
@@ -3210,11 +3221,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel to which the user belongs.
 
   ## Optional parameters:
-   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in a channel.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
@@ -3277,11 +3289,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the moderated channel.
 
   ## Optional parameters:
-   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the moderated channel.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
@@ -3343,11 +3356,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :channel_moderator_arn (t:string String.t/0) (ChannelModeratorArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:channel_moderator_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the channel moderator.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec describe_channel_moderator(
           AWS.Client.t(),
@@ -3406,11 +3420,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
   """
   @spec disassociate_channel_flow(
           AWS.Client.t(),
@@ -3473,11 +3487,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member retrieving the preferences.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
   """
   @spec get_channel_membership_preferences(
           AWS.Client.t(),
@@ -3531,12 +3545,13 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID of the message.
 
   ## Optional parameters:
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
@@ -3626,12 +3641,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:channel_arn` (`t:string`) The ARN of the channel
+  * `:message_id` (`t:string`) The ID of the message.
 
   ## Optional parameters:
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
   """
   @spec get_channel_message_status(
           AWS.Client.t(),
@@ -3720,7 +3735,7 @@ defmodule AWS.ChimeSDKMessaging do
   the *Amazon Chime SDK Developer Guide*.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations.
 
   ## Optional parameters:
   """
@@ -3753,12 +3768,13 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of bans that you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested bans are returned.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channel_bans(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
@@ -3816,9 +3832,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_arn (t:String.t/0) (app-instance-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:app_instance_arn` (`t:string`) The ARN of the app instance.
+  * `:max_results` (`t:integer`) The maximum number of channel flows that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channel flows are returned.
   """
   @spec list_channel_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_flows_response(), any()}
@@ -3881,14 +3897,19 @@ defmodule AWS.ChimeSDKMessaging do
   API.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The maximum number of channel memberships that you want returned.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :type (t:String.t/0) (type)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of channel memberships that you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channel memberships are
+         returned.
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
+         members are returned as part of <code>ListChannelMemberships</code> if no type is specified. Hidden members
+         are only returned if the type filter in <code>ListChannelMemberships</code> equals
+            <code>HIDDEN</code>.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channel_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
@@ -3970,10 +3991,12 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot.
+  * `:max_results` (`t:integer`) The maximum number of users that you want returned.
+  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channel memberships is
+         reached.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
@@ -4055,16 +4078,18 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :not_after (t:String.t/0) (not-after)
-   • :not_before (t:String.t/0) (not-before)
-   • :sort_order (t:String.t/0) (sort-order)
-   • :sub_channel_id (t:String.t/0) (sub-channel-id)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of messages that you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested messages are returned.
+  * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested messages.
+  * `:not_before` (`t:timestamp`) The initial or starting time stamp for your requested messages.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want messages sorted. Default is Descending, based on time
+         created.
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channel_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
@@ -4159,12 +4184,14 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of moderators that you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested moderators are
+         returned.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channel_moderators(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
@@ -4238,11 +4265,14 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_arn (t:String.t/0) (app-instance-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :privacy (t:String.t/0) (privacy)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channels are returned.
+  * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. <code>PUBLIC</code> retrieves all the public channels.
+            <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
+         can retrieve private channels. 
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -4319,9 +4349,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :channel_flow_arn (t:String.t/0) (channel-flow-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channels are returned.
   """
   @spec list_channels_associated_with_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_associated_with_channel_flow_response(), any()}
@@ -4385,10 +4415,12 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app_instance_user_arn (t:String.t/0) (app-instance-user-arn)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the moderated channel.
+  * `:max_results` (`t:integer`) The maximum number of channels in the request.
+  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channels moderated by
+         the user is reached.
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
@@ -4458,12 +4490,12 @@ defmodule AWS.ChimeSDKMessaging do
   channels.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of elastic channel.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of sub-channels that you want to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all requested sub-channels are returned.
+  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
   """
   @spec list_sub_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sub_channels_response(), any()}
@@ -4519,7 +4551,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (arn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4569,10 +4601,10 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
   """
   @spec put_channel_expiration_settings(
           AWS.Client.t(),
@@ -4618,11 +4650,11 @@ defmodule AWS.ChimeSDKMessaging do
   header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :member_arn (t:string String.t/0) (MemberArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:member_arn` (`t:string`) The ARN of the member setting the preferences.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
   """
   @spec put_channel_membership_preferences(
           AWS.Client.t(),
@@ -4666,7 +4698,7 @@ defmodule AWS.ChimeSDKMessaging do
   the *Amazon Chime SDK Developer Guide*.
 
   ## Required positional parameters:
-   • :app_instance_arn (t:string String.t/0) (AppInstanceArn)
+  * `:app_instance_arn` (`t:string`) The ARN of the streaming configuration.
 
   ## Optional parameters:
   """
@@ -4707,11 +4739,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:channel_arn` (`t:string`) The ARN of the channel containing the messages that you want to redact.
+  * `:message_id` (`t:string`) The ID of the message being redacted.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec redact_channel_message(
           AWS.Client.t(),
@@ -4767,9 +4800,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:max_results` (`t:integer`) The maximum number of channels that you want returned.
+  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channels is reached.
+  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
   """
   @spec search_channels(AWS.Client.t(), search_channels_request(), Keyword.t()) ::
           {:ok, search_channels_response(), any()}
@@ -4823,10 +4856,11 @@ defmodule AWS.ChimeSDKMessaging do
   `CONTROL` messages are limited to 30 bytes and do not contain metadata.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec send_channel_message(
           AWS.Client.t(),
@@ -4940,10 +4974,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -4972,7 +5007,7 @@ defmodule AWS.ChimeSDKMessaging do
   This is a developer API.
 
   ## Required positional parameters:
-   • :channel_flow_arn (t:string String.t/0) (ChannelFlowArn)
+  * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
   """
@@ -5005,11 +5040,12 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
+  * `:message_id` (`t:string`) The ID string of the message being updated.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec update_channel_message(
           AWS.Client.t(),
@@ -5048,10 +5084,11 @@ defmodule AWS.ChimeSDKMessaging do
   the header.
 
   ## Required positional parameters:
-   • :channel_arn (t:string String.t/0) (ChannelArn)
+  * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-   • :chime_bearer (t:String.t/0) (x-amz-chime-bearer)
+  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.
   """
   @spec update_channel_read_marker(
           AWS.Client.t(),

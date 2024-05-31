@@ -2991,7 +2991,7 @@ defmodule AWS.Greengrass do
   against the cloud.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3055,7 +3055,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_connector_definition(
           AWS.Client.t(),
@@ -3096,10 +3096,10 @@ defmodule AWS.Greengrass do
   Creates a version of a connector definition which has already been defined.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
+  * `:connector_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_connector_definition_version(
           AWS.Client.t(),
@@ -3153,7 +3153,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_core_definition(AWS.Client.t(), create_core_definition_request(), Keyword.t()) ::
           {:ok, create_core_definition_response(), any()}
@@ -3192,10 +3192,10 @@ defmodule AWS.Greengrass do
   Greengrass groups must each contain exactly one Greengrass core.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
+  * `:core_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_core_definition_version(
           AWS.Client.t(),
@@ -3240,10 +3240,10 @@ defmodule AWS.Greengrass do
   ''X-Amzn-Client-Token'' token and the request parameters.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
@@ -3285,7 +3285,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_device_definition(AWS.Client.t(), create_device_definition_request(), Keyword.t()) ::
           {:ok, create_device_definition_response(), any()}
@@ -3322,10 +3322,10 @@ defmodule AWS.Greengrass do
   Creates a version of a device definition that has already been defined.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
+  * `:device_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_device_definition_version(
           AWS.Client.t(),
@@ -3380,7 +3380,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_function_definition(
           AWS.Client.t(),
@@ -3421,10 +3421,10 @@ defmodule AWS.Greengrass do
   Creates a version of a Lambda function definition that has already been defined.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
+  * `:function_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_function_definition_version(
           AWS.Client.t(),
@@ -3479,7 +3479,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
@@ -3518,10 +3518,10 @@ defmodule AWS.Greengrass do
   If a CA already exists, it will rotate the existing CA.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_group_certificate_authority(
           AWS.Client.t(),
@@ -3563,10 +3563,10 @@ defmodule AWS.Greengrass do
   Creates a version of a group which has already been defined.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_group_version(
           AWS.Client.t(),
@@ -3613,7 +3613,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_logger_definition(AWS.Client.t(), create_logger_definition_request(), Keyword.t()) ::
           {:ok, create_logger_definition_response(), any()}
@@ -3650,10 +3650,10 @@ defmodule AWS.Greengrass do
   Creates a version of a logger definition that has already been defined.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
+  * `:logger_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_logger_definition_version(
           AWS.Client.t(),
@@ -3707,7 +3707,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_resource_definition(
           AWS.Client.t(),
@@ -3748,10 +3748,10 @@ defmodule AWS.Greengrass do
   Creates a version of a resource definition that has already been defined.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
+  * `:resource_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_resource_definition_version(
           AWS.Client.t(),
@@ -3806,7 +3806,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_software_update_job(
           AWS.Client.t(),
@@ -3852,7 +3852,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_subscription_definition(
           AWS.Client.t(),
@@ -3893,10 +3893,10 @@ defmodule AWS.Greengrass do
   Creates a version of a subscription definition which has already been defined.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
+  * `:subscription_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec create_subscription_definition_version(
           AWS.Client.t(),
@@ -3944,7 +3944,7 @@ defmodule AWS.Greengrass do
   Deletes a connector definition.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
+  * `:connector_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3987,7 +3987,7 @@ defmodule AWS.Greengrass do
   Deletes a core definition.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
+  * `:core_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4025,7 +4025,7 @@ defmodule AWS.Greengrass do
   Deletes a device definition.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
+  * `:device_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4063,7 +4063,7 @@ defmodule AWS.Greengrass do
   Deletes a Lambda function definition.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
+  * `:function_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4101,7 +4101,7 @@ defmodule AWS.Greengrass do
   Deletes a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4134,7 +4134,7 @@ defmodule AWS.Greengrass do
   Deletes a logger definition.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
+  * `:logger_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4172,7 +4172,7 @@ defmodule AWS.Greengrass do
   Deletes a resource definition.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
+  * `:resource_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4210,7 +4210,7 @@ defmodule AWS.Greengrass do
   Deletes a subscription definition.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
+  * `:subscription_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4255,7 +4255,7 @@ defmodule AWS.Greengrass do
   Disassociates the role from a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4331,7 +4331,7 @@ defmodule AWS.Greengrass do
   Retrieves the role associated with a particular group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4359,7 +4359,7 @@ defmodule AWS.Greengrass do
   Returns the status of a bulk deployment.
 
   ## Required positional parameters:
-   • :bulk_deployment_id (t:string String.t/0) (BulkDeploymentId)
+  * `:bulk_deployment_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4387,7 +4387,7 @@ defmodule AWS.Greengrass do
   Retrieves the connectivity information for a core.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (ThingName)
+  * `:thing_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4415,7 +4415,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a connector definition.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
+  * `:connector_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4447,11 +4447,11 @@ defmodule AWS.Greengrass do
   protocols, AWS, and other cloud services.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
-   • :connector_definition_version_id (t:string String.t/0) (ConnectorDefinitionVersionId)
+  * `:connector_definition_id` (`t:string`) 
+  * `:connector_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) 
   """
   @spec get_connector_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_version_response(), any()}
@@ -4492,7 +4492,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a core definition version.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
+  * `:core_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4520,8 +4520,8 @@ defmodule AWS.Greengrass do
   Retrieves information about a core definition version.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
-   • :core_definition_version_id (t:string String.t/0) (CoreDefinitionVersionId)
+  * `:core_definition_id` (`t:string`) 
+  * `:core_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4555,8 +4555,8 @@ defmodule AWS.Greengrass do
   Returns the status of a deployment.
 
   ## Required positional parameters:
-   • :deployment_id (t:string String.t/0) (DeploymentId)
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:deployment_id` (`t:string`) 
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4585,7 +4585,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a device definition.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
+  * `:device_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4613,11 +4613,11 @@ defmodule AWS.Greengrass do
   Retrieves information about a device definition version.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
-   • :device_definition_version_id (t:string String.t/0) (DeviceDefinitionVersionId)
+  * `:device_definition_id` (`t:string`) 
+  * `:device_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) 
   """
   @spec get_device_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_version_response(), any()}
@@ -4659,7 +4659,7 @@ defmodule AWS.Greengrass do
   time and latest version.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
+  * `:function_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4688,11 +4688,11 @@ defmodule AWS.Greengrass do
   which Lambda functions are included in the version and their configurations.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
-   • :function_definition_version_id (t:string String.t/0) (FunctionDefinitionVersionId)
+  * `:function_definition_id` (`t:string`) 
+  * `:function_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) 
   """
   @spec get_function_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_version_response(), any()}
@@ -4733,7 +4733,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4763,8 +4763,8 @@ defmodule AWS.Greengrass do
   Returns the public key of the CA.
 
   ## Required positional parameters:
-   • :certificate_authority_id (t:string String.t/0) (CertificateAuthorityId)
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:certificate_authority_id` (`t:string`) 
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4798,7 +4798,7 @@ defmodule AWS.Greengrass do
   Retrieves the current configuration for the CA used by the group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4827,8 +4827,8 @@ defmodule AWS.Greengrass do
   Retrieves information about a group version.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
-   • :group_version_id (t:string String.t/0) (GroupVersionId)
+  * `:group_id` (`t:string`) 
+  * `:group_version_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4857,7 +4857,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a logger definition.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
+  * `:logger_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4885,11 +4885,11 @@ defmodule AWS.Greengrass do
   Retrieves information about a logger definition version.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
-   • :logger_definition_version_id (t:string String.t/0) (LoggerDefinitionVersionId)
+  * `:logger_definition_id` (`t:string`) 
+  * `:logger_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) 
   """
   @spec get_logger_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_version_response(), any()}
@@ -4931,7 +4931,7 @@ defmodule AWS.Greengrass do
   and latest version.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
+  * `:resource_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -4960,8 +4960,8 @@ defmodule AWS.Greengrass do
   resources are included in the version.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
-   • :resource_definition_version_id (t:string String.t/0) (ResourceDefinitionVersionId)
+  * `:resource_definition_id` (`t:string`) 
+  * `:resource_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -5022,7 +5022,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a subscription definition.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
+  * `:subscription_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -5051,11 +5051,11 @@ defmodule AWS.Greengrass do
   Retrieves information about a subscription definition version.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
-   • :subscription_definition_version_id (t:string String.t/0) (SubscriptionDefinitionVersionId)
+  * `:subscription_definition_id` (`t:string`) 
+  * `:subscription_definition_version_id` (`t:string`) 
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
+  * `:next_token` (`t:string`) 
   """
   @spec get_subscription_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_version_response(), any()}
@@ -5096,7 +5096,7 @@ defmodule AWS.Greengrass do
   Get the runtime configuration of a thing.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (ThingName)
+  * `:thing_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -5125,11 +5125,11 @@ defmodule AWS.Greengrass do
   deployment operation, and their current deployment status.
 
   ## Required positional parameters:
-   • :bulk_deployment_id (t:string String.t/0) (BulkDeploymentId)
+  * `:bulk_deployment_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_bulk_deployment_detailed_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
@@ -5176,8 +5176,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_bulk_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_deployments_response(), any()}
@@ -5225,11 +5225,11 @@ defmodule AWS.Greengrass do
   local infrastructure, device protocols, AWS, and other cloud services.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
+  * `:connector_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_connector_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_connector_definition_versions_response(), any()}
@@ -5280,8 +5280,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_connector_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_definitions_response(), any()}
@@ -5324,11 +5324,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a core definition.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
+  * `:core_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_core_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_definition_versions_response(), any()}
@@ -5374,8 +5374,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_core_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_definitions_response(), any()}
@@ -5418,11 +5418,11 @@ defmodule AWS.Greengrass do
   Returns a history of deployments for the group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -5466,11 +5466,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a device definition.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
+  * `:device_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_device_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_definition_versions_response(), any()}
@@ -5517,8 +5517,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_device_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_definitions_response(), any()}
@@ -5561,11 +5561,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a Lambda function definition.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
+  * `:function_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_function_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_definition_versions_response(), any()}
@@ -5612,8 +5612,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_function_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_function_definitions_response(), any()}
@@ -5656,7 +5656,7 @@ defmodule AWS.Greengrass do
   Retrieves the current CAs for a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -5684,11 +5684,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_group_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_versions_response(), any()}
@@ -5734,8 +5734,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -5778,11 +5778,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a logger definition.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
+  * `:logger_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_logger_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_logger_definition_versions_response(), any()}
@@ -5829,8 +5829,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_logger_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logger_definitions_response(), any()}
@@ -5873,11 +5873,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a resource definition.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
+  * `:resource_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_resource_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_definition_versions_response(), any()}
@@ -5924,8 +5924,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_resource_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_definitions_response(), any()}
@@ -5968,11 +5968,11 @@ defmodule AWS.Greengrass do
   Lists the versions of a subscription definition.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
+  * `:subscription_definition_id` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_subscription_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_definition_versions_response(), any()}
@@ -6023,8 +6023,8 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:string`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_subscription_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscription_definitions_response(), any()}
@@ -6067,7 +6067,7 @@ defmodule AWS.Greengrass do
   Retrieves a list of resource tags for a resource arn.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6095,10 +6095,10 @@ defmodule AWS.Greengrass do
   Resets a group's deployments.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec reset_deployments(AWS.Client.t(), String.t(), reset_deployments_request(), Keyword.t()) ::
           {:ok, reset_deployments_response(), any()}
@@ -6143,7 +6143,7 @@ defmodule AWS.Greengrass do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :amzn_client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:amzn_client_token` (`t:string`) 
   """
   @spec start_bulk_deployment(AWS.Client.t(), start_bulk_deployment_request(), Keyword.t()) ::
           {:ok, start_bulk_deployment_response(), any()}
@@ -6185,7 +6185,7 @@ defmodule AWS.Greengrass do
   pending deployments.
 
   ## Required positional parameters:
-   • :bulk_deployment_id (t:string String.t/0) (BulkDeploymentId)
+  * `:bulk_deployment_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6217,7 +6217,7 @@ defmodule AWS.Greengrass do
   'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6250,10 +6250,10 @@ defmodule AWS.Greengrass do
   Remove resource tags from a Greengrass Resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]`) 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6292,7 +6292,7 @@ defmodule AWS.Greengrass do
   information in order to find the location of the core and connect to it.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (ThingName)
+  * `:thing_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6320,7 +6320,7 @@ defmodule AWS.Greengrass do
   Updates a connector definition.
 
   ## Required positional parameters:
-   • :connector_definition_id (t:string String.t/0) (ConnectorDefinitionId)
+  * `:connector_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6353,7 +6353,7 @@ defmodule AWS.Greengrass do
   Updates a core definition.
 
   ## Required positional parameters:
-   • :core_definition_id (t:string String.t/0) (CoreDefinitionId)
+  * `:core_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6381,7 +6381,7 @@ defmodule AWS.Greengrass do
   Updates a device definition.
 
   ## Required positional parameters:
-   • :device_definition_id (t:string String.t/0) (DeviceDefinitionId)
+  * `:device_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6409,7 +6409,7 @@ defmodule AWS.Greengrass do
   Updates a Lambda function definition.
 
   ## Required positional parameters:
-   • :function_definition_id (t:string String.t/0) (FunctionDefinitionId)
+  * `:function_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6437,7 +6437,7 @@ defmodule AWS.Greengrass do
   Updates a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6460,7 +6460,7 @@ defmodule AWS.Greengrass do
   Updates the Certificate expiry time for a group.
 
   ## Required positional parameters:
-   • :group_id (t:string String.t/0) (GroupId)
+  * `:group_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6490,7 +6490,7 @@ defmodule AWS.Greengrass do
   Updates a logger definition.
 
   ## Required positional parameters:
-   • :logger_definition_id (t:string String.t/0) (LoggerDefinitionId)
+  * `:logger_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6518,7 +6518,7 @@ defmodule AWS.Greengrass do
   Updates a resource definition.
 
   ## Required positional parameters:
-   • :resource_definition_id (t:string String.t/0) (ResourceDefinitionId)
+  * `:resource_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6546,7 +6546,7 @@ defmodule AWS.Greengrass do
   Updates a subscription definition.
 
   ## Required positional parameters:
-   • :subscription_definition_id (t:string String.t/0) (SubscriptionDefinitionId)
+  * `:subscription_definition_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -6581,7 +6581,7 @@ defmodule AWS.Greengrass do
   Updates the runtime configuration of a thing.
 
   ## Required positional parameters:
-   • :thing_name (t:string String.t/0) (ThingName)
+  * `:thing_name` (`t:string`) 
 
   ## Optional parameters:
   """

@@ -1137,7 +1137,7 @@ defmodule AWS.ElasticTranscoder do
   `UpdatePipelineStatus` to temporarily pause the pipeline.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the job that you want to cancel.
 
   ## Optional parameters:
   """
@@ -1301,7 +1301,7 @@ defmodule AWS.ElasticTranscoder do
   `DeletePipeline` returns an error.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the pipeline that you want to delete.
 
   ## Optional parameters:
   """
@@ -1336,7 +1336,7 @@ defmodule AWS.ElasticTranscoder do
   You can't delete the default presets that are included with Elastic Transcoder.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the preset for which you want to get detailed information.
 
   ## Optional parameters:
   """
@@ -1374,11 +1374,14 @@ defmodule AWS.ElasticTranscoder do
   one element for each job that satisfies the search criteria.
 
   ## Required positional parameters:
-   • :pipeline_id (t:string String.t/0) (PipelineId)
+  * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get job information.
 
   ## Optional parameters:
-   • :ascending (t:String.t/0) (Ascending)
-   • :page_token (t:String.t/0) (PageToken)
+  * `:ascending` (`t:string`)  To list jobs in chronological order by the date and time that they were submitted, enter
+                <code>true</code>. To list jobs in reverse chronological order, enter
+                <code>false</code>. 
+  * `:page_token` (`t:string`)  When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
+            subsequent <code>GET</code> requests to get each successive page of results. 
   """
   @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
@@ -1425,11 +1428,17 @@ defmodule AWS.ElasticTranscoder do
   body contains one element for each job that satisfies the search criteria.
 
   ## Required positional parameters:
-   • :status (t:string String.t/0) (Status)
+  * `:status` (`t:string`) To get information about all of the jobs associated with the current AWS account that
+            have a given status, specify the following status: <code>Submitted</code>,
+                <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or
+                <code>Error</code>.
 
   ## Optional parameters:
-   • :ascending (t:String.t/0) (Ascending)
-   • :page_token (t:String.t/0) (PageToken)
+  * `:ascending` (`t:string`)  To list jobs in chronological order by the date and time that they were submitted, enter
+                <code>true</code>. To list jobs in reverse chronological order, enter
+                <code>false</code>. 
+  * `:page_token` (`t:string`)  When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
+            subsequent <code>GET</code> requests to get each successive page of results. 
   """
   @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
@@ -1476,8 +1485,11 @@ defmodule AWS.ElasticTranscoder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending (t:String.t/0) (Ascending)
-   • :page_token (t:String.t/0) (PageToken)
+  * `:ascending` (`t:string`) To list pipelines in chronological order by the date and time that they were created, enter
+            <code>true</code>. To list pipelines in reverse chronological order, enter
+            <code>false</code>.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
+            subsequent <code>GET</code> requests to get each successive page of results. 
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1525,8 +1537,11 @@ defmodule AWS.ElasticTranscoder do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :ascending (t:String.t/0) (Ascending)
-   • :page_token (t:String.t/0) (PageToken)
+  * `:ascending` (`t:string`) To list presets in chronological order by the date and time that they were created, enter
+            <code>true</code>. To list presets in reverse chronological order, enter
+            <code>false</code>.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
+            subsequent <code>GET</code> requests to get each successive page of results. 
   """
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
@@ -1570,7 +1585,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadJob operation returns detailed information about a job.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the job for which you want to get detailed information.
 
   ## Optional parameters:
   """
@@ -1598,7 +1613,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadPipeline operation gets detailed information about a pipeline.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the pipeline to read.
 
   ## Optional parameters:
   """
@@ -1626,7 +1641,7 @@ defmodule AWS.ElasticTranscoder do
   The ReadPreset operation gets detailed information about a preset.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the preset for which you want to get detailed information.
 
   ## Optional parameters:
   """
@@ -1700,7 +1715,7 @@ defmodule AWS.ElasticTranscoder do
   affected in addition to jobs that you submit after you change settings.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the pipeline that you want to update.
 
   ## Optional parameters:
   """
@@ -1727,7 +1742,7 @@ defmodule AWS.ElasticTranscoder do
   values that you specified in the request.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the pipeline for which you want to change notification settings.
 
   ## Optional parameters:
   """
@@ -1775,7 +1790,7 @@ defmodule AWS.ElasticTranscoder do
   to cancel, and to send a `CancelJob` request.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The identifier of the pipeline to update.
 
   ## Optional parameters:
   """

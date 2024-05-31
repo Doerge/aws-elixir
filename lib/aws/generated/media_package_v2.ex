@@ -1238,10 +1238,10 @@ defmodule AWS.MediaPackageV2 do
   different channel groups.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (x-amzn-client-token)
+  * `:client_token` (`t:string`) A unique, case-sensitive token that you provide to ensure the idempotency of the request.
   """
   @spec create_channel(AWS.Client.t(), String.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -1286,7 +1286,7 @@ defmodule AWS.MediaPackageV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (x-amzn-client-token)
+  * `:client_token` (`t:string`) A unique, case-sensitive token that you provide to ensure the idempotency of the request.
   """
   @spec create_channel_group(AWS.Client.t(), create_channel_group_request(), Keyword.t()) ::
           {:ok, create_channel_group_response(), any()}
@@ -1329,11 +1329,11 @@ defmodule AWS.MediaPackageV2 do
   You can create only one endpoint with each request.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (x-amzn-client-token)
+  * `:client_token` (`t:string`) A unique, case-sensitive token that you provide to ensure the idempotency of the request.
   """
   @spec create_origin_endpoint(
           AWS.Client.t(),
@@ -1387,8 +1387,8 @@ defmodule AWS.MediaPackageV2 do
   channel.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group.
 
   ## Optional parameters:
   """
@@ -1433,7 +1433,7 @@ defmodule AWS.MediaPackageV2 do
   the egress domain and will have to create a new channel group to replace it.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
 
   ## Optional parameters:
   """
@@ -1471,8 +1471,8 @@ defmodule AWS.MediaPackageV2 do
   Delete a channel policy.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group.
 
   ## Optional parameters:
   """
@@ -1522,9 +1522,9 @@ defmodule AWS.MediaPackageV2 do
   must delete all endpoints from a channel before you can delete the channel.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
   """
@@ -1573,9 +1573,9 @@ defmodule AWS.MediaPackageV2 do
   Delete an origin endpoint policy.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
   """
@@ -1625,8 +1625,8 @@ defmodule AWS.MediaPackageV2 do
   including the origin endpoints that are associated with it.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
   """
@@ -1657,7 +1657,7 @@ defmodule AWS.MediaPackageV2 do
   with it.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
 
   ## Optional parameters:
   """
@@ -1689,8 +1689,8 @@ defmodule AWS.MediaPackageV2 do
   they can perform on those resources.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
   """
@@ -1721,9 +1721,9 @@ defmodule AWS.MediaPackageV2 do
   it's currently using.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
   """
@@ -1759,9 +1759,9 @@ defmodule AWS.MediaPackageV2 do
   Elemental MediaPackage.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
   """
@@ -1805,8 +1805,8 @@ defmodule AWS.MediaPackageV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:`) The pagination token from the GET list request. Use the token to fetch the next page of results.
   """
   @spec list_channel_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_groups_response(), any()}
@@ -1852,11 +1852,11 @@ defmodule AWS.MediaPackageV2 do
   it.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:`) The pagination token from the GET list request. Use the token to fetch the next page of results.
   """
   @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -1901,12 +1901,12 @@ defmodule AWS.MediaPackageV2 do
   Elemental MediaPackage.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:`) The pagination token from the GET list request. Use the token to fetch the next page of results.
   """
   @spec list_origin_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
@@ -1951,7 +1951,7 @@ defmodule AWS.MediaPackageV2 do
   Lists the tags assigned to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch resource that you want to view tags for.
 
   ## Optional parameters:
   """
@@ -1983,8 +1983,8 @@ defmodule AWS.MediaPackageV2 do
   request.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
   """
@@ -2023,9 +2023,9 @@ defmodule AWS.MediaPackageV2 do
   You can attach only one policy with each request.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
   """
@@ -2086,7 +2086,7 @@ defmodule AWS.MediaPackageV2 do
   value that you specify replaces the previous value for that tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the MediaPackage resource that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -2119,10 +2119,10 @@ defmodule AWS.MediaPackageV2 do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the MediaPackage resource that you&#39;re removing tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagev2#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2166,11 +2166,11 @@ defmodule AWS.MediaPackageV2 do
   minutes.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
 
   ## Optional parameters:
-   • :e_tag (t:String.t/0) (x-amzn-update-if-match)
+  * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource&#39;s current entity tag, the update request will be rejected.
   """
   @spec update_channel(
           AWS.Client.t(),
@@ -2211,10 +2211,10 @@ defmodule AWS.MediaPackageV2 do
   minutes.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
 
   ## Optional parameters:
-   • :e_tag (t:String.t/0) (x-amzn-update-if-match)
+  * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource&#39;s current entity tag, the update request will be rejected.
   """
   @spec update_channel_group(
           AWS.Client.t(),
@@ -2252,12 +2252,12 @@ defmodule AWS.MediaPackageV2 do
   minutes.
 
   ## Required positional parameters:
-   • :channel_group_name (t:string String.t/0) (ChannelGroupName)
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :origin_endpoint_name (t:string String.t/0) (OriginEndpointName)
+  * `:channel_group_name` (`t:string`) The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.
+  * `:channel_name` (`t:string`) The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. 
+  * `:origin_endpoint_name` (`t:string`) The name that describes the origin endpoint. The name is the primary identifier for the origin endpoint, and and must be unique for your account in the AWS Region and channel. 
 
   ## Optional parameters:
-   • :e_tag (t:String.t/0) (x-amzn-update-if-match)
+  * `:e_tag` (`t:string`) The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource&#39;s current entity tag, the update request will be rejected.
   """
   @spec update_origin_endpoint(
           AWS.Client.t(),

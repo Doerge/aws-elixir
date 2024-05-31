@@ -1806,7 +1806,7 @@ defmodule AWS.PinpointEmail do
   A single configuration set can include more than one event destination.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to add an event destination to.
 
   ## Optional parameters:
   """
@@ -2001,7 +2001,7 @@ defmodule AWS.PinpointEmail do
   the email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to delete.
 
   ## Optional parameters:
   """
@@ -2047,8 +2047,9 @@ defmodule AWS.PinpointEmail do
   Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination that you want to
+            delete.
+  * `:event_destination_name` (`t:string`) The name of the event destination that you want to delete.
 
   ## Optional parameters:
   """
@@ -2095,7 +2096,7 @@ defmodule AWS.PinpointEmail do
   Delete a dedicated IP pool.
 
   ## Required positional parameters:
-   • :pool_name (t:string String.t/0) (PoolName)
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to delete.
 
   ## Optional parameters:
   """
@@ -2137,7 +2138,8 @@ defmodule AWS.PinpointEmail do
   can be either an email address or a domain name.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The identity (that is, the email address or domain) that you want to delete from your
+            Amazon Pinpoint account.
 
   ## Optional parameters:
   """
@@ -2206,7 +2208,9 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :blacklist_item_names (t:String.t/0) (BlacklistItemNames)
+  * `:blacklist_item_names` (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]`) A list of IP addresses that you want to retrieve blacklist information about. You can
+            only specify the dedicated IP addresses that you use to send email using Amazon Pinpoint or
+            Amazon SES.
   """
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
@@ -2252,7 +2256,8 @@ defmodule AWS.PinpointEmail do
   the email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to obtain more information
+            about.
 
   ## Optional parameters:
   """
@@ -2289,7 +2294,7 @@ defmodule AWS.PinpointEmail do
   Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination.
 
   ## Optional parameters:
   """
@@ -2326,7 +2331,8 @@ defmodule AWS.PinpointEmail do
   for the address.
 
   ## Required positional parameters:
-   • :ip (t:string String.t/0) (Ip)
+  * `:ip` (`t:string`) The IP address that you want to obtain more information about. The value you specify
+            has to be a dedicated IP address that&#39;s assocaited with your Amazon Pinpoint account.
 
   ## Optional parameters:
   """
@@ -2357,9 +2363,13 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
-   • :pool_name (t:String.t/0) (PoolName)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
+            position of the dedicated IP pool in the list of IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
+  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP address is associated with.
   """
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
@@ -2452,7 +2462,7 @@ defmodule AWS.PinpointEmail do
   Retrieve the results of a predictive inbox placement test.
 
   ## Required positional parameters:
-   • :report_id (t:string String.t/0) (ReportId)
+  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox placement test.
 
   ## Optional parameters:
   """
@@ -2485,7 +2495,10 @@ defmodule AWS.PinpointEmail do
   operation).
 
   ## Required positional parameters:
-   • :campaign_id (t:string String.t/0) (CampaignId)
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
+            identifier to a campaign. This value is not the same as the campaign identifier that
+            Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
+            Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -2515,11 +2528,14 @@ defmodule AWS.PinpointEmail do
   email.
 
   ## Required positional parameters:
-   • :domain (t:string String.t/0) (Domain)
+  * `:domain` (`t:string`) The domain that you want to obtain deliverability metrics for.
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (EndDate)
-   • :start_date (t:String.t/0) (StartDate)
+  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to obtain domain deliverability metrics for.
+            The <code>EndDate</code> that you specify has to be less than or equal to 30 days after
+            the <code>StartDate</code>.
+  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to obtain domain deliverability metrics
+            for.
   """
   @spec get_domain_statistics_report(
           AWS.Client.t(),
@@ -2580,7 +2596,7 @@ defmodule AWS.PinpointEmail do
   custom Mail-From settings.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity that you want to retrieve details for.
 
   ## Optional parameters:
   """
@@ -2620,8 +2636,12 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListConfigurationSets</code> to
+            indicate the position in the list of configuration sets.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListConfigurationSets</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -2669,8 +2689,12 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
+            the position in the list of dedicated IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
@@ -2722,8 +2746,13 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to
+            indicate the position in the list of predictive inbox placement tests.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+                <code>ListDeliverabilityTestReports</code>. If the number of results is larger than
+            the number you specified in this parameter, then the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
   """
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
@@ -2774,13 +2803,22 @@ defmodule AWS.PinpointEmail do
   for the domain.
 
   ## Required positional parameters:
-   • :subscribed_domain (t:string String.t/0) (SubscribedDomain)
+  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data for.
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (EndDate)
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
-   • :start_date (t:String.t/0) (StartDate)
+  * `:end_date` (`t:timestamp`) The last day, in Unix time format, that you want to obtain deliverability data for.
+            This value has to be less than or equal to 30 days after the value of the
+                <code>StartDate</code> parameter.
+  * `:next_token` (`t:string`) A token that’s returned from a previous call to the
+                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
+            position of a campaign in the list of campaigns.
+  * `:page_size` (`t:integer`) The maximum number of results to include in response to a single call to the
+                <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
+            is larger than the number that you specify in this parameter, the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
+  * `:start_date` (`t:timestamp`) The first day, in Unix time format, that you want to obtain deliverability data
+            for.
   """
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
@@ -2862,8 +2900,12 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
+            the position in the list of identities.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListEmailIdentities</code>. If
+            the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
@@ -2918,7 +2960,8 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
+            information for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3008,7 +3051,8 @@ defmodule AWS.PinpointEmail do
   to create groups of dedicated IP addresses for sending specific types of email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to associate with a dedicated IP
+            pool.
 
   ## Optional parameters:
   """
@@ -3045,7 +3089,8 @@ defmodule AWS.PinpointEmail do
   particular configuration set in a specific AWS Region.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to enable or disable reputation metric
+            tracking for.
 
   ## Optional parameters:
   """
@@ -3082,7 +3127,8 @@ defmodule AWS.PinpointEmail do
   in a specific AWS Region.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to enable or disable email sending
+            for.
 
   ## Optional parameters:
   """
@@ -3119,7 +3165,8 @@ defmodule AWS.PinpointEmail do
   send using Amazon Pinpoint.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that you want to add a custom tracking domain
+            to.
 
   ## Optional parameters:
   """
@@ -3161,7 +3208,8 @@ defmodule AWS.PinpointEmail do
   using the `CreateDedicatedIpPool` operation.
 
   ## Required positional parameters:
-   • :ip (t:string String.t/0) (Ip)
+  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP pool. The value you specify
+            has to be a dedicated IP address that&#39;s associated with your Amazon Pinpoint account.
 
   ## Optional parameters:
   """
@@ -3248,7 +3296,7 @@ defmodule AWS.PinpointEmail do
   Used to enable or disable DKIM authentication for an email identity.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity that you want to change the DKIM settings for.
 
   ## Optional parameters:
   """
@@ -3297,7 +3345,8 @@ defmodule AWS.PinpointEmail do
   occur (even if this setting is disabled).
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity that you want to configure bounce and complaint feedback forwarding
+            for.
 
   ## Optional parameters:
   """
@@ -3331,7 +3380,8 @@ defmodule AWS.PinpointEmail do
   identity.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The verified email identity that you want to set up the custom MAIL FROM domain
+            for.
 
   ## Optional parameters:
   """
@@ -3461,8 +3511,10 @@ defmodule AWS.PinpointEmail do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (ResourceArn)
-   • :tag_keys (t:String.t/0) (TagKeys)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove one or more
+            tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.pinpointemail#TagKey]`) The tags (tag keys) that you want to remove from the resource. When you specify a tag
+            key, the action removes both that key and its associated tag value.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3507,8 +3559,9 @@ defmodule AWS.PinpointEmail do
   Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination that you want to
+            modify.
+  * `:event_destination_name` (`t:string`) The name of the event destination that you want to modify.
 
   ## Optional parameters:
   """

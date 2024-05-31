@@ -3113,7 +3113,8 @@ defmodule AWS.CleanRooms do
   Names (ARNs).
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the analysis templates belong to.
+         Currently accepts collaboration ID.
 
   ## Optional parameters:
   """
@@ -3158,7 +3159,8 @@ defmodule AWS.CleanRooms do
   Retrieves multiple schemas by their identifiers.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the schemas belong to. Currently accepts
+         collaboration ID.
 
   ## Optional parameters:
   """
@@ -3191,7 +3193,7 @@ defmodule AWS.CleanRooms do
   Retrieves multiple analysis rule schemas.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) The unique identifier of the collaboration that contains the schema analysis rule.
 
   ## Optional parameters:
   """
@@ -3236,7 +3238,7 @@ defmodule AWS.CleanRooms do
   Creates a new analysis template.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -3307,7 +3309,9 @@ defmodule AWS.CleanRooms do
   association.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The configured
+         audience model is associated to the collaboration that this membership belongs to. Accepts
+         a membership ID.
 
   ## Optional parameters:
   """
@@ -3387,7 +3391,8 @@ defmodule AWS.CleanRooms do
   can be created for a given configured table.
 
   ## Required positional parameters:
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:configured_table_identifier` (`t:string`) The identifier for the configured table to create the analysis rule for. Currently
+         accepts the configured table ID. 
 
   ## Optional parameters:
   """
@@ -3435,7 +3440,9 @@ defmodule AWS.CleanRooms do
   configured table with a collaboration.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The configured
+         table is associated to the collaboration that this membership belongs to. Currently accepts
+         a membership ID.
 
   ## Optional parameters:
   """
@@ -3517,7 +3524,7 @@ defmodule AWS.CleanRooms do
   membership, use the `UpdatePrivacyBudgetTemplate` operation.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 
   ## Optional parameters:
   """
@@ -3560,8 +3567,8 @@ defmodule AWS.CleanRooms do
   Deletes an analysis template.
 
   ## Required positional parameters:
-   • :analysis_template_identifier (t:string String.t/0) (analysisTemplateIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis template resource.
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -3610,7 +3617,7 @@ defmodule AWS.CleanRooms do
   It can only be called by the collaboration owner.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
 
   ## Optional parameters:
   """
@@ -3649,8 +3656,8 @@ defmodule AWS.CleanRooms do
   association.
 
   ## Required positional parameters:
-   • :configured_audience_model_association_identifier (t:string String.t/0) (configuredAudienceModelAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_audience_model_association_identifier` (`t:string`) A unique identifier of the configured audience model association that you want to delete.
+  * `:membership_identifier` (`t:string`) A unique identifier of the membership that contains the audience model association that you want to delete.
 
   ## Optional parameters:
   """
@@ -3697,7 +3704,7 @@ defmodule AWS.CleanRooms do
   Deletes a configured table.
 
   ## Required positional parameters:
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:configured_table_identifier` (`t:string`) The unique ID for the configured table to delete.
 
   ## Optional parameters:
   """
@@ -3740,8 +3747,10 @@ defmodule AWS.CleanRooms do
   Deletes a configured table analysis rule.
 
   ## Required positional parameters:
-   • :analysis_rule_type (t:enum String.t/0) (analysisRuleType)
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule type to be deleted. Configured table analysis rules are uniquely
+         identified by their configured table identifier and analysis rule type.
+  * `:configured_table_identifier` (`t:string`) The unique identifier for the configured table that the analysis rule applies to.
+         Currently accepts the configured table ID.
 
   ## Optional parameters:
   """
@@ -3788,8 +3797,10 @@ defmodule AWS.CleanRooms do
   Deletes a configured table association.
 
   ## Required positional parameters:
-   • :configured_table_association_identifier (t:string String.t/0) (configuredTableAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_table_association_identifier` (`t:string`) The unique ID for the configured table association to be deleted. Currently accepts the
+         configured table ID.
+  * `:membership_identifier` (`t:string`) A unique identifier for the membership that the configured table association belongs to.
+         Currently accepts the membership ID.
 
   ## Optional parameters:
   """
@@ -3841,8 +3852,8 @@ defmodule AWS.CleanRooms do
   inaccessible to active members of the collaboration.
 
   ## Required positional parameters:
-   • :account_id (t:string String.t/0) (accountId)
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:account_id` (`t:string`) The account ID of the member to remove.
+  * `:collaboration_identifier` (`t:string`) The unique identifier for the associated collaboration.
 
   ## Optional parameters:
   """
@@ -3885,7 +3896,7 @@ defmodule AWS.CleanRooms do
   All resources under a membership must be deleted.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -3918,8 +3929,8 @@ defmodule AWS.CleanRooms do
   Deletes a privacy budget template for a specified membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
-   • :privacy_budget_template_identifier (t:string String.t/0) (privacyBudgetTemplateIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget template is deleted from the collaboration that this membership belongs to. Accepts a membership ID.
+  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for your privacy budget template. 
 
   ## Optional parameters:
   """
@@ -3966,8 +3977,8 @@ defmodule AWS.CleanRooms do
   Retrieves an analysis template.
 
   ## Required positional parameters:
-   • :analysis_template_identifier (t:string String.t/0) (analysisTemplateIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis template resource.
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -4001,7 +4012,7 @@ defmodule AWS.CleanRooms do
   Returns metadata about a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
 
   ## Optional parameters:
   """
@@ -4029,8 +4040,10 @@ defmodule AWS.CleanRooms do
   Retrieves an analysis template within a collaboration.
 
   ## Required positional parameters:
-   • :analysis_template_arn (t:string String.t/0) (analysisTemplateArn)
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:analysis_template_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the analysis template within a
+         collaboration.
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the analysis templates belong to.
+         Currently accepts collaboration ID.
 
   ## Optional parameters:
   """
@@ -4064,8 +4077,8 @@ defmodule AWS.CleanRooms do
   Retrieves a configured audience model association within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
-   • :configured_audience_model_association_identifier (t:string String.t/0) (configuredAudienceModelAssociationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.
+  * `:configured_audience_model_association_identifier` (`t:string`) A unique identifier for the configured audience model association that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -4104,8 +4117,8 @@ defmodule AWS.CleanRooms do
   Returns details about a specified privacy budget template.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
-   • :privacy_budget_template_identifier (t:string String.t/0) (privacyBudgetTemplateIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your collaborations.
+  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for one of your privacy budget templates.
 
   ## Optional parameters:
   """
@@ -4144,8 +4157,8 @@ defmodule AWS.CleanRooms do
   Returns information about a configured audience model association.
 
   ## Required positional parameters:
-   • :configured_audience_model_association_identifier (t:string String.t/0) (configuredAudienceModelAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_audience_model_association_identifier` (`t:string`) A unique identifier for the configured audience model association that you want to retrieve.
+  * `:membership_identifier` (`t:string`) A unique identifier for the membership that contains the configured audience model association that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -4184,7 +4197,7 @@ defmodule AWS.CleanRooms do
   Retrieves a configured table.
 
   ## Required positional parameters:
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:configured_table_identifier` (`t:string`) The unique ID for the configured table to retrieve.
 
   ## Optional parameters:
   """
@@ -4212,8 +4225,10 @@ defmodule AWS.CleanRooms do
   Retrieves a configured table analysis rule.
 
   ## Required positional parameters:
-   • :analysis_rule_type (t:enum String.t/0) (analysisRuleType)
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule to be retrieved. Configured table analysis rules are uniquely
+         identified by their configured table identifier and analysis rule type.
+  * `:configured_table_identifier` (`t:string`) The unique identifier for the configured table to retrieve. Currently accepts the
+         configured table ID.
 
   ## Optional parameters:
   """
@@ -4247,8 +4262,10 @@ defmodule AWS.CleanRooms do
   Retrieves a configured table association.
 
   ## Required positional parameters:
-   • :configured_table_association_identifier (t:string String.t/0) (configuredTableAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_table_association_identifier` (`t:string`) The unique ID for the configured table association to retrieve. Currently accepts the
+         configured table ID.
+  * `:membership_identifier` (`t:string`) A unique identifier for the membership that the configured table association belongs to.
+         Currently accepts the membership ID.
 
   ## Optional parameters:
   """
@@ -4282,7 +4299,7 @@ defmodule AWS.CleanRooms do
   Retrieves a specified membership for an identifier.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -4310,8 +4327,8 @@ defmodule AWS.CleanRooms do
   Returns details for a specified privacy budget template.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
-   • :privacy_budget_template_identifier (t:string String.t/0) (privacyBudgetTemplateIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget template is retrieved from the collaboration that this membership belongs to. Accepts a membership ID.
+  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for your privacy budget template.
 
   ## Optional parameters:
   """
@@ -4345,8 +4362,8 @@ defmodule AWS.CleanRooms do
   Returns query processing metadata.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
-   • :protected_query_identifier (t:string String.t/0) (protectedQueryIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a membership in a protected query instance.
+  * `:protected_query_identifier` (`t:string`) The identifier for a protected query instance.
 
   ## Optional parameters:
   """
@@ -4380,8 +4397,9 @@ defmodule AWS.CleanRooms do
   Retrieves the schema for a relation within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
-   • :name (t:string String.t/0) (name)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the schema belongs to. Currently accepts
+         a collaboration ID.
+  * `:name` (`t:string`) The name of the relation to retrieve the schema for.
 
   ## Optional parameters:
   """
@@ -4410,9 +4428,11 @@ defmodule AWS.CleanRooms do
   Retrieves a schema analysis rule.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
-   • :name (t:string String.t/0) (name)
-   • :type (t:enum String.t/0) (type)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the schema belongs to. Currently accepts
+         a collaboration ID.
+  * `:name` (`t:string`) The name of the schema to retrieve the analysis rule for.
+  * `:type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely
+         identified by a combination of the collaboration, the schema name, and their type.
 
   ## Optional parameters:
   """
@@ -4447,11 +4467,12 @@ defmodule AWS.CleanRooms do
   Lists analysis templates that the caller owns.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_analysis_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_analysis_templates_output(), any()}
@@ -4495,11 +4516,13 @@ defmodule AWS.CleanRooms do
   Lists analysis templates within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the analysis templates belong to.
+         Currently accepts collaboration ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_collaboration_analysis_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_analysis_templates_output(), any()}
@@ -4548,11 +4571,11 @@ defmodule AWS.CleanRooms do
   Lists configured audience model associations within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_collaboration_configured_audience_model_associations(
           AWS.Client.t(),
@@ -4606,11 +4629,14 @@ defmodule AWS.CleanRooms do
   collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your collaborations.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_collaboration_privacy_budget_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_privacy_budget_templates_output(), any()}
@@ -4663,12 +4689,15 @@ defmodule AWS.CleanRooms do
   privacy budget details.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for one of your collaborations.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :privacy_budget_type (t:String.t/0) (privacyBudgetType)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
+  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]`) Specifies the type of the privacy budget.
   """
   @spec list_collaboration_privacy_budgets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_collaboration_privacy_budgets_output(), any()}
@@ -4728,9 +4757,12 @@ defmodule AWS.CleanRooms do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :member_status (t:String.t/0) (memberStatus)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:member_status` (`t:string`) The caller&#39;s status in a collaboration.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_collaborations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collaborations_output(), any()}
@@ -4783,11 +4815,13 @@ defmodule AWS.CleanRooms do
   Lists information about requested configured audience model associations.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
   """
   @spec list_configured_audience_model_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configured_audience_model_associations_output(), any()}
@@ -4836,11 +4870,13 @@ defmodule AWS.CleanRooms do
   Lists configured table associations for a membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for the membership to list configured table associations for.
+         Currently accepts the membership ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_configured_table_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configured_table_associations_output(), any()}
@@ -4887,8 +4923,9 @@ defmodule AWS.CleanRooms do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_configured_tables(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_tables_output(), any()}
@@ -4932,11 +4969,12 @@ defmodule AWS.CleanRooms do
   Lists all members within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) The identifier of the collaboration in which the members are listed.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
@@ -4982,9 +5020,10 @@ defmodule AWS.CleanRooms do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
+  * `:status` (`t:string`) A filter which will return only memberships in the specified status.
   """
   @spec list_memberships(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_memberships_output(), any()}
@@ -5038,11 +5077,14 @@ defmodule AWS.CleanRooms do
   membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget templates are retrieved from the collaboration that this membership belongs to. Accepts a membership ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
   """
   @spec list_privacy_budget_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_privacy_budget_templates_output(), any()}
@@ -5087,12 +5129,15 @@ defmodule AWS.CleanRooms do
   membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget is retrieved from the collaboration that this membership belongs to. Accepts a membership ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :privacy_budget_type (t:String.t/0) (privacyBudgetType)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service may return a nextToken even if the maximum results has not
+         been met.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
+  * `:privacy_budget_type` (`t:enum["DIFFERENTIAL_PRIVACY"]`) The privacy budget type.
   """
   @spec list_privacy_budgets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_privacy_budgets_output(), any()}
@@ -5150,12 +5195,15 @@ defmodule AWS.CleanRooms do
   Lists protected queries, sorted by the most recent query.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for the membership in the collaboration.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call. Service chooses a default if
+         it has not been set. Service can return a nextToken even if the maximum results has not
+         been met. 
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
+  * `:status` (`t:string`) A filter on the status of the protected query.
   """
   @spec list_protected_queries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_protected_queries_output(), any()}
@@ -5208,12 +5256,15 @@ defmodule AWS.CleanRooms do
   Lists the schemas for relations within a collaboration.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) A unique identifier for the collaboration that the schema belongs to. Currently accepts
+         a collaboration ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :schema_type (t:String.t/0) (schemaType)
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of
+         results.
+  * `:schema_type` (`t:enum["TABLE"]`) If present, filter schemas by schema type. The only valid schema type is currently
+         `TABLE`.
   """
   @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_output(), any()}
@@ -5266,7 +5317,8 @@ defmodule AWS.CleanRooms do
   Lists all of the tags that have been added to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the resource you want to list tags
+         on.
 
   ## Optional parameters:
   """
@@ -5295,7 +5347,7 @@ defmodule AWS.CleanRooms do
   can run given epsilon and noise parameters.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. Accepts a membership ID.
 
   ## Optional parameters:
   """
@@ -5333,7 +5385,8 @@ defmodule AWS.CleanRooms do
   Creates a protected query that is started by Clean Rooms.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for the membership to run this query against. Currently accepts a
+         membership ID.
 
   ## Optional parameters:
   """
@@ -5371,7 +5424,7 @@ defmodule AWS.CleanRooms do
   Tags a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the resource you want to tag.
 
   ## Optional parameters:
   """
@@ -5404,10 +5457,11 @@ defmodule AWS.CleanRooms do
   Removes a tag or list of tags from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the resource you want to remove the tag
+         from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.cleanrooms#TagKey]`) A list of key names of tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -5443,8 +5497,8 @@ defmodule AWS.CleanRooms do
   Updates the analysis template metadata.
 
   ## Required positional parameters:
-   • :analysis_template_identifier (t:string String.t/0) (analysisTemplateIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:analysis_template_identifier` (`t:string`) The identifier for the analysis template resource.
+  * `:membership_identifier` (`t:string`) The identifier for a membership resource.
 
   ## Optional parameters:
   """
@@ -5492,7 +5546,7 @@ defmodule AWS.CleanRooms do
   owner.
 
   ## Required positional parameters:
-   • :collaboration_identifier (t:string String.t/0) (collaborationIdentifier)
+  * `:collaboration_identifier` (`t:string`) The identifier for the collaboration.
 
   ## Optional parameters:
   """
@@ -5531,8 +5585,8 @@ defmodule AWS.CleanRooms do
   association.
 
   ## Required positional parameters:
-   • :configured_audience_model_association_identifier (t:string String.t/0) (configuredAudienceModelAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_audience_model_association_identifier` (`t:string`) A unique identifier for the configured audience model association that you want to update.
+  * `:membership_identifier` (`t:string`) A unique identifier of the membership that contains the configured audience model association that you want to update.
 
   ## Optional parameters:
   """
@@ -5579,7 +5633,8 @@ defmodule AWS.CleanRooms do
   Updates a configured table.
 
   ## Required positional parameters:
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:configured_table_identifier` (`t:string`) The identifier for the configured table to update. Currently accepts the configured
+         table ID.
 
   ## Optional parameters:
   """
@@ -5622,8 +5677,10 @@ defmodule AWS.CleanRooms do
   Updates a configured table analysis rule.
 
   ## Required positional parameters:
-   • :analysis_rule_type (t:enum String.t/0) (analysisRuleType)
-   • :configured_table_identifier (t:string String.t/0) (configuredTableIdentifier)
+  * `:analysis_rule_type` (`t:enum["AGGREGATION|CUSTOM|LIST"]`) The analysis rule type to be updated. Configured table analysis rules are uniquely
+         identified by their configured table identifier and analysis rule type.
+  * `:configured_table_identifier` (`t:string`) The unique identifier for the configured table that the analysis rule applies to.
+         Currently accepts the configured table ID.
 
   ## Optional parameters:
   """
@@ -5670,8 +5727,10 @@ defmodule AWS.CleanRooms do
   Updates a configured table association.
 
   ## Required positional parameters:
-   • :configured_table_association_identifier (t:string String.t/0) (configuredTableAssociationIdentifier)
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:configured_table_association_identifier` (`t:string`) The unique identifier for the configured table association to update. Currently accepts
+         the configured table association ID.
+  * `:membership_identifier` (`t:string`) The unique ID for the membership that the configured table association belongs
+         to.
 
   ## Optional parameters:
   """
@@ -5718,7 +5777,7 @@ defmodule AWS.CleanRooms do
   Updates a membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
+  * `:membership_identifier` (`t:string`) The unique identifier of the membership.
 
   ## Optional parameters:
   """
@@ -5751,8 +5810,8 @@ defmodule AWS.CleanRooms do
   Updates the privacy budget template for the specified membership.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
-   • :privacy_budget_template_identifier (t:string String.t/0) (privacyBudgetTemplateIdentifier)
+  * `:membership_identifier` (`t:string`) A unique identifier for one of your memberships for a collaboration. The privacy budget template is updated in the collaboration that this membership belongs to. Accepts a membership ID.
+  * `:privacy_budget_template_identifier` (`t:string`) A unique identifier for your privacy budget template that you want to update.
 
   ## Optional parameters:
   """
@@ -5799,8 +5858,8 @@ defmodule AWS.CleanRooms do
   Updates the processing of a currently running query.
 
   ## Required positional parameters:
-   • :membership_identifier (t:string String.t/0) (membershipIdentifier)
-   • :protected_query_identifier (t:string String.t/0) (protectedQueryIdentifier)
+  * `:membership_identifier` (`t:string`) The identifier for a member of a protected query instance.
+  * `:protected_query_identifier` (`t:string`) The identifier for a protected query instance.
 
   ## Optional parameters:
   """

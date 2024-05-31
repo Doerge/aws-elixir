@@ -1516,7 +1516,7 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) The unique identifier of the network in which the member is created.
 
   ## Optional parameters:
   """
@@ -1585,7 +1585,7 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) The unique identifier of the network for the node.
 
   ## Optional parameters:
   """
@@ -1623,7 +1623,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) 
+         The unique identifier of the network for which the proposal is made.
 
   ## Optional parameters:
   """
@@ -1667,7 +1668,7 @@ defmodule AWS.ManagedBlockchain do
   `AVAILABLE` state remain open until they expire (up to 2 hours).
 
   ## Required positional parameters:
-   • :accessor_id (t:string String.t/0) (AccessorId)
+  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
 
   ## Optional parameters:
   """
@@ -1710,8 +1711,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :member_id (t:string String.t/0) (MemberId)
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:member_id` (`t:string`) The unique identifier of the member to remove.
+  * `:network_id` (`t:string`) The unique identifier of the network from which the member is removed.
 
   ## Optional parameters:
   """
@@ -1750,11 +1751,11 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :node_id (t:string String.t/0) (NodeId)
+  * `:network_id` (`t:string`) The unique identifier of the network that the node is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
 
   ## Optional parameters:
-   • :member_id (t:String.t/0) (memberId)
+  * `:member_id` (`t:string`) The unique identifier of the member that owns this node.
   """
   @spec delete_node(AWS.Client.t(), String.t(), String.t(), delete_node_input(), Keyword.t()) ::
           {:ok, delete_node_output(), any()}
@@ -1795,7 +1796,7 @@ defmodule AWS.ManagedBlockchain do
   information required for token based access to your Ethereum nodes.
 
   ## Required positional parameters:
-   • :accessor_id (t:string String.t/0) (AccessorId)
+  * `:accessor_id` (`t:string`) The unique identifier of the accessor.
 
   ## Optional parameters:
   """
@@ -1825,8 +1826,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :member_id (t:string String.t/0) (MemberId)
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:member_id` (`t:string`) The unique identifier of the member.
+  * `:network_id` (`t:string`) The unique identifier of the network to which the member belongs.
 
   ## Optional parameters:
   """
@@ -1857,7 +1858,7 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) The unique identifier of the network to get information about.
 
   ## Optional parameters:
   """
@@ -1887,11 +1888,11 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :node_id (t:string String.t/0) (NodeId)
+  * `:network_id` (`t:string`) The unique identifier of the network that the node is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
 
   ## Optional parameters:
-   • :member_id (t:String.t/0) (memberId)
+  * `:member_id` (`t:string`) The unique identifier of the member that owns the node.
   """
   @spec get_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_node_output(), any()}
@@ -1929,8 +1930,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :proposal_id (t:string String.t/0) (ProposalId)
+  * `:network_id` (`t:string`) The unique identifier of the network for which the proposal is made.
+  * `:proposal_id` (`t:string`) The unique identifier of the proposal.
 
   ## Optional parameters:
   """
@@ -1964,9 +1965,9 @@ defmodule AWS.ManagedBlockchain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :network_type (t:String.t/0) (networkType)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of accessors to list.
+  * `:network_type` (`t:enum["ETHEREUM_GOERLI|ETHEREUM_MAINNET|ETHEREUM_MAINNET_AND_GOERLI|POLYGON_MAINNET|POLYGON_MUMBAI"]`) The blockchain network that the <code>Accessor</code> token is created for.
+  * `:next_token` (`t:string`)  The pagination token that indicates the next set of results to retrieve. 
   """
   @spec list_accessors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accessors_output(), any()}
@@ -2023,8 +2024,8 @@ defmodule AWS.ManagedBlockchain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of invitations to return.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of results to retrieve.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_output(), any()}
@@ -2071,14 +2072,16 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) The unique identifier of the network for which to list members.
 
   ## Optional parameters:
-   • :is_owned (t:String.t/0) (isOwned)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:is_owned` (`t:boolean`) An optional Boolean value. If provided, the request is limited either to
+         members that the current Amazon Web Services account owns (<code>true</code>) or that other Amazon Web Services accountsn
+         own (<code>false</code>). If omitted, all members are listed.
+  * `:max_results` (`t:integer`) The maximum number of members to return in the request.
+  * `:name` (`t:string`) The optional name of the member to list.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of results to retrieve.
+  * `:status` (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|INACCESSIBLE_ENCRYPTION_KEY|UPDATING"]`) An optional status specifier. If provided, only members currently in this status are listed.
   """
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
@@ -2154,11 +2157,11 @@ defmodule AWS.ManagedBlockchain do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :framework (t:String.t/0) (framework)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:framework` (`t:enum["ETHEREUM|HYPERLEDGER_FABRIC"]`) An optional framework specifier. If provided, only networks of this framework type are listed.
+  * `:max_results` (`t:integer`) The maximum number of networks to list.
+  * `:name` (`t:string`) The name of the network.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of results to retrieve.
+  * `:status` (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) An optional status specifier. If provided, only networks currently in this status are listed.
   """
   @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_output(), any()}
@@ -2231,13 +2234,13 @@ defmodule AWS.ManagedBlockchain do
   Applies to Hyperledger Fabric and Ethereum.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) The unique identifier of the network for which to list nodes.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :member_id (t:String.t/0) (memberId)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of nodes to list.
+  * `:member_id` (`t:string`) The unique identifier of the member who owns the nodes to list.
+  * `:next_token` (`t:string`) The pagination token that indicates the next set of results to retrieve.
+  * `:status` (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|FAILED|INACCESSIBLE_ENCRYPTION_KEY|UNHEALTHY|UPDATING"]`) An optional status specifier. If provided, only nodes currently in this status are listed.
   """
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_output(), any()}
@@ -2302,12 +2305,20 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :proposal_id (t:string String.t/0) (ProposalId)
+  * `:network_id` (`t:string`) 
+         The unique identifier of the network.
+      
+  * `:proposal_id` (`t:string`) 
+         The unique identifier of the proposal.
+      
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+         The maximum number of votes to return.
+      
+  * `:next_token` (`t:string`) 
+         The pagination token that indicates the next set of results to retrieve.
+      
   """
   @spec list_proposal_votes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposal_votes_output(), any()}
@@ -2354,11 +2365,17 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:network_id` (`t:string`) 
+         The unique identifier of the network.
+      
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+         The maximum number of proposals to return.
+      
+  * `:next_token` (`t:string`) 
+         The pagination token that indicates the next set of results to retrieve.
+      
   """
   @spec list_proposals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposals_output(), any()}
@@ -2408,7 +2425,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
   """
@@ -2441,7 +2458,7 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :invitation_id (t:string String.t/0) (InvitationId)
+  * `:invitation_id` (`t:string`) The unique identifier of the invitation to reject.
 
   ## Optional parameters:
   """
@@ -2487,7 +2504,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
   """
@@ -2524,10 +2541,10 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.managedblockchain#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2565,8 +2582,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :member_id (t:string String.t/0) (MemberId)
-   • :network_id (t:string String.t/0) (NetworkId)
+  * `:member_id` (`t:string`) The unique identifier of the member.
+  * `:network_id` (`t:string`) The unique identifier of the Managed Blockchain network to which the member belongs.
 
   ## Optional parameters:
   """
@@ -2603,8 +2620,8 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :node_id (t:string String.t/0) (NodeId)
+  * `:network_id` (`t:string`) The unique identifier of the network that the node is on.
+  * `:node_id` (`t:string`) The unique identifier of the node.
 
   ## Optional parameters:
   """
@@ -2644,8 +2661,12 @@ defmodule AWS.ManagedBlockchain do
   Applies only to Hyperledger Fabric.
 
   ## Required positional parameters:
-   • :network_id (t:string String.t/0) (NetworkId)
-   • :proposal_id (t:string String.t/0) (ProposalId)
+  * `:network_id` (`t:string`) 
+         The unique identifier of the network.
+      
+  * `:proposal_id` (`t:string`) 
+         The unique identifier of the proposal.
+      
 
   ## Optional parameters:
   """

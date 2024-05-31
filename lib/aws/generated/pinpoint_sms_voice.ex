@@ -462,7 +462,7 @@ defmodule AWS.PinpointSMSVoice do
   Create a new event destination in a configuration set.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -507,7 +507,7 @@ defmodule AWS.PinpointSMSVoice do
   Deletes an existing configuration set.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -545,8 +545,8 @@ defmodule AWS.PinpointSMSVoice do
   Deletes an event destination in a configuration set.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) 
+  * `:event_destination_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -595,7 +595,7 @@ defmodule AWS.PinpointSMSVoice do
   event destination.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -631,8 +631,8 @@ defmodule AWS.PinpointSMSVoice do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) 
+  * `:page_size` (`t:string`) 
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -712,8 +712,8 @@ defmodule AWS.PinpointSMSVoice do
   when a call fails.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) 
+  * `:event_destination_name` (`t:string`) 
 
   ## Optional parameters:
   """

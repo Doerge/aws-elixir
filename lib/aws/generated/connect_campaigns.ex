@@ -880,7 +880,7 @@ defmodule AWS.ConnectCampaigns do
   Deletes a campaign from the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -913,7 +913,7 @@ defmodule AWS.ConnectCampaigns do
   Deletes a connect instance config from the specified AWS account.
 
   ## Required positional parameters:
-   • :connect_instance_id (t:string String.t/0) (connectInstanceId)
+  * `:connect_instance_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -957,7 +957,7 @@ defmodule AWS.ConnectCampaigns do
   instance.
 
   ## Required positional parameters:
-   • :connect_instance_id (t:string String.t/0) (connectInstanceId)
+  * `:connect_instance_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1000,7 +1000,7 @@ defmodule AWS.ConnectCampaigns do
   Describes the specific campaign.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1028,7 +1028,7 @@ defmodule AWS.ConnectCampaigns do
   Get state of a campaign for the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1088,7 +1088,7 @@ defmodule AWS.ConnectCampaigns do
   Get the specific Connect instance config.
 
   ## Required positional parameters:
-   • :connect_instance_id (t:string String.t/0) (connectInstanceId)
+  * `:connect_instance_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1116,7 +1116,7 @@ defmodule AWS.ConnectCampaigns do
   Get the specific instance onboarding job status.
 
   ## Required positional parameters:
-   • :connect_instance_id (t:string String.t/0) (connectInstanceId)
+  * `:connect_instance_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1177,7 +1177,7 @@ defmodule AWS.ConnectCampaigns do
   List tags for a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1205,7 +1205,7 @@ defmodule AWS.ConnectCampaigns do
   Pauses a campaign for the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1240,7 +1240,7 @@ defmodule AWS.ConnectCampaigns do
   This API is idempotent.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1268,7 +1268,7 @@ defmodule AWS.ConnectCampaigns do
   Stops a campaign for the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1301,7 +1301,7 @@ defmodule AWS.ConnectCampaigns do
   Starts a campaign for the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1334,7 +1334,7 @@ defmodule AWS.ConnectCampaigns do
   Onboard the specific Amazon Connect instance to Connect Campaigns.
 
   ## Required positional parameters:
-   • :connect_instance_id (t:string String.t/0) (connectInstanceId)
+  * `:connect_instance_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1362,7 +1362,7 @@ defmodule AWS.ConnectCampaigns do
   Stops a campaign for the specified Amazon Connect account.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1395,7 +1395,7 @@ defmodule AWS.ConnectCampaigns do
   Tag a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1428,10 +1428,10 @@ defmodule AWS.ConnectCampaigns do
   Untag a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]`) 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1469,7 +1469,7 @@ defmodule AWS.ConnectCampaigns do
   This API is idempotent.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1509,7 +1509,7 @@ defmodule AWS.ConnectCampaigns do
   This API is idempotent.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1549,7 +1549,7 @@ defmodule AWS.ConnectCampaigns do
   This API is idempotent.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """

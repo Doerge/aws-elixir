@@ -1851,7 +1851,7 @@ defmodule AWS.Bedrock do
   configuration with another version.
 
   ## Required positional parameters:
-   • :guardrail_identifier (t:string String.t/0) (guardrailIdentifier)
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
 
   ## Optional parameters:
   """
@@ -1984,7 +1984,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :model_identifier (t:string String.t/0) (modelIdentifier)
+  * `:model_identifier` (`t:string`) Name of the model to delete.
 
   ## Optional parameters:
   """
@@ -2031,10 +2031,10 @@ defmodule AWS.Bedrock do
   `guardrailIdentifier` field and the version in the `guardrailVersion` field.
 
   ## Required positional parameters:
-   • :guardrail_identifier (t:string String.t/0) (guardrailIdentifier)
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
 
   ## Optional parameters:
-   • :guardrail_version (t:String.t/0) (guardrailVersion)
+  * `:guardrail_version` (`t:string`) The version of the guardrail.
   """
   @spec delete_guardrail(AWS.Client.t(), String.t(), delete_guardrail_request(), Keyword.t()) ::
           {:ok, delete_guardrail_response(), any()}
@@ -2110,7 +2110,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :provisioned_model_id (t:string String.t/0) (provisionedModelId)
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput.
 
   ## Optional parameters:
   """
@@ -2155,7 +2155,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :model_identifier (t:string String.t/0) (modelIdentifier)
+  * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the custom model.
 
   ## Optional parameters:
   """
@@ -2186,7 +2186,7 @@ defmodule AWS.Bedrock do
   For more information, see [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
 
   ## Required positional parameters:
-   • :job_identifier (t:string String.t/0) (jobIdentifier)
+  * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model evaluation job.
 
   ## Optional parameters:
   """
@@ -2214,7 +2214,7 @@ defmodule AWS.Bedrock do
   Get details about a Amazon Bedrock foundation model.
 
   ## Required positional parameters:
-   • :model_identifier (t:string String.t/0) (modelIdentifier)
+  * `:model_identifier` (`t:string`) The model identifier. 
 
   ## Optional parameters:
   """
@@ -2245,10 +2245,10 @@ defmodule AWS.Bedrock do
   version.
 
   ## Required positional parameters:
-   • :guardrail_identifier (t:string String.t/0) (guardrailIdentifier)
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail for which to get details.
 
   ## Optional parameters:
-   • :guardrail_version (t:String.t/0) (guardrailVersion)
+  * `:guardrail_version` (`t:string`) The version of the guardrail for which to get details. If you don&#39;t specify a version, the response returns details for the <code>DRAFT</code> version.
   """
   @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
@@ -2287,7 +2287,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :job_identifier (t:string String.t/0) (jobIdentifier)
+  * `:job_identifier` (`t:string`) Identifier for the customization job.
 
   ## Optional parameters:
   """
@@ -2345,7 +2345,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :provisioned_model_id (t:string String.t/0) (provisionedModelId)
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput.
 
   ## Optional parameters:
   """
@@ -2379,15 +2379,15 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :base_model_arn_equals (t:String.t/0) (baseModelArnEquals)
-   • :creation_time_after (t:String.t/0) (creationTimeAfter)
-   • :creation_time_before (t:String.t/0) (creationTimeBefore)
-   • :foundation_model_arn_equals (t:String.t/0) (foundationModelArnEquals)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sort_by (t:String.t/0) (sortBy)
-   • :sort_order (t:String.t/0) (sortOrder)
+  * `:base_model_arn_equals` (`t:string`) Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created after the specified time. 
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models created before the specified time. 
+  * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.
+  * `:max_results` (`t:integer`) Maximum number of results to return in the response.
+  * `:name_contains` (`t:string`) Return custom models only if the job name contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned list of models.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
   """
   @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
@@ -2497,14 +2497,14 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :creation_time_after (t:String.t/0) (creationTimeAfter)
-   • :creation_time_before (t:String.t/0) (creationTimeBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sort_by (t:String.t/0) (sortBy)
-   • :sort_order (t:String.t/0) (sortOrder)
-   • :status_equals (t:String.t/0) (statusEquals)
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model evaluation jobs created after the time specified.
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes model evaluation jobs created prior to the time specified.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:name_contains` (`t:string`) Query parameter string for model evaluation job names.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation jobs by when they were created.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of jobs sorted.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`) Only return jobs where the status condition is met.
   """
   @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
@@ -2608,10 +2608,10 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_customization_type (t:String.t/0) (byCustomizationType)
-   • :by_inference_type (t:String.t/0) (byInferenceType)
-   • :by_output_modality (t:String.t/0) (byOutputModality)
-   • :by_provider (t:String.t/0) (byProvider)
+  * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`) Return models that support the customization type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.
+  * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that support the inference type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.
+  * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that support the output modality that you specify.
+  * `:by_provider` (`t:string`) Return models belonging to the model provider that you specify.
   """
   @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
@@ -2684,9 +2684,9 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :guardrail_identifier (t:String.t/0) (guardrailIdentifier)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
+  * `:next_token` (`t:string`) If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.
   """
   @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
@@ -2747,14 +2747,14 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :creation_time_after (t:String.t/0) (creationTimeAfter)
-   • :creation_time_before (t:String.t/0) (creationTimeBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sort_by (t:String.t/0) (sortBy)
-   • :sort_order (t:String.t/0) (sortOrder)
-   • :status_equals (t:String.t/0) (statusEquals)
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs created after the specified time. 
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs created before the specified time. 
+  * `:max_results` (`t:integer`) Maximum number of results to return in the response.
+  * `:name_contains` (`t:string`) Return customization jobs only if the job name contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned list of jobs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`) Return customization jobs with the specified status. 
   """
   @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
@@ -2857,15 +2857,17 @@ defmodule AWS.Bedrock do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :creation_time_after (t:String.t/0) (creationTimeAfter)
-   • :creation_time_before (t:String.t/0) (creationTimeBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :model_arn_equals (t:String.t/0) (modelArnEquals)
-   • :name_contains (t:String.t/0) (nameContains)
-   • :next_token (t:String.t/0) (nextToken)
-   • :sort_by (t:String.t/0) (sortBy)
-   • :sort_order (t:String.t/0) (sortOrder)
-   • :status_equals (t:String.t/0) (statusEquals)
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns Provisioned Throughputs created after the specified time. 
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns Provisioned Throughputs created before the specified time. 
+  * `:max_results` (`t:integer`) THe maximum number of results to return in the response. If there are more results than the number you specified, the response returns a <code>nextToken</code>
+         value. To see the next batch of results, send the <code>nextToken</code> value in another list request.
+  * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs whose model Amazon Resource Name (ARN) is equal to the value that you specify.
+  * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if their name contains the expression that you specify.
+  * `:next_token` (`t:string`) If there are more results than the number you specified in the <code>maxResults</code> field, the response returns a <code>nextToken</code>
+         value. To see the next batch of results, specify the <code>nextToken</code> value in this field.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned list of Provisioned Throughputs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
+  * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter that returns Provisioned Throughputs if their statuses matches the value that you specify.
   """
   @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
@@ -3033,7 +3035,7 @@ defmodule AWS.Bedrock do
   Stops an in progress model evaluation job.
 
   ## Required positional parameters:
-   • :job_identifier (t:string String.t/0) (jobIdentifier)
+  * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to stop.
 
   ## Optional parameters:
   """
@@ -3074,7 +3076,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :job_identifier (t:string String.t/0) (jobIdentifier)
+  * `:job_identifier` (`t:string`) Job identifier of the job to stop.
 
   ## Optional parameters:
   """
@@ -3227,7 +3229,7 @@ defmodule AWS.Bedrock do
   information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
 
   ## Required positional parameters:
-   • :guardrail_identifier (t:string String.t/0) (guardrailIdentifier)
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
 
   ## Optional parameters:
   """
@@ -3253,7 +3255,7 @@ defmodule AWS.Bedrock do
   in the Amazon Bedrock User Guide.
 
   ## Required positional parameters:
-   • :provisioned_model_id (t:string String.t/0) (provisionedModelId)
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput to update.
 
   ## Optional parameters:
   """

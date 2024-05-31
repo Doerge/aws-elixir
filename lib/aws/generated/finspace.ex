@@ -2503,8 +2503,8 @@ defmodule AWS.Finspace do
   of change requests.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the kdb database.
+  * `:environment_id` (`t:string`) A unique identifier of the kdb environment.
 
   ## Optional parameters:
   """
@@ -2545,7 +2545,7 @@ defmodule AWS.Finspace do
   Creates a new kdb cluster.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -2578,7 +2578,7 @@ defmodule AWS.Finspace do
   Creates a new kdb database in the environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -2616,8 +2616,10 @@ defmodule AWS.Finspace do
   not supported on dedicated clusters.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) 
+  The name of the database where you want to create a dataview.
+
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, where you want to create the dataview. 
 
   ## Optional parameters:
   """
@@ -2690,7 +2692,7 @@ defmodule AWS.Finspace do
   Creates a new scaling group.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, where you want to create the scaling group. 
 
   ## Optional parameters:
   """
@@ -2728,7 +2730,7 @@ defmodule AWS.Finspace do
   Creates a user in FinSpace kdb environment with an associated IAM role.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment where you want to create a user.
 
   ## Optional parameters:
   """
@@ -2762,7 +2764,7 @@ defmodule AWS.Finspace do
   Creates a new volume with a specific amount of throughput and storage capacity.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, whose clusters can attach to the volume. 
 
   ## Optional parameters:
   """
@@ -2795,7 +2797,7 @@ defmodule AWS.Finspace do
   Delete an FinSpace environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The identifier for the FinSpace environment.
 
   ## Optional parameters:
   """
@@ -2828,11 +2830,11 @@ defmodule AWS.Finspace do
   Deletes a kdb cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:cluster_name` (`t:string`) The name of the cluster that you want to delete.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_cluster(
           AWS.Client.t(),
@@ -2876,9 +2878,9 @@ defmodule AWS.Finspace do
   Deletes the specified nodes from a cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :node_id (t:string String.t/0) (nodeId)
+  * `:cluster_name` (`t:string`) The name of the cluster, for which you want to delete the nodes.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
+  * `:node_id` (`t:string`) A unique identifier for the node that you want to delete.
 
   ## Optional parameters:
   """
@@ -2930,11 +2932,11 @@ defmodule AWS.Finspace do
   deleting it if the data is to be retained.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the kdb database that you want to delete.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_database(
           AWS.Client.t(),
@@ -2981,12 +2983,12 @@ defmodule AWS.Finspace do
   Before deleting a dataview, make sure that it is not in use by any cluster.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :dataview_name (t:string String.t/0) (dataviewName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the database whose dataview you want to delete.
+  * `:dataview_name` (`t:string`) The name of the dataview that you want to delete.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, from where you want to delete the dataview. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_dataview(
           AWS.Client.t(),
@@ -3041,10 +3043,10 @@ defmodule AWS.Finspace do
   associated data and any services running in it.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_environment(
           AWS.Client.t(),
@@ -3089,11 +3091,11 @@ defmodule AWS.Finspace do
   clusters running on it have been deleted.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :scaling_group_name (t:string String.t/0) (scalingGroupName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, from where you want to delete the dataview. 
+  * `:scaling_group_name` (`t:string`) A unique identifier for the kdb scaling group. 
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_scaling_group(
           AWS.Client.t(),
@@ -3143,11 +3145,11 @@ defmodule AWS.Finspace do
   Deletes a user in the specified kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :user_name (t:string String.t/0) (userName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
+  * `:user_name` (`t:string`) A unique identifier for the user that you want to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_user(
           AWS.Client.t(),
@@ -3196,11 +3198,13 @@ defmodule AWS.Finspace do
   irreversible.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :volume_name (t:string String.t/0) (volumeName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, whose clusters can attach to the volume. 
+  * `:volume_name` (`t:string`) 
+  The name of the volume that you want to delete.
+
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
   """
   @spec delete_kx_volume(
           AWS.Client.t(),
@@ -3244,7 +3248,7 @@ defmodule AWS.Finspace do
   Returns the FinSpace environment object.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The identifier of the FinSpace environment.
 
   ## Optional parameters:
   """
@@ -3272,9 +3276,9 @@ defmodule AWS.Finspace do
   Returns information about a kdb changeset.
 
   ## Required positional parameters:
-   • :changeset_id (t:string String.t/0) (changesetId)
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:changeset_id` (`t:string`) A unique identifier of the changeset for which you want to retrieve data.
+  * `:database_name` (`t:string`) The name of the kdb database.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -3309,8 +3313,8 @@ defmodule AWS.Finspace do
   Retrieves information about a kdb cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:cluster_name` (`t:string`) The name of the cluster that you want to retrieve.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -3342,11 +3346,13 @@ defmodule AWS.Finspace do
   a user.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :cluster_name (t:String.t/0) (clusterName)
-   • :user_arn (t:String.t/0) (userArn)
+  * `:cluster_name` (`t:string`) A name of the kdb cluster.
+  * `:user_arn` (`t:string`)  The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and
+      how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+      <i>IAM User Guide</i>. 
   """
   @spec get_kx_connection_string(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_kx_connection_string_response(), any()}
@@ -3396,8 +3402,8 @@ defmodule AWS.Finspace do
   Returns database information for the specified environment ID.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the kdb database.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -3427,9 +3433,10 @@ defmodule AWS.Finspace do
   Retrieves details of the dataview.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :dataview_name (t:string String.t/0) (dataviewName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) 
+  The name of the database where you created the dataview.
+  * `:dataview_name` (`t:string`) A unique identifier for the dataview.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, from where you want to retrieve the dataview details.
 
   ## Optional parameters:
   """
@@ -3464,7 +3471,7 @@ defmodule AWS.Finspace do
   Retrieves all the information for the specified kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -3493,8 +3500,8 @@ defmodule AWS.Finspace do
   Retrieves details of a scaling group.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :scaling_group_name (t:string String.t/0) (scalingGroupName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment. 
+  * `:scaling_group_name` (`t:string`) A unique identifier for the kdb scaling group. 
 
   ## Optional parameters:
   """
@@ -3523,8 +3530,8 @@ defmodule AWS.Finspace do
   Retrieves information about the specified kdb user.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :user_name (t:string String.t/0) (userName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
+  * `:user_name` (`t:string`) A unique identifier for the user.
 
   ## Optional parameters:
   """
@@ -3554,8 +3561,8 @@ defmodule AWS.Finspace do
   Retrieves the information about the volume.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :volume_name (t:string String.t/0) (volumeName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, whose clusters can attach to the volume. 
+  * `:volume_name` (`t:string`) A unique identifier for the volume.
 
   ## Optional parameters:
   """
@@ -3586,8 +3593,10 @@ defmodule AWS.Finspace do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token generated by FinSpace that specifies where to continue pagination if a previous
+         request was truncated. To get the next set of pages, pass in the <code>nextToken</code>nextToken value from the
+         response object of the previous page call.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -3631,12 +3640,12 @@ defmodule AWS.Finspace do
   Returns a list of all the changesets for a database.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the kdb database.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_changesets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_changesets_response(), any()}
@@ -3681,12 +3690,12 @@ defmodule AWS.Finspace do
   Lists all the nodes in a kdb cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:cluster_name` (`t:string`) A unique name for the cluster.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_cluster_nodes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_cluster_nodes_response(), any()}
@@ -3731,12 +3740,12 @@ defmodule AWS.Finspace do
   Returns a list of clusters.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :cluster_type (t:String.t/0) (clusterType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:cluster_type` (`t:enum["GATEWAY|GP|HDB|RDB|TICKERPLANT"]`) Specifies the type of KDB database that is being created. The following types are available: 
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_clusters(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_clusters_response(), any()}
@@ -3789,11 +3798,11 @@ defmodule AWS.Finspace do
   Returns a list of all the databases in the kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_databases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_databases_response(), any()}
@@ -3838,12 +3847,15 @@ defmodule AWS.Finspace do
   Returns a list of all the dataviews in the database.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) 
+  The name of the database where the dataviews were created.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, for which you want to retrieve a list of dataviews.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) 
+  A token that indicates where a results page should begin.
+
   """
   @spec list_kx_dataviews(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_dataviews_response(), any()}
@@ -3890,8 +3902,8 @@ defmodule AWS.Finspace do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kx_environments_response(), any()}
@@ -3936,11 +3948,12 @@ defmodule AWS.Finspace do
   Returns a list of scaling groups in a kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, for which you want to retrieve a list of scaling groups.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) 
+  A token that indicates where a results page should begin. 
   """
   @spec list_kx_scaling_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_scaling_groups_response(), any()}
@@ -3984,11 +3997,11 @@ defmodule AWS.Finspace do
   Lists all the users in a kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
   """
   @spec list_kx_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_users_response(), any()}
@@ -4033,12 +4046,14 @@ defmodule AWS.Finspace do
   Lists all the volumes in a kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, whose clusters can attach to the volume. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :volume_type (t:String.t/0) (volumeType)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:volume_type` (`t:enum["NAS_1"]`) 
+      The type of file system volume. Currently, FinSpace only supports <code>NAS_1</code> volume type.
+   
   """
   @spec list_kx_volumes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_kx_volumes_response(), any()}
@@ -4091,7 +4106,7 @@ defmodule AWS.Finspace do
   A list of all tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name of the resource.
 
   ## Optional parameters:
   """
@@ -4119,7 +4134,7 @@ defmodule AWS.Finspace do
   Adds metadata tags to a FinSpace resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource.
 
   ## Optional parameters:
   """
@@ -4152,10 +4167,11 @@ defmodule AWS.Finspace do
   Removes metadata tags from a FinSpace resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) A FinSpace resource from which you want to remove a tag or tags. The value for this
+         parameter is an Amazon Resource Name (ARN).
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.finspace#TagKey]`) The tag keys (names) of one or more tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4191,7 +4207,7 @@ defmodule AWS.Finspace do
   Update your FinSpace environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The identifier of the FinSpace environment.
 
   ## Optional parameters:
   """
@@ -4220,8 +4236,10 @@ defmodule AWS.Finspace do
   configurations on the cluster.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:cluster_name` (`t:string`) The name of the cluster.
+  * `:environment_id` (`t:string`) 
+         A unique identifier of the kdb environment.
+      
 
   ## Optional parameters:
   """
@@ -4265,8 +4283,8 @@ defmodule AWS.Finspace do
   list of partitions being cached.
 
   ## Required positional parameters:
-   • :cluster_name (t:string String.t/0) (clusterName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:cluster_name` (`t:string`) A unique name for the cluster that you want to modify.
+  * `:environment_id` (`t:string`) The unique identifier of a kdb environment.
 
   ## Optional parameters:
   """
@@ -4303,8 +4321,8 @@ defmodule AWS.Finspace do
   Updates information for the given kdb database.
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) The name of the kdb database.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -4340,9 +4358,10 @@ defmodule AWS.Finspace do
   and cache configurations
 
   ## Required positional parameters:
-   • :database_name (t:string String.t/0) (databaseName)
-   • :dataview_name (t:string String.t/0) (dataviewName)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:database_name` (`t:string`) 
+  The name of the database.
+  * `:dataview_name` (`t:string`) The name of the dataview that you want to update.
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment, where you want to update the dataview.
 
   ## Optional parameters:
   """
@@ -4381,7 +4400,7 @@ defmodule AWS.Finspace do
   Updates information for the given kdb environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -4417,7 +4436,7 @@ defmodule AWS.Finspace do
   existing network.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
 
   ## Optional parameters:
   """
@@ -4447,8 +4466,8 @@ defmodule AWS.Finspace do
   You can only update the IAM role associated with a user.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :user_name (t:string String.t/0) (userName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment.
+  * `:user_name` (`t:string`) A unique identifier for the user.
 
   ## Optional parameters:
   """
@@ -4484,8 +4503,9 @@ defmodule AWS.Finspace do
   update is complete.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
-   • :volume_name (t:string String.t/0) (volumeName)
+  * `:environment_id` (`t:string`) A unique identifier for the kdb environment where you created the storage volume. 
+  * `:volume_name` (`t:string`) 
+  A unique identifier for the volume.
 
   ## Optional parameters:
   """

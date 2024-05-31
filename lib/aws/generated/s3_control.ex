@@ -3722,7 +3722,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec associate_access_grants_identity_center(
           AWS.Client.t(),
@@ -3786,7 +3786,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec create_access_grant(AWS.Client.t(), create_access_grant_request(), Keyword.t()) ::
           {:ok, create_access_grant_result(), any()}
@@ -3841,7 +3841,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec create_access_grants_instance(
           AWS.Client.t(),
@@ -3914,7 +3914,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec create_access_grants_location(
           AWS.Client.t(),
@@ -3991,10 +3991,10 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name you want to assign to this access point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account that owns the specified access point.
   """
   @spec create_access_point(
           AWS.Client.t(),
@@ -4046,10 +4046,10 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name you want to assign to this Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the specified Object Lambda Access Point.
   """
   @spec create_access_point_for_object_lambda(
           AWS.Client.t(),
@@ -4137,17 +4137,18 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The name of the bucket.
 
   ## Optional parameters:
-   • :acl (t:String.t/0) (x-amz-acl)
-   • :grant_full_control (t:String.t/0) (x-amz-grant-full-control)
-   • :grant_read (t:String.t/0) (x-amz-grant-read)
-   • :grant_read_a_c_p (t:String.t/0) (x-amz-grant-read-acp)
-   • :grant_write (t:String.t/0) (x-amz-grant-write)
-   • :grant_write_a_c_p (t:String.t/0) (x-amz-grant-write-acp)
-   • :object_lock_enabled_for_bucket (t:String.t/0) (x-amz-bucket-object-lock-enabled)
-   • :outpost_id (t:String.t/0) (x-amz-outpost-id)
+  * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`) The canned ACL to apply to the bucket.
+  * `:grant_full_control` (`t:string`) Allows grantee the read, write, read ACP, and write ACP permissions on the
+         bucket.
+  * `:grant_read` (`t:string`) Allows grantee to list the objects in the bucket.
+  * `:grant_read_a_c_p` (`t:string`) Allows grantee to read the bucket ACL.
+  * `:grant_write` (`t:string`) Allows grantee to create, overwrite, and delete any object in the bucket.
+  * `:grant_write_a_c_p` (`t:string`) Allows grantee to write the ACL for the applicable bucket.
+  * `:object_lock_enabled_for_bucket` (`t:boolean`) Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+  * `:outpost_id` (`t:string`) The ID of the Outposts where the bucket is being created.
   """
   @spec create_bucket(AWS.Client.t(), String.t(), create_bucket_request(), Keyword.t()) ::
           {:ok, create_bucket_result(), any()}
@@ -4228,7 +4229,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID that creates the job.
   """
   @spec create_job(AWS.Client.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_result(), any()}
@@ -4305,7 +4306,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own
+         the underlying buckets.
   """
   @spec create_multi_region_access_point(
           AWS.Client.t(),
@@ -4367,7 +4369,9 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID that the Storage Lens group is created from and associated with.
+
   """
   @spec create_storage_lens_group(
           AWS.Client.t(),
@@ -4416,10 +4420,10 @@ defmodule AWS.S3Control do
   You must have the `s3:DeleteAccessGrant` permission to use this operation.
 
   ## Required positional parameters:
-   • :access_grant_id (t:string String.t/0) (AccessGrantId)
+  * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec delete_access_grant(
           AWS.Client.t(),
@@ -4480,7 +4484,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec delete_access_grants_instance(
           AWS.Client.t(),
@@ -4533,7 +4537,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec delete_access_grants_instance_resource_policy(
           AWS.Client.t(),
@@ -4586,10 +4590,10 @@ defmodule AWS.S3Control do
   operation.
 
   ## Required positional parameters:
-   • :access_grants_location_id (t:string String.t/0) (AccessGrantsLocationId)
+  * `:access_grants_location_id` (`t:string`) The ID of the registered location that you are deregistering from your S3 Access Grants instance. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec delete_access_grants_location(
           AWS.Client.t(),
@@ -4661,10 +4665,10 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point you want to delete.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account that owns the specified access point.
   """
   @spec delete_access_point(
           AWS.Client.t(),
@@ -4723,10 +4727,10 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point you want to delete.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec delete_access_point_for_object_lambda(
           AWS.Client.t(),
@@ -4788,10 +4792,10 @@ defmodule AWS.S3Control do
   [GetAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point whose policy you want to delete.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified access point.
   """
   @spec delete_access_point_policy(
           AWS.Client.t(),
@@ -4846,10 +4850,10 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point you want to delete the policy for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec delete_access_point_policy_for_object_lambda(
           AWS.Client.t(),
@@ -4925,10 +4929,10 @@ defmodule AWS.S3Control do
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket being deleted.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID that owns the Outposts bucket.
   """
   @spec delete_bucket(AWS.Client.t(), String.t(), delete_bucket_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5008,10 +5012,10 @@ defmodule AWS.S3Control do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the lifecycle configuration to delete.
   """
   @spec delete_bucket_lifecycle_configuration(
           AWS.Client.t(),
@@ -5114,10 +5118,10 @@ defmodule AWS.S3Control do
   [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the Outposts bucket.
   """
   @spec delete_bucket_policy(
           AWS.Client.t(),
@@ -5209,10 +5213,11 @@ defmodule AWS.S3Control do
   [GetBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to delete the replication configuration for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket to delete the replication configuration
+         for.
   """
   @spec delete_bucket_replication(
           AWS.Client.t(),
@@ -5285,10 +5290,10 @@ defmodule AWS.S3Control do
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The bucket ARN that has the tag set to be removed.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket tag set to be removed.
   """
   @spec delete_bucket_tagging(
           AWS.Client.t(),
@@ -5354,10 +5359,10 @@ defmodule AWS.S3Control do
   [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you want to delete.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec delete_job_tagging(AWS.Client.t(), String.t(), delete_job_tagging_request(), Keyword.t()) ::
           {:ok, delete_job_tagging_result(), any()}
@@ -5433,7 +5438,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec delete_multi_region_access_point(
           AWS.Client.t(),
@@ -5491,7 +5496,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+         you want to remove.
   """
   @spec delete_public_access_block(
           AWS.Client.t(),
@@ -5543,10 +5549,10 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec delete_storage_lens_configuration(
           AWS.Client.t(),
@@ -5600,10 +5606,10 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec delete_storage_lens_configuration_tagging(
           AWS.Client.t(),
@@ -5658,10 +5664,14 @@ defmodule AWS.S3Control do
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
+  The name of the Storage Lens group that you&#39;re trying to delete.
+
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID used to create the Storage Lens group that you&#39;re trying to delete.
+
   """
   @spec delete_storage_lens_group(
           AWS.Client.t(),
@@ -5731,10 +5741,10 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID for the job whose information you want to retrieve.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec describe_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_result(), any()}
@@ -5795,10 +5805,12 @@ defmodule AWS.S3Control do
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
 
   ## Required positional parameters:
-   • :request_token_arn (t:string String.t/0) (RequestTokenARN)
+  * `:request_token_arn` (`t:string`) The request token associated with the request you want to know about. This request token
+         is returned as part of the response when you make an asynchronous request. You provide this
+         token to query about the status of the asynchronous action.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec describe_multi_region_access_point_operation(
           AWS.Client.t(),
@@ -5858,7 +5870,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec dissociate_access_grants_identity_center(
           AWS.Client.t(),
@@ -5904,10 +5916,10 @@ defmodule AWS.S3Control do
   You must have the `s3:GetAccessGrant` permission to use this operation.
 
   ## Required positional parameters:
-   • :access_grant_id (t:string String.t/0) (AccessGrantId)
+  * `:access_grant_id` (`t:string`) The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_access_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grant_result(), any()}
@@ -5950,7 +5962,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_access_grants_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_result(), any()}
@@ -5999,8 +6011,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :s3_prefix (t:String.t/0) (s3prefix)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:s3_prefix` (`t:string`) The S3 prefix of the access grants that you would like to retrieve.
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_access_grants_instance_for_prefix(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_for_prefix_result(), any()}
@@ -6058,7 +6070,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_access_grants_instance_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_instance_resource_policy_result(), any()}
@@ -6100,10 +6112,10 @@ defmodule AWS.S3Control do
   You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
 
   ## Required positional parameters:
-   • :access_grants_location_id (t:string String.t/0) (AccessGrantsLocationId)
+  * `:access_grants_location_id` (`t:string`) The ID of the registered location that you are retrieving. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_access_grants_location(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_grants_location_result(), any()}
@@ -6169,10 +6181,10 @@ defmodule AWS.S3Control do
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point whose configuration information you want to retrieve.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account that owns the specified access point.
   """
   @spec get_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_result(), any()}
@@ -6217,10 +6229,10 @@ defmodule AWS.S3Control do
   [PutAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointConfigurationForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point you want to return the configuration for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec get_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
@@ -6282,10 +6294,10 @@ defmodule AWS.S3Control do
   [ListAccessPointsForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec get_access_point_for_object_lambda(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_for_object_lambda_result(), any()}
@@ -6333,10 +6345,10 @@ defmodule AWS.S3Control do
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point whose policy you want to retrieve.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified access point.
   """
   @spec get_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_result(), any()}
@@ -6385,10 +6397,10 @@ defmodule AWS.S3Control do
   [PutAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec get_access_point_policy_for_object_lambda(
           AWS.Client.t(),
@@ -6441,10 +6453,10 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point whose policy status you want to retrieve.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified access point.
   """
   @spec get_access_point_policy_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_point_policy_status_result(), any()}
@@ -6483,10 +6495,10 @@ defmodule AWS.S3Control do
   Access Point.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec get_access_point_policy_status_for_object_lambda(
           AWS.Client.t(),
@@ -6576,10 +6588,10 @@ defmodule AWS.S3Control do
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec get_bucket(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_result(), any()}
@@ -6669,10 +6681,10 @@ defmodule AWS.S3Control do
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec get_bucket_lifecycle_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_lifecycle_configuration_result(), any()}
@@ -6762,10 +6774,10 @@ defmodule AWS.S3Control do
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec get_bucket_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_policy_result(), any()}
@@ -6860,10 +6872,10 @@ defmodule AWS.S3Control do
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket to get the replication information for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec get_bucket_replication(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_replication_result(), any()}
@@ -6939,10 +6951,10 @@ defmodule AWS.S3Control do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec get_bucket_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_tagging_result(), any()}
@@ -7025,10 +7037,10 @@ defmodule AWS.S3Control do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The S3 on Outposts bucket to return the versioning state for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on Outposts bucket.
   """
   @spec get_bucket_versioning(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bucket_versioning_result(), any()}
@@ -7082,12 +7094,12 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :duration_seconds (t:String.t/0) (durationSeconds)
-   • :permission (t:String.t/0) (permission)
-   • :privilege (t:String.t/0) (privilege)
-   • :target (t:String.t/0) (target)
-   • :target_type (t:String.t/0) (targetType)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:duration_seconds` (`t:integer`) The session duration, in seconds, of the temporary access credential that S3 Access Grants vends to the grantee or client application. The default value is 1 hour, but the grantee can specify a range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). If the grantee requests a value higher than this maximum, the operation fails. 
+  * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission granted to your S3 data, which can be set to one of the following values:
+  * `:privilege` (`t:enum["Default|Minimal"]`) The scope of the temporary access credential that S3 Access Grants vends to the grantee or client application. 
+  * `:target` (`t:string`) The S3 URI path of the data to which you are requesting temporary access credentials. If the requesting account has an access grant for this data, S3 Access Grants vends temporary access credentials in the response.
+  * `:target_type` (`t:enum["Object"]`) The type of <code>Target</code>. The only possible value is <code>Object</code>. Pass this value if the target data that you would like to access is a path to an object. Do not pass this value if the target data is a bucket or a bucket and a prefix. 
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec get_data_access(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_access_result(), any()}
@@ -7192,10 +7204,10 @@ defmodule AWS.S3Control do
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you want to retrieve.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec get_job_tagging(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_tagging_result(), any()}
@@ -7259,10 +7271,13 @@ defmodule AWS.S3Control do
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Multi-Region Access Point whose configuration information you want to receive. The name of
+         the Multi-Region Access Point is different from the alias. For more information about the distinction between
+         the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
+         <i>Amazon S3 User Guide</i>.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec get_multi_region_access_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_result(), any()}
@@ -7318,10 +7333,12 @@ defmodule AWS.S3Control do
   [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
+         information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
+         <i>Amazon S3 User Guide</i>.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec get_multi_region_access_point_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_policy_result(), any()}
@@ -7379,10 +7396,12 @@ defmodule AWS.S3Control do
   [PutMultiRegionAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
+         information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules for naming Amazon S3 Multi-Region Access Points</a> in the
+         <i>Amazon S3 User Guide</i>.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec get_multi_region_access_point_policy_status(
           AWS.Client.t(),
@@ -7456,10 +7475,10 @@ defmodule AWS.S3Control do
   `eu-west-1`
 
   ## Required positional parameters:
-   • :mrap (t:string String.t/0) (Mrap)
+  * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec get_multi_region_access_point_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_multi_region_access_point_routes_result(), any()}
@@ -7512,7 +7531,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+         you want to retrieve.
   """
   @spec get_public_access_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_public_access_block_output(), any()}
@@ -7562,10 +7582,10 @@ defmodule AWS.S3Control do
   *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the Amazon S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec get_storage_lens_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_configuration_result(), any()}
@@ -7613,10 +7633,10 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the Amazon S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec get_storage_lens_configuration_tagging(
           AWS.Client.t(),
@@ -7670,10 +7690,14 @@ defmodule AWS.S3Control do
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
+  The name of the Storage Lens group that you&#39;re trying to retrieve the configuration details for.
+
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID associated with the Storage Lens group that you&#39;re trying to retrieve the details for.
+
   """
   @spec get_storage_lens_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_storage_lens_group_result(), any()}
@@ -7716,14 +7740,14 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :application_arn (t:String.t/0) (application_arn)
-   • :grant_scope (t:String.t/0) (grantscope)
-   • :grantee_identifier (t:String.t/0) (granteeidentifier)
-   • :grantee_type (t:String.t/0) (granteetype)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :permission (t:String.t/0) (permission)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:application_arn` (`t:string`) The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. 
+  * `:grant_scope` (`t:string`) The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope.
+  * `:grantee_identifier` (`t:string`) The unique identifer of the <code>Grantee</code>. If the grantee type is <code>IAM</code>, the identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee type is a directory user or group, the identifier is 128-bit universally unique identifier (UUID) in the format <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>. You can obtain this UUID from your Amazon Web Services IAM Identity Center instance.
+  * `:grantee_type` (`t:enum["DIRECTORY_GROUP|DIRECTORY_USER|IAM"]`) The type of the grantee to which access has been granted. It can be one of the following values:
+  * `:max_results` (`t:integer`) The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.
+  * `:next_token` (`t:string`) A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants</code> request in order to retrieve the next page of results.
+  * `:permission` (`t:enum["READ|READWRITE|WRITE"]`) The type of permission granted to your S3 data, which can be set to one of the following values:
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec list_access_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_result(), any()}
@@ -7834,9 +7858,9 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:max_results` (`t:integer`) The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.
+  * `:next_token` (`t:string`) A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Instances</code> request in order to retrieve the next page of results.
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec list_access_grants_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_instances_result(), any()}
@@ -7898,10 +7922,10 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :location_scope (t:String.t/0) (locationscope)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:location_scope` (`t:string`) The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></prefix></bucket></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.
+  * `:max_results` (`t:integer`) The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.
+  * `:next_token` (`t:string`) A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Locations</code> request in order to retrieve the next page of results.
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec list_access_grants_locations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_grants_locations_result(), any()}
@@ -7998,10 +8022,15 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :bucket (t:String.t/0) (bucket)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:bucket` (`t:string`) The name of the bucket whose associated access points you want to list.
+  * `:max_results` (`t:integer`) The maximum number of access points that you want to include in the list. If the specified
+         bucket has more than this number of access points, then the response will include a continuation
+         token in the <code>NextToken</code> field that you can use to retrieve the next page of
+         access points.
+  * `:next_token` (`t:string`) A continuation token. If a previous call to <code>ListAccessPoints</code> returned a
+         continuation token in the <code>NextToken</code> field, then providing that value here
+         causes Amazon S3 to retrieve the next page of results.
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the account that owns the specified access points.
   """
   @spec list_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_result(), any()}
@@ -8087,9 +8116,14 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:max_results` (`t:integer`) The maximum number of access points that you want to include in the list. The response may
+         contain fewer access points but will never contain more. If there are more than this number of
+         access points, then the response will include a continuation token in the <code>NextToken</code>
+         field that you can use to retrieve the next page of access points.
+  * `:next_token` (`t:string`) If the list has more access points than can be returned in one call to this API, this field
+         contains a continuation token that you can provide in subsequent calls to this API to
+         retrieve additional access points.
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec list_access_points_for_object_lambda(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_points_for_object_lambda_result(), any()}
@@ -8175,10 +8209,16 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :job_statuses (t:String.t/0) (jobStatuses)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:job_statuses` (`t:list[com.amazonaws.s3control#JobStatus]`) The <code>List Jobs</code> request returns jobs that match the statuses listed in this
+         element.
+  * `:max_results` (`t:integer`) The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code>
+         response. If there are more jobs than this number, the response will include a pagination
+         token in the <code>NextToken</code> field to enable you to retrieve the next page of
+         results.
+  * `:next_token` (`t:string`) A pagination token to request the next page of results. Use the token that Amazon S3 returned
+         in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous
+            <code>List Jobs</code> request.
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec list_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
@@ -8275,9 +8315,9 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:max_results` (`t:integer`) Not currently used. Do not use this parameter.
+  * `:next_token` (`t:string`) Not currently used. Do not use this parameter.
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec list_multi_region_access_points(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multi_region_access_points_result(), any()}
@@ -8345,10 +8385,10 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
-   • :outpost_id (t:String.t/0) (x-amz-outpost-id)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
+  * `:outpost_id` (`t:string`) The ID of the Outposts resource.
   """
   @spec list_regional_buckets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_regional_buckets_result(), any()}
@@ -8425,8 +8465,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:next_token` (`t:string`) A pagination token to request the next page of results.
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec list_storage_lens_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_configurations_result(), any()}
@@ -8481,8 +8521,11 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> if there are no more results.
+   
+  * `:account_id` (`t:string`) 
+   The Amazon Web Services account ID that owns the Storage Lens groups.
+
   """
   @spec list_storage_lens_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_lens_groups_result(), any()}
@@ -8546,10 +8589,14 @@ defmodule AWS.S3Control do
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+  The Amazon Resource Name (ARN) of the S3 resource that you want to list the tags for. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.
+
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID of the resource owner.
+
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -8593,7 +8640,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec put_access_grants_instance_resource_policy(
           AWS.Client.t(),
@@ -8633,10 +8680,10 @@ defmodule AWS.S3Control do
   [GetAccessPointConfigurationForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec put_access_point_configuration_for_object_lambda(
           AWS.Client.t(),
@@ -8697,10 +8744,10 @@ defmodule AWS.S3Control do
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the access point that you want to associate with the specified policy.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for owner of the bucket associated with the specified access point.
   """
   @spec put_access_point_policy(
           AWS.Client.t(),
@@ -8747,10 +8794,10 @@ defmodule AWS.S3Control do
   [GetAccessPointPolicyForObjectLambda](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the Object Lambda Access Point.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the account that owns the specified Object Lambda Access Point.
   """
   @spec put_access_point_policy_for_object_lambda(
           AWS.Client.t(),
@@ -8814,10 +8861,10 @@ defmodule AWS.S3Control do
   [DeleteBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The name of the bucket for which to set the configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec put_bucket_lifecycle_configuration(
           AWS.Client.t(),
@@ -8910,11 +8957,12 @@ defmodule AWS.S3Control do
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
-   • :confirm_remove_self_bucket_access (t:String.t/0) (x-amz-confirm-remove-self-bucket-access)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
+  * `:confirm_remove_self_bucket_access` (`t:boolean`) Set this parameter to true to confirm that you want to remove your permissions to change
+         this bucket policy in the future.
   """
   @spec put_bucket_policy(AWS.Client.t(), String.t(), put_bucket_policy_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9047,10 +9095,10 @@ defmodule AWS.S3Control do
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) Specifies the S3 on Outposts bucket to set the configuration for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec put_bucket_replication(
           AWS.Client.t(),
@@ -9169,10 +9217,10 @@ defmodule AWS.S3Control do
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The Amazon Resource Name (ARN) of the bucket.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the Outposts bucket.
   """
   @spec put_bucket_tagging(AWS.Client.t(), String.t(), put_bucket_tagging_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9286,11 +9334,12 @@ defmodule AWS.S3Control do
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
 
   ## Required positional parameters:
-   • :bucket (t:string String.t/0) (Bucket)
+  * `:bucket` (`t:string`) The S3 on Outposts bucket to set the versioning state for.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
-   • :mfa (t:String.t/0) (x-amz-mfa)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the S3 on Outposts bucket.
+  * `:mfa` (`t:string`) The concatenation of the authentication device&#39;s serial number, a space, and the value
+         that is displayed on your authentication device.
   """
   @spec put_bucket_versioning(
           AWS.Client.t(),
@@ -9391,10 +9440,10 @@ defmodule AWS.S3Control do
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID for the S3 Batch Operations job whose tags you want to replace.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec put_job_tagging(AWS.Client.t(), String.t(), put_job_tagging_request(), Keyword.t()) ::
           {:ok, put_job_tagging_result(), any()}
@@ -9448,7 +9497,7 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec put_multi_region_access_point_policy(
           AWS.Client.t(),
@@ -9507,7 +9556,8 @@ defmodule AWS.S3Control do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+         you want to set.
   """
   @spec put_public_access_block(AWS.Client.t(), put_public_access_block_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9547,10 +9597,10 @@ defmodule AWS.S3Control do
   *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec put_storage_lens_configuration(
           AWS.Client.t(),
@@ -9594,10 +9644,10 @@ defmodule AWS.S3Control do
   in the *Amazon S3 User Guide*.
 
   ## Required positional parameters:
-   • :config_id (t:string String.t/0) (ConfigId)
+  * `:config_id` (`t:string`) The ID of the S3 Storage Lens configuration.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The account ID of the requester.
   """
   @spec put_storage_lens_configuration_tagging(
           AWS.Client.t(),
@@ -9675,10 +9725,10 @@ defmodule AWS.S3Control do
   `eu-west-1`
 
   ## Required positional parameters:
-   • :mrap (t:string String.t/0) (Mrap)
+  * `:mrap` (`t:string`) The Multi-Region Access Point ARN.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID for the owner of the Multi-Region Access Point.
   """
   @spec submit_multi_region_access_point_routes(
           AWS.Client.t(),
@@ -9740,10 +9790,12 @@ defmodule AWS.S3Control do
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 resource that you&#39;re trying to add tags to. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID that created the S3 resource that you&#39;re trying to add tags to or the requester&#39;s account ID. 
+
   """
   @spec tag_resource(AWS.Client.t(), String.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
@@ -9800,11 +9852,17 @@ defmodule AWS.S3Control do
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) 
+   The Amazon Resource Name (ARN) of the S3 resource that you&#39;re trying to remove the tags from.
+   
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:tag_keys` (`t:list[com.amazonaws.s3control#TagKeyString]`) 
+   The array of tag key-value pairs that you&#39;re trying to remove from of the S3 resource.
+   
+  * `:account_id` (`t:string`) 
+   The Amazon Web Services account ID that owns the resource that you&#39;re trying to remove the tags from.
+   
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
@@ -9855,10 +9913,10 @@ defmodule AWS.S3Control do
   You must also have the following permission: `iam:PassRole`
 
   ## Required positional parameters:
-   • :access_grants_location_id (t:string String.t/0) (AccessGrantsLocationId)
+  * `:access_grants_location_id` (`t:string`) The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) The ID of the Amazon Web Services account that is making this request.
   """
   @spec update_access_grants_location(
           AWS.Client.t(),
@@ -9924,11 +9982,11 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID for the job whose priority you want to update.
 
   ## Optional parameters:
-   • :priority (t:String.t/0) (priority)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:priority` (`t:integer`) The priority you want to assign to this job.
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec update_job_priority(
           AWS.Client.t(),
@@ -10004,12 +10062,13 @@ defmodule AWS.S3Control do
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID of the job whose status you want to update.
 
   ## Optional parameters:
-   • :requested_job_status (t:String.t/0) (requestedJobStatus)
-   • :status_update_reason (t:String.t/0) (statusUpdateReason)
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:requested_job_status` (`t:enum["Cancelled|Ready"]`) The status that you want to move the specified job to.
+  * `:status_update_reason` (`t:string`) A description of the reason why you want to change the specified job&#39;s status. This
+         field can be any string up to the maximum length.
+  * `:account_id` (`t:string`) The Amazon Web Services account ID associated with the S3 Batch Operations job.
   """
   @spec update_job_status(AWS.Client.t(), String.t(), update_job_status_request(), Keyword.t()) ::
           {:ok, update_job_status_result(), any()}
@@ -10060,10 +10119,14 @@ defmodule AWS.S3Control do
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) 
+  The name of the Storage Lens group that you want to update.
+
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (x-amz-account-id)
+  * `:account_id` (`t:string`) 
+  The Amazon Web Services account ID of the Storage Lens group owner.
+
   """
   @spec update_storage_lens_group(
           AWS.Client.t(),

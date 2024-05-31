@@ -830,7 +830,7 @@ defmodule AWS.OSIS do
   For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
 
   ## Optional parameters:
   """
@@ -863,7 +863,7 @@ defmodule AWS.OSIS do
   Retrieves information about an OpenSearch Ingestion pipeline.
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline.
 
   ## Optional parameters:
   """
@@ -896,10 +896,10 @@ defmodule AWS.OSIS do
   pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
 
   ## Required positional parameters:
-   • :blueprint_name (t:string String.t/0) (BlueprintName)
+  * `:blueprint_name` (`t:string`) The name of the blueprint to retrieve.
 
   ## Optional parameters:
-   • :format (t:String.t/0) (format)
+  * `:format` (`t:string`) The format format of the blueprint to retrieve.
   """
   @spec get_pipeline_blueprint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
@@ -941,7 +941,7 @@ defmodule AWS.OSIS do
   For more information, see [Tracking the status of pipeline creation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress).
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline.
 
   ## Optional parameters:
   """
@@ -1010,8 +1010,11 @@ defmodule AWS.OSIS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+   <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you
+   can include the returned <code>nextToken</code> in subsequent <code>ListPipelines</code>
+   operations, which returns results in the next page.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1060,7 +1063,7 @@ defmodule AWS.OSIS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1097,7 +1100,7 @@ defmodule AWS.OSIS do
   For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to start.
 
   ## Optional parameters:
   """
@@ -1122,7 +1125,7 @@ defmodule AWS.OSIS do
   For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to stop.
 
   ## Optional parameters:
   """
@@ -1149,7 +1152,7 @@ defmodule AWS.OSIS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to tag.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1190,7 +1193,7 @@ defmodule AWS.OSIS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to remove tags from.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1228,7 +1231,7 @@ defmodule AWS.OSIS do
   For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
 
   ## Required positional parameters:
-   • :pipeline_name (t:string String.t/0) (PipelineName)
+  * `:pipeline_name` (`t:string`) The name of the pipeline to update.
 
   ## Optional parameters:
   """

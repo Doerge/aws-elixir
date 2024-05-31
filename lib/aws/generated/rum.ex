@@ -923,7 +923,7 @@ defmodule AWS.RUM do
   definitions in the same operation still succeed.
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the CloudWatch RUM app monitor that is to send the metrics.
 
   ## Optional parameters:
   """
@@ -976,12 +976,16 @@ defmodule AWS.RUM do
   `BatchDeleteRumMetricDefinitions` operation is 200.
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the CloudWatch RUM app monitor that is sending these metrics.
 
   ## Optional parameters:
-   • :destination (t:String.t/0) (destination)
-   • :destination_arn (t:String.t/0) (destinationArn)
-   • :metric_definition_ids (t:String.t/0) (metricDefinitionIds)
+  * `:destination` (`t:string`) Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and
+         <code>Evidently</code>. If
+         you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to 
+         be the destination and an IAM role that has permission to write to the experiment.
+  * `:destination_arn` (`t:string`) This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is 
+         <code>CloudWatch</code>, do not use this parameter. 
+  * `:metric_definition_ids` (`t:list[com.amazonaws.rum#MetricDefinitionId]`) An array of structures which define the metrics that you want to stop sending.
   """
   @spec batch_delete_rum_metric_definitions(
           AWS.Client.t(),
@@ -1030,13 +1034,16 @@ defmodule AWS.RUM do
   to a single destination.
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the CloudWatch RUM app monitor that is sending the metrics.
 
   ## Optional parameters:
-   • :destination (t:String.t/0) (destination)
-   • :destination_arn (t:String.t/0) (destinationArn)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:destination` (`t:string`) The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code> 
+         and <code>Evidently</code>.
+  * `:destination_arn` (`t:string`) This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is 
+         <code>CloudWatch</code>, do not use this parameter.
+  * `:max_results` (`t:integer`) The maximum number of results to return in one operation. The default is 50. The maximum that you can 
+         specify is 100.
+  * `:next_token` (`t:`) Use the token returned by the previous operation to request the next page of results.
   """
   @spec batch_get_rum_metric_definitions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_rum_metric_definitions_response(), any()}
@@ -1154,7 +1161,7 @@ defmodule AWS.RUM do
   This immediately stops the collection of data.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the app monitor to delete.
 
   ## Optional parameters:
   """
@@ -1189,11 +1196,13 @@ defmodule AWS.RUM do
   sending extended metrics to that destination.
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the app monitor that is sending metrics to the destination that you want to delete.
 
   ## Optional parameters:
-   • :destination (t:String.t/0) (destination)
-   • :destination_arn (t:String.t/0) (destinationArn)
+  * `:destination` (`t:string`) The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.
+  * `:destination_arn` (`t:string`) This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is 
+         <code>CloudWatch</code>, do not use this parameter. This parameter
+         specifies the ARN of the Evidently experiment that corresponds to the destination to delete.
   """
   @spec delete_rum_metrics_destination(
           AWS.Client.t(),
@@ -1235,7 +1244,7 @@ defmodule AWS.RUM do
   Retrieves the complete configuration information for one app monitor.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The app monitor to retrieve information for.
 
   ## Optional parameters:
   """
@@ -1265,7 +1274,7 @@ defmodule AWS.RUM do
   so that you can do your own processing or analysis of this data.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the app monitor that collected the data that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -1305,8 +1314,9 @@ defmodule AWS.RUM do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in one operation. The default is 50. The maximum that you can 
+      specify is 100.
+  * `:next_token` (`t:`) Use the token returned by the previous operation to request the next page of results.
   """
   @spec list_app_monitors(AWS.Client.t(), list_app_monitors_request(), Keyword.t()) ::
           {:ok, list_app_monitors_response(), any()}
@@ -1348,11 +1358,12 @@ defmodule AWS.RUM do
   [AddRumMetrics](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html).
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the app monitor associated with the destinations that you want to retrieve.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in one operation. The default is 50. The maximum that you can 
+         specify is 100.
+  * `:next_token` (`t:`) Use the token returned by the previous operation to request the next page of results.
   """
   @spec list_rum_metrics_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rum_metrics_destinations_response(), any()}
@@ -1396,7 +1407,7 @@ defmodule AWS.RUM do
   Displays the tags associated with a CloudWatch RUM resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that you want to see the tags of.
 
   ## Optional parameters:
   """
@@ -1432,7 +1443,7 @@ defmodule AWS.RUM do
   Each `PutRumEvents` operation can send a batch of events from one user session.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) The ID of the app monitor that is sending this data.
 
   ## Optional parameters:
   """
@@ -1472,7 +1483,7 @@ defmodule AWS.RUM do
   [BatchCreateRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html).
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the CloudWatch RUM app monitor that will send the metrics.
 
   ## Optional parameters:
   """
@@ -1534,7 +1545,7 @@ defmodule AWS.RUM do
   For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch RUM resource that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -1567,10 +1578,10 @@ defmodule AWS.RUM do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the CloudWatch RUM resource that you&#39;re removing tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.rum#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1623,7 +1634,7 @@ defmodule AWS.RUM do
   generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the app monitor to update.
 
   ## Optional parameters:
   """
@@ -1660,7 +1671,7 @@ defmodule AWS.RUM do
   [BatchCreateRumMetricsDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html).
 
   ## Required positional parameters:
-   • :app_monitor_name (t:string String.t/0) (AppMonitorName)
+  * `:app_monitor_name` (`t:string`) The name of the CloudWatch RUM app monitor that sends these metrics.
 
   ## Optional parameters:
   """

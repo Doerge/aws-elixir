@@ -1576,7 +1576,7 @@ defmodule AWS.ConnectCases do
   Returns the description for the list of fields in the request parameters.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1610,8 +1610,8 @@ defmodule AWS.ConnectCases do
   domain.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :field_id (t:string String.t/0) (fieldId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:field_id` (`t:string`) The unique identifier of a field.
 
   ## Optional parameters:
   """
@@ -1665,7 +1665,7 @@ defmodule AWS.ConnectCases do
   `title`
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1746,7 +1746,7 @@ defmodule AWS.ConnectCases do
   model (that is, defines what data can be captured on cases) in a Cases domain.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1791,7 +1791,7 @@ defmodule AWS.ConnectCases do
   configurable.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1838,8 +1838,8 @@ defmodule AWS.ConnectCases do
   permission on the ARN of the user that you provide.
 
   ## Required positional parameters:
-   • :case_id (t:string String.t/0) (caseId)
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1891,7 +1891,7 @@ defmodule AWS.ConnectCases do
   cannot be used to create cases.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -1930,7 +1930,7 @@ defmodule AWS.ConnectCases do
   [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2022,8 +2022,8 @@ defmodule AWS.ConnectCases do
   fields.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :field_id (t:string String.t/0) (fieldId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:field_id` (`t:string`) Unique identifier of the field.
 
   ## Optional parameters:
   """
@@ -2072,8 +2072,8 @@ defmodule AWS.ConnectCases do
   Deleted layouts are not included in the `ListLayouts` response.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :layout_id (t:string String.t/0) (layoutId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
 
   ## Optional parameters:
   """
@@ -2130,8 +2130,8 @@ defmodule AWS.ConnectCases do
   Deleted templates are not included in the `ListTemplates` response.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :template_id (t:string String.t/0) (templateId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
+  * `:template_id` (`t:string`) A unique identifier of a template.
 
   ## Optional parameters:
   """
@@ -2172,8 +2172,8 @@ defmodule AWS.ConnectCases do
   Returns information about a specific case if it exists.
 
   ## Required positional parameters:
-   • :case_id (t:string String.t/0) (caseId)
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2206,8 +2206,8 @@ defmodule AWS.ConnectCases do
   Returns the audit history about a specific case if it exists.
 
   ## Required positional parameters:
-   • :case_id (t:string String.t/0) (caseId)
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain.
 
   ## Optional parameters:
   """
@@ -2248,7 +2248,7 @@ defmodule AWS.ConnectCases do
   Returns the case event publishing configuration.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2286,7 +2286,7 @@ defmodule AWS.ConnectCases do
   Returns information about a specific domain if it exists.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2319,8 +2319,8 @@ defmodule AWS.ConnectCases do
   Returns the details for the requested layout.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :layout_id (t:string String.t/0) (layoutId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
 
   ## Optional parameters:
   """
@@ -2355,8 +2355,8 @@ defmodule AWS.ConnectCases do
   Returns the details for the requested template.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :template_id (t:string String.t/0) (templateId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:template_id` (`t:string`) A unique identifier of a template.
 
   ## Optional parameters:
   """
@@ -2391,7 +2391,7 @@ defmodule AWS.ConnectCases do
   Lists cases for a given contact.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2434,8 +2434,9 @@ defmodule AWS.ConnectCases do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_domains(AWS.Client.t(), list_domains_request(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -2472,13 +2473,15 @@ defmodule AWS.ConnectCases do
   Lists all of the field options for a field identifier in the domain.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :field_id (t:string String.t/0) (fieldId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:field_id` (`t:string`) The unique identifier of a field.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :values (t:String.t/0) (values)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:values` (`t:list[com.amazonaws.connectcases#Value]`) A list of <code>FieldOption</code> values to filter on for
+      <code>ListFieldOptions</code>.
   """
   @spec list_field_options(
           AWS.Client.t(),
@@ -2524,11 +2527,12 @@ defmodule AWS.ConnectCases do
   Lists all fields in a Cases domain.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_fields(AWS.Client.t(), String.t(), list_fields_request(), Keyword.t()) ::
           {:ok, list_fields_response(), any()}
@@ -2568,11 +2572,12 @@ defmodule AWS.ConnectCases do
   of the layout.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_layouts(AWS.Client.t(), String.t(), list_layouts_request(), Keyword.t()) ::
           {:ok, list_layouts_response(), any()}
@@ -2609,7 +2614,7 @@ defmodule AWS.ConnectCases do
   Lists tags for a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
 
   ## Optional parameters:
   """
@@ -2640,12 +2645,13 @@ defmodule AWS.ConnectCases do
   object of the template.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
+  * `:status` (`t:list[com.amazonaws.connectcases#TemplateStatus]`) A list of status values to filter on.
   """
   @spec list_templates(AWS.Client.t(), String.t(), list_templates_request(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -2688,7 +2694,7 @@ defmodule AWS.ConnectCases do
   *Amazon Connect Administrator Guide*
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2729,7 +2735,7 @@ defmodule AWS.ConnectCases do
   .
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2765,8 +2771,8 @@ defmodule AWS.ConnectCases do
   case.
 
   ## Required positional parameters:
-   • :case_id (t:string String.t/0) (caseId)
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2807,7 +2813,7 @@ defmodule AWS.ConnectCases do
   Adds tags to a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
 
   ## Optional parameters:
   """
@@ -2840,10 +2846,10 @@ defmodule AWS.ConnectCases do
   Untags a resource.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN)
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.connectcases#TagKey]`) List of tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2891,8 +2897,8 @@ defmodule AWS.ConnectCases do
   HTTP body.
 
   ## Required positional parameters:
-   • :case_id (t:string String.t/0) (caseId)
-   • :domain_id (t:string String.t/0) (domainId)
+  * `:case_id` (`t:string`) A unique identifier of the case.
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
 
   ## Optional parameters:
   """
@@ -2915,8 +2921,8 @@ defmodule AWS.ConnectCases do
   Updates the properties of an existing field.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :field_id (t:string String.t/0) (fieldId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:field_id` (`t:string`) The unique identifier of a field.
 
   ## Optional parameters:
   """
@@ -2951,8 +2957,8 @@ defmodule AWS.ConnectCases do
   configurable.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :layout_id (t:string String.t/0) (layoutId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:layout_id` (`t:string`) The unique identifier of the layout.
 
   ## Optional parameters:
   """
@@ -2990,8 +2996,8 @@ defmodule AWS.ConnectCases do
   attribute, that attribute is ignored and its current value is preserved.
 
   ## Required positional parameters:
-   • :domain_id (t:string String.t/0) (domainId)
-   • :template_id (t:string String.t/0) (templateId)
+  * `:domain_id` (`t:string`) The unique identifier of the Cases domain. 
+  * `:template_id` (`t:string`) A unique identifier for the template.
 
   ## Optional parameters:
   """

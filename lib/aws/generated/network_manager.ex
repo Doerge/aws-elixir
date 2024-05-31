@@ -3665,7 +3665,7 @@ defmodule AWS.NetworkManager do
   created and connected to a core network.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment. 
 
   ## Optional parameters:
   """
@@ -3705,7 +3705,7 @@ defmodule AWS.NetworkManager do
   attachment on a core network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of your global network.
 
   ## Optional parameters:
   """
@@ -3763,7 +3763,7 @@ defmodule AWS.NetworkManager do
   You cannot associate a customer gateway with more than one device and link.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -3807,7 +3807,7 @@ defmodule AWS.NetworkManager do
   same site.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -3850,7 +3850,7 @@ defmodule AWS.NetworkManager do
   and link.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -3979,7 +3979,7 @@ defmodule AWS.NetworkManager do
   physical appliance in an on-premises network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4049,7 +4049,7 @@ defmodule AWS.NetworkManager do
   Manager console.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4114,7 +4114,7 @@ defmodule AWS.NetworkManager do
   Creates a new link for a specified site.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4147,7 +4147,7 @@ defmodule AWS.NetworkManager do
   Creates a new site in a global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4323,7 +4323,7 @@ defmodule AWS.NetworkManager do
   Supports all attachment types.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment to delete.
 
   ## Optional parameters:
   """
@@ -4356,7 +4356,7 @@ defmodule AWS.NetworkManager do
   Deletes a Connect peer.
 
   ## Required positional parameters:
-   • :connect_peer_id (t:string String.t/0) (ConnectPeerId)
+  * `:connect_peer_id` (`t:string`) The ID of the deleted Connect peer.
 
   ## Optional parameters:
   """
@@ -4394,8 +4394,8 @@ defmodule AWS.NetworkManager do
   Deletes the specified connection in your global network.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:connection_id` (`t:string`) The ID of the connection.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4444,7 +4444,7 @@ defmodule AWS.NetworkManager do
   This can only be done if there are no attachments on a core network.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The network ID of the deleted core network.
 
   ## Optional parameters:
   """
@@ -4484,8 +4484,8 @@ defmodule AWS.NetworkManager do
   You can't delete the current LIVE policy.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
-   • :policy_version_id (t:integer String.t/0) (PolicyVersionId)
+  * `:core_network_id` (`t:string`) The ID of a core network for the deleted policy.
+  * `:policy_version_id` (`t:integer`) The version ID of the deleted policy.
 
   ## Optional parameters:
   """
@@ -4535,8 +4535,8 @@ defmodule AWS.NetworkManager do
   customer gateways.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4581,7 +4581,7 @@ defmodule AWS.NetworkManager do
   core networks.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4622,8 +4622,8 @@ defmodule AWS.NetworkManager do
   customer gateways.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :link_id (t:string String.t/0) (LinkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:link_id` (`t:string`) The ID of the link.
 
   ## Optional parameters:
   """
@@ -4658,7 +4658,7 @@ defmodule AWS.NetworkManager do
   Deletes an existing peering connection.
 
   ## Required positional parameters:
-   • :peering_id (t:string String.t/0) (PeeringId)
+  * `:peering_id` (`t:string`) The ID of the peering connection to delete.
 
   ## Optional parameters:
   """
@@ -4693,7 +4693,7 @@ defmodule AWS.NetworkManager do
   This revokes the access of the principals specified in the resource policy.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the policy to delete.
 
   ## Optional parameters:
   """
@@ -4733,8 +4733,8 @@ defmodule AWS.NetworkManager do
   The site cannot be associated with any device or link.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:site_id` (`t:string`) The ID of the site.
 
   ## Optional parameters:
   """
@@ -4773,8 +4773,8 @@ defmodule AWS.NetworkManager do
   customer gateway associations.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :transit_gateway_arn (t:string String.t/0) (TransitGatewayArn)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:transit_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the transit gateway.
 
   ## Optional parameters:
   """
@@ -4829,9 +4829,9 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :global_network_ids (t:String.t/0) (globalNetworkIds)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`) The IDs of one or more global networks. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec describe_global_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_global_networks_response(), any()}
@@ -4884,8 +4884,8 @@ defmodule AWS.NetworkManager do
   Disassociates a core network Connect peer from a device and a link.
 
   ## Required positional parameters:
-   • :connect_peer_id (t:string String.t/0) (ConnectPeerId)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:connect_peer_id` (`t:string`) The ID of the Connect peer to disassociate from a device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4932,8 +4932,8 @@ defmodule AWS.NetworkManager do
   Disassociates a customer gateway from a device and a link.
 
   ## Required positional parameters:
-   • :customer_gateway_arn (t:string String.t/0) (CustomerGatewayArn)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:customer_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the customer gateway.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -4983,11 +4983,11 @@ defmodule AWS.NetworkManager do
   gateways that are associated with the link.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :device_id (t:String.t/0) (deviceId)
-   • :link_id (t:String.t/0) (linkId)
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:link_id` (`t:string`) The ID of the link.
   """
   @spec disassociate_link(AWS.Client.t(), String.t(), disassociate_link_request(), Keyword.t()) ::
           {:ok, disassociate_link_response(), any()}
@@ -5024,8 +5024,8 @@ defmodule AWS.NetworkManager do
   Disassociates a transit gateway Connect peer from a device and link.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :transit_gateway_connect_peer_arn (t:string String.t/0) (TransitGatewayConnectPeerArn)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:transit_gateway_connect_peer_arn` (`t:string`) The Amazon Resource Name (ARN) of the transit gateway Connect peer.
 
   ## Optional parameters:
   """
@@ -5074,8 +5074,8 @@ defmodule AWS.NetworkManager do
   Deploys changes globally based on the policy submitted..
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
-   • :policy_version_id (t:integer String.t/0) (PolicyVersionId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
   ## Optional parameters:
   """
@@ -5122,7 +5122,7 @@ defmodule AWS.NetworkManager do
   Returns information about a core network Connect attachment.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """
@@ -5150,7 +5150,7 @@ defmodule AWS.NetworkManager do
   Returns information about a core network Connect peer.
 
   ## Required positional parameters:
-   • :connect_peer_id (t:string String.t/0) (ConnectPeerId)
+  * `:connect_peer_id` (`t:string`) The ID of the Connect peer.
 
   ## Optional parameters:
   """
@@ -5178,12 +5178,12 @@ defmodule AWS.NetworkManager do
   Returns information about a core network Connect peer associations.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :connect_peer_ids (t:String.t/0) (connectPeerIds)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The IDs of the Connect peers.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_associations_response(), any()}
@@ -5237,13 +5237,13 @@ defmodule AWS.NetworkManager do
   Gets information about one or more of your connections in a global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :connection_ids (t:String.t/0) (connectionIds)
-   • :device_id (t:String.t/0) (deviceId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or more connection IDs.
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connections_response(), any()}
@@ -5305,7 +5305,7 @@ defmodule AWS.NetworkManager do
   Returns information about the LIVE policy for a core network.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
   """
@@ -5333,12 +5333,12 @@ defmodule AWS.NetworkManager do
   Returns information about a core network change event.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
-   • :policy_version_id (t:integer String.t/0) (PolicyVersionId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_core_network_change_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_events_response(), any()}
@@ -5389,12 +5389,12 @@ defmodule AWS.NetworkManager do
   policy.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
-   • :policy_version_id (t:integer String.t/0) (PolicyVersionId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_core_network_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_change_set_response(), any()}
@@ -5447,11 +5447,11 @@ defmodule AWS.NetworkManager do
   version.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
-   • :alias (t:String.t/0) (alias)
-   • :policy_version_id (t:String.t/0) (policyVersionId)
+  * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy 
+  * `:policy_version_id` (`t:integer`) The ID of a core network policy version.
   """
   @spec get_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_policy_response(), any()}
@@ -5496,12 +5496,12 @@ defmodule AWS.NetworkManager do
   devices and links in your global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :customer_gateway_arns (t:String.t/0) (customerGatewayArns)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:customer_gateway_arns` (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_customer_gateway_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_customer_gateway_associations_response(), any()}
@@ -5555,13 +5555,13 @@ defmodule AWS.NetworkManager do
   Gets information about one or more of your devices in a global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :device_ids (t:String.t/0) (deviceIds)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :site_id (t:String.t/0) (siteId)
+  * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more device IDs. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:site_id` (`t:string`) The ID of the site.
   """
   @spec get_devices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_devices_response(), any()}
@@ -5626,13 +5626,13 @@ defmodule AWS.NetworkManager do
   must be specified.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :device_id (t:String.t/0) (deviceId)
-   • :link_id (t:String.t/0) (linkId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:link_id` (`t:string`) The ID of the link.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec get_link_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_associations_response(), any()}
@@ -5697,15 +5697,15 @@ defmodule AWS.NetworkManager do
   request. You can specify the type and provider in the same request.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :link_ids (t:String.t/0) (linkIds)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :provider (t:String.t/0) (provider)
-   • :site_id (t:String.t/0) (siteId)
-   • :type (t:String.t/0) (type)
+  * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link IDs. The maximum is 10.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:provider` (`t:string`) The link provider.
+  * `:site_id` (`t:string`) The ID of the site.
+  * `:type` (`t:string`) The link type.
   """
   @spec get_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_links_response(), any()}
@@ -5786,12 +5786,12 @@ defmodule AWS.NetworkManager do
   network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:resource_type` (`t:string`) The resource type.
   """
   @spec get_network_resource_counts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_counts_response(), any()}
@@ -5844,17 +5844,17 @@ defmodule AWS.NetworkManager do
   Gets the network resource relationships for the specified global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (accountId)
-   • :aws_region (t:String.t/0) (awsRegion)
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :registered_gateway_arn (t:String.t/0) (registeredGatewayArn)
-   • :resource_arn (t:String.t/0) (resourceArn)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the registered gateway.
+  * `:resource_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_type` (`t:string`) The resource type.
   """
   @spec get_network_resource_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_relationships_response(), any()}
@@ -5956,17 +5956,17 @@ defmodule AWS.NetworkManager do
   resource, minus any sensitive information such as pre-shared keys.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (accountId)
-   • :aws_region (t:String.t/0) (awsRegion)
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :registered_gateway_arn (t:String.t/0) (registeredGatewayArn)
-   • :resource_arn (t:String.t/0) (resourceArn)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_type` (`t:string`) The resource type.
   """
   @spec get_network_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resources_response(), any()}
@@ -6064,7 +6064,7 @@ defmodule AWS.NetworkManager do
   Gets the network routes of the specified global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -6097,17 +6097,17 @@ defmodule AWS.NetworkManager do
   Gets the network telemetry of the specified global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (accountId)
-   • :aws_region (t:String.t/0) (awsRegion)
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :registered_gateway_arn (t:String.t/0) (registeredGatewayArn)
-   • :resource_arn (t:String.t/0) (resourceArn)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:account_id` (`t:string`) The Amazon Web Services account ID.
+  * `:aws_region` (`t:string`) The Amazon Web Services Region.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:registered_gateway_arn` (`t:string`) The ARN of the gateway.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
+  * `:resource_type` (`t:string`) The resource type.
   """
   @spec get_network_telemetry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_telemetry_response(), any()}
@@ -6205,7 +6205,7 @@ defmodule AWS.NetworkManager do
   Returns information about a resource policy.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -6233,8 +6233,8 @@ defmodule AWS.NetworkManager do
   Gets information about the specified route analysis.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :route_analysis_id (t:string String.t/0) (RouteAnalysisId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:route_analysis_id` (`t:string`) The ID of the route analysis.
 
   ## Optional parameters:
   """
@@ -6263,7 +6263,7 @@ defmodule AWS.NetworkManager do
   Returns information about a site-to-site VPN attachment.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """
@@ -6291,12 +6291,12 @@ defmodule AWS.NetworkManager do
   Gets information about one or more of your sites in a global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :site_ids (t:String.t/0) (siteIds)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site IDs. The maximum is 10.
   """
   @spec get_sites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sites_response(), any()}
@@ -6350,12 +6350,12 @@ defmodule AWS.NetworkManager do
   associations in a global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :transit_gateway_connect_peer_arns (t:String.t/0) (transitGatewayConnectPeerArns)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:transit_gateway_connect_peer_arns` (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or more transit gateway Connect peer Amazon Resource Names (ARNs).
   """
   @spec get_transit_gateway_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
@@ -6414,7 +6414,7 @@ defmodule AWS.NetworkManager do
   Returns information about a transit gateway peer.
 
   ## Required positional parameters:
-   • :peering_id (t:string String.t/0) (PeeringId)
+  * `:peering_id` (`t:string`) The ID of the peering request.
 
   ## Optional parameters:
   """
@@ -6443,12 +6443,13 @@ defmodule AWS.NetworkManager do
   global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :transit_gateway_arns (t:String.t/0) (transitGatewayArns)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:transit_gateway_arns` (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is
+            10.
   """
   @spec get_transit_gateway_registrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
@@ -6502,7 +6503,7 @@ defmodule AWS.NetworkManager do
   Returns information about a transit gateway route table attachment.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the transit gateway route table attachment.
 
   ## Optional parameters:
   """
@@ -6530,7 +6531,7 @@ defmodule AWS.NetworkManager do
   Returns information about a VPC attachment.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """
@@ -6560,12 +6561,12 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :attachment_type (t:String.t/0) (attachmentType)
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :edge_location (t:String.t/0) (edgeLocation)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :state (t:String.t/0) (state)
+  * `:attachment_type` (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The type of attachment.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:edge_location` (`t:string`) The Region where the edge is located.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`) The state of the attachment.
   """
   @spec list_attachments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attachments_response(), any()}
@@ -6647,10 +6648,10 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connect_attachment_id (t:String.t/0) (connectAttachmentId)
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:connect_attachment_id` (`t:string`) The ID of the attachment.
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_connect_peers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connect_peers_response(), any()}
@@ -6712,11 +6713,11 @@ defmodule AWS.NetworkManager do
   Returns a list of core network policy versions.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_core_network_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_network_policy_versions_response(), any()}
@@ -6763,8 +6764,8 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_core_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_networks_response(), any()}
@@ -6811,8 +6812,8 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_organization_service_access_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_service_access_status_response(), any()}
@@ -6857,12 +6858,12 @@ defmodule AWS.NetworkManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :core_network_id (t:String.t/0) (coreNetworkId)
-   • :edge_location (t:String.t/0) (edgeLocation)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :peering_type (t:String.t/0) (peeringType)
-   • :state (t:String.t/0) (state)
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:edge_location` (`t:string`) Returns a list edge locations for the 
+  * `:max_results` (`t:integer`) The maximum number of results to return.
+  * `:next_token` (`t:string`) The token for the next page of results.
+  * `:peering_type` (`t:enum["TRANSIT_GATEWAY"]`) Returns a list of a peering requests.
+  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of the peering request states.
   """
   @spec list_peerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_peerings_response(), any()}
@@ -6942,7 +6943,7 @@ defmodule AWS.NetworkManager do
   Lists the tags for a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -6973,7 +6974,7 @@ defmodule AWS.NetworkManager do
   policy and the submitted policy.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
   """
@@ -7011,7 +7012,7 @@ defmodule AWS.NetworkManager do
   Creates or updates a resource policy.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource policy. 
 
   ## Optional parameters:
   """
@@ -7057,7 +7058,7 @@ defmodule AWS.NetworkManager do
   network. You cannot register a transit gateway in more than one global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -7097,7 +7098,7 @@ defmodule AWS.NetworkManager do
   Rejects a core network attachment request.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """
@@ -7134,8 +7135,8 @@ defmodule AWS.NetworkManager do
   policy and restored policy.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
-   • :policy_version_id (t:integer String.t/0) (PolicyVersionId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
+  * `:policy_version_id` (`t:integer`) The ID of the policy version to restore.
 
   ## Optional parameters:
   """
@@ -7223,7 +7224,7 @@ defmodule AWS.NetworkManager do
   see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -7261,7 +7262,7 @@ defmodule AWS.NetworkManager do
   Tags a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -7294,10 +7295,10 @@ defmodule AWS.NetworkManager do
   Removes tags from a specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]`) The tag keys to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7336,8 +7337,8 @@ defmodule AWS.NetworkManager do
   specify an empty string.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:connection_id` (`t:string`) The ID of the connection.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -7384,7 +7385,7 @@ defmodule AWS.NetworkManager do
   Updates the description of a core network.
 
   ## Required positional parameters:
-   • :core_network_id (t:string String.t/0) (CoreNetworkId)
+  * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
   """
@@ -7425,8 +7426,8 @@ defmodule AWS.NetworkManager do
   parameters, specify an empty string.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:device_id` (`t:string`) The ID of the device.
+  * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   """
@@ -7470,7 +7471,7 @@ defmodule AWS.NetworkManager do
   specify an empty string.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
+  * `:global_network_id` (`t:string`) The ID of your global network.
 
   ## Optional parameters:
   """
@@ -7511,8 +7512,8 @@ defmodule AWS.NetworkManager do
   parameters, specify an empty string.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :link_id (t:string String.t/0) (LinkId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:link_id` (`t:string`) The ID of the link.
 
   ## Optional parameters:
   """
@@ -7547,8 +7548,8 @@ defmodule AWS.NetworkManager do
   Updates the resource metadata for the specified global network.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -7598,8 +7599,8 @@ defmodule AWS.NetworkManager do
   parameters, specify an empty string.
 
   ## Required positional parameters:
-   • :global_network_id (t:string String.t/0) (GlobalNetworkId)
-   • :site_id (t:string String.t/0) (SiteId)
+  * `:global_network_id` (`t:string`) The ID of the global network.
+  * `:site_id` (`t:string`) The ID of your site.
 
   ## Optional parameters:
   """
@@ -7634,7 +7635,7 @@ defmodule AWS.NetworkManager do
   Updates a VPC attachment.
 
   ## Required positional parameters:
-   • :attachment_id (t:string String.t/0) (AttachmentId)
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """

@@ -2127,7 +2127,7 @@ defmodule AWS.Detective do
   Returns the tag values that are assigned to a behavior graph.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the behavior graph for which to retrieve the tag values.
 
   ## Optional parameters:
   """
@@ -2277,7 +2277,7 @@ defmodule AWS.Detective do
   Applies tag values to a behavior graph.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the behavior graph to assign the tags to.
 
   ## Optional parameters:
   """
@@ -2310,10 +2310,11 @@ defmodule AWS.Detective do
   Removes tags from a behavior graph.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the behavior graph to remove the tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.detective#TagKey]`) The tag keys of the tags to remove from the behavior graph. You can remove up to 50 tags
+         at a time.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

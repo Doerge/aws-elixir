@@ -1775,8 +1775,10 @@ defmodule AWS.EntityResolution do
   the `GetPolicy` API.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
-   • :statement_id (t:string String.t/0) (statementId)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that will be accessed by the
+         principal.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the statement from others in the same
+         policy.
 
   ## Optional parameters:
   """
@@ -1815,11 +1817,11 @@ defmodule AWS.EntityResolution do
   Deletes multiple unique IDs in a matching workflow.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
-   • :input_source (t:String.t/0) (inputSource)
-   • :unique_ids (t:String.t/0) (uniqueIds)
+  * `:input_source` (`t:`) The input source for the batch delete unique ID operation.
+  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]`) The unique IDs to delete.
   """
   @spec batch_delete_unique_id(
           AWS.Client.t(),
@@ -2016,7 +2018,7 @@ defmodule AWS.EntityResolution do
   succeed even if a workflow with the given name does not exist.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow to be deleted.
 
   ## Optional parameters:
   """
@@ -2054,7 +2056,7 @@ defmodule AWS.EntityResolution do
   Deletes the `IdNamespace` with a given name.
 
   ## Required positional parameters:
-   • :id_namespace_name (t:string String.t/0) (idNamespaceName)
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
   """
@@ -2090,7 +2092,7 @@ defmodule AWS.EntityResolution do
   even if a workflow with the given name does not exist.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
   """
@@ -2128,8 +2130,9 @@ defmodule AWS.EntityResolution do
   Deletes the policy statement.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
-   • :statement_id (t:string String.t/0) (statementId)
+  * `:arn` (`t:string`) The ARN of the resource for which the policy need to be deleted.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the statement from others in the same
+         policy.
 
   ## Optional parameters:
   """
@@ -2174,7 +2177,7 @@ defmodule AWS.EntityResolution do
   the workflow's `InputSourceConfig`.
 
   ## Required positional parameters:
-   • :schema_name (t:string String.t/0) (schemaName)
+  * `:schema_name` (`t:string`) The name of the schema to delete.
 
   ## Optional parameters:
   """
@@ -2214,8 +2217,8 @@ defmodule AWS.EntityResolution do
   job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:job_id` (`t:string`) The ID of the job.
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -2244,7 +2247,7 @@ defmodule AWS.EntityResolution do
   Returns the `IdMappingWorkflow` with a given name, if it exists.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -2272,7 +2275,7 @@ defmodule AWS.EntityResolution do
   Returns the `IdNamespace` with a given name, if it exists.
 
   ## Required positional parameters:
-   • :id_namespace_name (t:string String.t/0) (idNamespaceName)
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
   """
@@ -2301,7 +2304,7 @@ defmodule AWS.EntityResolution do
   processed.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -2336,8 +2339,8 @@ defmodule AWS.EntityResolution do
   job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (jobId)
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:job_id` (`t:string`) The ID of the job.
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -2366,7 +2369,7 @@ defmodule AWS.EntityResolution do
   Returns the `MatchingWorkflow` with a given name, if it exists.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -2394,7 +2397,8 @@ defmodule AWS.EntityResolution do
   Returns the resource-based policy.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which the policy need to be
+         returned.
 
   ## Optional parameters:
   """
@@ -2422,8 +2426,8 @@ defmodule AWS.EntityResolution do
   Returns the `ProviderService` of a given name.
 
   ## Required positional parameters:
-   • :provider_name (t:string String.t/0) (providerName)
-   • :provider_service_name (t:string String.t/0) (providerServiceName)
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically the company name.
+  * `:provider_service_name` (`t:string`) The ARN (Amazon Resource Name) of the product that the provider service provides.
 
   ## Optional parameters:
   """
@@ -2457,7 +2461,7 @@ defmodule AWS.EntityResolution do
   Returns the SchemaMapping of a given name.
 
   ## Required positional parameters:
-   • :schema_name (t:string String.t/0) (schemaName)
+  * `:schema_name` (`t:string`) The name of the schema to be retrieved.
 
   ## Optional parameters:
   """
@@ -2485,11 +2489,11 @@ defmodule AWS.EntityResolution do
   Lists all ID mapping jobs for a given workflow.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_id_mapping_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_id_mapping_jobs_output(), any()}
@@ -2536,8 +2540,8 @@ defmodule AWS.EntityResolution do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_id_mapping_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_mapping_workflows_output(), any()}
@@ -2583,8 +2587,8 @@ defmodule AWS.EntityResolution do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of <code>IdNamespace</code> objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_id_namespaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_id_namespaces_output(), any()}
@@ -2628,11 +2632,11 @@ defmodule AWS.EntityResolution do
   Lists all jobs for a given workflow.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_matching_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_matching_jobs_output(), any()}
@@ -2679,8 +2683,8 @@ defmodule AWS.EntityResolution do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_matching_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_matching_workflows_output(), any()}
@@ -2727,9 +2731,9 @@ defmodule AWS.EntityResolution do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :provider_name (t:String.t/0) (providerName)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically the company name.
   """
   @spec list_provider_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provider_services_output(), any()}
@@ -2785,8 +2789,8 @@ defmodule AWS.EntityResolution do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_schema_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schema_mappings_output(), any()}
@@ -2833,7 +2837,7 @@ defmodule AWS.EntityResolution do
   `SchemaMapping`, and `MatchingWorkflow` can be tagged.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
 
   ## Optional parameters:
   """
@@ -2861,7 +2865,8 @@ defmodule AWS.EntityResolution do
   Updates the resource-based policy.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which the policy needs to be
+         updated.
 
   ## Optional parameters:
   """
@@ -2887,7 +2892,7 @@ defmodule AWS.EntityResolution do
   been created using the `CreateIdMappingWorkflow` endpoint.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the ID mapping job to be retrieved.
 
   ## Optional parameters:
   """
@@ -2928,7 +2933,7 @@ defmodule AWS.EntityResolution do
   been created using the `CreateMatchingWorkflow` endpoint.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the matching job to be retrieved.
 
   ## Optional parameters:
   """
@@ -2977,7 +2982,7 @@ defmodule AWS.EntityResolution do
   specify replaces the previous value for that tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
 
   ## Optional parameters:
   """
@@ -3013,10 +3018,10 @@ defmodule AWS.EntityResolution do
   tagged.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -3057,7 +3062,7 @@ defmodule AWS.EntityResolution do
   exist for the method to succeed.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
   """
@@ -3085,7 +3090,7 @@ defmodule AWS.EntityResolution do
   Updates an existing ID namespace.
 
   ## Required positional parameters:
-   • :id_namespace_name (t:string String.t/0) (idNamespaceName)
+  * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
   """
@@ -3113,7 +3118,7 @@ defmodule AWS.EntityResolution do
   exist for the method to succeed.
 
   ## Required positional parameters:
-   • :workflow_name (t:string String.t/0) (workflowName)
+  * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
   """
@@ -3145,7 +3150,8 @@ defmodule AWS.EntityResolution do
   a schema mapping if it's associated with a workflow.
 
   ## Required positional parameters:
-   • :schema_name (t:string String.t/0) (schemaName)
+  * `:schema_name` (`t:string`) The name of the schema. There can&#39;t be multiple <code>SchemaMappings</code> with the
+         same name.
 
   ## Optional parameters:
   """

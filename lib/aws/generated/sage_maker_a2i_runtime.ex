@@ -339,7 +339,7 @@ defmodule AWS.SageMakerA2IRuntime do
   `ResourceNotFoundException`.
 
   ## Required positional parameters:
-   • :human_loop_name (t:string String.t/0) (HumanLoopName)
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want to delete.
 
   ## Optional parameters:
   """
@@ -375,7 +375,7 @@ defmodule AWS.SageMakerA2IRuntime do
   operation will return a `ResourceNotFoundException` error.
 
   ## Required positional parameters:
-   • :human_loop_name (t:string String.t/0) (HumanLoopName)
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want information about.
 
   ## Optional parameters:
   """
@@ -407,12 +407,15 @@ defmodule AWS.SageMakerA2IRuntime do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :creation_time_after (t:String.t/0) (CreationTimeAfter)
-   • :creation_time_before (t:String.t/0) (CreationTimeBefore)
-   • :flow_definition_arn (t:String.t/0) (FlowDefinitionArn)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :sort_order (t:String.t/0) (SortOrder)
+  * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.
+  * `:creation_time_before` (`t:timestamp[date-time]`) (Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.
+  * `:flow_definition_arn` (`t:string`) The Amazon Resource Name (ARN) of a flow definition.
+  * `:max_results` (`t:integer`) The total number of items to return. If the total number of available items is more than
+      the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in
+      the output. You can use this token to display the next page of results. 
+  * `:next_token` (`t:string`) A token to display the next page of results.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for displaying results. Valid values: <code>Ascending</code> and
+        <code>Descending</code>.
   """
   @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_human_loops_response(), any()}

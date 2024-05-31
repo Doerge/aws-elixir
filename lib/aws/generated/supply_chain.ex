@@ -234,7 +234,7 @@ defmodule AWS.SupplyChain do
   AWS Supply Chain instance creation.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (instanceId)
+  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
 
   ## Optional parameters:
   """
@@ -274,8 +274,8 @@ defmodule AWS.SupplyChain do
   Get status and details of a BillOfMaterialsImportJob.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (instanceId)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
+  * `:job_id` (`t:string`) The BillOfMaterialsImportJob identifier.
 
   ## Optional parameters:
   """
@@ -304,7 +304,7 @@ defmodule AWS.SupplyChain do
   Send transactional data events with real-time data for analysis or monitoring.
 
   ## Required positional parameters:
-   • :instance_id (t:string String.t/0) (instanceId)
+  * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
 
   ## Optional parameters:
   """

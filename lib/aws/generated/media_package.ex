@@ -1104,7 +1104,7 @@ defmodule AWS.MediaPackage do
   Changes the Channel's properities to configure log subscription
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1223,7 +1223,7 @@ defmodule AWS.MediaPackage do
   Deletes an existing Channel.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1256,7 +1256,7 @@ defmodule AWS.MediaPackage do
   Deletes an existing OriginEndpoint.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1294,7 +1294,7 @@ defmodule AWS.MediaPackage do
   Gets details about a Channel.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1322,7 +1322,7 @@ defmodule AWS.MediaPackage do
   Gets details about an existing HarvestJob.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1350,7 +1350,7 @@ defmodule AWS.MediaPackage do
   Gets details about an existing OriginEndpoint.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1380,8 +1380,8 @@ defmodule AWS.MediaPackage do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -1427,10 +1427,10 @@ defmodule AWS.MediaPackage do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_channel_id (t:String.t/0) (includeChannelId)
-   • :include_status (t:String.t/0) (includeStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:include_channel_id` (`t:string`) 
+  * `:include_status` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_harvest_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_harvest_jobs_response(), any()}
@@ -1494,9 +1494,9 @@ defmodule AWS.MediaPackage do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :channel_id (t:String.t/0) (channelId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:channel_id` (`t:string`) 
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_origin_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
@@ -1571,7 +1571,7 @@ defmodule AWS.MediaPackage do
   instead
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1600,8 +1600,8 @@ defmodule AWS.MediaPackage do
   IngestEndpoint's id.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
-   • :ingest_endpoint_id (t:string String.t/0) (IngestEndpointId)
+  * `:id` (`t:string`) 
+  * `:ingest_endpoint_id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1691,7 +1691,7 @@ defmodule AWS.MediaPackage do
   Updates an existing Channel.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -1714,7 +1714,7 @@ defmodule AWS.MediaPackage do
   Updates an existing OriginEndpoint.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (Id)
+  * `:id` (`t:string`) 
 
   ## Optional parameters:
   """

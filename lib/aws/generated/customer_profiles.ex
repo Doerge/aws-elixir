@@ -2771,7 +2771,7 @@ defmodule AWS.CustomerProfiles do
   be used to identify the profile that it belongs to.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -2815,8 +2815,8 @@ defmodule AWS.CustomerProfiles do
   from that `ObjectType`.
 
   ## Required positional parameters:
-   • :calculated_attribute_name (t:string String.t/0) (CalculatedAttributeName)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -2883,7 +2883,7 @@ defmodule AWS.CustomerProfiles do
   apply.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -2922,8 +2922,8 @@ defmodule AWS.CustomerProfiles do
   Amazon Web Services account as the customer profiles domain
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :event_stream_name (t:string String.t/0) (EventStreamName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:event_stream_name` (`t:string`) The name of the event stream.
 
   ## Optional parameters:
   """
@@ -2975,7 +2975,7 @@ defmodule AWS.CustomerProfiles do
   Salesforce, ServiceNow, and Marketo.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3017,7 +3017,7 @@ defmodule AWS.CustomerProfiles do
   domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3055,8 +3055,8 @@ defmodule AWS.CustomerProfiles do
   your own using the CreateCalculatedAttributeDefinition API if you want it back.
 
   ## Required positional parameters:
-   • :calculated_attribute_name (t:string String.t/0) (CalculatedAttributeName)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3104,7 +3104,7 @@ defmodule AWS.CustomerProfiles do
   attributes and their related objects.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3137,8 +3137,8 @@ defmodule AWS.CustomerProfiles do
   Disables and deletes the specified event stream.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :event_stream_name (t:string String.t/0) (EventStreamName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:event_stream_name` (`t:string`) The name of the event stream
 
   ## Optional parameters:
   """
@@ -3185,7 +3185,7 @@ defmodule AWS.CustomerProfiles do
   Removes an integration from a specific domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3218,7 +3218,7 @@ defmodule AWS.CustomerProfiles do
   Deletes the standard customer profile and all data pertaining to the profile.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3251,7 +3251,7 @@ defmodule AWS.CustomerProfiles do
   Removes a searchable key from a customer profile.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3284,7 +3284,7 @@ defmodule AWS.CustomerProfiles do
   Removes an object associated with a profile of a given ProfileObjectType.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3328,8 +3328,8 @@ defmodule AWS.CustomerProfiles do
   were populated from this ProfileObjectType.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :object_type_name (t:string String.t/0) (ObjectTypeName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:object_type_name` (`t:string`) The name of the profile object type.
 
   ## Optional parameters:
   """
@@ -3378,8 +3378,8 @@ defmodule AWS.CustomerProfiles do
   This is an async process.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :workflow_id (t:string String.t/0) (WorkflowId)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
   ## Optional parameters:
   """
@@ -3420,7 +3420,7 @@ defmodule AWS.CustomerProfiles do
   The process of detecting profile object type mapping by using given objects.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3477,7 +3477,7 @@ defmodule AWS.CustomerProfiles do
   matches. This increases the chances of erroneous merges.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3518,8 +3518,8 @@ defmodule AWS.CustomerProfiles do
   Profiles.
 
   ## Required positional parameters:
-   • :calculated_attribute_name (t:string String.t/0) (CalculatedAttributeName)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3553,9 +3553,9 @@ defmodule AWS.CustomerProfiles do
   Retrieve a calculated attribute for a customer profile.
 
   ## Required positional parameters:
-   • :calculated_attribute_name (t:string String.t/0) (CalculatedAttributeName)
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :profile_id (t:string String.t/0) (ProfileId)
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:profile_id` (`t:string`) The unique identifier of a customer profile.
 
   ## Optional parameters:
   """
@@ -3596,7 +3596,7 @@ defmodule AWS.CustomerProfiles do
   Returns information about a specific domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3624,8 +3624,8 @@ defmodule AWS.CustomerProfiles do
   Returns information about the specified event stream in a specific domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :event_stream_name (t:string String.t/0) (EventStreamName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:event_stream_name` (`t:string`) The name of the event stream provided during create operations.
 
   ## Optional parameters:
   """
@@ -3658,8 +3658,8 @@ defmodule AWS.CustomerProfiles do
   profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :job_id (t:string String.t/0) (JobId)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:job_id` (`t:string`) The unique identifier of the Identity Resolution Job.
 
   ## Optional parameters:
   """
@@ -3688,7 +3688,7 @@ defmodule AWS.CustomerProfiles do
   Returns an integration for a domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -3775,11 +3775,12 @@ defmodule AWS.CustomerProfiles do
   belonging to the same customer **John Doe** and merged into a unified profile.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec get_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matches_response(), any()}
@@ -3823,8 +3824,8 @@ defmodule AWS.CustomerProfiles do
   Returns the object types for a specific domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :object_type_name (t:string String.t/0) (ObjectTypeName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:object_type_name` (`t:string`) The name of the profile object type.
 
   ## Optional parameters:
   """
@@ -3860,7 +3861,7 @@ defmodule AWS.CustomerProfiles do
   template.
 
   ## Required positional parameters:
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:template_id` (`t:string`) A unique identifier for the object template.
 
   ## Optional parameters:
   """
@@ -3894,11 +3895,11 @@ defmodule AWS.CustomerProfiles do
   either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous <code>GetSimilarProfiles</code> API call.
   """
   @spec get_similar_profiles(
           AWS.Client.t(),
@@ -3940,8 +3941,8 @@ defmodule AWS.CustomerProfiles do
   Get details of specified workflow.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :workflow_id (t:string String.t/0) (WorkflowId)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
   ## Optional parameters:
   """
@@ -3970,12 +3971,13 @@ defmodule AWS.CustomerProfiles do
   Get granular list of steps in workflow.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :workflow_id (t:string String.t/0) (WorkflowId)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec get_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_steps_response(), any()}
@@ -4022,9 +4024,9 @@ defmodule AWS.CustomerProfiles do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_hidden (t:String.t/0) (include-hidden)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous ListAccountIntegrations API call.
   """
   @spec list_account_integrations(
           AWS.Client.t(),
@@ -4066,11 +4068,11 @@ defmodule AWS.CustomerProfiles do
   Lists calculated attribute definitions for Customer Profiles
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of calculated attribute definitions returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous call to ListCalculatedAttributeDefinitions.
   """
   @spec list_calculated_attribute_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_calculated_attribute_definitions_response(), any()}
@@ -4114,12 +4116,12 @@ defmodule AWS.CustomerProfiles do
   Retrieve a list of calculated attributes for a customer profile.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :profile_id (t:string String.t/0) (ProfileId)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:profile_id` (`t:string`) The unique identifier of a customer profile.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of calculated attributes returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous call to ListCalculatedAttributesForProfile.
   """
   @spec list_calculated_attributes_for_profile(
           AWS.Client.t(),
@@ -4176,8 +4178,8 @@ defmodule AWS.CustomerProfiles do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous ListDomain API call.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -4221,11 +4223,11 @@ defmodule AWS.CustomerProfiles do
   Returns a list of all the event streams in a specific domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) Identifies the next page of results to return.
   """
   @spec list_event_streams(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_streams_response(), any()}
@@ -4272,11 +4274,12 @@ defmodule AWS.CustomerProfiles do
   `JobStartTime`.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_identity_resolution_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_resolution_jobs_response(), any()}
@@ -4320,12 +4323,12 @@ defmodule AWS.CustomerProfiles do
   Lists all of the integrations in your domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :include_hidden (t:String.t/0) (include-hidden)
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous ListIntegrations API call.
   """
   @spec list_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integrations_response(), any()}
@@ -4380,8 +4383,8 @@ defmodule AWS.CustomerProfiles do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous ListObjectTypeTemplates API call.
   """
   @spec list_profile_object_type_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_object_type_templates_response(), any()}
@@ -4425,11 +4428,11 @@ defmodule AWS.CustomerProfiles do
   Lists all of the templates available within the service.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) Identifies the next page of results to return.
   """
   @spec list_profile_object_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_object_types_response(), any()}
@@ -4474,11 +4477,11 @@ defmodule AWS.CustomerProfiles do
   ProfileObjectType.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous call to ListProfileObjects.
   """
   @spec list_profile_objects(
           AWS.Client.t(),
@@ -4520,11 +4523,12 @@ defmodule AWS.CustomerProfiles do
   Returns a set of `MatchIds` that belong to the given domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of <code>MatchIds</code> returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous <code>ListRuleBasedMatches</code> API
+         call.
   """
   @spec list_rule_based_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_based_matches_response(), any()}
@@ -4572,7 +4576,7 @@ defmodule AWS.CustomerProfiles do
   tagged.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
 
   ## Optional parameters:
   """
@@ -4600,11 +4604,12 @@ defmodule AWS.CustomerProfiles do
   Query to list all workflows.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_workflows(AWS.Client.t(), String.t(), list_workflows_request(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
@@ -4682,7 +4687,7 @@ defmodule AWS.CustomerProfiles do
   system. After profiles have been merged, they cannot be separated (unmerged).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -4724,7 +4729,7 @@ defmodule AWS.CustomerProfiles do
   UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -4763,7 +4768,7 @@ defmodule AWS.CustomerProfiles do
   PutProfileObjectType.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -4789,8 +4794,8 @@ defmodule AWS.CustomerProfiles do
   TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :object_type_name (t:string String.t/0) (ObjectTypeName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
+  * `:object_type_name` (`t:string`) The name of the profile object type.
 
   ## Optional parameters:
   """
@@ -4837,11 +4842,11 @@ defmodule AWS.CustomerProfiles do
   5 key-value(s) pairs using either `AND` or `OR` logic.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max-results)
-   • :next_token (t:String.t/0) (next-token)
+  * `:max_results` (`t:integer`) The maximum number of objects returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous SearchProfiles API call.
   """
   @spec search_profiles(AWS.Client.t(), String.t(), search_profiles_request(), Keyword.t()) ::
           {:ok, search_profiles_response(), any()}
@@ -4901,7 +4906,7 @@ defmodule AWS.CustomerProfiles do
   You can associate as many as 50 tags with a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -4939,10 +4944,10 @@ defmodule AWS.CustomerProfiles do
   tagged.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource from which you are removing tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.customerprofiles#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4983,8 +4988,8 @@ defmodule AWS.CustomerProfiles do
   current date range.
 
   ## Required positional parameters:
-   • :calculated_attribute_name (t:string String.t/0) (CalculatedAttributeName)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -5039,7 +5044,7 @@ defmodule AWS.CustomerProfiles do
   [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """
@@ -5071,7 +5076,7 @@ defmodule AWS.CustomerProfiles do
   there will be kept.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   """

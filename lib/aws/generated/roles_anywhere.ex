@@ -845,11 +845,11 @@ defmodule AWS.RolesAnywhere do
   Delete an entry from the attribute mapping rules enforced by a given profile.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
-   • :certificate_field (t:String.t/0) (certificateField)
-   • :specifiers (t:String.t/0) (specifiers)
+  * `:certificate_field` (`t:string`) Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+  * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a certificate field; for example, CN, OU, UID from a Subject.
   """
   @spec delete_attribute_mapping(
           AWS.Client.t(),
@@ -894,7 +894,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DeleteCrl`.
 
   ## Required positional parameters:
-   • :crl_id (t:string String.t/0) (crlId)
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
 
   ## Optional parameters:
   """
@@ -930,7 +930,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DeleteProfile`.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -966,7 +966,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DeleteTrustAnchor`.
 
   ## Required positional parameters:
-   • :trust_anchor_id (t:string String.t/0) (trustAnchorId)
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
   """
@@ -1007,7 +1007,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DisableCrl`.
 
   ## Required positional parameters:
-   • :crl_id (t:string String.t/0) (crlId)
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
 
   ## Optional parameters:
   """
@@ -1045,7 +1045,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DisableProfile`.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -1084,7 +1084,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:DisableTrustAnchor`.
 
   ## Required positional parameters:
-   • :trust_anchor_id (t:string String.t/0) (trustAnchorId)
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
   """
@@ -1128,7 +1128,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:EnableCrl`.
 
   ## Required positional parameters:
-   • :crl_id (t:string String.t/0) (crlId)
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
 
   ## Optional parameters:
   """
@@ -1164,7 +1164,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:EnableProfile`.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -1203,7 +1203,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:EnableTrustAnchor`.
 
   ## Required positional parameters:
-   • :trust_anchor_id (t:string String.t/0) (trustAnchorId)
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
   """
@@ -1244,7 +1244,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:GetCrl`.
 
   ## Required positional parameters:
-   • :crl_id (t:string String.t/0) (crlId)
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
 
   ## Optional parameters:
   """
@@ -1275,7 +1275,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:GetProfile`.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -1312,7 +1312,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:GetSubject`.
 
   ## Required positional parameters:
-   • :subject_id (t:string String.t/0) (subjectId)
+  * `:subject_id` (`t:string`) The unique identifier of the subject. 
 
   ## Optional parameters:
   """
@@ -1343,7 +1343,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:GetTrustAnchor`.
 
   ## Required positional parameters:
-   • :trust_anchor_id (t:string String.t/0) (trustAnchorId)
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
   """
@@ -1418,8 +1418,8 @@ defmodule AWS.RolesAnywhere do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list. 
   """
   @spec list_crls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_crls_response(), any()}
@@ -1468,8 +1468,8 @@ defmodule AWS.RolesAnywhere do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list. 
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1518,8 +1518,8 @@ defmodule AWS.RolesAnywhere do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list. 
   """
   @spec list_subjects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subjects_response(), any()}
@@ -1568,7 +1568,7 @@ defmodule AWS.RolesAnywhere do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1609,8 +1609,8 @@ defmodule AWS.RolesAnywhere do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
-   • :page_size (t:String.t/0) (pageSize)
+  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list. 
   """
   @spec list_trust_anchors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_anchors_response(), any()}
@@ -1658,7 +1658,7 @@ defmodule AWS.RolesAnywhere do
   contextual meanings.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -1845,7 +1845,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:UpdateCrl`.
 
   ## Required positional parameters:
-   • :crl_id (t:string String.t/0) (crlId)
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
 
   ## Optional parameters:
   """
@@ -1885,7 +1885,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:UpdateProfile`.
 
   ## Required positional parameters:
-   • :profile_id (t:string String.t/0) (profileId)
+  * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
   """
@@ -1932,7 +1932,7 @@ defmodule AWS.RolesAnywhere do
   `rolesanywhere:UpdateTrustAnchor`.
 
   ## Required positional parameters:
-   • :trust_anchor_id (t:string String.t/0) (trustAnchorId)
+  * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
   """

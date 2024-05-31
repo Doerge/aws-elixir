@@ -2595,7 +2595,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an API mapping.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -2628,7 +2628,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an Authorizer for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2661,7 +2661,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Deployment for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2726,7 +2726,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates an Integration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2759,8 +2759,8 @@ defmodule AWS.ApiGatewayV2 do
   Creates an IntegrationResponses.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
   """
@@ -2807,7 +2807,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Model for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2840,7 +2840,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Route for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2873,8 +2873,8 @@ defmodule AWS.ApiGatewayV2 do
   Creates a RouteResponse for a Route.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
   """
@@ -2915,7 +2915,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a Stage for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -2982,8 +2982,8 @@ defmodule AWS.ApiGatewayV2 do
   To disable access logging for a Stage, delete its AccessLogSettings.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -3024,7 +3024,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Api resource.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -3057,8 +3057,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an API mapping.
 
   ## Required positional parameters:
-   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -3099,8 +3099,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Authorizer.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
 
   ## Optional parameters:
   """
@@ -3141,7 +3141,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a CORS configuration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -3179,8 +3179,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Deployment.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :deployment_id (t:string String.t/0) (DeploymentId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
 
   ## Optional parameters:
   """
@@ -3221,7 +3221,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a domain name.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -3254,8 +3254,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an Integration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
   """
@@ -3296,9 +3296,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes an IntegrationResponses.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
-   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
 
   ## Optional parameters:
   """
@@ -3347,8 +3347,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Model.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :model_id (t:string String.t/0) (ModelId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
 
   ## Optional parameters:
   """
@@ -3381,8 +3381,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Route.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
   """
@@ -3417,9 +3417,9 @@ defmodule AWS.ApiGatewayV2 do
   Supported only for WebSocket APIs.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :request_parameter_key (t:string String.t/0) (RequestParameterKey)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:request_parameter_key` (`t:string`) The route request parameter key.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
   """
@@ -3468,9 +3468,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a RouteResponse.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
-   • :route_response_id (t:string String.t/0) (RouteResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
 
   ## Optional parameters:
   """
@@ -3519,9 +3519,9 @@ defmodule AWS.ApiGatewayV2 do
   Deletes the RouteSettings for a stage.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_key (t:string String.t/0) (RouteKey)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_key` (`t:string`) The route key.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -3570,8 +3570,8 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Stage.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -3604,7 +3604,7 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a VPC link.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:
   """
@@ -3694,7 +3694,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Api resource.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -3722,8 +3722,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets an API mapping.
 
   ## Required positional parameters:
-   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -3752,11 +3752,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets API mappings.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_api_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_api_mappings_response(), any()}
@@ -3802,8 +3802,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apis_response(), any()}
@@ -3847,8 +3847,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Authorizer.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
 
   ## Optional parameters:
   """
@@ -3877,11 +3877,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Authorizers for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorizers_response(), any()}
@@ -3925,8 +3925,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Deployment.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :deployment_id (t:string String.t/0) (DeploymentId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
 
   ## Optional parameters:
   """
@@ -3955,11 +3955,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Deployments for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployments_response(), any()}
@@ -4003,7 +4003,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a domain name.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -4033,8 +4033,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_domain_names_response(), any()}
@@ -4078,8 +4078,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets an Integration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
   """
@@ -4108,9 +4108,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets an IntegrationResponses.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
-   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
 
   ## Optional parameters:
   """
@@ -4145,12 +4145,12 @@ defmodule AWS.ApiGatewayV2 do
   Gets the IntegrationResponses for an Integration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_integration_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_responses_response(), any()}
@@ -4195,11 +4195,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Integrations for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_integrations_response(), any()}
@@ -4243,8 +4243,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Model.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :model_id (t:string String.t/0) (ModelId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
 
   ## Optional parameters:
   """
@@ -4272,8 +4272,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets a model template.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :model_id (t:string String.t/0) (ModelId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
 
   ## Optional parameters:
   """
@@ -4302,11 +4302,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Models for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_models_response(), any()}
@@ -4350,8 +4350,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Route.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
   """
@@ -4379,9 +4379,9 @@ defmodule AWS.ApiGatewayV2 do
   Gets a RouteResponse.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
-   • :route_response_id (t:string String.t/0) (RouteResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
 
   ## Optional parameters:
   """
@@ -4410,12 +4410,12 @@ defmodule AWS.ApiGatewayV2 do
   Gets the RouteResponses for a Route.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_route_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_responses_response(), any()}
@@ -4460,11 +4460,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Routes for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_routes_response(), any()}
@@ -4508,8 +4508,8 @@ defmodule AWS.ApiGatewayV2 do
   Gets a Stage.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -4537,11 +4537,11 @@ defmodule AWS.ApiGatewayV2 do
   Gets the Stages for an API.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_stages_response(), any()}
@@ -4585,7 +4585,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a collection of Tag resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
   """
@@ -4613,7 +4613,7 @@ defmodule AWS.ApiGatewayV2 do
   Gets a VPC link.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:
   """
@@ -4643,8 +4643,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
   """
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_vpc_links_response(), any()}
@@ -4690,8 +4690,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :basepath (t:String.t/0) (basepath)
-   • :fail_on_warnings (t:String.t/0) (failOnWarnings)
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
   """
   @spec import_api(AWS.Client.t(), import_api_request(), Keyword.t()) ::
           {:ok, import_api_response(), any()}
@@ -4725,11 +4725,11 @@ defmodule AWS.ApiGatewayV2 do
   Puts an Api resource.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-   • :basepath (t:String.t/0) (basepath)
-   • :fail_on_warnings (t:String.t/0) (failOnWarnings)
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
   """
   @spec reimport_api(AWS.Client.t(), String.t(), reimport_api_request(), Keyword.t()) ::
           {:ok, reimport_api_response(), any()}
@@ -4765,8 +4765,8 @@ defmodule AWS.ApiGatewayV2 do
   Supported only for HTTP APIs.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -4807,7 +4807,7 @@ defmodule AWS.ApiGatewayV2 do
   Creates a new Tag resource to represent a tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
   """
@@ -4840,10 +4840,10 @@ defmodule AWS.ApiGatewayV2 do
   Deletes a Tag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.apigatewayv2#__string]`) The Tag keys to delete
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4879,7 +4879,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Api resource.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
+  * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
   """
@@ -4912,8 +4912,8 @@ defmodule AWS.ApiGatewayV2 do
   The API mapping.
 
   ## Required positional parameters:
-   • :api_mapping_id (t:string String.t/0) (ApiMappingId)
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:api_mapping_id` (`t:string`) The API mapping identifier.
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -4954,8 +4954,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Authorizer.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :authorizer_id (t:string String.t/0) (AuthorizerId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:authorizer_id` (`t:string`) The authorizer identifier.
 
   ## Optional parameters:
   """
@@ -4996,8 +4996,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Deployment.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :deployment_id (t:string String.t/0) (DeploymentId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:deployment_id` (`t:string`) The deployment ID.
 
   ## Optional parameters:
   """
@@ -5038,7 +5038,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a domain name.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
   """
@@ -5071,8 +5071,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates an Integration.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
   """
@@ -5113,9 +5113,9 @@ defmodule AWS.ApiGatewayV2 do
   Updates an IntegrationResponses.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :integration_id (t:string String.t/0) (IntegrationId)
-   • :integration_response_id (t:string String.t/0) (IntegrationResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:integration_id` (`t:string`) The integration ID.
+  * `:integration_response_id` (`t:string`) The integration response ID.
 
   ## Optional parameters:
   """
@@ -5164,8 +5164,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Model.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :model_id (t:string String.t/0) (ModelId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:model_id` (`t:string`) The model ID.
 
   ## Optional parameters:
   """
@@ -5198,8 +5198,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Route.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
   """
@@ -5232,9 +5232,9 @@ defmodule AWS.ApiGatewayV2 do
   Updates a RouteResponse.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :route_id (t:string String.t/0) (RouteId)
-   • :route_response_id (t:string String.t/0) (RouteResponseId)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:route_id` (`t:string`) The route ID.
+  * `:route_response_id` (`t:string`) The route response ID.
 
   ## Optional parameters:
   """
@@ -5283,8 +5283,8 @@ defmodule AWS.ApiGatewayV2 do
   Updates a Stage.
 
   ## Required positional parameters:
-   • :api_id (t:string String.t/0) (ApiId)
-   • :stage_name (t:string String.t/0) (StageName)
+  * `:api_id` (`t:string`) The API identifier.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
 
   ## Optional parameters:
   """
@@ -5317,7 +5317,7 @@ defmodule AWS.ApiGatewayV2 do
   Updates a VPC link.
 
   ## Required positional parameters:
-   • :vpc_link_id (t:string String.t/0) (VpcLinkId)
+  * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:
   """

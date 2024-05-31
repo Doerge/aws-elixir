@@ -2631,7 +2631,7 @@ defmodule AWS.LookoutMetrics do
   for a detector, dataset, or alert.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
@@ -2693,7 +2693,7 @@ defmodule AWS.LookoutMetrics do
   to a detector, dataset, or alert.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
@@ -2728,10 +2728,10 @@ defmodule AWS.LookoutMetrics do
   from a detector, dataset, or alert.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove from the resource&#39;s tags.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

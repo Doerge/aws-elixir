@@ -1086,8 +1086,8 @@ defmodule AWS.MedicalImaging do
   Copy an image set.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :source_image_set_id (t:string String.t/0) (sourceImageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:source_image_set_id` (`t:string`) The source image set identifier.
 
   ## Optional parameters:
   """
@@ -1163,7 +1163,7 @@ defmodule AWS.MedicalImaging do
   it.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
+  * `:datastore_id` (`t:string`) The data store identifier.
 
   ## Optional parameters:
   """
@@ -1196,8 +1196,8 @@ defmodule AWS.MedicalImaging do
   Delete an image set.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
   """
@@ -1246,8 +1246,8 @@ defmodule AWS.MedicalImaging do
   or failure of individual P10 object imports.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :job_id (t:string String.t/0) (jobId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:job_id` (`t:string`) The import job identifier.
 
   ## Optional parameters:
   """
@@ -1276,7 +1276,7 @@ defmodule AWS.MedicalImaging do
   Get data store properties.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
+  * `:datastore_id` (`t:string`) The data store identifier.
 
   ## Optional parameters:
   """
@@ -1304,8 +1304,8 @@ defmodule AWS.MedicalImaging do
   Get an image frame (pixel data) for an image set.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
   """
@@ -1353,11 +1353,11 @@ defmodule AWS.MedicalImaging do
   Get image set properties.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
-   • :version_id (t:String.t/0) (version)
+  * `:version_id` (`t:string`) The image set version identifier.
   """
   @spec get_image_set(
           AWS.Client.t(),
@@ -1401,11 +1401,11 @@ defmodule AWS.MedicalImaging do
   Get metadata attributes for an image set.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
-   • :version_id (t:String.t/0) (version)
+  * `:version_id` (`t:string`) The image set version identifier.
   """
   @spec get_image_set_metadata(
           AWS.Client.t(),
@@ -1456,12 +1456,12 @@ defmodule AWS.MedicalImaging do
   List import jobs created for a specific data store.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
+  * `:datastore_id` (`t:string`) The data store identifier.
 
   ## Optional parameters:
-   • :job_status (t:String.t/0) (jobStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:job_status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SUBMITTED"]`) The filters for listing import jobs based on status.
+  * `:max_results` (`t:`) The max results count. The upper bound is determined by load testing.
+  * `:next_token` (`t:string`) The pagination token used to request the list of import jobs on the next page.
   """
   @spec list_d_i_c_o_m_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
@@ -1516,9 +1516,9 @@ defmodule AWS.MedicalImaging do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :datastore_status (t:String.t/0) (datastoreStatus)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:datastore_status` (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) The data store status.
+  * `:max_results` (`t:`) Valid Range: Minimum value of 1. Maximum value of 50.
+  * `:next_token` (`t:string`) The pagination token used to request the list of data stores on the next page.
   """
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
@@ -1571,12 +1571,12 @@ defmodule AWS.MedicalImaging do
   List image set versions.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The max results count.
+  * `:next_token` (`t:string`) The pagination token used to request the list of image set versions on the next page.
   """
   @spec list_image_set_versions(
           AWS.Client.t(),
@@ -1627,7 +1627,7 @@ defmodule AWS.MedicalImaging do
   Lists all tags associated with a medical imaging resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical imaging resource to list tags for.
 
   ## Optional parameters:
   """
@@ -1664,11 +1664,12 @@ defmodule AWS.MedicalImaging do
   in descending order from newest to oldest.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
+  * `:datastore_id` (`t:string`) The identifier of the data store where the image sets reside.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:`) The maximum number of results that can be returned in a search.
+  * `:next_token` (`t:string`) The token used for pagination of results returned in the response. Use the token returned from the previous
+           request to continue results where the previous request ended.
   """
   @spec search_image_sets(AWS.Client.t(), String.t(), search_image_sets_request(), Keyword.t()) ::
           {:ok, search_image_sets_response(), any()}
@@ -1710,7 +1711,7 @@ defmodule AWS.MedicalImaging do
   processing results in the file specified by the `outputS3Uri` parameter.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
+  * `:datastore_id` (`t:string`) The data store identifier.
 
   ## Optional parameters:
   """
@@ -1748,7 +1749,7 @@ defmodule AWS.MedicalImaging do
   Adds a user-specifed key and value tag to a medical imaging resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical imaging resource that tags are being added to.
 
   ## Optional parameters:
   """
@@ -1781,10 +1782,10 @@ defmodule AWS.MedicalImaging do
   Removes tags from a medical imaging resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the medical imaging resource that tags are being removed from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.medicalimaging#TagKey]`) The keys for the tags to be removed from the medical imaging resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1820,11 +1821,11 @@ defmodule AWS.MedicalImaging do
   Update image set metadata attributes.
 
   ## Required positional parameters:
-   • :datastore_id (t:string String.t/0) (datastoreId)
-   • :image_set_id (t:string String.t/0) (imageSetId)
+  * `:datastore_id` (`t:string`) The data store identifier.
+  * `:image_set_id` (`t:string`) The image set identifier.
 
   ## Optional parameters:
-   • :latest_version_id (t:String.t/0) (latestVersion)
+  * `:latest_version_id` (`t:string`) The latest image set version identifier.
   """
   @spec update_image_set_metadata(
           AWS.Client.t(),

@@ -1017,10 +1017,11 @@ defmodule AWS.Codestarnotifications do
   rule.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the notification rule from which to remove the
+      tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.codestarnotifications#TagKey]`) The key names of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}

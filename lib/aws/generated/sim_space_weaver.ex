@@ -874,9 +874,9 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app (t:String.t/0) (app)
-   • :domain (t:String.t/0) (domain)
-   • :simulation (t:String.t/0) (simulation)
+  * `:app` (`t:string`) The name of the app.
+  * `:domain` (`t:string`) The name of the domain of the app.
+  * `:simulation` (`t:string`) The name of the simulation of the app.
   """
   @spec delete_app(AWS.Client.t(), delete_app_input(), Keyword.t()) ::
           {:ok, delete_app_output(), any()}
@@ -920,7 +920,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :simulation (t:String.t/0) (simulation)
+  * `:simulation` (`t:string`) The name of the simulation.
   """
   @spec delete_simulation(AWS.Client.t(), delete_simulation_input(), Keyword.t()) ::
           {:ok, delete_simulation_output(), any()}
@@ -958,9 +958,9 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :app (t:String.t/0) (app)
-   • :domain (t:String.t/0) (domain)
-   • :simulation (t:String.t/0) (simulation)
+  * `:app` (`t:string`) The name of the app.
+  * `:domain` (`t:string`) The name of the domain of the app.
+  * `:simulation` (`t:string`) The name of the simulation of the app.
   """
   @spec describe_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_output(), any()}
@@ -1015,7 +1015,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :simulation (t:String.t/0) (simulation)
+  * `:simulation` (`t:string`) The name of the simulation.
   """
   @spec describe_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_simulation_output(), any()}
@@ -1052,10 +1052,14 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :domain (t:String.t/0) (domain)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :simulation (t:String.t/0) (simulation)
+  * `:domain` (`t:string`) The name of the domain that you want to list apps for.
+  * `:max_results` (`t:integer`) The maximum number of apps to list.
+  * `:next_token` (`t:string`) If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. 
+   The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, 
+   call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, 
+   then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. 
+   If you provide a token that isn&#39;t valid, then you receive an <i>HTTP 400 ValidationException</i> error.
+  * `:simulation` (`t:string`) The name of the simulation that you want to list apps for.
   """
   @spec list_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_apps_output(), any()}
@@ -1120,8 +1124,12 @@ defmodule AWS.SimSpaceWeaver do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of simulations to list.
+  * `:next_token` (`t:string`) If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. 
+   The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, 
+   call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, 
+   then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. 
+   If you provide a token that isn&#39;t valid, then you receive an <i>HTTP 400 ValidationException</i> error.
   """
   @spec list_simulations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulations_output(), any()}
@@ -1165,7 +1173,8 @@ defmodule AWS.SimSpaceWeaver do
   Lists all tags on a SimSpace Weaver resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
+   in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
   """
@@ -1402,7 +1411,9 @@ defmodule AWS.SimSpaceWeaver do
   *Amazon Web Services General Reference*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to add tags to.
+         For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
+   in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
   """
@@ -1439,10 +1450,12 @@ defmodule AWS.SimSpaceWeaver do
   *Amazon Web Services General Reference*.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
+         For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
+   in the <i>Amazon Web Services General Reference</i>.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]`) A list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

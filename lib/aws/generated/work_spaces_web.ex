@@ -2198,10 +2198,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates a browser settings resource with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :browser_settings_arn (t:String.t/0) (browserSettingsArn)
+  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
   """
   @spec associate_browser_settings(
           AWS.Client.t(),
@@ -2232,10 +2232,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates an IP access settings resource with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :ip_access_settings_arn (t:String.t/0) (ipAccessSettingsArn)
+  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
   """
   @spec associate_ip_access_settings(
           AWS.Client.t(),
@@ -2266,10 +2266,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates a network settings resource with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :network_settings_arn (t:String.t/0) (networkSettingsArn)
+  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
   """
   @spec associate_network_settings(
           AWS.Client.t(),
@@ -2300,10 +2300,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates a trust store with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :trust_store_arn (t:String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
   """
   @spec associate_trust_store(
           AWS.Client.t(),
@@ -2334,10 +2334,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates a user access logging settings resource with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :user_access_logging_settings_arn (t:String.t/0) (userAccessLoggingSettingsArn)
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
   """
   @spec associate_user_access_logging_settings(
           AWS.Client.t(),
@@ -2370,10 +2370,10 @@ defmodule AWS.WorkSpacesWeb do
   Associates a user settings resource with a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :user_settings_arn (t:String.t/0) (userSettingsArn)
+  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
   """
   @spec associate_user_settings(
           AWS.Client.t(),
@@ -2693,7 +2693,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes browser settings.
 
   ## Required positional parameters:
-   • :browser_settings_arn (t:string String.t/0) (browserSettingsArn)
+  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
   """
@@ -2731,7 +2731,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes the identity provider.
 
   ## Required positional parameters:
-   • :identity_provider_arn (t:string String.t/0) (identityProviderArn)
+  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
   """
@@ -2769,7 +2769,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes IP access settings.
 
   ## Required positional parameters:
-   • :ip_access_settings_arn (t:string String.t/0) (ipAccessSettingsArn)
+  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
   """
@@ -2807,7 +2807,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes network settings.
 
   ## Required positional parameters:
-   • :network_settings_arn (t:string String.t/0) (networkSettingsArn)
+  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
   """
@@ -2845,7 +2845,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -2878,7 +2878,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes the trust store.
 
   ## Required positional parameters:
-   • :trust_store_arn (t:string String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
   """
@@ -2911,7 +2911,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes user access logging settings.
 
   ## Required positional parameters:
-   • :user_access_logging_settings_arn (t:string String.t/0) (userAccessLoggingSettingsArn)
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
 
   ## Optional parameters:
   """
@@ -2956,7 +2956,7 @@ defmodule AWS.WorkSpacesWeb do
   Deletes user settings.
 
   ## Required positional parameters:
-   • :user_settings_arn (t:string String.t/0) (userSettingsArn)
+  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:
   """
@@ -2994,7 +2994,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates browser settings from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3032,7 +3032,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates IP access settings from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3070,7 +3070,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates network settings from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3108,7 +3108,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates a trust store from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3146,7 +3146,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates user access logging settings from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3191,7 +3191,7 @@ defmodule AWS.WorkSpacesWeb do
   Disassociates user settings from a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3229,7 +3229,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets browser settings.
 
   ## Required positional parameters:
-   • :browser_settings_arn (t:string String.t/0) (browserSettingsArn)
+  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
   """
@@ -3257,7 +3257,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the identity provider.
 
   ## Required positional parameters:
-   • :identity_provider_arn (t:string String.t/0) (identityProviderArn)
+  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
   """
@@ -3285,7 +3285,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the IP access settings.
 
   ## Required positional parameters:
-   • :ip_access_settings_arn (t:string String.t/0) (ipAccessSettingsArn)
+  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
   """
@@ -3313,7 +3313,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the network settings.
 
   ## Required positional parameters:
-   • :network_settings_arn (t:string String.t/0) (networkSettingsArn)
+  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
   """
@@ -3341,7 +3341,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3369,7 +3369,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the service provider metadata.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -3397,7 +3397,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets the trust store.
 
   ## Required positional parameters:
-   • :trust_store_arn (t:string String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
   """
@@ -3425,10 +3425,10 @@ defmodule AWS.WorkSpacesWeb do
   Gets the trust store certificate.
 
   ## Required positional parameters:
-   • :trust_store_arn (t:string String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store certificate.
 
   ## Optional parameters:
-   • :thumbprint (t:String.t/0) (thumbprint)
+  * `:thumbprint` (`t:string`) The thumbprint of the trust store certificate.
   """
   @spec get_trust_store_certificate(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_trust_store_certificate_response(), any()}
@@ -3463,7 +3463,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets user access logging settings.
 
   ## Required positional parameters:
-   • :user_access_logging_settings_arn (t:string String.t/0) (userAccessLoggingSettingsArn)
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
 
   ## Optional parameters:
   """
@@ -3496,7 +3496,7 @@ defmodule AWS.WorkSpacesWeb do
   Gets user settings.
 
   ## Required positional parameters:
-   • :user_settings_arn (t:string String.t/0) (userSettingsArn)
+  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:
   """
@@ -3526,8 +3526,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_browser_settings_response(), any()}
@@ -3571,11 +3571,11 @@ defmodule AWS.WorkSpacesWeb do
   Retrieves a list of identity providers for a specific web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_identity_providers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
@@ -3621,8 +3621,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ip_access_settings_response(), any()}
@@ -3668,8 +3668,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_settings_response(), any()}
@@ -3715,8 +3715,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation. 
   """
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
@@ -3760,7 +3760,7 @@ defmodule AWS.WorkSpacesWeb do
   Retrieves a list of tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -3788,11 +3788,11 @@ defmodule AWS.WorkSpacesWeb do
   Retrieves a list of trust store certificates.
 
   ## Required positional parameters:
-   • :trust_store_arn (t:string String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_trust_store_certificates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_trust_store_certificates_response(), any()}
@@ -3838,8 +3838,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_trust_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_stores_response(), any()}
@@ -3885,8 +3885,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
   """
   @spec list_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_access_logging_settings_response(), any()}
@@ -3932,8 +3932,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation. 
   """
   @spec list_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_settings_response(), any()}
@@ -3977,7 +3977,7 @@ defmodule AWS.WorkSpacesWeb do
   Adds or overwrites one or more tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -4010,10 +4010,10 @@ defmodule AWS.WorkSpacesWeb do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4049,7 +4049,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates browser settings.
 
   ## Required positional parameters:
-   • :browser_settings_arn (t:string String.t/0) (browserSettingsArn)
+  * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
   """
@@ -4087,7 +4087,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates the identity provider.
 
   ## Required positional parameters:
-   • :identity_provider_arn (t:string String.t/0) (identityProviderArn)
+  * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
   """
@@ -4125,7 +4125,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates IP access settings.
 
   ## Required positional parameters:
-   • :ip_access_settings_arn (t:string String.t/0) (ipAccessSettingsArn)
+  * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
   """
@@ -4163,7 +4163,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates network settings.
 
   ## Required positional parameters:
-   • :network_settings_arn (t:string String.t/0) (networkSettingsArn)
+  * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
   """
@@ -4201,7 +4201,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates a web portal.
 
   ## Required positional parameters:
-   • :portal_arn (t:string String.t/0) (portalArn)
+  * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
   """
@@ -4224,7 +4224,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates the trust store.
 
   ## Required positional parameters:
-   • :trust_store_arn (t:string String.t/0) (trustStoreArn)
+  * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
   """
@@ -4257,7 +4257,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates the user access logging settings.
 
   ## Required positional parameters:
-   • :user_access_logging_settings_arn (t:string String.t/0) (userAccessLoggingSettingsArn)
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
 
   ## Optional parameters:
   """
@@ -4302,7 +4302,7 @@ defmodule AWS.WorkSpacesWeb do
   Updates the user settings.
 
   ## Required positional parameters:
-   • :user_settings_arn (t:string String.t/0) (userSettingsArn)
+  * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:
   """

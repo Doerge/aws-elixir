@@ -1825,7 +1825,8 @@ defmodule AWS.EFS do
   *Amazon EFS User Guide*.
 
   ## Required positional parameters:
-   • :source_file_system_id (t:string String.t/0) (SourceFileSystemId)
+  * `:source_file_system_id` (`t:string`) Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be 
+    a source or destination file system in another replication configuration.
 
   ## Optional parameters:
   """
@@ -1886,7 +1887,8 @@ defmodule AWS.EFS do
   action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system whose tags you want to modify (String). This operation modifies
+      the tags only, not the file system.
 
   ## Optional parameters:
   """
@@ -1927,7 +1929,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteAccessPoint` action.
 
   ## Required positional parameters:
-   • :access_point_id (t:string String.t/0) (AccessPointId)
+  * `:access_point_id` (`t:string`) The ID of the access point that you want to delete.
 
   ## Optional parameters:
   """
@@ -1994,7 +1996,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystem` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system you want to delete.
 
   ## Optional parameters:
   """
@@ -2035,7 +2037,8 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteFileSystemPolicy` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) Specifies the EFS file system for which to delete the
+        <code>FileSystemPolicy</code>.
 
   ## Optional parameters:
   """
@@ -2107,7 +2110,7 @@ defmodule AWS.EFS do
   `ec2:DeleteNetworkInterface`
 
   ## Required positional parameters:
-   • :mount_target_id (t:string String.t/0) (MountTargetId)
+  * `:mount_target_id` (`t:string`) The ID of the mount target to delete (String).
 
   ## Optional parameters:
   """
@@ -2154,7 +2157,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:DeleteReplicationConfiguration` action.
 
   ## Required positional parameters:
-   • :source_file_system_id (t:string String.t/0) (SourceFileSystemId)
+  * `:source_file_system_id` (`t:string`) The ID of the source file system in the replication configuration.
 
   ## Optional parameters:
   """
@@ -2213,7 +2216,7 @@ defmodule AWS.EFS do
   action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system whose tags you want to delete (String).
 
   ## Optional parameters:
   """
@@ -2257,10 +2260,16 @@ defmodule AWS.EFS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :access_point_id (t:String.t/0) (AccessPointId)
-   • :file_system_id (t:String.t/0) (FileSystemId)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:access_point_id` (`t:string`) (Optional) Specifies an EFS access point to describe in the response; mutually
+      exclusive with <code>FileSystemId</code>.
+  * `:file_system_id` (`t:string`) (Optional) If you provide a <code>FileSystemId</code>, EFS returns all access
+      points for that file system; mutually exclusive with <code>AccessPointId</code>.
+  * `:max_results` (`t:integer`) (Optional) When retrieving all access points for a file system,
+      you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response.  
+      The default value is 100. 
+  * `:next_token` (`t:string`) 
+            <code>NextToken</code> is present if the response is paginated. You can use 
+      <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.
   """
   @spec describe_access_points(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_access_points_response(), any()}
@@ -2351,7 +2360,8 @@ defmodule AWS.EFS do
   Returns the backup policy for the specified EFS file system.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) Specifies which EFS file system for which to retrieve the
+        <code>BackupPolicy</code>.
 
   ## Optional parameters:
   """
@@ -2383,7 +2393,8 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeFileSystemPolicy` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) Specifies which EFS file system to retrieve the <code>FileSystemPolicy</code>
+      for.
 
   ## Optional parameters:
   """
@@ -2445,10 +2456,16 @@ defmodule AWS.EFS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :creation_token (t:String.t/0) (CreationToken)
-   • :file_system_id (t:String.t/0) (FileSystemId)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:creation_token` (`t:string`) (Optional) Restricts the list to the file system with this creation token (String). You
+      specify a creation token when you create an Amazon EFS file system.
+  * `:file_system_id` (`t:string`) (Optional) ID of the file system whose description you want to retrieve
+      (String).
+  * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a previous
+        <code>DescribeFileSystems</code> operation (String). If present, specifies to continue the
+      list from where the returning call had left off. 
+  * `:max_items` (`t:integer`) (Optional) Specifies the maximum number of file systems to return in the response
+      (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
+      
   """
   @spec describe_file_systems(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
@@ -2520,7 +2537,8 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system whose <code>LifecycleConfiguration</code> object you want to
+      retrieve (String).
 
   ## Optional parameters:
   """
@@ -2566,7 +2584,7 @@ defmodule AWS.EFS do
   network interface.
 
   ## Required positional parameters:
-   • :mount_target_id (t:string String.t/0) (MountTargetId)
+  * `:mount_target_id` (`t:string`) The ID of the mount target whose security groups you want to retrieve.
 
   ## Optional parameters:
   """
@@ -2607,11 +2625,18 @@ defmodule AWS.EFS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :access_point_id (t:String.t/0) (AccessPointId)
-   • :file_system_id (t:String.t/0) (FileSystemId)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
-   • :mount_target_id (t:String.t/0) (MountTargetId)
+  * `:access_point_id` (`t:string`) (Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a
+      <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.
+  * `:file_system_id` (`t:string`) (Optional) ID of the file system whose mount targets you want to list (String). It must
+      be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.
+  * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a previous
+        <code>DescribeMountTargets</code> operation (String). If present, it specifies to continue
+      the list from where the previous returning call left off.
+  * `:max_items` (`t:integer`) (Optional) Maximum number of mount targets to return in the response. Currently, this
+      number is automatically set to
+      10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.
+  * `:mount_target_id` (`t:string`) (Optional) ID of the mount target that you want to have described (String). It must be
+      included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.
   """
   @spec describe_mount_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_mount_targets_response(), any()}
@@ -2689,9 +2714,14 @@ defmodule AWS.EFS do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :file_system_id (t:String.t/0) (FileSystemId)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:file_system_id` (`t:string`) You can retrieve the replication configuration for a specific file system by providing its
+      file system ID.
+  * `:max_results` (`t:integer`) (Optional) To limit the number of objects returned in a response, you can specify the
+        <code>MaxItems</code> parameter. The default value is 100. 
+  * `:next_token` (`t:string`) 
+            <code>NextToken</code> is present if the response is paginated. You can use
+        <code>NextToken</code> in a subsequent request to fetch the next page of
+      output.
   """
   @spec describe_replication_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configurations_response(), any()}
@@ -2757,11 +2787,15 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeTags` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system whose tag set you want to retrieve.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) (Optional) An opaque pagination token returned from a previous
+        <code>DescribeTags</code> operation (String). If present, it specifies to continue the list
+      from where the previous call left off.
+  * `:max_items` (`t:integer`) (Optional) The maximum number of file system tags to return in the response. Currently,
+      this number is automatically set to
+      100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.
   """
   @spec describe_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
@@ -2811,11 +2845,12 @@ defmodule AWS.EFS do
   `elasticfilesystem:DescribeAccessPoints` action.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (ResourceId)
+  * `:resource_id` (`t:string`) Specifies the EFS resource you want to retrieve tags for. You can retrieve tags
+      for EFS file systems and access points using this API endpoint.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) (Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.
+  * `:next_token` (`t:string`) (Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2881,7 +2916,7 @@ defmodule AWS.EFS do
   interface.
 
   ## Required positional parameters:
-   • :mount_target_id (t:string String.t/0) (MountTargetId)
+  * `:mount_target_id` (`t:string`) The ID of the mount target whose security groups you want to modify.
 
   ## Optional parameters:
   """
@@ -2955,7 +2990,7 @@ defmodule AWS.EFS do
   Use this action to start or stop automatic backups of the file system.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) Specifies which EFS file system to update the backup policy for.
 
   ## Optional parameters:
   """
@@ -2996,7 +3031,8 @@ defmodule AWS.EFS do
   `elasticfilesystem:PutFileSystemPolicy` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the EFS file system that you want to create or update the
+        <code>FileSystemPolicy</code> for.
 
   ## Optional parameters:
   """
@@ -3096,7 +3132,8 @@ defmodule AWS.EFS do
   encrypted file system.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system for which you are creating the
+        <code>LifecycleConfiguration</code> object (String).
 
   ## Optional parameters:
   """
@@ -3132,7 +3169,7 @@ defmodule AWS.EFS do
   action.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (ResourceId)
+  * `:resource_id` (`t:string`) The ID specifying the EFS resource that you want to create a tag for.
 
   ## Optional parameters:
   """
@@ -3171,10 +3208,11 @@ defmodule AWS.EFS do
   action.
 
   ## Required positional parameters:
-   • :resource_id (t:string String.t/0) (ResourceId)
+  * `:resource_id` (`t:string`) Specifies the EFS resource that you want to remove tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.efs#TagKey]`) The keys of the key-value tag pairs that you want to remove from the specified
+      EFS resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3212,7 +3250,7 @@ defmodule AWS.EFS do
   system.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system that you want to update.
 
   ## Optional parameters:
   """
@@ -3238,7 +3276,7 @@ defmodule AWS.EFS do
   `elasticfilesystem:UpdateFileSystemProtection` action.
 
   ## Required positional parameters:
-   • :file_system_id (t:string String.t/0) (FileSystemId)
+  * `:file_system_id` (`t:string`) The ID of the file system to update. 
 
   ## Optional parameters:
   """

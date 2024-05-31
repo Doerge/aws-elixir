@@ -1171,7 +1171,7 @@ defmodule AWS.ResourceGroups do
   `resource-groups:GetTags`
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The ARN of the resource group whose tags you want to retrieve.
 
   ## Optional parameters:
   """
@@ -1317,8 +1317,18 @@ defmodule AWS.ResourceGroups do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The total number of results that you want included on each page of the 
+  response. If you do not include this parameter, it defaults to a value that is specific to the 
+  operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> 
+  response element is present and has a value (is not null). Include that value as the 
+  <code>NextToken</code> request parameter in the next call to the operation to get the next part 
+  of the results. Note that the service might return fewer results than the maximum even when there 
+  are more results available. You should check <code>NextToken</code> after every operation to 
+  ensure that you receive all of the results.
+  * `:next_token` (`t:string`) The parameter for receiving additional results if you receive a
+  <code>NextToken</code> response in a previous request. A <code>NextToken</code> response 
+  indicates that more output is available. Set this parameter to the value provided by a previous 
+  call&#39;s <code>NextToken</code> response to indicate where the output should continue from.
   """
   @spec list_groups(AWS.Client.t(), list_groups_input(), Keyword.t()) ::
           {:ok, list_groups_output(), any()}
@@ -1473,7 +1483,7 @@ defmodule AWS.ResourceGroups do
   `resource-groups:Tag`
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The ARN of the resource group to which to add tags.
 
   ## Optional parameters:
   """
@@ -1550,7 +1560,8 @@ defmodule AWS.ResourceGroups do
   `resource-groups:Untag`
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The ARN of the resource group from which to remove tags. The command removed both the
+            specified keys and any values associated with those keys.
 
   ## Optional parameters:
   """

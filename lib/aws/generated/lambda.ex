@@ -3120,11 +3120,12 @@ defmodule AWS.Lambda do
   specified when you added it.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
+  * `:version_number` (`t:long`) The version number.
 
   ## Optional parameters:
-   • :revision_id (t:String.t/0) (RevisionId)
+  * `:revision_id` (`t:string`) Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
+      policy that has changed since you last read it.
   """
   @spec add_layer_version_permission(
           AWS.Client.t(),
@@ -3201,10 +3202,10 @@ defmodule AWS.Lambda do
   about function policies, see [Using resource-based policies for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version or alias to add permissions to a published version of the function.
   """
   @spec add_permission(AWS.Client.t(), String.t(), add_permission_request(), Keyword.t()) ::
           {:ok, add_permission_response(), any()}
@@ -3253,7 +3254,7 @@ defmodule AWS.Lambda do
   it receives.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -3593,10 +3594,10 @@ defmodule AWS.Lambda do
   a dedicated HTTP(S) endpoint that you can use to invoke your function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec create_function_url_config(
           AWS.Client.t(),
@@ -3638,8 +3639,8 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
-   • :name (t:string String.t/0) (Name)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
 
   ## Optional parameters:
   """
@@ -3677,7 +3678,7 @@ defmodule AWS.Lambda do
   using it.
 
   ## Required positional parameters:
-   • :code_signing_config_arn (t:string String.t/0) (CodeSigningConfigArn)
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of the code signing configuration.
 
   ## Optional parameters:
   """
@@ -3727,7 +3728,7 @@ defmodule AWS.Lambda do
   deleted for several seconds.
 
   ## Required positional parameters:
-   • :uuid (t:string String.t/0) (UUID)
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
 
   ## Optional parameters:
   """
@@ -3775,10 +3776,10 @@ defmodule AWS.Lambda do
   directly, delete the trigger in the service where you originally configured it.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function or version.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version to delete. You can&#39;t delete a version that an alias references.
   """
   @spec delete_function(AWS.Client.t(), String.t(), delete_function_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3814,7 +3815,7 @@ defmodule AWS.Lambda do
   Removes the code signing configuration from the function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -3852,7 +3853,7 @@ defmodule AWS.Lambda do
   Removes a concurrent execution limit from a function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -3894,10 +3895,10 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec delete_function_event_invoke_config(
           AWS.Client.t(),
@@ -3942,10 +3943,10 @@ defmodule AWS.Lambda do
   address.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec delete_function_url_config(
           AWS.Client.t(),
@@ -3990,8 +3991,8 @@ defmodule AWS.Lambda do
   refer to it.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
+  * `:version_number` (`t:long`) The version number.
 
   ## Optional parameters:
   """
@@ -4032,10 +4033,10 @@ defmodule AWS.Lambda do
   Deletes the provisioned concurrency configuration for a function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The version number or alias name.
   """
   @spec delete_provisioned_concurrency_config(
           AWS.Client.t(),
@@ -4113,8 +4114,8 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
-   • :name (t:string String.t/0) (Name)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
 
   ## Optional parameters:
   """
@@ -4143,7 +4144,7 @@ defmodule AWS.Lambda do
   Returns information about the specified code signing configuration.
 
   ## Required positional parameters:
-   • :code_signing_config_arn (t:string String.t/0) (CodeSigningConfigArn)
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of the code signing configuration. 
 
   ## Optional parameters:
   """
@@ -4174,7 +4175,7 @@ defmodule AWS.Lambda do
   `ListEventSourceMappings`.
 
   ## Required positional parameters:
-   • :uuid (t:string String.t/0) (UUID)
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
 
   ## Optional parameters:
   """
@@ -4208,10 +4209,10 @@ defmodule AWS.Lambda do
   returned.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version or alias to get details about a published version of the function.
   """
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_response(), any()}
@@ -4246,7 +4247,7 @@ defmodule AWS.Lambda do
   Returns the code signing configuration for the specified function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -4277,7 +4278,7 @@ defmodule AWS.Lambda do
   function, use `PutFunctionConcurrency`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -4312,10 +4313,10 @@ defmodule AWS.Lambda do
   `GetFunction`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version or alias to get details about a published version of the function.
   """
   @spec get_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -4354,10 +4355,10 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec get_function_event_invoke_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_event_invoke_config(), any()}
@@ -4392,10 +4393,10 @@ defmodule AWS.Lambda do
   Returns details about a Lambda function URL.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec get_function_url_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_url_config_response(), any()}
@@ -4432,8 +4433,8 @@ defmodule AWS.Lambda do
   that's valid for 10 minutes.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
+  * `:version_number` (`t:long`) The version number.
 
   ## Optional parameters:
   """
@@ -4466,7 +4467,7 @@ defmodule AWS.Lambda do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (Arn)
+  * `:arn` (`t:string`) The ARN of the layer version.
   """
   @spec get_layer_version_by_arn(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
@@ -4503,8 +4504,8 @@ defmodule AWS.Lambda do
   For more information, see `AddLayerVersionPermission`.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
+  * `:version_number` (`t:long`) The version number.
 
   ## Optional parameters:
   """
@@ -4534,10 +4535,10 @@ defmodule AWS.Lambda do
   for a function, version, or alias.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version or alias to get the policy for that resource.
   """
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
@@ -4573,10 +4574,10 @@ defmodule AWS.Lambda do
   version.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The version number or alias name.
   """
   @spec get_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
@@ -4623,10 +4624,11 @@ defmodule AWS.Lambda do
   more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the 
+    <code>$LATEST</code> version is returned.
   """
   @spec get_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_runtime_management_config_response(), any()}
@@ -4713,13 +4715,15 @@ defmodule AWS.Lambda do
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
-   • :client_context (t:String.t/0) (X-Amz-Client-Context)
-   • :invocation_type (t:String.t/0) (X-Amz-Invocation-Type)
-   • :log_type (t:String.t/0) (X-Amz-Log-Type)
+  * `:qualifier` (`t:string`) Specify a version or alias to invoke a published version of the function.
+  * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+      object. Lambda passes the <code>ClientContext</code> object to your function for
+      synchronous invocations only.
+  * `:invocation_type` (`t:enum["DryRun|Event|RequestResponse"]`) Choose from the following options.
+  * `:log_type` (`t:enum["None|Tail"]`) Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.
   """
   @spec invoke(AWS.Client.t(), String.t(), invocation_request(), Keyword.t()) ::
           {:ok, invocation_response(), any()}
@@ -4780,7 +4784,7 @@ defmodule AWS.Lambda do
   propagated to the function, even if X-Ray active tracing is turned on.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -4821,13 +4825,14 @@ defmodule AWS.Lambda do
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
-   • :client_context (t:String.t/0) (X-Amz-Client-Context)
-   • :invocation_type (t:String.t/0) (X-Amz-Invocation-Type)
-   • :log_type (t:String.t/0) (X-Amz-Log-Type)
+  * `:qualifier` (`t:string`) The alias name.
+  * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+      object.
+  * `:invocation_type` (`t:enum["DryRun|RequestResponse"]`) Use one of the following options:
+  * `:log_type` (`t:enum["None|Tail"]`) Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.
   """
   @spec invoke_with_response_stream(
           AWS.Client.t(),
@@ -4888,12 +4893,12 @@ defmodule AWS.Lambda do
   for a Lambda function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :function_version (t:String.t/0) (FunctionVersion)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:function_version` (`t:string`) Specify a function version to only list aliases that invoke that version.
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Limit the number of aliases returned.
   """
   @spec list_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
@@ -4953,8 +4958,8 @@ defmodule AWS.Lambda do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Maximum number of items to return.
   """
   @spec list_code_signing_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_code_signing_configs_response(), any()}
@@ -5003,10 +5008,11 @@ defmodule AWS.Lambda do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :event_source_arn (t:String.t/0) (EventSourceArn)
-   • :function_name (t:String.t/0) (FunctionName)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:event_source_arn` (`t:string`) The Amazon Resource Name (ARN) of the event source.
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of
+      100 items in each response, even if you set the number higher.
   """
   @spec list_event_source_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_source_mappings_response(), any()}
@@ -5071,11 +5077,11 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of configurations to return.
   """
   @spec list_function_event_invoke_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_event_invoke_configs_response(), any()}
@@ -5120,11 +5126,12 @@ defmodule AWS.Lambda do
   Returns a list of Lambda function URLs for the specified function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code>
+      returns a maximum of 50 items in each response, even if you set the number higher.
   """
   @spec list_function_url_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_url_configs_response(), any()}
@@ -5185,10 +5192,14 @@ defmodule AWS.Lambda do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :function_version (t:String.t/0) (FunctionVersion)
-   • :marker (t:String.t/0) (Marker)
-   • :master_region (t:String.t/0) (MasterRegion)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:function_version` (`t:enum["ALL"]`) Set to <code>ALL</code> to include entries for all published versions of each function.
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:master_region` (`t:string`) For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example,
+        <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a
+      master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to
+        <code>ALL</code>.
+  * `:max_items` (`t:integer`) The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response,
+      even if you set the number higher.
   """
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_response(), any()}
@@ -5253,11 +5264,11 @@ defmodule AWS.Lambda do
   code signing configuration, to verify that no functions are using it.
 
   ## Required positional parameters:
-   • :code_signing_config_arn (t:string String.t/0) (CodeSigningConfigArn)
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of the code signing configuration.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Maximum number of items to return.
   """
   @spec list_functions_by_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_functions_by_code_signing_config_response(), any()}
@@ -5312,13 +5323,14 @@ defmodule AWS.Lambda do
   layer versions that are compatible with that architecture.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
 
   ## Optional parameters:
-   • :compatible_architecture (t:String.t/0) (CompatibleArchitecture)
-   • :compatible_runtime (t:String.t/0) (CompatibleRuntime)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible 
+  <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.
+  * `:compatible_runtime` (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`) A runtime identifier. For example, <code>java21</code>.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of versions to return.
   """
   @spec list_layer_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layer_versions_response(), any()}
@@ -5390,10 +5402,11 @@ defmodule AWS.Lambda do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :compatible_architecture (t:String.t/0) (CompatibleArchitecture)
-   • :compatible_runtime (t:String.t/0) (CompatibleRuntime)
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible 
+  <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.
+  * `:compatible_runtime` (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`) A runtime identifier. For example, <code>java21</code>.
+  * `:marker` (`t:string`) A pagination token returned by a previous call.
+  * `:max_items` (`t:integer`) The maximum number of layers to return.
   """
   @spec list_layers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_layers_response(), any()}
@@ -5455,11 +5468,11 @@ defmodule AWS.Lambda do
   Retrieves a list of provisioned concurrency configurations for a function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) Specify a number to limit the number of configurations returned.
   """
   @spec list_provisioned_concurrency_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
@@ -5508,7 +5521,8 @@ defmodule AWS.Lambda do
   also view tags with `GetFunction`.
 
   ## Required positional parameters:
-   • :resource (t:string String.t/0) (Resource)
+  * `:resource` (`t:string`) The function&#39;s Amazon Resource Name (ARN). 
+      Note: Lambda does not support adding tags to aliases or versions.
 
   ## Optional parameters:
   """
@@ -5540,11 +5554,12 @@ defmodule AWS.Lambda do
   Lambda returns up to 50 versions per call.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :marker (t:String.t/0) (Marker)
-   • :max_items (t:String.t/0) (MaxItems)
+  * `:marker` (`t:string`) Specify the pagination token that&#39;s returned by a previous request to retrieve the next page of results.
+  * `:max_items` (`t:integer`) The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response, 
+      even if you set the number higher.
   """
   @spec list_versions_by_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_versions_by_function_response(), any()}
@@ -5595,7 +5610,7 @@ defmodule AWS.Lambda do
   `UpdateFunctionConfiguration`.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
 
   ## Optional parameters:
   """
@@ -5647,7 +5662,7 @@ defmodule AWS.Lambda do
   `CreateAlias`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -5683,7 +5698,7 @@ defmodule AWS.Lambda do
   next time a user tries to deploy a code package to the function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -5728,7 +5743,7 @@ defmodule AWS.Lambda do
   information, see [Lambda function scaling](https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -5780,10 +5795,10 @@ defmodule AWS.Lambda do
   dead-letter queue.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec put_function_event_invoke_config(
           AWS.Client.t(),
@@ -5814,10 +5829,10 @@ defmodule AWS.Lambda do
   Adds a provisioned concurrency configuration to a function's alias or version.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The version number or alias name.
   """
   @spec put_provisioned_concurrency_config(
           AWS.Client.t(),
@@ -5853,10 +5868,11 @@ defmodule AWS.Lambda do
   see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the 
+      <code>$LATEST</code> version is returned.
   """
   @spec put_runtime_management_config(
           AWS.Client.t(),
@@ -5892,12 +5908,13 @@ defmodule AWS.Lambda do
   `AddLayerVersionPermission`.
 
   ## Required positional parameters:
-   • :layer_name (t:string String.t/0) (LayerName)
-   • :statement_id (t:string String.t/0) (StatementId)
-   • :version_number (t:long String.t/0) (VersionNumber)
+  * `:layer_name` (`t:string`) The name or Amazon Resource Name (ARN) of the layer.
+  * `:statement_id` (`t:string`) The identifier that was specified when the statement was added.
+  * `:version_number` (`t:long`) The version number.
 
   ## Optional parameters:
-   • :revision_id (t:String.t/0) (RevisionId)
+  * `:revision_id` (`t:string`) Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
+      policy that has changed since you last read it.
   """
   @spec remove_layer_version_permission(
           AWS.Client.t(),
@@ -5953,12 +5970,13 @@ defmodule AWS.Lambda do
   can get the ID of the statement from the output of `GetPolicy`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
-   • :statement_id (t:string String.t/0) (StatementId)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
+  * `:statement_id` (`t:string`) Statement ID of the permission to remove.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
-   • :revision_id (t:String.t/0) (RevisionId)
+  * `:qualifier` (`t:string`) Specify a version or alias to remove permissions from a published version of the function.
+  * `:revision_id` (`t:string`) Update the policy only if the revision ID matches the ID that&#39;s specified. Use this option to avoid modifying a
+      policy that has changed since you last read it.
   """
   @spec remove_permission(
           AWS.Client.t(),
@@ -6004,7 +6022,7 @@ defmodule AWS.Lambda do
   function.
 
   ## Required positional parameters:
-   • :resource (t:string String.t/0) (Resource)
+  * `:resource` (`t:string`) The function&#39;s Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
@@ -6038,10 +6056,10 @@ defmodule AWS.Lambda do
   function.
 
   ## Required positional parameters:
-   • :resource (t:string String.t/0) (Resource)
+  * `:resource` (`t:string`) The function&#39;s Amazon Resource Name (ARN).
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.lambda#TagKey]`) A list of tag keys to remove from the function.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6078,8 +6096,8 @@ defmodule AWS.Lambda do
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
-   • :name (t:string String.t/0) (Name)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
+  * `:name` (`t:string`) The name of the alias.
 
   ## Optional parameters:
   """
@@ -6107,7 +6125,7 @@ defmodule AWS.Lambda do
   user tries to deploy a code package to the function.
 
   ## Required positional parameters:
-   • :code_signing_config_arn (t:string String.t/0) (CodeSigningConfigArn)
+  * `:code_signing_config_arn` (`t:string`) The The Amazon Resource Name (ARN) of the code signing configuration.
 
   ## Optional parameters:
   """
@@ -6260,7 +6278,7 @@ defmodule AWS.Lambda do
   DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration)
 
   ## Required positional parameters:
-   • :uuid (t:string String.t/0) (UUID)
+  * `:uuid` (`t:string`) The identifier of the event source mapping.
 
   ## Optional parameters:
   """
@@ -6317,7 +6335,7 @@ defmodule AWS.Lambda do
   update the function.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -6366,7 +6384,7 @@ defmodule AWS.Lambda do
   to an Amazon Web Services account or Amazon Web Service, use `AddPermission`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
   """
@@ -6398,10 +6416,10 @@ defmodule AWS.Lambda do
   `PutFunctionEventInvokeConfig`.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function, version, or alias.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) A version number or alias name.
   """
   @spec update_function_event_invoke_config(
           AWS.Client.t(),
@@ -6442,10 +6460,10 @@ defmodule AWS.Lambda do
   Updates the configuration for a Lambda function URL.
 
   ## Required positional parameters:
-   • :function_name (t:string String.t/0) (FunctionName)
+  * `:function_name` (`t:string`) The name or ARN of the Lambda function.
 
   ## Optional parameters:
-   • :qualifier (t:String.t/0) (Qualifier)
+  * `:qualifier` (`t:string`) The alias name.
   """
   @spec update_function_url_config(
           AWS.Client.t(),

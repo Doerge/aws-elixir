@@ -1186,10 +1186,14 @@ defmodule AWS.LookoutVision do
   `lookoutvision:CreateDataset` operation.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) The name of the project in which you want to create a dataset.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>CreateDataset</code>
+      completes only once.  You choose the value to pass. For example, An issue might prevent you
+      from getting a response from <code>CreateDataset</code>.
+      In this case, safely retry your call
+       to <code>CreateDataset</code> by using the same <code>ClientToken</code> parameter value.
   """
   @spec create_dataset(AWS.Client.t(), String.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
@@ -1249,10 +1253,14 @@ defmodule AWS.LookoutVision do
   permission to the `lookoutvision:TagResource` operation.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) The name of the project in which you want to create a model version.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
+      completes only once.  You choose the value to pass. For example, An issue
+      might prevent you from getting a response from <code>CreateModel</code>.
+      In this case, safely retry your call
+       to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. 
   """
   @spec create_model(AWS.Client.t(), String.t(), create_model_request(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
@@ -1297,7 +1305,11 @@ defmodule AWS.LookoutVision do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>CreateProject</code>
+      completes only once.  You choose the value to pass. For example, An issue might prevent you from 
+      getting a response from <code>CreateProject</code>.
+      In this case, safely retry your call
+       to <code>CreateProject</code> by using the same <code>ClientToken</code> parameter value. 
   """
   @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
@@ -1352,11 +1364,16 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DeleteDataset` operation.
 
   ## Required positional parameters:
-   • :dataset_type (t:string String.t/0) (DatasetType)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:dataset_type` (`t:string`) The type of the dataset to delete. Specify <code>train</code> to delete the training dataset.
+      Specify <code>test</code> to delete the test dataset. To delete the dataset in a single dataset project, 
+         specify <code>train</code>.
+  * `:project_name` (`t:string`) The name of the project that contains the dataset that you want to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code>
+      completes only once.  You choose the value to pass. For example, An issue might prevent you from getting a response from <code>DeleteDataset</code>.
+      In this case, safely retry your call
+       to <code>DeleteDataset</code> by using the same <code>ClientToken</code> parameter value. 
   """
   @spec delete_dataset(
           AWS.Client.t(),
@@ -1411,11 +1428,15 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DeleteModel` operation.
 
   ## Required positional parameters:
-   • :model_version (t:string String.t/0) (ModelVersion)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:model_version` (`t:string`) The version of the model that you want to delete.
+  * `:project_name` (`t:string`) The name of the project that contains the model that you want to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>DeleteModel</code>
+      completes only once.  You choose the value to pass. For example, an issue might prevent
+      you from getting a response from <code>DeleteModel</code>.
+      In this case, safely retry your call
+       to <code>DeleteModel</code> by using the same <code>ClientToken</code> parameter value.
   """
   @spec delete_model(AWS.Client.t(), String.t(), String.t(), delete_model_request(), Keyword.t()) ::
           {:ok, delete_model_response(), any()}
@@ -1465,10 +1486,14 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DeleteProject` operation.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) The name of the project to delete.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>DeleteProject</code>
+         completes only once.  You choose the value to pass. For example, An issue
+         might prevent you from getting a response from <code>DeleteProject</code>.
+         In this case, safely retry your call
+         to <code>DeleteProject</code> by using the same <code>ClientToken</code> parameter value. 
   """
   @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -1508,8 +1533,11 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DescribeDataset` operation.
 
   ## Required positional parameters:
-   • :dataset_type (t:string String.t/0) (DatasetType)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:dataset_type` (`t:string`) The type of the dataset to describe. Specify <code>train</code> to describe the 
+      training dataset. Specify <code>test</code> to describe the test dataset.
+      If you have a single dataset project, specify <code>train</code>
+         
+  * `:project_name` (`t:string`) The name of the project that contains the dataset that you want to describe.
 
   ## Optional parameters:
   """
@@ -1541,8 +1569,8 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DescribeModel` operation.
 
   ## Required positional parameters:
-   • :model_version (t:string String.t/0) (ModelVersion)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:model_version` (`t:string`) The version of the model that you want to describe.
+  * `:project_name` (`t:string`) The project that contains the version of a model that you want to describe.
 
   ## Optional parameters:
   """
@@ -1578,8 +1606,11 @@ defmodule AWS.LookoutVision do
   Lookout for Vision Developer Guide.
 
   ## Required positional parameters:
-   • :job_name (t:string String.t/0) (JobName)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:job_name` (`t:string`) The job name for the model packaging job. 
+
+
+  * `:project_name` (`t:string`) The name of the project that contains the model packaging job that you want to describe. 
+
 
   ## Optional parameters:
   """
@@ -1611,7 +1642,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DescribeProject` operation.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) The name of the project that you want to describe.
 
   ## Optional parameters:
   """
@@ -1659,11 +1690,12 @@ defmodule AWS.LookoutVision do
   `lookoutvision:DetectAnomalies` operation.
 
   ## Required positional parameters:
-   • :model_version (t:string String.t/0) (ModelVersion)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:model_version` (`t:string`) The version of the model that you want to use.
+  * `:project_name` (`t:string`) The name of the project that contains the model version that you want to use.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:string`) The type of the image passed in <code>Body</code>.
+         Valid values are <code>image/png</code> (PNG format images) and <code>image/jpeg</code> (JPG format images). 
   """
   @spec detect_anomalies(
           AWS.Client.t(),
@@ -1714,17 +1746,26 @@ defmodule AWS.LookoutVision do
   `lookoutvision:ListDatasetEntries` operation.
 
   ## Required positional parameters:
-   • :dataset_type (t:string String.t/0) (DatasetType)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:dataset_type` (`t:string`) The type of the dataset that you want to list.  Specify <code>train</code> to list 
+         the training dataset. Specify <code>test</code> to list the test dataset. If you have a single dataset
+      project, specify <code>train</code>.
+  * `:project_name` (`t:string`) The name of the project that contains the dataset that you want to list.
 
   ## Optional parameters:
-   • :after_creation_date (t:String.t/0) (createdAfter)
-   • :anomaly_class (t:String.t/0) (anomalyClass)
-   • :before_creation_date (t:String.t/0) (createdBefore)
-   • :labeled (t:String.t/0) (labeled)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :source_ref_contains (t:String.t/0) (sourceRefContains)
+  * `:after_creation_date` (`t:timestamp`) Only includes entries after the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.
+  * `:anomaly_class` (`t:string`) Specify <code>normal</code> to include only normal images. Specify <code>anomaly</code> to only include
+         anomalous entries. If you don&#39;t specify a value, Amazon Lookout for Vision returns normal and anomalous images.
+  * `:before_creation_date` (`t:timestamp`) Only includes entries before the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.
+  * `:labeled` (`t:boolean`) Specify <code>true</code> to include labeled entries, otherwise specify <code>false</code>. If you
+      don&#39;t specify a value, Lookout for Vision returns all entries.
+  * `:max_results` (`t:integer`) The maximum number of results to return per paginated call. The largest value you can specify is 100. 
+         If you specify a value greater than 100, a ValidationException
+         error occurs. The default value is 100.
+  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more data to retrieve),
+         Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
+         retrieve the next set of dataset entries.
+  * `:source_ref_contains` (`t:string`) Perform a &quot;contains&quot; search on the  values of the <code>source-ref</code> key within the dataset. 
+         For example a value of &quot;IMG_17&quot;  returns all JSON Lines where the <code>source-ref</code> key value matches <i>*IMG_17*</i>.
   """
   @spec list_dataset_entries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_entries_response(), any()}
@@ -1822,11 +1863,17 @@ defmodule AWS.LookoutVision do
   Lookout for Vision Developer Guide.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) 
+  The name of the project for which you want to list the model packaging jobs.
+
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per paginated call. The largest value you can specify is 100. 
+      If you specify a value greater than 100, a ValidationException
+      error occurs. The default value is 100. 
+  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more
+      results to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination 
+      token to retrieve the next set of results. 
   """
   @spec list_model_packaging_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_model_packaging_jobs_response(), any()}
@@ -1877,11 +1924,15 @@ defmodule AWS.LookoutVision do
   `lookoutvision:ListModels` operation.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) The name of the project that contains the model versions that you want to list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per paginated call. The largest value you can specify is 100. 
+         If you specify a value greater than 100, a ValidationException
+         error occurs. The default value is 100.
+  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more data to retrieve),
+         Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
+         retrieve the next set of models.
   """
   @spec list_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_models_response(), any()}
@@ -1936,8 +1987,12 @@ defmodule AWS.LookoutVision do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per paginated call. The largest value you can specify is 100. 
+         If you specify a value greater than 100, a ValidationException
+         error occurs. The default value is 100.
+  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more data to retrieve),
+         Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
+         retrieve the next set of projects.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -1985,7 +2040,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:ListTagsForResource` operation.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model for which you want to list tags. 
 
   ## Optional parameters:
   """
@@ -2028,11 +2083,15 @@ defmodule AWS.LookoutVision do
   `lookoutvision:StartModel` operation.
 
   ## Required positional parameters:
-   • :model_version (t:string String.t/0) (ModelVersion)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:model_version` (`t:string`) The version of the model that you want to start.
+  * `:project_name` (`t:string`) The name of the project that contains the model that you want to start.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>StartModel</code>
+         completes only once.  You choose the value to pass. For example, An issue might prevent 
+         you from getting a response from <code>StartModel</code>.
+         In this case, safely retry your call
+         to <code>StartModel</code> by using the same <code>ClientToken</code> parameter value. 
   """
   @spec start_model(AWS.Client.t(), String.t(), String.t(), start_model_request(), Keyword.t()) ::
           {:ok, start_model_response(), any()}
@@ -2119,10 +2178,16 @@ defmodule AWS.LookoutVision do
   Lookout for Vision Developer Guide.
 
   ## Required positional parameters:
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:project_name` (`t:string`) 
+  The name of the project which contains the version of the model that you want to package.
+
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>StartModelPackagingJob</code>
+      completes only once.  You choose the value to pass. For example, An issue might prevent you
+      from getting a response from <code>StartModelPackagingJob</code>.
+      In this case, safely retry your call
+      to <code>StartModelPackagingJob</code> by using the same <code>ClientToken</code> parameter value.
   """
   @spec start_model_packaging_job(
           AWS.Client.t(),
@@ -2172,11 +2237,15 @@ defmodule AWS.LookoutVision do
   `lookoutvision:StopModel` operation.
 
   ## Required positional parameters:
-   • :model_version (t:string String.t/0) (ModelVersion)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:model_version` (`t:string`) The version of the model that you want to stop.
+  * `:project_name` (`t:string`) The name of the project that contains the model that you want to stop.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>StopModel</code>
+         completes only once.  You choose the value to pass. For example, An issue 
+         might prevent you from getting a response from <code>StopModel</code>.
+         In this case, safely retry your call
+         to <code>StopModel</code> by using the same <code>ClientToken</code> parameter value.
   """
   @spec stop_model(AWS.Client.t(), String.t(), String.t(), stop_model_request(), Keyword.t()) ::
           {:ok, stop_model_response(), any()}
@@ -2220,7 +2289,7 @@ defmodule AWS.LookoutVision do
   `lookoutvision:TagResource` operation.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model to assign the tags.
 
   ## Optional parameters:
   """
@@ -2259,10 +2328,10 @@ defmodule AWS.LookoutVision do
   `lookoutvision:UntagResource` operation.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the model from which you want to remove tags. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.lookoutvision#TagKey]`) A list of the keys of the tags that you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2320,11 +2389,17 @@ defmodule AWS.LookoutVision do
   `lookoutvision:UpdateDatasetEntries` operation.
 
   ## Required positional parameters:
-   • :dataset_type (t:string String.t/0) (DatasetType)
-   • :project_name (t:string String.t/0) (ProjectName)
+  * `:dataset_type` (`t:string`) The type of the dataset that you want to update. Specify <code>train</code> to update
+      the training dataset. Specify <code>test</code> to update the test dataset. If you
+       have a single dataset project, specify <code>train</code>.
+  * `:project_name` (`t:string`) The name of the project that contains the dataset that you want to update.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (X-Amzn-Client-Token)
+  * `:client_token` (`t:string`) ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code>
+         completes only once.  You choose the value to pass. For example, An issue 
+         might prevent you from getting a response from <code>UpdateDatasetEntries</code>.
+         In this case, safely retry your call
+         to <code>UpdateDatasetEntries</code> by using the same <code>ClientToken</code> parameter value.
   """
   @spec update_dataset_entries(
           AWS.Client.t(),

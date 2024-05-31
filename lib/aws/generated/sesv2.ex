@@ -3838,7 +3838,7 @@ defmodule AWS.SESv2 do
   Cancels an export job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The export job ID.
 
   ## Optional parameters:
   """
@@ -3913,7 +3913,7 @@ defmodule AWS.SESv2 do
   A single configuration set can include more than one event destination.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set .
 
   ## Optional parameters:
   """
@@ -3960,7 +3960,7 @@ defmodule AWS.SESv2 do
   contact list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the contact should be added.
 
   ## Optional parameters:
   """
@@ -4243,8 +4243,8 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
-   • :policy_name (t:string String.t/0) (PolicyName)
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
   ## Optional parameters:
   """
@@ -4402,7 +4402,7 @@ defmodule AWS.SESv2 do
   an email, all of the rules in that configuration set are applied to the email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
   """
@@ -4448,8 +4448,9 @@ defmodule AWS.SESv2 do
   stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination to
+            delete.
+  * `:event_destination_name` (`t:string`) The name of the event destination to delete.
 
   ## Optional parameters:
   """
@@ -4496,8 +4497,8 @@ defmodule AWS.SESv2 do
   Removes a contact from a contact list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
-   • :email_address (t:string String.t/0) (EmailAddress)
+  * `:contact_list_name` (`t:string`) The name of the contact list from which the contact should be removed.
+  * `:email_address` (`t:string`) The contact&#39;s email address.
 
   ## Optional parameters:
   """
@@ -4538,7 +4539,7 @@ defmodule AWS.SESv2 do
   Deletes a contact list and all of the contacts on that list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
+  * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
   """
@@ -4583,7 +4584,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the custom verification email template that you want to delete.
 
   ## Optional parameters:
   """
@@ -4628,7 +4629,7 @@ defmodule AWS.SESv2 do
   Delete a dedicated IP pool.
 
   ## Required positional parameters:
-   • :pool_name (t:string String.t/0) (PoolName)
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to delete.
 
   ## Optional parameters:
   """
@@ -4669,7 +4670,7 @@ defmodule AWS.SESv2 do
   name.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The identity (that is, the email address or domain) to delete.
 
   ## Optional parameters:
   """
@@ -4723,8 +4724,8 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
-   • :policy_name (t:string String.t/0) (PolicyName)
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
   ## Optional parameters:
   """
@@ -4773,7 +4774,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the template to be deleted.
 
   ## Optional parameters:
   """
@@ -4811,7 +4812,7 @@ defmodule AWS.SESv2 do
   Removes an email address from the suppression list for your account.
 
   ## Required positional parameters:
-   • :email_address (t:string String.t/0) (EmailAddress)
+  * `:email_address` (`t:string`) The suppressed email destination to remove from the account suppression list.
 
   ## Optional parameters:
   """
@@ -4880,7 +4881,9 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :blacklist_item_names (t:String.t/0) (BlacklistItemNames)
+  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`) A list of IP addresses that you want to retrieve blacklist information about. You can
+            only specify the dedicated IP addresses that you use to send email using Amazon SES or
+            Amazon Pinpoint.
   """
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
@@ -4925,7 +4928,7 @@ defmodule AWS.SESv2 do
   an email, all of the rules in that configuration set are applied to the email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
   """
@@ -4962,7 +4965,7 @@ defmodule AWS.SESv2 do
   stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination.
 
   ## Optional parameters:
   """
@@ -4995,8 +4998,8 @@ defmodule AWS.SESv2 do
   Returns a contact from a contact list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
-   • :email_address (t:string String.t/0) (EmailAddress)
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the contact belongs.
+  * `:email_address` (`t:string`) The contact&#39;s email address.
 
   ## Optional parameters:
   """
@@ -5028,7 +5031,7 @@ defmodule AWS.SESv2 do
   present in the list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
+  * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
   """
@@ -5064,7 +5067,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the custom verification email template that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -5097,7 +5100,8 @@ defmodule AWS.SESv2 do
   for the address.
 
   ## Required positional parameters:
-   • :ip (t:string String.t/0) (Ip)
+  * `:ip` (`t:string`) The IP address that you want to obtain more information about. The value you specify
+            has to be a dedicated IP address that&#39;s assocaited with your Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -5125,7 +5129,7 @@ defmodule AWS.SESv2 do
   Retrieve information about the dedicated pool.
 
   ## Required positional parameters:
-   • :pool_name (t:string String.t/0) (PoolName)
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool to retrieve.
 
   ## Optional parameters:
   """
@@ -5157,9 +5161,13 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
-   • :pool_name (t:String.t/0) (PoolName)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
+            position of the dedicated IP pool in the list of IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
+  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP address is associated with.
   """
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
@@ -5254,7 +5262,7 @@ defmodule AWS.SESv2 do
   Retrieve the results of a predictive inbox placement test.
 
   ## Required positional parameters:
-   • :report_id (t:string String.t/0) (ReportId)
+  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox placement test.
 
   ## Optional parameters:
   """
@@ -5286,7 +5294,8 @@ defmodule AWS.SESv2 do
   Deliverability dashboard is enabled for.
 
   ## Required positional parameters:
-   • :campaign_id (t:string String.t/0) (CampaignId)
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign. The Deliverability dashboard automatically generates
+            and assigns this identifier to a campaign.
 
   ## Optional parameters:
   """
@@ -5316,11 +5325,14 @@ defmodule AWS.SESv2 do
   email.
 
   ## Required positional parameters:
-   • :domain (t:string String.t/0) (Domain)
+  * `:domain` (`t:string`) The domain that you want to obtain deliverability metrics for.
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (EndDate)
-   • :start_date (t:String.t/0) (StartDate)
+  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to obtain domain deliverability metrics for.
+            The <code>EndDate</code> that you specify has to be less than or equal to 30 days after
+            the <code>StartDate</code>.
+  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to obtain domain deliverability metrics
+            for.
   """
   @spec get_domain_statistics_report(
           AWS.Client.t(),
@@ -5381,7 +5393,7 @@ defmodule AWS.SESv2 do
   Mail-From settings.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
   """
@@ -5425,7 +5437,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
   """
@@ -5457,7 +5469,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:
   """
@@ -5485,7 +5497,7 @@ defmodule AWS.SESv2 do
   Provides information about an export job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The export job ID.
 
   ## Optional parameters:
   """
@@ -5513,7 +5525,7 @@ defmodule AWS.SESv2 do
   Provides information about an import job.
 
   ## Required positional parameters:
-   • :job_id (t:string String.t/0) (JobId)
+  * `:job_id` (`t:string`) The ID of the import job.
 
   ## Optional parameters:
   """
@@ -5545,7 +5557,10 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :message_id (t:string String.t/0) (MessageId)
+  * `:message_id` (`t:string`) 
+            A <code>MessageId</code> is a unique identifier for a message, and is
+            returned when sending emails through Amazon SES.
+        
 
   ## Optional parameters:
   """
@@ -5575,7 +5590,7 @@ defmodule AWS.SESv2 do
   for your account.
 
   ## Required positional parameters:
-   • :email_address (t:string String.t/0) (EmailAddress)
+  * `:email_address` (`t:string`) The email address that&#39;s on the account suppression list.
 
   ## Optional parameters:
   """
@@ -5613,8 +5628,12 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListConfigurationSets</code> to
+            indicate the position in the list of configuration sets.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListConfigurationSets</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -5660,8 +5679,15 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A string token indicating that there might be additional contact lists available to be
+            listed. Use the token provided in the Response to use in the subsequent call to
+            ListContactLists with the same parameters to retrieve the next page of contact
+            lists.
+  * `:page_size` (`t:integer`) Maximum number of contact lists to return at once. Use this parameter to paginate
+            results. If additional contact lists exist beyond the specified limit, the
+                <code>NextToken</code> element is sent in the response. Use the
+                <code>NextToken</code> value in subsequent requests to retrieve additional
+            lists.
   """
   @spec list_contact_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contact_lists_response(), any()}
@@ -5705,7 +5731,7 @@ defmodule AWS.SESv2 do
   Lists the contacts present in a specific contact list.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
+  * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
   """
@@ -5749,8 +5775,14 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to
+                <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the
+            list of custom verification email templates.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+                <code>ListCustomVerificationEmailTemplates</code>. If the number of results is
+            larger than the number you specified in this parameter, then the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
   """
   @spec list_custom_verification_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
@@ -5798,8 +5830,12 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
+            the position in the list of dedicated IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
+            If the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
@@ -5851,8 +5887,13 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to
+            indicate the position in the list of predictive inbox placement tests.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+                <code>ListDeliverabilityTestReports</code>. If the number of results is larger than
+            the number you specified in this parameter, then the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
   """
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
@@ -5901,13 +5942,22 @@ defmodule AWS.SESv2 do
   enabled the Deliverability dashboard for the domain.
 
   ## Required positional parameters:
-   • :subscribed_domain (t:string String.t/0) (SubscribedDomain)
+  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data for.
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (EndDate)
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
-   • :start_date (t:String.t/0) (StartDate)
+  * `:end_date` (`t:timestamp`) The last day that you want to obtain deliverability data for.
+            This value has to be less than or equal to 30 days after the value of the
+                <code>StartDate</code> parameter.
+  * `:next_token` (`t:string`) A token that’s returned from a previous call to the
+                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
+            position of a campaign in the list of campaigns.
+  * `:page_size` (`t:integer`) The maximum number of results to include in response to a single call to the
+                <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
+            is larger than the number that you specify in this parameter, the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
+  * `:start_date` (`t:timestamp`) The first day that you want to obtain deliverability data
+            for.
   """
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
@@ -5991,8 +6041,12 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
+            the position in the list of identities.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListEmailIdentities</code>. If
+            the number of results is larger than the number you specified in this parameter, then
+            the response includes a <code>NextToken</code> element, which you can use to obtain
+            additional results.
   """
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
@@ -6042,8 +6096,11 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListEmailTemplates</code> to indicate
+            the position in the list of email templates.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
+            results is larger than the number you specified in this parameter, then the response
+            includes a <code>NextToken</code> element, which you can use to obtain additional results.
   """
   @spec list_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_templates_response(), any()}
@@ -6189,11 +6246,18 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :end_date (t:String.t/0) (EndDate)
-   • :next_token (t:String.t/0) (NextToken)
-   • :page_size (t:String.t/0) (PageSize)
-   • :reasons (t:String.t/0) (Reason)
-   • :start_date (t:String.t/0) (StartDate)
+  * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email destinations so that it only includes
+            addresses that were added to the list before a specific date.
+  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListSuppressedDestinations</code> to
+            indicate the position in the list of suppressed email addresses.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+                <code>ListSuppressedDestinations</code>. If the number of results is larger than the
+            number you specified in this parameter, then the response includes a
+                <code>NextToken</code> element, which you can use to obtain additional
+            results.
+  * `:reasons` (`t:list[com.amazonaws.sesv2#SuppressionListReason]`) The factors that caused the email address to be added to .
+  * `:start_date` (`t:timestamp`) Used to filter the list of suppressed email destinations so that it only includes
+            addresses that were added to the list after a specific date.
   """
   @spec list_suppressed_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suppressed_destinations_response(), any()}
@@ -6275,7 +6339,8 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
+            information for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6451,7 +6516,7 @@ defmodule AWS.SESv2 do
   to create groups of dedicated IP addresses for sending specific types of email.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to associate with a dedicated IP pool.
 
   ## Optional parameters:
   """
@@ -6488,7 +6553,7 @@ defmodule AWS.SESv2 do
   particular configuration set in a specific Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
   """
@@ -6525,7 +6590,7 @@ defmodule AWS.SESv2 do
   in a specific Amazon Web Services Region.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to enable or disable email sending for.
 
   ## Optional parameters:
   """
@@ -6560,7 +6625,8 @@ defmodule AWS.SESv2 do
   Specify the account suppression list preferences for a configuration set.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to change the suppression list preferences
+            for.
 
   ## Optional parameters:
   """
@@ -6597,7 +6663,7 @@ defmodule AWS.SESv2 do
   send.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
   """
@@ -6634,7 +6700,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
   """
@@ -6676,7 +6742,8 @@ defmodule AWS.SESv2 do
   using the `CreateDedicatedIpPool` operation.
 
   ## Required positional parameters:
-   • :ip (t:string String.t/0) (Ip)
+  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP pool. The value you specify
+            has to be a dedicated IP address that&#39;s associated with your Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -6706,7 +6773,7 @@ defmodule AWS.SESv2 do
   `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
 
   ## Required positional parameters:
-   • :pool_name (t:string String.t/0) (PoolName)
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool.
 
   ## Optional parameters:
   """
@@ -6798,7 +6865,7 @@ defmodule AWS.SESv2 do
   Used to associate a configuration set with an email identity.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email address or domain to associate with a configuration set.
 
   ## Optional parameters:
   """
@@ -6831,7 +6898,7 @@ defmodule AWS.SESv2 do
   Used to enable or disable DKIM authentication for an email identity.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
   """
@@ -6881,7 +6948,7 @@ defmodule AWS.SESv2 do
   Change from using BYODKIM to using Easy DKIM.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
   """
@@ -6932,7 +6999,7 @@ defmodule AWS.SESv2 do
   occur (even if this setting is disabled).
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
   """
@@ -6966,7 +7033,7 @@ defmodule AWS.SESv2 do
   identity.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
+  * `:email_identity` (`t:string`) The verified email identity.
 
   ## Optional parameters:
   """
@@ -7215,7 +7282,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:
   """
@@ -7255,8 +7322,10 @@ defmodule AWS.SESv2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :resource_arn (t:String.t/0) (ResourceArn)
-   • :tag_keys (t:String.t/0) (TagKeys)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove one or more
+            tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]`) The tags (tag keys) that you want to remove from the resource. When you specify a tag
+            key, the action removes both that key and its associated tag value.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7301,8 +7370,9 @@ defmodule AWS.SESv2 do
   stream data to Amazon S3 for long-term storage.
 
   ## Required positional parameters:
-   • :configuration_set_name (t:string String.t/0) (ConfigurationSetName)
-   • :event_destination_name (t:string String.t/0) (EventDestinationName)
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination to
+            modify.
+  * `:event_destination_name` (`t:string`) The name of the event destination.
 
   ## Optional parameters:
   """
@@ -7343,8 +7413,8 @@ defmodule AWS.SESv2 do
   otherwise, all your existing preferences will be removed.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
-   • :email_address (t:string String.t/0) (EmailAddress)
+  * `:contact_list_name` (`t:string`) The name of the contact list.
+  * `:email_address` (`t:string`) The contact&#39;s email address.
 
   ## Optional parameters:
   """
@@ -7377,7 +7447,7 @@ defmodule AWS.SESv2 do
   This operation does a complete replacement.
 
   ## Required positional parameters:
-   • :contact_list_name (t:string String.t/0) (ContactListName)
+  * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
   """
@@ -7412,7 +7482,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the custom verification email template that you want to update.
 
   ## Optional parameters:
   """
@@ -7463,8 +7533,8 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :email_identity (t:string String.t/0) (EmailIdentity)
-   • :policy_name (t:string String.t/0) (PolicyName)
+  * `:email_identity` (`t:string`) The email identity.
+  * `:policy_name` (`t:string`) The name of the policy.
 
   ## Optional parameters:
   """
@@ -7507,7 +7577,7 @@ defmodule AWS.SESv2 do
   You can execute this operation no more than once per second.
 
   ## Required positional parameters:
-   • :template_name (t:string String.t/0) (TemplateName)
+  * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:
   """

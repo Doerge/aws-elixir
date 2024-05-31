@@ -1526,8 +1526,8 @@ defmodule AWS.AmplifyBackend do
   This operation clones an existing backend.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -1602,7 +1602,7 @@ defmodule AWS.AmplifyBackend do
   Creates a new backend API resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -1635,7 +1635,7 @@ defmodule AWS.AmplifyBackend do
   Creates a new backend authentication resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -1673,7 +1673,7 @@ defmodule AWS.AmplifyBackend do
   Creates a config object for a backend.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -1711,7 +1711,7 @@ defmodule AWS.AmplifyBackend do
   Creates a backend storage resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -1750,7 +1750,7 @@ defmodule AWS.AmplifyBackend do
   Admin UI.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -1783,8 +1783,8 @@ defmodule AWS.AmplifyBackend do
   Removes an existing environment from your Amplify project.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -1825,8 +1825,8 @@ defmodule AWS.AmplifyBackend do
   Deletes an existing backend API resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -1873,8 +1873,8 @@ defmodule AWS.AmplifyBackend do
   Deletes an existing backend authentication resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -1921,8 +1921,8 @@ defmodule AWS.AmplifyBackend do
   Removes the specified backend storage resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -1969,8 +1969,8 @@ defmodule AWS.AmplifyBackend do
   Deletes the challenge token based on the given appId and sessionId.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :session_id (t:string String.t/0) (SessionId)
+  * `:app_id` (`t:string`) The app ID.
+  * `:session_id` (`t:string`) The session ID.
 
   ## Optional parameters:
   """
@@ -2005,8 +2005,8 @@ defmodule AWS.AmplifyBackend do
   Generates a model schema for an existing backend API resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2053,7 +2053,7 @@ defmodule AWS.AmplifyBackend do
   Provides project-level details for your Amplify UI project.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -2086,8 +2086,8 @@ defmodule AWS.AmplifyBackend do
   Gets the details for a backend API.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2128,8 +2128,8 @@ defmodule AWS.AmplifyBackend do
   Gets a model introspection schema for an existing backend API resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2176,8 +2176,8 @@ defmodule AWS.AmplifyBackend do
   Gets a backend auth details.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2218,9 +2218,9 @@ defmodule AWS.AmplifyBackend do
   Returns information about a specific job.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
-   • :job_id (t:string String.t/0) (JobId)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:job_id` (`t:string`) The ID for the job.
 
   ## Optional parameters:
   """
@@ -2249,8 +2249,8 @@ defmodule AWS.AmplifyBackend do
   Gets details for a backend storage resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2297,8 +2297,8 @@ defmodule AWS.AmplifyBackend do
   Gets the challenge token based on the given appId and sessionId.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :session_id (t:string String.t/0) (SessionId)
+  * `:app_id` (`t:string`) The app ID.
+  * `:session_id` (`t:string`) The session ID.
 
   ## Optional parameters:
   """
@@ -2327,8 +2327,8 @@ defmodule AWS.AmplifyBackend do
   Imports an existing backend authentication resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2375,8 +2375,8 @@ defmodule AWS.AmplifyBackend do
   Imports an existing backend storage resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2423,8 +2423,8 @@ defmodule AWS.AmplifyBackend do
   Lists the jobs for the backend of an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2503,7 +2503,7 @@ defmodule AWS.AmplifyBackend do
   Removes all backend environments from your Amplify project.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -2541,7 +2541,7 @@ defmodule AWS.AmplifyBackend do
   Removes the AWS resources required to access the Amplify Admin UI.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -2579,8 +2579,8 @@ defmodule AWS.AmplifyBackend do
   Updates an existing backend API resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2627,8 +2627,8 @@ defmodule AWS.AmplifyBackend do
   Updates an existing backend authentication resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """
@@ -2675,7 +2675,7 @@ defmodule AWS.AmplifyBackend do
   Updates the AWS resources required to access the Amplify Admin UI.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
+  * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
   """
@@ -2713,9 +2713,9 @@ defmodule AWS.AmplifyBackend do
   Updates a specific job.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
-   • :job_id (t:string String.t/0) (JobId)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
+  * `:job_id` (`t:string`) The ID for the job.
 
   ## Optional parameters:
   """
@@ -2764,8 +2764,8 @@ defmodule AWS.AmplifyBackend do
   Updates an existing backend storage resource.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (AppId)
-   • :backend_environment_name (t:string String.t/0) (BackendEnvironmentName)
+  * `:app_id` (`t:string`) The app ID.
+  * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
   ## Optional parameters:
   """

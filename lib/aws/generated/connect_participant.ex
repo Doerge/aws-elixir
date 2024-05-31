@@ -555,7 +555,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec complete_attachment_upload(
           AWS.Client.t(),
@@ -639,7 +639,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :participant_token (t:String.t/0) (X-Amz-Bearer)
+  * `:participant_token` (`t:string`) This is a header parameter.
   """
   @spec create_participant_connection(
           AWS.Client.t(),
@@ -680,10 +680,11 @@ defmodule AWS.ConnectParticipant do
   Retrieves the view for the specified view token.
 
   ## Required positional parameters:
-   • :view_token (t:string String.t/0) (ViewToken)
+  * `:view_token` (`t:string`) An encrypted token originating from the interactive message of a ShowView block
+            operation. Represents the desired view.
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The connection token.
   """
   @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
@@ -726,7 +727,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec disconnect_participant(AWS.Client.t(), disconnect_participant_request(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
@@ -773,7 +774,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec get_attachment(AWS.Client.t(), get_attachment_request(), Keyword.t()) ::
           {:ok, get_attachment_response(), any()}
@@ -847,7 +848,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec get_transcript(AWS.Client.t(), get_transcript_request(), Keyword.t()) ::
           {:ok, get_transcript_response(), any()}
@@ -905,7 +906,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec send_event(AWS.Client.t(), send_event_request(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
@@ -949,7 +950,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the connection.
   """
   @spec send_message(AWS.Client.t(), send_message_request(), Keyword.t()) ::
           {:ok, send_message_response(), any()}
@@ -995,7 +996,7 @@ defmodule AWS.ConnectParticipant do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :connection_token (t:String.t/0) (X-Amz-Bearer)
+  * `:connection_token` (`t:string`) The authentication token associated with the participant&#39;s connection.
   """
   @spec start_attachment_upload(AWS.Client.t(), start_attachment_upload_request(), Keyword.t()) ::
           {:ok, start_attachment_upload_response(), any()}

@@ -800,8 +800,8 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an application version.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :semantic_version (t:string String.t/0) (SemanticVersion)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  * `:semantic_version` (`t:string`) The semantic version of the new version.
 
   ## Optional parameters:
   """
@@ -838,7 +838,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an AWS CloudFormation change set for the given application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -876,7 +876,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an AWS CloudFormation template.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -914,7 +914,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Deletes the specified application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -947,10 +947,10 @@ defmodule AWS.ServerlessApplicationRepository do
   Gets the specified application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
-   • :semantic_version (t:String.t/0) (semanticVersion)
+  * `:semantic_version` (`t:string`) The semantic version of the application to get.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -985,7 +985,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Retrieves the policy for the application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -1013,8 +1013,8 @@ defmodule AWS.ServerlessApplicationRepository do
   Gets the specified AWS CloudFormation template.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
-   • :template_id (t:string String.t/0) (TemplateId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
 
   ## Optional parameters:
   """
@@ -1043,12 +1043,12 @@ defmodule AWS.ServerlessApplicationRepository do
   Retrieves the list of applications nested in the containing application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :next_token (t:String.t/0) (nextToken)
-   • :semantic_version (t:String.t/0) (semanticVersion)
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
+  * `:semantic_version` (`t:string`) The semantic version of the application to get.
   """
   @spec list_application_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_dependencies_response(), any()}
@@ -1101,11 +1101,11 @@ defmodule AWS.ServerlessApplicationRepository do
   Lists versions for the specified application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
   @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
@@ -1151,8 +1151,8 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_items (t:String.t/0) (maxItems)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_items` (`t:integer`) The total number of items to return.
+  * `:next_token` (`t:string`) A token to specify where to start paginating.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1201,7 +1201,7 @@ defmodule AWS.ServerlessApplicationRepository do
   .
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -1231,7 +1231,7 @@ defmodule AWS.ServerlessApplicationRepository do
   This operation can be called only from the organization's master account.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """
@@ -1269,7 +1269,7 @@ defmodule AWS.ServerlessApplicationRepository do
   Updates the specified application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (ApplicationId)
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
 
   ## Optional parameters:
   """

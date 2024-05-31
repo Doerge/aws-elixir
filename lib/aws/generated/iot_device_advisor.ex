@@ -636,7 +636,7 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to be deleted.
 
   ## Optional parameters:
   """
@@ -676,10 +676,10 @@ defmodule AWS.IotDeviceAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :authentication_method (t:String.t/0) (authenticationMethod)
-   • :certificate_arn (t:String.t/0) (certificateArn)
-   • :device_role_arn (t:String.t/0) (deviceRoleArn)
-   • :thing_arn (t:String.t/0) (thingArn)
+  * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`) The authentication method used during the device connection.
+  * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an optional parameter.
+  * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an optional parameter.
+  * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional parameter.
   """
   @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
@@ -745,10 +745,10 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to get.
 
   ## Optional parameters:
-   • :suite_definition_version (t:String.t/0) (suiteDefinitionVersion)
+  * `:suite_definition_version` (`t:string`) Suite definition version of the test suite to get.
   """
   @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
@@ -787,8 +787,8 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
-   • :suite_run_id (t:string String.t/0) (suiteRunId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite run.
+  * `:suite_run_id` (`t:string`) Suite run ID for the test suite run.
 
   ## Optional parameters:
   """
@@ -822,8 +822,8 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
-   • :suite_run_id (t:string String.t/0) (suiteRunId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
+  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run.
 
   ## Optional parameters:
   """
@@ -858,8 +858,8 @@ defmodule AWS.IotDeviceAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return at once.
+  * `:next_token` (`t:string`) A token used to get the next set of results.
   """
   @spec list_suite_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_definitions_response(), any()}
@@ -912,10 +912,12 @@ defmodule AWS.IotDeviceAdvisor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :suite_definition_id (t:String.t/0) (suiteDefinitionId)
-   • :suite_definition_version (t:String.t/0) (suiteDefinitionVersion)
+  * `:max_results` (`t:integer`) The maximum number of results to return at once.
+  * `:next_token` (`t:string`) A token to retrieve the next set of results.
+  * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified test suite based on suite definition
+            ID.
+  * `:suite_definition_version` (`t:string`) Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs of
+            the specified test suite based on suite definition version.
   """
   @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
@@ -981,7 +983,8 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN or
+            SuiteRun ARN.
 
   ## Optional parameters:
   """
@@ -1013,7 +1016,7 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
 
   ## Optional parameters:
   """
@@ -1050,8 +1053,8 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
-   • :suite_run_id (t:string String.t/0) (suiteRunId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run to be stopped.
+  * `:suite_run_id` (`t:string`) Suite run ID of the test suite run to be stopped.
 
   ## Optional parameters:
   """
@@ -1096,7 +1099,8 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
+            SuiteRun ARN.
 
   ## Optional parameters:
   """
@@ -1133,10 +1137,11 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
+            SuiteRun ARN.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag keys to remove from the IoT Device Advisor resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1176,7 +1181,7 @@ defmodule AWS.IotDeviceAdvisor do
   action.
 
   ## Required positional parameters:
-   • :suite_definition_id (t:string String.t/0) (suiteDefinitionId)
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to be updated.
 
   ## Optional parameters:
   """

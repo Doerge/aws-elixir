@@ -3495,7 +3495,7 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) The ID of the inbound connection to accept.
 
   ## Optional parameters:
   """
@@ -3528,7 +3528,7 @@ defmodule AWS.OpenSearch do
   [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain to add the data source to.
 
   ## Optional parameters:
   """
@@ -3602,8 +3602,9 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:domain_name` (`t:string`) Name of the domain to associate the package with.
+  * `:package_id` (`t:string`) Internal ID of the package to associate with a domain. Use <code>DescribePackages</code> to find this value.
+
 
   ## Optional parameters:
   """
@@ -3646,7 +3647,7 @@ defmodule AWS.OpenSearch do
   endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to provide access to.
 
   ## Optional parameters:
   """
@@ -3686,7 +3687,7 @@ defmodule AWS.OpenSearch do
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3912,8 +3913,8 @@ defmodule AWS.OpenSearch do
   S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :name (t:string String.t/0) (Name)
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to delete.
 
   ## Optional parameters:
   """
@@ -3957,7 +3958,7 @@ defmodule AWS.OpenSearch do
   after you delete it.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3995,7 +3996,7 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) The ID of the inbound connection to permanently delete.
 
   ## Optional parameters:
   """
@@ -4038,7 +4039,7 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) The ID of the outbound connection you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -4081,7 +4082,7 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) The internal ID of the package you want to delete. Use <code>DescribePackages</code> to find this value.
 
   ## Optional parameters:
   """
@@ -4114,7 +4115,7 @@ defmodule AWS.OpenSearch do
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
 
   ## Required positional parameters:
-   • :vpc_endpoint_id (t:string String.t/0) (VpcEndpointId)
+  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint.
 
   ## Optional parameters:
   """
@@ -4154,7 +4155,7 @@ defmodule AWS.OpenSearch do
   including the domain ID, domain service endpoint, and domain ARN.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain that you want information about.
 
   ## Optional parameters:
   """
@@ -4186,7 +4187,7 @@ defmodule AWS.OpenSearch do
   For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) Name of the domain that you want Auto-Tune details about.
 
   ## Optional parameters:
   """
@@ -4218,10 +4219,11 @@ defmodule AWS.OpenSearch do
   For more information, see [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain to get progress information for.
 
   ## Optional parameters:
-   • :change_id (t:String.t/0) (changeid)
+  * `:change_id` (`t:string`) The specific change ID for which you want to get progress information. If omitted, the
+   request returns information about the most recent configuration change.
   """
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
@@ -4256,7 +4258,7 @@ defmodule AWS.OpenSearch do
   Returns the configuration of an Amazon OpenSearch Service domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain configuration that you want to describe.
 
   ## Optional parameters:
   """
@@ -4285,7 +4287,7 @@ defmodule AWS.OpenSearch do
   number of nodes per Availability Zone, and shard count per node.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -4316,7 +4318,7 @@ defmodule AWS.OpenSearch do
   states.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -4381,11 +4383,12 @@ defmodule AWS.OpenSearch do
   For more information, see [Determining whether a change will cause a blue/green deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-   • :dry_run_id (t:String.t/0) (dryRunId)
-   • :load_dry_run_config (t:String.t/0) (loadDryRunConfig)
+  * `:dry_run_id` (`t:string`) The unique identifier of the dry run.
+  * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of the dry run in the response. The configuration
+   specifies the updates that you&#39;re planning to make on the domain.
   """
   @spec describe_dry_run_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dry_run_progress_response(), any()}
@@ -4472,11 +4475,12 @@ defmodule AWS.OpenSearch do
   Elasticsearch version and instance type.
 
   ## Required positional parameters:
-   • :engine_version (t:string String.t/0) (EngineVersion)
-   • :instance_type (t:enum String.t/0) (InstanceType)
+  * `:engine_version` (`t:string`) Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   Defaults to the latest version of OpenSearch.
+  * `:instance_type` (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`) The OpenSearch Service instance type for which you need limit information.
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The name of the domain. Only specify if you need the limits for an existing domain.
   """
   @spec describe_instance_type_limits(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_type_limits_response(), any()}
@@ -4599,9 +4603,14 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reserved_instance_offering_id (t:String.t/0) (offeringId)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>DescribeReservedInstanceOfferings</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>DescribeReservedInstanceOfferings</code> operations, which returns results in the next
+   page.
+  * `:reserved_instance_offering_id` (`t:string`) The Reserved Instance identifier filter value. Use this parameter to show only the available
+   instance types that match the specified reservation identifier.
   """
   @spec describe_reserved_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
@@ -4660,9 +4669,14 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :reserved_instance_id (t:String.t/0) (reservationId)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>DescribeReservedInstances</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>DescribeReservedInstances</code> operations, which returns results in the next
+   page.
+  * `:reserved_instance_id` (`t:string`) The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the
+   specified reserved OpenSearch instance ID.
   """
   @spec describe_reserved_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instances_response(), any()}
@@ -4753,8 +4767,9 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:domain_name` (`t:string`) Name of the domain to dissociate the package from.
+  * `:package_id` (`t:string`) Internal ID of the package to dissociate from the domain. Use
+    <code>ListPackagesForDomain</code> to find this value.
 
   ## Optional parameters:
   """
@@ -4799,7 +4814,8 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
+  * `:domain_name` (`t:string`) The name of an existing domain. Provide this parameter to limit the results to a single
+   domain.
   """
   @spec get_compatible_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_versions_response(), any()}
@@ -4834,8 +4850,8 @@ defmodule AWS.OpenSearch do
   Retrieves information about a direct query data source.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :name (t:string String.t/0) (Name)
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to get information about.
 
   ## Optional parameters:
   """
@@ -4864,10 +4880,10 @@ defmodule AWS.OpenSearch do
   The status of the maintenance action.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-   • :maintenance_id (t:String.t/0) (maintenanceId)
+  * `:maintenance_id` (`t:string`) The request ID of the maintenance action.
   """
   @spec get_domain_maintenance_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
@@ -4913,11 +4929,15 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) The unique identifier of the package.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>GetPackageVersionHistory</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>GetPackageVersionHistory</code> operations, which returns results in the next page.
+
   """
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
@@ -4963,11 +4983,14 @@ defmodule AWS.OpenSearch do
   Service domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of an existing domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>GetUpgradeHistory</code> operation returns a <code>nextToken</code>,
+   you can include the returned <code>nextToken</code> in subsequent <code>GetUpgradeHistory</code>
+   operations, which returns results in the next page.
   """
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
@@ -5013,7 +5036,7 @@ defmodule AWS.OpenSearch do
   an Amazon OpenSearch Service domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The domain of the domain to get upgrade status information for.
 
   ## Optional parameters:
   """
@@ -5045,7 +5068,7 @@ defmodule AWS.OpenSearch do
   [Working with Amazon OpenSearch Service direct queries with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -5073,13 +5096,16 @@ defmodule AWS.OpenSearch do
   A list of maintenance actions for the domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-   • :action (t:String.t/0) (action)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`) The name of the action.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+   <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListDomainMaintenances</code> operation returns a
+   <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
+   <code>ListDomainMaintenances</code> operations, which returns results in the next page.
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The status of the action.
   """
   @spec list_domain_maintenances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_maintenances_response(), any()}
@@ -5146,7 +5172,7 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by domain engine type.
   """
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
@@ -5185,11 +5211,14 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :package_id (t:string String.t/0) (PackageID)
+  * `:package_id` (`t:string`) The unique identifier of the package for which to list associated domains.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListDomainsForPackage</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>ListDomainsForPackage</code> operations, which returns results in the next page.
   """
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
@@ -5235,14 +5264,18 @@ defmodule AWS.OpenSearch do
   version.
 
   ## Required positional parameters:
-   • :engine_version (t:string String.t/0) (EngineVersion)
+  * `:engine_version` (`t:string`) The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   Defaults to the latest version of OpenSearch.
 
   ## Optional parameters:
-   • :domain_name (t:String.t/0) (domainName)
-   • :instance_type (t:String.t/0) (instanceType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :retrieve_a_zs (t:String.t/0) (retrieveAZs)
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:instance_type` (`t:string`) An optional parameter that lists information for a given instance type.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListInstanceTypeDetails</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.
+  * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the Availability Zones for the domain.
   """
   @spec list_instance_type_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_type_details_response(), any()}
@@ -5317,11 +5350,14 @@ defmodule AWS.OpenSearch do
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list associated packages.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListPackagesForDomain</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>ListPackagesForDomain</code> operations, which returns results in the next page.
   """
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
@@ -5370,11 +5406,14 @@ defmodule AWS.OpenSearch do
   enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+   <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
+   can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
+   operations, which returns results in the next page.
   """
   @spec list_scheduled_actions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
@@ -5424,7 +5463,7 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :arn (t:String.t/0) (arn)
+  * `:arn` (`t:string`) Amazon Resource Name (ARN) for the domain to view tags for.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -5463,8 +5502,11 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
+    <code>nextToken</code> to get the next page of results.
+  * `:next_token` (`t:string`) If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you
+   can include the returned <code>nextToken</code> in subsequent <code>ListVersions</code>
+   operations, which returns results in the next page.
   """
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
@@ -5511,10 +5553,12 @@ defmodule AWS.OpenSearch do
   endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to retrieve access information for.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) If your initial <code>ListVpcEndpointAccess</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.
   """
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
@@ -5553,7 +5597,9 @@ defmodule AWS.OpenSearch do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
+   you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code>
+   operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
@@ -5590,10 +5636,12 @@ defmodule AWS.OpenSearch do
   domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain to list associated VPC endpoints for.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:string`) If your initial <code>ListEndpointsForDomain</code> operation returns a
+    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+    <code>ListEndpointsForDomain</code> operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
@@ -5666,7 +5714,7 @@ defmodule AWS.OpenSearch do
   connection request.
 
   ## Required positional parameters:
-   • :connection_id (t:string String.t/0) (ConnectionId)
+  * `:connection_id` (`t:string`) The unique identifier of the inbound connection to reject.
 
   ## Optional parameters:
   """
@@ -5733,7 +5781,7 @@ defmodule AWS.OpenSearch do
   VPC endpoint.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
 
   ## Optional parameters:
   """
@@ -5777,7 +5825,7 @@ defmodule AWS.OpenSearch do
   or a Dashboard or Kibana restart.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -5860,8 +5908,8 @@ defmodule AWS.OpenSearch do
   [Working with Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
-   • :name (t:string String.t/0) (Name)
+  * `:domain_name` (`t:string`) The name of the domain.
+  * `:name` (`t:string`) The name of the data source to modify.
 
   ## Optional parameters:
   """
@@ -5893,7 +5941,7 @@ defmodule AWS.OpenSearch do
   domain.
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain that you&#39;re updating.
 
   ## Optional parameters:
   """
@@ -5971,7 +6019,7 @@ defmodule AWS.OpenSearch do
   enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
 
   ## Required positional parameters:
-   • :domain_name (t:string String.t/0) (DomainName)
+  * `:domain_name` (`t:string`) The name of the domain to reschedule an action for.
 
   ## Optional parameters:
   """

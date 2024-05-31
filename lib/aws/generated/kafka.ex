@@ -2906,7 +2906,7 @@ defmodule AWS.Kafka do
   Associates one or more Scram Secrets with an Amazon MSK cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to be updated.
 
   ## Optional parameters:
   """
@@ -2944,7 +2944,7 @@ defmodule AWS.Kafka do
   Disassociates one or more Scram Secrets from an Amazon MSK cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to be updated.
 
   ## Optional parameters:
   """
@@ -3143,10 +3143,10 @@ defmodule AWS.Kafka do
   request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
-   • :current_version (t:String.t/0) (currentVersion)
+  * `:current_version` (`t:string`) The current version of the MSK cluster.
   """
   @spec delete_cluster(AWS.Client.t(), String.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
@@ -3183,7 +3183,7 @@ defmodule AWS.Kafka do
   the request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
   """
@@ -3221,7 +3221,7 @@ defmodule AWS.Kafka do
   Deletes an MSK Configuration.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.
 
   ## Optional parameters:
   """
@@ -3259,10 +3259,10 @@ defmodule AWS.Kafka do
   Deletes a replicator.
 
   ## Required positional parameters:
-   • :replicator_arn (t:string String.t/0) (ReplicatorArn)
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the replicator to be deleted.
 
   ## Optional parameters:
-   • :current_version (t:String.t/0) (currentVersion)
+  * `:current_version` (`t:string`) The current version of the replicator.
   """
   @spec delete_replicator(AWS.Client.t(), String.t(), delete_replicator_request(), Keyword.t()) ::
           {:ok, delete_replicator_response(), any()}
@@ -3298,7 +3298,7 @@ defmodule AWS.Kafka do
   Deletes a MSK VPC connection.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.
 
   ## Optional parameters:
   """
@@ -3337,7 +3337,7 @@ defmodule AWS.Kafka do
   specified in the request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -3365,7 +3365,7 @@ defmodule AWS.Kafka do
   Returns a description of the cluster operation specified by the ARN.
 
   ## Required positional parameters:
-   • :cluster_operation_arn (t:string String.t/0) (ClusterOperationArn)
+  * `:cluster_operation_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.
 
   ## Optional parameters:
   """
@@ -3393,7 +3393,7 @@ defmodule AWS.Kafka do
   Returns a description of the cluster operation specified by the ARN.
 
   ## Required positional parameters:
-   • :cluster_operation_arn (t:string String.t/0) (ClusterOperationArn)
+  * `:cluster_operation_arn` (`t:string`) 
 
   ## Optional parameters:
   """
@@ -3422,7 +3422,7 @@ defmodule AWS.Kafka do
   specified in the request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -3450,7 +3450,7 @@ defmodule AWS.Kafka do
   Returns a description of this MSK configuration.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.
 
   ## Optional parameters:
   """
@@ -3478,8 +3478,8 @@ defmodule AWS.Kafka do
   Returns a description of this revision of the configuration.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
-   • :revision (t:long String.t/0) (Revision)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.
+  * `:revision` (`t:long`) A string that uniquely identifies a revision of an MSK configuration.
 
   ## Optional parameters:
   """
@@ -3508,7 +3508,7 @@ defmodule AWS.Kafka do
   Describes a replicator.
 
   ## Required positional parameters:
-   • :replicator_arn (t:string String.t/0) (ReplicatorArn)
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the replicator to be described.
 
   ## Optional parameters:
   """
@@ -3536,7 +3536,7 @@ defmodule AWS.Kafka do
   Returns a description of this MSK VPC connection.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.
 
   ## Optional parameters:
   """
@@ -3564,7 +3564,7 @@ defmodule AWS.Kafka do
   A list of brokers that a client application can use to bootstrap.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -3593,7 +3593,7 @@ defmodule AWS.Kafka do
   request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
   """
@@ -3623,7 +3623,7 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cluster_arn (t:String.t/0) (clusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster check.
   """
   @spec get_compatible_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
@@ -3658,11 +3658,12 @@ defmodule AWS.Kafka do
   Returns a list of all the VPC connections in this Region.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_client_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_vpc_connections_response(), any()}
@@ -3707,11 +3708,12 @@ defmodule AWS.Kafka do
   MSK cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_cluster_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_response(), any()}
@@ -3756,11 +3758,11 @@ defmodule AWS.Kafka do
   MSK cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) 
+  * `:next_token` (`t:string`) 
   """
   @spec list_cluster_operations_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_v2_response(), any()}
@@ -3806,9 +3808,10 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cluster_name_filter (t:String.t/0) (clusterNameFilter)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:cluster_name_filter` (`t:string`) Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
@@ -3863,10 +3866,11 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :cluster_name_filter (t:String.t/0) (clusterNameFilter)
-   • :cluster_type_filter (t:String.t/0) (clusterTypeFilter)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:cluster_name_filter` (`t:string`) Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.
+  * `:cluster_type_filter` (`t:string`) Specify either PROVISIONED or SERVERLESS.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_clusters_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_v2_response(), any()}
@@ -3928,11 +3932,12 @@ defmodule AWS.Kafka do
   Returns a list of all the MSK configurations in this Region.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
@@ -3978,8 +3983,9 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
@@ -4025,8 +4031,8 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.
   """
   @spec list_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kafka_versions_response(), any()}
@@ -4070,11 +4076,12 @@ defmodule AWS.Kafka do
   Returns a list of the broker nodes in the cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
@@ -4120,9 +4127,9 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :replicator_name_filter (t:String.t/0) (replicatorNameFilter)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.
+  * `:replicator_name_filter` (`t:string`) Returns replicators starting with given name.
   """
   @spec list_replicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replicators_response(), any()}
@@ -4175,11 +4182,11 @@ defmodule AWS.Kafka do
   Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The arn of the cluster.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maxResults of the query.
+  * `:next_token` (`t:string`) The nextToken of the query.
   """
   @spec list_scram_secrets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scram_secrets_response(), any()}
@@ -4223,7 +4230,7 @@ defmodule AWS.Kafka do
   Returns a list of the tags associated with the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.
 
   ## Optional parameters:
   """
@@ -4253,8 +4260,9 @@ defmodule AWS.Kafka do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.
+  * `:next_token` (`t:string`) The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. 
+            To get the next batch, provide this token in your next request.
   """
   @spec list_vpc_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
@@ -4299,7 +4307,7 @@ defmodule AWS.Kafka do
   Resource Name (ARN) in the request.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
   """
@@ -4322,7 +4330,7 @@ defmodule AWS.Kafka do
   Reboots brokers.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to be updated.
 
   ## Optional parameters:
   """
@@ -4345,7 +4353,7 @@ defmodule AWS.Kafka do
   Returns empty response.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
   """
@@ -4373,7 +4381,7 @@ defmodule AWS.Kafka do
   Adds tags to the specified MSK resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.
 
   ## Optional parameters:
   """
@@ -4406,10 +4414,10 @@ defmodule AWS.Kafka do
   Removes the tags associated with the keys that are provided in the query.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the resource that&#39;s associated with the tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]`) Tag keys must be unique for a given cluster. In addition, the following restrictions apply:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4445,7 +4453,7 @@ defmodule AWS.Kafka do
   Updates the number of broker nodes in the cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4473,7 +4481,7 @@ defmodule AWS.Kafka do
   Updates the EBS storage associated with MSK brokers.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4501,7 +4509,7 @@ defmodule AWS.Kafka do
   Updates EC2 instance type.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4525,7 +4533,7 @@ defmodule AWS.Kafka do
   body.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4553,7 +4561,7 @@ defmodule AWS.Kafka do
   Updates the Apache Kafka version for the cluster.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to be updated.
 
   ## Optional parameters:
   """
@@ -4581,7 +4589,7 @@ defmodule AWS.Kafka do
   Updates an MSK configuration.
 
   ## Required positional parameters:
-   • :arn (t:string String.t/0) (Arn)
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the configuration.
 
   ## Optional parameters:
   """
@@ -4609,7 +4617,7 @@ defmodule AWS.Kafka do
   Updates the cluster's connectivity configuration.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the configuration.
 
   ## Optional parameters:
   """
@@ -4641,7 +4649,7 @@ defmodule AWS.Kafka do
   monitoring with Prometheus.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4664,7 +4672,7 @@ defmodule AWS.Kafka do
   Updates replication info of a replicator.
 
   ## Required positional parameters:
-   • :replicator_arn (t:string String.t/0) (ReplicatorArn)
+  * `:replicator_arn` (`t:string`) The Amazon Resource Name (ARN) of the replicator to be updated.
 
   ## Optional parameters:
   """
@@ -4697,7 +4705,7 @@ defmodule AWS.Kafka do
   clusters.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 
   ## Optional parameters:
   """
@@ -4730,7 +4738,7 @@ defmodule AWS.Kafka do
   Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
 
   ## Required positional parameters:
-   • :cluster_arn (t:string String.t/0) (ClusterArn)
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster to be updated.
 
   ## Optional parameters:
   """

@@ -1066,7 +1066,8 @@ defmodule AWS.Synthetics do
   You must run this operation in the Region where the canary exists.
 
   ## Required positional parameters:
-   • :group_identifier (t:string String.t/0) (GroupIdentifier)
+  * `:group_identifier` (`t:string`) Specifies the group. You can specify the group name, the ARN, or the 
+         group ID as the <code>GroupIdentifier</code>.
 
   ## Optional parameters:
   """
@@ -1262,10 +1263,11 @@ defmodule AWS.Synthetics do
   after you delete the canary.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.
 
   ## Optional parameters:
-   • :delete_lambda (t:String.t/0) (deleteLambda)
+  * `:delete_lambda` (`t:boolean`) Specifies whether to also delete the Lambda functions and layers used by this canary. The default
+      is false.
   """
   @spec delete_canary(AWS.Client.t(), String.t(), delete_canary_request(), Keyword.t()) ::
           {:ok, delete_canary_response(), any()}
@@ -1310,7 +1312,8 @@ defmodule AWS.Synthetics do
   within its ARN.
 
   ## Required positional parameters:
-   • :group_identifier (t:string String.t/0) (GroupIdentifier)
+  * `:group_identifier` (`t:string`) Specifies which group to delete. You can specify the group name, the ARN, or the 
+      group ID as the <code>GroupIdentifier</code>.
 
   ## Optional parameters:
   """
@@ -1487,7 +1490,8 @@ defmodule AWS.Synthetics do
   You must run this operation in the Region where the canary exists.
 
   ## Required positional parameters:
-   • :group_identifier (t:string String.t/0) (GroupIdentifier)
+  * `:group_identifier` (`t:string`) Specifies the group. You can specify the group name, the ARN, or the 
+         group ID as the <code>GroupIdentifier</code>.
 
   ## Optional parameters:
   """
@@ -1530,7 +1534,7 @@ defmodule AWS.Synthetics do
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want details for.
 
   ## Optional parameters:
   """
@@ -1558,7 +1562,7 @@ defmodule AWS.Synthetics do
   Retrieves a list of runs for a specified canary.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want to see runs for.
 
   ## Optional parameters:
   """
@@ -1594,7 +1598,8 @@ defmodule AWS.Synthetics do
   any Region.
 
   ## Required positional parameters:
-   • :group_identifier (t:string String.t/0) (GroupIdentifier)
+  * `:group_identifier` (`t:string`) Specifies the group to return information for. You can specify the group name, the ARN, or the 
+         group ID as the <code>GroupIdentifier</code>.
 
   ## Optional parameters:
   """
@@ -1625,7 +1630,7 @@ defmodule AWS.Synthetics do
   that you specify must be in the current Region.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the canary that you want to view groups for.
 
   ## Optional parameters:
   """
@@ -1664,7 +1669,8 @@ defmodule AWS.Synthetics do
   with the specified group.
 
   ## Required positional parameters:
-   • :group_identifier (t:string String.t/0) (GroupIdentifier)
+  * `:group_identifier` (`t:string`) Specifies the group to return information for. You can specify the group name, the ARN, or the 
+         group ID as the <code>GroupIdentifier</code>.
 
   ## Optional parameters:
   """
@@ -1738,7 +1744,7 @@ defmodule AWS.Synthetics do
   Displays the tags associated with a canary or group.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you want to view tags for.
 
   ## Optional parameters:
   """
@@ -1771,7 +1777,8 @@ defmodule AWS.Synthetics do
   [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want to run. To find
+         canary names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.
 
   ## Optional parameters:
   """
@@ -1812,7 +1819,8 @@ defmodule AWS.Synthetics do
   with the canary’s current schedule at any point in the future.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want to stop. To find the names of your 
+         canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">ListCanaries</a>.
 
   ## Optional parameters:
   """
@@ -1864,7 +1872,7 @@ defmodule AWS.Synthetics do
   You can associate as many as 50 tags with a canary or group.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you&#39;re adding tags to.
 
   ## Optional parameters:
   """
@@ -1897,10 +1905,10 @@ defmodule AWS.Synthetics do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The ARN of the canary or group that you&#39;re removing tags from.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.synthetics#TagKey]`) The list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1941,7 +1949,8 @@ defmodule AWS.Synthetics do
   [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the canary that you want to update. To find the names of your 
+         canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.
 
   ## Optional parameters:
   """

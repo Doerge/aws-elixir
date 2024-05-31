@@ -1385,7 +1385,7 @@ defmodule AWS.Route53RecoveryReadiness do
   When successful, the response code is 204, with no response body.
 
   ## Required positional parameters:
-   • :cell_name (t:string String.t/0) (CellName)
+  * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
   """
@@ -1418,7 +1418,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Deletes cross account readiness authorization.
 
   ## Required positional parameters:
-   • :cross_account_authorization (t:string String.t/0) (CrossAccountAuthorization)
+  * `:cross_account_authorization` (`t:string`) The cross-account authorization.
 
   ## Optional parameters:
   """
@@ -1461,7 +1461,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Deletes a readiness check.
 
   ## Required positional parameters:
-   • :readiness_check_name (t:string String.t/0) (ReadinessCheckName)
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
   """
@@ -1499,7 +1499,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Deletes a recovery group.
 
   ## Required positional parameters:
-   • :recovery_group_name (t:string String.t/0) (RecoveryGroupName)
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
   """
@@ -1537,7 +1537,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Deletes a resource set.
 
   ## Required positional parameters:
-   • :resource_set_name (t:string String.t/0) (ResourceSetName)
+  * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:
   """
@@ -1576,11 +1576,11 @@ defmodule AWS.Route53RecoveryReadiness do
   application, based on a recovery group.
 
   ## Required positional parameters:
-   • :recovery_group_name (t:string String.t/0) (RecoveryGroupName)
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec get_architecture_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_architecture_recommendations_response(), any()}
@@ -1627,7 +1627,7 @@ defmodule AWS.Route53RecoveryReadiness do
   their associated recovery group ARNs.
 
   ## Required positional parameters:
-   • :cell_name (t:string String.t/0) (CellName)
+  * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
   """
@@ -1658,11 +1658,11 @@ defmodule AWS.Route53RecoveryReadiness do
   into a single value.
 
   ## Required positional parameters:
-   • :cell_name (t:string String.t/0) (CellName)
+  * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec get_cell_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
@@ -1706,7 +1706,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Gets details about a readiness check.
 
   ## Required positional parameters:
-   • :readiness_check_name (t:string String.t/0) (ReadinessCheckName)
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
   """
@@ -1738,12 +1738,12 @@ defmodule AWS.Route53RecoveryReadiness do
   GetRecoveryGroupReadinessSummary.
 
   ## Required positional parameters:
-   • :readiness_check_name (t:string String.t/0) (ReadinessCheckName)
-   • :resource_identifier (t:string String.t/0) (ResourceIdentifier)
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
+  * `:resource_identifier` (`t:string`) The resource identifier, which is the Amazon Resource Name (ARN) or the identifier generated for the resource by Application Recovery Controller (for example, for a DNS target resource).
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec get_readiness_check_resource_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
@@ -1797,11 +1797,11 @@ defmodule AWS.Route53RecoveryReadiness do
   GetRecoveryGroupReadinessSummary.
 
   ## Required positional parameters:
-   • :readiness_check_name (t:string String.t/0) (ReadinessCheckName)
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec get_readiness_check_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_status_response(), any()}
@@ -1846,7 +1846,7 @@ defmodule AWS.Route53RecoveryReadiness do
   included in it.
 
   ## Required positional parameters:
-   • :recovery_group_name (t:string String.t/0) (RecoveryGroupName)
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
   """
@@ -1877,11 +1877,11 @@ defmodule AWS.Route53RecoveryReadiness do
   readiness status of each one.
 
   ## Required positional parameters:
-   • :recovery_group_name (t:string String.t/0) (RecoveryGroupName)
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec get_recovery_group_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
@@ -1926,7 +1926,7 @@ defmodule AWS.Route53RecoveryReadiness do
   the set.
 
   ## Required positional parameters:
-   • :resource_set_name (t:string String.t/0) (ResourceSetName)
+  * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:
   """
@@ -1956,8 +1956,8 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_cells(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cells_response(), any()}
@@ -2004,8 +2004,8 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_cross_account_authorizations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
@@ -2051,8 +2051,8 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_readiness_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_readiness_checks_response(), any()}
@@ -2098,8 +2098,8 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_recovery_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recovery_groups_response(), any()}
@@ -2145,8 +2145,8 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
   """
   @spec list_resource_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
@@ -2193,9 +2193,9 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_type (t:String.t/0) (resourceType)
+  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:resource_type` (`t:string`) The resource type that a readiness rule applies to.
   """
   @spec list_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
@@ -2248,7 +2248,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Lists the tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
   """
@@ -2276,7 +2276,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Adds a tag to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
   """
@@ -2309,10 +2309,10 @@ defmodule AWS.Route53RecoveryReadiness do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) The keys for tags you add to resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2349,7 +2349,7 @@ defmodule AWS.Route53RecoveryReadiness do
   cells.
 
   ## Required positional parameters:
-   • :cell_name (t:string String.t/0) (CellName)
+  * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
   """
@@ -2372,7 +2372,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Updates a readiness check.
 
   ## Required positional parameters:
-   • :readiness_check_name (t:string String.t/0) (ReadinessCheckName)
+  * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
   """
@@ -2400,7 +2400,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Updates a recovery group.
 
   ## Required positional parameters:
-   • :recovery_group_name (t:string String.t/0) (RecoveryGroupName)
+  * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
   """
@@ -2428,7 +2428,7 @@ defmodule AWS.Route53RecoveryReadiness do
   Updates a resource set.
 
   ## Required positional parameters:
-   • :resource_set_name (t:string String.t/0) (ResourceSetName)
+  * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:
   """

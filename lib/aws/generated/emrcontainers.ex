@@ -1176,8 +1176,8 @@ defmodule AWS.EMRcontainers do
   SparkSQL query, that you submit to Amazon EMR on EKS.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:id` (`t:string`) The ID of the job run to cancel.
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the job run will be canceled.
 
   ## Optional parameters:
   """
@@ -1261,7 +1261,7 @@ defmodule AWS.EMRcontainers do
   communicate with your virtual cluster.
 
   ## Required positional parameters:
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which a managed endpoint is created.
 
   ## Optional parameters:
   """
@@ -1389,7 +1389,7 @@ defmodule AWS.EMRcontainers do
   API request.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the job template that will be deleted.
 
   ## Optional parameters:
   """
@@ -1431,8 +1431,8 @@ defmodule AWS.EMRcontainers do
   communicate with your virtual cluster.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:id` (`t:string`) The ID of the managed endpoint.
+  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint&#39;s virtual cluster.
 
   ## Optional parameters:
   """
@@ -1481,7 +1481,7 @@ defmodule AWS.EMRcontainers do
   Kubernetes namespaces to meet your requirements.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the virtual cluster that will be deleted.
 
   ## Optional parameters:
   """
@@ -1523,8 +1523,8 @@ defmodule AWS.EMRcontainers do
   EKS.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:id` (`t:string`) The ID of the job run request. 
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the job run is submitted.
 
   ## Optional parameters:
   """
@@ -1560,7 +1560,7 @@ defmodule AWS.EMRcontainers do
   certain values in StartJobRun API request.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the job template that will be described.
 
   ## Optional parameters:
   """
@@ -1592,8 +1592,8 @@ defmodule AWS.EMRcontainers do
   can communicate with your virtual cluster.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:id` (`t:string`) This output displays ID of the managed endpoint.
+  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint&#39;s virtual cluster.
 
   ## Optional parameters:
   """
@@ -1631,7 +1631,7 @@ defmodule AWS.EMRcontainers do
   create a virtual cluster.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the security configuration.
 
   ## Optional parameters:
   """
@@ -1669,7 +1669,7 @@ defmodule AWS.EMRcontainers do
   requirements.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`) The ID of the virtual cluster that will be described.
 
   ## Optional parameters:
   """
@@ -1697,8 +1697,8 @@ defmodule AWS.EMRcontainers do
   Generate a session token to connect to a managed endpoint.
 
   ## Required positional parameters:
-   • :endpoint_identifier (t:string String.t/0) (endpointIdentifier)
-   • :virtual_cluster_identifier (t:string String.t/0) (virtualClusterIdentifier)
+  * `:endpoint_identifier` (`t:string`) The ARN of the managed endpoint for which the request is submitted. 
+  * `:virtual_cluster_identifier` (`t:string`) The ARN of the Virtual Cluster which the Managed Endpoint belongs to. 
 
   ## Optional parameters:
   """
@@ -1749,15 +1749,15 @@ defmodule AWS.EMRcontainers do
   EKS.
 
   ## Required positional parameters:
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which to list the job run. 
 
   ## Optional parameters:
-   • :created_after (t:String.t/0) (createdAfter)
-   • :created_before (t:String.t/0) (createdBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
-   • :states (t:String.t/0) (states)
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the job runs were submitted.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the job runs were submitted.
+  * `:max_results` (`t:integer`) The maximum number of job runs that can be listed.
+  * `:name` (`t:string`) The name of the job run.
+  * `:next_token` (`t:string`) The token for the next set of job runs to return.
+  * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of the job run.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -1846,10 +1846,10 @@ defmodule AWS.EMRcontainers do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :created_after (t:String.t/0) (createdAfter)
-   • :created_before (t:String.t/0) (createdBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the job templates were created.
+  * `:created_before` (`t:timestamp[date-time]`)  The date and time before which the job templates were created.
+  * `:max_results` (`t:integer`)  The maximum number of job templates that can be listed.
+  * `:next_token` (`t:string`)  The token for the next set of job templates to return.
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -1915,15 +1915,15 @@ defmodule AWS.EMRcontainers do
   can communicate with your virtual cluster.
 
   ## Required positional parameters:
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster.
 
   ## Optional parameters:
-   • :created_after (t:String.t/0) (createdAfter)
-   • :created_before (t:String.t/0) (createdBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :states (t:String.t/0) (states)
-   • :types (t:String.t/0) (types)
+  * `:created_after` (`t:timestamp[date-time]`)  The date and time after which the endpoints are created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the endpoints are created.
+  * `:max_results` (`t:integer`) The maximum number of managed endpoints that can be listed.
+  * `:next_token` (`t:string`)  The token for the next set of managed endpoints to return. 
+  * `:states` (`t:list[com.amazonaws.emrcontainers#EndpointState]`) The states of the managed endpoints.
+  * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the managed endpoints.
   """
   @spec list_managed_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_managed_endpoints_response(), any()}
@@ -2013,10 +2013,10 @@ defmodule AWS.EMRcontainers do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :created_after (t:String.t/0) (createdAfter)
-   • :created_before (t:String.t/0) (createdBefore)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the security configuration was created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the security configuration was created.
+  * `:max_results` (`t:integer`) The maximum number of security configurations the operation can list.
+  * `:next_token` (`t:string`) The token for the next set of security configurations to return.
   """
   @spec list_security_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_configurations_response(), any()}
@@ -2078,7 +2078,7 @@ defmodule AWS.EMRcontainers do
   Lists the tags assigned to the resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of tagged resources.
 
   ## Optional parameters:
   """
@@ -2117,14 +2117,17 @@ defmodule AWS.EMRcontainers do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :container_provider_id (t:String.t/0) (containerProviderId)
-   • :container_provider_type (t:String.t/0) (containerProviderType)
-   • :created_after (t:String.t/0) (createdAfter)
-   • :created_before (t:String.t/0) (createdBefore)
-   • :eks_access_entry_integrated (t:String.t/0) (eksAccessEntryIntegrated)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :states (t:String.t/0) (states)
+  * `:container_provider_id` (`t:string`) The container provider ID of the virtual cluster.
+  * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of the virtual cluster. Amazon EKS is the only
+         supported type as of now.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the virtual clusters are created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the virtual clusters are created.
+  * `:eks_access_entry_integrated` (`t:boolean`) Optional Boolean that specifies whether the operation should return the 
+         virtual clusters that have the access entry integration enabled or disabled. If not specified,
+      the operation returns all applicable virtual clusters.
+  * `:max_results` (`t:integer`) The maximum number of virtual clusters that can be listed.
+  * `:next_token` (`t:string`) The token for the next set of virtual clusters to return. 
+  * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The states of the requested virtual clusters.
   """
   @spec list_virtual_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_virtual_clusters_response(), any()}
@@ -2226,7 +2229,7 @@ defmodule AWS.EMRcontainers do
   SparkSQL query, that you submit to Amazon EMR on EKS.
 
   ## Required positional parameters:
-   • :virtual_cluster_id (t:string String.t/0) (virtualClusterId)
+  * `:virtual_cluster_id` (`t:string`) The virtual cluster ID for which the job run request is submitted.
 
   ## Optional parameters:
   """
@@ -2275,7 +2278,7 @@ defmodule AWS.EMRcontainers do
   you add.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of resources.
 
   ## Optional parameters:
   """
@@ -2308,10 +2311,10 @@ defmodule AWS.EMRcontainers do
   Removes tags from resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The ARN of resources.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]`) The tag keys of the resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

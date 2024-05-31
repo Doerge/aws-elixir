@@ -2646,7 +2646,7 @@ defmodule AWS.Location do
   in another account.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource to be associated with a geofence collection.
 
   ## Optional parameters:
   """
@@ -2684,7 +2684,7 @@ defmodule AWS.Location do
   Deletes the position history of one or more devices from a tracker resource.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource to delete the device position history from.
 
   ## Optional parameters:
   """
@@ -2724,7 +2724,7 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The geofence collection storing the geofences to be deleted.
 
   ## Optional parameters:
   """
@@ -2790,7 +2790,8 @@ defmodule AWS.Location do
   need to have a `Tracker` associated with the `DeviceID`.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The geofence collection used in evaluating the position of devices against its
+            geofences.
 
   ## Optional parameters:
   """
@@ -2828,7 +2829,7 @@ defmodule AWS.Location do
   Lists the latest device positions for requested devices.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The tracker resource retrieving the device position.
 
   ## Optional parameters:
   """
@@ -2869,7 +2870,7 @@ defmodule AWS.Location do
   request.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The geofence collection storing the geofences.
 
   ## Optional parameters:
   """
@@ -2930,7 +2931,7 @@ defmodule AWS.Location do
   `DevicePositionUpdate`.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource to update.
 
   ## Optional parameters:
   """
@@ -3004,10 +3005,12 @@ defmodule AWS.Location do
   provider is Esri, the start and destination must be within 40km.
 
   ## Required positional parameters:
-   • :calculator_name (t:string String.t/0) (CalculatorName)
+  * `:calculator_name` (`t:string`) The name of the route calculator resource that you want to use to calculate the route.
+        
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec calculate_route(AWS.Client.t(), String.t(), calculate_route_request(), Keyword.t()) ::
           {:ok, calculate_route_response(), any()}
@@ -3088,10 +3091,12 @@ defmodule AWS.Location do
   `TruckModeOptions` if traveling by `Truck`.
 
   ## Required positional parameters:
-   • :calculator_name (t:string String.t/0) (CalculatorName)
+  * `:calculator_name` (`t:string`) The name of the route calculator resource that you want to use to calculate the route
+            matrix. 
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec calculate_route_matrix(
           AWS.Client.t(),
@@ -3365,7 +3370,7 @@ defmodule AWS.Location do
   target of a tracker resource, the devices will no longer be monitored.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The name of the geofence collection to be deleted.
 
   ## Optional parameters:
   """
@@ -3406,10 +3411,10 @@ defmodule AWS.Location do
   90 days previously.
 
   ## Required positional parameters:
-   • :key_name (t:string String.t/0) (KeyName)
+  * `:key_name` (`t:string`) The name of the API key to delete.
 
   ## Optional parameters:
-   • :force_delete (t:String.t/0) (forceDelete)
+  * `:force_delete` (`t:`) ForceDelete bypasses an API key&#39;s expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.
   """
   @spec delete_key(AWS.Client.t(), String.t(), delete_key_request(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -3449,7 +3454,7 @@ defmodule AWS.Location do
   the map may not render.
 
   ## Required positional parameters:
-   • :map_name (t:string String.t/0) (MapName)
+  * `:map_name` (`t:string`) The name of the map resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3484,7 +3489,7 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3519,7 +3524,7 @@ defmodule AWS.Location do
   This operation deletes the resource permanently.
 
   ## Required positional parameters:
-   • :calculator_name (t:string String.t/0) (CalculatorName)
+  * `:calculator_name` (`t:string`) The name of the route calculator resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3563,7 +3568,7 @@ defmodule AWS.Location do
   applications.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource to be deleted.
 
   ## Optional parameters:
   """
@@ -3596,7 +3601,7 @@ defmodule AWS.Location do
   Retrieves the geofence collection details.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The name of the geofence collection.
 
   ## Optional parameters:
   """
@@ -3624,7 +3629,7 @@ defmodule AWS.Location do
   Retrieves the API key resource details.
 
   ## Required positional parameters:
-   • :key_name (t:string String.t/0) (KeyName)
+  * `:key_name` (`t:string`) The name of the API key resource.
 
   ## Optional parameters:
   """
@@ -3652,7 +3657,7 @@ defmodule AWS.Location do
   Retrieves the map resource details.
 
   ## Required positional parameters:
-   • :map_name (t:string String.t/0) (MapName)
+  * `:map_name` (`t:string`) The name of the map resource.
 
   ## Optional parameters:
   """
@@ -3680,7 +3685,7 @@ defmodule AWS.Location do
   Retrieves the place index resource details.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource.
 
   ## Optional parameters:
   """
@@ -3708,7 +3713,7 @@ defmodule AWS.Location do
   Retrieves the route calculator resource details.
 
   ## Required positional parameters:
-   • :calculator_name (t:string String.t/0) (CalculatorName)
+  * `:calculator_name` (`t:string`) The name of the route calculator resource.
 
   ## Optional parameters:
   """
@@ -3736,7 +3741,7 @@ defmodule AWS.Location do
   Retrieves the tracker resource details.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource.
 
   ## Optional parameters:
   """
@@ -3767,8 +3772,9 @@ defmodule AWS.Location do
   positions will no longer be automatically evaluated against geofences.
 
   ## Required positional parameters:
-   • :consumer_arn (t:string String.t/0) (ConsumerArn)
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:consumer_arn` (`t:string`) The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
+            the tracker resource. Used when you need to specify a resource across all Amazon Web Services. 
+  * `:tracker_name` (`t:string`) The name of the tracker resource to be dissociated from the consumer.
 
   ## Optional parameters:
   """
@@ -3817,8 +3823,8 @@ defmodule AWS.Location do
   Device positions are deleted after 30 days.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:device_id` (`t:string`) The device whose position you want to retrieve.
+  * `:tracker_name` (`t:string`) The tracker resource receiving the position update.
 
   ## Optional parameters:
   """
@@ -3851,8 +3857,8 @@ defmodule AWS.Location do
   Device positions are deleted after 30 days.
 
   ## Required positional parameters:
-   • :device_id (t:string String.t/0) (DeviceId)
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:device_id` (`t:string`) The device whose position history you want to retrieve.
+  * `:tracker_name` (`t:string`) The tracker resource receiving the request for the device position history.
 
   ## Optional parameters:
   """
@@ -3899,8 +3905,8 @@ defmodule AWS.Location do
   Retrieves the geofence details from a geofence collection.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
-   • :geofence_id (t:string String.t/0) (GeofenceId)
+  * `:collection_name` (`t:string`) The geofence collection storing the target geofence.
+  * `:geofence_id` (`t:string`) The geofence you&#39;re retrieving details for.
 
   ## Optional parameters:
   """
@@ -3929,12 +3935,16 @@ defmodule AWS.Location do
   Retrieves glyphs used to display labels on a map.
 
   ## Required positional parameters:
-   • :font_stack (t: String.t/0) (FontStack)
-   • :font_unicode_range (t: String.t/0) (FontUnicodeRange)
-   • :map_name (t:string String.t/0) (MapName)
+  * `:font_stack` (`t:`) A comma-separated list of fonts to load glyphs from in order of preference. For
+            example, <code>Noto Sans Regular, Arial Unicode</code>.
+  * `:font_unicode_range` (`t:`) A Unicode range of characters to download glyphs for. Each response will contain 256
+            characters. For example, 0–255 includes all characters from range <code>U+0000</code> to
+                <code>00FF</code>. Must be aligned to multiples of 256.
+  * `:map_name` (`t:string`) The map resource associated with the glyph ﬁle.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec get_map_glyphs(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_glyphs_response(), any()}
@@ -3982,11 +3992,12 @@ defmodule AWS.Location do
   be displayed on a rendered map.
 
   ## Required positional parameters:
-   • :file_name (t: String.t/0) (FileName)
-   • :map_name (t:string String.t/0) (MapName)
+  * `:file_name` (`t:`) The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:
+  * `:map_name` (`t:string`) The map resource associated with the sprite ﬁle.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec get_map_sprites(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_sprites_response(), any()}
@@ -4034,10 +4045,11 @@ defmodule AWS.Location do
   data. Style descriptors follow the Mapbox Style Specification.
 
   ## Required positional parameters:
-   • :map_name (t:string String.t/0) (MapName)
+  * `:map_name` (`t:string`) The map resource to retrieve the style descriptor from.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec get_map_style_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_style_descriptor_response(), any()}
@@ -4089,13 +4101,14 @@ defmodule AWS.Location do
   will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).
 
   ## Required positional parameters:
-   • :map_name (t:string String.t/0) (MapName)
-   • :x (t: String.t/0) (X)
-   • :y (t: String.t/0) (Y)
-   • :z (t: String.t/0) (Z)
+  * `:map_name` (`t:string`) The map resource to retrieve the map tiles from.
+  * `:x` (`t:`) The X axis value for the map tile.
+  * `:y` (`t:`) The Y axis value for the map tile. 
+  * `:z` (`t:`) The zoom value for the map tile.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec get_map_tile(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_tile_response(), any()}
@@ -4153,12 +4166,14 @@ defmodule AWS.Location do
   Data provider specified in the place index resource
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
-   • :place_id (t:string String.t/0) (PlaceId)
+  * `:index_name` (`t:string`) The name of the place index resource that you want to use for the search.
+  * `:place_id` (`t:string`) The identifier of the place to find.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
-   • :language (t:String.t/0) (language)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
+  * `:language` (`t:string`) The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
+                <code>en</code> for English.
   """
   @spec get_place(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_place_response(), any()}
@@ -4203,7 +4218,7 @@ defmodule AWS.Location do
   A batch request to retrieve all device positions.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The tracker resource containing the requested devices.
 
   ## Optional parameters:
   """
@@ -4277,7 +4292,7 @@ defmodule AWS.Location do
   Lists geofences stored in a given geofence collection.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The name of the geofence collection storing the list of geofences.
 
   ## Optional parameters:
   """
@@ -4439,7 +4454,7 @@ defmodule AWS.Location do
   resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
 
   ## Optional parameters:
   """
@@ -4467,7 +4482,7 @@ defmodule AWS.Location do
   Lists geofence collections currently associated to the given tracker resource.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The tracker resource whose associated geofence collections you want to list.
 
   ## Optional parameters:
   """
@@ -4539,8 +4554,8 @@ defmodule AWS.Location do
   an existing geofence if a geofence ID is included in the request.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
-   • :geofence_id (t:string String.t/0) (GeofenceId)
+  * `:collection_name` (`t:string`) The geofence collection to store the geofence in.
+  * `:geofence_id` (`t:string`) An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.
 
   ## Optional parameters:
   """
@@ -4568,10 +4583,11 @@ defmodule AWS.Location do
   search for Places or points of interest near a given position.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec search_place_index_for_position(
           AWS.Client.t(),
@@ -4626,10 +4642,11 @@ defmodule AWS.Location do
   returns an error.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec search_place_index_for_suggestions(
           AWS.Client.t(),
@@ -4682,10 +4699,11 @@ defmodule AWS.Location do
   Search results are returned in order of highest to lowest relevance.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
 
   ## Optional parameters:
-   • :key (t:String.t/0) (key)
+  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
+            the request.
   """
   @spec search_place_index_for_text(
           AWS.Client.t(),
@@ -4745,7 +4763,7 @@ defmodule AWS.Location do
   You can associate up to 50 tags with a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to update.
 
   ## Optional parameters:
   """
@@ -4778,10 +4796,11 @@ defmodule AWS.Location do
   Removes one or more tags from the specified Amazon Location resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which you want to remove
+            tags.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[smithy.api#String]`) The list of tag keys to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4817,7 +4836,7 @@ defmodule AWS.Location do
   Updates the specified properties of a given geofence collection.
 
   ## Required positional parameters:
-   • :collection_name (t:string String.t/0) (CollectionName)
+  * `:collection_name` (`t:string`) The name of the geofence collection to update.
 
   ## Optional parameters:
   """
@@ -4855,7 +4874,7 @@ defmodule AWS.Location do
   Updates the specified properties of a given API key resource.
 
   ## Required positional parameters:
-   • :key_name (t:string String.t/0) (KeyName)
+  * `:key_name` (`t:string`) The name of the API key resource to update.
 
   ## Optional parameters:
   """
@@ -4888,7 +4907,7 @@ defmodule AWS.Location do
   Updates the specified properties of a given map resource.
 
   ## Required positional parameters:
-   • :map_name (t:string String.t/0) (MapName)
+  * `:map_name` (`t:string`) The name of the map resource to update.
 
   ## Optional parameters:
   """
@@ -4921,7 +4940,7 @@ defmodule AWS.Location do
   Updates the specified properties of a given place index resource.
 
   ## Required positional parameters:
-   • :index_name (t:string String.t/0) (IndexName)
+  * `:index_name` (`t:string`) The name of the place index resource to update.
 
   ## Optional parameters:
   """
@@ -4954,7 +4973,7 @@ defmodule AWS.Location do
   Updates the specified properties for a given route calculator resource.
 
   ## Required positional parameters:
-   • :calculator_name (t:string String.t/0) (CalculatorName)
+  * `:calculator_name` (`t:string`) The name of the route calculator resource to update.
 
   ## Optional parameters:
   """
@@ -4992,7 +5011,7 @@ defmodule AWS.Location do
   Updates the specified properties of a given tracker resource.
 
   ## Required positional parameters:
-   • :tracker_name (t:string String.t/0) (TrackerName)
+  * `:tracker_name` (`t:string`) The name of the tracker resource to update.
 
   ## Optional parameters:
   """

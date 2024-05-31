@@ -2718,7 +2718,7 @@ defmodule AWS.AuditManager do
   assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -2752,7 +2752,7 @@ defmodule AWS.AuditManager do
   assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -2787,7 +2787,7 @@ defmodule AWS.AuditManager do
   Creates a batch of delegations for an assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -2830,7 +2830,7 @@ defmodule AWS.AuditManager do
   Deletes a batch of delegations for an assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -2863,7 +2863,7 @@ defmodule AWS.AuditManager do
   Disassociates a list of evidence from an assessment report in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -2925,9 +2925,9 @@ defmodule AWS.AuditManager do
   Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_id (t:string String.t/0) (controlId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  * `:control_id` (`t:string`)  The identifier for the control. 
+  * `:control_set_id` (`t:string`)  The identifier for the control set. 
 
   ## Optional parameters:
   """
@@ -3044,7 +3044,7 @@ defmodule AWS.AuditManager do
   Creates an assessment report for the specified assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -3114,7 +3114,7 @@ defmodule AWS.AuditManager do
   Deletes an assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -3147,7 +3147,7 @@ defmodule AWS.AuditManager do
   Deletes a custom framework in Audit Manager.
 
   ## Required positional parameters:
-   • :framework_id (t:string String.t/0) (frameworkId)
+  * `:framework_id` (`t:string`)  The identifier for the custom framework. 
 
   ## Optional parameters:
   """
@@ -3185,10 +3185,10 @@ defmodule AWS.AuditManager do
   Deletes a share request for a custom framework in Audit Manager.
 
   ## Required positional parameters:
-   • :request_id (t:string String.t/0) (requestId)
+  * `:request_id` (`t:string`) The unique identifier for the share request to be deleted.
 
   ## Optional parameters:
-   • :request_type (t:String.t/0) (requestType)
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share request is a sent request or a received request.
   """
   @spec delete_assessment_framework_share(
           AWS.Client.t(),
@@ -3264,8 +3264,8 @@ defmodule AWS.AuditManager do
   Reference*.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :assessment_report_id (t:string String.t/0) (assessmentReportId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:assessment_report_id` (`t:string`)  The unique identifier for the assessment report. 
 
   ## Optional parameters:
   """
@@ -3319,7 +3319,7 @@ defmodule AWS.AuditManager do
   assessments that you previously created before you deleted the custom control.
 
   ## Required positional parameters:
-   • :control_id (t:string String.t/0) (controlId)
+  * `:control_id` (`t:string`)  The unique identifier for the control. 
 
   ## Optional parameters:
   """
@@ -3518,7 +3518,7 @@ defmodule AWS.AuditManager do
   Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -3580,7 +3580,7 @@ defmodule AWS.AuditManager do
   Gets information about a specified assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -3608,7 +3608,7 @@ defmodule AWS.AuditManager do
   Gets information about a specified framework.
 
   ## Required positional parameters:
-   • :framework_id (t:string String.t/0) (frameworkId)
+  * `:framework_id` (`t:string`)  The identifier for the framework. 
 
   ## Optional parameters:
   """
@@ -3636,8 +3636,8 @@ defmodule AWS.AuditManager do
   Gets the URL of an assessment report in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :assessment_report_id (t:string String.t/0) (assessmentReportId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:assessment_report_id` (`t:string`)  The unique identifier for the assessment report. 
 
   ## Optional parameters:
   """
@@ -3671,13 +3671,13 @@ defmodule AWS.AuditManager do
   Gets a list of changelogs from Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
 
   ## Optional parameters:
-   • :control_id (t:String.t/0) (controlId)
-   • :control_set_id (t:String.t/0) (controlSetId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:control_id` (`t:string`)  The unique identifier for the control. 
+  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec get_change_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_change_logs_response(), any()}
@@ -3739,7 +3739,7 @@ defmodule AWS.AuditManager do
   Gets information about a specified control.
 
   ## Required positional parameters:
-   • :control_id (t:string String.t/0) (controlId)
+  * `:control_id` (`t:string`)  The identifier for the control. 
 
   ## Optional parameters:
   """
@@ -3769,8 +3769,8 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec get_delegations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegations_response(), any()}
@@ -3814,10 +3814,10 @@ defmodule AWS.AuditManager do
   Gets information about a specified evidence item.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
-   • :evidence_folder_id (t:string String.t/0) (evidenceFolderId)
-   • :evidence_id (t:string String.t/0) (evidenceId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
+  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
+  * `:evidence_id` (`t:string`)  The unique identifier for the evidence. 
 
   ## Optional parameters:
   """
@@ -3853,13 +3853,13 @@ defmodule AWS.AuditManager do
   Gets all evidence from a specified evidence folder in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
-   • :evidence_folder_id (t:string String.t/0) (evidenceFolderId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  * `:control_set_id` (`t:string`)  The identifier for the control set. 
+  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec get_evidence_by_evidence_folder(
           AWS.Client.t(),
@@ -3939,7 +3939,8 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :file_name (t:String.t/0) (fileName)
+  * `:file_name` (`t:string`) The file that you want to upload. For a list of supported file formats, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported file types for manual evidence</a> in the <i>Audit Manager
+            User Guide</i>.
   """
   @spec get_evidence_file_upload_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
@@ -3974,9 +3975,9 @@ defmodule AWS.AuditManager do
   Gets an evidence folder from a specified assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
-   • :evidence_folder_id (t:string String.t/0) (evidenceFolderId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
+  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
 
   ## Optional parameters:
   """
@@ -4011,11 +4012,11 @@ defmodule AWS.AuditManager do
   Gets the evidence folders from a specified assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec get_evidence_folders_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
@@ -4061,13 +4062,13 @@ defmodule AWS.AuditManager do
   Audit Manager assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_id (t:string String.t/0) (controlId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
+  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  * `:control_id` (`t:string`)  The identifier for the control. 
+  * `:control_set_id` (`t:string`)  The identifier for the control set. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec get_evidence_folders_by_assessment_control(
           AWS.Client.t(),
@@ -4151,7 +4152,7 @@ defmodule AWS.AuditManager do
   Gets the latest analytics data for a specific active assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -4241,7 +4242,7 @@ defmodule AWS.AuditManager do
   Gets the settings for a specified Amazon Web Services account.
 
   ## Required positional parameters:
-   • :attribute (t:enum String.t/0) (attribute)
+  * `:attribute` (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`)  The list of setting attribute enum values. 
 
   ## Optional parameters:
   """
@@ -4280,10 +4281,10 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :assessment_id (t:String.t/0) (assessmentId)
-   • :control_domain_id (t:String.t/0) (controlDomainId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment. 
+  * `:control_domain_id` (`t:string`) The unique identifier for the control domain. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_assessment_control_insights_by_control_domain(
           AWS.Client.t(),
@@ -4358,9 +4359,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :request_type (t:String.t/0) (requestType)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`)  Specifies whether the share request is a sent request or a received request.
   """
   @spec list_assessment_framework_share_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
@@ -4417,9 +4418,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :framework_type (t:String.t/0) (frameworkType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]`)  The type of framework, such as a standard framework or a custom framework. 
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_assessment_frameworks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_frameworks_response(), any()}
@@ -4474,8 +4475,8 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_assessment_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessment_reports_response(), any()}
@@ -4521,9 +4522,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :status (t:String.t/0) (status)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`)  The current status of the assessment.
   """
   @spec list_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessments_response(), any()}
@@ -4585,8 +4586,8 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_control_domain_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_response(), any()}
@@ -4638,9 +4639,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :assessment_id (t:String.t/0) (assessmentId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_control_domain_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
@@ -4703,9 +4704,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :control_domain_id (t:String.t/0) (controlDomainId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:control_domain_id` (`t:string`) The unique identifier for the control domain. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_control_insights_by_control_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
@@ -4764,9 +4765,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :control_type (t:String.t/0) (controlType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:control_type` (`t:enum["CUSTOM|STANDARD"]`)  The type of control, such as a standard control or a custom control. 
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
@@ -4822,9 +4823,9 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :source (t:String.t/0) (source)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:source` (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`)  The control mapping data source that the keywords apply to. 
   """
   @spec list_keywords_for_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keywords_for_data_source_response(), any()}
@@ -4879,8 +4880,8 @@ defmodule AWS.AuditManager do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
+  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
   """
   @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_response(), any()}
@@ -4924,7 +4925,7 @@ defmodule AWS.AuditManager do
   Returns a list of tags for the specified resource in Audit Manager.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -5072,7 +5073,7 @@ defmodule AWS.AuditManager do
   Guide*.
 
   ## Required positional parameters:
-   • :framework_id (t:string String.t/0) (frameworkId)
+  * `:framework_id` (`t:string`)  The unique identifier for the custom framework to be shared. 
 
   ## Optional parameters:
   """
@@ -5110,7 +5111,7 @@ defmodule AWS.AuditManager do
   Tags the specified resource in Audit Manager.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
 
   ## Optional parameters:
   """
@@ -5143,10 +5144,10 @@ defmodule AWS.AuditManager do
   Removes a tag from a resource in Audit Manager.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the specified resource. 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]`)  The name or key of the tag. 
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5182,7 +5183,7 @@ defmodule AWS.AuditManager do
   Edits an Audit Manager assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -5205,9 +5206,9 @@ defmodule AWS.AuditManager do
   Updates a control within an assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_id (t:string String.t/0) (controlId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:control_id` (`t:string`)  The unique identifier for the control. 
+  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
 
   ## Optional parameters:
   """
@@ -5246,8 +5247,8 @@ defmodule AWS.AuditManager do
   Updates the status of a control set in an Audit Manager assessment.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
-   • :control_set_id (t:string String.t/0) (controlSetId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
 
   ## Optional parameters:
   """
@@ -5284,7 +5285,7 @@ defmodule AWS.AuditManager do
   Updates a custom framework in Audit Manager.
 
   ## Required positional parameters:
-   • :framework_id (t:string String.t/0) (frameworkId)
+  * `:framework_id` (`t:string`)  The unique identifier for the framework. 
 
   ## Optional parameters:
   """
@@ -5312,7 +5313,7 @@ defmodule AWS.AuditManager do
   Updates a share request for a custom framework in Audit Manager.
 
   ## Required positional parameters:
-   • :request_id (t:string String.t/0) (requestId)
+  * `:request_id` (`t:string`)  The unique identifier for the share request. 
 
   ## Optional parameters:
   """
@@ -5340,7 +5341,7 @@ defmodule AWS.AuditManager do
   Updates the status of an assessment in Audit Manager.
 
   ## Required positional parameters:
-   • :assessment_id (t:string String.t/0) (assessmentId)
+  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
 
   ## Optional parameters:
   """
@@ -5368,7 +5369,7 @@ defmodule AWS.AuditManager do
   Updates a custom control in Audit Manager.
 
   ## Required positional parameters:
-   • :control_id (t:string String.t/0) (controlId)
+  * `:control_id` (`t:string`)  The identifier for the control. 
 
   ## Optional parameters:
   """

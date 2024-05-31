@@ -1270,7 +1270,7 @@ defmodule AWS.Mq do
   Add a tag to a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource tag.
 
   ## Optional parameters:
   """
@@ -1308,8 +1308,8 @@ defmodule AWS.Mq do
   are not intended to be used for private or sensitive data.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
-   • :username (t:string String.t/0) (Username)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """
@@ -1346,7 +1346,7 @@ defmodule AWS.Mq do
   Note: This API is asynchronous.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
   """
@@ -1379,10 +1379,10 @@ defmodule AWS.Mq do
   Removes a tag from a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource tag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mq#__string]`) An array of tag keys to delete
   """
   @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1418,8 +1418,8 @@ defmodule AWS.Mq do
   Deletes an ActiveMQ user.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
-   • :username (t:string String.t/0) (Username)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """
@@ -1454,7 +1454,7 @@ defmodule AWS.Mq do
   Returns information about the specified broker.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
   """
@@ -1484,9 +1484,9 @@ defmodule AWS.Mq do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:engine_type` (`t:string`) Filter response by engine type.
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec describe_broker_engine_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_engine_types_response(), any()}
@@ -1541,11 +1541,11 @@ defmodule AWS.Mq do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
-   • :host_instance_type (t:String.t/0) (hostInstanceType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :storage_type (t:String.t/0) (storageType)
+  * `:engine_type` (`t:string`) Filter response by engine type.
+  * `:host_instance_type` (`t:string`) Filter response by host instance type.
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+  * `:storage_type` (`t:string`) Filter response by storage type.
   """
   @spec describe_broker_instance_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_instance_options_response(), any()}
@@ -1616,7 +1616,7 @@ defmodule AWS.Mq do
   Returns information about the specified configuration.
 
   ## Required positional parameters:
-   • :configuration_id (t:string String.t/0) (ConfigurationId)
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for the configuration.
 
   ## Optional parameters:
   """
@@ -1644,8 +1644,8 @@ defmodule AWS.Mq do
   Returns the specified configuration revision for the specified configuration.
 
   ## Required positional parameters:
-   • :configuration_id (t:string String.t/0) (ConfigurationId)
-   • :configuration_revision (t:string String.t/0) (ConfigurationRevision)
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for the configuration.
+  * `:configuration_revision` (`t:string`) The revision of the configuration.
 
   ## Optional parameters:
   """
@@ -1679,8 +1679,8 @@ defmodule AWS.Mq do
   Returns information about an ActiveMQ user.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
-   • :username (t:string String.t/0) (Username)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """
@@ -1711,8 +1711,8 @@ defmodule AWS.Mq do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_brokers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_brokers_response(), any()}
@@ -1756,11 +1756,11 @@ defmodule AWS.Mq do
   Returns a list of all revisions for the specified configuration.
 
   ## Required positional parameters:
-   • :configuration_id (t:string String.t/0) (ConfigurationId)
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for the configuration.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
@@ -1806,8 +1806,8 @@ defmodule AWS.Mq do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
@@ -1851,7 +1851,7 @@ defmodule AWS.Mq do
   Lists tags for a resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource tag.
 
   ## Optional parameters:
   """
@@ -1879,11 +1879,11 @@ defmodule AWS.Mq do
   Returns a list of all ActiveMQ users.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+  * `:next_token` (`t:string`) The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -1927,7 +1927,7 @@ defmodule AWS.Mq do
   Promotes a data replication replica broker to the primary broker role.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
   """
@@ -1962,7 +1962,7 @@ defmodule AWS.Mq do
   Note: This API is asynchronous.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
   """
@@ -1995,7 +1995,7 @@ defmodule AWS.Mq do
   Adds a pending configuration change to a broker.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
 
   ## Optional parameters:
   """
@@ -2018,7 +2018,7 @@ defmodule AWS.Mq do
   Updates the specified configuration.
 
   ## Required positional parameters:
-   • :configuration_id (t:string String.t/0) (ConfigurationId)
+  * `:configuration_id` (`t:string`) The unique ID that Amazon MQ generates for the configuration.
 
   ## Optional parameters:
   """
@@ -2046,8 +2046,8 @@ defmodule AWS.Mq do
   Updates the information for an ActiveMQ user.
 
   ## Required positional parameters:
-   • :broker_id (t:string String.t/0) (BrokerId)
-   • :username (t:string String.t/0) (Username)
+  * `:broker_id` (`t:string`) The unique ID that Amazon MQ generates for the broker.
+  * `:username` (`t:string`) The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 
   ## Optional parameters:
   """

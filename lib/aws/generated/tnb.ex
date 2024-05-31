@@ -1506,7 +1506,7 @@ defmodule AWS.Tnb do
   network instance instantiation or termination.
 
   ## Required positional parameters:
-   • :ns_lcm_op_occ_id (t:string String.t/0) (nsLcmOpOccId)
+  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
 
   ## Optional parameters:
   """
@@ -1700,7 +1700,7 @@ defmodule AWS.Tnb do
   [UpdateSolFunctionPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html).
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
 
   ## Optional parameters:
   """
@@ -1746,7 +1746,7 @@ defmodule AWS.Tnb do
   [TerminateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html).
 
   ## Required positional parameters:
-   • :ns_instance_id (t:string String.t/0) (nsInstanceId)
+  * `:ns_instance_id` (`t:string`) Network instance ID.
 
   ## Optional parameters:
   """
@@ -1792,7 +1792,7 @@ defmodule AWS.Tnb do
   [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the network package.
 
   ## Optional parameters:
   """
@@ -1834,7 +1834,7 @@ defmodule AWS.Tnb do
   A network function instance is a function in a function package .
 
   ## Required positional parameters:
-   • :vnf_instance_id (t:string String.t/0) (vnfInstanceId)
+  * `:vnf_instance_id` (`t:string`) ID of the network function.
 
   ## Optional parameters:
   """
@@ -1868,7 +1868,7 @@ defmodule AWS.Tnb do
   network functions should run on your network..
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
 
   ## Optional parameters:
   """
@@ -1901,10 +1901,10 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
+  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package that you want to download from the function packages.
   """
   @spec get_sol_function_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_content_output(), any()}
@@ -1956,10 +1956,10 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
+  * `:accept` (`t:enum["TEXT_PLAIN"]`) Indicates which content types, expressed as MIME types, the client is able to understand.
   """
   @spec get_sol_function_package_descriptor(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
@@ -2006,7 +2006,7 @@ defmodule AWS.Tnb do
   delete) can be performed.
 
   ## Required positional parameters:
-   • :ns_instance_id (t:string String.t/0) (nsInstanceId)
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
 
   ## Optional parameters:
   """
@@ -2038,7 +2038,7 @@ defmodule AWS.Tnb do
   network instance instantiation or termination.
 
   ## Required positional parameters:
-   • :ns_lcm_op_occ_id (t:string String.t/0) (nsLcmOpOccId)
+  * `:ns_lcm_op_occ_id` (`t:string`) The identifier of the network operation.
 
   ## Optional parameters:
   """
@@ -2070,7 +2070,7 @@ defmodule AWS.Tnb do
   infrastructure you want to deploy them on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the network package.
 
   ## Optional parameters:
   """
@@ -2102,10 +2102,10 @@ defmodule AWS.Tnb do
   infrastructure you want to deploy them on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the network package.
 
   ## Optional parameters:
-   • :accept (t:String.t/0) (Accept)
+  * `:accept` (`t:enum["APPLICATION_ZIP"]`) The format of the package you want to download from the network package.
   """
   @spec get_sol_network_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_content_output(), any()}
@@ -2152,7 +2152,7 @@ defmodule AWS.Tnb do
   Amazon Web Services infrastructure you want to deploy the network functions on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the network package.
 
   ## Optional parameters:
   """
@@ -2195,10 +2195,12 @@ defmodule AWS.Tnb do
   [CreateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html).
 
   ## Required positional parameters:
-   • :ns_instance_id (t:string String.t/0) (nsInstanceId)
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
 
   ## Optional parameters:
-   • :dry_run (t:String.t/0) (dry_run)
+  * `:dry_run` (`t:`) A check for whether you have the required permissions for the action without actually making the request 
+   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. 
+   Otherwise, it is <code>UnauthorizedOperation</code>.
   """
   @spec instantiate_sol_network_instance(
           AWS.Client.t(),
@@ -2243,8 +2245,8 @@ defmodule AWS.Tnb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (nextpage_opaque_marker)
+  * `:max_results` (`t:`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_function_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_instances_output(), any()}
@@ -2295,8 +2297,8 @@ defmodule AWS.Tnb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (nextpage_opaque_marker)
+  * `:max_results` (`t:`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_function_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_function_packages_output(), any()}
@@ -2346,8 +2348,8 @@ defmodule AWS.Tnb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (nextpage_opaque_marker)
+  * `:max_results` (`t:`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_network_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_instances_output(), any()}
@@ -2397,8 +2399,8 @@ defmodule AWS.Tnb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (nextpage_opaque_marker)
+  * `:max_results` (`t:`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_operations_output(), any()}
@@ -2448,8 +2450,8 @@ defmodule AWS.Tnb do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (max_results)
-   • :next_token (t:String.t/0) (nextpage_opaque_marker)
+  * `:max_results` (`t:`) The maximum number of results to include in the response.
+  * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_network_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_packages_output(), any()}
@@ -2493,7 +2495,7 @@ defmodule AWS.Tnb do
   Lists tags for AWS TNB resources.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Resource ARN.
 
   ## Optional parameters:
   """
@@ -2526,10 +2528,10 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) Function package ID.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
   @spec put_sol_function_package_content(
           AWS.Client.t(),
@@ -2565,10 +2567,10 @@ defmodule AWS.Tnb do
   infrastructure you want to deploy them on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) Network service descriptor info ID.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
   @spec put_sol_network_package_content(
           AWS.Client.t(),
@@ -2604,7 +2606,7 @@ defmodule AWS.Tnb do
   your resources or track your Amazon Web Services costs.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Resource ARN.
 
   ## Optional parameters:
   """
@@ -2643,7 +2645,7 @@ defmodule AWS.Tnb do
   You must terminate a network instance before you can delete it.
 
   ## Required positional parameters:
-   • :ns_instance_id (t:string String.t/0) (nsInstanceId)
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
 
   ## Optional parameters:
   """
@@ -2685,10 +2687,10 @@ defmodule AWS.Tnb do
   your resources or track your Amazon Web Services costs.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) Resource ARN.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.tnb#TagKey]`) Tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2729,7 +2731,7 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) ID of the function package.
 
   ## Optional parameters:
   """
@@ -2771,7 +2773,7 @@ defmodule AWS.Tnb do
   delete) can be performed.
 
   ## Required positional parameters:
-   • :ns_instance_id (t:string String.t/0) (nsInstanceId)
+  * `:ns_instance_id` (`t:string`) ID of the network instance.
 
   ## Optional parameters:
   """
@@ -2817,7 +2819,7 @@ defmodule AWS.Tnb do
   Amazon Web Services infrastructure you want to deploy the network functions on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) ID of the network service descriptor in the network package.
 
   ## Optional parameters:
   """
@@ -2863,10 +2865,10 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   ## Required positional parameters:
-   • :vnf_pkg_id (t:string String.t/0) (vnfPkgId)
+  * `:vnf_pkg_id` (`t:string`) Function package ID.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
   @spec validate_sol_function_package_content(
           AWS.Client.t(),
@@ -2906,10 +2908,10 @@ defmodule AWS.Tnb do
   infrastructure you want to deploy them on.
 
   ## Required positional parameters:
-   • :nsd_info_id (t:string String.t/0) (nsdInfoId)
+  * `:nsd_info_id` (`t:string`) Network service descriptor file.
 
   ## Optional parameters:
-   • :content_type (t:String.t/0) (Content-Type)
+  * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
   @spec validate_sol_network_package_content(
           AWS.Client.t(),

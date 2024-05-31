@@ -3590,11 +3590,12 @@ defmodule AWS.Backup do
   This action can only be performed by a user with sufficient permissions.
 
   ## Required positional parameters:
-   • :legal_hold_id (t:string String.t/0) (LegalHoldId)
+  * `:legal_hold_id` (`t:string`) Legal hold ID required to remove the specified legal hold on a recovery point.
 
   ## Optional parameters:
-   • :cancel_description (t:String.t/0) (cancelDescription)
-   • :retain_record_in_days (t:String.t/0) (retainRecordInDays)
+  * `:cancel_description` (`t:string`) String describing the reason for removing the legal hold.
+  * `:retain_record_in_days` (`t:long`) The integer amount in days specifying amount of days after this 
+         API operation to remove legal hold.
   """
   @spec cancel_legal_hold(AWS.Client.t(), String.t(), cancel_legal_hold_input(), Keyword.t()) ::
           {:ok, cancel_legal_hold_output(), any()}
@@ -3663,7 +3664,8 @@ defmodule AWS.Backup do
   For examples, see [Assigning resources programmatically](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json).
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies the backup plan to be associated with the selection of
+         resources.
 
   ## Optional parameters:
   """
@@ -3699,7 +3701,9 @@ defmodule AWS.Backup do
   vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of letters, numbers, and hyphens.
 
   ## Optional parameters:
   """
@@ -3809,7 +3813,7 @@ defmodule AWS.Backup do
   vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) This is the name of the vault that is being created.
 
   ## Optional parameters:
   """
@@ -3936,7 +3940,8 @@ defmodule AWS.Backup do
   Request will fail if both are included.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
+  * `:restore_testing_plan_name` (`t:`) Input the restore testing plan name that was returned from the 
+         related CreateRestoreTestingPlan request.
 
   ## Optional parameters:
   """
@@ -3976,7 +3981,7 @@ defmodule AWS.Backup do
   backup plan. Previous versions, if any, will still exist.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
   """
@@ -4011,8 +4016,9 @@ defmodule AWS.Backup do
   `SelectionId`.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
-   • :selection_id (t:string String.t/0) (SelectionId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to assign a set of resources to a backup
+         plan.
 
   ## Optional parameters:
   """
@@ -4062,7 +4068,10 @@ defmodule AWS.Backup do
   empty.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -4095,7 +4104,10 @@ defmodule AWS.Backup do
   Deletes the policy document that manages permissions on a backup vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -4146,7 +4158,7 @@ defmodule AWS.Backup do
   *Backup Developer Guide*.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of the backup vault from which to delete Backup Vault Lock.
 
   ## Optional parameters:
   """
@@ -4189,7 +4201,9 @@ defmodule AWS.Backup do
   Deletes event notifications for the specified backup vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Region where they are
+         created. They consist of lowercase letters, numbers, and hyphens.
 
   ## Optional parameters:
   """
@@ -4234,7 +4248,7 @@ defmodule AWS.Backup do
   Deletes the framework specified by a framework name.
 
   ## Required positional parameters:
-   • :framework_name (t:string String.t/0) (FrameworkName)
+  * `:framework_name` (`t:string`) The unique name of a framework.
 
   ## Optional parameters:
   """
@@ -4287,8 +4301,12 @@ defmodule AWS.Backup do
   the deletion will not be successful and will enter an `EXPIRED` state.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+            <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
 
   ## Optional parameters:
   """
@@ -4335,7 +4353,7 @@ defmodule AWS.Backup do
   Deletes the report plan specified by a report plan name.
 
   ## Required positional parameters:
-   • :report_plan_name (t:string String.t/0) (ReportPlanName)
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
 
   ## Optional parameters:
   """
@@ -4371,7 +4389,8 @@ defmodule AWS.Backup do
   restore testing selections are deleted first.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore testing plan you wish 
+         to delete.
 
   ## Optional parameters:
   """
@@ -4418,8 +4437,10 @@ defmodule AWS.Backup do
   be deleted before the restore testing plan can be deleted.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
-   • :restore_testing_selection_name (t: String.t/0) (RestoreTestingSelectionName)
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore testing plan that contains the 
+         restore testing selection you wish to delete.
+  * `:restore_testing_selection_name` (`t:`) Required unique name of the restore testing selection you 
+         wish to delete.
 
   ## Optional parameters:
   """
@@ -4466,7 +4487,7 @@ defmodule AWS.Backup do
   Returns backup job details for the specified `BackupJobId`.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
+  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back up a resource.
 
   ## Optional parameters:
   """
@@ -4494,10 +4515,13 @@ defmodule AWS.Backup do
   Returns metadata about a backup vault specified by its name.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (backupVaultAccountId)
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the specified backup vault.
   """
   @spec describe_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_backup_vault_output(), any()}
@@ -4532,7 +4556,7 @@ defmodule AWS.Backup do
   Returns metadata associated with creating a copy of a resource.
 
   ## Required positional parameters:
-   • :copy_job_id (t:string String.t/0) (CopyJobId)
+  * `:copy_job_id` (`t:string`) Uniquely identifies a copy job.
 
   ## Optional parameters:
   """
@@ -4560,7 +4584,7 @@ defmodule AWS.Backup do
   Returns the framework details for the specified `FrameworkName`.
 
   ## Required positional parameters:
-   • :framework_name (t:string String.t/0) (FrameworkName)
+  * `:framework_name` (`t:string`) The unique name of a framework.
 
   ## Optional parameters:
   """
@@ -4624,7 +4648,8 @@ defmodule AWS.Backup do
   resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+         depends on the resource type.
 
   ## Optional parameters:
   """
@@ -4654,11 +4679,15 @@ defmodule AWS.Backup do
   lifecycle.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+            <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (backupVaultAccountId)
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the specified backup vault.
   """
   @spec describe_recovery_point(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recovery_point_output(), any()}
@@ -4734,7 +4763,8 @@ defmodule AWS.Backup do
   `ReportJobId`.
 
   ## Required positional parameters:
-   • :report_job_id (t:string String.t/0) (ReportJobId)
+  * `:report_job_id` (`t:string`) The identifier of the report job. A unique, randomly generated, Unicode, UTF-8 encoded
+         string that is at most 1,024 bytes long. The report job ID cannot be edited.
 
   ## Optional parameters:
   """
@@ -4763,7 +4793,7 @@ defmodule AWS.Backup do
   Web Services Region.
 
   ## Required positional parameters:
-   • :report_plan_name (t:string String.t/0) (ReportPlanName)
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
 
   ## Optional parameters:
   """
@@ -4791,7 +4821,7 @@ defmodule AWS.Backup do
   Returns metadata associated with a restore job that is specified by a job ID.
 
   ## Required positional parameters:
-   • :restore_job_id (t:string String.t/0) (RestoreJobId)
+  * `:restore_job_id` (`t:string`) Uniquely identifies the job that restores a recovery point.
 
   ## Optional parameters:
   """
@@ -4827,8 +4857,9 @@ defmodule AWS.Backup do
   Does not support snapshot backup recovery points.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) The unique name of an Backup vault.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an Backup recovery
+         point.
 
   ## Optional parameters:
   """
@@ -4876,8 +4907,14 @@ defmodule AWS.Backup do
   between the specified recovery point and its parent (composite) recovery point.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) This is the name of a logical container where the child (nested) recovery point
+         is stored. Backup vaults are identified by names that are unique to the account used 
+         to create them and the Amazon Web Services Region where they are created. They consist of lowercase 
+         letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:string`) This is the Amazon Resource Name (ARN) that uniquely identifies the child 
+         (nested) recovery point; for example, 
+         <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</code>
+         
 
   ## Optional parameters:
   """
@@ -4924,7 +4961,7 @@ defmodule AWS.Backup do
   Returns the backup plan that is specified by the plan ID as a backup template.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
   """
@@ -4956,10 +4993,11 @@ defmodule AWS.Backup do
   metadata.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
-   • :version_id (t:String.t/0) (versionId)
+  * `:version_id` (`t:string`) Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
+         long. Version IDs cannot be edited.
   """
   @spec get_backup_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_backup_plan_output(), any()}
@@ -5026,7 +5064,7 @@ defmodule AWS.Backup do
   Returns the template specified by its `templateId` as a backup plan.
 
   ## Required positional parameters:
-   • :backup_plan_template_id (t:string String.t/0) (BackupPlanTemplateId)
+  * `:backup_plan_template_id` (`t:string`) Uniquely identifies a stored backup plan template.
 
   ## Optional parameters:
   """
@@ -5056,8 +5094,9 @@ defmodule AWS.Backup do
   resources that are associated with a backup plan.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
-   • :selection_id (t:string String.t/0) (SelectionId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
+  * `:selection_id` (`t:string`) Uniquely identifies the body of a request to assign a set of resources to a backup
+         plan.
 
   ## Optional parameters:
   """
@@ -5087,7 +5126,10 @@ defmodule AWS.Backup do
   vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -5115,7 +5157,10 @@ defmodule AWS.Backup do
   Returns event notifications for the specified backup vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -5147,7 +5192,8 @@ defmodule AWS.Backup do
   body of a legal hold in JSON format, in addition to metadata.
 
   ## Required positional parameters:
-   • :legal_hold_id (t:string String.t/0) (LegalHoldId)
+  * `:legal_hold_id` (`t:string`) This is the ID required to use <code>GetLegalHold</code>. This unique ID 
+         is associated with a specific legal hold.
 
   ## Optional parameters:
   """
@@ -5175,11 +5221,15 @@ defmodule AWS.Backup do
   Returns a set of metadata key-value pairs that were used to create the backup.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+            <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (backupVaultAccountId)
+  * `:backup_vault_account_id` (`t:string`) This is the account ID of the specified backup vault.
   """
   @spec get_recovery_point_restore_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_point_restore_metadata_output(), any()}
@@ -5220,7 +5270,7 @@ defmodule AWS.Backup do
   This request returns the metadata for the specified restore job.
 
   ## Required positional parameters:
-   • :restore_job_id (t:string String.t/0) (RestoreJobId)
+  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job within Backup.
 
   ## Optional parameters:
   """
@@ -5255,9 +5305,15 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (BackupVaultAccountId)
-   • :backup_vault_name (t:String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:String.t/0) (RecoveryPointArn)
+  * `:backup_vault_account_id` (`t:`) This is the account ID of the specified backup vault.
+  * `:backup_vault_name` (`t:`) The name of a logical container where backups are stored. Backup 
+         vaults are identified by names that are unique to the account used to 
+         create them and the Amazon Web ServicesRegion where they are created. 
+         They consist of letters, numbers, and hyphens.
+  * `:recovery_point_arn` (`t:`) An Amazon Resource Name (ARN) that uniquely identifies a recovery 
+         point; for example,
+         <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
+      
   """
   @spec get_restore_testing_inferred_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
@@ -5319,7 +5375,7 @@ defmodule AWS.Backup do
   in JSON format, in addition to plan metadata.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore testing plan.
 
   ## Optional parameters:
   """
@@ -5348,8 +5404,8 @@ defmodule AWS.Backup do
   and elements of the restore testing plan.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
-   • :restore_testing_selection_name (t: String.t/0) (RestoreTestingSelectionName)
+  * `:restore_testing_plan_name` (`t:`) Required unique name of the restore testing plan.
+  * `:restore_testing_selection_name` (`t:`) Required unique name of the restore testing selection.
 
   ## Optional parameters:
   """
@@ -5422,13 +5478,21 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (AccountId)
-   • :aggregation_period (t:String.t/0) (AggregationPeriod)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :message_category (t:String.t/0) (MessageCategory)
-   • :next_token (t:String.t/0) (NextToken)
-   • :resource_type (t:String.t/0) (ResourceType)
-   • :state (t:String.t/0) (State)
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is the period that sets the boundaries for returned 
+         results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items 
+         to be returned.
+  * `:message_category` (`t:string`) This parameter returns the job count for the specified 
+         message category.
+  * `:next_token` (`t:string`) The next item following a partial list of returned resources. For example, if a request
+         is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+         allows you to return more items in your list starting at the location pointed to by the
+         next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource type. 
+         Use request <code>GetSupportedResourceTypes</code> to obtain 
+         strings for supported resource types.
+  * `:state` (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|CREATED|EXPIRED|FAILED|PARTIAL|PENDING|RUNNING"]`) This parameter returns the job count for jobs with the specified state.
   """
   @spec list_backup_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_job_summaries_output(), any()}
@@ -5523,19 +5587,31 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_account_id (t:String.t/0) (accountId)
-   • :by_backup_vault_name (t:String.t/0) (backupVaultName)
-   • :by_complete_after (t:String.t/0) (completeAfter)
-   • :by_complete_before (t:String.t/0) (completeBefore)
-   • :by_created_after (t:String.t/0) (createdAfter)
-   • :by_created_before (t:String.t/0) (createdBefore)
-   • :by_message_category (t:String.t/0) (messageCategory)
-   • :by_parent_job_id (t:String.t/0) (parentJobId)
-   • :by_resource_arn (t:String.t/0) (resourceArn)
-   • :by_resource_type (t:String.t/0) (resourceType)
-   • :by_state (t:String.t/0) (state)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns only backup jobs associated with the
+         specified account ID.
+  * `:by_backup_vault_name` (`t:string`) Returns only backup jobs that will be stored in the specified backup vault. Backup
+         vaults are identified by names that are unique to the account used to create them and the
+            Amazon Web Services Region where they are created. They consist of lowercase letters,
+         numbers, and hyphens.
+  * `:by_complete_after` (`t:timestamp`) Returns only backup jobs completed after a date expressed in Unix format and Coordinated
+         Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only backup jobs completed before a date expressed in Unix format and
+         Coordinated Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only backup jobs that were created after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only backup jobs that were created before the specified date.
+  * `:by_message_category` (`t:string`) This is an optional parameter that can be used to 
+         filter out jobs with a MessageCategory which matches the 
+         value you input.
+  * `:by_parent_job_id` (`t:string`) This is a filter to list child (nested) jobs based on parent job ID.
+  * `:by_resource_arn` (`t:string`) Returns only backup jobs that match the specified resource Amazon Resource Name
+         (ARN).
+  * `:by_resource_type` (`t:string`) Returns only backup jobs for the specified resources:
+  * `:by_state` (`t:enum["ABORTED|ABORTING|COMPLETED|CREATED|EXPIRED|FAILED|PARTIAL|PENDING|RUNNING"]`) Returns only backup jobs that are in the specified state.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is 
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_jobs_output(), any()}
@@ -5682,8 +5758,11 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_plan_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plan_templates_output(), any()}
@@ -5729,11 +5808,14 @@ defmodule AWS.Backup do
   backup plan IDs, creation and deletion dates, plan names, and version IDs.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_plan_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_plan_versions_output(), any()}
@@ -5784,9 +5866,13 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :include_deleted (t:String.t/0) (includeDeleted)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:include_deleted` (`t:boolean`) A Boolean value with a default value of <code>FALSE</code> that returns deleted backup
+         plans when set to <code>TRUE</code>.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_plans_output(), any()}
@@ -5841,11 +5927,14 @@ defmodule AWS.Backup do
   plan.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backup_selections_output(), any()}
@@ -5892,10 +5981,13 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_shared (t:String.t/0) (shared)
-   • :by_vault_type (t:String.t/0) (vaultType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:by_shared` (`t:boolean`) This parameter will sort the list of vaults by shared vaults.
+  * `:by_vault_type` (`t:enum["BACKUP_VAULT|LOGICALLY_AIR_GAPPED_BACKUP_VAULT"]`) This parameter will sort the list of vaults by vault type.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_backup_vaults(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_backup_vaults_output(), any()}
@@ -5969,13 +6061,22 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (AccountId)
-   • :aggregation_period (t:String.t/0) (AggregationPeriod)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :message_category (t:String.t/0) (MessageCategory)
-   • :next_token (t:String.t/0) (NextToken)
-   • :resource_type (t:String.t/0) (ResourceType)
-   • :state (t:String.t/0) (State)
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is the period that sets the boundaries for returned 
+         results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items 
+         to be returned.
+  * `:message_category` (`t:string`) This parameter returns the job count for the specified 
+         message category.
+  * `:next_token` (`t:string`) The next item following a partial list of returned resources. For example, if a request
+         is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+         allows you to return more items in your list starting at the location pointed to by the
+         next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource type. 
+         Use request <code>GetSupportedResourceTypes</code> to obtain 
+         strings for supported resource types.
+  * `:state` (`t:enum["ABORTED|ABORTING|AGGREGATE_ALL|ANY|COMPLETED|COMPLETING|CREATED|FAILED|FAILING|PARTIAL|RUNNING"]`) This parameter returns the job count for jobs 
+         with the specified state.
   """
   @spec list_copy_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_job_summaries_output(), any()}
@@ -6066,19 +6167,29 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_account_id (t:String.t/0) (accountId)
-   • :by_complete_after (t:String.t/0) (completeAfter)
-   • :by_complete_before (t:String.t/0) (completeBefore)
-   • :by_created_after (t:String.t/0) (createdAfter)
-   • :by_created_before (t:String.t/0) (createdBefore)
-   • :by_destination_vault_arn (t:String.t/0) (destinationVaultArn)
-   • :by_message_category (t:String.t/0) (messageCategory)
-   • :by_parent_job_id (t:String.t/0) (parentJobId)
-   • :by_resource_arn (t:String.t/0) (resourceArn)
-   • :by_resource_type (t:String.t/0) (resourceType)
-   • :by_state (t:String.t/0) (state)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns only copy jobs associated with the
+         specified account ID.
+  * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a date expressed in Unix format and Coordinated
+         Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only copy jobs completed before a date expressed in Unix format and Coordinated
+         Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only copy jobs that were created after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only copy jobs that were created before the specified date.
+  * `:by_destination_vault_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a source backup vault to copy
+         from; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.
+      
+  * `:by_message_category` (`t:string`) This is an optional parameter that can be used to 
+         filter out jobs with a MessageCategory which matches the 
+         value you input.
+  * `:by_parent_job_id` (`t:string`) This is a filter to list child (nested) jobs based on parent job ID.
+  * `:by_resource_arn` (`t:string`) Returns only copy jobs that match the specified resource Amazon Resource Name (ARN).
+      
+  * `:by_resource_type` (`t:string`) Returns only backup jobs for the specified resources:
+  * `:by_state` (`t:enum["COMPLETED|CREATED|FAILED|PARTIAL|RUNNING"]`) Returns only copy jobs that are in the specified state.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return MaxResults number of items, NextToken allows you to return more items in
+         your list starting at the location pointed to by the next token. 
   """
   @spec list_copy_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_copy_jobs_output(), any()}
@@ -6224,8 +6335,10 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+         return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous call to this operation, which can be
+         used to return the next set of items in the list.
   """
   @spec list_frameworks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_frameworks_output(), any()}
@@ -6271,8 +6384,11 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of resource list items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned resources. For example, if a request
+         is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+         allows you to return more items in your list starting at the location pointed to by the
+         next token.
   """
   @spec list_legal_holds(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_legal_holds_output(), any()}
@@ -6321,8 +6437,11 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_protected_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_protected_resources_output(), any()}
@@ -6366,12 +6485,15 @@ defmodule AWS.Backup do
   This request lists the protected resources corresponding to each backup vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) This is the list of protected resources by backup vault within the vault(s) you specify by name.
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (backupVaultAccountId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:backup_vault_account_id` (`t:string`) This is the list of protected resources by backup vault within the vault(s) you specify by account ID.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_protected_resources_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_protected_resources_by_backup_vault_output(), any()}
@@ -6428,18 +6550,26 @@ defmodule AWS.Backup do
   Returns detailed information about the recovery points stored in a backup vault.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
-   • :backup_vault_account_id (t:String.t/0) (backupVaultAccountId)
-   • :by_backup_plan_id (t:String.t/0) (backupPlanId)
-   • :by_created_after (t:String.t/0) (createdAfter)
-   • :by_created_before (t:String.t/0) (createdBefore)
-   • :by_parent_recovery_point_arn (t:String.t/0) (parentRecoveryPointArn)
-   • :by_resource_arn (t:String.t/0) (resourceArn)
-   • :by_resource_type (t:String.t/0) (resourceType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:backup_vault_account_id` (`t:string`) This parameter will sort the list of recovery points by account ID.
+  * `:by_backup_plan_id` (`t:string`) Returns only recovery points that match the specified backup plan ID.
+  * `:by_created_after` (`t:timestamp`) Returns only recovery points that were created after the specified timestamp.
+  * `:by_created_before` (`t:timestamp`) Returns only recovery points that were created before the specified timestamp.
+  * `:by_parent_recovery_point_arn` (`t:string`) This returns only recovery points that match the specified parent (composite)
+         recovery point Amazon Resource Name (ARN).
+  * `:by_resource_arn` (`t:string`) Returns only recovery points that match the specified resource Amazon Resource Name
+         (ARN).
+  * `:by_resource_type` (`t:string`) Returns only recovery points that match the specified resource type(s):
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_recovery_points_by_backup_vault(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_backup_vault_output(), any()}
@@ -6548,11 +6678,14 @@ defmodule AWS.Backup do
   specified legal hold.
 
   ## Required positional parameters:
-   • :legal_hold_id (t:string String.t/0) (LegalHoldId)
+  * `:legal_hold_id` (`t:string`) This is the ID of the legal hold.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) This is the maximum number of resource list items to be returned.
+  * `:next_token` (`t:string`) This is the next item following a partial list of returned resources. For example, if a request
+         is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+         allows you to return more items in your list starting at the location pointed to by the
+         next token.
   """
   @spec list_recovery_points_by_legal_hold(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_legal_hold_output(), any()}
@@ -6601,12 +6734,16 @@ defmodule AWS.Backup do
   created by Backup.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The format of the ARN depends on the
+         resource type.
 
   ## Optional parameters:
-   • :managed_by_aws_backup_only (t:String.t/0) (managedByAWSBackupOnly)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:managed_by_aws_backup_only` (`t:boolean`) This attribute filters recovery points based on ownership.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_recovery_points_by_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recovery_points_by_resource_output(), any()}
@@ -6661,12 +6798,18 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_creation_after (t:String.t/0) (CreationAfter)
-   • :by_creation_before (t:String.t/0) (CreationBefore)
-   • :by_report_plan_name (t:String.t/0) (ReportPlanName)
-   • :by_status (t:String.t/0) (Status)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:by_creation_after` (`t:timestamp`) Returns only report jobs that were created after the date and time specified in Unix
+         format and Coordinated Universal Time (UTC). For example, the value 1516925490 represents
+         Friday, January 26, 2018 12:11:30 AM.
+  * `:by_creation_before` (`t:timestamp`) Returns only report jobs that were created before the date and time specified in Unix
+         format and Coordinated Universal Time (UTC). For example, the value 1516925490 represents
+         Friday, January 26, 2018 12:11:30 AM.
+  * `:by_report_plan_name` (`t:string`) Returns only report jobs with the specified report plan name.
+  * `:by_status` (`t:string`) Returns only report jobs that are in the specified status. The statuses are:
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+         return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous call to this operation, which can be
+         used to return the next set of items in the list.
   """
   @spec list_report_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_jobs_output(), any()}
@@ -6751,8 +6894,10 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The number of desired results from 1 to 1000. Optional. If unspecified, the query will
+         return 1 MB of data.
+  * `:next_token` (`t:string`) An identifier that was returned from the previous call to this operation, which can be
+         used to return the next set of items in the list.
   """
   @spec list_report_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_plans_output(), any()}
@@ -6808,12 +6953,20 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :account_id (t:String.t/0) (AccountId)
-   • :aggregation_period (t:String.t/0) (AggregationPeriod)
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
-   • :resource_type (t:String.t/0) (ResourceType)
-   • :state (t:String.t/0) (State)
+  * `:account_id` (`t:string`) Returns the job count for the specified account.
+  * `:aggregation_period` (`t:enum["FOURTEEN_DAYS|ONE_DAY|SEVEN_DAYS"]`) This is the period that sets the boundaries for returned 
+         results.
+  * `:max_results` (`t:integer`) This parameter sets the maximum number of items 
+         to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned resources. For example, if a request
+         is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+         allows you to return more items in your list starting at the location pointed to by the
+         next token.
+  * `:resource_type` (`t:string`) Returns the job count for the specified resource type. 
+         Use request <code>GetSupportedResourceTypes</code> to obtain 
+         strings for supported resource types.
+  * `:state` (`t:enum["ABORTED|AGGREGATE_ALL|ANY|COMPLETED|CREATED|FAILED|PENDING|RUNNING"]`) This parameter returns the job count for jobs 
+         with the specified state.
   """
   @spec list_restore_job_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_job_summaries_output(), any()}
@@ -6896,16 +7049,24 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :by_account_id (t:String.t/0) (accountId)
-   • :by_complete_after (t:String.t/0) (completeAfter)
-   • :by_complete_before (t:String.t/0) (completeBefore)
-   • :by_created_after (t:String.t/0) (createdAfter)
-   • :by_created_before (t:String.t/0) (createdBefore)
-   • :by_resource_type (t:String.t/0) (resourceType)
-   • :by_restore_testing_plan_arn (t:String.t/0) (restoreTestingPlanArn)
-   • :by_status (t:String.t/0) (status)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:by_account_id` (`t:string`) The account ID to list the jobs from. Returns only restore jobs associated with the
+         specified account ID.
+  * `:by_complete_after` (`t:timestamp`) Returns only copy jobs completed after a date expressed in Unix format and Coordinated
+         Universal Time (UTC).
+  * `:by_complete_before` (`t:timestamp`) Returns only copy jobs completed before a date expressed in Unix format and Coordinated
+         Universal Time (UTC).
+  * `:by_created_after` (`t:timestamp`) Returns only restore jobs that were created after the specified date.
+  * `:by_created_before` (`t:timestamp`) Returns only restore jobs that were created before the specified date.
+  * `:by_resource_type` (`t:string`) Include this parameter to return only restore jobs for the 
+            specified resources:
+  * `:by_restore_testing_plan_arn` (`t:string`) This returns only restore testing jobs that match the 
+         specified resource Amazon Resource Name (ARN).
+  * `:by_status` (`t:enum["ABORTED|COMPLETED|FAILED|PENDING|RUNNING"]`) Returns only restore jobs associated with the specified job status.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_restore_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_output(), any()}
@@ -7027,14 +7188,18 @@ defmodule AWS.Backup do
   `ByRecoveryPointCreationDateBefore`.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) Returns only restore jobs that match the specified resource 
+         Amazon Resource Name (ARN).
 
   ## Optional parameters:
-   • :by_recovery_point_creation_date_after (t:String.t/0) (recoveryPointCreationDateAfter)
-   • :by_recovery_point_creation_date_before (t:String.t/0) (recoveryPointCreationDateBefore)
-   • :by_status (t:String.t/0) (status)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:by_recovery_point_creation_date_after` (`t:timestamp`) Returns only restore jobs of recovery points that were created after the specified date.
+  * `:by_recovery_point_creation_date_before` (`t:timestamp`) Returns only restore jobs of recovery points that were created before the specified date.
+  * `:by_status` (`t:enum["ABORTED|COMPLETED|FAILED|PENDING|RUNNING"]`) Returns only restore jobs associated with the specified job status.
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, 
+         if a request ismade to return <code>MaxResults</code> number of items, 
+         <code>NextToken</code> allows you to return more items in your list 
+         starting at the location pointed to by the next token.
   """
   @spec list_restore_jobs_by_protected_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_jobs_by_protected_resource_output(), any()}
@@ -7112,8 +7277,11 @@ defmodule AWS.Backup do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:`) The next item following a partial list of returned items. 
+         For example, if a request is made to return <code>MaxResults</code> 
+         number of items, <code>NextToken</code> allows you to return more items 
+         in your list starting at the location pointed to by the nexttoken.
   """
   @spec list_restore_testing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_restore_testing_plans_output(), any()}
@@ -7160,11 +7328,15 @@ defmodule AWS.Backup do
   by `MaxResults` and `RestoreTestingPlanName`.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
+  * `:restore_testing_plan_name` (`t:`) Returns restore testing selections by the specified restore testing 
+         plan name.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:`) The next item following a partial list of returned items. 
+         For example, if a request is made to return <code>MaxResults</code> 
+         number of items, <code>NextToken</code> allows you to return more items 
+         in your list starting at the location pointed to by the nexttoken.
   """
   @spec list_restore_testing_selections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_restore_testing_selections_output(), any()}
@@ -7221,11 +7393,16 @@ defmodule AWS.Backup do
   table.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+         depends on the type of resource. Valid targets for <code>ListTags</code> are recovery
+         points, backup plans, and backup vaults.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of items to be returned.
+  * `:next_token` (`t:string`) The next item following a partial list of returned items. For example, if a request is
+         made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
+         to return more items in your list starting at the location pointed to by the next
+         token.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_output(), any()}
@@ -7274,7 +7451,10 @@ defmodule AWS.Backup do
   format.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -7318,7 +7498,8 @@ defmodule AWS.Backup do
   [Cohasset Associates Compliance Assessment.](samples/cohassetreport.zip)
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The Backup Vault Lock configuration that specifies the name of the backup
+         vault it protects.
 
   ## Optional parameters:
   """
@@ -7351,7 +7532,10 @@ defmodule AWS.Backup do
   Turns on notifications on a backup vault for the specified topic and events.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
 
   ## Optional parameters:
   """
@@ -7386,7 +7570,7 @@ defmodule AWS.Backup do
   `ValidationStatusMessage`.
 
   ## Required positional parameters:
-   • :restore_job_id (t:string String.t/0) (RestoreJobId)
+  * `:restore_job_id` (`t:string`) This is a unique identifier of a restore job within Backup.
 
   ## Optional parameters:
   """
@@ -7460,7 +7644,7 @@ defmodule AWS.Backup do
   Starts an on-demand report job for the specified report plan.
 
   ## Required positional parameters:
-   • :report_plan_name (t:string String.t/0) (ReportPlanName)
+  * `:report_plan_name` (`t:string`) The unique name of a report plan.
 
   ## Optional parameters:
   """
@@ -7522,7 +7706,7 @@ defmodule AWS.Backup do
   and Amazon Neptune.
 
   ## Required positional parameters:
-   • :backup_job_id (t:string String.t/0) (BackupJobId)
+  * `:backup_job_id` (`t:string`) Uniquely identifies a request to Backup to back up a resource.
 
   ## Optional parameters:
   """
@@ -7557,7 +7741,8 @@ defmodule AWS.Backup do
   identified by an Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
+         the tagged resource.
 
   ## Optional parameters:
   """
@@ -7592,7 +7777,8 @@ defmodule AWS.Backup do
   identified by an Amazon Resource Name (ARN)
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
+         the tagged resource.
 
   ## Optional parameters:
   """
@@ -7629,7 +7815,7 @@ defmodule AWS.Backup do
   `VersionId`.
 
   ## Required positional parameters:
-   • :backup_plan_id (t:string String.t/0) (BackupPlanId)
+  * `:backup_plan_id` (`t:string`) Uniquely identifies a backup plan.
 
   ## Optional parameters:
   """
@@ -7663,7 +7849,8 @@ defmodule AWS.Backup do
   input document in JSON format.
 
   ## Required positional parameters:
-   • :framework_name (t:string String.t/0) (FrameworkName)
+  * `:framework_name` (`t:string`) The unique name of a framework. This name is between 1 and 256 characters, starting with
+         a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
 
   ## Optional parameters:
   """
@@ -7736,8 +7923,12 @@ defmodule AWS.Backup do
   This operation does not support continuous backups.
 
   ## Required positional parameters:
-   • :backup_vault_name (t:string String.t/0) (BackupVaultName)
-   • :recovery_point_arn (t:string String.t/0) (RecoveryPointArn)
+  * `:backup_vault_name` (`t:string`) The name of a logical container where backups are stored. Backup vaults are identified
+         by names that are unique to the account used to create them and the Amazon Web Services
+         Region where they are created. They consist of lowercase letters, numbers, and
+         hyphens.
+  * `:recovery_point_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+            <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
 
   ## Optional parameters:
   """
@@ -7811,7 +8002,9 @@ defmodule AWS.Backup do
   input document in JSON format.
 
   ## Required positional parameters:
-   • :report_plan_name (t:string String.t/0) (ReportPlanName)
+  * `:report_plan_name` (`t:string`) The unique name of the report plan. This name is between 1 and 256 characters, starting
+         with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores
+         (_).
 
   ## Optional parameters:
   """
@@ -7860,7 +8053,7 @@ defmodule AWS.Backup do
   `SelectionWindowDays`
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
+  * `:restore_testing_plan_name` (`t:`) This is the restore testing plan name you wish to update.
 
   ## Optional parameters:
   """
@@ -7900,8 +8093,10 @@ defmodule AWS.Backup do
   unsuccessful.
 
   ## Required positional parameters:
-   • :restore_testing_plan_name (t: String.t/0) (RestoreTestingPlanName)
-   • :restore_testing_selection_name (t: String.t/0) (RestoreTestingSelectionName)
+  * `:restore_testing_plan_name` (`t:`) The restore testing plan name is required to update the 
+         indicated testing plan.
+  * `:restore_testing_selection_name` (`t:`) This is the required restore testing selection name of the restore 
+         testing selection you wish to update.
 
   ## Optional parameters:
   """

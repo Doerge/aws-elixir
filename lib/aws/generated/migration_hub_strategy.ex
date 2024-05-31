@@ -1459,7 +1459,7 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves details about an application component.
 
   ## Required positional parameters:
-   • :application_component_id (t:string String.t/0) (applicationComponentId)
+  * `:application_component_id` (`t:string`)  The ID of the application component. The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
@@ -1494,7 +1494,7 @@ defmodule AWS.MigrationHubStrategy do
   running on a server.
 
   ## Required positional parameters:
-   • :application_component_id (t:string String.t/0) (applicationComponentId)
+  * `:application_component_id` (`t:string`)  The ID of the application component. The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
@@ -1527,7 +1527,7 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves the status of an on-going assessment.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`)  The <code>assessmentid</code> returned by <a>StartAssessment</a>.
 
   ## Optional parameters:
   """
@@ -1555,7 +1555,7 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves the details about a specific import task.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`)  The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. 
 
   ## Optional parameters:
   """
@@ -1666,7 +1666,7 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves detailed information about the specified recommendation report.
 
   ## Required positional parameters:
-   • :id (t:string String.t/0) (id)
+  * `:id` (`t:string`)  The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. 
 
   ## Optional parameters:
   """
@@ -1694,11 +1694,13 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves detailed information about a specified server.
 
   ## Required positional parameters:
-   • :server_id (t:string String.t/0) (serverId)
+  * `:server_id` (`t:string`)  The ID of the server. 
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of items to include in the response. The maximum value is 100. 
+  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
+  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
+      with a token. You then use the returned token to retrieve the next set of 10. 
   """
   @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
@@ -1742,7 +1744,7 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves recommended strategies and tools for the specified server.
 
   ## Required positional parameters:
-   • :server_id (t:string String.t/0) (serverId)
+  * `:server_id` (`t:string`)  The ID of the server. 
 
   ## Optional parameters:
   """
@@ -1841,8 +1843,10 @@ defmodule AWS.MigrationHubStrategy do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of items to include in the response. The maximum value is 100. 
+  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
+  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
+      with a token. You then use the returned token to retrieve the next set of 10. 
   """
   @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
@@ -1888,8 +1892,10 @@ defmodule AWS.MigrationHubStrategy do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The total number of items to return. The maximum value is 100. 
+  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
+  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
+      with a token. You then use the returned token to retrieve the next set of 10. 
   """
   @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}

@@ -1752,8 +1752,8 @@ defmodule AWS.M2 do
   Cancels the running of a specific batch job execution.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :execution_id (t:string String.t/0) (executionId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
 
   ## Optional parameters:
   """
@@ -1835,7 +1835,7 @@ defmodule AWS.M2 do
   Starts a data set import task for a specific application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application for which you want to import data sets.
 
   ## Optional parameters:
   """
@@ -1874,7 +1874,7 @@ defmodule AWS.M2 do
   environment.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The application identifier.
 
   ## Optional parameters:
   """
@@ -1941,7 +1941,7 @@ defmodule AWS.M2 do
   You cannot delete a running application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application you want to delete.
 
   ## Optional parameters:
   """
@@ -1982,8 +1982,9 @@ defmodule AWS.M2 do
   smoothly.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:application_id` (`t:string`) The unique identifier of the application you want to delete.
+  * `:environment_id` (`t:string`) The unique identifier of the runtime environment where the application was previously
+         deployed.
 
   ## Optional parameters:
   """
@@ -2035,7 +2036,7 @@ defmodule AWS.M2 do
   environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The unique identifier of the runtime environment you want to delete.
 
   ## Optional parameters:
   """
@@ -2068,7 +2069,7 @@ defmodule AWS.M2 do
   Describes the details of a specific application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application.
 
   ## Optional parameters:
   """
@@ -2096,8 +2097,8 @@ defmodule AWS.M2 do
   Returns details about a specific version of a specific application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :application_version (t:integer String.t/0) (applicationVersion)
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:application_version` (`t:integer`) The specific version of the application.
 
   ## Optional parameters:
   """
@@ -2131,8 +2132,8 @@ defmodule AWS.M2 do
   Gets the details of a specific batch job execution for a specific application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :execution_id (t:string String.t/0) (executionId)
+  * `:application_id` (`t:string`) The identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
 
   ## Optional parameters:
   """
@@ -2161,8 +2162,8 @@ defmodule AWS.M2 do
   Gets the details of a specific data set.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :data_set_name (t:string String.t/0) (dataSetName)
+  * `:application_id` (`t:string`) The unique identifier of the application that this data set is associated with.
+  * `:data_set_name` (`t:string`) The name of the data set.
 
   ## Optional parameters:
   """
@@ -2192,8 +2193,9 @@ defmodule AWS.M2 do
   `CreateDataSetImportTask` operation.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :task_id (t:string String.t/0) (taskId)
+  * `:application_id` (`t:string`) The application identifier.
+  * `:task_id` (`t:string`) The task identifier returned by the <a>CreateDataSetImportTask</a> operation.
+      
 
   ## Optional parameters:
   """
@@ -2222,8 +2224,8 @@ defmodule AWS.M2 do
   Gets details of a specific deployment with a given deployment identifier.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :deployment_id (t:string String.t/0) (deploymentId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:deployment_id` (`t:string`) The unique identifier for the deployment.
 
   ## Optional parameters:
   """
@@ -2252,7 +2254,7 @@ defmodule AWS.M2 do
   Describes a specific runtime environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The unique identifier of the runtime environment.
 
   ## Optional parameters:
   """
@@ -2307,11 +2309,13 @@ defmodule AWS.M2 do
   Returns a list of the application versions for a specific application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of application versions to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
   """
   @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
@@ -2362,10 +2366,11 @@ defmodule AWS.M2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :environment_id (t:String.t/0) (environmentId)
-   • :max_results (t:String.t/0) (maxResults)
-   • :names (t:String.t/0) (names)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:environment_id` (`t:string`) The unique identifier of the runtime environment where the applications are
+         deployed.
+  * `:max_results` (`t:integer`) The maximum number of applications to return.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the applications.
+  * `:next_token` (`t:string`) A pagination token to control the number of applications displayed in the list.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -2432,12 +2437,15 @@ defmodule AWS.M2 do
   a batch job.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The identifier of the application.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :prefix (t:String.t/0) (prefix)
+  * `:max_results` (`t:integer`) The maximum number of batch job definitions to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
+  * `:prefix` (`t:`) If the batch job definition is a FileBatchJobDefinition, the prefix allows you to search
+         on the file names of FileBatchJobDefinitions.
   """
   @spec list_batch_job_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_definitions_response(), any()}
@@ -2491,16 +2499,17 @@ defmodule AWS.M2 do
   application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
-   • :execution_ids (t:String.t/0) (executionIds)
-   • :job_name (t:String.t/0) (jobName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :started_after (t:String.t/0) (startedAfter)
-   • :started_before (t:String.t/0) (startedBefore)
-   • :status (t:String.t/0) (status)
+  * `:execution_ids` (`t:list[com.amazonaws.m2#Identifier]`) The unique identifier of each batch job execution.
+  * `:job_name` (`t:string`) The name of each batch job execution.
+  * `:max_results` (`t:integer`) The maximum number of batch job executions to return.
+  * `:next_token` (`t:string`) A pagination token to control the number of batch job executions displayed in the
+         list.
+  * `:started_after` (`t:timestamp`) The time after which the batch job executions started.
+  * `:started_before` (`t:timestamp`) The time before the batch job executions started.
+  * `:status` (`t:string`) The status of the batch job executions.
   """
   @spec list_batch_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_executions_response(), any()}
@@ -2591,8 +2600,8 @@ defmodule AWS.M2 do
   This is only applicable for Micro Focus engine with versions 8.0.6 and above.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
-   • :execution_id (t:string String.t/0) (executionId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
+  * `:execution_id` (`t:string`) The unique identifier of each batch job execution.
 
   ## Optional parameters:
   """
@@ -2626,11 +2635,13 @@ defmodule AWS.M2 do
   Lists the data set imports for the specified application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
   """
   @spec list_data_set_import_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_import_history_response(), any()}
@@ -2681,13 +2692,17 @@ defmodule AWS.M2 do
   [CreateDataSetImportTask](https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application for which you want to list the associated data
+         sets.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name_filter (t:String.t/0) (nameFilter)
-   • :next_token (t:String.t/0) (nextToken)
-   • :prefix (t:String.t/0) (prefix)
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:name_filter` (`t:string`) Filter dataset name matching the specified pattern. Can use * and % as wild cards.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
+  * `:prefix` (`t:string`) The prefix of the data set name, which you can use to filter the list of data
+         sets.
   """
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2754,11 +2769,13 @@ defmodule AWS.M2 do
   deployment is mapped to a particular application version.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The application identifier.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -2804,9 +2821,11 @@ defmodule AWS.M2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:engine_type` (`t:string`) The type of target platform.
+  * `:max_results` (`t:integer`) The maximum number of objects to return.
+  * `:next_token` (`t:string`) A pagination token returned from a previous call to
+  this operation. This specifies the next item to return. To return to the beginning of the 
+  list, exclude this parameter.
   """
   @spec list_engine_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_engine_versions_response(), any()}
@@ -2861,10 +2880,11 @@ defmodule AWS.M2 do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :engine_type (t:String.t/0) (engineType)
-   • :max_results (t:String.t/0) (maxResults)
-   • :names (t:String.t/0) (names)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:engine_type` (`t:string`) The engine type for the runtime environment.
+  * `:max_results` (`t:integer`) The maximum number of runtime environments to return.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the runtime environments. Must be unique within the account.
+  * `:next_token` (`t:string`) A pagination token to control the number of runtime environments displayed in the
+         list.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -2926,7 +2946,7 @@ defmodule AWS.M2 do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2954,7 +2974,7 @@ defmodule AWS.M2 do
   Starts an application that is currently stopped.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application you want to start.
 
   ## Optional parameters:
   """
@@ -2990,7 +3010,7 @@ defmodule AWS.M2 do
   The associated application must be running in order to start the batch job.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application associated with this batch job.
 
   ## Optional parameters:
   """
@@ -3023,7 +3043,7 @@ defmodule AWS.M2 do
   Stops a running application.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application you want to stop.
 
   ## Optional parameters:
   """
@@ -3056,7 +3076,7 @@ defmodule AWS.M2 do
   Adds one or more tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -3089,10 +3109,10 @@ defmodule AWS.M2 do
   Removes one or more tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.m2#TagKey]`) The keys of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3128,7 +3148,7 @@ defmodule AWS.M2 do
   Updates an application and creates a new version.
 
   ## Required positional parameters:
-   • :application_id (t:string String.t/0) (applicationId)
+  * `:application_id` (`t:string`) The unique identifier of the application you want to update.
 
   ## Optional parameters:
   """
@@ -3161,7 +3181,7 @@ defmodule AWS.M2 do
   Updates the configuration details for a specific runtime environment.
 
   ## Required positional parameters:
-   • :environment_id (t:string String.t/0) (environmentId)
+  * `:environment_id` (`t:string`) The unique identifier of the runtime environment that you want to update.
 
   ## Optional parameters:
   """

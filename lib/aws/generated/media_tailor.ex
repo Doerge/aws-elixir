@@ -1901,7 +1901,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -1933,8 +1933,8 @@ defmodule AWS.MediaTailor do
   The live source configuration.
 
   ## Required positional parameters:
-   • :live_source_name (t:string String.t/0) (LiveSourceName)
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:live_source_name` (`t:string`) The name of the live source.
+  * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
   """
@@ -1985,8 +1985,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :playback_configuration_name (t:string String.t/0) (PlaybackConfigurationName)
+  * `:name` (`t:string`) The name to assign to the schedule request.
+  * `:playback_configuration_name` (`t:string`) The name to assign to the playback configuration.
 
   ## Optional parameters:
   """
@@ -2035,8 +2035,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:channel_name` (`t:string`) The name of the channel for this Program.
+  * `:program_name` (`t:string`) The name of the Program.
 
   ## Optional parameters:
   """
@@ -2080,7 +2080,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name associated with the source location.
 
   ## Optional parameters:
   """
@@ -2117,8 +2117,8 @@ defmodule AWS.MediaTailor do
   The VOD source configuration parameters.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
-   • :vod_source_name (t:string String.t/0) (VodSourceName)
+  * `:source_location_name` (`t:string`) The name of the source location for this VOD source.
+  * `:vod_source_name` (`t:string`) The name associated with the VOD source.&gt;
 
   ## Optional parameters:
   """
@@ -2167,7 +2167,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -2199,7 +2199,7 @@ defmodule AWS.MediaTailor do
   The channel policy to delete.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel associated with this channel policy.
 
   ## Optional parameters:
   """
@@ -2236,8 +2236,8 @@ defmodule AWS.MediaTailor do
   The live source to delete.
 
   ## Required positional parameters:
-   • :live_source_name (t:string String.t/0) (LiveSourceName)
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:live_source_name` (`t:string`) The name of the live source.
+  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -2286,7 +2286,7 @@ defmodule AWS.MediaTailor do
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the playback configuration.
 
   ## Optional parameters:
   """
@@ -2328,8 +2328,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :playback_configuration_name (t:string String.t/0) (PlaybackConfigurationName)
+  * `:name` (`t:string`) The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.
+  * `:playback_configuration_name` (`t:string`) The name of the playback configuration for this prefetch schedule.
 
   ## Optional parameters:
   """
@@ -2378,8 +2378,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:channel_name` (`t:string`) The name of the channel.
+  * `:program_name` (`t:string`) The name of the program.
 
   ## Optional parameters:
   """
@@ -2423,7 +2423,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
   """
@@ -2460,8 +2460,8 @@ defmodule AWS.MediaTailor do
   The video on demand (VOD) source to delete.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
-   • :vod_source_name (t:string String.t/0) (VodSourceName)
+  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  * `:vod_source_name` (`t:string`) The name of the VOD source.
 
   ## Optional parameters:
   """
@@ -2510,7 +2510,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -2537,8 +2537,8 @@ defmodule AWS.MediaTailor do
   The live source to describe.
 
   ## Required positional parameters:
-   • :live_source_name (t:string String.t/0) (LiveSourceName)
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:live_source_name` (`t:string`) The name of the live source.
+  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -2574,8 +2574,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:channel_name` (`t:string`) The name of the channel associated with this Program.
+  * `:program_name` (`t:string`) The name of the program.
 
   ## Optional parameters:
   """
@@ -2607,7 +2607,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
   """
@@ -2635,8 +2635,8 @@ defmodule AWS.MediaTailor do
   source location.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
-   • :vod_source_name (t:string String.t/0) (VodSourceName)
+  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  * `:vod_source_name` (`t:string`) The name of the VOD Source.
 
   ## Optional parameters:
   """
@@ -2671,7 +2671,7 @@ defmodule AWS.MediaTailor do
   IAM policies are used to control access to your channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel associated with this Channel Policy.
 
   ## Optional parameters:
   """
@@ -2698,13 +2698,13 @@ defmodule AWS.MediaTailor do
   Retrieves information about your channel's schedule.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel associated with this Channel Schedule.
 
   ## Optional parameters:
-   • :audience (t:String.t/0) (audience)
-   • :duration_minutes (t:String.t/0) (durationMinutes)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:audience` (`t:string`) The single audience for GetChannelScheduleRequest.
+  * `:duration_minutes` (`t:string`) The duration in minutes of the channel schedule.
+  * `:max_results` (`t:integer`) The maximum number of channel schedules that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channel schedules, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) (Optional) If the playback configuration has more than <code>MaxResults</code> channel schedules, use <code>NextToken</code> to get the second and subsequent pages of results.
   """
   @spec get_channel_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_schedule_response(), any()}
@@ -2768,7 +2768,7 @@ defmodule AWS.MediaTailor do
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The identifier for the playback configuration.
 
   ## Optional parameters:
   """
@@ -2800,8 +2800,8 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :playback_configuration_name (t:string String.t/0) (PlaybackConfigurationName)
+  * `:name` (`t:string`) The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.
+  * `:playback_configuration_name` (`t:string`) Returns information about the prefetch schedule for a specific playback configuration. If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.
 
   ## Optional parameters:
   """
@@ -2832,9 +2832,9 @@ defmodule AWS.MediaTailor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :resource_arn (t:String.t/0) (resourceArn)
+  * `:max_results` (`t:integer`) The maximum number of alerts that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> alerts, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   """
   @spec list_alerts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
@@ -2889,8 +2889,8 @@ defmodule AWS.MediaTailor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of channels that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channels, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -2935,11 +2935,11 @@ defmodule AWS.MediaTailor do
   A source represents a piece of content.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Sources list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
   """
   @spec list_live_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_live_sources_response(), any()}
@@ -2987,8 +2987,8 @@ defmodule AWS.MediaTailor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (MaxResults)
-   • :next_token (t:String.t/0) (NextToken)
+  * `:max_results` (`t:integer`) The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
   """
   @spec list_playback_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_configurations_response(), any()}
@@ -3031,7 +3031,7 @@ defmodule AWS.MediaTailor do
   Lists the prefetch schedules for a playback configuration.
 
   ## Required positional parameters:
-   • :playback_configuration_name (t:string String.t/0) (PlaybackConfigurationName)
+  * `:playback_configuration_name` (`t:string`) Retrieves the prefetch schedule(s) for a specific playback configuration.
 
   ## Optional parameters:
   """
@@ -3077,8 +3077,8 @@ defmodule AWS.MediaTailor do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
   """
   @spec list_source_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_locations_response(), any()}
@@ -3125,7 +3125,7 @@ defmodule AWS.MediaTailor do
   [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with this resource.
 
   ## Optional parameters:
   """
@@ -3155,11 +3155,11 @@ defmodule AWS.MediaTailor do
   A source represents a piece of content.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source list.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`)  The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
   """
   @spec list_vod_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vod_sources_response(), any()}
@@ -3204,7 +3204,7 @@ defmodule AWS.MediaTailor do
   IAM policies are used to control access to your channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The channel name associated with this Channel Policy.
 
   ## Optional parameters:
   """
@@ -3257,7 +3257,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -3282,7 +3282,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -3308,7 +3308,7 @@ defmodule AWS.MediaTailor do
   [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the resource.
 
   ## Optional parameters:
   """
@@ -3341,10 +3341,10 @@ defmodule AWS.MediaTailor do
   The resource to untag.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to untag.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]`) The tag keys associated with the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3383,7 +3383,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
+  * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
   """
@@ -3405,8 +3405,8 @@ defmodule AWS.MediaTailor do
   Updates a live source's configuration.
 
   ## Required positional parameters:
-   • :live_source_name (t:string String.t/0) (LiveSourceName)
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:live_source_name` (`t:string`) The name of the live source.
+  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -3442,8 +3442,8 @@ defmodule AWS.MediaTailor do
   Updates a program within a channel.
 
   ## Required positional parameters:
-   • :channel_name (t:string String.t/0) (ChannelName)
-   • :program_name (t:string String.t/0) (ProgramName)
+  * `:channel_name` (`t:string`) The name of the channel for this Program.
+  * `:program_name` (`t:string`) The name of the Program.
 
   ## Optional parameters:
   """
@@ -3477,7 +3477,7 @@ defmodule AWS.MediaTailor do
   in the *MediaTailor User Guide*.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
+  * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
   """
@@ -3504,8 +3504,8 @@ defmodule AWS.MediaTailor do
   Updates a VOD source's configuration.
 
   ## Required positional parameters:
-   • :source_location_name (t:string String.t/0) (SourceLocationName)
-   • :vod_source_name (t:string String.t/0) (VodSourceName)
+  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  * `:vod_source_name` (`t:string`) The name of the VOD source.
 
   ## Optional parameters:
   """

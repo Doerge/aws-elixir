@@ -1740,11 +1740,12 @@ defmodule AWS.AmplifyUIBuilder do
   Creates a new component for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the component.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec create_component(
           AWS.Client.t(),
@@ -1788,11 +1789,11 @@ defmodule AWS.AmplifyUIBuilder do
   Creates a new form for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the form.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec create_form(AWS.Client.t(), String.t(), String.t(), create_form_request(), Keyword.t()) ::
           {:ok, create_form_response(), any()}
@@ -1830,11 +1831,12 @@ defmodule AWS.AmplifyUIBuilder do
   Creates a theme to apply to the components in an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec create_theme(AWS.Client.t(), String.t(), String.t(), create_theme_request(), Keyword.t()) ::
           {:ok, create_theme_response(), any()}
@@ -1872,9 +1874,11 @@ defmodule AWS.AmplifyUIBuilder do
   Deletes a component from an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the component to
+      delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
+  * `:id` (`t:string`) The unique ID of the component to delete.
 
   ## Optional parameters:
   """
@@ -1916,9 +1920,9 @@ defmodule AWS.AmplifyUIBuilder do
   Deletes a form from an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the form to delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the form to delete.
 
   ## Optional parameters:
   """
@@ -1960,9 +1964,11 @@ defmodule AWS.AmplifyUIBuilder do
   Deletes a theme from an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme to
+      delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
+  * `:id` (`t:string`) The unique ID of the theme to delete.
 
   ## Optional parameters:
   """
@@ -2007,7 +2013,7 @@ defmodule AWS.AmplifyUIBuilder do
   Amplify uses this action to exchange an access code for a token.
 
   ## Required positional parameters:
-   • :provider (t:string String.t/0) (provider)
+  * `:provider` (`t:string`) The third-party provider for the token. The only valid value is <code>figma</code>.
 
   ## Optional parameters:
   """
@@ -2046,11 +2052,12 @@ defmodule AWS.AmplifyUIBuilder do
   Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export components to.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec export_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_components_response(), any()}
@@ -2087,11 +2094,11 @@ defmodule AWS.AmplifyUIBuilder do
   app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export forms to.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec export_forms(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_forms_response(), any()}
@@ -2128,11 +2135,11 @@ defmodule AWS.AmplifyUIBuilder do
   app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app to export the themes to.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
 
   ## Optional parameters:
-   • :next_token (t:String.t/0) (nextToken)
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec export_themes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_themes_response(), any()}
@@ -2168,9 +2175,9 @@ defmodule AWS.AmplifyUIBuilder do
   Returns an existing code generation job.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:string`) The unique ID of the Amplify app associated with the code generation job.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app associated with the code generation job.
+  * `:id` (`t:string`) The unique ID of the code generation job.
 
   ## Optional parameters:
   """
@@ -2199,9 +2206,9 @@ defmodule AWS.AmplifyUIBuilder do
   Returns an existing component for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the component.
 
   ## Optional parameters:
   """
@@ -2230,9 +2237,9 @@ defmodule AWS.AmplifyUIBuilder do
   Returns an existing form for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID of the form.
 
   ## Optional parameters:
   """
@@ -2261,8 +2268,8 @@ defmodule AWS.AmplifyUIBuilder do
   Returns existing metadata for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
 
   ## Optional parameters:
   """
@@ -2291,9 +2298,9 @@ defmodule AWS.AmplifyUIBuilder do
   Returns an existing theme for an Amplify app.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID for the theme.
 
   ## Optional parameters:
   """
@@ -2323,12 +2330,12 @@ defmodule AWS.AmplifyUIBuilder do
   environment.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:string`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of jobs to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec list_codegen_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_codegen_jobs_response(), any()}
@@ -2374,12 +2381,13 @@ defmodule AWS.AmplifyUIBuilder do
   environment.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of components to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec list_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
@@ -2424,12 +2432,12 @@ defmodule AWS.AmplifyUIBuilder do
   Retrieves a list of forms for a specified Amplify app and backend environment.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of forms to retrieve.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec list_forms(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_forms_response(), any()}
@@ -2474,7 +2482,7 @@ defmodule AWS.AmplifyUIBuilder do
   Returns a list of tags for a specified Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to list tags.
 
   ## Optional parameters:
   """
@@ -2503,12 +2511,13 @@ defmodule AWS.AmplifyUIBuilder do
   environment.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
+      app.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of theme results to return in the response.
+  * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec list_themes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_themes_response(), any()}
@@ -2553,9 +2562,9 @@ defmodule AWS.AmplifyUIBuilder do
   Stores the metadata information about a feature on a form.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :feature_name (t: String.t/0) (featureName)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:feature_name` (`t:`) The name of the feature associated with the metadata.
 
   ## Optional parameters:
   """
@@ -2598,7 +2607,7 @@ defmodule AWS.AmplifyUIBuilder do
   have expired.
 
   ## Required positional parameters:
-   • :provider (t:string String.t/0) (provider)
+  * `:provider` (`t:string`) The third-party provider for the token. The only valid value is <code>figma</code>.
 
   ## Optional parameters:
   """
@@ -2632,11 +2641,11 @@ defmodule AWS.AmplifyUIBuilder do
   environment.
 
   ## Required positional parameters:
-   • :app_id (t:string String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
+  * `:app_id` (`t:string`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The idempotency token used to ensure that the code generation job request completes only once.
   """
   @spec start_codegen_job(
           AWS.Client.t(),
@@ -2680,7 +2689,7 @@ defmodule AWS.AmplifyUIBuilder do
   Tags the resource with a tag key and value.
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to tag a resource.
 
   ## Optional parameters:
   """
@@ -2713,10 +2722,10 @@ defmodule AWS.AmplifyUIBuilder do
   Untags a resource with a specified Amazon Resource Name (ARN).
 
   ## Required positional parameters:
-   • :resource_arn (t: String.t/0) (resourceArn)
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to untag a resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.amplifyuibuilder#TagKey]`) The tag keys to use to untag a resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2752,12 +2761,12 @@ defmodule AWS.AmplifyUIBuilder do
   Updates an existing component.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID for the component.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec update_component(
           AWS.Client.t(),
@@ -2802,12 +2811,12 @@ defmodule AWS.AmplifyUIBuilder do
   Updates an existing form.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID for the form.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec update_form(
           AWS.Client.t(),
@@ -2852,12 +2861,12 @@ defmodule AWS.AmplifyUIBuilder do
   Updates an existing theme.
 
   ## Required positional parameters:
-   • :app_id (t: String.t/0) (appId)
-   • :environment_name (t: String.t/0) (environmentName)
-   • :id (t:string String.t/0) (id)
+  * `:app_id` (`t:`) The unique ID for the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:id` (`t:string`) The unique ID for the theme.
 
   ## Optional parameters:
-   • :client_token (t:String.t/0) (clientToken)
+  * `:client_token` (`t:`) The unique client token.
   """
   @spec update_theme(
           AWS.Client.t(),

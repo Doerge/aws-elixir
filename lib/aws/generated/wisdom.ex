@@ -1883,7 +1883,7 @@ defmodule AWS.Wisdom do
   association.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -1926,7 +1926,8 @@ defmodule AWS.Wisdom do
   upload an asset.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2018,7 +2019,8 @@ defmodule AWS.Wisdom do
   Creates a Wisdom quick response.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2061,7 +2063,7 @@ defmodule AWS.Wisdom do
   Wisdom is enabled.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2094,7 +2096,7 @@ defmodule AWS.Wisdom do
   Deletes an assistant.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2127,8 +2129,8 @@ defmodule AWS.Wisdom do
   Deletes an assistant association.
 
   ## Required positional parameters:
-   • :assistant_association_id (t:string String.t/0) (assistantAssociationId)
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_association_id` (`t:string`) The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2175,8 +2177,9 @@ defmodule AWS.Wisdom do
   Deletes the content.
 
   ## Required positional parameters:
-   • :content_id (t:string String.t/0) (contentId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2217,8 +2220,9 @@ defmodule AWS.Wisdom do
   Deletes the quick response import job.
 
   ## Required positional parameters:
-   • :import_job_id (t:string String.t/0) (importJobId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:import_job_id` (`t:string`) The identifier of the import job to be deleted.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it.
 
   ## Optional parameters:
   """
@@ -2276,7 +2280,7 @@ defmodule AWS.Wisdom do
   Reference*.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2314,8 +2318,9 @@ defmodule AWS.Wisdom do
   Deletes a quick response.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
-   • :quick_response_id (t:string String.t/0) (quickResponseId)
+  * `:knowledge_base_id` (`t:string`) The knowledge base from which the quick response is deleted. The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it.
+  * `:quick_response_id` (`t:string`) The identifier of the quick response to delete.
 
   ## Optional parameters:
   """
@@ -2362,7 +2367,7 @@ defmodule AWS.Wisdom do
   Retrieves information about an assistant.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2390,8 +2395,8 @@ defmodule AWS.Wisdom do
   Retrieves information about an assistant association.
 
   ## Required positional parameters:
-   • :assistant_association_id (t:string String.t/0) (assistantAssociationId)
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_association_id` (`t:string`) The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2425,8 +2430,9 @@ defmodule AWS.Wisdom do
   Retrieves content, including a pre-signed URL to download the content.
 
   ## Required positional parameters:
-   • :content_id (t:string String.t/0) (contentId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2455,8 +2461,9 @@ defmodule AWS.Wisdom do
   Retrieves summary information about the content.
 
   ## Required positional parameters:
-   • :content_id (t:string String.t/0) (contentId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2485,8 +2492,8 @@ defmodule AWS.Wisdom do
   Retrieves the started import job.
 
   ## Required positional parameters:
-   • :import_job_id (t:string String.t/0) (importJobId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:import_job_id` (`t:string`) The identifier of the import job to retrieve.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base that the import job belongs to.
 
   ## Optional parameters:
   """
@@ -2515,7 +2522,8 @@ defmodule AWS.Wisdom do
   Retrieves information about the knowledge base.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2543,8 +2551,8 @@ defmodule AWS.Wisdom do
   Retrieves the quick response.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
-   • :quick_response_id (t:string String.t/0) (quickResponseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.
+  * `:quick_response_id` (`t:string`) The identifier of the quick response.
 
   ## Optional parameters:
   """
@@ -2581,12 +2589,15 @@ defmodule AWS.Wisdom do
   [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html).
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :wait_time_seconds (t:String.t/0) (waitTimeSeconds)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:wait_time_seconds` (`t:integer`) The duration (in seconds) for which the call waits for a recommendation to be made
+      available before returning. If a recommendation is available, the call returns sooner than
+        <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the
+      call returns successfully with an empty list.
   """
   @spec get_recommendations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
@@ -2631,8 +2642,8 @@ defmodule AWS.Wisdom do
   Retrieves information for a specified session.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2661,11 +2672,12 @@ defmodule AWS.Wisdom do
   Lists information about assistant associations.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_assistant_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assistant_associations_response(), any()}
@@ -2711,8 +2723,9 @@ defmodule AWS.Wisdom do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_assistants(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assistants_response(), any()}
@@ -2756,11 +2769,13 @@ defmodule AWS.Wisdom do
   Lists the content.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contents_response(), any()}
@@ -2804,11 +2819,13 @@ defmodule AWS.Wisdom do
   Lists information about import jobs.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
@@ -2854,8 +2871,9 @@ defmodule AWS.Wisdom do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_knowledge_bases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
@@ -2899,11 +2917,13 @@ defmodule AWS.Wisdom do
   Lists information about quick response.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec list_quick_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_responses_response(), any()}
@@ -2947,7 +2967,7 @@ defmodule AWS.Wisdom do
   Lists the tags for the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -2982,8 +3002,8 @@ defmodule AWS.Wisdom do
   behavior and avoiding duplicate recommendations.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
-   • :session_id (t:string String.t/0) (sessionId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3034,7 +3054,7 @@ defmodule AWS.Wisdom do
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html).
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3067,7 +3087,8 @@ defmodule AWS.Wisdom do
   Removes a URI template from a knowledge base.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3113,11 +3134,13 @@ defmodule AWS.Wisdom do
   resource by its name.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec search_content(AWS.Client.t(), String.t(), search_content_request(), Keyword.t()) ::
           {:ok, search_content_response(), any()}
@@ -3154,11 +3177,12 @@ defmodule AWS.Wisdom do
   Searches existing Wisdom quick responses in a Wisdom knowledge base.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec search_quick_responses(
           AWS.Client.t(),
@@ -3200,11 +3224,12 @@ defmodule AWS.Wisdom do
   Searches for sessions.
 
   ## Required positional parameters:
-   • :assistant_id (t:string String.t/0) (assistantId)
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return per page.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
+  response in the next request to retrieve the next set of results.
   """
   @spec search_sessions(AWS.Client.t(), String.t(), search_sessions_request(), Keyword.t()) ::
           {:ok, search_sessions_response(), any()}
@@ -3250,7 +3275,8 @@ defmodule AWS.Wisdom do
   knowledge base of type CUSTOM.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3299,7 +3325,8 @@ defmodule AWS.Wisdom do
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3332,7 +3359,7 @@ defmodule AWS.Wisdom do
   Adds the specified tags to the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -3365,10 +3392,10 @@ defmodule AWS.Wisdom do
   Removes the specified tags from the specified resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (resourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.wisdom#TagKey]`) The tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3404,8 +3431,9 @@ defmodule AWS.Wisdom do
   Updates information about the content.
 
   ## Required positional parameters:
-   • :content_id (t:string String.t/0) (contentId)
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN
 
   ## Optional parameters:
   """
@@ -3453,7 +3481,8 @@ defmodule AWS.Wisdom do
   `https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view`.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3496,8 +3525,9 @@ defmodule AWS.Wisdom do
   Updates an existing Wisdom quick response.
 
   ## Required positional parameters:
-   • :knowledge_base_id (t:string String.t/0) (knowledgeBaseId)
-   • :quick_response_id (t:string String.t/0) (quickResponseId)
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
+  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:quick_response_id` (`t:string`) The identifier of the quick response.
 
   ## Optional parameters:
   """

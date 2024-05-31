@@ -2081,7 +2081,7 @@ defmodule AWS.DataBrew do
   partial failure in the response.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the recipe whose versions are to be deleted.
 
   ## Optional parameters:
   """
@@ -2348,7 +2348,7 @@ defmodule AWS.DataBrew do
   Deletes a dataset from DataBrew.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the dataset to be deleted.
 
   ## Optional parameters:
   """
@@ -2381,7 +2381,7 @@ defmodule AWS.DataBrew do
   Deletes the specified DataBrew job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job to be deleted.
 
   ## Optional parameters:
   """
@@ -2414,7 +2414,7 @@ defmodule AWS.DataBrew do
   Deletes an existing DataBrew project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the project to be deleted.
 
   ## Optional parameters:
   """
@@ -2447,8 +2447,10 @@ defmodule AWS.DataBrew do
   Deletes a single version of a DataBrew recipe.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :recipe_version (t:string String.t/0) (RecipeVersion)
+  * `:name` (`t:string`) The name of the recipe.
+  * `:recipe_version` (`t:string`) The version of the recipe to be deleted. You can specify a numeric versions
+                (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is
+            not supported.
 
   ## Optional parameters:
   """
@@ -2489,7 +2491,7 @@ defmodule AWS.DataBrew do
   Deletes a ruleset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ruleset to be deleted.
 
   ## Optional parameters:
   """
@@ -2522,7 +2524,7 @@ defmodule AWS.DataBrew do
   Deletes the specified DataBrew schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule to be deleted.
 
   ## Optional parameters:
   """
@@ -2555,7 +2557,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew dataset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the dataset to be described.
 
   ## Optional parameters:
   """
@@ -2583,7 +2585,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job to be described.
 
   ## Optional parameters:
   """
@@ -2611,8 +2613,8 @@ defmodule AWS.DataBrew do
   Represents one run of a DataBrew job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :run_id (t:string String.t/0) (RunId)
+  * `:name` (`t:string`) The name of the job being processed during this run.
+  * `:run_id` (`t:string`) The unique identifier of the job run.
 
   ## Optional parameters:
   """
@@ -2640,7 +2642,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the project to be described.
 
   ## Optional parameters:
   """
@@ -2670,10 +2672,11 @@ defmodule AWS.DataBrew do
   version.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the recipe to be described.
 
   ## Optional parameters:
-   • :recipe_version (t:String.t/0) (recipeVersion)
+  * `:recipe_version` (`t:string`) The recipe version identifier. If this parameter isn&#39;t specified, then the latest
+            published version is returned.
   """
   @spec describe_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
@@ -2708,7 +2711,7 @@ defmodule AWS.DataBrew do
   Retrieves detailed information about the ruleset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ruleset to be described.
 
   ## Optional parameters:
   """
@@ -2736,7 +2739,7 @@ defmodule AWS.DataBrew do
   Returns the definition of a specific DataBrew schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule to be described.
 
   ## Optional parameters:
   """
@@ -2766,8 +2769,8 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2811,11 +2814,11 @@ defmodule AWS.DataBrew do
   Lists all of the previous runs of a particular DataBrew job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job.
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -2861,10 +2864,14 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :dataset_name (t:String.t/0) (datasetName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :project_name (t:String.t/0) (projectName)
+  * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter indicates to return only those jobs that
+            act on the specified dataset.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where to continue pagination if a
+            previous request was truncated. To get the next set of pages, pass in the NextToken
+            value from the response object of the previous page call. 
+  * `:project_name` (`t:string`) The name of a project. Using this parameter indicates to return only those jobs that
+            are associated with the specified project.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -2928,8 +2935,8 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -2976,9 +2983,9 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :name (t:String.t/0) (name)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:name` (`t:string`) The name of the recipe for which to return version information.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_recipe_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recipe_versions_response(), any()}
@@ -3033,9 +3040,12 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :recipe_version (t:String.t/0) (recipeVersion)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:recipe_version` (`t:string`) Return only those recipes with a version identifier of <code>LATEST_WORKING</code> or
+                <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted,
+                <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe
+            versions.
   """
   @spec list_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
@@ -3091,9 +3101,12 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
-   • :target_arn (t:String.t/0) (targetArn)
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where to continue pagination 
+            if a previous request was truncated. To get the next set of pages, pass in 
+            the NextToken value from the response object of the previous page call.
+  * `:target_arn` (`t:string`) The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter 
+            indicates to return only those rulesets that are associated with the specified resource.
   """
   @spec list_rulesets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rulesets_response(), any()}
@@ -3148,9 +3161,9 @@ defmodule AWS.DataBrew do
   ## Required positional parameters:
 
   ## Optional parameters:
-   • :job_name (t:String.t/0) (jobName)
-   • :max_results (t:String.t/0) (maxResults)
-   • :next_token (t:String.t/0) (nextToken)
+  * `:job_name` (`t:string`) The name of the job that these schedules apply to.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
   """
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_response(), any()}
@@ -3203,7 +3216,8 @@ defmodule AWS.DataBrew do
   Lists all the tags for a DataBrew resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
+        
 
   ## Optional parameters:
   """
@@ -3231,7 +3245,7 @@ defmodule AWS.DataBrew do
   Publishes a new version of a DataBrew recipe.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the recipe to be published.
 
   ## Optional parameters:
   """
@@ -3265,7 +3279,7 @@ defmodule AWS.DataBrew do
   open.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the project to apply the action to.
 
   ## Optional parameters:
   """
@@ -3293,7 +3307,7 @@ defmodule AWS.DataBrew do
   Runs a DataBrew job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job to be run.
 
   ## Optional parameters:
   """
@@ -3327,7 +3341,7 @@ defmodule AWS.DataBrew do
   project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the project to act upon.
 
   ## Optional parameters:
   """
@@ -3355,8 +3369,8 @@ defmodule AWS.DataBrew do
   Stops a particular run of a job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
-   • :run_id (t:string String.t/0) (RunId)
+  * `:name` (`t:string`) The name of the job to be stopped.
+  * `:run_id` (`t:string`) The ID of the job run to be stopped.
 
   ## Optional parameters:
   """
@@ -3393,7 +3407,9 @@ defmodule AWS.DataBrew do
   schedule.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) The DataBrew resource to which tags should be added. The value for this parameter is
+            an Amazon Resource Name (ARN). For DataBrew, you can tag a dataset, a job, a project, or
+            a recipe.
 
   ## Optional parameters:
   """
@@ -3426,10 +3442,11 @@ defmodule AWS.DataBrew do
   Removes metadata tags from a DataBrew resource.
 
   ## Required positional parameters:
-   • :resource_arn (t:string String.t/0) (ResourceArn)
+  * `:resource_arn` (`t:string`) A DataBrew resource from which you want to remove a tag or tags. The value for this
+            parameter is an Amazon Resource Name (ARN). 
 
   ## Optional parameters:
-   • :tag_keys (t:String.t/0) (tagKeys)
+  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]`) The tag keys (names) of one or more tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3465,7 +3482,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew dataset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the dataset to be updated.
 
   ## Optional parameters:
   """
@@ -3488,7 +3505,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing profile job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job to be updated.
 
   ## Optional parameters:
   """
@@ -3511,7 +3528,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew project.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the project to be updated.
 
   ## Optional parameters:
   """
@@ -3535,7 +3552,7 @@ defmodule AWS.DataBrew do
   recipe.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the recipe to be updated.
 
   ## Optional parameters:
   """
@@ -3558,7 +3575,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew recipe job.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the job to update.
 
   ## Optional parameters:
   """
@@ -3581,7 +3598,7 @@ defmodule AWS.DataBrew do
   Updates specified ruleset.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the ruleset to be updated.
 
   ## Optional parameters:
   """
@@ -3604,7 +3621,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of an existing DataBrew schedule.
 
   ## Required positional parameters:
-   • :name (t:string String.t/0) (Name)
+  * `:name` (`t:string`) The name of the schedule to update.
 
   ## Optional parameters:
   """
