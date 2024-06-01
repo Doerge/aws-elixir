@@ -4,48 +4,19 @@
 defmodule AWS.AccessAnalyzer do
   @moduledoc """
   Identity and Access Management Access Analyzer helps you to set, verify, and
-  refine your IAM policies by providing
-  a suite of capabilities.
-
-  Its features include findings for external and unused access,
-  basic and custom policy checks for validating policies, and policy generation to
-  generate
-  fine-grained policies. To start using IAM Access Analyzer to identify external
-  or unused access,
-  you first need to create an analyzer.
-
-  **External access analyzers** help identify potential risks
-  of accessing resources by enabling you to identify any resource policies that
-  grant access
-  to an external principal. It does this by using logic-based reasoning to analyze
-  resource-based policies in your Amazon Web Services environment. An external
-  principal can be another
-  Amazon Web Services account, a root user, an IAM user or role, a federated user,
-  an Amazon Web Services service, or an
-  anonymous user. You can also use IAM Access Analyzer to preview public and
-  cross-account access
-  to your resources before deploying permissions changes.
-
-  **Unused access analyzers** help identify potential
-  identity access risks by enabling you to identify unused IAM roles, unused
-  access keys,
-  unused console passwords, and IAM principals with unused service and
-  action-level
-  permissions.
-
-  Beyond findings, IAM Access Analyzer provides basic and custom policy checks to
-  validate IAM
-  policies before deploying permissions changes. You can use policy generation to
-  refine
-  permissions by attaching a policy generated using access activity logged in
-  CloudTrail logs.
-
-  This guide describes the IAM Access Analyzer operations that you can call
-  programmatically.
-  For general information about IAM Access Analyzer, see [Identity and Access Management Access
-  Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html)
-  in the
-  **IAM User Guide**.
+  refine your IAM policies by providing a suite of capabilities. Its features
+  include findings for external and unused access, basic and custom policy
+  checks for validating policies, and policy generation to generate fine-grained
+  policies. To start using IAM Access Analyzer to identify external or unused
+  access, you first need to create an analyzer. **External access analyzers**
+  help identify potential risks of accessing resources by enabling you to
+  identify any resource policies that grant access to an external principal. It
+  does this by using logic-based reasoning to analyze resource-based policies in
+  your Amazon Web Services environment. An external principal can be another
+  Amazon Web Services account, a root user, an IAM user or role, a federated
+  user, an Amazon Web Services service, or an anonymous user. You can also use
+  IAM Access Analyzer to preview public and cross-account access to your
+  resources before deploying permissions changes.
   """
 
   alias AWS.Client
@@ -1947,10 +1918,11 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retroactively applies the archive rule to existing findings that meet the
-  archive rule
-  criteria.
+  archive rule criteria.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ApplyArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1972,11 +1944,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Cancels the requested policy generation.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-         operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-         retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-         the policy generation request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CancelPolicyGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
+    operation. The JobId can be used with GetGeneratedPolicy to retrieve the
+    generated policies or used with CancelPolicyGeneration to cancel the policy
+    generation request.
 
   ## Optional parameters:
   """
@@ -2003,7 +1977,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Checks whether the specified access isn't allowed by a policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckAccessNotGranted&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2034,17 +2010,11 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Checks whether new access is allowed for an updated policy when compared to the
-  existing
-  policy.
+  existing policy.
 
-  You can find examples for reference policies and learn how to set up and run a
-  custom
-  policy check for new access in the [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples)
-  repository on GitHub. The reference
-  policies in this repository are meant to be passed to the
-  `existingPolicyDocument` request parameter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoNewAccess&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2075,10 +2045,11 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Creates an access preview that allows you to preview IAM Access Analyzer
-  findings for your
-  resource before deploying resource permissions.
+  findings for your resource before deploying resource permissions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAccessPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2100,7 +2071,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Creates an analyzer for your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAnalyzer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2120,16 +2093,13 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Creates an archive rule for the specified analyzer.
+  Creates an archive rule for the specified analyzer. Archive rules automatically
+  archive new findings that meet the criteria you define when you create the
+  rule.
 
-  Archive rules automatically archive
-  new findings that meet the criteria you define when you create the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateArchiveRule&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to create an archive rule, see [IAM Access Analyzer filter
-  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:analyzer_name` (`t:string`) The name of the created analyzer.
 
   ## Optional parameters:
@@ -2155,14 +2125,14 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Deletes the specified analyzer.
+  Deletes the specified analyzer. When you delete an analyzer, IAM Access Analyzer
+  is disabled for the account or organization in the current or specific Region.
+  All findings that were generated by the analyzer are deleted. You cannot undo
+  this action.
 
-  When you delete an analyzer, IAM Access Analyzer is disabled
-  for the account or organization in the current or specific Region. All findings
-  that were
-  generated by the analyzer are deleted. You cannot undo this action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteAnalyzer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:analyzer_name` (`t:string`) The name of the analyzer to delete.
 
   ## Optional parameters:
@@ -2201,8 +2171,11 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Deletes the specified archive rule.
 
-  ## Required positional parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer that associated with the archive rule to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20DeleteArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer that associated with
+    the archive rule to delete.
   * `:rule_name` (`t:string`) The name of the rule to delete.
 
   ## Optional parameters:
@@ -2249,12 +2222,14 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about an access preview for the specified analyzer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAccessPreview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:access_preview_id` (`t:string`) The unique ID for the access preview.
 
   ## Optional parameters:
-  * `:analyzer_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-            the analyzer</a> used to generate the access preview.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    access preview.
   """
   @spec get_access_preview(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_preview_response(), any()}
@@ -2288,12 +2263,15 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about a resource that was analyzed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:analyzer_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-            the analyzer</a> to retrieve information from.
-  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve information about.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer to retrieve information
+    from.
+  * `:resource_arn` (`t:string`) The ARN of the resource to retrieve information
+    about.
   """
   @spec get_analyzed_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzed_resource_response(), any()}
@@ -2336,7 +2314,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about the specified analyzer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetAnalyzer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:analyzer_name` (`t:string`) The name of the analyzer retrieved.
 
   ## Optional parameters:
@@ -2364,11 +2344,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves information about an archive rule.
 
-  To learn about filter keys that you can use to create an archive rule, see [IAM Access Analyzer filter
-  keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetArchiveRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
   * `:rule_name` (`t:string`) The name of the rule to retrieve.
 
@@ -2396,19 +2374,19 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Retrieves information about the specified finding.
-
-  GetFinding and GetFindingV2 both use
-  `access-analyzer:GetFinding` in the `Action` element of an IAM
-  policy statement. You must have permission to perform the
+  Retrieves information about the specified finding. GetFinding and GetFindingV2
+  both use `access-analyzer:GetFinding` in the `Action` element of an IAM policy
+  statement. You must have permission to perform the
   `access-analyzer:GetFinding` action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the finding to retrieve.
 
   ## Optional parameters:
-  * `:analyzer_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-            the analyzer</a> that generated the finding.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
+    finding.
   """
   @spec get_finding(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_response(), any()}
@@ -2440,19 +2418,19 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Retrieves information about the specified finding.
-
-  GetFinding and GetFindingV2 both use
-  `access-analyzer:GetFinding` in the `Action` element of an IAM
-  policy statement. You must have permission to perform the
+  Retrieves information about the specified finding. GetFinding and GetFindingV2
+  both use `access-analyzer:GetFinding` in the `Action` element of an IAM policy
+  statement. You must have permission to perform the
   `access-analyzer:GetFinding` action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetFindingV2&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the finding to retrieve.
 
   ## Optional parameters:
-  * `:analyzer_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-            the analyzer</a> that generated the finding.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer that generated the
+    finding.
   * `:max_results` (`t:`) The maximum number of results to return in the response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
@@ -2506,18 +2484,21 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves the policy that was generated using `StartPolicyGeneration`.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
-         operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
-         retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
-         the policy generation request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20GetGeneratedPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The JobId that is returned by the StartPolicyGeneration
+    operation. The JobId can be used with GetGeneratedPolicy to retrieve the
+    generated policies or used with CancelPolicyGeneration to cancel the policy
+    generation request.
 
   ## Optional parameters:
-  * `:include_resource_placeholders` (`t:`) The level of detail that you want to generate. You can specify whether to generate
-         policies with placeholders for resource ARNs for actions that support resource level
-         granularity in policies.
-  * `:include_service_level_template` (`t:`) The level of detail that you want to generate. You can specify whether to generate
-         service-level policies. 
+  * `:include_resource_placeholders` (`t:`) The level of detail that you want to
+    generate. You can specify whether to generate policies with placeholders for
+    resource ARNs for actions that support resource level granularity in
+    policies.
+  * `:include_service_level_template` (`t:`) The level of detail that you want to
+    generate. You can specify whether to generate service-level policies.
   """
   @spec get_generated_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_generated_policy_response(), any()}
@@ -2563,7 +2544,9 @@ defmodule AWS.AccessAnalyzer do
   Retrieves a list of access preview findings generated by the specified access
   preview.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviewFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:access_preview_id` (`t:string`) The unique ID for the access preview.
 
   ## Optional parameters:
@@ -2601,11 +2584,13 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of access previews for the specified analyzer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAccessPreviews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:analyzer_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
-            the analyzer</a> used to generate the access preview.
+  * `:analyzer_arn` (`t:string`) The ARN of the analyzer used to generate the
+    access preview.
   * `:max_results` (`t:`) The maximum number of results to return in the response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
@@ -2658,13 +2643,12 @@ defmodule AWS.AccessAnalyzer do
 
   @doc """
   Retrieves a list of resources of the specified type that have been analyzed by
-  the
-  specified external access analyzer.
+  the specified external access analyzer. This action is not supported for
+  unused access analyzers.
 
-  This action is not supported for unused access
-  analyzers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzedResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2696,7 +2680,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of analyzers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of results to return in the response.
@@ -2753,7 +2739,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of archive rules created for the specified analyzer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListArchiveRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:analyzer_name` (`t:string`) The name of the analyzer to retrieve rules from.
 
   ## Optional parameters:
@@ -2799,18 +2787,14 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Retrieves a list of findings generated by the specified analyzer.
+  Retrieves a list of findings generated by the specified analyzer. ListFindings
+  and ListFindingsV2 both use `access-analyzer:ListFindings` in the `Action`
+  element of an IAM policy statement. You must have permission to perform the
+  `access-analyzer:ListFindings` action.
 
-  ListFindings and
-  ListFindingsV2 both use `access-analyzer:ListFindings` in the
-  `Action` element of an IAM policy statement. You must have permission to
-  perform the `access-analyzer:ListFindings` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindings&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to retrieve a list of findings, see
-  [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2840,18 +2824,14 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Retrieves a list of findings generated by the specified analyzer.
+  Retrieves a list of findings generated by the specified analyzer. ListFindings
+  and ListFindingsV2 both use `access-analyzer:ListFindings` in the `Action`
+  element of an IAM policy statement. You must have permission to perform the
+  `access-analyzer:ListFindings` action.
 
-  ListFindings and
-  ListFindingsV2 both use `access-analyzer:ListFindings` in the
-  `Action` element of an IAM policy statement. You must have permission to
-  perform the `access-analyzer:ListFindings` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindingsV2&this_doc_guide=API%2520Reference)
 
-  To learn about filter keys that you can use to retrieve a list of findings, see
-  [IAM Access Analyzer filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html)
-  in the **IAM User Guide**.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2883,14 +2863,16 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Lists all of the policy generations requested in the last seven days.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListPolicyGenerations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of results to return in the response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
-  * `:principal_arn` (`t:string`) The ARN of the IAM entity (user or role) for which you are generating a policy. Use
-         this with <code>ListGeneratedPolicies</code> to filter the results to only include results
-         for a specific principal.
+  * `:principal_arn` (`t:string`) The ARN of the IAM entity (user or role) for
+    which you are generating a policy. Use this with ListGeneratedPolicies to
+    filter the results to only include results for a specific principal.
   """
   @spec list_policy_generations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policy_generations_response(), any()}
@@ -2942,7 +2924,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of tags applied to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the resource to retrieve tags from.
 
   ## Optional parameters:
@@ -2970,7 +2954,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Starts the policy generation request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartPolicyGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2992,7 +2978,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Immediately starts a scan of the policies applied to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartResourceScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3024,7 +3012,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Adds a tag to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the resource to add the tag to.
 
   ## Optional parameters:
@@ -3057,7 +3047,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Removes a tag from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the resource to remove the tag from.
 
   ## Optional parameters:
@@ -3096,8 +3088,11 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Updates the criteria and values for the specified archive rule.
 
-  ## Required positional parameters:
-  * `:analyzer_name` (`t:string`) The name of the analyzer to update the archive rules for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateArchiveRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:analyzer_name` (`t:string`) The name of the analyzer to update the archive
+    rules for.
   * `:rule_name` (`t:string`) The name of the rule to update.
 
   ## Optional parameters:
@@ -3128,7 +3123,9 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Updates the status for the specified findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3148,14 +3145,14 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
-  Requests the validation of a policy and returns a list of findings.
+  Requests the validation of a policy and returns a list of findings. The findings
+  help you identify issues and provide actionable recommendations to resolve the
+  issue and enable you to author functional policies that meet security best
+  practices.
 
-  The findings help
-  you identify issues and provide actionable recommendations to resolve the issue
-  and enable
-  you to author functional policies that meet security best practices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ValidatePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of results to return in the response.

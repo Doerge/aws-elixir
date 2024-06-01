@@ -4,30 +4,24 @@
 defmodule AWS.Billingconductor do
   @moduledoc """
   Amazon Web Services Billing Conductor is a fully managed service that you can
-  use to
-  customize a
-  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback
-  your end customers.
-
-  Amazon Web Services Billing Conductor doesn't change the way you're billed
-  by Amazon Web Services each month by design. Instead, it provides you with a
-  mechanism to
-  configure, generate, and display rates to certain customers over a given billing
-  period. You
-  can also analyze the difference between the rates you apply to your accounting
-  groupings
-  relative to your actual rates from Amazon Web Services. As a result of your
-  Amazon Web Services
-  Billing Conductor configuration, the payer account can also see the custom rate
-  applied on the
-  billing details page of the [Amazon Web Services Billing
-  console](https://console.aws.amazon.com/billing), or configure a cost and usage
-  report per billing group.
-
-  This documentation shows how you can configure Amazon Web Services Billing
-  Conductor using its
-  API. For more information about using the [Amazon Web Services Billing Conductor](https://console.aws.amazon.com/billingconductor/) user
-  interface, see the [ Amazon Web Services Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
+  use to customize a
+  [proforma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions)
+  version of your billing data each month, to accurately show or chargeback your
+  end customers. Amazon Web Services Billing Conductor doesn't change the way
+  you're billed by Amazon Web Services each month by design. Instead, it
+  provides you with a mechanism to configure, generate, and display rates to
+  certain customers over a given billing period. You can also analyze the
+  difference between the rates you apply to your accounting groupings relative
+  to your actual rates from Amazon Web Services. As a result of your Amazon Web
+  Services Billing Conductor configuration, the payer account can also see the
+  custom rate applied on the billing details page of the [Amazon Web Services
+  Billing console](https://console.aws.amazon.com/billing), or configure a cost
+  and usage report per billing group. This documentation shows how you can
+  configure Amazon Web Services Billing Conductor using its API. For more
+  information about using the [Amazon Web Services Billing
+  Conductor](https://console.aws.amazon.com/billingconductor/) user interface,
+  see the [ Amazon Web Services Billing Conductor User
+  Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
   """
 
   alias AWS.Client
@@ -1804,15 +1798,14 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Connects an array of account IDs in a consolidated billing family to a
-  predefined
-  billing group.
+  predefined billing group. The account IDs must be a part of the consolidated
+  billing family during the current month, and not already associated with
+  another billing group. The maximum number of accounts that can be associated
+  in one call is 30.
 
-  The account IDs must be a part of the consolidated billing family during the
-  current month, and not already associated with another billing group. The
-  maximum number of
-  accounts that can be associated in one call is 30.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociateAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1842,11 +1835,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Connects an array of `PricingRuleArns` to a defined `PricingPlan`.
+  Connects an array of `PricingRuleArns` to a defined `PricingPlan`. The maximum
+  number `PricingRuleArn` that can be associated in one call is 30.
 
-  The maximum number `PricingRuleArn` that can be associated in one call is 30.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociatePricingRules&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1866,10 +1860,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Associates a batch of resources to a percentage custom line item.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchAssociateResourcesToCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1893,10 +1888,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Disassociates a batch of resources from a percentage custom line item.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchDisassociateResourcesFromCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1920,16 +1916,17 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Creates a billing group that resembles a consolidated billing family that Amazon
   Web Services charges, based off of the predefined pricing plan computation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) 
-      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
-    
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_billing_group(AWS.Client.t(), create_billing_group_input(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
@@ -1964,18 +1961,17 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Creates a custom line item that can be used to create a one-time fixed charge
-  that can be
-  applied to a single billing group for the current or previous billing period.
+  that can be applied to a single billing group for the current or previous
+  billing period. The one-time fixed charge is either a fee or discount.
 
-  The one-time
-  fixed charge is either a fee or discount.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateCustomLineItem&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) 
-      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
-    
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_custom_line_item(AWS.Client.t(), create_custom_line_item_input(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
@@ -2012,12 +2008,14 @@ defmodule AWS.Billingconductor do
   Creates a pricing plan that is used for computing Amazon Web Services charges
   for billing groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) 
-      The token that is needed to support idempotency. Idempotency isn&#39;t currently supported, but will be implemented in a future update. 
-    
+  * `:client_token` (`t:string`) The token that is needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_pricing_plan(AWS.Client.t(), create_pricing_plan_input(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
@@ -2051,15 +2049,17 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Creates a pricing rule can be associated to a pricing plan, or a set of pricing
   plans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`)  The token that&#39;s needed to support idempotency. Idempotency isn&#39;t currently supported,
-      but will be implemented in a future update. 
+  * `:client_token` (`t:string`) The token that's needed to support idempotency.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_pricing_rule(AWS.Client.t(), create_pricing_rule_input(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
@@ -2093,10 +2093,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes a billing group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2126,11 +2127,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes the custom line item identified by the given ARN in the current, or
   previous billing period.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2160,12 +2162,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Deletes a pricing plan.
+  Deletes a pricing plan. The pricing plan must not be associated with any billing
+  groups to delete successfully.
 
-  The pricing plan must not be associated with any billing groups to
-  delete successfully.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingPlan&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2198,7 +2200,9 @@ defmodule AWS.Billingconductor do
   Deletes the pricing rule that's identified by the input Amazon Resource Name
   (ARN).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2230,7 +2234,9 @@ defmodule AWS.Billingconductor do
   @doc """
   Removes the specified list of account IDs from the given billing group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociateAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2260,10 +2266,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Disassociates a list of pricing rules from a pricing plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociatePricingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2288,10 +2295,12 @@ defmodule AWS.Billingconductor do
 
   @doc """
   Retrieves the margin summary report, which includes the Amazon Web Services cost
-  and charged
-  amount (pro forma cost) by Amazon Web Service for a specific billing group.
+  and charged amount (pro forma cost) by Amazon Web Service for a specific
+  billing group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20GetBillingGroupCostReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2326,15 +2335,13 @@ defmodule AWS.Billingconductor do
 
   @doc """
   This is a paginated call to list linked accounts that are linked to the payer
-  account for
-  the specified time period.
+  account for the specified time period. If no information is provided, the
+  current billing period is used. The response will optionally include the
+  billing group that's associated with the linked account.
 
-  If no information is provided, the current billing period is used.
-  The response will optionally include the billing group that's associated with
-  the linked
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListAccountAssociations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2365,11 +2372,12 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a summary report of actual Amazon Web Services
-  charges and the calculated
-  Amazon Web Services charges based on the associated pricing plan of a billing
-  group.
+  charges and the calculated Amazon Web Services charges based on the associated
+  pricing plan of a billing group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroupCostReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2404,11 +2412,12 @@ defmodule AWS.Billingconductor do
 
   @doc """
   A paginated call to retrieve a list of billing groups for the given billing
-  period.
+  period. If you don't provide a billing group, the current billing period is
+  used.
 
-  If you don't provide a billing group, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2440,7 +2449,9 @@ defmodule AWS.Billingconductor do
   @doc """
   A paginated call to get a list of all custom line item versions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItemVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2474,13 +2485,13 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A paginated call to get a list of all custom line items (FFLIs) for the given
-  billing period.
+  billing period. If you don't provide a billing period, the current billing
+  period is used.
 
-  If you don't provide a billing period, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItems&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2510,11 +2521,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  A paginated call to get pricing plans for the given billing period.
+  A paginated call to get pricing plans for the given billing period. If you don't
+  provide a billing period, the current billing period is used.
 
-  If you don't provide a billing period, the current billing period is used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlans&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2544,10 +2556,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list of the pricing plans that are associated with a pricing rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlansAssociatedWithPricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2581,11 +2594,12 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Describes a pricing rule that can be associated to a pricing plan, or set of
   pricing plans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2615,10 +2629,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Lists the pricing rules that are associated with a pricing plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRulesAssociatedToPricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2652,10 +2667,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   List the resources that are associated to a custom line item.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListResourcesAssociatedToCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2689,13 +2705,13 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   A list the tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-      The Amazon Resource Name (ARN) that identifies the resource to list the tags.
-    
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags.
 
   ## Optional parameters:
   """
@@ -2720,16 +2736,15 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource are not specified in the request parameters, they
+  are not changed.
 
-  If existing tags on a resource are not specified in the request parameters, they
-  are not
-  changed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-      The Amazon Resource Name (ARN) of the resource to which to add tags.
-    
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which to add tags.
 
   ## Optional parameters:
   """
@@ -2759,18 +2774,17 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Deletes specified tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-      The Amazon Resource Name (ARN) of the resource to which to delete tags.
-    
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which to delete tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) 
-      The tags to delete from the resource as a list of key-value pairs.
-    
+  * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]`) The tags to
+    delete from the resource as a list of key-value pairs.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2805,7 +2819,9 @@ defmodule AWS.Billingconductor do
   @doc """
   This updates an existing billing group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2835,10 +2851,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Update an existing custom line item in the current or previous billing period.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateCustomLineItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2870,7 +2887,9 @@ defmodule AWS.Billingconductor do
   @doc """
   This updates an existing pricing plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2890,10 +2909,11 @@ defmodule AWS.Billingconductor do
   end
 
   @doc """
-
   Updates an existing pricing rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

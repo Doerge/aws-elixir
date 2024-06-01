@@ -4,13 +4,12 @@
 defmodule AWS.MemoryDB do
   @moduledoc """
   MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that
-  delivers ultra-fast performance and Multi-AZ durability for modern applications
-  built using microservices architectures.
-
-  MemoryDB stores the entire database in-memory, enabling low latency and high
-  throughput data access. It is compatible with Redis, a popular open source data
-  store, enabling you to leverage Redis’ flexible and friendly data structures,
-  APIs, and commands.
+  delivers ultra-fast performance and Multi-AZ durability for modern
+  applications built using microservices architectures. MemoryDB stores the
+  entire database in-memory, enabling low latency and high throughput data
+  access. It is compatible with Redis, a popular open source data store,
+  enabling you to leverage Redis’ flexible and friendly data structures, APIs,
+  and commands.
   """
 
   alias AWS.Client
@@ -2392,9 +2391,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Apply the service update to a list of clusters supplied.
-
-  For more information on service updates and applying them, see [Applying the service
+  Apply the service update to a list of clusters supplied. For more information on
+  service updates and applying them, see [Applying the service
   updates](https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates).
   """
   @spec batch_update_cluster(AWS.Client.t(), batch_update_cluster_request(), Keyword.t()) ::
@@ -2423,9 +2421,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Creates an Access Control List.
-
-  For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+  Creates an Access Control List. For more information, see [Authenticating users
+  with Access Contol Lists
+  (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   @spec create_acl(AWS.Client.t(), create_acl_request(), Keyword.t()) ::
           {:ok, create_acl_response(), any()}
@@ -2439,9 +2437,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Creates a cluster.
-
-  All nodes in the cluster run the same protocol-compliant engine software.
+  Creates a cluster. All nodes in the cluster run the same protocol-compliant
+  engine software.
   """
   @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
@@ -2455,11 +2452,11 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Creates a new MemoryDB parameter group.
-
-  A parameter group is a collection of parameters and their values that are
-  applied to all of the nodes in any cluster. For
-  more information, see [Configuring engine parameters using parameter groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html).
+  Creates a new MemoryDB parameter group. A parameter group is a collection of
+  parameters and their values that are applied to all of the nodes in any
+  cluster. For more information, see [Configuring engine parameters using
+  parameter
+  groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html).
   """
   @spec create_parameter_group(AWS.Client.t(), create_parameter_group_request(), Keyword.t()) ::
           {:ok, create_parameter_group_response(), any()}
@@ -2487,16 +2484,13 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Creates a subnet group.
-
-  A subnet group is a collection of subnets (typically private) that you can
-  designate for your clusters running in an Amazon Virtual Private Cloud (VPC)
-  environment.
-
-  When you create a cluster in an Amazon VPC, you must specify a subnet group.
-  MemoryDB uses that subnet group to choose a subnet and IP addresses within that
-  subnet to associate with your nodes.
-  For more information, see [Subnets and subnet groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html).
+  Creates a subnet group. A subnet group is a collection of subnets (typically
+  private) that you can designate for your clusters running in an Amazon Virtual
+  Private Cloud (VPC) environment. When you create a cluster in an Amazon VPC,
+  you must specify a subnet group. MemoryDB uses that subnet group to choose a
+  subnet and IP addresses within that subnet to associate with your nodes. For
+  more information, see [Subnets and subnet
+  groups](https://docs.aws.amazon.com/MemoryDB/latest/devguide/subnetgroups.html).
   """
   @spec create_subnet_group(AWS.Client.t(), create_subnet_group_request(), Keyword.t()) ::
           {:ok, create_subnet_group_response(), any()}
@@ -2510,9 +2504,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Creates a MemoryDB user.
-
-  For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+  Creates a MemoryDB user. For more information, see [Authenticating users with
+  Access Contol Lists
+  (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -2526,10 +2520,10 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes an Access Control List.
-
-  The ACL must first be disassociated from the cluster before it can be deleted.
-  For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+  Deletes an Access Control List. The ACL must first be disassociated from the
+  cluster before it can be deleted. For more information, see [Authenticating
+  users with Access Contol Lists
+  (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
   """
   @spec delete_acl(AWS.Client.t(), delete_acl_request(), Keyword.t()) ::
           {:ok, delete_acl_response(), any()}
@@ -2543,9 +2537,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes a cluster.
-
-  It also deletes all associated nodes and node endpoints
+  Deletes a cluster. It also deletes all associated nodes and node endpoints
   """
   @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
@@ -2559,10 +2551,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes the specified parameter group.
-
-  You cannot delete a parameter group if it is associated with any clusters.
-  You cannot delete the default parameter groups in your account.
+  Deletes the specified parameter group. You cannot delete a parameter group if it
+  is associated with any clusters. You cannot delete the default parameter
+  groups in your account.
   """
   @spec delete_parameter_group(AWS.Client.t(), delete_parameter_group_request(), Keyword.t()) ::
           {:ok, delete_parameter_group_response(), any()}
@@ -2576,10 +2567,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes an existing snapshot.
-
-  When you receive a successful response from this operation, MemoryDB immediately
-  begins deleting the snapshot; you cannot cancel or revert this operation.
+  Deletes an existing snapshot. When you receive a successful response from this
+  operation, MemoryDB immediately begins deleting the snapshot; you cannot
+  cancel or revert this operation.
   """
   @spec delete_snapshot(AWS.Client.t(), delete_snapshot_request(), Keyword.t()) ::
           {:ok, delete_snapshot_response(), any()}
@@ -2593,10 +2583,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes a subnet group.
-
-  You cannot delete a default subnet group or one that is associated with any
-  clusters.
+  Deletes a subnet group. You cannot delete a default subnet group or one that is
+  associated with any clusters.
   """
   @spec delete_subnet_group(AWS.Client.t(), delete_subnet_group_request(), Keyword.t()) ::
           {:ok, delete_subnet_group_response(), any()}
@@ -2610,9 +2598,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Deletes a user.
-
-  The user will be removed from all ACLs and in turn removed from all clusters.
+  Deletes a user. The user will be removed from all ACLs and in turn removed from
+  all clusters.
   """
   @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
@@ -2669,13 +2656,11 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns events related to clusters, security groups, and parameter groups.
-
-  You can obtain events specific to a particular cluster, security group, or
-  parameter group by providing the name as a parameter.
-
-  By default, only the events occurring within the last hour are returned;
-  however, you can retrieve up to 14 days' worth of events if necessary.
+  Returns events related to clusters, security groups, and parameter groups. You
+  can obtain events specific to a particular cluster, security group, or
+  parameter group by providing the name as a parameter. By default, only the
+  events occurring within the last hour are returned; however, you can retrieve
+  up to 14 days' worth of events if necessary.
   """
   @spec describe_events(AWS.Client.t(), describe_events_request(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
@@ -2689,10 +2674,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of parameter group descriptions.
-
-  If a parameter group name is specified, the list contains only the descriptions
-  for that group.
+  Returns a list of parameter group descriptions. If a parameter group name is
+  specified, the list contains only the descriptions for that group.
   """
   @spec describe_parameter_groups(
           AWS.Client.t(),
@@ -2771,11 +2754,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns information about cluster snapshots.
-
-  By default, DescribeSnapshots lists all of your snapshots; it can optionally
-  describe a single snapshot,
-  or just the snapshots associated with a particular cluster.
+  Returns information about cluster snapshots. By default, DescribeSnapshots lists
+  all of your snapshots; it can optionally describe a single snapshot, or just
+  the snapshots associated with a particular cluster.
   """
   @spec describe_snapshots(AWS.Client.t(), describe_snapshots_request(), Keyword.t()) ::
           {:ok, describe_snapshots_response(), any()}
@@ -2789,10 +2770,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of subnet group descriptions.
-
-  If a subnet group name is specified, the list contains only the description of
-  that group.
+  Returns a list of subnet group descriptions. If a subnet group name is
+  specified, the list contains only the description of that group.
   """
   @spec describe_subnet_groups(AWS.Client.t(), describe_subnet_groups_request(), Keyword.t()) ::
           {:ok, describe_subnet_groups_response(), any()}
@@ -2820,14 +2799,11 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Used to failover a shard.
-
-  This API is designed for testing the behavior of your application in case of
-  MemoryDB failover. It is not designed to be used as a production-level tool for
-  initiating
-  a failover to overcome a problem you may have with the cluster. Moreover, in
-  certain conditions such as large scale operational events, Amazon may block this
-  API.
+  Used to failover a shard. This API is designed for testing the behavior of your
+  application in case of MemoryDB failover. It is not designed to be used as a
+  production-level tool for initiating a failover to overcome a problem you may
+  have with the cluster. Moreover, in certain conditions such as large scale
+  operational events, Amazon may block this API.
   """
   @spec failover_shard(AWS.Client.t(), failover_shard_request(), Keyword.t()) ::
           {:ok, failover_shard_response(), any()}
@@ -2842,10 +2818,9 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Lists all available node types that you can scale to from your cluster's current
-  node type.
-
-  When you use the UpdateCluster operation to scale your cluster, the value of the
-  NodeType parameter must be one of the node types returned by this operation.
+  node type. When you use the UpdateCluster operation to scale your cluster, the
+  value of the NodeType parameter must be one of the node types returned by this
+  operation.
   """
   @spec list_allowed_node_type_updates(
           AWS.Client.t(),
@@ -2863,11 +2838,10 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Lists all tags currently on a named resource.
-
-  A tag is a key-value pair where the key and value are case-sensitive. You can
-  use tags to categorize and track your MemoryDB resources.
-  For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html)
+  Lists all tags currently on a named resource. A tag is a key-value pair where
+  the key and value are case-sensitive. You can use tags to categorize and track
+  your MemoryDB resources. For more information, see [Tagging your MemoryDB
+  resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html)
   """
   @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -2881,9 +2855,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Allows you to purchase a reserved node offering.
-
-  Reserved nodes are not eligible for cancellation and are non-refundable.
+  Allows you to purchase a reserved node offering. Reserved nodes are not eligible
+  for cancellation and are non-refundable.
   """
   @spec purchase_reserved_nodes_offering(
           AWS.Client.t(),
@@ -2902,10 +2875,8 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Modifies the parameters of a parameter group to the engine or system default
-  value.
-
-  You can reset specific parameters by submitting a list of parameter names. To
-  reset the entire parameter group, specify the AllParameters and
+  value. You can reset specific parameters by submitting a list of parameter
+  names. To reset the entire parameter group, specify the AllParameters and
   ParameterGroupName parameters.
   """
   @spec reset_parameter_group(AWS.Client.t(), reset_parameter_group_request(), Keyword.t()) ::
@@ -2920,23 +2891,18 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  A tag is a key-value pair where the key and value are case-sensitive.
-
-  You can use tags to categorize and track all your MemoryDB resources.
-
-  When you add or remove tags on clusters, those actions will be replicated to all
-  nodes in the cluster. For more information, see
-
-  [Resource-level permissions](https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html).
-
-  For example, you can use cost-allocation tags to your MemoryDB resources, Amazon
-  generates a cost allocation report as a comma-separated value
-  (CSV) file with your usage and costs aggregated by your tags. You can apply tags
-  that represent business categories
-  (such as cost centers, application names, or owners) to organize your costs
-  across multiple services.
-
-  For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
+  A tag is a key-value pair where the key and value are case-sensitive. You can
+  use tags to categorize and track all your MemoryDB resources. When you add or
+  remove tags on clusters, those actions will be replicated to all nodes in the
+  cluster. For more information, see [Resource-level
+  permissions](https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html).
+  For example, you can use cost-allocation tags to your MemoryDB resources,
+  Amazon generates a cost allocation report as a comma-separated value (CSV)
+  file with your usage and costs aggregated by your tags. You can apply tags
+  that represent business categories (such as cost centers, application names,
+  or owners) to organize your costs across multiple services. For more
+  information, see [Using Cost Allocation
+  Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2978,10 +2944,9 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Modifies the settings for a cluster.
-
-  You can use this operation to change one or more cluster configuration settings
-  by specifying the settings and the new values.
+  Modifies the settings for a cluster. You can use this operation to change one or
+  more cluster configuration settings by specifying the settings and the new
+  values.
   """
   @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
@@ -2995,10 +2960,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Updates the parameters of a parameter group.
-
-  You can modify up to 20 parameters in a single request by submitting a list
-  parameter name and value pairs.
+  Updates the parameters of a parameter group. You can modify up to 20 parameters
+  in a single request by submitting a list parameter name and value pairs.
   """
   @spec update_parameter_group(AWS.Client.t(), update_parameter_group_request(), Keyword.t()) ::
           {:ok, update_parameter_group_response(), any()}
@@ -3012,9 +2975,8 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Updates a subnet group.
-
-  For more information, see [Updating a subnet group](https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html)
+  Updates a subnet group. For more information, see [Updating a subnet
+  group](https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html)
   """
   @spec update_subnet_group(AWS.Client.t(), update_subnet_group_request(), Keyword.t()) ::
           {:ok, update_subnet_group_response(), any()}

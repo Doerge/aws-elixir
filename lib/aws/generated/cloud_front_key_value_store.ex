@@ -322,12 +322,16 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Deletes the key value pair specified by the key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20DeleteKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key` (`t:string`) The key to delete.
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are deleting keys from, which you can get using
+    DescribeKeyValueStore.
   """
   @spec delete_key(AWS.Client.t(), String.t(), String.t(), delete_key_request(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -371,7 +375,9 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns metadata information about Key Value Store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20DescribeKeyValueStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
@@ -406,7 +412,9 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns a key value pair.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20GetKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key` (`t:string`) The key to get.
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
@@ -436,12 +444,17 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns a list of key value pairs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20ListKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.
-  * `:next_token` (`t:`) If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.
+  * `:max_results` (`t:`) Maximum number of results that are returned per call.
+    The default is 10 and maximum allowed page is 50.
+  * `:next_token` (`t:`) If nextToken is returned in the response, there are more
+    results available. Make the next call using the returned token to retrieve
+    the next page.
   """
   @spec list_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
@@ -484,12 +497,16 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Creates a new key value pair or replaces the value of an existing key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20PutKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key` (`t:string`) The key to put.
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are putting keys into, which you can get using
+    DescribeKeyValueStore.
   """
   @spec put_key(AWS.Client.t(), String.t(), String.t(), put_key_request(), Keyword.t()) ::
           {:ok, put_key_response(), any()}
@@ -523,11 +540,15 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfrontkeyvaluestore%20UpdateKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:kvs_arn` (`t:string`) The Amazon Resource Name (ARN) of the Key Value Store.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.
+  * `:if_match` (`t:string`) The current version (ETag) of the Key Value Store
+    that you are updating keys of, which you can get using
+    DescribeKeyValueStore.
   """
   @spec update_keys(AWS.Client.t(), String.t(), update_keys_request(), Keyword.t()) ::
           {:ok, update_keys_response(), any()}

@@ -2871,7 +2871,9 @@ defmodule AWS.Mgn do
   @doc """
   Archive application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2903,7 +2905,9 @@ defmodule AWS.Mgn do
   @doc """
   Archive wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2935,7 +2939,9 @@ defmodule AWS.Mgn do
   @doc """
   Associate applications to wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2967,7 +2973,9 @@ defmodule AWS.Mgn do
   @doc """
   Associate source servers to application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2998,12 +3006,13 @@ defmodule AWS.Mgn do
 
   @doc """
   Allows the user to set the SourceServer.LifeCycle.state property for specific
-  Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER.
+  Source Server IDs to one of the following: READY_FOR_TEST or
+  READY_FOR_CUTOVER. This command only works if the Source Server is already
+  launchable (dataReplicationInfo.lagDuration is not null.)
 
-  This command only works if the Source Server is already launchable
-  (dataReplicationInfo.lagDuration is not null.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ChangeServerLifeCycleState&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3039,7 +3048,9 @@ defmodule AWS.Mgn do
   @doc """
   Create application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3071,7 +3082,9 @@ defmodule AWS.Mgn do
   @doc """
   Create Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3103,7 +3116,9 @@ defmodule AWS.Mgn do
   @doc """
   Creates a new Launch Configuration Template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3139,7 +3154,9 @@ defmodule AWS.Mgn do
   @doc """
   Creates a new ReplicationConfigurationTemplate.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3175,7 +3192,9 @@ defmodule AWS.Mgn do
   @doc """
   Create wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3207,7 +3226,9 @@ defmodule AWS.Mgn do
   @doc """
   Delete application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3239,7 +3260,9 @@ defmodule AWS.Mgn do
   @doc """
   Delete Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3271,7 +3294,9 @@ defmodule AWS.Mgn do
   @doc """
   Deletes a single Job by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3303,7 +3328,9 @@ defmodule AWS.Mgn do
   @doc """
   Deletes a single Launch Configuration Template by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3339,7 +3366,9 @@ defmodule AWS.Mgn do
   @doc """
   Deletes a single Replication Configuration Template by ID
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3375,7 +3404,9 @@ defmodule AWS.Mgn do
   @doc """
   Deletes a single source server by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3407,7 +3438,9 @@ defmodule AWS.Mgn do
   @doc """
   Deletes a given vCenter client by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteVcenterClient&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3439,7 +3472,9 @@ defmodule AWS.Mgn do
   @doc """
   Delete wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3471,7 +3506,9 @@ defmodule AWS.Mgn do
   @doc """
   Retrieves detailed job log items with paging.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3501,16 +3538,16 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Returns a list of Jobs.
-
-  Use the JobsID and fromDate and toData filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are
-  normally created by the StartTest, StartCutover, and TerminateTargetInstances
-  APIs. Jobs are also created by DiagnosticLaunch and
+  Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit
+  which jobs are returned. The response is sorted by creationDataTime - latest
+  date first. Jobs are normally created by the StartTest, StartCutover, and
+  TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and
   TerminateDiagnosticInstances, which are APIs available only to *Support* and
   only used in response to relevant support tickets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3543,7 +3580,9 @@ defmodule AWS.Mgn do
   Lists all Launch Configuration Templates, filtered by Launch Configuration
   Template IDs
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3579,7 +3618,9 @@ defmodule AWS.Mgn do
   @doc """
   Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3615,7 +3656,9 @@ defmodule AWS.Mgn do
   @doc """
   Retrieves all SourceServers or multiple SourceServers by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3647,11 +3690,15 @@ defmodule AWS.Mgn do
   @doc """
   Returns a list of the installed vCenter clients.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeVcenterClients&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum results to be returned in DescribeVcenterClients.
-  * `:next_token` (`t:string`) Next pagination token to be provided for DescribeVcenterClients.
+  * `:max_results` (`t:integer`) Maximum results to be returned in
+    DescribeVcenterClients.
+  * `:next_token` (`t:string`) Next pagination token to be provided for
+    DescribeVcenterClients.
   """
   @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
@@ -3694,7 +3741,9 @@ defmodule AWS.Mgn do
   @doc """
   Disassociate applications from wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3730,7 +3779,9 @@ defmodule AWS.Mgn do
   @doc """
   Disassociate source servers from application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3764,12 +3815,11 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Disconnects specific Source Servers from Application Migration Service.
-
-  Data replication is stopped immediately. All AWS resources created by
-  Application Migration Service for enabling the replication of these source
-  servers will be terminated / deleted within 90 minutes. Launched Test or Cutover
-  instances will NOT be terminated. If the agent on the source server has not been
+  Disconnects specific Source Servers from Application Migration Service. Data
+  replication is stopped immediately. All AWS resources created by Application
+  Migration Service for enabling the replication of these source servers will be
+  terminated / deleted within 90 minutes. Launched Test or Cutover instances
+  will NOT be terminated. If the agent on the source server has not been
   prevented from communicating with the Application Migration Service service,
   then it will receive a command to uninstall itself (within approximately 10
   minutes). The following properties of the SourceServer will be changed
@@ -3779,7 +3829,9 @@ defmodule AWS.Mgn do
   dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisconnectFromService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3809,20 +3861,21 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Finalizes the cutover immediately for specific Source Servers.
+  Finalizes the cutover immediately for specific Source Servers. All AWS resources
+  created by Application Migration Service for enabling the replication of these
+  source servers will be terminated / deleted within 90 minutes. Launched Test
+  or Cutover instances will NOT be terminated. The AWS Replication Agent will
+  receive a command to uninstall itself (within 10 minutes). The following
+  properties of the SourceServer will be changed immediately:
+  dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The
+  SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes
+  property fo each of dataReplicationInfo.replicatedDisks will be set to zero;
+  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+  nullified.
 
-  All AWS resources created by Application Migration Service for enabling the
-  replication of these source servers will be terminated / deleted within 90
-  minutes. Launched Test or Cutover instances will NOT be terminated. The AWS
-  Replication Agent will receive a command to uninstall itself (within 10
-  minutes). The following properties of the SourceServer will be changed
-  immediately: dataReplicationInfo.dataReplicationState will be changed to
-  DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The
-  totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will
-  be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20FinalizeCutover&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3854,7 +3907,9 @@ defmodule AWS.Mgn do
   @doc """
   Lists all LaunchConfigurations available, filtered by Source Server IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3886,7 +3941,9 @@ defmodule AWS.Mgn do
   @doc """
   Lists all ReplicationConfigurations, filtered by Source Server ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3922,7 +3979,9 @@ defmodule AWS.Mgn do
   @doc """
   Initialize Application Migration Service.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20InitializeService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3954,7 +4013,9 @@ defmodule AWS.Mgn do
   @doc """
   Retrieves all applications or multiple applications by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3986,7 +4047,9 @@ defmodule AWS.Mgn do
   @doc """
   List Connectors.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4018,7 +4081,9 @@ defmodule AWS.Mgn do
   @doc """
   List export errors.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExportErrors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4050,7 +4115,9 @@ defmodule AWS.Mgn do
   @doc """
   List exports.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4082,7 +4149,9 @@ defmodule AWS.Mgn do
   @doc """
   List import errors.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImportErrors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4114,7 +4183,9 @@ defmodule AWS.Mgn do
   @doc """
   List imports.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4146,7 +4217,9 @@ defmodule AWS.Mgn do
   @doc """
   List Managed Accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListManagedAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4178,7 +4251,9 @@ defmodule AWS.Mgn do
   @doc """
   List source server post migration custom actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListSourceServerActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4214,7 +4289,9 @@ defmodule AWS.Mgn do
   @doc """
   List all tags for your Application Migration Service resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) List tags for resource request by ARN.
 
   ## Optional parameters:
@@ -4242,7 +4319,9 @@ defmodule AWS.Mgn do
   @doc """
   List template post migration custom actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTemplateActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4274,7 +4353,9 @@ defmodule AWS.Mgn do
   @doc """
   Retrieves all waves or multiple waves by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListWaves&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4305,12 +4386,12 @@ defmodule AWS.Mgn do
 
   @doc """
   Archives specific Source Servers by setting the SourceServer.isArchived property
-  to true for specified SourceServers by ID.
+  to true for specified SourceServers by ID. This command only works for
+  SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.
 
-  This command only works for SourceServers with a lifecycle. state which equals
-  DISCONNECTED or CUTOVER.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20MarkAsArchived&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4342,7 +4423,9 @@ defmodule AWS.Mgn do
   @doc """
   Pause Replication.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PauseReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4374,7 +4457,9 @@ defmodule AWS.Mgn do
   @doc """
   Put source server post migration custom action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutSourceServerAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4406,7 +4491,9 @@ defmodule AWS.Mgn do
   @doc """
   Put template post migration custom action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutTemplateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4438,7 +4525,9 @@ defmodule AWS.Mgn do
   @doc """
   Remove source server post migration custom action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveSourceServerAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4474,7 +4563,9 @@ defmodule AWS.Mgn do
   @doc """
   Remove template post migration custom action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveTemplateAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4506,7 +4597,9 @@ defmodule AWS.Mgn do
   @doc """
   Resume Replication.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ResumeReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4538,12 +4631,12 @@ defmodule AWS.Mgn do
   @doc """
   Causes the data replication initiation sequence to begin immediately upon next
   Handshake for specified SourceServer IDs, regardless of when the previous
-  initiation started.
+  initiation started. This command will not work if the SourceServer is not
+  stalled or is in a DISCONNECTED or STOPPED state.
 
-  This command will not work if the SourceServer is not stalled or is in a
-  DISCONNECTED or STOPPED state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RetryDataReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4573,12 +4666,13 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Launches a Cutover Instance for specific Source Servers.
+  Launches a Cutover Instance for specific Source Servers. This command starts a
+  LAUNCH job whose initiatedBy property is StartCutover and changes the
+  SourceServer.lifeCycle.state property to CUTTING_OVER.
 
-  This command starts a LAUNCH job whose initiatedBy property is StartCutover and
-  changes the SourceServer.lifeCycle.state property to CUTTING_OVER.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartCutover&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4610,7 +4704,9 @@ defmodule AWS.Mgn do
   @doc """
   Start export.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4642,7 +4738,9 @@ defmodule AWS.Mgn do
   @doc """
   Start import.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4674,7 +4772,9 @@ defmodule AWS.Mgn do
   @doc """
   Starts replication for SNAPSHOT_SHIPPING agents.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4704,12 +4804,13 @@ defmodule AWS.Mgn do
   end
 
   @doc """
-  Launches a Test Instance for specific Source Servers.
+  Launches a Test Instance for specific Source Servers. This command starts a
+  LAUNCH job whose initiatedBy property is StartTest and changes the
+  SourceServer.lifeCycle.state property to TESTING.
 
-  This command starts a LAUNCH job whose initiatedBy property is StartTest and
-  changes the SourceServer.lifeCycle.state property to TESTING.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartTest&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4741,7 +4842,9 @@ defmodule AWS.Mgn do
   @doc """
   Stop Replication.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StopReplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4772,13 +4875,13 @@ defmodule AWS.Mgn do
 
   @doc """
   Adds or overwrites only the specified tags for the specified Application
-  Migration Service resource or resources.
+  Migration Service resource or resources. When you specify an existing tag key,
+  the value is overwritten with the new value. Each resource can have a maximum
+  of 50 tags. Each tag consists of a key and optional value.
 
-  When you specify an existing tag key, the value is overwritten with the new
-  value. Each resource can have a maximum of 50 tags. Each tag consists of a key
-  and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:string`) Tag resource by ARN.
 
   ## Optional parameters:
@@ -4810,11 +4913,12 @@ defmodule AWS.Mgn do
 
   @doc """
   Starts a job that terminates specific launched EC2 Test and Cutover instances.
-
   This command will not work for any Source Server with a lifecycle.state of
   TESTING, CUTTING_OVER, or CUTOVER.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TerminateTargetInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4850,7 +4954,9 @@ defmodule AWS.Mgn do
   @doc """
   Unarchive application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4882,7 +4988,9 @@ defmodule AWS.Mgn do
   @doc """
   Unarchive wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4915,7 +5023,9 @@ defmodule AWS.Mgn do
   Deletes the specified set of tags from the specified set of Application
   Migration Service resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) Untag resource by ARN.
 
   ## Optional parameters:
@@ -4954,7 +5064,9 @@ defmodule AWS.Mgn do
   @doc """
   Update application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4986,7 +5098,9 @@ defmodule AWS.Mgn do
   @doc """
   Update Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5018,9 +5132,9 @@ defmodule AWS.Mgn do
   @doc """
   Updates multiple LaunchConfigurations by Source Server ID.
 
-  bootMode valid values are `LEGACY_BIOS | UEFI`
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5056,7 +5170,9 @@ defmodule AWS.Mgn do
   @doc """
   Updates an existing Launch Configuration Template by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5092,7 +5208,9 @@ defmodule AWS.Mgn do
   @doc """
   Allows you to update multiple ReplicationConfigurations by Source Server ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5128,7 +5246,9 @@ defmodule AWS.Mgn do
   @doc """
   Updates multiple ReplicationConfigurationTemplates by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5164,7 +5284,9 @@ defmodule AWS.Mgn do
   @doc """
   Update Source Server.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5197,7 +5319,9 @@ defmodule AWS.Mgn do
   Allows you to change between the AGENT_BASED replication type and the
   SNAPSHOT_SHIPPING replication type.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServerReplicationType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5233,7 +5357,9 @@ defmodule AWS.Mgn do
   @doc """
   Update wave.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateWave&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

@@ -950,15 +950,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Create a new cluster.
+  Create a new cluster. A cluster is a set of redundant Regional endpoints against
+  which you can run API calls to update or get the state of one or more routing
+  controls. Each cluster has a name, status, Amazon Resource Name (ARN), and an
+  array of the five cluster endpoints (one for each supported Amazon Web
+  Services Region) that you can use with API calls to the cluster data plane.
 
-  A cluster is a set of redundant Regional endpoints against which you can run API
-  calls to update or get the state of one or more routing controls. Each cluster
-  has a name, status, Amazon Resource Name (ARN), and an array of the five cluster
-  endpoints (one for each supported Amazon Web Services Region) that you can use
-  with API calls to the cluster data plane.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -988,15 +988,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a new control panel.
+  Creates a new control panel. A control panel represents a group of routing
+  controls that can be changed together in a single transaction. You can use a
+  control panel to centrally view the operational status of applications across
+  your organization, and trigger multi-app failovers in a single transaction,
+  for example, to fail over an Availability Zone or Amazon Web Services Region.
 
-  A control panel represents a group of routing controls that can be changed
-  together in a single transaction. You can use a control panel to centrally view
-  the operational status of applications across your organization, and trigger
-  multi-app failovers in a single transaction, for example, to fail over an
-  Availability Zone or Amazon Web Services Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateControlPanel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1026,16 +1026,13 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a new routing control.
+  Creates a new routing control. A routing control has one of two states: ON and
+  OFF. You can map the routing control state to the state of an Amazon Route 53
+  health check, which can be used to control traffic routing.
 
-  A routing control has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control traffic routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateRoutingControl&this_doc_guide=API%2520Reference)
 
-  To get or update the routing control state, see the Recovery Cluster (data
-  plane) API actions for Amazon Route 53 Application Recovery Controller.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1065,29 +1062,14 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Creates a safety rule in a control panel.
+  Creates a safety rule in a control panel. Safety rules let you add safeguards
+  around changing routing control states, and for enabling and disabling routing
+  controls, to help prevent unexpected outcomes. There are two types of safety
+  rules: assertion rules and gating rules.
 
-  Safety rules let you add safeguards around changing routing control states, and
-  for enabling and disabling routing controls, to help prevent unexpected
-  outcomes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20CreateSafetyRule&this_doc_guide=API%2520Reference)
 
-  There are two types of safety rules: assertion rules and gating rules.
-
-  Assertion rule: An assertion rule enforces that, when you change a routing
-  control state, that a certain criteria is met. For example, the criteria might
-  be that at least one routing control state is On after the transaction so that
-  traffic continues to flow to at least one cell for the application. This ensures
-  that you avoid a fail-open scenario.
-
-  Gating rule: A gating rule lets you configure a gating routing control as an
-  overall "on/off" switch for a group of routing controls. Or, you can configure
-  more complex gating scenarios, for example by configuring multiple gating
-  routing controls.
-
-  For more information, see [Safety rules](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.safety-rules.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1119,8 +1101,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Delete a cluster.
 
-  ## Required positional parameters:
-  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that you&#39;re deleting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster that
+    you're deleting.
 
   ## Optional parameters:
   """
@@ -1152,8 +1137,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Deletes a control panel.
 
-  ## Required positional parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
 
   ## Optional parameters:
   """
@@ -1190,8 +1178,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Deletes a routing control.
 
-  ## Required positional parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control that you&#39;re deleting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteRoutingControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control that you're deleting.
 
   ## Optional parameters:
   """
@@ -1228,9 +1219,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Deletes a safety rule.
 
-  />
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DeleteSafetyRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
 
   ## Optional parameters:
@@ -1261,12 +1252,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Display the details about a cluster.
+  Display the details about a cluster. The response includes the cluster name,
+  endpoints, status, and Amazon Resource Name (ARN).
 
-  The response includes the cluster name, endpoints, status, and Amazon Resource
-  Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster.
 
   ## Optional parameters:
@@ -1294,8 +1285,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Displays details about a control panel.
 
-  ## Required positional parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeControlPanel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
 
   ## Optional parameters:
   """
@@ -1320,17 +1314,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Displays details about a routing control.
+  Displays details about a routing control. A routing control has one of two
+  states: ON and OFF. You can map the routing control state to the state of an
+  Amazon Route 53 health check, which can be used to control routing.
 
-  A routing control has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeRoutingControl&this_doc_guide=API%2520Reference)
 
-  To get or update the routing control state, see the Recovery Cluster (data
-  plane) API actions for Amazon Route 53 Application Recovery Controller.
-
-  ## Required positional parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control.
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control.
 
   ## Optional parameters:
   """
@@ -1357,7 +1349,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns information about a safety rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20DescribeSafetyRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:safety_rule_arn` (`t:string`) The ARN of the safety rule.
 
   ## Optional parameters:
@@ -1385,7 +1379,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Get information about the resource policy for a cluster.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1414,12 +1410,17 @@ defmodule AWS.Route53RecoveryControlConfig do
   Returns an array of all Amazon Route 53 health checks associated with a specific
   routing control.
 
-  ## Required positional parameters:
-  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the routing control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListAssociatedRoute53HealthChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:routing_control_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    routing control.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_associated_route53_health_checks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
@@ -1467,11 +1468,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns an array of all the clusters in an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
@@ -1514,12 +1519,16 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns an array of control panels in an account or in a cluster.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListControlPanels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of a cluster.
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_control_panels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_panels_response(), any()}
@@ -1569,19 +1578,22 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Returns an array of routing controls for a control panel.
+  Returns an array of routing controls for a control panel. A routing control is
+  an Amazon Route 53 Application Recovery Controller construct that has one of
+  two states: ON and OFF. You can map the routing control state to the state of
+  an Amazon Route 53 health check, which can be used to control routing.
 
-  A routing control is an Amazon Route 53 Application Recovery Controller
-  construct that has one of two states: ON and OFF. You can map the routing
-  control state to the state of an Amazon Route 53 health check, which can be used
-  to control routing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListRoutingControls&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_routing_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_routing_controls_response(), any()}
@@ -1625,12 +1637,17 @@ defmodule AWS.Route53RecoveryControlConfig do
   List the safety rules (the assertion rules and gating rules) that you've defined
   for the routing controls in a control panel.
 
-  ## Required positional parameters:
-  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the control panel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListSafetyRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_panel_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    control panel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_safety_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_safety_rules_response(), any()}
@@ -1673,8 +1690,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Lists the tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
 
   ## Optional parameters:
   """
@@ -1701,8 +1721,11 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Adds a tag to a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
 
   ## Optional parameters:
   """
@@ -1734,11 +1757,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Removes a tag from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource that&#39;s tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that's tagged.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`) Keys for the tags to be removed.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoverycontrolconfig#__string]`)
+    Keys for the tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1771,12 +1798,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Updates a control panel.
+  Updates a control panel. The only update you can make to a control panel is to
+  change the name of the control panel.
 
-  The only update you can make to a control panel is to change the name of the
-  control panel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateControlPanel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1796,13 +1823,13 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Updates a routing control.
+  Updates a routing control. You can only update the name of the routing control.
+  To get or update the routing control state, see the Recovery Cluster (data
+  plane) API actions for Amazon Route 53 Application Recovery Controller.
 
-  You can only update the name of the routing control. To get or update the
-  routing control state, see the Recovery Cluster (data plane) API actions for
-  Amazon Route 53 Application Recovery Controller.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateRoutingControl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1822,12 +1849,13 @@ defmodule AWS.Route53RecoveryControlConfig do
   end
 
   @doc """
-  Update a safety rule (an assertion rule or gating rule).
+  Update a safety rule (an assertion rule or gating rule). You can only update the
+  name and the waiting period for a safety rule. To make other updates, delete
+  the safety rule and create a new one.
 
-  You can only update the name and the waiting period for a safety rule. To make
-  other updates, delete the safety rule and create a new one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoverycontrolconfig%20UpdateSafetyRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

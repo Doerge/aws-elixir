@@ -2562,7 +2562,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates an Api resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2594,7 +2596,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates an API mapping.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
@@ -2627,7 +2631,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates an Authorizer for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2660,7 +2666,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a Deployment for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2693,7 +2701,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a domain name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2725,7 +2735,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates an Integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2758,7 +2770,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates an IntegrationResponses.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
 
@@ -2806,7 +2820,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a Model for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2839,7 +2855,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a Route for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2872,7 +2890,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a RouteResponse for a Route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
 
@@ -2914,7 +2934,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a Stage for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -2947,7 +2969,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a VPC link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20CreateVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2977,13 +3001,16 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Deletes the AccessLogSettings for a Stage.
+  Deletes the AccessLogSettings for a Stage. To disable access logging for a
+  Stage, delete its AccessLogSettings.
 
-  To disable access logging for a Stage, delete its AccessLogSettings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteAccessLogSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
-  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
 
   ## Optional parameters:
   """
@@ -3023,7 +3050,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes an Api resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -3056,7 +3085,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes an API mapping.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_mapping_id` (`t:string`) The API mapping identifier.
   * `:domain_name` (`t:string`) The domain name.
 
@@ -3098,7 +3129,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes an Authorizer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:authorizer_id` (`t:string`) The authorizer identifier.
 
@@ -3140,7 +3173,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a CORS configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteCorsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -3178,7 +3213,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a Deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:deployment_id` (`t:string`) The deployment ID.
 
@@ -3220,7 +3257,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a domain name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
@@ -3253,7 +3292,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes an Integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
 
@@ -3295,7 +3336,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes an IntegrationResponses.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
   * `:integration_response_id` (`t:string`) The integration response ID.
@@ -3346,7 +3389,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a Model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:model_id` (`t:string`) The model ID.
 
@@ -3380,7 +3425,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a Route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
 
@@ -3412,11 +3459,11 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Deletes a route request parameter.
+  Deletes a route request parameter. Supported only for WebSocket APIs.
 
-  Supported only for WebSocket APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteRequestParameter&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:request_parameter_key` (`t:string`) The route request parameter key.
   * `:route_id` (`t:string`) The route ID.
@@ -3467,7 +3514,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a RouteResponse.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
   * `:route_response_id` (`t:string`) The route response ID.
@@ -3518,10 +3567,14 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes the RouteSettings for a stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteRouteSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_key` (`t:string`) The route key.
-  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
 
   ## Optional parameters:
   """
@@ -3569,9 +3622,13 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a Stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
-  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
 
   ## Optional parameters:
   """
@@ -3603,7 +3660,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a VPC link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20DeleteVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:
@@ -3693,7 +3752,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets an Api resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -3721,7 +3782,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets an API mapping.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_mapping_id` (`t:string`) The API mapping identifier.
   * `:domain_name` (`t:string`) The domain name.
 
@@ -3751,12 +3814,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets API mappings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApiMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_api_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_api_mappings_response(), any()}
@@ -3799,11 +3866,15 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a collection of Api resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetApis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apis_response(), any()}
@@ -3846,7 +3917,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets an Authorizer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:authorizer_id` (`t:string`) The authorizer identifier.
 
@@ -3876,12 +3949,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Authorizers for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetAuthorizers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorizers_response(), any()}
@@ -3924,7 +4001,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a Deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:deployment_id` (`t:string`) The deployment ID.
 
@@ -3954,12 +4033,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Deployments for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployments_response(), any()}
@@ -4002,7 +4085,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a domain name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
@@ -4030,11 +4115,15 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the domain names for an AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_domain_names_response(), any()}
@@ -4077,7 +4166,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets an Integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
 
@@ -4107,7 +4198,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets an IntegrationResponses.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
   * `:integration_response_id` (`t:string`) The integration response ID.
@@ -4144,13 +4237,17 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the IntegrationResponses for an Integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrationResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_integration_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_integration_responses_response(), any()}
@@ -4194,12 +4291,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Integrations for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_integrations_response(), any()}
@@ -4242,7 +4343,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a Model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:model_id` (`t:string`) The model ID.
 
@@ -4271,7 +4374,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a model template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModelTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:model_id` (`t:string`) The model ID.
 
@@ -4301,12 +4406,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Models for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_models_response(), any()}
@@ -4349,7 +4458,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a Route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
 
@@ -4378,7 +4489,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a RouteResponse.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
   * `:route_response_id` (`t:string`) The route response ID.
@@ -4409,13 +4522,17 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the RouteResponses for a Route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRouteResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_route_responses(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_responses_response(), any()}
@@ -4459,12 +4576,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Routes for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_routes_response(), any()}
@@ -4507,9 +4628,13 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a Stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
-  * `:stage_name` (`t:string`) The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can only contain
+    alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    characters.
 
   ## Optional parameters:
   """
@@ -4536,12 +4661,16 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets the Stages for an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetStages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_stages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_stages_response(), any()}
@@ -4584,7 +4713,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a collection of Tag resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
@@ -4612,7 +4743,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a VPC link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:
@@ -4640,11 +4773,15 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Gets a collection of VPC links.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20GetVpcLinks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) The maximum number of elements to be returned for this resource.
-  * `:next_token` (`t:string`) The next page of elements from this collection. Not valid for the last element of the collection.
+  * `:max_results` (`t:string`) The maximum number of elements to be returned for
+    this resource.
+  * `:next_token` (`t:string`) The next page of elements from this collection. Not
+    valid for the last element of the collection.
   """
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_vpc_links_response(), any()}
@@ -4687,11 +4824,18 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Imports an API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ImportApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.
-  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API
+    during import. Valid values are ignore, prepend, and split. The default
+    value is ignore. To learn more, see Set the OpenAPI basePath Property.
+    Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API
+    creation when a warning is encountered. By default, API creation continues
+    if a warning is encountered.
   """
   @spec import_api(AWS.Client.t(), import_api_request(), Keyword.t()) ::
           {:ok, import_api_response(), any()}
@@ -4724,12 +4868,19 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Puts an Api resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ReimportApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
-  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.
-  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
+  * `:basepath` (`t:string`) Specifies how to interpret the base path of the API
+    during import. Valid values are ignore, prepend, and split. The default
+    value is ignore. To learn more, see Set the OpenAPI basePath Property.
+    Supported only for HTTP APIs.
+  * `:fail_on_warnings` (`t:boolean`) Specifies whether to rollback the API
+    creation when a warning is encountered. By default, API creation continues
+    if a warning is encountered.
   """
   @spec reimport_api(AWS.Client.t(), String.t(), reimport_api_request(), Keyword.t()) ::
           {:ok, reimport_api_response(), any()}
@@ -4760,13 +4911,15 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Resets all authorizer cache entries on a stage.
+  Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.
 
-  Supported only for HTTP APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20ResetAuthorizersCache&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
-  * `:stage_name` (`t:string`) The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only
+    alphanumeric characters, hyphens, and underscores, or be $default. Maximum
+    length is 128 characters.
 
   ## Optional parameters:
   """
@@ -4806,7 +4959,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Creates a new Tag resource to represent a tag.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
@@ -4839,11 +4994,14 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Deletes a Tag.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN for the tag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.apigatewayv2#__string]`) The Tag keys to delete
+  * `:tag_keys` (`t:list[com.amazonaws.apigatewayv2#__string]`) The Tag keys to
+    delete
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4878,7 +5036,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates an Api resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateApi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
 
   ## Optional parameters:
@@ -4911,7 +5071,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   The API mapping.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateApiMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_mapping_id` (`t:string`) The API mapping identifier.
   * `:domain_name` (`t:string`) The domain name.
 
@@ -4953,7 +5115,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates an Authorizer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateAuthorizer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:authorizer_id` (`t:string`) The authorizer identifier.
 
@@ -4995,7 +5159,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a Deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:deployment_id` (`t:string`) The deployment ID.
 
@@ -5037,7 +5203,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a domain name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateDomainName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The domain name.
 
   ## Optional parameters:
@@ -5070,7 +5238,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates an Integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
 
@@ -5112,7 +5282,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates an IntegrationResponses.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateIntegrationResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:integration_id` (`t:string`) The integration ID.
   * `:integration_response_id` (`t:string`) The integration response ID.
@@ -5163,7 +5335,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a Model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:model_id` (`t:string`) The model ID.
 
@@ -5197,7 +5371,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a Route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
 
@@ -5231,7 +5407,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a RouteResponse.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateRouteResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
   * `:route_id` (`t:string`) The route ID.
   * `:route_response_id` (`t:string`) The route response ID.
@@ -5282,9 +5460,13 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a Stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:api_id` (`t:string`) The API identifier.
-  * `:stage_name` (`t:string`) The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+  * `:stage_name` (`t:string`) The stage name. Stage names can contain only
+    alphanumeric characters, hyphens, and underscores, or be $default. Maximum
+    length is 128 characters.
 
   ## Optional parameters:
   """
@@ -5316,7 +5498,9 @@ defmodule AWS.ApiGatewayV2 do
   @doc """
   Updates a VPC link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigatewayv2%20UpdateVpcLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:vpc_link_id` (`t:string`) The ID of the VPC link.
 
   ## Optional parameters:

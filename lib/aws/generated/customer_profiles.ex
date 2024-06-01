@@ -4,18 +4,6 @@
 defmodule AWS.CustomerProfiles do
   @moduledoc """
   Amazon Connect Customer Profiles
-
-  Amazon Connect Customer Profiles is a unified customer profile for your contact
-  center that has
-  pre-built connectors powered by AppFlow that make it easy to combine customer
-  information
-  from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and
-  your
-  enterprise resource planning (ERP), with contact history from your Amazon
-  Connect contact center.
-
-  If you're new to Amazon Connect, you might find it helpful to review the [Amazon Connect Administrator
-  Guide](https://docs.aws.amazon.com/connect/latest/adminguide/).
   """
 
   alias AWS.Client
@@ -2766,11 +2754,9 @@ defmodule AWS.CustomerProfiles do
   Associates a new key value with a specific profile, such as a Contact Record
   ContactId.
 
-  A profile object can have a single unique key and any number of additional keys
-  that can
-  be used to identify the profile that it belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20AddProfileKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -2801,21 +2787,19 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Creates a new calculated attribute definition.
-
-  After creation, new object data ingested
-  into Customer Profiles will be included in the calculated attribute, which can
-  be retrieved
-  for a profile using the
+  Creates a new calculated attribute definition. After creation, new object data
+  ingested into Customer Profiles will be included in the calculated attribute,
+  which can be retrieved for a profile using the
   [GetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html)
-  API.
-  Defining a calculated attribute makes it available for all profiles within a
-  domain. Each
-  calculated attribute can only reference one `ObjectType` and at most, two fields
-  from that `ObjectType`.
+  API. Defining a calculated attribute makes it available for all profiles
+  within a domain. Each calculated attribute can only reference one `ObjectType`
+  and at most, two fields from that `ObjectType`.
 
-  ## Required positional parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
+    attribute.
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -2861,28 +2845,14 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Creates a domain, which is a container for all customer data, such as customer
-  profile
-  attributes, object types, profile keys, and encryption keys.
+  profile attributes, object types, profile keys, and encryption keys. You can
+  create multiple domains, and each domain can have multiple third-party
+  integrations. Each Amazon Connect instance can be associated with only one
+  domain. Multiple Amazon Connect instances can be associated with one domain.
 
-  You can create multiple
-  domains, and each domain can have multiple third-party integrations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateDomain&this_doc_guide=API%2520Reference)
 
-  Each Amazon Connect instance can be associated with only one domain. Multiple
-  Amazon Connect instances can
-  be associated with one domain.
-
-  Use this API or
-  [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to
-  enable [identity
-  resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
-  set `Matching` to true.
-
-  To prevent cross-service impersonation when you call this API, see
-  [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
-  for sample policies that you should
-  apply.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -2914,14 +2884,12 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Creates an event stream, which is a subscription to real-time events, such as
-  when profiles are created and
-  updated through Amazon Connect Customer Profiles.
+  when profiles are created and updated through Amazon Connect Customer
+  Profiles.
 
-  Each event stream can be associated with only one Kinesis Data Stream
-  destination in the same region and
-  Amazon Web Services account as the customer profiles domain
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateEventStream&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:event_stream_name` (`t:string`) The name of the event stream.
 
@@ -2967,14 +2935,13 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Creates an integration workflow. An integration workflow is an async process
+  which ingests historic data and sets up an integration for ongoing updates.
+  The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
 
-  Creates an integration workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateIntegrationWorkflow&this_doc_guide=API%2520Reference)
 
-  An integration workflow is an async process which ingests historic data and sets
-  up an integration for ongoing updates. The supported Amazon AppFlow sources are
-  Salesforce, ServiceNow, and Marketo.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3012,11 +2979,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Creates a standard profile.
 
-  A standard profile represents the following attributes for a customer profile in
-  a
-  domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20CreateProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3047,15 +3012,16 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Deletes an existing calculated attribute definition.
+  Deletes an existing calculated attribute definition. Note that deleting a
+  default calculated attribute is possible, however once deleted, you will be
+  unable to undo that action and will need to recreate it on your own using the
+  CreateCalculatedAttributeDefinition API if you want it back.
 
-  Note that deleting a default calculated attribute
-  is possible, however once deleted, you will be unable to undo that action and
-  will need to recreate it on
-  your own using the CreateCalculatedAttributeDefinition API if you want it back.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  ## Parameters:
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
+    attribute.
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3103,7 +3069,9 @@ defmodule AWS.CustomerProfiles do
   Deletes a specific domain and all of its customer data, such as customer profile
   attributes and their related objects.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3136,7 +3104,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Disables and deletes the specified event stream.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:event_stream_name` (`t:string`) The name of the event stream
 
@@ -3184,7 +3154,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes an integration from a specific domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3217,7 +3189,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Deletes the standard customer profile and all data pertaining to the profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3250,7 +3224,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes a searchable key from a customer profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3283,7 +3259,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes an object associated with a profile of a given ProfileObjectType.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3320,14 +3298,13 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Removes a ProfileObjectType from a specific domain as well as removes all the
-  ProfileObjects of that type.
-
-  It also disables integrations from this specific
+  ProfileObjects of that type. It also disables integrations from this specific
   ProfileObjectType. In addition, it scrubs all of the fields of the standard
-  profile that
-  were populated from this ProfileObjectType.
+  profile that were populated from this ProfileObjectType.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteProfileObjectType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:object_type_name` (`t:string`) The name of the profile object type.
 
@@ -3373,11 +3350,12 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Deletes the specified workflow and all its corresponding resources.
+  Deletes the specified workflow and all its corresponding resources. This is an
+  async process.
 
-  This is an async process.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
@@ -3419,7 +3397,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   The process of detecting profile object type mapping by using given objects.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20DetectProfileObjectType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3456,27 +3436,16 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Tests the auto-merging settings of your Identity Resolution Job without merging
-  your data.
+  your data. It randomly selects a sample of matching groups from the existing
+  matching results, and applies the automerging settings that you provided. You
+  can then view the number of profiles in the sample, the number of matches, and
+  the number of profiles identified to be merged. This enables you to evaluate
+  the accuracy of the attributes in your matching list. You can't view which
+  profiles are matched and would be merged.
 
-  It randomly
-  selects a sample of matching groups from the existing matching results, and
-  applies the
-  automerging settings that you provided. You can then view the number of profiles
-  in the
-  sample, the number of matches, and the number of profiles identified to be
-  merged. This
-  enables you to evaluate the accuracy of the attributes in your matching list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetAutoMergingPreview&this_doc_guide=API%2520Reference)
 
-  You can't view which profiles are matched and would be merged.
-
-  We strongly recommend you use this API to do a dry run of the automerging
-  process
-  before running the Identity Resolution Job. Include **at least** two matching
-  attributes. If your matching list includes too few attributes (such as only
-  `FirstName` or only `LastName`), there may be a large number of
-  matches. This increases the chances of erroneous merges.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3517,8 +3486,11 @@ defmodule AWS.CustomerProfiles do
   Provides more information on a calculated attribute definition for Customer
   Profiles.
 
-  ## Required positional parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
+    attribute.
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3552,8 +3524,11 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Retrieve a calculated attribute for a customer profile.
 
-  ## Required positional parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetCalculatedAttributeForProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
+    attribute.
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:profile_id` (`t:string`) The unique identifier of a customer profile.
 
@@ -3595,7 +3570,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns information about a specific domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3623,9 +3600,12 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns information about the specified event stream in a specific domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
-  * `:event_stream_name` (`t:string`) The name of the event stream provided during create operations.
+  * `:event_stream_name` (`t:string`) The name of the event stream provided during
+    create operations.
 
   ## Optional parameters:
   """
@@ -3653,11 +3633,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns information about an Identity Resolution Job in a specific domain.
 
-  Identity Resolution Jobs are set up using the Amazon Connect admin console. For
-  more information, see [Use Identity Resolution to consolidate similar
-  profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetIdentityResolutionJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:job_id` (`t:string`) The unique identifier of the Identity Resolution Job.
 
@@ -3687,7 +3665,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns an integration for a domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -3719,68 +3699,32 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Before calling this API, use
-  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) or
+  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html)
+  or
   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html)
-  to
-  enable identity resolution: set `Matching` to true.
-
-  GetMatches returns potentially matching profiles, based on the results of the
-  latest run
-  of a machine learning process.
-
-  The process of matching duplicate profiles. If `Matching` = `true`, Amazon
-  Connect Customer Profiles starts a weekly
-  batch process called Identity Resolution Job. If you do not specify a date and
-  time for Identity Resolution Job to run, by default it runs every
-  Saturday at 12AM UTC to detect duplicate profiles in your domains.
-
-  After the Identity Resolution Job completes, use the
+  to enable identity resolution: set `Matching` to true. GetMatches returns
+  potentially matching profiles, based on the results of the latest run of a
+  machine learning process. The process of matching duplicate profiles. If
+  `Matching` = `true`, Amazon Connect Customer Profiles starts a weekly batch
+  process called Identity Resolution Job. If you do not specify a date and time
+  for Identity Resolution Job to run, by default it runs every Saturday at 12AM
+  UTC to detect duplicate profiles in your domains. After the Identity
+  Resolution Job completes, use the
   [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html)
-
   API to return and review the results. Or, if you have configured
   `ExportingConfig` in the `MatchingRequest`, you can download the results from
   S3.
 
-  Amazon Connect uses the following profile attributes to identify matches:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetMatches&this_doc_guide=API%2520Reference)
 
-    *
-  PhoneNumber
-
-    *
-  HomePhoneNumber
-
-    *
-  BusinessPhoneNumber
-
-    *
-  MobilePhoneNumber
-
-    *
-  EmailAddress
-
-    *
-  PersonalEmailAddress
-
-    *
-  BusinessEmailAddress
-
-    *
-  FullName
-
-  For example, two or more profiles—with spelling mistakes such as ## John Doe
-  and **Jhn Doe**, or different casing
-  email addresses such as **JOHN_DOE@ANYCOMPANY.COM** and
-  **johndoe@anycompany.com**, or different phone number
-  formats such as **555-010-0000** and **+1-555-010-0000**—can be detected as
-  belonging to the same customer **John Doe** and merged into a unified profile.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec get_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matches_response(), any()}
@@ -3823,7 +3767,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns the object types for a specific domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetProfileObjectType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:object_type_name` (`t:string`) The name of the profile object type.
 
@@ -3853,14 +3799,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns the template information for a specific object type.
 
-  A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
-  “Salesforce-Contact.” When a user sends a ProfileObject, using the
-  PutProfileObject API,
-  with an ObjectTypeName that matches one of the TemplateIds, it uses the mappings
-  from the
-  template.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetProfileObjectTypeTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_id` (`t:string`) A unique identifier for the object template.
 
   ## Optional parameters:
@@ -3887,19 +3828,19 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Returns a set of profiles that belong to the same matching group using the
-  `matchId` or
-  `profileId`.
+  `matchId` or `profileId`. You can also specify the type of matching that you
+  want for finding similar profiles using either `RULE_BASED_MATCHING` or
+  `ML_BASED_MATCHING`.
 
-  You can also specify the type of matching that you want for finding similar
-  profiles using
-  either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetSimilarProfiles&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous <code>GetSimilarProfiles</code> API call.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    GetSimilarProfiles API call.
   """
   @spec get_similar_profiles(
           AWS.Client.t(),
@@ -3940,7 +3881,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Get details of specified workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
@@ -3970,14 +3913,17 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Get granular list of steps in workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20GetWorkflowSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:workflow_id` (`t:string`) Unique identifier for the workflow.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec get_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_steps_response(), any()}
@@ -4021,12 +3967,16 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Lists all of the integrations associated to a specific URI in the AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListAccountIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.
+  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration
+    should be returned. Defaults to False.
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous ListAccountIntegrations API call.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    ListAccountIntegrations API call.
   """
   @spec list_account_integrations(
           AWS.Client.t(),
@@ -4067,12 +4017,16 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Lists calculated attribute definitions for Customer Profiles
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListCalculatedAttributeDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of calculated attribute definitions returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous call to ListCalculatedAttributeDefinitions.
+  * `:max_results` (`t:integer`) The maximum number of calculated attribute
+    definitions returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous call to
+    ListCalculatedAttributeDefinitions.
   """
   @spec list_calculated_attribute_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_calculated_attribute_definitions_response(), any()}
@@ -4115,13 +4069,17 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Retrieve a list of calculated attributes for a customer profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListCalculatedAttributesForProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:profile_id` (`t:string`) The unique identifier of a customer profile.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of calculated attributes returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous call to ListCalculatedAttributesForProfile.
+  * `:max_results` (`t:integer`) The maximum number of calculated attributes
+    returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous call to
+    ListCalculatedAttributesForProfile.
   """
   @spec list_calculated_attributes_for_profile(
           AWS.Client.t(),
@@ -4175,11 +4133,14 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns a list of all the domains for an AWS account that have been created.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous ListDomain API call.
+  * `:next_token` (`t:string`) The pagination token from the previous ListDomain
+    API call.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -4222,7 +4183,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns a list of all the event streams in a specific domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListEventStreams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -4268,18 +4231,19 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Lists all of the Identity Resolution Jobs in your domain.
+  Lists all of the Identity Resolution Jobs in your domain. The response sorts the
+  list by `JobStartTime`.
 
-  The response sorts the list by
-  `JobStartTime`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListIdentityResolutionJobs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_identity_resolution_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_resolution_jobs_response(), any()}
@@ -4322,13 +4286,17 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Lists all of the integrations in your domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.
+  * `:include_hidden` (`t:boolean`) Boolean to indicate if hidden integration
+    should be returned. Defaults to False.
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous ListIntegrations API call.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    ListIntegrations API call.
   """
   @spec list_integrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_integrations_response(), any()}
@@ -4380,11 +4348,14 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Lists all of the template information for object types.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjectTypeTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous ListObjectTypeTemplates API call.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    ListObjectTypeTemplates API call.
   """
   @spec list_profile_object_type_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_object_type_templates_response(), any()}
@@ -4427,7 +4398,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Lists all of the templates available within the service.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjectTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -4476,12 +4449,15 @@ defmodule AWS.CustomerProfiles do
   Returns a list of objects associated with a profile of a given
   ProfileObjectType.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListProfileObjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous call to ListProfileObjects.
+  * `:next_token` (`t:string`) The pagination token from the previous call to
+    ListProfileObjects.
   """
   @spec list_profile_objects(
           AWS.Client.t(),
@@ -4522,13 +4498,15 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns a set of `MatchIds` that belong to the given domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListRuleBasedMatches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of <code>MatchIds</code> returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous <code>ListRuleBasedMatches</code> API
-         call.
+  * `:max_results` (`t:integer`) The maximum number of MatchIds returned per page.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    ListRuleBasedMatches API call.
   """
   @spec list_rule_based_matches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_based_matches_response(), any()}
@@ -4570,13 +4548,14 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Displays the tags associated with an Amazon Connect Customer Profiles resource.
+  In Connect Customer Profiles, domains, profile object types, and integrations
+  can be tagged.
 
-  In Connect
-  Customer Profiles, domains, profile object types, and integrations can be
-  tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    view tags.
 
   ## Optional parameters:
   """
@@ -4603,13 +4582,16 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Query to list all workflows.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_workflows(AWS.Client.t(), String.t(), list_workflows_request(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
@@ -4645,48 +4627,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Runs an AWS Lambda job that does the following:
 
-    1.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20MergeProfiles&this_doc_guide=API%2520Reference)
 
-  All the profileKeys in the `ProfileToBeMerged` will be moved to the
-  main profile.
-
-    2.
-  All the objects in the `ProfileToBeMerged` will be moved to the main
-  profile.
-
-    3.
-  All the `ProfileToBeMerged` will be deleted at the end.
-
-    4.
-  All the profileKeys in the `ProfileIdsToBeMerged` will be moved to the
-  main profile.
-
-    5.
-  Standard fields are merged as follows:
-
-      1.
-  Fields are always "union"-ed if there are no conflicts in standard fields or
-  attributeKeys.
-
-      2.
-  When there are conflicting fields:
-
-        1.
-  If no `SourceProfileIds` entry is specified, the main
-  Profile value is always taken.
-
-        2.
-  If a `SourceProfileIds` entry is specified, the specified
-  profileId is always taken, even if it is a NULL value.
-
-  You can use MergeProfiles together with
-  [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html),
-  which
-  returns potentially matching profiles, or use it with the results of another
-  matching
-  system. After profiles have been merged, they cannot be separated (unmerged).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -4718,17 +4661,12 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Adds an integration between the service and a third-party service, which
-  includes
-  Amazon AppFlow and Amazon Connect.
+  includes Amazon AppFlow and Amazon Connect. An integration can belong to only
+  one domain.
 
-  An integration can belong to only one domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutIntegration&this_doc_guide=API%2520Reference)
 
-  To add or remove tags on an existing Integration, see [ TagResource
-  ](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[
-
-  UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -4749,25 +4687,16 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Adds additional objects to customer profiles of a given ObjectType.
+  Adds additional objects to customer profiles of a given ObjectType. When adding
+  a specific profile object, like a Contact Record, an inferred profile can get
+  created if it is not mapped to an existing profile. The resulting profile will
+  only have a phone number populated in the standard ProfileObject. Any
+  additional Contact Records with the same phone number will be mapped to the
+  same inferred profile.
 
-  When adding a specific profile object, like a Contact Record, an inferred
-  profile can
-  get created if it is not mapped to an existing profile. The resulting profile
-  will only
-  have a phone number populated in the standard ProfileObject. Any additional
-  Contact Records
-  with the same phone number will be mapped to the same inferred profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutProfileObject&this_doc_guide=API%2520Reference)
 
-  When a ProfileObject is created and if a ProfileObjectType already exists for
-  the
-  ProfileObject, it will provide data to a standard profile depending on the
-  ProfileObjectType definition.
-
-  PutProfileObject needs an ObjectType, which can be created using
-  PutProfileObjectType.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -4790,10 +4719,9 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Defines a ProfileObjectType.
 
-  To add or remove tags on an existing ObjectType, see [
-  TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20PutProfileObjectType&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
   * `:object_type_name` (`t:string`) The name of the profile object type.
 
@@ -4830,23 +4758,19 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Searches for profiles within a specific domain using one or more predefined
-  search keys
-  (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search
-  keys.
+  search keys (e.g., _fullName, _phone, _email, _account, etc.) and/or
+  custom-defined search keys. A search key is a data type pair that consists of
+  a `KeyName` and `Values` list.
 
-  A search key
-  is a data type pair that consists of a `KeyName` and `Values` list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20SearchProfiles&this_doc_guide=API%2520Reference)
 
-  This operation supports searching for profiles with a minimum of 1 key-value(s)
-  pair and up to
-  5 key-value(s) pairs using either `AND` or `OR` logic.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects returned per page.
-  * `:next_token` (`t:string`) The pagination token from the previous SearchProfiles API call.
+  * `:next_token` (`t:string`) The pagination token from the previous
+    SearchProfiles API call.
   """
   @spec search_profiles(AWS.Client.t(), String.t(), search_profiles_request(), Keyword.t()) ::
           {:ok, search_profiles_response(), any()}
@@ -4881,32 +4805,18 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Amazon Connect
-  Customer Profiles
-  resource.
+  Customer Profiles resource. Tags can help you organize and categorize your
+  resources. You can also use them to scope user permissions by granting a user
+  permission to access or change only resources with certain tag values. In
+  Connect Customer Profiles, domains, profile object types, and integrations can
+  be tagged. Tags don't have any semantic meaning to AWS and are interpreted
+  strictly as strings of characters.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope user permissions by granting a user permission to access or change only
-  resources
-  with certain tag values. In Connect Customer Profiles, domains, profile object
-  types, and
-  integrations can be tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20TagResource&this_doc_guide=API%2520Reference)
 
-  Tags don't have any semantic meaning to AWS and are interpreted strictly as
-  strings of
-  characters.
-
-  You can use the TagResource action with a resource that already has tags. If you
-  specify
-  a new tag key, this tag is appended to the list of tags associated with the
-  resource. If
-  you specify a tag key that is already associated with the resource, the new tag
-  value that
-  you specify replaces the previous value for that tag.
-
-  You can associate as many as 50 tags with a resource.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you&#39;re adding tags to.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that you're adding tags
+    to.
 
   ## Optional parameters:
   """
@@ -4937,17 +4847,18 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Removes one or more tags from the specified Amazon Connect Customer Profiles
-  resource.
+  resource. In Connect Customer Profiles, domains, profile object types, and
+  integrations can be tagged.
 
-  In Connect
-  Customer Profiles, domains, profile object types, and integrations can be
-  tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource from which you are removing tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource from which you are
+    removing tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.customerprofiles#TagKey]`) The list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.customerprofiles#TagKey]`) The list of tag
+    keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4980,15 +4891,15 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Updates an existing calculated attribute definition.
+  Updates an existing calculated attribute definition. When updating the
+  Conditions, note that increasing the date range of a calculated attribute will
+  not trigger inclusion of historical data greater than the current date range.
 
-  When updating the Conditions, note that increasing
-  the date range of a calculated attribute will not trigger inclusion of
-  historical data greater than the
-  current date range.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateCalculatedAttributeDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated attribute.
+  ## Parameters:
+  * `:calculated_attribute_name` (`t:string`) The unique name of the calculated
+    attribute.
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -5024,26 +4935,12 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Updates the properties of a domain, including creating or selecting a dead
-  letter queue
-  or an encryption key.
+  letter queue or an encryption key. After a domain is created, the name can’t
+  be changed.
 
-  After a domain is created, the name can’t be changed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateDomain&this_doc_guide=API%2520Reference)
 
-  Use this API or
-  [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html) to
-  enable [identity
-  resolution](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html):
-  set `Matching` to true.
-
-  To prevent cross-service impersonation when you call this API, see
-  [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
-  for sample policies that you should
-  apply.
-
-  To add or remove tags on an existing Domain, see
-  [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:
@@ -5064,18 +4961,12 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-  Updates the properties of a profile.
+  Updates the properties of a profile. The ProfileId is required for updating a
+  customer profile.
 
-  The ProfileId is required for updating a customer
-  profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=customerprofiles%20UpdateProfile&this_doc_guide=API%2520Reference)
 
-  When calling the UpdateProfile API, specifying an empty string value means that
-  any
-  existing value will be removed. Not specifying a string value means that any
-  value already
-  there will be kept.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The unique name of the domain.
 
   ## Optional parameters:

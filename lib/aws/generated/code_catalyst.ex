@@ -3,195 +3,10 @@
 
 defmodule AWS.CodeCatalyst do
   @moduledoc """
-  Welcome to the Amazon CodeCatalyst API reference.
-
-  This reference provides descriptions of operations and data types for Amazon
-  CodeCatalyst. You can use the Amazon CodeCatalyst
-  API to work with the following objects.
-
-  Spaces, by calling the following:
-
-    *
-
-  `DeleteSpace`, which deletes a space.
-
-    *
-
-  `GetSpace`, which returns information about a space.
-
-    *
-
-  `GetSubscription`, which returns information about the Amazon Web Services
-  account used for billing purposes
-  and the billing plan for the space.
-
-    *
-
-  `ListSpaces`, which retrieves a list of spaces.
-
-    *
-
-  `UpdateSpace`, which changes one or more values for a space.
-
-  Projects, by calling the following:
-
-    *
-
-  `CreateProject` which creates a project in a specified space.
-
-    *
-
-  `GetProject`, which returns information about a project.
-
-    *
-
-  `ListProjects`, which retrieves a list of projects in a space.
-
-  Users, by calling the following:
-
-    *
-
-  `GetUserDetails`, which returns information about a user in Amazon CodeCatalyst.
-
-  Source repositories, by calling the following:
-
-    *
-
-  `CreateSourceRepository`, which creates an empty Git-based source repository in
-  a specified project.
-
-    *
-
-  `CreateSourceRepositoryBranch`, which creates a branch in a specified repository
-  where you can work on code.
-
-    *
-
-  `DeleteSourceRepository`, which deletes a source repository.
-
-    *
-
-  `GetSourceRepository`, which returns information about a source repository.
-
-    *
-
-  `GetSourceRepositoryCloneUrls`, which returns information about the URLs that
-  can be used with a Git client to clone a source
-  repository.
-
-    *
-
-  `ListSourceRepositories`, which retrieves a list of source repositories in a
-  project.
-
-    *
-
-  `ListSourceRepositoryBranches`, which retrieves a list of branches in a source
-  repository.
-
-  Dev Environments and the Amazon Web Services Toolkits, by calling the following:
-
-    *
-
-  `CreateDevEnvironment`, which creates a Dev Environment,
-  where you can quickly work on the code stored in the source repositories of your
-  project.
-
-    *
-
-  `DeleteDevEnvironment`, which deletes a Dev Environment.
-
-    *
-
-  `GetDevEnvironment`, which returns information about a Dev Environment.
-
-    *
-
-  `ListDevEnvironments`, which retrieves a list of Dev Environments in a project.
-
-    *
-
-  `ListDevEnvironmentSessions`, which retrieves a list of active Dev Environment
-  sessions in a project.
-
-    *
-
-  `StartDevEnvironment`, which starts a specified Dev Environment and puts it into
-  an active state.
-
-    *
-
-  `StartDevEnvironmentSession`, which starts a session to a specified Dev
-  Environment.
-
-    *
-
-  `StopDevEnvironment`, which stops a specified Dev Environment and puts it into
-  an stopped state.
-
-    *
-
-  `StopDevEnvironmentSession`, which stops a session for a specified Dev
-  Environment.
-
-    *
-
-  `UpdateDevEnvironment`, which changes one or more values for a Dev Environment.
-
-  Workflows, by calling the following:
-
-    *
-
-  `GetWorkflow`, which returns information about a workflow.
-
-    *
-
-  `GetWorkflowRun`, which returns information about a specified run of a workflow.
-
-    *
-
-  `ListWorkflowRuns`, which retrieves a list of runs of a specified workflow.
-
-    *
-
-  `ListWorkflows`, which retrieves a list of workflows in a specified project.
-
-    *
-
-  `StartWorkflowRun`, which starts a run of a specified workflow.
-
-  Security, activity, and resource management in Amazon CodeCatalyst, by calling
-  the following:
-
-    *
-
-  `CreateAccessToken`, which creates a personal access token (PAT) for the current
-  user.
-
-    *
-
-  `DeleteAccessToken`, which deletes a specified personal access token (PAT).
-
-    *
-
-  `ListAccessTokens`, which lists all personal access tokens (PATs) associated
-  with a user.
-
-    *
-
-  `ListEventLogs`, which retrieves a list of events that occurred during a
-  specified time period in a space.
-
-    *
-
-  `VerifySession`, which verifies whether the calling user has a valid Amazon
-  CodeCatalyst login and session.
-
-  If you are using the Amazon CodeCatalyst APIs with an SDK or the CLI, you must
-  configure your computer to work with Amazon CodeCatalyst and single sign-on
-  (SSO).
-  For more information, see [Setting up to use the CLI with Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html)
-  and the SSO documentation for your SDK.
+  Welcome to the Amazon CodeCatalyst API reference. This reference provides
+  descriptions of operations and data types for Amazon CodeCatalyst. You can use
+  the Amazon CodeCatalyst API to work with the following objects. Spaces, by
+  calling the following:
   """
 
   alias AWS.Client
@@ -1618,18 +1433,18 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Creates a personal access token (PAT) for the current user.
+  Creates a personal access token (PAT) for the current user. A personal access
+  token (PAT) is similar to a password. It is associated with your user identity
+  for use across all spaces and projects in Amazon CodeCatalyst. You use PATs to
+  access CodeCatalyst from resources that include integrated development
+  environments (IDEs) and Git-based source repositories. PATs represent you in
+  Amazon CodeCatalyst and you can manage them in your user settings.For more
+  information, see [Managing personal access tokens in Amazon
+  CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html).
 
-  A personal access token (PAT) is similar to a password.
-  It is associated with your user identity for use across all spaces and projects
-  in Amazon CodeCatalyst. You use PATs to access CodeCatalyst
-  from resources that include integrated development environments (IDEs) and
-  Git-based source repositories.
-  PATs represent you in Amazon CodeCatalyst and you can manage them in your user
-  settings.For more information, see
-  [Managing personal access tokens in Amazon CodeCatalyst](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateAccessToken&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1649,15 +1464,12 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development
-  environment that you can use to quickly work on the code stored
-  in the source repositories of your project.
+  environment that you can use to quickly work on the code stored in the source
+  repositories of your project.
 
-  When created in the Amazon CodeCatalyst console, by default a Dev Environment is
-  configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent
-  storage. None of these
-  defaults apply to a Dev Environment created programmatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateDevEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -1688,7 +1500,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Creates a project in a specified space.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -1708,13 +1522,15 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Creates an empty Git-based source repository in a specified project.
+  Creates an empty Git-based source repository in a specified project. The
+  repository is created with an initial empty commit with a default branch named
+  `main`.
 
-  The repository is
-  created with an initial empty commit with a default branch named `main`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateSourceRepository&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the source repository. For more information about name requirements, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html">Quotas for source repositories</a>.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the source repository. For more information
+    about name requirements, see Quotas for source repositories.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -1753,13 +1569,13 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Creates a branch in a specified source repository in Amazon CodeCatalyst.
 
-  This API only creates a branch in a source repository hosted in Amazon
-  CodeCatalyst. You cannot use this API to create a branch in a linked repository.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateSourceRepositoryBranch&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name for the branch you&#39;re creating.
+  ## Parameters:
+  * `:name` (`t:string`) The name for the branch you're creating.
   * `:project_name` (`t:string`) The name of the project in the space.
-  * `:source_repository_name` (`t:string`) The name of the repository where you want to create a branch.
+  * `:source_repository_name` (`t:string`) The name of the repository where you
+    want to create a branch.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -1797,12 +1613,15 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Deletes a specified personal access token (PAT).
+  Deletes a specified personal access token (PAT). A personal access token can
+  only be deleted by the user who created it.
 
-  A personal access token can only be deleted by the user who created it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteAccessToken&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the personal access token to delete. You can find the IDs of all PATs associated with your Amazon Web Services Builder ID in a space by calling <a>ListAccessTokens</a>.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the personal access token to delete. You can find
+    the IDs of all PATs associated with your Amazon Web Services Builder ID in a
+    space by calling ListAccessTokens.
 
   ## Optional parameters:
   """
@@ -1838,8 +1657,12 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a Dev Environment.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment you want to delete. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment you
+    want to delete. To retrieve a list of Dev Environment IDs, use
+    ListDevEnvironments.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -1888,8 +1711,11 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a project in a space.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the project in the space. To retrieve a list of project names, use <a>ListProjects</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the project in the space. To retrieve a list
+    of project names, use ListProjects.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -1927,12 +1753,13 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Deletes a source repository in Amazon CodeCatalyst.
+  Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to
+  delete a linked repository. It can only be used to delete a Amazon
+  CodeCatalyst source repository.
 
-  You cannot use this API to delete a linked repository. It can only be used to
-  delete a Amazon CodeCatalyst source repository.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteSourceRepository&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the source repository.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
@@ -1982,11 +1809,11 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Deletes a space.
 
-  Deleting a space cannot be undone. Additionally, since space names must be
-  unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20DeleteSpace&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the space.  To retrieve a list of space names, use <a>ListSpaces</a>.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the space. To retrieve a list of space names,
+    use ListSpaces.
 
   ## Optional parameters:
   """
@@ -2016,12 +1843,14 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Returns information about a Dev Environment for a source repository in a
-  project.
+  project. Dev Environments are specific to the user who creates them.
 
-  Dev Environments are specific to the user who creates them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetDevEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment for
+    which you want to view information. To retrieve a list of Dev Environment
+    IDs, use ListDevEnvironments.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2050,7 +1879,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2079,7 +1910,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a source repository.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSourceRepository&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the source repository.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
@@ -2108,10 +1941,11 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Returns information about the URLs that can be used with a Git client to clone a
-  source
-  repository.
+  source repository.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSourceRepositoryCloneUrls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:source_repository_name` (`t:string`) The name of the source repository.
   * `:space_name` (`t:string`) The name of the space.
@@ -2153,7 +1987,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about an space.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2179,10 +2015,11 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Returns information about the Amazon Web Services account used for billing
-  purposes
-  and the billing plan for the space.
+  purposes and the billing plan for the space.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2209,10 +2046,12 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a user.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetUserDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:id` (`t:`) The system-generated unique ID of the user. 
+  * `:id` (`t:`) The system-generated unique ID of the user.
   * `:user_name` (`t:`) The name of the user as displayed in Amazon CodeCatalyst.
   """
   @spec get_user_details(AWS.Client.t(), Keyword.t()) ::
@@ -2255,8 +2094,11 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a workflow.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the workflow. To rerieve a list of workflow IDs, use <a>ListWorkflows</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the workflow. To rerieve a list of workflow IDs,
+    use ListWorkflows.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2285,8 +2127,11 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Returns information about a specified run of a workflow.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the workflow run. To retrieve a list of workflow run IDs, use <a>ListWorkflowRuns</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the workflow run. To retrieve a list of workflow
+    run IDs, use ListWorkflowRuns.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2314,11 +2159,12 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Lists all personal access tokens (PATs) associated with the user who calls the
-  API.
+  API. You can only list PATs associated with your Amazon Web Services Builder
+  ID.
 
-  You can only list PATs associated with your Amazon Web Services Builder ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListAccessTokens&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2349,8 +2195,11 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of active sessions for a Dev Environment in a project.
 
-  ## Required positional parameters:
-  * `:dev_environment_id` (`t:string`) The system-generated unique ID of the Dev Environment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListDevEnvironmentSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dev_environment_id` (`t:string`) The system-generated unique ID of the Dev
+    Environment.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2399,7 +2248,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of Dev Environments in a project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListDevEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2434,25 +2285,23 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Retrieves a list of events that occurred during a specific time in a space.
-
-  You can
-  use these events to audit user and system activity in a space. For more
+  Retrieves a list of events that occurred during a specific time in a space. You
+  can use these events to audit user and system activity in a space. For more
   information, see
-  [Monitoring](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html) in the *Amazon CodeCatalyst User Guide*.
-
-  ListEventLogs guarantees events for the last 30 days in a given space. You can
-  also
-  view and retrieve a list of management events over the last 90 days for Amazon
-  CodeCatalyst in the
+  [Monitoring](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html)
+  in the *Amazon CodeCatalyst User Guide*. ListEventLogs guarantees events for
+  the last 30 days in a given space. You can also view and retrieve a list of
+  management events over the last 90 days for Amazon CodeCatalyst in the
   CloudTrail console by viewing Event history, or by creating a trail to create
-  and maintain a record of events that extends past 90 days. For more information,
-  see [Working with CloudTrail Event
+  and maintain a record of events that extends past 90 days. For more
+  information, see [Working with CloudTrail Event
   History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)
   and [Working with CloudTrail
   trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListEventLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2484,7 +2333,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of projects.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2516,7 +2367,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of source repositories in a project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSourceRepositories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2557,7 +2410,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of branches in a specified source repository.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSourceRepositoryBranches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:source_repository_name` (`t:string`) The name of the source repository.
   * `:space_name` (`t:string`) The name of the space.
@@ -2607,7 +2462,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of spaces.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSpaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2638,14 +2495,21 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflow runs of a specified workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListWorkflowRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.
-  * `:next_token` (`t:`) A token returned from a call to this API to indicate the next batch of results to return, if any.
-  * `:workflow_id` (`t:string`) The ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.
+  * `:max_results` (`t:`) The maximum number of results to show in a single call
+    to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the
+    next batch of results to return, if any.
+  * `:workflow_id` (`t:string`) The ID of the workflow. To retrieve a list of
+    workflow IDs, use ListWorkflows.
   """
   @spec list_workflow_runs(
           AWS.Client.t(),
@@ -2689,13 +2553,19 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Retrieves a list of workflows in a specified project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.
-  * `:next_token` (`t:`) A token returned from a call to this API to indicate the next batch of results to return, if any.
+  * `:max_results` (`t:`) The maximum number of results to show in a single call
+    to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
+  * `:next_token` (`t:`) A token returned from a call to this API to indicate the
+    next batch of results to return, if any.
   """
   @spec list_workflows(
           AWS.Client.t(),
@@ -2738,8 +2608,10 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Starts a specified Dev Environment and puts it into an active state.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartDevEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2778,7 +2650,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Starts a session for a specified Dev Environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartDevEnvironmentSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
@@ -2818,12 +2692,15 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Begins a run of a specified workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StartWorkflowRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
-  * `:workflow_id` (`t:string`) The system-generated unique ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.
+  * `:workflow_id` (`t:string`) The system-generated unique ID of the workflow. To
+    retrieve a list of workflow IDs, use ListWorkflows.
   """
   @spec start_workflow_run(
           AWS.Client.t(),
@@ -2853,12 +2730,13 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Pauses a specified Dev Environment and places it in a non-running state.
+  Pauses a specified Dev Environment and places it in a non-running state. Stopped
+  Dev Environments do not consume compute minutes.
 
-  Stopped Dev Environments do not consume compute minutes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StopDevEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2890,10 +2768,14 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Stops a session for a specified Dev Environment.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. To obtain this ID, use <a>ListDevEnvironments</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20StopDevEnvironmentSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. To
+    obtain this ID, use ListDevEnvironments.
   * `:project_name` (`t:string`) The name of the project in the space.
-  * `:session_id` (`t:`) The system-generated unique ID of the Dev Environment session. This ID is returned by <a>StartDevEnvironmentSession</a>.
+  * `:session_id` (`t:`) The system-generated unique ID of the Dev Environment
+    session. This ID is returned by StartDevEnvironmentSession.
   * `:space_name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -2941,12 +2823,13 @@ defmodule AWS.CodeCatalyst do
   end
 
   @doc """
-  Changes one or more values for a Dev Environment.
+  Changes one or more values for a Dev Environment. Updating certain values of the
+  Dev Environment will cause a restart.
 
-  Updating certain values of the Dev Environment will cause a restart.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateDevEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment. 
+  ## Parameters:
+  * `:id` (`t:string`) The system-generated unique ID of the Dev Environment.
   * `:project_name` (`t:string`) The name of the project in the space.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -2995,7 +2878,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project.
   * `:space_name` (`t:string`) The name of the space.
 
@@ -3036,7 +2921,9 @@ defmodule AWS.CodeCatalyst do
   @doc """
   Changes one or more values for a space.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20UpdateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the space.
 
   ## Optional parameters:
@@ -3067,11 +2954,12 @@ defmodule AWS.CodeCatalyst do
 
   @doc """
   Verifies whether the calling user has a valid Amazon CodeCatalyst login and
-  session.
+  session. If successful, this returns the ID of the user in Amazon
+  CodeCatalyst.
 
-  If successful, this returns the ID of the user in Amazon CodeCatalyst.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20VerifySession&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

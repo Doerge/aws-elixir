@@ -3660,12 +3660,10 @@ defmodule AWS.NetworkManager do
   @doc """
   Accepts a core network attachment request.
 
-  Once the attachment request is accepted by a core network owner, the attachment
-  is
-  created and connected to a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AcceptAttachment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:attachment_id` (`t:string`) The ID of the attachment. 
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
   """
@@ -3698,13 +3696,9 @@ defmodule AWS.NetworkManager do
   Associates a core network Connect peer with a device and optionally, with a
   link.
 
-  If you specify a link, it must be associated with the specified device. You can
-  only
-  associate core network Connect peers that have been created on a core network
-  Connect
-  attachment on a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateConnectPeer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of your global network.
 
   ## Optional parameters:
@@ -3742,27 +3736,20 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Associates a customer gateway with a device and optionally, with a link.
-
-  If you
-  specify a link, it must be associated with the specified device.
-
-  You can only associate customer gateways that are connected to a VPN attachment
-  on a
+  Associates a customer gateway with a device and optionally, with a link. If you
+  specify a link, it must be associated with the specified device. You can only
+  associate customer gateways that are connected to a VPN attachment on a
   transit gateway or core network registered in your global network. When you
-  register a
-  transit gateway or core network, customer gateways that are connected to the
-  transit
-  gateway are automatically included in the global network. To list customer
-  gateways
-  that are connected to a transit gateway, use the
+  register a transit gateway or core network, customer gateways that are
+  connected to the transit gateway are automatically included in the global
+  network. To list customer gateways that are connected to a transit gateway,
+  use the
   [DescribeVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html)
-  EC2 API and filter by
-  `transit-gateway-id`.
+  EC2 API and filter by `transit-gateway-id`.
 
-  You cannot associate a customer gateway with more than one device and link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateCustomerGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -3800,13 +3787,13 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Associates a link to a device.
+  Associates a link to a device. A device can be associated to multiple links and
+  a link can be associated to multiple devices. The device and link must be in
+  the same global network and the same site.
 
-  A device can be associated to multiple links and a link can be associated to
-  multiple devices. The device and link must be in the same global network and the
-  same site.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -3838,18 +3825,13 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Associates a transit gateway Connect peer with a device, and optionally, with a
-  link.
+  link. If you specify a link, it must be associated with the specified device.
+  You can only associate transit gateway Connect peers that have been created on
+  a transit gateway that's registered in your global network.
 
-  If you
-  specify a link, it must be associated with the specified device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20AssociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
 
-  You can only associate transit gateway Connect peers that have been created on a
-  transit gateway that's registered in your global network.
-
-  You cannot associate a transit gateway Connect peer with more than one device
-  and link.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -3895,14 +3877,9 @@ defmodule AWS.NetworkManager do
   Creates a core network Connect attachment from a specified core network
   attachment.
 
-  A core network Connect attachment is a GRE-based tunnel attachment that you can
-  use to
-  establish a connection between a core network and an appliance. A core network
-  Connect
-  attachment uses an existing VPC attachment as the underlying transport
-  mechanism.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectAttachment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3937,12 +3914,12 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Creates a core network Connect peer for a specified core network connect
-  attachment between a core network and an appliance.
+  attachment between a core network and an appliance. The peer address and
+  transit gateway address must be the same IP address family (IPv4 or IPv6).
 
-  The peer address and transit gateway address must be the same IP address family
-  (IPv4 or IPv6).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectPeer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3972,13 +3949,14 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a connection between two devices.
+  Creates a connection between two devices. The devices can be a physical or
+  virtual appliance that connects to a third-party appliance in a VPC, or a
+  physical appliance that connects to another physical appliance in an
+  on-premises network.
 
-  The devices can be a physical or virtual appliance that connects to a
-  third-party appliance in a VPC, or a physical appliance that connects to another
-  physical appliance in an on-premises network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4012,7 +3990,9 @@ defmodule AWS.NetworkManager do
   Creates a core network as part of your global network, and optionally, with a
   core network policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4042,13 +4022,13 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a new device in a global network.
-
-  If you specify both a site ID and a
+  Creates a new device in a global network. If you specify both a site ID and a
   location, the location of the site is used for visualization in the Network
   Manager console.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4081,7 +4061,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a new, empty global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateGlobalNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4113,7 +4095,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a new link for a specified site.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4146,7 +4130,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a new site in a global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4180,7 +4166,9 @@ defmodule AWS.NetworkManager do
   Creates an Amazon Web Services site-to-site VPN attachment on an edge location
   of a core network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4216,7 +4204,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a transit gateway peering connection.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayPeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4252,7 +4242,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a transit gateway route table attachment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4288,7 +4280,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a VPC attachment on an edge location of a core network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4318,11 +4312,11 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an attachment.
+  Deletes an attachment. Supports all attachment types.
 
-  Supports all attachment types.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteAttachment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment to delete.
 
   ## Optional parameters:
@@ -4355,7 +4349,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes a Connect peer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:connect_peer_id` (`t:string`) The ID of the deleted Connect peer.
 
   ## Optional parameters:
@@ -4393,7 +4389,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes the specified connection in your global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:connection_id` (`t:string`) The ID of the connection.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
@@ -4439,11 +4437,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a core network along with all core network policies.
+  Deletes a core network along with all core network policies. This can only be
+  done if there are no attachments on a core network.
 
-  This can only be done if there are no attachments on a core network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetwork&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:core_network_id` (`t:string`) The network ID of the deleted core network.
 
   ## Optional parameters:
@@ -4479,12 +4478,14 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a policy version from a core network.
+  Deletes a policy version from a core network. You can't delete the current LIVE
+  policy.
 
-  You can't delete the current LIVE policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:core_network_id` (`t:string`) The ID of a core network for the deleted policy.
+  ## Parameters:
+  * `:core_network_id` (`t:string`) The ID of a core network for the deleted
+    policy.
   * `:policy_version_id` (`t:integer`) The version ID of the deleted policy.
 
   ## Optional parameters:
@@ -4529,12 +4530,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing device.
+  Deletes an existing device. You must first disassociate the device from any
+  links and customer gateways.
 
-  You must first disassociate the device from any links and
-  customer gateways.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_id` (`t:string`) The ID of the device.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
@@ -4574,13 +4575,13 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing global network.
+  Deletes an existing global network. You must first delete all global network
+  objects (devices, links, and sites), deregister all transit gateways, and
+  delete any core networks.
 
-  You must first delete all global network objects
-  (devices, links, and sites), deregister all transit gateways, and delete any
-  core networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteGlobalNetwork&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4616,12 +4617,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing link.
+  Deletes an existing link. You must first disassociate the link from any devices
+  and customer gateways.
 
-  You must first disassociate the link from any devices and
-  customer gateways.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:link_id` (`t:string`) The ID of the link.
 
@@ -4657,7 +4658,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes an existing peering connection.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeletePeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:peering_id` (`t:string`) The ID of the peering connection to delete.
 
   ## Optional parameters:
@@ -4688,11 +4691,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes a resource policy for the specified resource.
+  Deletes a resource policy for the specified resource. This revokes the access of
+  the principals specified in the resource policy.
 
-  This revokes the access of the principals specified in the resource policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the policy to delete.
 
   ## Optional parameters:
@@ -4728,11 +4732,11 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deletes an existing site.
+  Deletes an existing site. The site cannot be associated with any device or link.
 
-  The site cannot be associated with any device or link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeleteSite&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:site_id` (`t:string`) The ID of the site.
 
@@ -4766,15 +4770,16 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Deregisters a transit gateway from your global network.
+  Deregisters a transit gateway from your global network. This action does not
+  delete your transit gateway, or modify any of its attachments. This action
+  removes any customer gateway associations.
 
-  This action does not delete
-  your transit gateway, or modify any of its attachments. This action removes any
-  customer gateway associations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DeregisterTransitGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:transit_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the transit gateway.
+  * `:transit_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    transit gateway.
 
   ## Optional parameters:
   """
@@ -4818,18 +4823,18 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Describes one or more global networks.
-
-  By default, all global networks are
+  Describes one or more global networks. By default, all global networks are
   described. To describe the objects in your global network, you must use the
-  appropriate
-  `Get*` action. For example, to list the transit gateways in your global
-  network, use `GetTransitGatewayRegistrations`.
+  appropriate `Get*` action. For example, to list the transit gateways in your
+  global network, use `GetTransitGatewayRegistrations`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DescribeGlobalNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`) The IDs of one or more global networks. The maximum is 10.
+  * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`)
+    The IDs of one or more global networks. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -4883,8 +4888,11 @@ defmodule AWS.NetworkManager do
   @doc """
   Disassociates a core network Connect peer from a device and a link.
 
-  ## Required positional parameters:
-  * `:connect_peer_id` (`t:string`) The ID of the Connect peer to disassociate from a device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_peer_id` (`t:string`) The ID of the Connect peer to disassociate
+    from a device.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4931,8 +4939,11 @@ defmodule AWS.NetworkManager do
   @doc """
   Disassociates a customer gateway from a device and a link.
 
-  ## Required positional parameters:
-  * `:customer_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the customer gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateCustomerGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:customer_gateway_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    customer gateway.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -4977,12 +4988,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Disassociates an existing device from a link.
+  Disassociates an existing device from a link. You must first disassociate any
+  customer gateways that are associated with the link.
 
-  You must first disassociate any customer
-  gateways that are associated with the link.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -5023,9 +5034,12 @@ defmodule AWS.NetworkManager do
   @doc """
   Disassociates a transit gateway Connect peer from a device and link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DisassociateTransitGatewayConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
-  * `:transit_gateway_connect_peer_arn` (`t:string`) The Amazon Resource Name (ARN) of the transit gateway Connect peer.
+  * `:transit_gateway_connect_peer_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the transit gateway Connect peer.
 
   ## Optional parameters:
   """
@@ -5069,11 +5083,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Executes a change set on your core network.
+  Executes a change set on your core network. Deploys changes globally based on
+  the policy submitted..
 
-  Deploys changes globally based on the policy submitted..
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ExecuteCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
@@ -5121,7 +5136,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network Connect attachment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
@@ -5149,7 +5166,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network Connect peer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:connect_peer_id` (`t:string`) The ID of the Connect peer.
 
   ## Optional parameters:
@@ -5177,11 +5196,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network Connect peer associations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnectPeerAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-  * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The IDs of the Connect peers.
+  * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The
+    IDs of the Connect peers.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -5236,11 +5258,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more of your connections in a global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-  * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or more connection IDs.
+  * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or
+    more connection IDs.
   * `:device_id` (`t:string`) The ID of the device.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -5304,7 +5329,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about the LIVE policy for a core network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
@@ -5332,7 +5359,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network change event.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
@@ -5388,7 +5417,9 @@ defmodule AWS.NetworkManager do
   Returns a change set between the LIVE core network policy and a submitted
   policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:policy_version_id` (`t:integer`) The ID of the policy version.
 
@@ -5441,16 +5472,16 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Returns details about a core network policy.
+  Returns details about a core network policy. You can get details about your
+  current live policy or any previous policy version.
 
-  You can get details about your current live policy or any previous policy
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCoreNetworkPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
-  * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy 
+  * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy
   * `:policy_version_id` (`t:integer`) The ID of a core network policy version.
   """
   @spec get_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5495,11 +5526,15 @@ defmodule AWS.NetworkManager do
   Gets the association information for customer gateways that are associated with
   devices and links in your global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetCustomerGatewayAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-  * `:customer_gateway_arns` (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.
+  * `:customer_gateway_arns`
+    (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more
+    customer gateway Amazon Resource Names (ARNs). The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -5554,11 +5589,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more of your devices in a global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-  * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more device IDs. The maximum is 10.
+  * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more
+    device IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:site_id` (`t:string`) The ID of the site.
@@ -5620,12 +5658,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets the link associations for a device or a link.
+  Gets the link associations for a device or a link. Either the device ID or the
+  link ID must be specified.
 
-  Either the device ID or the link ID
-  must be specified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinkAssociations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -5693,14 +5731,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more links in a specified global network.
 
-  If you specify the site ID, you cannot specify the type or provider in the same
-  request. You can specify the type and provider in the same request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetLinks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
-  * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link IDs. The maximum is 10.
+  * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link
+    IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:provider` (`t:string`) The link provider.
@@ -5785,7 +5823,9 @@ defmodule AWS.NetworkManager do
   Gets the count of network resources, by resource type, for the specified global
   network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceCounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -5843,7 +5883,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the network resource relationships for the specified global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResourceRelationships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -5952,10 +5994,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Describes the network resources for the specified global network.
 
-  The results include information from the corresponding Describe call for the
-  resource, minus any sensitive information such as pre-shared keys.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -6063,7 +6104,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the network routes of the specified global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -6096,7 +6139,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the network telemetry of the specified global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetNetworkTelemetry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -6204,7 +6249,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a resource policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -6232,7 +6279,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about the specified route analysis.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetRouteAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:route_analysis_id` (`t:string`) The ID of the route analysis.
 
@@ -6262,7 +6311,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a site-to-site VPN attachment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
@@ -6290,13 +6341,16 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more of your sites in a global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetSites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site IDs. The maximum is 10.
+  * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site
+    IDs. The maximum is 10.
   """
   @spec get_sites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sites_response(), any()}
@@ -6349,13 +6403,17 @@ defmodule AWS.NetworkManager do
   Gets information about one or more of your transit gateway Connect peer
   associations in a global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayConnectPeerAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:transit_gateway_connect_peer_arns` (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or more transit gateway Connect peer Amazon Resource Names (ARNs).
+  * `:transit_gateway_connect_peer_arns`
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or
+    more transit gateway Connect peer Amazon Resource Names (ARNs).
   """
   @spec get_transit_gateway_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
@@ -6413,7 +6471,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a transit gateway peer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayPeering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:peering_id` (`t:string`) The ID of the peering request.
 
   ## Optional parameters:
@@ -6439,17 +6499,20 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Gets information about the transit gateway registrations in a specified
-  global network.
+  Gets information about the transit gateway registrations in a specified global
+  network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRegistrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:transit_gateway_arns` (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is
-            10.
+  * `:transit_gateway_arns`
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon
+    Resource Names (ARNs) of one or more transit gateways. The maximum is 10.
   """
   @spec get_transit_gateway_registrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
@@ -6502,8 +6565,11 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a transit gateway route table attachment.
 
-  ## Required positional parameters:
-  * `:attachment_id` (`t:string`) The ID of the transit gateway route table attachment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attachment_id` (`t:string`) The ID of the transit gateway route table
+    attachment.
 
   ## Optional parameters:
   """
@@ -6530,7 +6596,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a VPC attachment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20GetVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
@@ -6558,15 +6626,21 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a list of core network attachments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListAttachments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:attachment_type` (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The type of attachment.
+  * `:attachment_type`
+    (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The
+    type of attachment.
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:edge_location` (`t:string`) The Region where the edge is located.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`) The state of the attachment.
+  * `:state`
+    (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`)
+    The state of the attachment.
   """
   @spec list_attachments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attachments_response(), any()}
@@ -6645,7 +6719,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a list of core network Connect peers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListConnectPeers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:connect_attachment_id` (`t:string`) The ID of the attachment.
@@ -6712,7 +6788,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a list of core network policy versions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworkPolicyVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
@@ -6761,7 +6839,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a list of owned and shared core networks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -6809,7 +6889,9 @@ defmodule AWS.NetworkManager do
   Gets the status of the Service Linked Role (SLR) deployment for the accounts in
   a given Amazon Web Services Organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListOrganizationServiceAccessStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -6855,15 +6937,19 @@ defmodule AWS.NetworkManager do
   @doc """
   Lists the peerings for a core network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListPeerings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
-  * `:edge_location` (`t:string`) Returns a list edge locations for the 
+  * `:edge_location` (`t:string`) Returns a list edge locations for the
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
-  * `:peering_type` (`t:enum["TRANSIT_GATEWAY"]`) Returns a list of a peering requests.
-  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of the peering request states.
+  * `:peering_type` (`t:enum["TRANSIT_GATEWAY"]`) Returns a list of a peering
+    requests.
+  * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of
+    the peering request states.
   """
   @spec list_peerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_peerings_response(), any()}
@@ -6942,7 +7028,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Lists the tags for a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -6968,12 +7056,13 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Creates a new, immutable version of a core network policy.
+  Creates a new, immutable version of a core network policy. A subsequent change
+  set is created showing the differences between the LIVE policy and the
+  submitted policy.
 
-  A subsequent change set is created showing the differences between the LIVE
-  policy and the submitted policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutCoreNetworkPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
@@ -7011,8 +7100,10 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates or updates a resource policy.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource policy. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource policy.
 
   ## Optional parameters:
   """
@@ -7047,17 +7138,19 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Registers a transit gateway in your global network.
+  Registers a transit gateway in your global network. Not all Regions support
+  transit gateways for global networks. For a list of the supported Regions, see
+  [Region
+  Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
+  in the *Amazon Web Services Transit Gateways for Global Networks User Guide*.
+  The transit gateway can be in any of the supported Amazon Web Services
+  Regions, but it must be owned by the same Amazon Web Services account that
+  owns the global network. You cannot register a transit gateway in more than
+  one global network.
 
-  Not all Regions support transit
-  gateways for global networks. For a list of the supported Regions, see [Region Availability](https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions)
-  in the *Amazon Web Services Transit Gateways for Global
-  Networks User Guide*. The transit gateway can be in any of the supported
-  Amazon Web Services Regions, but it must be owned by the same Amazon Web
-  Services account that owns the global
-  network. You cannot register a transit gateway in more than one global network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RegisterTransitGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -7097,7 +7190,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Rejects a core network attachment request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RejectAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:
@@ -7129,12 +7224,12 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Restores a previous policy version as a new, immutable version of a core network
-  policy.
+  policy. A subsequent change set is created showing the differences between the
+  LIVE policy and restored policy.
 
-  A subsequent change set is created showing the differences between the LIVE
-  policy and restored policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20RestoreCoreNetworkPolicyVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:policy_version_id` (`t:integer`) The ID of the policy version to restore.
 
@@ -7181,10 +7276,11 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Enables the Network Manager service for an Amazon Web Services Organization.
-
   This can only be called by a management account within the organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartOrganizationServiceAccessUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7219,11 +7315,12 @@ defmodule AWS.NetworkManager do
 
   @doc """
   Starts analyzing the routing path between the specified source and destination.
+  For more information, see [Route
+  Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
 
-  For more information,
-  see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartRouteAnalysis&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
 
   ## Optional parameters:
@@ -7261,7 +7358,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Tags a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -7294,11 +7393,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Removes tags from a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]`) The tag keys to remove from the specified resource.
+  * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]`) The tag keys to
+    remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7331,12 +7433,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the information for an existing connection.
+  Updates the information for an existing connection. To remove information for
+  any of the parameters, specify an empty string.
 
-  To remove information for any of the parameters,
-  specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateConnection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:connection_id` (`t:string`) The ID of the connection.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
@@ -7384,7 +7486,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Updates the description of a core network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateCoreNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
 
   ## Optional parameters:
@@ -7420,12 +7524,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing device.
-
-  To remove information for any of the
+  Updates the details for an existing device. To remove information for any of the
   parameters, specify an empty string.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The ID of the device.
   * `:global_network_id` (`t:string`) The ID of the global network.
 
@@ -7465,12 +7569,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates an existing global network.
+  Updates an existing global network. To remove information for any of the
+  parameters, specify an empty string.
 
-  To remove information for any of the parameters,
-  specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateGlobalNetwork&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of your global network.
 
   ## Optional parameters:
@@ -7506,12 +7610,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the details for an existing link.
-
-  To remove information for any of the
+  Updates the details for an existing link. To remove information for any of the
   parameters, specify an empty string.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateLink&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:link_id` (`t:string`) The ID of the link.
 
@@ -7547,7 +7651,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Updates the resource metadata for the specified global network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateNetworkResourceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
@@ -7593,12 +7699,12 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
-  Updates the information for an existing site.
+  Updates the information for an existing site. To remove information for any of
+  the parameters, specify an empty string.
 
-  To remove information for any of the
-  parameters, specify an empty string.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateSite&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:global_network_id` (`t:string`) The ID of the global network.
   * `:site_id` (`t:string`) The ID of your site.
 
@@ -7634,7 +7740,9 @@ defmodule AWS.NetworkManager do
   @doc """
   Updates a VPC attachment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20UpdateVpcAttachment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:attachment_id` (`t:string`) The ID of the attachment.
 
   ## Optional parameters:

@@ -4,115 +4,11 @@
 defmodule AWS.SecurityHub do
   @moduledoc """
   Security Hub provides you with a comprehensive view of your security state in
-  Amazon Web Services and helps
-  you assess your Amazon Web Services environment against security industry
-  standards and best practices.
-
-  Security Hub collects security data across Amazon Web Services accounts, Amazon
-  Web Services, and
+  Amazon Web Services and helps you assess your Amazon Web Services environment
+  against security industry standards and best practices. Security Hub collects
+  security data across Amazon Web Services accounts, Amazon Web Services, and
   supported third-party products and helps you analyze your security trends and
-  identify the highest priority security
-  issues.
-
-  To help you manage the security state of your organization, Security Hub
-  supports multiple security standards.
-  These include the Amazon Web Services Foundational Security Best Practices
-  (FSBP) standard developed by Amazon Web Services,
-  and external compliance frameworks such as the Center for Internet Security
-  (CIS), the Payment Card Industry Data
-  Security Standard (PCI DSS), and the National Institute of Standards and
-  Technology (NIST). Each standard includes
-  several security controls, each of which represents a security best practice.
-  Security Hub runs checks against
-  security controls and generates control findings to help you assess your
-  compliance against security best practices.
-
-  In addition to generating control findings, Security Hub also receives findings
-  from other Amazon Web Services,
-  such as Amazon GuardDuty and Amazon Inspector, and
-  supported third-party products. This gives you a single pane of glass into a
-  variety of security-related issues. You
-  can also send Security Hub findings to other Amazon Web Services and supported
-  third-party products.
-
-  Security Hub offers automation features that help you triage and remediate
-  security issues. For example,
-  you can use automation rules to automatically update critical findings when a
-  security check fails. You can also leverage the integration with
-  Amazon EventBridge to trigger automatic responses to specific findings.
-
-  This guide, the *Security Hub API Reference*, provides
-  information about the Security Hub API. This includes supported resources, HTTP
-  methods, parameters,
-  and schemas. If you're new to Security Hub, you might find it helpful to also
-  review the [
-  *Security Hub User Guide*
-  ](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html).
-  The
-  user guide explains key concepts and provides procedures
-  that demonstrate how to use Security Hub features. It also provides information
-  about topics such as
-  integrating Security Hub with other Amazon Web Services.
-
-  In addition to interacting with Security Hub by making calls to the Security Hub
-  API, you can
-  use a current version of an Amazon Web Services command line tool or SDK. Amazon
-  Web Services provides tools
-  and SDKs that consist of libraries and sample code for various languages and
-  platforms, such as PowerShell,
-  Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient,
-  programmatic access to
-  Security Hub and other Amazon Web Services . They also handle tasks such as
-  signing requests,
-  managing errors, and retrying requests automatically. For information about
-  installing and using the Amazon Web Services tools
-  and SDKs, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/).
-
-  With the exception of operations that are related to central configuration,
-  Security Hub API requests are executed only in
-  the Amazon Web Services Region that is currently active or in the specific
-  Amazon Web Services Region that you specify in your request. Any configuration
-  or settings change
-  that results from the operation is applied only to that Region. To make the same
-  change in
-  other Regions, call the same API operation in each Region in which you want to
-  apply the change. When you use central configuration,
-  API requests for enabling Security Hub, standards, and controls are executed in
-  the home Region and all linked Regions. For a list of
-  central configuration operations, see the [Central configuration terms and
-  concepts](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts)
-  section of the *Security Hub User Guide*.
-
-  The following throttling limits apply to Security Hub API operations.
-
-    *
-
-  `BatchEnableStandards` - `RateLimit` of 1 request per
-  second. `BurstLimit` of 1 request per second.
-
-    *
-
-  `GetFindings` - `RateLimit` of 3 requests per second.
-  `BurstLimit` of 6 requests per second.
-
-    *
-
-  `BatchImportFindings` - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
-
-    *
-
-  `BatchUpdateFindings` - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
-
-    *
-
-  `UpdateStandardsControl` - `RateLimit` of 1 request per
-  second. `BurstLimit` of 5 requests per second.
-
-    *
-  All other operations - `RateLimit` of 10 requests per second.
-  `BurstLimit` of 30 requests per second.
+  identify the highest priority security issues.
   """
 
   alias AWS.Client
@@ -12586,17 +12482,12 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
-  account that the invitation was sent from.
+  Hub administrator account that the invitation was sent from. This operation is
+  only used by member accounts that are not added through Organizations.
 
-  This operation is only used by member accounts that are not added through
-  Organizations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
 
-  When the member account accepts the invitation, permission is granted to the
-  administrator
-  account to view findings generated in the member account.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12630,29 +12521,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `AcceptAdministratorInvitation`.
-
-  The Security Hub console continues to use `AcceptInvitation`. It will eventually
+  This method is deprecated. Instead, use `AcceptAdministratorInvitation`. The
+  Security Hub console continues to use `AcceptInvitation`. It will eventually
   change to use `AcceptAdministratorInvitation`. Any IAM policies that
   specifically control access to this function must continue to use
-  `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your
-  policies to ensure that the correct permissions are in place after the console
-  begins to use `AcceptAdministratorInvitation`.
+  `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to
+  your policies to ensure that the correct permissions are in place after the
+  console begins to use `AcceptAdministratorInvitation`.
 
-  Accepts the invitation to be a member account and be monitored by the Security
-  Hub administrator
-  account that the invitation was sent from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
-  This operation is only used by member accounts that are not added through
-  Organizations.
-
-  When the member account accepts the invitation, permission is granted to the
-  administrator
-  account to view findings generated in the member account.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12682,10 +12561,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Deletes one or more automation rules.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDeleteAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12719,14 +12599,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables the standards specified by the provided
-  `StandardsSubscriptionArns`.
+  Disables the standards specified by the provided `StandardsSubscriptionArns`.
 
-  For more information, see [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDisableStandards&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12756,16 +12633,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables the standards specified by the provided `StandardsArn`.
+  Enables the standards specified by the provided `StandardsArn`. To obtain the
+  ARN for a standard, use the `DescribeStandards` operation.
 
-  To obtain the
-  ARN for a standard, use the `DescribeStandards`
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchEnableStandards&this_doc_guide=API%2520Reference)
 
-  For more information, see the [Security Standards](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html)
-  section of the *Security Hub User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12795,12 +12668,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Retrieves a list of details for automation rules based on rule Amazon Resource
-  Names
-  (ARNs).
+  Names (ARNs).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12834,15 +12707,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Returns associations between an Security Hub configuration and a batch of target
-  accounts, organizational units, or the root.
-
-  Only the Security Hub delegated administrator can invoke this operation from the
-  home Region. A configuration
+  accounts, organizational units, or the root. Only the Security Hub delegated
+  administrator can invoke this operation from the home Region. A configuration
   can refer to a configuration policy or to a self-managed configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12876,11 +12748,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Provides details about a batch of security controls for the current Amazon Web
   Services account and Amazon Web Services Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetSecurityControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12914,11 +12787,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   For a batch of security controls and standards, identifies whether each control
   is currently enabled or disabled in a standard.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12953,81 +12827,12 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Imports security findings generated by a finding provider into Security Hub.
-
   This action is requested by the finding provider to import its findings into
-  Security Hub.
+  Security Hub. `BatchImportFindings` must be called by one of the following:
 
-  `BatchImportFindings` must be called by one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchImportFindings&this_doc_guide=API%2520Reference)
 
-    *
-  The Amazon Web Services account that is associated with a finding if you are
-  using
-  the [default product ARN](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs)
-  or are a partner sending findings from within a customer's Amazon Web Services
-  account.
-  In these cases, the identifier of the account that you are calling
-  `BatchImportFindings`
-  from needs to be the same as the `AwsAccountId` attribute for the finding.
-
-    *
-  An Amazon Web Services account that Security Hub has allow-listed for an
-  official partner
-  integration. In this case, you can call `BatchImportFindings` from the
-  allow-listed
-  account and send findings from different customer accounts in the same batch.
-
-  The maximum allowed size for a finding is 240 Kb. An error is returned for any
-  finding
-  larger than 240 Kb.
-
-  After a finding is created, `BatchImportFindings` cannot be used to update
-  the following finding fields and objects, which Security Hub customers use to
-  manage their
-  investigation workflow.
-
-    *
-
-  `Note`
-
-    *
-
-  `UserDefinedFields`
-
-    *
-
-  `VerificationState`
-
-    *
-
-  `Workflow`
-
-  Finding providers also should not use `BatchImportFindings` to update the
-  following attributes.
-
-    *
-
-  `Confidence`
-
-    *
-
-  `Criticality`
-
-    *
-
-  `RelatedFindings`
-
-    *
-
-  `Severity`
-
-    *
-
-  `Types`
-
-  Instead, finding providers use `FindingProviderFields` to provide values for
-  these attributes.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13057,11 +12862,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
   and input parameters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13096,65 +12902,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Used by Security Hub customers to update information about their investigation
-  into a finding.
+  into a finding. Requested by administrator accounts or member accounts.
+  Administrator accounts can update findings for their account and their member
+  accounts. Member accounts can update findings for their account. Updates from
+  `BatchUpdateFindings` do not affect the value of `UpdatedAt` for a finding.
 
-  Requested by administrator accounts or member accounts. Administrator accounts
-  can update findings for
-  their account and their member accounts. Member accounts can update findings for
-  their
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateFindings&this_doc_guide=API%2520Reference)
 
-  Updates from `BatchUpdateFindings` do not affect the value of
-  `UpdatedAt` for a finding.
-
-  Administrator and member accounts can use `BatchUpdateFindings` to update the
-  following finding fields and objects.
-
-    *
-
-  `Confidence`
-
-    *
-
-  `Criticality`
-
-    *
-
-  `Note`
-
-    *
-
-  `RelatedFindings`
-
-    *
-
-  `Severity`
-
-    *
-
-  `Types`
-
-    *
-
-  `UserDefinedFields`
-
-    *
-
-  `VerificationState`
-
-    *
-
-  `Workflow`
-
-  You can configure IAM policies to restrict access to fields and field values.
-  For
-  example, you might not want member accounts to be able to suppress findings or
-  change the
-  finding severity. See [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access)
-  in the
-  *Security Hub User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13184,11 +12939,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   For a batch of security controls and standards, this operation updates the
   enablement status of a control in a standard.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13224,11 +12980,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Creates a custom action target in Security Hub.
 
-  You can use custom actions on findings and insights in Security Hub to trigger
-  target actions
-  in Amazon CloudWatch Events.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateActionTarget&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13258,10 +13012,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Creates an automation rule based on input parameters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateAutomationRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13291,13 +13046,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Creates a configuration policy with the defined configuration. Only the Security
+  Hub delegated administrator can invoke this operation from the home Region.
 
-  Creates a configuration policy with the defined configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated administrator
-  can invoke this operation from the home Region.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13331,14 +13085,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Used to enable finding aggregation.
+  Used to enable finding aggregation. Must be called from the aggregation Region.
 
-  Must be called from the aggregation Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateFindingAggregator&this_doc_guide=API%2520Reference)
 
-  For more details about cross-Region replication, see [Configuring finding aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html)
-  in the *Security Hub User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13372,15 +13123,13 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Creates a custom insight in Security Hub.
+  Creates a custom insight in Security Hub. An insight is a consolidation of
+  findings that relate to a security issue that requires attention or
+  remediation.
 
-  An insight is a consolidation of findings that relate
-  to a security issue that requires attention or remediation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateInsight&this_doc_guide=API%2520Reference)
 
-  To group the related findings in the insight, use the
-  `GroupByAttribute`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13411,59 +13160,14 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Creates a member association in Security Hub between the specified accounts and
-  the account
-  used to make the request, which is the administrator account.
+  the account used to make the request, which is the administrator account. If
+  you are integrated with Organizations, then the administrator account is
+  designated by the organization management account. `CreateMembers` is always
+  used to add accounts that are not organization members.
 
-  If you are integrated with
-  Organizations, then the administrator account is designated by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateMembers&this_doc_guide=API%2520Reference)
 
-  `CreateMembers` is always used to add accounts that are not organization
-  members.
-
-  For accounts that are managed using Organizations, `CreateMembers` is only used
-  in the following cases:
-
-    *
-  Security Hub is not configured to automatically add new organization accounts.
-
-    *
-  The account was disassociated or deleted in Security Hub.
-
-  This action can only be used by an account that has Security Hub enabled. To
-  enable Security Hub, you
-  can use the `EnableSecurityHub` operation.
-
-  For accounts that are not organization members, you create the account
-  association and
-  then send an invitation to the member account. To send the invitation, you use
-  the
-  `InviteMembers` operation. If the account owner accepts
-  the invitation, the account becomes a member account in Security Hub.
-
-  Accounts that are managed using Organizations do not receive an invitation. They
-  automatically become a member account in Security Hub.
-
-    *
-  If the organization account does not have Security Hub enabled, then Security
-  Hub and the default standards are automatically enabled. Note that Security Hub
-  cannot be enabled automatically for the organization management account. The
-  organization management account must enable Security Hub before the
-  administrator account enables it as a member account.
-
-    *
-  For organization accounts that already have Security Hub enabled, Security Hub
-  does not make any other changes to those accounts. It does not change their
-  enabled standards or controls.
-
-  A permissions policy is added that permits the administrator account to view the
-  findings
-  generated in the member account.
-
-  To remove the association between the administrator and member accounts, use the
-  `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13493,16 +13197,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Declines invitations to become a member account.
+  Declines invitations to become a member account. A prospective member account
+  uses this operation to decline an invitation to become a member.
 
-  A prospective member account uses this operation to decline an invitation to
-  become a member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeclineInvitations&this_doc_guide=API%2520Reference)
 
-  This operation is only called by member accounts that aren't part of an
-  organization.
-  Organization accounts don't receive invitations.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13534,12 +13234,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes a custom action target from Security Hub.
 
-  Deleting a custom action target does not affect any findings or insights that
-  were
-  already sent to Amazon CloudWatch Events using the custom action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteActionTarget&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom action target to delete.
+  ## Parameters:
+  * `:action_target_arn` (`t:string`) The Amazon Resource Name (ARN) of the custom
+    action target to delete.
 
   ## Optional parameters:
   """
@@ -13574,19 +13273,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
-  Deletes a configuration policy.
-
-  Only the Security Hub delegated administrator can invoke this operation
-  from the home Region. For the deletion to succeed, you must first disassociate a
-  configuration policy from target accounts,
+  Deletes a configuration policy. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region. For the deletion to succeed,
+  you must first disassociate a configuration policy from target accounts,
   organizational units, or the root by invoking the
   `StartConfigurationPolicyDisassociation` operation.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
-            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-        
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteConfigurationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
@@ -13621,16 +13318,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Deletes a finding aggregator.
+  Deletes a finding aggregator. When you delete the finding aggregator, you stop
+  finding aggregation.
 
-  When you delete the finding aggregator, you stop finding aggregation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteFindingAggregator&this_doc_guide=API%2520Reference)
 
-  When you stop finding aggregation, findings that were already aggregated to the
-  aggregation Region are still visible from the aggregation Region. New findings
-  and finding updates are not aggregated.
-
-  ## Required positional parameters:
-  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.
+  ## Parameters:
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
+    delete. To obtain the ARN, use ListFindingAggregators.
 
   ## Optional parameters:
   """
@@ -13669,7 +13364,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the insight specified by the `InsightArn`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:insight_arn` (`t:string`) The ARN of the insight to delete.
 
   ## Optional parameters:
@@ -13701,16 +13398,12 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Deletes invitations received by the Amazon Web Services account to become a
-  member account.
+  member account. A Security Hub administrator account can use this operation to
+  delete invitations sent to one or more member accounts.
 
-  A Security Hub administrator account can use this operation to delete
-  invitations sent to one or more member accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInvitations&this_doc_guide=API%2520Reference)
 
-  This operation is only used to delete invitations that are sent to member
-  accounts that aren't part of an organization.
-  Organization accounts don't receive invitations.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13742,11 +13435,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the specified member accounts from Security Hub.
 
-  You can invoke this API only to delete accounts that became members through
-  invitation. You can't invoke this
-  API to delete accounts that belong to an Organizations organization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13778,7 +13469,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of the custom action targets in Security Hub in your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeActionTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13808,10 +13501,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns details about the Hub resource in your account, including the
-  `HubArn` and the time when you enabled Security Hub.
+  Returns details about the Hub resource in your account, including the `HubArn`
+  and the time when you enabled Security Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeHub&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
@@ -13847,12 +13542,11 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns information about the way your organization is configured in Security
-  Hub.
+  Hub. Only the Security Hub administrator account can invoke this operation.
 
-  Only the
-  Security Hub administrator account can invoke this operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13877,23 +13571,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Returns information about product integrations in Security Hub.
-
-  You can optionally provide an integration ARN. If you provide an integration
-  ARN, then
+  Returns information about product integrations in Security Hub. You can
+  optionally provide an integration ARN. If you provide an integration ARN, then
   the results only include that integration.
 
-  If you do not provide an integration ARN, then the results include all of the
-  available
-  product integrations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeProducts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>DescribeProducts</code> operation, set the value of this parameter to
-            <code>NULL</code>.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeProducts operation, set the value of this
+    parameter to NULL.
   * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
   @spec describe_products(AWS.Client.t(), Keyword.t()) ::
@@ -13946,16 +13636,15 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of the available standards in Security Hub.
 
-  For each standard, the results include the standard ARN, the name, and a
-  description.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandards&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of standards to return.
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>DescribeStandards</code> operation, set the value of this parameter to
-            <code>NULL</code>.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeStandards operation, set the value of this
+    parameter to NULL.
   """
   @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
@@ -13998,19 +13687,20 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of security standards controls.
 
-  For each control, the results include information about whether it is currently
-  enabled,
-  the severity, and a link to remediation information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandardsControls&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:standards_subscription_arn` (`t:string`) The ARN of a resource that represents your subscription to a supported standard. To get
-         the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.
+  ## Parameters:
+  * `:standards_subscription_arn` (`t:string`) The ARN of a resource that
+    represents your subscription to a supported standard. To get the
+    subscription ARNs of the standards you have enabled, use the
+    GetEnabledStandards operation.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of security standard controls to return.
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>DescribeStandardsControls</code> operation, set the value of this parameter to
-            <code>NULL</code>.
+  * `:max_results` (`t:integer`) The maximum number of security standard controls
+    to return.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the DescribeStandardsControls operation, set the value of this
+    parameter to NULL.
   """
   @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
@@ -14052,13 +13742,15 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables the integration of the specified product with Security Hub.
+  Disables the integration of the specified product with Security Hub. After the
+  integration is disabled, findings from that product are no longer sent to
+  Security Hub.
 
-  After the integration is
-  disabled, findings from that product are no longer sent to Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to disable the integration for.
+  ## Parameters:
+  * `:product_subscription_arn` (`t:string`) The ARN of the integrated product to
+    disable the integration for.
 
   ## Optional parameters:
   """
@@ -14100,12 +13792,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Disables a Security Hub administrator account.
+  Disables a Security Hub administrator account. Can only be called by the
+  organization management account.
 
-  Can only be called by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14140,27 +13832,13 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Disables Security Hub in your account only in the current Amazon Web Services
-  Region.
+  Region. To disable Security Hub in all Regions, you must submit one request
+  per Region where you have enabled Security Hub. You can't disable Security Hub
+  in an account that is currently the Security Hub administrator.
 
-  To disable Security Hub in all
-  Regions, you must submit one request per Region where you have enabled Security
-  Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableSecurityHub&this_doc_guide=API%2520Reference)
 
-  You can't disable Security Hub in an account that is currently the Security Hub
-  administrator.
-
-  When you disable Security Hub, your existing findings and insights and any
-  Security Hub configuration
-  settings are deleted after 90 days and cannot be recovered. Any standards that
-  were enabled
-  are disabled, and your administrator and member account associations are
-  removed.
-
-  If you want to save your existing findings, you must export them before you
-  disable
-  Security Hub.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14191,15 +13869,11 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Disassociates the current Security Hub member account from the associated
-  administrator
-  account.
+  administrator account.
 
-  This operation is only used by accounts that are not part of an organization.
-  For
-  organization accounts, only the administrator account can
-  disassociate a member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14233,28 +13907,18 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `DisassociateFromAdministratorAccount`.
-
+  This method is deprecated. Instead, use `DisassociateFromAdministratorAccount`.
   The Security Hub console continues to use `DisassociateFromMasterAccount`. It
   will eventually change to use `DisassociateFromAdministratorAccount`. Any IAM
-  policies that specifically control access to this function must continue to use
-  `DisassociateFromMasterAccount`. You should also add
+  policies that specifically control access to this function must continue to
+  use `DisassociateFromMasterAccount`. You should also add
   `DisassociateFromAdministratorAccount` to your policies to ensure that the
   correct permissions are in place after the console begins to use
   `DisassociateFromAdministratorAccount`.
 
-  Disassociates the current Security Hub member account from the associated
-  administrator
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
-  This operation is only used by accounts that are not part of an organization.
-  For
-  organization accounts, only the administrator account can
-  disassociate a member account.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14291,11 +13955,9 @@ defmodule AWS.SecurityHub do
   Disassociates the specified member accounts from the associated administrator
   account.
 
-  Can be used to disassociate both accounts that are managed using Organizations
-  and accounts that
-  were invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14325,16 +13987,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Enables the integration of a partner product with Security Hub.
+  Enables the integration of a partner product with Security Hub. Integrated
+  products send findings to Security Hub.
 
-  Integrated products send
-  findings to Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
-  When you enable a product integration, a permissions policy that grants
-  permission for
-  the product to send findings to Security Hub is applied.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14368,12 +14026,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Designates the Security Hub administrator account for an organization.
+  Designates the Security Hub administrator account for an organization. Can only
+  be called by the organization management account.
 
-  Can only be called by
-  the organization management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14408,36 +14066,13 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Enables Security Hub for your account in the current Region or the Region you
-  specify in the
-  request.
+  specify in the request. When you enable Security Hub, you grant to Security
+  Hub the permissions necessary to gather findings from other services that are
+  integrated with Security Hub.
 
-  When you enable Security Hub, you grant to Security Hub the permissions
-  necessary to gather findings
-  from other services that are integrated with Security Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableSecurityHub&this_doc_guide=API%2520Reference)
 
-  When you use the `EnableSecurityHub` operation to enable Security Hub, you also
-  automatically enable the following standards:
-
-    *
-  Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark
-  v1.2.0
-
-    *
-  Amazon Web Services Foundational Security Best Practices
-
-  Other standards are not automatically enabled.
-
-  To opt out of automatically enabled standards, set
-  `EnableDefaultStandards` to `false`.
-
-  After you enable Security Hub, to enable a standard, use the
-  `BatchEnableStandards` operation. To disable a standard, use the
-  `BatchDisableStandards` operation.
-
-  To learn more, see the [setup information](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)
-  in the *Security Hub User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14470,11 +14105,9 @@ defmodule AWS.SecurityHub do
   Provides the details for the Security Hub administrator account for the current
   member account.
 
-  Can be used by both member accounts that are managed using Organizations and
-  accounts that were
-  invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14499,16 +14132,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Provides information about a configuration policy. Only the Security Hub
+  delegated administrator can invoke this operation from the home Region.
 
-  Provides information about a configuration policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated administrator can invoke
-  this operation from the home Region.
-
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
-            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-        
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
@@ -14533,16 +14164,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Returns the association between a configuration and a target account,
-  organizational unit, or the root.
+  organizational unit, or the root. The configuration can be a configuration
+  policy or self-managed behavior. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region.
 
-  The
-  configuration can be a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
-  invoke this operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14578,7 +14207,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of the standards that are currently enabled.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetEnabledStandards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14610,8 +14241,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns the current finding aggregation configuration.
 
-  ## Required positional parameters:
-  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingAggregator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:finding_aggregator_arn` (`t:string`) The ARN of the finding aggregator to
+    return details for. To obtain the ARN, use ListFindingAggregators.
 
   ## Optional parameters:
   """
@@ -14637,13 +14271,13 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Returns history for a Security Hub finding in the last 90 days. The history
+  includes changes made to any fields in the Amazon Web Services Security
+  Finding Format (ASFF).
 
-  Returns history for a Security Hub finding in the last 90 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingHistory&this_doc_guide=API%2520Reference)
 
-  The history includes changes made to any fields in
-  the Amazon Web Services Security Finding Format (ASFF).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14675,11 +14309,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of findings that match the specified criteria.
 
-  If finding aggregation is enabled, then when you call `GetFindings` from the
-  aggregation Region, the results include all of the matching findings from both
-  the aggregation Region and the linked Regions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14711,8 +14343,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Lists the results of the Security Hub insight specified by the insight ARN.
 
-  ## Required positional parameters:
-  * `:insight_arn` (`t:string`) The ARN of the insight for which to return results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsightResults&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_arn` (`t:string`) The ARN of the insight for which to return
+    results.
 
   ## Optional parameters:
   """
@@ -14739,7 +14374,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Lists and describes insights for the specified insight ARNs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14770,10 +14407,11 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns the count of all Security Hub membership invitations that were sent to
-  the
-  current member account, not including the currently accepted invitation.
+  the current member account, not including the currently accepted invitation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInvitationsCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14798,25 +14436,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  This method is deprecated.
-
-  Instead, use `GetAdministratorAccount`.
-
-  The Security Hub console continues to use `GetMasterAccount`. It will eventually
-  change to use `GetAdministratorAccount`. Any IAM policies that specifically
-  control access to this function must continue to use `GetMasterAccount`. You
-  should also add `GetAdministratorAccount` to your policies to ensure that the
-  correct permissions are in place after the console begins to use
+  This method is deprecated. Instead, use `GetAdministratorAccount`. The Security
+  Hub console continues to use `GetMasterAccount`. It will eventually change to
+  use `GetAdministratorAccount`. Any IAM policies that specifically control
+  access to this function must continue to use `GetMasterAccount`. You should
+  also add `GetAdministratorAccount` to your policies to ensure that the correct
+  permissions are in place after the console begins to use
   `GetAdministratorAccount`.
 
-  Provides the details for the Security Hub administrator account for the current
-  member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
-  Can be used by both member accounts that are managed using Organizations and
-  accounts that were
-  invited manually.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14842,17 +14472,13 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Returns the details for the Security Hub member accounts for the specified
-  account IDs.
+  account IDs. An administrator account can be either the delegated Security Hub
+  administrator account for an organization or an administrator account that
+  enabled Security Hub manually.
 
-  An administrator account can be either the delegated Security Hub administrator
-  account for an
-  organization or an administrator account that enabled Security Hub manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMembers&this_doc_guide=API%2520Reference)
 
-  The results include both member accounts that are managed using Organizations
-  and accounts that
-  were invited manually.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14882,18 +14508,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Retrieves the definition of a security control. The definition includes the
+  control title, description, Region availability, parameter definitions, and
+  other details.
 
-  Retrieves the definition of a security control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetSecurityControlDefinition&this_doc_guide=API%2520Reference)
 
-  The definition includes the control title, description, Region availability,
-  parameter definitions, and other details.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:security_control_id` (`t:string`) 
-            The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
-        
+  * `:security_control_id` (`t:string`) The ID of the security control to retrieve
+    the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
   """
   @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
@@ -14926,22 +14551,13 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Invites other Amazon Web Services accounts to become member accounts for the
-  Security Hub administrator account that
-  the invitation is sent from.
+  Security Hub administrator account that the invitation is sent from. This
+  operation is only used to invite accounts that do not belong to an
+  organization. Organization accounts do not receive invitations.
 
-  This operation is only used to invite accounts that do not belong to an
-  organization.
-  Organization accounts do not receive invitations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20InviteMembers&this_doc_guide=API%2520Reference)
 
-  Before you can use this action to invite a member, you must first use the
-  `CreateMembers` action to create the member account in Security Hub.
-
-  When the account owner enables Security Hub and accepts the invitation to become
-  a member
-  account, the administrator account can view the findings generated from the
-  member account.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14971,19 +14587,19 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   A list of automation rules and their metadata for the calling account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListAutomationRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of rules to return in the response. This currently ranges from 1 to
-         100. 
-  * `:next_token` (`t:string`) 
-         A token to specify where to start paginating the response. This is the <code>NextToken</code> 
-         from a previously truncated response. On your first call to the <code>ListAutomationRules</code> 
-         API, set the value of this parameter to <code>NULL</code>.
-      
+  * `:max_results` (`t:integer`) The maximum number of rules to return in the
+    response. This currently ranges from 1 to 100.
+  * `:next_token` (`t:string`) A token to specify where to start paginating the
+    response. This is the NextToken from a previously truncated response. On
+    your first call to the ListAutomationRules API, set the value of this
+    parameter to NULL.
   """
   @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
@@ -15024,30 +14640,29 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Lists the configuration policies that the Security Hub delegated administrator
-  has created for your
-  organization.
+  has created for your organization. Only the delegated administrator can invoke
+  this operation from the home Region.
 
-  Only the delegated administrator can invoke this operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-            The maximum number of results that&#39;s returned by <code>ListConfigurationPolicies</code> in each page of the response. 
-            When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a 
-            single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request 
-            by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A 
-            valid range for <code>MaxResults</code> is between 1 and 100.
-        
-  * `:next_token` (`t:string`) 
-            The NextToken value that&#39;s returned from a previous paginated <code>ListConfigurationPolicies</code> request where 
-            <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the 
-            <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the 
-            end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when 
-            there are no more results to return.
-        
+  * `:max_results` (`t:integer`) The maximum number of results that's returned by
+    ListConfigurationPolicies in each page of the response. When this parameter
+    is used, ListConfigurationPolicies returns the specified number of results
+    in a single page and a NextToken response element. You can see the remaining
+    results of the initial request by sending another ListConfigurationPolicies
+    request with the returned NextToken value. A valid range for MaxResults is
+    between 1 and 100.
+  * `:next_token` (`t:string`) The NextToken value that's returned from a previous
+    paginated ListConfigurationPolicies request where MaxResults was used but
+    the results exceeded the value of that parameter. Pagination continues from
+    the MaxResults was used but the results exceeded the value of that
+    parameter. Pagination continues from the end of the previous response that
+    returned the NextToken value. This value is null when there are no more
+    results to return.
   """
   @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
@@ -15088,15 +14703,13 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Provides information about the associations for your configuration policies and
-  self-managed behavior.
+  self-managed behavior. Only the Security Hub delegated administrator can
+  invoke this operation from the home Region.
 
-  Only the
-  Security Hub delegated administrator can invoke this operation from the home
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15131,16 +14744,18 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Lists all findings-generating solutions (products) that you are subscribed to
-  receive
-  findings from in Security Hub.
+  receive findings from in Security Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListEnabledProductsForImport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return in the response.
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
-            <code>NULL</code>.
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListEnabledProductsForImport operation, set the value of
+    this parameter to NULL.
   """
   @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
@@ -15182,15 +14797,17 @@ defmodule AWS.SecurityHub do
 
   @doc """
   If finding aggregation is enabled, then `ListFindingAggregators` returns the ARN
-  of the finding aggregator.
+  of the finding aggregator. You can run this operation from any Region.
 
-  You can run this operation from any Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListFindingAggregators&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. This operation currently only returns a single result.
-  * `:next_token` (`t:string`) The token returned with the previous set of results. Identifies the next set of results to return.
+  * `:max_results` (`t:integer`) The maximum number of results to return. This
+    operation currently only returns a single result.
+  * `:next_token` (`t:string`) The token returned with the previous set of
+    results. Identifies the next set of results to return.
   """
   @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
@@ -15234,17 +14851,16 @@ defmodule AWS.SecurityHub do
   Lists all Security Hub membership invitations that were sent to the current
   Amazon Web Services account.
 
-  This operation is only used by accounts that are managed by invitation.
-  Accounts that are managed using the integration with Organizations do not
-  receive invitations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListInvitations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return in the response. 
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>ListInvitations</code> operation, set the value of this parameter to
-            <code>NULL</code>.
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListInvitations operation, set the value of this parameter
+    to NULL.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -15286,22 +14902,21 @@ defmodule AWS.SecurityHub do
 
   @doc """
   Lists details about all member accounts for the current Security Hub
-  administrator
-  account.
+  administrator account.
 
-  The results include both member accounts that belong to an organization and
-  member
-  accounts that were invited manually.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return in the response. 
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>ListMembers</code> operation, set the value of this parameter to
-         <code>NULL</code>.
-  * `:only_associated` (`t:boolean`) Specifies which member accounts to include in the response based on their relationship
-         status with the administrator account. The default value is <code>TRUE</code>.
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListMembers operation, set the value of this parameter to
+    NULL.
+  * `:only_associated` (`t:boolean`) Specifies which member accounts to include in
+    the response based on their relationship status with the administrator
+    account. The default value is TRUE.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -15351,19 +14966,21 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Lists the Security Hub administrator accounts.
+  Lists the Security Hub administrator accounts. Can only be called by the
+  organization management account.
 
-  Can only be called by the organization
-  management account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return in the response.
-  * `:next_token` (`t:string`) The token that is required for pagination. On your first call to the
-            <code>ListOrganizationAdminAccounts</code> operation, set the value of this parameter to
-            <code>NULL</code>. For subsequent calls to the operation, to continue listing data, set
-         the value of this parameter to the value returned from the previous response. 
+  * `:max_results` (`t:integer`) The maximum number of items to return in the
+    response.
+  * `:next_token` (`t:string`) The token that is required for pagination. On your
+    first call to the ListOrganizationAdminAccounts operation, set the value of
+    this parameter to NULL. For subsequent calls to the operation, to continue
+    listing data, set the value of this parameter to the value returned from the
+    previous response.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -15404,23 +15021,22 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Lists all of the security controls that apply to a specified standard.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListSecurityControlDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  An optional parameter that limits the total results of the API response to the
-         specified number. If this parameter isn&#39;t provided in the request, the results include the
-         first 25 security controls that apply to the specified standard. The results also include a
-            <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-         next 25 controls. This repeats until all controls for the standard are returned. 
-  * `:next_token` (`t:string`) 
-         Optional pagination parameter.
-      
-  * `:standards_arn` (`t:string`) 
-         The Amazon Resource Name (ARN) of the standard that you want to view controls for.
-      
+  * `:max_results` (`t:integer`) An optional parameter that limits the total
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 security controls
+    that apply to the specified standard. The results also include a NextToken
+    parameter that you can use in a subsequent API call to get the next 25
+    controls. This repeats until all controls for the standard are returned.
+  * `:next_token` (`t:string`) Optional pagination parameter.
+  * `:standards_arn` (`t:string`) The Amazon Resource Name (ARN) of the standard
+    that you want to view controls for.
   """
   @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
@@ -15470,27 +15086,27 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Specifies whether a control is currently enabled or disabled in each enabled
   standard in the calling account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListStandardsControlAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  An optional parameter that limits the total results of the API response to the
-         specified number. If this parameter isn&#39;t provided in the request, the results include the
-         first 25 standard and control associations. The results also include a
-            <code>NextToken</code> parameter that you can use in a subsequent API call to get the
-         next 25 associations. This repeats until all associations for the specified control are
-         returned. The number of results is limited by the number of supported Security Hub
-         standards that you&#39;ve enabled in the calling account. 
-  * `:next_token` (`t:string`) 
-         Optional pagination parameter.
-      
-  * `:security_control_id` (`t:string`) 
-         The identifier of the control (identified with <code>SecurityControlId</code>, <code>SecurityControlArn</code>, or a mix of both parameters) that you 
-         want to determine the enablement status of in each enabled standard. 
-      
+  * `:max_results` (`t:integer`) An optional parameter that limits the total
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 standard and
+    control associations. The results also include a NextToken parameter that
+    you can use in a subsequent API call to get the next 25 associations. This
+    repeats until all associations for the specified control are returned. The
+    number of results is limited by the number of supported Security Hub
+    standards that you've enabled in the calling account.
+  * `:next_token` (`t:string`) Optional pagination parameter.
+  * `:security_control_id` (`t:string`) The identifier of the control (identified
+    with SecurityControlId, SecurityControlArn, or a mix of both parameters)
+    that you want to determine the enablement status of in each enabled
+    standard.
   """
   @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_standards_control_associations_response(), any()}
@@ -15542,7 +15158,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of tags associated with a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to retrieve tags for.
 
   ## Optional parameters:
@@ -15568,16 +15186,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Associates a target account, organizational unit, or the root with a specified
-  configuration.
-
-  The target can be
-  associated with a configuration policy or self-managed behavior. Only the
-  Security Hub delegated administrator can
+  configuration. The target can be associated with a configuration policy or
+  self-managed behavior. Only the Security Hub delegated administrator can
   invoke this operation from the home Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15611,20 +15227,17 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Disassociates a target account, organizational unit, or the root from a
-  specified configuration.
+  specified configuration. When you disassociate a configuration from its
+  target, the target inherits the configuration of the closest parent. If
+  there’s no configuration to inherit, the target retains its settings but
+  becomes a self-managed account. A target can be disassociated from a
+  configuration policy or self-managed behavior. Only the Security Hub delegated
+  administrator can invoke this operation from the home Region.
 
-  When you
-  disassociate a configuration from its target, the target inherits the
-  configuration of the closest parent. If there’s no
-  configuration to inherit, the target retains its settings but becomes a
-  self-managed account. A target can be disassociated from
-  a configuration policy or self-managed behavior. Only the Security Hub delegated
-  administrator can invoke this
-  operation from the home Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyDisassociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15660,7 +15273,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Adds one or more tags to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to apply the tags to.
 
   ## Optional parameters:
@@ -15693,11 +15308,15 @@ defmodule AWS.SecurityHub do
   @doc """
   Removes one or more tags from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to remove the tags from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys associated with the tags to remove from the resource. You can remove up to 50 tags at a time.
+  * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]`) The tag keys
+    associated with the tags to remove from the resource. You can remove up to
+    50 tags at a time.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -15732,8 +15351,11 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates the name and description of a custom action target in Security Hub.
 
-  ## Required positional parameters:
-  * `:action_target_arn` (`t:string`) The ARN of the custom action target to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateActionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_target_arn` (`t:string`) The ARN of the custom action target to
+    update.
 
   ## Optional parameters:
   """
@@ -15768,16 +15390,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  Updates a configuration policy. Only the Security Hub delegated administrator
+  can invoke this operation from the home Region.
 
-  Updates a configuration policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
-  Only the Security Hub delegated
-  administrator can invoke this operation from the home Region.
-
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
-            The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
-        
+  ## Parameters:
+  * `:identifier` (`t:string`) The Amazon Resource Name (ARN) or universally
+    unique identifier (UUID) of the configuration policy.
 
   ## Optional parameters:
   """
@@ -15812,15 +15432,13 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the finding aggregation configuration.
+  Updates the finding aggregation configuration. Used to update the Region linking
+  mode and the list of included or excluded Regions. You cannot use
+  `UpdateFindingAggregator` to change the aggregation Region.
 
-  Used to update the Region linking mode and the list of included or excluded
-  Regions. You cannot use `UpdateFindingAggregator` to change the aggregation
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindingAggregator&this_doc_guide=API%2520Reference)
 
-  You must run `UpdateFindingAggregator` from the current aggregation Region.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15854,22 +15472,14 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
+  `UpdateFindings` is a deprecated operation. Instead of `UpdateFindings`, use the
+  `BatchUpdateFindings` operation. Updates the `Note` and `RecordState` of the
+  Security Hub-aggregated findings that the filter attributes specify. Any
+  member account that can view the finding also sees the update to the finding.
 
-  `UpdateFindings` is a deprecated operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindings&this_doc_guide=API%2520Reference)
 
-  Instead of `UpdateFindings`, use
-  the `BatchUpdateFindings` operation.
-
-  Updates the `Note` and `RecordState` of the Security Hub-aggregated
-  findings that the filter attributes specify. Any member account that can view
-  the finding
-  also sees the update to the finding.
-
-  Finding updates made with `UpdateFindings` might not be persisted if the same
-  finding is later updated by the
-  finding provider through the `BatchImportFindings` operation.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15901,7 +15511,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates the Security Hub insight identified by the specified insight ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:insight_arn` (`t:string`) The ARN of the insight that you want to update.
 
   ## Optional parameters:
@@ -15932,12 +15544,12 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-  Updates the configuration of your organization in Security Hub.
-
-  Only the
+  Updates the configuration of your organization in Security Hub. Only the
   Security Hub administrator account can invoke this operation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15971,10 +15583,11 @@ defmodule AWS.SecurityHub do
   end
 
   @doc """
-
   Updates the properties of a security control.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16006,7 +15619,9 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates configuration options for Security Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityHubConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16043,8 +15658,11 @@ defmodule AWS.SecurityHub do
   Used to control whether an individual security standard control is enabled or
   disabled.
 
-  ## Required positional parameters:
-  * `:standards_control_arn` (`t:string`) The ARN of the security standard control to enable or disable.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateStandardsControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:standards_control_arn` (`t:string`) The ARN of the security standard control
+    to enable or disable.
 
   ## Optional parameters:
   """

@@ -3,10 +3,9 @@
 
 defmodule AWS.LookoutMetrics do
   @moduledoc """
-  This is the *Amazon Lookout for Metrics API Reference*.
-
-  For an introduction to the service
-  with tutorials for getting started, visit [Amazon Lookout for Metrics Developer
+  This is the *Amazon Lookout for Metrics API Reference*. For an introduction to
+  the service with tutorials for getting started, visit [Amazon Lookout for
+  Metrics Developer
   Guide](https://docs.aws.amazon.com/lookoutmetrics/latest/dev).
   """
 
@@ -1825,7 +1824,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Activates an anomaly detector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ActivateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1861,7 +1862,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Runs a backtest for anomaly detection for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20BackTestAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1897,7 +1900,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Creates an alert for an anomaly detector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1929,7 +1934,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Creates an anomaly detector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1961,7 +1968,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Creates a dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateMetricSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1993,7 +2002,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Deactivates an anomaly detector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeactivateAnomalyDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2029,7 +2040,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Deletes an alert.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2059,13 +2072,12 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Deletes a detector.
+  Deletes a detector. Deleting an anomaly detector will delete all of its
+  corresponding resources including any configured datasets and alerts.
 
-  Deleting an anomaly detector will delete all of its corresponding resources
-  including any
-  configured datasets and alerts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAnomalyDetector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2097,12 +2109,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes an alert.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAlert&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2134,7 +2143,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Returns information about the status of the specified anomaly detection jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetectionExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2170,12 +2181,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes a detector.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2211,12 +2219,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Describes a dataset.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeMetricSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2248,7 +2253,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Detects an Amazon S3 dataset's file format, interval, and offset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DetectMetricSetConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2280,7 +2287,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Returns details about a group of anomalous metrics.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetAnomalyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2312,7 +2321,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Returns details about the requested data quality metrics.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetDataQualityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2344,7 +2355,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Get feedback for an anomaly group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2376,7 +2389,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Returns a selection of sample records from an Amazon S3 datasource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetSampleData&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2408,12 +2423,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the alerts attached to a detector.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAlerts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2445,12 +2457,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the detectors in the current AWS Region.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyDetectors&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2480,10 +2489,12 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Returns a list of measures that are potential causes or effects of an
-  anomaly group.
+  Returns a list of measures that are potential causes or effects of an anomaly
+  group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupRelatedMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2519,7 +2530,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Returns a list of anomaly groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupSummaries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2555,7 +2568,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Gets a list of anomalous metrics for a measure in an anomaly group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupTimeSeries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2591,12 +2606,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Lists the datasets in the current AWS Region.
 
-  Amazon Lookout for Metrics API actions are eventually consistent. If you do a
-  read operation on a resource
-  immediately after creating or modifying it, use retries to allow time for the
-  write operation to complete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListMetricSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2630,8 +2642,10 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   for a detector, dataset, or alert.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
@@ -2658,7 +2672,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Add feedback for an anomalous metric.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20PutFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2692,8 +2708,10 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   to a detector, dataset, or alert.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
 
   ## Optional parameters:
   """
@@ -2727,11 +2745,14 @@ defmodule AWS.LookoutMetrics do
   [tags](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html)
   from a detector, dataset, or alert.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s Amazon Resource Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's Amazon Resource Name (ARN).
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove from the resource&#39;s tags.
+  * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]`) Keys to remove
+    from the resource's tags.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2766,7 +2787,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Make changes to an existing alert.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAlert&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2796,12 +2819,12 @@ defmodule AWS.LookoutMetrics do
   end
 
   @doc """
-  Updates a detector.
+  Updates a detector. After activation, you can only change a detector's ingestion
+  delay and description.
 
-  After activation, you can only change a detector's ingestion delay and
-  description.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAnomalyDetector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2833,7 +2856,9 @@ defmodule AWS.LookoutMetrics do
   @doc """
   Updates a dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateMetricSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

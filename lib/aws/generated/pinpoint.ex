@@ -7059,7 +7059,9 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7092,8 +7094,11 @@ defmodule AWS.Pinpoint do
   Creates a new campaign for an application or updates the settings of an existing
   campaign for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7125,8 +7130,13 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the email channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   """
@@ -7163,8 +7173,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an export job for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7196,8 +7209,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an import job for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7229,8 +7245,13 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a new message template for messages using the in-app message channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   """
@@ -7267,8 +7288,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a journey for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7301,8 +7325,13 @@ defmodule AWS.Pinpoint do
   Creates a message template for messages that are sent through a push
   notification channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreatePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   """
@@ -7339,7 +7368,9 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an Amazon Pinpoint configuration for a recommender model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7374,11 +7405,14 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated with an
-  application.
+  dimension, and other settings for an existing segment that's associated with
+  an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7410,8 +7444,13 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the SMS channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   """
@@ -7448,8 +7487,13 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the voice channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20CreateVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
   """
@@ -7487,8 +7531,11 @@ defmodule AWS.Pinpoint do
   Disables the ADM channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7521,8 +7568,11 @@ defmodule AWS.Pinpoint do
   Disables the APNs channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7560,8 +7610,11 @@ defmodule AWS.Pinpoint do
   Disables the APNs sandbox channel for an application and deletes any existing
   settings for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7599,8 +7652,11 @@ defmodule AWS.Pinpoint do
   Disables the APNs VoIP channel for an application and deletes any existing
   settings for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7638,8 +7694,11 @@ defmodule AWS.Pinpoint do
   Disables the APNs VoIP sandbox channel for an application and deletes any
   existing settings for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7676,8 +7735,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7710,8 +7772,11 @@ defmodule AWS.Pinpoint do
   Disables the Baidu channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7748,8 +7813,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a campaign from an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
@@ -7791,8 +7859,11 @@ defmodule AWS.Pinpoint do
   Disables the email channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7830,11 +7901,19 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through the email
   channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_email_template(
           AWS.Client.t(),
@@ -7874,9 +7953,13 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes an endpoint from an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the endpoint. The identifier can&#39;t contain <code>$</code>, <code>{</code> or <code>}</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
 
   ## Optional parameters:
   """
@@ -7916,8 +7999,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes the event stream for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7955,8 +8041,11 @@ defmodule AWS.Pinpoint do
   Disables the GCM channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -7988,11 +8077,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages sent using the in-app message channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_in_app_template(
           AWS.Client.t(),
@@ -8032,8 +8129,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a journey from an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
@@ -8075,11 +8175,19 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through a push
   notification channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeletePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_push_template(
           AWS.Client.t(),
@@ -8119,8 +8227,12 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes an Amazon Pinpoint configuration for a recommender model.
 
-  ## Required positional parameters:
-  * `:recommender_id` (`t:string`) The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8157,8 +8269,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a segment from an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
@@ -8200,8 +8315,11 @@ defmodule AWS.Pinpoint do
   Disables the SMS channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8233,11 +8351,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages that were sent through the SMS channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_sms_template(
           AWS.Client.t(),
@@ -8277,8 +8403,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes all the endpoints that are associated with a specific user ID.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteUserEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
@@ -8320,8 +8449,11 @@ defmodule AWS.Pinpoint do
   Disables the voice channel for an application and deletes any existing settings
   for the channel.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8359,11 +8491,19 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through the voice
   channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20DeleteVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_voice_template(
           AWS.Client.t(),
@@ -8404,8 +8544,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the ADM channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8433,8 +8576,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8462,8 +8608,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs sandbox channel
   for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8491,8 +8640,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs VoIP channel for
   an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8520,8 +8672,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs VoIP sandbox
   channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8548,8 +8703,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8577,15 +8735,34 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard metric that applies to an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApplicationDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-  * `:next_token` (`t:string`) The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_application_date_range_kpi(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_date_range_kpi_response(), any()}
@@ -8647,8 +8824,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the settings for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApplicationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8676,11 +8856,16 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the applications that are associated with your
   Amazon Pinpoint account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apps_response(), any()}
@@ -8724,8 +8909,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the Baidu channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -8753,8 +8941,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for a
   campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
@@ -8783,13 +8974,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the activities for a campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_campaign_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_activities_response(), any()}
@@ -8834,16 +9031,35 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard metric that applies to a
   campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
-  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-  * `:next_token` (`t:string`) The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_campaign_date_range_kpi(
           AWS.Client.t(),
@@ -8918,10 +9134,14 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for a
   specific version of a campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
-  * `:version` (`t:string`) The unique version number (Version property) for the campaign version.
+  * `:version` (`t:string`) The unique version number (Version property) for the
+    campaign version.
 
   ## Optional parameters:
   """
@@ -8956,13 +9176,19 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for
   all versions of a campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaignVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_campaign_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_versions_response(), any()}
@@ -9007,12 +9233,18 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for
   all the campaigns that are associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_campaigns(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaigns_response(), any()}
@@ -9056,8 +9288,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the history and status of each channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -9085,8 +9320,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the email channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -9114,11 +9352,19 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the email channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
@@ -9153,9 +9399,13 @@ defmodule AWS.Pinpoint do
   Retrieves information about the settings and attributes of a specific endpoint
   for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the endpoint. The identifier can&#39;t contain <code>$</code>, <code>{</code> or <code>}</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
 
   ## Optional parameters:
   """
@@ -9183,8 +9433,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the event stream settings for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -9212,8 +9465,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of a specific export job for
   an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:job_id` (`t:string`) The unique identifier for the job.
 
   ## Optional parameters:
@@ -9243,12 +9499,18 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of all the export jobs for
   an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_jobs_response(), any()}
@@ -9292,8 +9554,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the GCM channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -9321,8 +9586,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of a specific import job for
   an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:job_id` (`t:string`) The unique identifier for the job.
 
   ## Optional parameters:
@@ -9352,12 +9620,18 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of all the import jobs for
   an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_jobs_response(), any()}
@@ -9400,8 +9674,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the in-app messages targeted for the provided endpoint ID.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetInAppMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:endpoint_id` (`t:string`) The unique identifier for the endpoint.
 
   ## Optional parameters:
@@ -9431,11 +9708,19 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages sent
   through the in-app channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_template_response(), any()}
@@ -9470,8 +9755,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for a
   journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
@@ -9501,16 +9789,35 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard engagement metric that
   applies to a journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyDateRangeKpi&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
-  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.
+  * `:kpi_name` (`t:string`) The name of the metric, also referred to as a key
+    performance indicator (KPI), to retrieve data for. This value describes the
+    associated metric and consists of two or more terms, which are comprised of
+    lowercase alphanumeric characters, separated by a hyphen. Examples are
+    email-open-rate and successful-delivery-rate. For a list of valid values,
+    see the Amazon Pinpoint Developer Guide.
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-  * `:next_token` (`t:string`) The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+  * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_journey_date_range_kpi(
           AWS.Client.t(),
@@ -9585,14 +9892,22 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard execution metric that
   applies to a journey activity.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:journey_activity_id` (`t:string`) The unique identifier for the journey activity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyExecutionActivityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_activity_id` (`t:string`) The unique identifier for the journey
+    activity.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The <code> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</code>
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_execution_activity_metrics(
           AWS.Client.t(),
@@ -9649,13 +9964,20 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard execution metric that
   applies to a journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyExecutionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The <code> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</code>
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_execution_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_execution_metrics_response(), any()}
@@ -9700,15 +10022,23 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard run execution metric that
   applies to a journey activity.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:journey_activity_id` (`t:string`) The unique identifier for the journey activity.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRunExecutionActivityMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:journey_activity_id` (`t:string`) The unique identifier for the journey
+    activity.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
   * `:run_id` (`t:string`) The unique identifier for the journey run.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The <code> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</code>
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_activity_metrics(
           AWS.Client.t(),
@@ -9767,14 +10097,21 @@ defmodule AWS.Pinpoint do
   Retrieves (queries) pre-aggregated data for a standard run execution metric that
   applies to a journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRunExecutionMetrics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
   * `:run_id` (`t:string`) The unique identifier for the journey run.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The <code> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</code>
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_metrics(
           AWS.Client.t(),
@@ -9830,13 +10167,19 @@ defmodule AWS.Pinpoint do
   @doc """
   Provides information about the runs of a journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetJourneyRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_journey_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_runs_response(), any()}
@@ -9881,11 +10224,19 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through a push notification channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetPushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_push_template_response(), any()}
@@ -9920,8 +10271,12 @@ defmodule AWS.Pinpoint do
   Retrieves information about an Amazon Pinpoint configuration for a recommender
   model.
 
-  ## Required positional parameters:
-  * `:recommender_id` (`t:string`) The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -9949,11 +10304,16 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the recommender model configurations that are
   associated with your Amazon Pinpoint account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetRecommenderConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_recommender_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommender_configurations_response(), any()}
@@ -9997,8 +10357,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the configuration, dimension, and other settings for
   a specific segment that's associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
@@ -10028,13 +10391,19 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the export jobs for a
   segment.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_segment_export_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_export_jobs_response(), any()}
@@ -10079,13 +10448,19 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the import jobs for a
   segment.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_segment_import_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_import_jobs_response(), any()}
@@ -10130,10 +10505,14 @@ defmodule AWS.Pinpoint do
   Retrieves information about the configuration, dimension, and other settings for
   a specific version of a segment that's associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
-  * `:version` (`t:string`) The unique version number (Version property) for the campaign version.
+  * `:version` (`t:string`) The unique version number (Version property) for the
+    campaign version.
 
   ## Optional parameters:
   """
@@ -10162,13 +10541,19 @@ defmodule AWS.Pinpoint do
   Retrieves information about the configuration, dimension, and other settings for
   all the versions of a specific segment that's associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegmentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_segment_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_versions_response(), any()}
@@ -10213,12 +10598,18 @@ defmodule AWS.Pinpoint do
   Retrieves information about the configuration, dimension, and other settings for
   all the segments that are associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSegments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec get_segments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segments_response(), any()}
@@ -10262,8 +10653,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the SMS channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10291,11 +10685,19 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the SMS channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_template_response(), any()}
@@ -10330,8 +10732,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the endpoints that are associated with a
   specific user ID.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetUserEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
@@ -10361,8 +10766,11 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the voice channel for an
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10390,11 +10798,19 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the voice channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_template_response(), any()}
@@ -10429,12 +10845,18 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for
   all the journeys that are associated with an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListJourneys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:token` (`t:string`) The NextToken string that specifies which page of results to return in a paginated response.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:token` (`t:string`) The NextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_journeys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journeys_response(), any()}
@@ -10478,7 +10900,9 @@ defmodule AWS.Pinpoint do
   Retrieves all the tags (keys and values) that are associated with an
   application, campaign, message template, or segment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -10505,13 +10929,23 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about all the versions of a specific message template.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-  * `:template_type` (`t:string`) The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTemplateVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+  * `:template_type` (`t:string`) The type of channel that the message template is
+    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
@@ -10556,13 +10990,24 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the message templates that are associated with
   your Amazon Pinpoint account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:page_size` (`t:string`) The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-  * `:prefix` (`t:string`) The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
-  * `:template_type` (`t:string`) The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don&#39;t include this parameter in your request.
+  * `:next_token` (`t:string`) The string that specifies which page of results to
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
+  * `:page_size` (`t:string`) The maximum number of items to include in each page
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
+  * `:prefix` (`t:string`) The substring to match in the names of the message
+    templates to include in the results. If you specify this value, Amazon
+    Pinpoint returns only those templates whose names begin with the value that
+    you specify.
+  * `:template_type` (`t:string`) The type of message template to include in the
+    results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
+    of templates in the results, don't include this parameter in your request.
   """
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -10623,7 +11068,9 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about a phone number.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PhoneNumberValidate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -10656,8 +11103,11 @@ defmodule AWS.Pinpoint do
   Creates a new event stream for an application or updates the settings of an
   existing event stream for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PutEventStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10690,8 +11140,11 @@ defmodule AWS.Pinpoint do
   Creates a new event to record for endpoints, or creates or updates endpoint data
   that existing events are associated with.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20PutEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10722,14 +11175,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Removes one or more custom attributes, of the same attribute type, from the
-  application.
+  application. Existing endpoints still have the attributes but Amazon Pinpoint
+  will stop capturing new or changed values for these attributes.
 
-  Existing endpoints still have the attributes but Amazon Pinpoint will stop
-  capturing new or changed values for these attributes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20RemoveAttributes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:attribute_type` (`t:string`) The type of attribute or attributes to remove. Valid values are:
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:attribute_type` (`t:string`) The type of attribute or attributes to remove.
+    Valid values are:
 
   ## Optional parameters:
   """
@@ -10759,8 +11214,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates and sends a direct message.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10792,8 +11250,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Send an OTP message
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendOTPMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
+    application.
 
   ## Optional parameters:
   """
@@ -10825,8 +11286,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates and sends a message to a list of users.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20SendUsersMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10864,7 +11328,9 @@ defmodule AWS.Pinpoint do
   Adds one or more tags (keys and values) to an application, campaign, message
   template, or segment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -10897,11 +11363,16 @@ defmodule AWS.Pinpoint do
   Removes one or more tags (keys and values) from an application, campaign,
   message template, or segment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.pinpoint#__string]`) The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).
+  * `:tag_keys` (`t:list[com.amazonaws.pinpoint#__string]`) The key of the tag to
+    remove from the resource. To remove multiple tags, append the tagKeys
+    parameter and argument for each additional tag to remove, separated by an
+    ampersand (&).
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10936,8 +11407,11 @@ defmodule AWS.Pinpoint do
   Enables the ADM channel for an application or updates the status and settings of
   the ADM channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateAdmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10960,8 +11434,11 @@ defmodule AWS.Pinpoint do
   Enables the APNs channel for an application or updates the status and settings
   of the APNs channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -10989,8 +11466,11 @@ defmodule AWS.Pinpoint do
   Enables the APNs sandbox channel for an application or updates the status and
   settings of the APNs sandbox channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11018,8 +11498,11 @@ defmodule AWS.Pinpoint do
   Enables the APNs VoIP channel for an application or updates the status and
   settings of the APNs VoIP channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsVoipChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11047,8 +11530,11 @@ defmodule AWS.Pinpoint do
   Enables the APNs VoIP sandbox channel for an application or updates the status
   and settings of the APNs VoIP sandbox channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApnsVoipSandboxChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11075,8 +11561,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates the settings for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateApplicationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11104,8 +11593,11 @@ defmodule AWS.Pinpoint do
   Enables the Baidu channel for an application or updates the status and settings
   of the Baidu channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateBaiduChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11132,8 +11624,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates the configuration and other settings for a campaign.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:campaign_id` (`t:string`) The unique identifier for the campaign.
 
   ## Optional parameters:
@@ -11165,8 +11660,11 @@ defmodule AWS.Pinpoint do
   Enables the email channel for an application or updates the status and settings
   of the email channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEmailChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11194,12 +11692,23 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the
   email channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEmailTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_email_template(
           AWS.Client.t(),
@@ -11229,15 +11738,18 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new endpoint for an application or updates the settings and attributes
-  of an existing endpoint for an application.
+  of an existing endpoint for an application. You can also use this operation to
+  define custom attributes for an endpoint. If an update includes one or more
+  values for a custom attribute, Amazon Pinpoint replaces (overwrites) any
+  existing values with the new values.
 
-  You can also use this operation to define custom attributes for an endpoint. If
-  an update includes one or more values for a custom attribute, Amazon Pinpoint
-  replaces (overwrites) any existing values with the new values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
-  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the endpoint. The identifier can&#39;t contain <code>$</code>, <code>{</code> or <code>}</code>.
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
+  * `:endpoint_id` (`t:string`) The case insensitive unique identifier for the
+    endpoint. The identifier can't contain $, { or }.
 
   ## Optional parameters:
   """
@@ -11266,14 +11778,16 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new batch of endpoints for an application or updates the settings and
-  attributes of a batch of existing endpoints for an application.
+  attributes of a batch of existing endpoints for an application. You can also
+  use this operation to define custom attributes for a batch of endpoints. If an
+  update includes one or more values for a custom attribute, Amazon Pinpoint
+  replaces (overwrites) any existing values with the new values.
 
-  You can also use this operation to define custom attributes for a batch of
-  endpoints. If an update includes one or more values for a custom attribute,
-  Amazon Pinpoint replaces (overwrites) any existing values with the new values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateEndpointsBatch&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11301,8 +11815,11 @@ defmodule AWS.Pinpoint do
   Enables the GCM channel for an application or updates the status and settings of
   the GCM channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateGcmChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11325,12 +11842,23 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages sent through the in-app
   message channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateInAppTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_in_app_template(
           AWS.Client.t(),
@@ -11361,8 +11889,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates the configuration and other settings for a journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateJourney&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
@@ -11393,8 +11924,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Cancels (stops) an active journey.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateJourneyState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:journey_id` (`t:string`) The unique identifier for the journey.
 
   ## Optional parameters:
@@ -11426,12 +11960,23 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through a push
   notification channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdatePushTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_push_template(
           AWS.Client.t(),
@@ -11462,8 +12007,12 @@ defmodule AWS.Pinpoint do
   @doc """
   Updates an Amazon Pinpoint configuration for a recommender model.
 
-  ## Required positional parameters:
-  * `:recommender_id` (`t:string`) The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateRecommenderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:recommender_id` (`t:string`) The unique identifier for the recommender model
+    configuration. This identifier is displayed as the Recommender ID on the
+    Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11489,11 +12038,14 @@ defmodule AWS.Pinpoint do
 
   @doc """
   Creates a new segment for an application or updates the configuration,
-  dimension, and other settings for an existing segment that's associated with an
-  application.
+  dimension, and other settings for an existing segment that's associated with
+  an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSegment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
   * `:segment_id` (`t:string`) The unique identifier for the segment.
 
   ## Optional parameters:
@@ -11525,8 +12077,11 @@ defmodule AWS.Pinpoint do
   Enables the SMS channel for an application or updates the status and settings of
   the SMS channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSmsChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11549,12 +12104,23 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the SMS
   channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateSmsTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_sms_template(
           AWS.Client.t(),
@@ -11585,9 +12151,15 @@ defmodule AWS.Pinpoint do
   @doc """
   Changes the status of a specific version of a message template to *active*.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-  * `:template_type` (`t:string`) The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateTemplateActiveVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
+  * `:template_type` (`t:string`) The type of channel that the message template is
+    designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
 
   ## Optional parameters:
   """
@@ -11624,8 +12196,11 @@ defmodule AWS.Pinpoint do
   Enables the voice channel for an application or updates the status and settings
   of the voice channel for an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateVoiceChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier for the application. This
+    identifier is displayed as the Project ID on the Amazon Pinpoint console.
 
   ## Optional parameters:
   """
@@ -11653,12 +12228,23 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the
   voice channel.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20UpdateVoiceTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the message template. A template
+    name must start with an alphanumeric character and can contain a maximum of
+    128 characters. The characters can be alphanumeric characters, underscores
+    (_), or hyphens (-). Template names are case sensitive.
 
   ## Optional parameters:
-  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-  * `:version` (`t:string`) The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link linkend="templates-template-name-template-type-versions"/>Template Versions resource.
+  * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
+  * `:version` (`t:string`) The unique identifier for the version of the message
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_voice_template(
           AWS.Client.t(),
@@ -11689,8 +12275,11 @@ defmodule AWS.Pinpoint do
   @doc """
   Verify an OTP
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20VerifyOTPMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique ID of your Amazon Pinpoint
+    application.
 
   ## Optional parameters:
   """

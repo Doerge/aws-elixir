@@ -6,11 +6,9 @@ defmodule AWS.TimestreamInfluxDB do
   Amazon Timestream for InfluxDB is a managed time-series database engine that
   makes it easy for application developers and DevOps teams to run InfluxDB
   databases on AWS for near real-time time-series applications using open-source
-  APIs.
-
-  With Amazon Timestream for InfluxDB, it is easy to set up, operate, and scale
-  time-series workloads that can answer queries with single-digit millisecond
-  query response time.
+  APIs. With Amazon Timestream for InfluxDB, it is easy to set up, operate, and
+  scale time-series workloads that can answer queries with single-digit
+  millisecond query response time.
   """
 
   alias AWS.Client
@@ -686,9 +684,8 @@ defmodule AWS.TimestreamInfluxDB do
   end
 
   @doc """
-  Tags are composed of a Key/Value pairs.
-
-  You can use tags to categorize and track your Timestream for InfluxDB resources.
+  Tags are composed of a Key/Value pairs. You can use tags to categorize and track
+  your Timestream for InfluxDB resources.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}

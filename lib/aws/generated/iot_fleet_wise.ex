@@ -4,17 +4,11 @@
 defmodule AWS.IoTFleetWise do
   @moduledoc """
   Amazon Web Services IoT FleetWise is a fully managed service that you can use to
-  collect, model, and transfer
-  vehicle data to the Amazon Web Services cloud at scale.
-
-  With Amazon Web Services IoT FleetWise, you can standardize all of
-  your vehicle data models, independent of the in-vehicle communication
-  architecture, and
-  define data collection rules to transfer only high-value data to the cloud.
-
-  For more information, see [What is Amazon Web Services IoT FleetWise?](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/) in
-  the
-  *Amazon Web Services IoT FleetWise Developer Guide*.
+  collect, model, and transfer vehicle data to the Amazon Web Services cloud at
+  scale. With Amazon Web Services IoT FleetWise, you can standardize all of your
+  vehicle data models, independent of the in-vehicle communication architecture,
+  and define data collection rules to transfer only high-value data to the
+  cloud.
   """
 
   alias AWS.Client
@@ -2511,15 +2505,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Creates a group, or batch, of vehicles.
-
-  You must specify a decoder manifest and a vehicle model (model manifest) for
-  each
-  vehicle.
-
-  For more information, see [Create multiple vehicles (AWS
-  CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicles-cli.html)
-  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  Creates a group, or batch, of vehicles. You must specify a decoder manifest and
+  a vehicle model (model manifest) for each vehicle.
   """
   @spec batch_create_vehicle(AWS.Client.t(), batch_create_vehicle_request(), Keyword.t()) ::
           {:ok, batch_create_vehicle_response(), any()}
@@ -2533,15 +2520,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Updates a group, or batch, of vehicles.
-
-  You must specify a decoder manifest and a vehicle model (model manifest) for
-  each
-  vehicle.
-
-  For more information, see [Update multiple vehicles (AWS
-  CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/update-vehicles-cli.html)
-  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  Updates a group, or batch, of vehicles. You must specify a decoder manifest and
+  a vehicle model (model manifest) for each vehicle.
   """
   @spec batch_update_vehicle(AWS.Client.t(), batch_update_vehicle_request(), Keyword.t()) ::
           {:ok, batch_update_vehicle_response(), any()}
@@ -2555,18 +2535,11 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Creates an orchestration of data collection rules.
-
-  The Amazon Web Services IoT FleetWise Edge Agent software
-  running in vehicles uses campaigns to decide how to collect and transfer data to
-  the
-  cloud. You create campaigns in the cloud. After you or your team approve
-  campaigns,
-  Amazon Web Services IoT FleetWise automatically deploys them to vehicles.
-
-  For more information, see [Collect and transfer data with
-  campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html)
-  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  Creates an orchestration of data collection rules. The Amazon Web Services IoT
+  FleetWise Edge Agent software running in vehicles uses campaigns to decide how
+  to collect and transfer data to the cloud. You create campaigns in the cloud.
+  After you or your team approve campaigns, Amazon Web Services IoT FleetWise
+  automatically deploys them to vehicles.
   """
   @spec create_campaign(AWS.Client.t(), create_campaign_request(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
@@ -2580,22 +2553,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Creates the decoder manifest associated with a model manifest.
-
-  To create a decoder
-  manifest, the following must be true:
-
-    *
-  Every signal decoder has a unique name.
-
-    *
-  Each signal decoder is associated with a network interface.
-
-    *
-  Each network interface has a unique ID.
-
-    *
-  The signal decoders are specified in the model manifest.
+  Creates the decoder manifest associated with a model manifest. To create a
+  decoder manifest, the following must be true:
   """
   @spec create_decoder_manifest(AWS.Client.t(), create_decoder_manifest_request(), Keyword.t()) ::
           {:ok, create_decoder_manifest_response(), any()}
@@ -2609,15 +2568,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Creates a fleet that represents a group of vehicles.
-
-  You must create both a signal catalog and vehicles before you can create a
-  fleet.
-
-  For more information, see
-  [Fleets](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html)
-  in the
-  *Amazon Web Services IoT FleetWise Developer Guide*.
+  Creates a fleet that represents a group of vehicles. You must create both a
+  signal catalog and vehicles before you can create a fleet.
   """
   @spec create_fleet(AWS.Client.t(), create_fleet_request(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
@@ -2633,9 +2585,6 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a vehicle model (model manifest) that specifies signals (attributes,
   branches, sensors, and actuators).
-
-  For more information, see [Vehicle models](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html)
-  in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
   @spec create_model_manifest(AWS.Client.t(), create_model_manifest_request(), Keyword.t()) ::
           {:ok, create_model_manifest_response(), any()}
@@ -2650,8 +2599,7 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Creates a collection of standardized signals that can be reused to create
-  vehicle
-  models.
+  vehicle models.
   """
   @spec create_signal_catalog(AWS.Client.t(), create_signal_catalog_request(), Keyword.t()) ::
           {:ok, create_signal_catalog_response(), any()}
@@ -2666,19 +2614,10 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Creates a vehicle, which is an instance of a vehicle model (model manifest).
-
-  Vehicles
-  created from the same vehicle model consist of the same signals inherited from
-  the
-  vehicle model.
-
-  If you have an existing Amazon Web Services IoT thing, you can use Amazon Web
-  Services IoT FleetWise to create a
-  vehicle and collect data from your thing.
-
-  For more information, see [Create a vehicle (AWS
-  CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-cli.html)
-  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  Vehicles created from the same vehicle model consist of the same signals
+  inherited from the vehicle model. If you have an existing Amazon Web Services
+  IoT thing, you can use Amazon Web Services IoT FleetWise to create a vehicle
+  and collect data from your thing.
   """
   @spec create_vehicle(AWS.Client.t(), create_vehicle_request(), Keyword.t()) ::
           {:ok, create_vehicle_response(), any()}
@@ -2692,10 +2631,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Deletes a data collection campaign.
-
-  Deleting a campaign suspends all data collection
-  and removes it from any vehicles.
+  Deletes a data collection campaign. Deleting a campaign suspends all data
+  collection and removes it from any vehicles.
   """
   @spec delete_campaign(AWS.Client.t(), delete_campaign_request(), Keyword.t()) ::
           {:ok, delete_campaign_response(), any()}
@@ -2709,14 +2646,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Deletes a decoder manifest.
-
-  You can't delete a decoder manifest if it has vehicles
-  associated with it.
-
-  If the decoder manifest is successfully deleted, Amazon Web Services IoT
-  FleetWise sends back an HTTP 200
-  response with an empty body.
+  Deletes a decoder manifest. You can't delete a decoder manifest if it has
+  vehicles associated with it.
   """
   @spec delete_decoder_manifest(AWS.Client.t(), delete_decoder_manifest_request(), Keyword.t()) ::
           {:ok, delete_decoder_manifest_response(), any()}
@@ -2730,15 +2661,10 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Deletes a fleet.
-
-  Before you delete a fleet, all vehicles must be
-  dissociated from the fleet. For more information, see [Delete a fleet (AWS CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html)
+  Deletes a fleet. Before you delete a fleet, all vehicles must be dissociated
+  from the fleet. For more information, see [Delete a fleet (AWS
+  CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
-
-  If the fleet is successfully deleted, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty body.
   """
   @spec delete_fleet(AWS.Client.t(), delete_fleet_request(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
@@ -2753,10 +2679,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a vehicle model (model manifest).
-
-  If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise
-  sends back an HTTP 200
-  response with an empty body.
   """
   @spec delete_model_manifest(AWS.Client.t(), delete_model_manifest_request(), Keyword.t()) ::
           {:ok, delete_model_manifest_response(), any()}
@@ -2771,10 +2693,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a signal catalog.
-
-  If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise
-  sends back an HTTP 200
-  response with an empty body.
   """
   @spec delete_signal_catalog(AWS.Client.t(), delete_signal_catalog_request(), Keyword.t()) ::
           {:ok, delete_signal_catalog_response(), any()}
@@ -2789,10 +2707,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a vehicle and removes it from any campaigns.
-
-  If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty body.
   """
   @spec delete_vehicle(AWS.Client.t(), delete_vehicle_request(), Keyword.t()) ::
           {:ok, delete_vehicle_response(), any()}
@@ -2806,14 +2720,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Removes, or disassociates, a vehicle from a fleet.
-
-  Disassociating a vehicle from a
-  fleet doesn't delete the vehicle.
-
-  If the vehicle is successfully dissociated from a fleet, Amazon Web Services IoT
-  FleetWise sends back an
-  HTTP 200 response with an empty body.
+  Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from
+  a fleet doesn't delete the vehicle.
   """
   @spec disassociate_vehicle_fleet(
           AWS.Client.t(),
@@ -2921,15 +2829,11 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about the status of registering your Amazon Web Services
-  account, IAM, and
-  Amazon Timestream resources so that Amazon Web Services IoT FleetWise can
-  transfer your vehicle data to the Amazon Web Services
-  Cloud.
-
-  For more information, including step-by-step procedures, see [Setting up Amazon Web Services IoT
+  account, IAM, and Amazon Timestream resources so that Amazon Web Services IoT
+  FleetWise can transfer your vehicle data to the Amazon Web Services Cloud. For
+  more information, including step-by-step procedures, see [Setting up Amazon
+  Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
-
-  This API operation doesn't require input parameters.
   """
   @spec get_register_account_status(
           AWS.Client.t(),
@@ -3006,8 +2910,7 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Creates a signal catalog using your existing VSS formatted content from your
-  local
-  device.
+  local device.
   """
   @spec import_signal_catalog(AWS.Client.t(), import_signal_catalog_request(), Keyword.t()) ::
           {:ok, import_signal_catalog_response(), any()}
@@ -3022,9 +2925,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists information about created campaigns.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_campaigns(AWS.Client.t(), list_campaigns_request(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
@@ -3039,9 +2939,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists the network interfaces specified in a decoder manifest.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_decoder_manifest_network_interfaces(
           AWS.Client.t(),
@@ -3060,9 +2957,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   A list of information about signal decoders specified in a decoder manifest.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_decoder_manifest_signals(
           AWS.Client.t(),
@@ -3081,9 +2975,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists decoder manifests.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_decoder_manifests(AWS.Client.t(), list_decoder_manifests_request(), Keyword.t()) ::
           {:ok, list_decoder_manifests_response(), any()}
@@ -3098,9 +2989,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information for each created fleet in an Amazon Web Services account.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_fleets(AWS.Client.t(), list_fleets_request(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
@@ -3115,9 +3003,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of IDs for all fleets that the vehicle is associated with.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_fleets_for_vehicle(AWS.Client.t(), list_fleets_for_vehicle_request(), Keyword.t()) ::
           {:ok, list_fleets_for_vehicle_response(), any()}
@@ -3132,9 +3017,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists information about nodes specified in a vehicle model (model manifest).
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_model_manifest_nodes(
           AWS.Client.t(),
@@ -3153,9 +3035,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of vehicle models (model manifests).
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_model_manifests(AWS.Client.t(), list_model_manifests_request(), Keyword.t()) ::
           {:ok, list_model_manifests_response(), any()}
@@ -3170,9 +3049,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Lists of information about the signals (nodes) specified in a signal catalog.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_signal_catalog_nodes(
           AWS.Client.t(),
@@ -3190,13 +3066,9 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Lists all the created signal catalogs in an Amazon Web Services account.
-
-  You can use to list information about
-  each signal (node) specified in a signal catalog.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
+  Lists all the created signal catalogs in an Amazon Web Services account. You can
+  use to list information about each signal (node) specified in a signal
+  catalog.
   """
   @spec list_signal_catalogs(AWS.Client.t(), list_signal_catalogs_request(), Keyword.t()) ::
           {:ok, list_signal_catalogs_response(), any()}
@@ -3225,9 +3097,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of summaries of created vehicles.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_vehicles(AWS.Client.t(), list_vehicles_request(), Keyword.t()) ::
           {:ok, list_vehicles_response(), any()}
@@ -3242,9 +3111,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves a list of summaries of all vehicles associated with a fleet.
-
-  This API operation uses pagination. Specify the `nextToken` parameter in the
-  request to return more results.
   """
   @spec list_vehicles_in_fleet(AWS.Client.t(), list_vehicles_in_fleet_request(), Keyword.t()) ::
           {:ok, list_vehicles_in_fleet_response(), any()}
@@ -3258,11 +3124,11 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Creates or updates the encryption configuration.
-
-  Amazon Web Services IoT FleetWise can encrypt your data and resources using an
-  Amazon Web Services managed key. Or, you can use a KMS key that you own and
-  manage. For more information, see [Data encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html)
+  Creates or updates the encryption configuration. Amazon Web Services IoT
+  FleetWise can encrypt your data and resources using an Amazon Web Services
+  managed key. Or, you can use a KMS key that you own and manage. For more
+  information, see [Data
+  encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
   @spec put_encryption_configuration(
@@ -3295,41 +3161,27 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-
-  This API operation contains deprecated parameters.
-
-  Register your account again without the Timestream resources parameter so that
-  Amazon Web Services IoT FleetWise can remove the Timestream metadata stored. You
-  should then pass the data destination into the
-  [CreateCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html) API operation.
-
-  You must delete any existing campaigns that include an empty data destination
-  before you register your account again. For more information, see the
+  This API operation contains deprecated parameters. Register your account again
+  without the Timestream resources parameter so that Amazon Web Services IoT
+  FleetWise can remove the Timestream metadata stored. You should then pass the
+  data destination into the
+  [CreateCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html)
+  API operation. You must delete any existing campaigns that include an empty
+  data destination before you register your account again. For more information,
+  see the
   [DeleteCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteCampaign.html)
-  API operation.
-
-  If you want to delete the Timestream inline policy from the service-linked role,
-  such as to mitigate an overly permissive policy, you must first delete any
-  existing campaigns. Then delete the service-linked role and register your
-  account again to enable CloudWatch metrics. For more information, see
-  [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html) in the *Identity and Access Management API Reference*.
-
-  Registers your Amazon Web Services account, IAM, and Amazon Timestream resources
-  so Amazon Web Services IoT FleetWise can
-  transfer your vehicle data to the Amazon Web Services Cloud. For more
-  information, including
-  step-by-step procedures, see [Setting up
-  Amazon Web Services IoT
+  API operation. If you want to delete the Timestream inline policy from the
+  service-linked role, such as to mitigate an overly permissive policy, you must
+  first delete any existing campaigns. Then delete the service-linked role and
+  register your account again to enable CloudWatch metrics. For more
+  information, see
+  [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html)
+  in the *Identity and Access Management API Reference*. Registers your Amazon
+  Web Services account, IAM, and Amazon Timestream resources so Amazon Web
+  Services IoT FleetWise can transfer your vehicle data to the Amazon Web
+  Services Cloud. For more information, including step-by-step procedures, see
+  [Setting up Amazon Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
-
-  An Amazon Web Services account is **not** the same thing as a "user." An [Amazon Web Services
-  user](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users)
-  is an identity that you create using Identity and Access Management (IAM) and
-  takes the form of either an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) or an [IAM role, both
-  with
-  credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html). A
-  single Amazon Web Services account can, and typically does,
-  contain many users and roles.
   """
   @spec register_account(AWS.Client.t(), register_account_request(), Keyword.t()) ::
           {:ok, register_account_response(), any()}
@@ -3343,10 +3195,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
-
-  Tags are metadata which can be
-  used to manage a resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata which can
+  be used to manage a resource.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3389,9 +3239,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a decoder manifest.
-
-  A decoder manifest can only be updated when the status is `DRAFT`. Only
-  `ACTIVE` decoder manifests can be associated with vehicles.
   """
   @spec update_decoder_manifest(AWS.Client.t(), update_decoder_manifest_request(), Keyword.t()) ::
           {:ok, update_decoder_manifest_response(), any()}
@@ -3406,10 +3253,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates the description of an existing fleet.
-
-  If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty HTTP body.
   """
   @spec update_fleet(AWS.Client.t(), update_fleet_request(), Keyword.t()) ::
           {:ok, update_fleet_response(), any()}
@@ -3423,10 +3266,8 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Updates a vehicle model (model manifest).
-
-  If created vehicles are associated with a
-  vehicle model, it can't be updated.
+  Updates a vehicle model (model manifest). If created vehicles are associated
+  with a vehicle model, it can't be updated.
   """
   @spec update_model_manifest(AWS.Client.t(), update_model_manifest_request(), Keyword.t()) ::
           {:ok, update_model_manifest_response(), any()}

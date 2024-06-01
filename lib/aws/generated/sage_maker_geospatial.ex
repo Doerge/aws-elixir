@@ -1403,8 +1403,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to delete an Earth Observation job.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation job being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20DeleteEarthObservationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation
+    job being deleted.
 
   ## Optional parameters:
   """
@@ -1441,8 +1444,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to delete a Vector Enrichment job.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20DeleteVectorEnrichmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment
+    job being deleted.
 
   ## Optional parameters:
   """
@@ -1480,7 +1486,9 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to export results of an Earth Observation job and optionally
   source images used as input to the EOJ to an Amazon S3 location.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ExportEarthObservationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1517,7 +1525,9 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to copy results of a Vector Enrichment job to an Amazon S3
   location.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ExportVectorEnrichmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1553,8 +1563,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Get the details for a previously initiated Earth Observation job.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetEarthObservationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Earth Observation
+    job.
 
   ## Optional parameters:
   """
@@ -1581,8 +1594,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to get details of a specific raster data collection.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the raster data collection.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetRasterDataCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the raster data
+    collection.
 
   ## Optional parameters:
   """
@@ -1609,21 +1625,28 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Gets a web mercator tile for the given Earth Observation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetTile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:x` (`t:`) The x coordinate of the tile input.
   * `:y` (`t:`) The y coordinate of the tile input.
   * `:z` (`t:`) The z coordinate of the tile input.
 
   ## Optional parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the tile operation.
-  * `:execution_role_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM role that you specify.
-  * `:image_assets` (`t:list[smithy.api#String]`) The particular assets or bands to tile.
+  * `:execution_role_arn` (`t:string`) The Amazon Resource Name (ARN) of the IAM
+    role that you specify.
+  * `:image_assets` (`t:list[smithy.api#String]`) The particular assets or bands
+    to tile.
   * `:image_mask` (`t:`) Determines whether or not to return a valid data mask.
   * `:output_data_type` (`t:string`) The output data type of the tile operation.
-  * `:output_format` (`t:`) The data format of the output tile. The formats include .npy, .png and .jpg.
+  * `:output_format` (`t:`) The data format of the output tile. The formats
+    include .npy, .png and .jpg.
   * `:property_filters` (`t:`) Property filters for the imagery to tile.
-  * `:target` (`t:string`) Determines what part of the Earth Observation job to tile. &#39;INPUT&#39; or &#39;OUTPUT&#39; are the valid options.
-  * `:time_range_filter` (`t:`) Time range filter applied to imagery to find the images to tile.
+  * `:target` (`t:string`) Determines what part of the Earth Observation job to
+    tile. 'INPUT' or 'OUTPUT' are the valid options.
+  * `:time_range_filter` (`t:`) Time range filter applied to imagery to find the
+    images to tile.
   """
   @spec get_tile(
           AWS.Client.t(),
@@ -1740,8 +1763,11 @@ defmodule AWS.SageMakerGeospatial do
   Retrieves details of a Vector Enrichment Job for a given job Amazon Resource
   Name (ARN).
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20GetVectorEnrichmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Vector Enrichment
+    job.
 
   ## Optional parameters:
   """
@@ -1769,7 +1795,9 @@ defmodule AWS.SageMakerGeospatial do
   Use this operation to get a list of the Earth Observation jobs associated with
   the calling Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListEarthObservationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1805,12 +1833,14 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to get raster data collections.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListRasterDataCollections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The total number of items to return.
-  * `:next_token` (`t:string`) If the previous response was truncated, you receive this token.
-         Use it in your next request to receive the next set of results.
+  * `:next_token` (`t:string`) If the previous response was truncated, you receive
+    this token. Use it in your next request to receive the next set of results.
   """
   @spec list_raster_data_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_raster_data_collections_output(), any()}
@@ -1853,8 +1883,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Lists the tags attached to the resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    you want to tag.
 
   ## Optional parameters:
   """
@@ -1881,7 +1914,9 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Retrieves a list of vector enrichment jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20ListVectorEnrichmentJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1918,7 +1953,9 @@ defmodule AWS.SageMakerGeospatial do
   Allows you run image query on a specific raster data collection to get a list of
   the satellite imagery matching the selected filters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20SearchRasterDataCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1954,7 +1991,9 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to create an Earth observation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StartEarthObservationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1988,12 +2027,12 @@ defmodule AWS.SageMakerGeospatial do
   end
 
   @doc """
-  Creates a Vector Enrichment job for the supplied job type.
+  Creates a Vector Enrichment job for the supplied job type. Currently, there are
+  two supported job types: reverse geocoding and map matching.
 
-  Currently, there are two supported job types: reverse geocoding and map
-  matching.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StartVectorEnrichmentJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2029,7 +2068,9 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Use this operation to stop an existing earth observation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StopEarthObservationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2065,7 +2106,9 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   Stops the Vector Enrichment job for a given job ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20StopVectorEnrichmentJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2101,8 +2144,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   The resource you want to tag.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    you want to tag.
 
   ## Optional parameters:
   """
@@ -2124,8 +2170,11 @@ defmodule AWS.SageMakerGeospatial do
   @doc """
   The resource you want to untag.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource you want to untag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakergeospatial%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    you want to untag.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[smithy.api#String]`) Keys of the tags you want to remove.

@@ -4,21 +4,10 @@
 defmodule AWS.Grafana do
   @moduledoc """
   Amazon Managed Grafana is a fully managed and secure data visualization service
-  that
-  you can use to instantly query, correlate, and visualize operational metrics,
-  logs, and
-  traces from multiple sources.
-
-  Amazon Managed Grafana makes it easy to deploy, operate, and
-  scale Grafana, a widely deployed data visualization tool that is popular for its
-  extensible data support.
-
-  With Amazon Managed Grafana, you create logically isolated Grafana servers
-  called
-  *workspaces*. In a workspace, you can create Grafana dashboards
-  and visualizations to analyze your metrics, logs, and traces without having to
-  build,
-  package, or deploy any hardware to run Grafana servers.
+  that you can use to instantly query, correlate, and visualize operational
+  metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes
+  it easy to deploy, operate, and scale Grafana, a widely deployed data
+  visualization tool that is popular for its extensible data support.
   """
 
   alias AWS.Client
@@ -1186,21 +1175,24 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Assigns a Grafana Enterprise license to a workspace.
-
-  To upgrade, you must use
-  `ENTERPRISE` for the `licenseType`, and pass in a valid
-  Grafana Labs token for the `grafanaToken`. Upgrading to Grafana Enterprise
-  incurs additional fees. For more information, see [Upgrade a workspace to Grafana
+  Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use
+  `ENTERPRISE` for the `licenseType`, and pass in a valid Grafana Labs token for
+  the `grafanaToken`. Upgrading to Grafana Enterprise incurs additional fees.
+  For more information, see [Upgrade a workspace to Grafana
   Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
 
-  ## Required positional parameters:
-  * `:license_type` (`t:string`) The type of license to associate with the workspace.
-  * `:workspace_id` (`t:string`) The ID of the workspace to associate the license with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20AssociateLicense&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_type` (`t:string`) The type of license to associate with the
+    workspace.
+  * `:workspace_id` (`t:string`) The ID of the workspace to associate the license
+    with.
 
   ## Optional parameters:
-  * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon Web Services account with a Grafana 
-            Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.
+  * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon
+    Web Services account with a Grafana Labs account. For more information, see
+    Link your account with Grafana Labs.
   """
   @spec associate_license(
           AWS.Client.t(),
@@ -1241,17 +1233,13 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a *workspace*.
+  Creates a *workspace*. In a workspace, you can create Grafana dashboards and
+  visualizations to analyze your metrics, logs, and traces. You don't have to
+  build, package, or deploy any hardware to run the Grafana server.
 
-  In a workspace, you can create Grafana
-  dashboards and visualizations to analyze your metrics, logs, and traces. You
-  don't have
-  to build, package, or deploy any hardware to run the Grafana server.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
-  Don't use `CreateWorkspace` to modify an existing workspace. Instead, use
-  [UpdateWorkspace](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspace.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1281,17 +1269,14 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a Grafana API key for the workspace.
-
-  This key can be used to authenticate
-  requests sent to the workspace's HTTP API. See
+  Creates a Grafana API key for the workspace. This key can be used to
+  authenticate requests sent to the workspace's HTTP API. See
   [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   for available APIs and example requests.
 
-  In workspaces compatible with Grafana version 9 or above, use workspace service
-  accounts instead of API keys. API keys will be removed in a future release.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceApiKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to create an API key.
 
   ## Optional parameters:
@@ -1327,28 +1312,18 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Creates a service account for the workspace.
-
-  A service account can be used to call
-  Grafana HTTP APIs, and run automated workloads. After creating the service
-  account with
-  the correct `GrafanaRole` for your use case, use
+  Creates a service account for the workspace. A service account can be used to
+  call Grafana HTTP APIs, and run automated workloads. After creating the
+  service account with the correct `GrafanaRole` for your use case, use
   `CreateWorkspaceServiceAccountToken` to create a token that can be used to
-  authenticate and authorize Grafana HTTP API calls.
+  authenticate and authorize Grafana HTTP API calls. You can only create service
+  accounts for workspaces that are compatible with Grafana version 9 and above.
 
-  You can only create service accounts for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
-  For more information about service accounts, see [Service accounts](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
-  in
-  the *Amazon Managed Grafana User Guide*.
-
-  For more information about the Grafana HTTP APIs, see [Using Grafana HTTP APIs](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
-  in the *Amazon Managed Grafana User Guide*.
-
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace within which to create the service account.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace within which to create
+    the service account.
 
   ## Optional parameters:
   """
@@ -1384,25 +1359,22 @@ defmodule AWS.Grafana do
 
   @doc """
   Creates a token that can be used to authenticate and authorize Grafana HTTP API
-  operations for the given [workspace service account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+  operations for the given [workspace service
+  account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+  The service account acts as a user for the API operations, and defines the
+  permissions that are used by the API. When you create the service account
+  token, you will receive a key that is used when calling Grafana APIs. Do not
+  lose this key, as it will not be retrievable again. If you do lose the key,
+  you can delete the token and recreate it to receive a new key. This will
+  disable the initial key.
 
-  The service account acts as a user for the API operations, and
-  defines the permissions that are used by the API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
-  When you create the service account token, you will receive a key that is used
-  when calling Grafana APIs. Do not lose this key, as it will not be retrievable
-  again.
-
-  If you do lose the key, you can delete the token and recreate it to receive a
-  new key. This will disable the initial key.
-
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
-
-  ## Required positional parameters:
-  * `:service_account_id` (`t:`) The ID of the service account for which to create a token.
-  * `:workspace_id` (`t:string`) The ID of the workspace the service account resides within.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account for which to create
+    a token.
+  * `:workspace_id` (`t:string`) The ID of the workspace the service account
+    resides within.
 
   ## Optional parameters:
   """
@@ -1448,7 +1420,9 @@ defmodule AWS.Grafana do
   @doc """
   Deletes an Amazon Managed Grafana workspace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to delete.
 
   ## Optional parameters:
@@ -1481,10 +1455,9 @@ defmodule AWS.Grafana do
   @doc """
   Deletes a Grafana API key for the workspace.
 
-  In workspaces compatible with Grafana version 9 or above, use workspace service
-  accounts instead of API keys. API keys will be removed in a future release.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceApiKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:key_name` (`t:string`) The name of the API key to delete.
   * `:workspace_id` (`t:string`) The ID of the workspace to delete.
 
@@ -1524,20 +1497,16 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Deletes a workspace service account from the workspace.
+  Deletes a workspace service account from the workspace. This will delete any
+  tokens created for the service account, as well. If the tokens are currently
+  in use, the will fail to authenticate / authorize after they are deleted.
 
-  This will delete any tokens created for the service account, as well. If the
-  tokens
-  are currently in use, the will fail to authenticate / authorize after they are
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccount&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:service_account_id` (`t:`) The ID of the service account to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace where the service account resides.
+  * `:workspace_id` (`t:string`) The ID of the workspace where the service account
+    resides.
 
   ## Optional parameters:
   """
@@ -1581,22 +1550,19 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Deletes a token for the workspace service account.
+  Deletes a token for the workspace service account. This will disable the key
+  associated with the token. If any automation is currently using the key, it
+  will no longer be authenticated or authorized to perform actions with the
+  Grafana HTTP APIs.
 
-  This will disable the key associated with the token. If any automation is
-  currently
-  using the key, it will no longer be authenticated or authorized to perform
-  actions with
-  the Grafana HTTP APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DeleteWorkspaceServiceAccountToken&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
-
-  ## Required positional parameters:
-  * `:service_account_id` (`t:`) The ID of the service account from which to delete the token.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account from which to
+    delete the token.
   * `:token_id` (`t:`) The ID of the token to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace from which to delete the token.
+  * `:workspace_id` (`t:string`) The ID of the workspace from which to delete the
+    token.
 
   ## Optional parameters:
   """
@@ -1644,8 +1610,11 @@ defmodule AWS.Grafana do
   @doc """
   Displays information about one Amazon Managed Grafana workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to display information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to display information
+    about.
 
   ## Optional parameters:
   """
@@ -1671,11 +1640,13 @@ defmodule AWS.Grafana do
 
   @doc """
   Displays information about the authentication methods used in one Amazon Managed
-  Grafana
-  workspace.
+  Grafana workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to return authentication information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceAuthentication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to return authentication
+    information about.
 
   ## Optional parameters:
   """
@@ -1702,8 +1673,11 @@ defmodule AWS.Grafana do
   @doc """
   Gets the current configuration string for the given workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to get configuration information for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DescribeWorkspaceConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to get configuration
+    information for.
 
   ## Optional parameters:
   """
@@ -1730,9 +1704,12 @@ defmodule AWS.Grafana do
   @doc """
   Removes the Grafana Enterprise license from a workspace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20DisassociateLicense&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:license_type` (`t:string`) The type of license to remove from the workspace.
-  * `:workspace_id` (`t:string`) The ID of the workspace to remove the Grafana Enterprise license from.
+  * `:workspace_id` (`t:string`) The ID of the workspace to remove the Grafana
+    Enterprise license from.
 
   ## Optional parameters:
   """
@@ -1770,27 +1747,30 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Lists the users and groups who have the Grafana `Admin` and
-  `Editor` roles in this workspace.
+  Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
+  this workspace. If you use this operation without specifying `userId` or
+  `groupId`, the operation returns the roles of all users and groups. If you
+  specify a `userId` or a `groupId`, only the roles for that user or group are
+  returned. If you do this, you can specify only one `userId` or one `groupId`.
 
-  If you use this operation without
-  specifying `userId` or `groupId`, the operation returns the roles
-  of all users and groups. If you specify a `userId` or a `groupId`,
-  only the roles for that user or group are returned. If you do this, you can
-  specify only
-  one `userId` or one `groupId`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListPermissions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to list permissions for. This parameter is required.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to list permissions for.
+    This parameter is required.
 
   ## Optional parameters:
-  * `:group_id` (`t:string`) (Optional) Limits the results to only the group that matches this ID.
-  * `:max_results` (`t:`) The maximum number of results to include in the response.
-  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You received this token from
-            a previous <code>ListPermissions</code> operation.
-  * `:user_id` (`t:string`) (Optional) Limits the results to only the user that matches this ID.
-  * `:user_type` (`t:string`) (Optional) If you specify <code>SSO_USER</code>, then only the permissions of IAM Identity Center users are returned. If you specify <code>SSO_GROUP</code>, only the
-            permissions of IAM Identity Center groups are returned.
+  * `:group_id` (`t:string`) (Optional) Limits the results to only the group that
+    matches this ID.
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You received this token from a previous ListPermissions operation.
+  * `:user_id` (`t:string`) (Optional) Limits the results to only the user that
+    matches this ID.
+  * `:user_type` (`t:string`) (Optional) If you specify SSO_USER, then only the
+    permissions of IAM Identity Center users are returned. If you specify
+    SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
   """
   @spec list_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
@@ -1858,15 +1838,15 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with the Amazon Managed Service for Grafana resource specified by the
-  `resourceArn`.
+  The `ListTagsForResource` operation returns the tags that are associated with
+  the Amazon Managed Service for Grafana resource specified by the
+  `resourceArn`. Currently, the only resource that can be tagged is a workspace.
 
-  Currently, the only resource that can be tagged is a
-  workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource the list of tags are associated with.
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource the list of tags are associated
+    with.
 
   ## Optional parameters:
   """
@@ -1891,21 +1871,22 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Lists available versions of Grafana.
+  Lists available versions of Grafana. These are available when calling
+  `CreateWorkspace`. Optionally, include a workspace to list the versions to
+  which it can be upgraded.
 
-  These are available when calling
-  `CreateWorkspace`. Optionally, include a workspace to list the versions
-  to which it can be upgraded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to include in the response.
-  * `:next_token` (`t:string`) The token to use when requesting the next set of results. You receive this token from
-            a previous <code>ListVersions</code> operation.
-  * `:workspace_id` (`t:string`) The ID of the workspace to list the available upgrade versions. If not included, 
-            lists all versions of Grafana that are supported for 
-            <code>CreateWorkspace</code>.
+  * `:max_results` (`t:`) The maximum number of results to include in the
+    response.
+  * `:next_token` (`t:string`) The token to use when requesting the next set of
+    results. You receive this token from a previous ListVersions operation.
+  * `:workspace_id` (`t:string`) The ID of the workspace to list the available
+    upgrade versions. If not included, lists all versions of Grafana that are
+    supported for CreateWorkspace.
   """
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
@@ -1955,23 +1936,23 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Returns a list of tokens for a workspace service account.
+  Returns a list of tokens for a workspace service account. This does not return
+  the key for each token. You cannot access keys after they are created. To
+  create a new key, delete the token and recreate it.
 
-  This does not return the key for each token. You cannot access keys after they
-  are created. To create a new key, delete the token and recreate it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccountTokens&this_doc_guide=API%2520Reference)
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
-
-  ## Required positional parameters:
-  * `:service_account_id` (`t:`) The ID of the service account for which to return tokens.
-  * `:workspace_id` (`t:string`) The ID of the workspace for which to return tokens.
+  ## Parameters:
+  * `:service_account_id` (`t:`) The ID of the service account for which to return
+    tokens.
+  * `:workspace_id` (`t:string`) The ID of the workspace for which to return
+    tokens.
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of tokens to include in the results.
-  * `:next_token` (`t:string`) The token for the next set of service accounts to return. (You receive this token
-            from a previous <code>ListWorkspaceServiceAccountTokens</code> operation.)
+  * `:next_token` (`t:string`) The token for the next set of service accounts to
+    return. (You receive this token from a previous
+    ListWorkspaceServiceAccountTokens operation.)
   """
   @spec list_workspace_service_account_tokens(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
@@ -2020,17 +2001,17 @@ defmodule AWS.Grafana do
   @doc """
   Returns a list of service accounts for a workspace.
 
-  Service accounts are only available for workspaces that are compatible with
-  Grafana
-  version 9 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaceServiceAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workspace_id` (`t:string`) The workspace for which to list service accounts.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of service accounts to include in the results.
-  * `:next_token` (`t:string`) The token for the next set of service accounts to return. (You receive this token
-            from a previous <code>ListWorkspaceServiceAccounts</code> operation.)
+  * `:max_results` (`t:`) The maximum number of service accounts to include in the
+    results.
+  * `:next_token` (`t:string`) The token for the next set of service accounts to
+    return. (You receive this token from a previous ListWorkspaceServiceAccounts
+    operation.)
   """
   @spec list_workspace_service_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_accounts_response(), any()}
@@ -2072,18 +2053,19 @@ defmodule AWS.Grafana do
 
   @doc """
   Returns a list of Amazon Managed Grafana workspaces in the account, with some
-  information
-  about each workspace.
-
-  For more complete information about one workspace, use
+  information about each workspace. For more complete information about one
+  workspace, use
   [DescribeWorkspace](https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of workspaces to include in the results.
-  * `:next_token` (`t:string`) The token for the next set of workspaces to return. (You receive this token from a
-            previous <code>ListWorkspaces</code> operation.)
+  * `:max_results` (`t:`) The maximum number of workspaces to include in the
+    results.
+  * `:next_token` (`t:string`) The token for the next set of workspaces to return.
+    (You receive this token from a previous ListWorkspaces operation.)
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -2125,19 +2107,11 @@ defmodule AWS.Grafana do
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Grafana
-  resource.
+  resource. Currently, the only resource that can be tagged is workspaces.
 
-  Currently, the only resource that can be tagged is workspaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20TagResource&this_doc_guide=API%2520Reference)
 
-  If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the resource the tag is associated with.
 
   ## Optional parameters:
@@ -2168,14 +2142,18 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  The `UntagResource` operation removes the association of the tag with the
-  Amazon Managed Grafana resource.
+  The `UntagResource` operation removes the association of the tag with the Amazon
+  Managed Grafana resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource the tag association is removed from. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource the tag association is removed
+    from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]`) The key values of the tag to be removed from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]`) The key values of the tag
+    to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2208,10 +2186,11 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Updates which users in a workspace have the Grafana `Admin` or
-  `Editor` roles.
+  Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdatePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update.
 
   ## Optional parameters:
@@ -2242,20 +2221,13 @@ defmodule AWS.Grafana do
   end
 
   @doc """
-  Modifies an existing Amazon Managed Grafana workspace.
+  Modifies an existing Amazon Managed Grafana workspace. If you use this operation
+  and omit any optional parameters, the existing values of those parameters are
+  not changed.
 
-  If you use this operation and omit
-  any optional parameters, the existing values of those parameters are not
-  changed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspace&this_doc_guide=API%2520Reference)
 
-  To modify the user authentication methods that the workspace uses, such as SAML
-  or
-  IAM Identity Center, use
-  [UpdateWorkspaceAuthentication](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html).   To modify which users in the workspace have the `Admin` and
-  `Editor` Grafana roles, use
-  [UpdatePermissions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update.
 
   ## Optional parameters:
@@ -2277,18 +2249,16 @@ defmodule AWS.Grafana do
 
   @doc """
   Use this operation to define the identity provider (IdP) that this workspace
-  authenticates users from, using SAML.
+  authenticates users from, using SAML. You can also map SAML assertion
+  attributes to workspace user information and define which groups in the
+  assertion attribute are to have the `Admin` and `Editor` roles in the
+  workspace.
 
-  You can also map SAML assertion attributes to
-  workspace user information and define which groups in the assertion attribute
-  are to
-  have the `Admin` and `Editor` roles in the workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceAuthentication&this_doc_guide=API%2520Reference)
 
-  Changes to the authentication method for a workspace may take a few minutes to
-  take effect.
-
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update the authentication for.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the
+    authentication for.
 
   ## Optional parameters:
   """
@@ -2325,7 +2295,9 @@ defmodule AWS.Grafana do
   @doc """
   Updates the configuration string for the given workspace
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20UpdateWorkspaceConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update.
 
   ## Optional parameters:

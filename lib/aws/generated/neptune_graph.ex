@@ -4,10 +4,9 @@
 defmodule AWS.NeptuneGraph do
   @moduledoc """
   Neptune Analytics is a new analytics database engine for Amazon Neptune that
-  helps customers get to
-  insights faster by quickly processing large amounts of graph data, invoking
-  popular graph analytic
-  algorithms in low-latency queries, and getting analytics results in seconds.
+  helps customers get to insights faster by quickly processing large amounts of
+  graph data, invoking popular graph analytic algorithms in low-latency queries,
+  and getting analytics results in seconds.
   """
 
   alias AWS.Client
@@ -1267,7 +1266,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Deletes the specified import task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:task_identifier` (`t:string`) The unique identifier of the import task.
 
   ## Optional parameters:
@@ -1300,11 +1301,14 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Cancels a specified query.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CancelQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:query_id` (`t:`) The unique identifier of the query to cancel.
 
   ## Optional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
   """
   @spec cancel_query(AWS.Client.t(), String.t(), cancel_query_input(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1340,7 +1344,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Creates a new Neptune Analytics graph.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1372,7 +1378,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Creates a snapshot of the specific graph.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1403,14 +1411,12 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a new Neptune Analytics graph and imports data into it, either from
-  Amazon Simple Storage Service (S3) or from a Neptune database
-  or a Neptune database snapshot.
+  Amazon Simple Storage Service (S3) or from a Neptune database or a Neptune
+  database snapshot.
 
-  The data can be loaded from files in S3 that in either the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html)
-  or the [openCypher load
-  format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphUsingImportTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1445,15 +1451,13 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Create a private graph endpoint to allow private access from to the graph from
-  within
-  a VPC.
+  within a VPC. You can attach security groups to the private graph endpoint.
 
-  You can attach security groups to the private graph endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreatePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
 
-  VPC endpoint charges apply.
-
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
   """
@@ -1488,17 +1492,20 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Deletes the specified graph.
+  Deletes the specified graph. Graphs cannot be deleted if delete-protection is
+  enabled.
 
-  Graphs cannot be deleted if delete-protection is enabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraph&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
-  * `:skip_snapshot` (`t:`) Determines whether a final graph snapshot is created before the graph is deleted.
-      If <code>true</code> is specified, no graph snapshot is created. If <code>false</code>
-      is specified, a graph snapshot is created before the graph is deleted.
+  * `:skip_snapshot` (`t:`) Determines whether a final graph snapshot is created
+    before the graph is deleted. If true is specified, no graph snapshot is
+    created. If false is specified, a graph snapshot is created before the graph
+    is deleted.
   """
   @spec delete_graph(AWS.Client.t(), String.t(), delete_graph_input(), Keyword.t()) ::
           {:ok, delete_graph_output(), any()}
@@ -1533,7 +1540,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Deletes the specifed graph snapshot.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeleteGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:snapshot_identifier` (`t:string`) ID of the graph snapshot to be deleted.
 
   ## Optional parameters:
@@ -1571,9 +1580,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Deletes a private graph endpoint.
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
-  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is located.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20DeletePrivateGraphEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
+    located.
 
   ## Optional parameters:
   """
@@ -1617,26 +1630,18 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
-  Execute an openCypher query.
-
-  When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have a policy attached
+  Execute an openCypher query. When invoking this operation in a Neptune Analytics
+  cluster, the IAM user or role making the request must have a policy attached
   that allows one of the following IAM actions in that cluster, depending on the
   query:
 
-    *
-  neptune-graph:ReadDataViaQuery
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ExecuteQuery&this_doc_guide=API%2520Reference)
 
-    *
-  neptune-graph:WriteDataViaQuery
-
-    *
-  neptune-graph:DeleteDataViaQuery
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
   """
   @spec execute_query(AWS.Client.t(), execute_query_input(), Keyword.t()) ::
           {:ok, execute_query_output(), any()}
@@ -1672,8 +1677,11 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Gets information about a specified graph.
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
   """
@@ -1700,7 +1708,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a specified graph snapshot.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:snapshot_identifier` (`t:string`) The ID of the snapshot to retrieve.
 
   ## Optional parameters:
@@ -1728,12 +1738,15 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Gets a graph summary for a property graph.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetGraphSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two values: <code>basic</code> (the default), and
-   <code>detailed</code>.
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two
+    values: basic (the default), and detailed.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
   """
   @spec get_graph_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_summary_output(), any()}
@@ -1777,7 +1790,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a specified import task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:task_identifier` (`t:string`) The unique identifier of the import task.
 
   ## Optional parameters:
@@ -1805,9 +1820,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves information about a specified private endpoint.
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
-  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is located.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetPrivateGraphEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:vpc_id` (`t:string`) The ID of the VPC where the private endpoint is
+    located.
 
   ## Optional parameters:
   """
@@ -1835,15 +1854,14 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves the status of a specified query.
 
-  When invoking this operation in a Neptune Analytics cluster, the IAM user or
-  role making the request must have the
-  `neptune-graph:GetQueryStatus` IAM action attached.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20GetQuery&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:query_id` (`t:`) The ID of the query in question.
 
   ## Optional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
   """
   @spec get_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_output(), any()}
@@ -1878,11 +1896,15 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists available snapshots of a specified Neptune Analytics graph.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
-  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graph_snapshots(AWS.Client.t(), Keyword.t()) ::
@@ -1935,10 +1957,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists available Neptune Analytics graphs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
@@ -1982,10 +2007,13 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists import tasks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListImportTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_import_tasks(AWS.Client.t(), Keyword.t()) ::
@@ -2029,11 +2057,15 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists private endpoints for a specified Neptune Analytics graph.
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListPrivateGraphEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The total number of records to return in the command&#39;s output.
+  * `:max_results` (`t:integer`) The total number of records to return in the
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_private_graph_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2077,12 +2109,16 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists active openCypher queries.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListQueries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of results to be fetched by the API.
-  * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries based on state.
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries
+    based on state.
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
   """
   @spec list_queries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queries_output(), any()}
@@ -2135,7 +2171,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Lists tags associated with a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -2163,7 +2201,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Empties the data from a specified Neptune Analytics graph.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ResetGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:graph_identifier` (`t:string`) ID of the graph to reset.
 
   ## Optional parameters:
@@ -2186,7 +2226,9 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Restores a graph from a snapshot.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20RestoreGraphFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:snapshot_identifier` (`t:string`) The ID of the snapshot in question.
 
   ## Optional parameters:
@@ -2223,12 +2265,13 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Import data into existing Neptune Analytics graph from Amazon Simple Storage
-  Service (S3).
+  Service (S3). The graph needs to be empty and in the AVAILABLE state.
 
-  The graph needs to be empty and in the AVAILABLE state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20StartImportTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
   """
@@ -2260,8 +2303,11 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Adds tags to the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags need to be added.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags need to be
+    added.
 
   ## Optional parameters:
   """
@@ -2293,11 +2339,15 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource whose tag needs to be removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource whose tag needs to be
+    removed.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]`) Tag keys for the tags to be removed.
+  * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]`) Tag keys for the
+    tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2332,8 +2382,11 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Updates the configuration of a specified Neptune Analytics graph
 
-  ## Required positional parameters:
-  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune Analytics graph.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20UpdateGraph&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
+    Analytics graph.
 
   ## Optional parameters:
   """

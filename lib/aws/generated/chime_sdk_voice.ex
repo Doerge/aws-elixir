@@ -5,11 +5,9 @@ defmodule AWS.ChimeSDKVoice do
   @moduledoc """
   The Amazon Chime SDK telephony APIs in this section enable developers to create
   PSTN calling solutions that use Amazon Chime SDK Voice Connectors, and Amazon
-  Chime SDK SIP media applications.
-
-  Developers can
-  also order and manage phone numbers, create and manage Voice Connectors and SIP
-  media applications, and run voice analytics.
+  Chime SDK SIP media applications. Developers can also order and manage phone
+  numbers, create and manage Voice Connectors and SIP media applications, and
+  run voice analytics.
   """
 
   alias AWS.Client
@@ -3531,7 +3529,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -3577,8 +3577,11 @@ defmodule AWS.ChimeSDKVoice do
   Associates phone numbers with the specified Amazon Chime SDK Voice Connector
   group.
 
-  ## Required positional parameters:
-  * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector group ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20AssociatePhoneNumbersWithVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:voice_connector_group_id` (`t:string`) The Amazon Chime SDK Voice Connector
+    group ID.
 
   ## Optional parameters:
   """
@@ -3620,17 +3623,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
+  Moves phone numbers into the **Deletion queue**. Phone numbers must be
+  disassociated from any users or Amazon Chime SDK Voice Connectors before they
+  can be deleted.
 
-  Moves phone numbers into the
-  **Deletion queue**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Phone numbers must be disassociated from any users or Amazon Chime SDK Voice
-  Connectors before they can be deleted.
-
-  Phone numbers remain in the
-  **Deletion queue** for 7 days before they are deleted permanently.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3664,15 +3663,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates phone number product types, calling names, or phone number names.
+  Updates phone number product types, calling names, or phone number names. You
+  can update one attribute at a time for each `UpdatePhoneNumberRequestItem`.
+  For example, you can update the product type, the calling name, or phone name.
 
-  You can update one attribute at a time for each
-  `UpdatePhoneNumberRequestItem`. For example, you can update the product type,
-  the calling name, or phone name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  You cannot have a duplicate `phoneNumberId` in a request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3706,12 +3703,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an order for phone numbers to be provisioned.
+  Creates an order for phone numbers to be provisioned. For numbers outside the
+  U.S., you must use the Amazon Chime SDK SIP media application dial-in product
+  type.
 
-  For numbers outside the U.S., you must use the Amazon Chime SDK SIP media
-  application dial-in product type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3748,7 +3746,9 @@ defmodule AWS.ChimeSDKVoice do
   Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
   the specified participant phone numbers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -3784,14 +3784,14 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates a SIP media application.
-
-  For more information about SIP media applications, see [Managing SIP media applications
-  and
+  Creates a SIP media application. For more information about SIP media
+  applications, see [Managing SIP media applications and
   rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3825,11 +3825,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an outbound call to a phone number from the phone number specified
-  in the request, and it invokes the endpoint of the specified
+  Creates an outbound call to a phone number from the phone number specified in
+  the request, and it invokes the endpoint of the specified
   `sipMediaApplicationId`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The ID of the SIP media application.
 
   ## Optional parameters:
@@ -3871,13 +3873,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Creates a SIP rule, which can be used to run a SIP media application as a target
-  for a specific trigger type.
-
-  For more information about SIP rules, see [Managing SIP media applications and
+  for a specific trigger type. For more information about SIP rules, see
+  [Managing SIP media applications and
   rules](https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html)
   in the *Amazon Chime SDK Administrator Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3907,15 +3910,14 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an Amazon Chime SDK Voice Connector.
+  Creates an Amazon Chime SDK Voice Connector. For more information about Voice
+  Connectors, see [Managing Amazon Chime SDK Voice Connector
+  groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
+  in the *Amazon Chime SDK Administrator Guide*.
 
-  For more information about
-  Voice Connectors,
-  see [Managing Amazon Chime SDK Voice Connector groups](https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html)
-  in the *Amazon Chime SDK
-  Administrator Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3945,18 +3947,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Creates an Amazon Chime SDK Voice Connector group under the administrator's
-  AWS account.
+  Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS
+  account. You can associate Amazon Chime SDK Voice Connectors with the Voice
+  Connector group by including `VoiceConnectorItems` in the request.
 
-  You can associate Amazon Chime SDK Voice Connectors with the
-  Voice Connector group by including `VoiceConnectorItems` in the
-  request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
-  You can include Voice Connectors from different AWS Regions in your group.
-  This creates a fault tolerant mechanism for fallback in case of availability
-  events.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3993,17 +3990,9 @@ defmodule AWS.ChimeSDKVoice do
   Creates a voice profile, which consists of an enrolled user and their latest
   voice print.
 
-  Before creating any voice profiles, you must provide all notices and obtain all
-  consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfile&this_doc_guide=API%2520Reference)
 
-  For more information about voice profiles and voice analytics, see [Using Amazon
-  Chime SDK Voice
-  Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4036,17 +4025,9 @@ defmodule AWS.ChimeSDKVoice do
   Creates a voice profile domain, a collection of voice profiles, their voice
   prints, and encrypted enrollment audio.
 
-  Before creating any voice profiles, you must provide all notices and obtain all
-  consents from the speaker as required under applicable privacy and biometrics
-  laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20CreateVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
-  For more information about voice profile domains, see [Using Amazon Chime SDK
-  Voice
-  Analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4080,19 +4061,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Moves the specified phone number into the
-  **Deletion queue**.
+  Moves the specified phone number into the **Deletion queue**. A phone number
+  must be disassociated from any users or Amazon Chime SDK Voice Connectors
+  before it can be deleted.
 
-  A phone number must
-  be disassociated from any users or Amazon Chime SDK Voice Connectors before it
-  can be
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeletePhoneNumber&this_doc_guide=API%2520Reference)
 
-  Deleted phone numbers remain in the
-  **Deletion queue** queue for 7 days before
-  they are deleted permanently.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
@@ -4131,7 +4106,9 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the specified proxy session from the specified Amazon Chime SDK Voice
   Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:proxy_session_id` (`t:string`) The proxy session ID.
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
@@ -4179,7 +4156,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes a SIP media application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -4222,7 +4201,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes a SIP rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
@@ -4253,14 +4234,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes an Amazon Chime SDK Voice Connector.
-
-  Any phone numbers associated
-  with the Amazon Chime SDK Voice Connector must be disassociated from it before
-  it
+  Deletes an Amazon Chime SDK Voice Connector. Any phone numbers associated with
+  the Amazon Chime SDK Voice Connector must be disassociated from it before it
   can be deleted.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4299,7 +4279,9 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the emergency calling details from the specified Amazon Chime SDK Voice
   Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4342,13 +4324,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes an Amazon Chime SDK Voice Connector group.
-
-  Any `VoiceConnectorItems`
-  and phone numbers associated with the group must be removed before it can be
+  Deletes an Amazon Chime SDK Voice Connector group. Any `VoiceConnectorItems` and
+  phone numbers associated with the group must be removed before it can be
   deleted.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Voice Connector Group ID.
 
   ## Optional parameters:
@@ -4392,10 +4374,9 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the origination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be
-  deleted prior to deleting the origination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4439,7 +4420,9 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the proxy configuration from the specified Amazon Chime SDK Voice
   Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4479,7 +4462,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Deletes a Voice Connector's streaming configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4525,10 +4510,9 @@ defmodule AWS.ChimeSDKVoice do
   Deletes the termination settings for the specified Amazon Chime SDK Voice
   Connector.
 
-  If emergency calling is configured for the Voice Connector, it must be
-  deleted prior to deleting the termination settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTermination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4569,10 +4553,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes the specified SIP credentials used by your equipment to
-  authenticate during call termination.
+  Deletes the specified SIP credentials used by your equipment to authenticate
+  during call termination.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4615,11 +4601,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes a voice profile, including its voice print and enrollment data.
+  Deletes a voice profile, including its voice print and enrollment data. WARNING:
+  This action is not reversible.
 
-  WARNING: This action is not reversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_profile_id` (`t:string`) The voice profile ID.
 
   ## Optional parameters:
@@ -4655,11 +4642,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Deletes all voice profiles in the domain.
+  Deletes all voice profiles in the domain. WARNING: This action is not
+  reversible.
 
-  WARNING: This action is not reversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DeleteVoiceProfileDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
 
   ## Optional parameters:
@@ -4700,10 +4688,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Disassociates the specified phone numbers from the specified
-  Amazon Chime SDK Voice Connector.
+  Disassociates the specified phone numbers from the specified Amazon Chime SDK
+  Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -4747,10 +4737,11 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Disassociates the specified phone numbers from the specified Amazon Chime SDK
-  Voice
-  Connector group.
+  Voice Connector group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20DisassociatePhoneNumbersFromVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
 
   ## Optional parameters:
@@ -4796,7 +4787,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an
   AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4824,7 +4817,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves details for the specified phone number ID, such as associations,
   capabilities, and product type.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
@@ -4851,10 +4846,12 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Retrieves details for the specified phone number order, such as the order
-  creation timestamp, phone numbers in E.164 format, product type, and
-  order status.
+  creation timestamp, phone numbers in E.164 format, product type, and order
+  status.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:phone_number_order_id` (`t:string`) The ID of the phone number order .
 
   ## Optional parameters:
@@ -4880,10 +4877,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves the phone number settings for the administrator's AWS account,
-  such as the default outbound calling name.
+  Retrieves the phone number settings for the administrator's AWS account, such as
+  the default outbound calling name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4911,7 +4910,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the specified proxy session details for the specified Amazon Chime SDK
   Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:proxy_session_id` (`t:string`) The proxy session ID.
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
@@ -4939,10 +4940,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves the information for a SIP media application, including name,
-  AWS Region, and endpoints.
+  Retrieves the information for a SIP media application, including name, AWS
+  Region, and endpoints.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID .
 
   ## Optional parameters:
@@ -4970,11 +4973,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Gets the Alexa Skill configuration for the SIP media application.
 
-  Due to changes made by the Amazon Alexa service, this API is no longer available
-  for use. For more information, refer to
-  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -5011,7 +5012,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the logging configuration for the specified SIP media application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -5045,7 +5048,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
   target endpoints.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
@@ -5073,7 +5078,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified speaker search task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
@@ -5109,7 +5116,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
   timestamps,name, outbound host, and encryption requirements.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5138,7 +5147,9 @@ defmodule AWS.ChimeSDKVoice do
   Retrieves the emergency calling configuration details for the specified Voice
   Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5173,10 +5184,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves details for the specified Amazon Chime SDK Voice Connector group,
-  such as timestamps,name, and associated `VoiceConnectorItems`.
+  Retrieves details for the specified Amazon Chime SDK Voice Connector group, such
+  as timestamps,name, and associated `VoiceConnectorItems`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Voice Connector group ID.
 
   ## Optional parameters:
@@ -5203,11 +5216,12 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Retrieves the logging configuration settings for the specified Voice Connector.
-
   Shows whether SIP message logs are enabled for sending to Amazon CloudWatch
   Logs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5240,7 +5254,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the origination settings for the specified Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5267,10 +5283,11 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Retrieves the proxy configuration details for the specified Amazon Chime SDK
-  Voice
-  Connector.
+  Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5298,13 +5315,13 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Retrieves the streaming configuration details for the specified Amazon Chime SDK
-  Voice Connector.
+  Voice Connector. Shows whether media streaming is enabled for sending to
+  Amazon Kinesis. It also shows the retention period, in hours, for the Amazon
+  Kinesis data.
 
-  Shows whether media streaming is enabled for sending to Amazon
-  Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis
-  data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5337,7 +5354,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the termination setting details for the specified Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5363,12 +5382,12 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Retrieves information about the last time a `SIP OPTIONS` ping
-  was received from your SIP infrastructure for the specified Amazon Chime SDK
-  Voice
-  Connector.
+  Retrieves information about the last time a `SIP OPTIONS` ping was received from
+  your SIP infrastructure for the specified Amazon Chime SDK Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceConnectorTerminationHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5400,7 +5419,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified voice profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_profile_id` (`t:string`) The voice profile ID.
 
   ## Optional parameters:
@@ -5428,7 +5449,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of the specified voice profile domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceProfileDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_profile_domain_id` (`t:string`) The voice profile domain ID.
 
   ## Optional parameters:
@@ -5456,12 +5479,16 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Retrieves the details of a voice tone analysis task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20GetVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis task.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone anlysis
+    task.
 
   ## Optional parameters:
-  * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the caller (originator) or the callee (responder).
+  * `:is_caller` (`t:boolean`) Specifies whether the voice being analyzed is the
+    caller (originator) or the callee (responder).
   """
   @spec get_voice_tone_analysis_task(
           AWS.Client.t(),
@@ -5509,7 +5536,9 @@ defmodule AWS.ChimeSDKVoice do
   Lists the available AWS Regions in which you can create an Amazon Chime SDK
   Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListAvailableVoiceConnectorRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5536,11 +5565,15 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the phone numbers for an administrator's Amazon Chime SDK account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
-  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
@@ -5581,20 +5614,24 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Lists the phone numbers for the specified Amazon Chime SDK account,
-  Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK
-  Voice
+  Lists the phone numbers for the specified Amazon Chime SDK account, Amazon Chime
+  SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice
   Connector group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`) The filter to limit the number of results.
+  * `:filter_name` (`t:enum["SipRuleId|VoiceConnectorGroupId|VoiceConnectorId"]`)
+    The filter to limit the number of results.
   * `:filter_value` (`t:string`) The filter value.
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
-  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The phone number product types.
-  * `:status` (`t:string`) The status of your organization&#39;s phone numbers.
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product types.
+  * `:status` (`t:string`) The status of your organization's phone numbers.
   """
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -5673,12 +5710,16 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListProxySessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
-  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5731,10 +5772,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP media applications under the administrator's AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Defaults to 100.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
@@ -5778,10 +5822,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP rules under the administrator's AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSipRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Defaults to 100.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Defaults to 100.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
@@ -5835,10 +5882,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the countries that you can order phone numbers from.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListSupportedPhoneNumberCountries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The phone number product type.
+  * `:product_type` (`t:enum["SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product type.
   """
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
@@ -5872,7 +5922,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Returns a list of the tags in a given resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The resource ARN.
@@ -5910,10 +5962,13 @@ defmodule AWS.ChimeSDKVoice do
   Lists the Amazon Chime SDK Voice Connector groups in the administrator's AWS
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.  
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
@@ -5957,7 +6012,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -5988,13 +6045,15 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Lists the Amazon Chime SDK Voice Connectors in the administrators
-  AWS account.
+  Lists the Amazon Chime SDK Voice Connectors in the administrators AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
@@ -6038,10 +6097,13 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the specified voice profile domains in the administrator's AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfileDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_voice_profile_domains(AWS.Client.t(), Keyword.t()) ::
@@ -6085,11 +6147,14 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Lists the voice profiles in a voice profile domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ListVoiceProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results in the request.
-  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   * `:voice_profile_domain_id` (`t:string`) The ID of the voice profile domain.
   """
   @spec list_voice_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -6142,11 +6207,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the Alexa Skill configuration for the SIP media application.
 
-  Due to changes made by the Amazon Alexa service, this API is no longer available
-  for use. For more information, refer to
-  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationAlexaSkillConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -6181,7 +6244,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the logging configuration for the specified SIP media application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutSipMediaApplicationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -6216,7 +6281,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's emergency calling configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorEmergencyCallingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6251,7 +6318,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's logging configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6286,7 +6355,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's origination settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorOrigination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6320,7 +6391,9 @@ defmodule AWS.ChimeSDKVoice do
   Puts the specified proxy configuration to the specified Amazon Chime SDK Voice
   Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorProxy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6350,7 +6423,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's streaming configuration settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorStreamingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6385,7 +6460,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's termination settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTermination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6418,7 +6495,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates a Voice Connector's termination credentials.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20PutVoiceConnectorTerminationCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6463,7 +6542,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Restores a deleted phone number.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20RestorePhoneNumber&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:phone_number_id` (`t:string`) The ID of the phone number being restored.
 
   ## Optional parameters:
@@ -6501,17 +6582,26 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Searches the provisioned phone numbers in an organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:area_code` (`t:string`) Confines a search to just the phone numbers associated with the specified area code.
-  * `:city` (`t:string`) Confines a search to just the phone numbers associated with the specified city.
-  * `:country` (`t:string`) Confines a search to just the phone numbers associated with the specified country.
+  * `:area_code` (`t:string`) Confines a search to just the phone numbers
+    associated with the specified area code.
+  * `:city` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified city.
+  * `:country` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified country.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token used to return the next page of results.
-  * `:phone_number_type` (`t:enum["Local|TollFree"]`) Confines a search to just the phone numbers associated with the specified phone number type, either <b>local</b> or <b>toll-free</b>.
-  * `:state` (`t:string`) Confines a search to just the phone numbers associated with the specified state.
-  * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers associated with the specified toll-free prefix.
+  * `:phone_number_type` (`t:enum["Local|TollFree"]`) Confines a search to just
+    the phone numbers associated with the specified phone number type, either
+    local or toll-free.
+  * `:state` (`t:string`) Confines a search to just the phone numbers associated
+    with the specified state.
+  * `:toll_free_prefix` (`t:string`) Confines a search to just the phone numbers
+    associated with the specified toll-free prefix.
   """
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -6608,13 +6698,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Starts a speaker search task.
 
-  Before starting any speaker search tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartSpeakerSearchTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6650,19 +6736,18 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Starts a voice tone analysis task.
+  Starts a voice tone analysis task. For more information about voice tone
+  analysis, see [Using Amazon Chime SDK voice
+  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
+  in the *Amazon Chime SDK Developer Guide*. Before starting any voice tone
+  analysis tasks, you must provide all notices and obtain all consents from the
+  speaker as required under applicable privacy and biometrics laws, and as
+  required under the [AWS service terms](https://aws.amazon.com/service-terms/)
+  for the Amazon Chime SDK.
 
-  For more information about voice tone analysis, see
-  [Using Amazon Chime SDK voice analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StartVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
-  Before starting any voice tone analysis tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -6702,7 +6787,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Stops a speaker search task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
@@ -6750,9 +6837,12 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Stops a voice tone analysis task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20StopVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
 
   ## Optional parameters:
   """
@@ -6798,7 +6888,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Adds a tag to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6830,7 +6922,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6863,7 +6957,9 @@ defmodule AWS.ChimeSDKVoice do
   Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6884,22 +6980,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Updates phone number details, such as product type, calling name, or phone
-  number name for the
-  specified phone number ID.
+  number name for the specified phone number ID. You can update one phone number
+  detail at a time. For example, you can update either the product type, calling
+  name, or phone number name in one action. For numbers outside the U.S., you
+  must use the Amazon Chime SDK SIP Media Application Dial-In product type.
 
-  You can update one phone number detail at a time. For
-  example, you can update either the product type, calling name, or phone number
-  name in one action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
-  For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
-  Application Dial-In product type.
-
-  Updates to outbound calling names can take 72 hours to complete. Pending
-  updates to outbound calling names must be complete before you can request
-  another
-  update.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:phone_number_id` (`t:string`) The phone number ID.
 
   ## Optional parameters:
@@ -6935,14 +7023,14 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates the phone number settings for the administrator's AWS account, such
-  as the default outbound calling name.
-
-  You can update the default outbound calling
+  Updates the phone number settings for the administrator's AWS account, such as
+  the default outbound calling name. You can update the default outbound calling
   name once every seven days. Outbound calling names can take up to 72 hours to
   update.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6968,7 +7056,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the specified proxy session details, such as voice or SMS capabilities.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateProxySession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:proxy_session_id` (`t:string`) The proxy session ID.
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
@@ -7016,7 +7106,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the details of the specified SIP media application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
 
   ## Optional parameters:
@@ -7048,13 +7140,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Invokes the AWS Lambda function associated with the SIP media application and
-  transaction ID in an update request.
+  transaction ID in an update request. The Lambda function can then return a new
+  set of actions.
 
-  The Lambda function can then return a new set
-  of actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipMediaApplicationCall&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application handling the call.
+  ## Parameters:
+  * `:sip_media_application_id` (`t:string`) The ID of the SIP media application
+    handling the call.
   * `:transaction_id` (`t:string`) The ID of the call transaction.
 
   ## Optional parameters:
@@ -7101,7 +7194,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the details of the specified SIP rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateSipRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:sip_rule_id` (`t:string`) The SIP rule ID.
 
   ## Optional parameters:
@@ -7124,7 +7219,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the details for the specified Amazon Chime SDK Voice Connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -7152,7 +7249,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the settings for the specified Amazon Chime SDK Voice Connector group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_connector_group_id` (`t:string`) The Voice Connector ID.
 
   ## Optional parameters:
@@ -7186,22 +7285,9 @@ defmodule AWS.ChimeSDKVoice do
   Updates the specified voice profile’s voice print and refreshes its expiration
   timestamp.
 
-  As a condition of using this feature, you acknowledge that the collection, use,
-  storage, and retention of
-  your caller’s biometric identifiers and biometric information (“biometric data”)
-  in the form of a digital voiceprint
-  requires the caller’s informed consent via a written release. Such consent is
-  required under various state laws,
-  including biometrics laws in Illinois, Texas, Washington and other state privacy
-  laws.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfile&this_doc_guide=API%2520Reference)
 
-  You must provide a written release to each caller through a process that clearly
-  reflects each caller’s informed
-  consent before using Amazon Chime SDK Voice Insights service, as required under
-  the terms of your agreement
-  with AWS governing your use of the service.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:voice_profile_id` (`t:string`) The profile ID.
 
   ## Optional parameters:
@@ -7229,7 +7315,9 @@ defmodule AWS.ChimeSDKVoice do
   @doc """
   Updates the settings for the specified voice profile domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20UpdateVoiceProfileDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:voice_profile_domain_id` (`t:string`) The domain ID.
 
   ## Optional parameters:
@@ -7261,14 +7349,14 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
-  Connectors.
+  Connectors. You can use validated addresses in a Presence Information Data
+  Format Location Object file that you include in SIP requests. That helps
+  ensure that addresses are routed to the appropriate Public Safety Answering
+  Point.
 
-  You can use validated addresses in a Presence Information Data Format
-  Location Object file that you include in SIP requests. That helps ensure that
-  addresses
-  are routed to the appropriate Public Safety Answering Point.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkvoice%20ValidateE911Address&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

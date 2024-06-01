@@ -3,15 +3,7 @@
 
 defmodule AWS.Panorama do
   @moduledoc """
-  AWS Panorama
-
-  ## Overview
-
-  This is the *AWS Panorama API Reference*.
-
-  For an introduction to the service, see [What is AWS Panorama?](https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html)
-  in the
-  *AWS Panorama Developer Guide*.
+  AWS Panorama **Overview**
   """
 
   alias AWS.Client
@@ -1712,7 +1704,9 @@ defmodule AWS.Panorama do
   @doc """
   Creates an application instance and deploys it to a device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1746,11 +1740,12 @@ defmodule AWS.Panorama do
   end
 
   @doc """
-  Creates a job to run on a device.
+  Creates a job to run on a device. A job can update a device's software or reboot
+  it.
 
-  A job can update a device's software or reboot it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateJobForDevices&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1782,7 +1777,9 @@ defmodule AWS.Panorama do
   @doc """
   Creates a camera stream node.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreateNodeFromTemplateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1818,7 +1815,9 @@ defmodule AWS.Panorama do
   @doc """
   Creates a package and storage location in an Amazon S3 access point.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1850,7 +1849,9 @@ defmodule AWS.Panorama do
   @doc """
   Imports a node package.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20CreatePackageImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1886,8 +1887,10 @@ defmodule AWS.Panorama do
   @doc """
   Deletes a device.
 
-  ## Required positional parameters:
-  * `:device_id` (`t:string`) The device&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeleteDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
 
   ## Optional parameters:
   """
@@ -1919,16 +1922,14 @@ defmodule AWS.Panorama do
   @doc """
   Deletes a package.
 
-  To delete a package, you need permission to call `s3:DeleteObject` in addition
-  to permissions for
-  the AWS Panorama API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeletePackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) The package&#39;s ID.
+  ## Parameters:
+  * `:package_id` (`t:string`) The package's ID.
 
   ## Optional parameters:
-  * `:force_delete` (`t:boolean`) Delete the package even if it has artifacts stored in its access point. Deletes the package&#39;s artifacts from
-      Amazon S3.
+  * `:force_delete` (`t:boolean`) Delete the package even if it has artifacts
+    stored in its access point. Deletes the package's artifacts from Amazon S3.
   """
   @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
@@ -1963,14 +1964,17 @@ defmodule AWS.Panorama do
   @doc """
   Deregisters a package version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DeregisterPackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:package_id` (`t:string`) A package ID.
   * `:package_version` (`t:string`) A package version.
   * `:patch_version` (`t:string`) A patch version.
 
   ## Optional parameters:
   * `:owner_account` (`t:string`) An owner account.
-  * `:updated_latest_patch_version` (`t:string`) If the version was marked latest, the new version to maker as latest.
+  * `:updated_latest_patch_version` (`t:string`) If the version was marked latest,
+    the new version to maker as latest.
   """
   @spec deregister_package_version(
           AWS.Client.t(),
@@ -2022,8 +2026,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about an application instance on a device.
 
-  ## Required positional parameters:
-  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
 
   ## Optional parameters:
   """
@@ -2050,8 +2056,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about an application instance's configuration manifest.
 
-  ## Required positional parameters:
-  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeApplicationInstanceDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
 
   ## Optional parameters:
   """
@@ -2082,8 +2090,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a device.
 
-  ## Required positional parameters:
-  * `:device_id` (`t:string`) The device&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
 
   ## Optional parameters:
   """
@@ -2110,8 +2120,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a device job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeDeviceJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -2138,11 +2150,13 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a node.
 
-  ## Required positional parameters:
-  * `:node_id` (`t:string`) The node&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:node_id` (`t:string`) The node's ID.
 
   ## Optional parameters:
-  * `:owner_account` (`t:string`) The account ID of the node&#39;s owner.
+  * `:owner_account` (`t:string`) The account ID of the node's owner.
   """
   @spec describe_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_node_response(), any()}
@@ -2176,8 +2190,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a job to create a camera stream node.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribeNodeFromTemplateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -2204,8 +2220,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a package.
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) The package&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The package's ID.
 
   ## Optional parameters:
   """
@@ -2232,8 +2250,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a package import job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -2260,13 +2280,15 @@ defmodule AWS.Panorama do
   @doc """
   Returns information about a package version.
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) The version&#39;s ID.
-  * `:package_version` (`t:string`) The version&#39;s version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20DescribePackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The version's ID.
+  * `:package_version` (`t:string`) The version's version.
 
   ## Optional parameters:
-  * `:owner_account` (`t:string`) The version&#39;s owner account.
-  * `:patch_version` (`t:string`) The version&#39;s patch version.
+  * `:owner_account` (`t:string`) The version's owner account.
+  * `:patch_version` (`t:string`) The version's patch version.
   """
   @spec describe_package_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_version_response(), any()}
@@ -2310,12 +2332,16 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of application instance dependencies.
 
-  ## Required positional parameters:
-  * `:application_instance_id` (`t:string`) The application instance&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The application instance's ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of application instance dependencies to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of application instance
+    dependencies to return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_application_instance_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_dependencies_response(), any()}
@@ -2363,12 +2389,17 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of application node instances.
 
-  ## Required positional parameters:
-  * `:application_instance_id` (`t:string`) The node instances&#39; application instance ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_instance_id` (`t:string`) The node instances' application
+    instance ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of node instances to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of node instances to return in
+    one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_application_instance_node_instances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_instance_node_instances_response(), any()}
@@ -2416,12 +2447,16 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of application instances.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListApplicationInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:device_id` (`t:string`) The application instances&#39; device ID.
-  * `:max_results` (`t:integer`) The maximum number of application instances to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:device_id` (`t:string`) The application instances' device ID.
+  * `:max_results` (`t:integer`) The maximum number of application instances to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   * `:status_filter` (`t:string`) Only include instances with a specific status.
   """
   @spec list_application_instances(AWS.Client.t(), Keyword.t()) ::
@@ -2483,15 +2518,23 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:device_aggregated_status_filter` (`t:string`) Filter based on a device&#39;s status.
-  * `:max_results` (`t:integer`) The maximum number of devices to return in one page of results.
-  * `:name_filter` (`t:string`) Filter based on device&#39;s name. Prefixes supported.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
-  * `:sort_by` (`t:string`) The target column to be sorted on. Default column sort is CREATED_TIME.
-  * `:sort_order` (`t:string`) The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
+  * `:device_aggregated_status_filter` (`t:string`) Filter based on a device's
+    status.
+  * `:max_results` (`t:integer`) The maximum number of devices to return in one
+    page of results.
+  * `:name_filter` (`t:string`) Filter based on device's name. Prefixes supported.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:sort_by` (`t:string`) The target column to be sorted on. Default column sort
+    is CREATED_TIME.
+  * `:sort_order` (`t:string`) The sorting order for the returned list. SortOrder
+    is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is
+    ASCENDING.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -2571,12 +2614,16 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListDevicesJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:device_id` (`t:string`) Filter results by the job&#39;s target device ID.
-  * `:max_results` (`t:integer`) The maximum number of device jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:device_id` (`t:string`) Filter results by the job's target device ID.
+  * `:max_results` (`t:integer`) The maximum number of device jobs to return in
+    one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_devices_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_jobs_response(), any()}
@@ -2628,11 +2675,15 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of camera stream node jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodeFromTemplateJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of node from template jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of node from template jobs to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_node_from_template_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_node_from_template_jobs_response(), any()}
@@ -2675,13 +2726,18 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of nodes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:category` (`t:string`) Search for nodes by category.
-  * `:max_results` (`t:integer`) The maximum number of nodes to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
-  * `:owner_account` (`t:string`) Search for nodes by the account ID of the nodes&#39; owner.
+  * `:max_results` (`t:integer`) The maximum number of nodes to return in one page
+    of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
+  * `:owner_account` (`t:string`) Search for nodes by the account ID of the nodes'
+    owner.
   * `:package_name` (`t:string`) Search for nodes by name.
   * `:package_version` (`t:string`) Search for nodes by version.
   * `:patch_version` (`t:string`) Search for nodes by patch version.
@@ -2772,11 +2828,15 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of package import jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackageImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of package import jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of package import jobs to
+    return in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_package_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_package_import_jobs_response(), any()}
@@ -2819,11 +2879,15 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of packages.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListPackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of packages to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of packages to return in one
+    page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packages_response(), any()}
@@ -2866,8 +2930,10 @@ defmodule AWS.Panorama do
   @doc """
   Returns a list of tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   """
@@ -2892,16 +2958,15 @@ defmodule AWS.Panorama do
   end
 
   @doc """
-  Creates a device and returns a configuration archive.
+  Creates a device and returns a configuration archive. The configuration archive
+  is a ZIP file that contains a provisioning certificate that is valid for 5
+  minutes. Name the configuration archive `certificates-omni_*device-name*.zip`
+  and transfer it to the device within 5 minutes. Use the included USB storage
+  device and connect it to the USB 3.0 port next to the HDMI output.
 
-  The configuration archive is a ZIP file that contains a
-  provisioning certificate that is valid for 5 minutes. Name the configuration
-  archive
-  `certificates-omni_*device-name*.zip` and transfer it to the device within 5
-  minutes. Use the included USB storage device and connect it to the USB 3.0 port
-  next to the HDMI output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20ProvisionDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2933,7 +2998,9 @@ defmodule AWS.Panorama do
   @doc """
   Registers a package version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RegisterPackageVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:package_id` (`t:string`) A package ID.
   * `:package_version` (`t:string`) A package version.
   * `:patch_version` (`t:string`) A patch version.
@@ -2974,7 +3041,9 @@ defmodule AWS.Panorama do
   @doc """
   Removes an application instance.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20RemoveApplicationInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_instance_id` (`t:string`) An application instance ID.
 
   ## Optional parameters:
@@ -3017,7 +3086,9 @@ defmodule AWS.Panorama do
   @doc """
   Signal camera nodes to stop or resume.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20SignalApplicationInstanceNodeInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_instance_id` (`t:string`) An application instance ID.
 
   ## Optional parameters:
@@ -3052,8 +3123,10 @@ defmodule AWS.Panorama do
   @doc """
   Tags a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   """
@@ -3085,8 +3158,10 @@ defmodule AWS.Panorama do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[com.amazonaws.panorama#TagKey]`) Tag keys to remove.
@@ -3124,8 +3199,10 @@ defmodule AWS.Panorama do
   @doc """
   Updates a device's metadata.
 
-  ## Required positional parameters:
-  * `:device_id` (`t:string`) The device&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=panorama%20UpdateDeviceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_id` (`t:string`) The device's ID.
 
   ## Optional parameters:
   """

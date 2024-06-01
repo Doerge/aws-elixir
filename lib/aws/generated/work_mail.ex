@@ -4,48 +4,12 @@
 defmodule AWS.WorkMail do
   @moduledoc """
   WorkMail is a secure, managed business email and calendaring service with
-  support for
-  existing desktop and mobile email clients.
-
-  You can access your email, contacts, and
-  calendars using Microsoft Outlook, your browser, or other native iOS and Android
-  email
-  applications. You can integrate WorkMail with your existing corporate directory
-  and control
-  both the keys that encrypt your data and the location in which your data is
-  stored.
-
-  The WorkMail API is designed for the following scenarios:
-
-    *
-  Listing and describing organizations
-
-    *
-  Managing users
-
-    *
-  Managing groups
-
-    *
-  Managing resources
-
-  All WorkMail API operations are Amazon-authenticated and certificate-signed.
-  They not
-  only require the use of the AWS SDK, but also allow for the exclusive use of AWS
-  Identity and Access Management
-  users and roles to help facilitate access, trust, and permission policies. By
-  creating a
-  role and allowing an IAM user to access the WorkMail site, the IAM user gains
-  full
-  administrative visibility into the entire WorkMail organization (or as set in
-  the IAM
-  policy). This includes, but is not limited to, the ability to create, update,
-  and delete
-  users, groups, and resources. This allows developers to perform the scenarios
-  listed above,
-  as well as give users the ability to grant access on a selective basis using the
-  IAM
-  model.
+  support for existing desktop and mobile email clients. You can access your
+  email, contacts, and calendars using Microsoft Outlook, your browser, or other
+  native iOS and Android email applications. You can integrate WorkMail with
+  your existing corporate directory and control both the keys that encrypt your
+  data and the location in which your data is stored. The WorkMail API is
+  designed for the following scenarios:
   """
 
   alias AWS.Client
@@ -3428,10 +3392,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Assumes an impersonation role for the given WorkMail organization.
-
-  This method returns an
-  authentication token you can use to make impersonated calls.
+  Assumes an impersonation role for the given WorkMail organization. This method
+  returns an authentication token you can use to make impersonated calls.
   """
   @spec assume_impersonation_role(
           AWS.Client.t(),
@@ -3450,9 +3412,6 @@ defmodule AWS.WorkMail do
 
   @doc """
   Cancels a mailbox export job.
-
-  If the mailbox export job is near completion, it might not be possible to cancel
-  it.
   """
   @spec cancel_mailbox_export_job(
           AWS.Client.t(),
@@ -3519,12 +3478,6 @@ defmodule AWS.WorkMail do
 
   @doc """
   Creates an impersonation role for the given WorkMail organization.
-
-  *Idempotency* ensures that an API request completes no more than one
-  time. With an idempotent request, if the original request completes
-  successfully, any
-  subsequent retries also complete successfully without performing any further
-  actions.
   """
   @spec create_impersonation_role(
           AWS.Client.t(),
@@ -3560,27 +3513,21 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Creates a new WorkMail organization.
-
-  Optionally, you can choose to associate an existing AWS Directory Service
-  directory with your organization. If an AWS Directory Service directory ID is
-  specified, the organization alias must match the directory alias. If you choose
-  not to associate an existing directory with your organization, then we create a
-  new WorkMail directory for you. For more information, see [Adding an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html)
+  Creates a new WorkMail organization. Optionally, you can choose to associate an
+  existing AWS Directory Service directory with your organization. If an AWS
+  Directory Service directory ID is specified, the organization alias must match
+  the directory alias. If you choose not to associate an existing directory with
+  your organization, then we create a new WorkMail directory for you. For more
+  information, see [Adding an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html)
+  in the *WorkMail Administrator Guide*. You can associate multiple email
+  domains with an organization, then choose your default email domain from the
+  WorkMail console. You can also associate a domain that is managed in an Amazon
+  Route 53 public hosted zone. For more information, see [Adding a
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
+  and [Choosing the default
+  domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
   in the *WorkMail Administrator Guide*.
-
-  You can associate multiple email domains with an organization, then choose your
-  default email domain from the WorkMail console. You can also associate a domain
-  that is managed
-  in an Amazon Route 53 public hosted zone. For more information, see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html)
-  and [Choosing the default domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html)
-  in the *WorkMail Administrator Guide*.
-
-  Optionally, you can use a customer managed key from AWS Key Management Service
-  (AWS
-  KMS) to encrypt email for your organization. If you don't associate an AWS KMS
-  key, WorkMail
-  creates a default, AWS managed key for you.
   """
   @spec create_organization(AWS.Client.t(), create_organization_request(), Keyword.t()) ::
           {:ok, create_organization_response(), any()}
@@ -3624,10 +3571,6 @@ defmodule AWS.WorkMail do
 
   @doc """
   Deletes an access control rule for the specified WorkMail organization.
-
-  Deleting already deleted and non-existing rules does not produce an error. In
-  those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
   @spec delete_access_control_rule(
           AWS.Client.t(),
@@ -3645,8 +3588,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Remove one or more specified aliases from a set of aliases for a given
-  user.
+  Remove one or more specified aliases from a set of aliases for a given user.
   """
   @spec delete_alias(AWS.Client.t(), delete_alias_request(), Keyword.t()) ::
           {:ok, delete_alias_response(), any()}
@@ -3749,10 +3691,6 @@ defmodule AWS.WorkMail do
   @doc """
   Deletes the mobile device access override for the given WorkMail organization,
   user, and device.
-
-  Deleting already deleted and non-existing overrides does not produce an error.
-  In those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
   @spec delete_mobile_device_access_override(
           AWS.Client.t(),
@@ -3771,10 +3709,6 @@ defmodule AWS.WorkMail do
 
   @doc """
   Deletes a mobile device access rule for the specified WorkMail organization.
-
-  Deleting already deleted and non-existing rules does not produce an error. In
-  those cases, the service sends back an HTTP 200 response with an empty HTTP
-  body.
   """
   @spec delete_mobile_device_access_rule(
           AWS.Client.t(),
@@ -3793,10 +3727,9 @@ defmodule AWS.WorkMail do
 
   @doc """
   Deletes an WorkMail organization and all underlying AWS resources managed by
-  WorkMail as part of the organization.
-
-  You can choose whether to delete the associated directory. For more information,
-  see [Removing an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html)
+  WorkMail as part of the organization. You can choose whether to delete the
+  associated directory. For more information, see [Removing an
+  organization](https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html)
   in the *WorkMail Administrator Guide*.
   """
   @spec delete_organization(AWS.Client.t(), delete_organization_request(), Keyword.t()) ::
@@ -3839,15 +3772,9 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Deletes a user from WorkMail and all subsequent systems.
-
-  Before you can delete a
-  user, the user state must be `DISABLED`. Use the `DescribeUser`
-  action to confirm the user state.
-
-  Deleting a user is permanent and cannot be undone. WorkMail archives user
-  mailboxes for
-  30 days before they are permanently removed.
+  Deletes a user from WorkMail and all subsequent systems. Before you can delete a
+  user, the user state must be `DISABLED`. Use the `DescribeUser` action to
+  confirm the user state.
   """
   @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
@@ -3861,13 +3788,10 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Mark a user, group, or resource as no longer used in WorkMail.
-
-  This action
+  Mark a user, group, or resource as no longer used in WorkMail. This action
   disassociates the mailbox and schedules it for clean-up. WorkMail keeps
-  mailboxes for 30 days
-  before they are permanently removed. The functionality in the console is
-  *Disable*.
+  mailboxes for 30 days before they are permanently removed. The functionality
+  in the console is *Disable*.
   """
   @spec deregister_from_work_mail(
           AWS.Client.t(),
@@ -3886,10 +3810,9 @@ defmodule AWS.WorkMail do
 
   @doc """
   Removes a domain from WorkMail, stops email routing to WorkMail, and removes the
-  authorization allowing WorkMail use.
-
-  SES keeps the domain because other applications may use it. You must first
-  remove any email address used by WorkMail entities before you remove the domain.
+  authorization allowing WorkMail use. SES keeps the domain because other
+  applications may use it. You must first remove any email address used by
+  WorkMail entities before you remove the domain.
   """
   @spec deregister_mail_domain(AWS.Client.t(), deregister_mail_domain_request(), Keyword.t()) ::
           {:ok, deregister_mail_domain_response(), any()}
@@ -4067,10 +3990,8 @@ defmodule AWS.WorkMail do
   @doc """
   Gets the effects of an organization's access control rules as they apply to a
   specified IPv4 address, access protocol action, and user ID or impersonation
-  role ID.
-
-  You must provide either the user ID or impersonation role ID. Impersonation role
-  ID can only be used with Action EWS.
+  role ID. You must provide either the user ID or impersonation role ID.
+  Impersonation role ID can only be used with Action EWS.
   """
   @spec get_access_control_effect(
           AWS.Client.t(),
@@ -4168,10 +4089,9 @@ defmodule AWS.WorkMail do
 
   @doc """
   Simulates the effect of the mobile device access rules for the given attributes
-  of a sample access event.
-
-  Use this method to test the effects of the current set of mobile device access
-  rules for the WorkMail organization for a particular user's attributes.
+  of a sample access event. Use this method to test the effects of the current
+  set of mobile device access rules for the WorkMail organization for a
+  particular user's attributes.
   """
   @spec get_mobile_device_access_effect(
           AWS.Client.t(),
@@ -4226,8 +4146,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Creates a paginated call to list the aliases associated with a given
-  entity.
+  Creates a paginated call to list the aliases associated with a given entity.
   """
   @spec list_aliases(AWS.Client.t(), list_aliases_request(), Keyword.t()) ::
           {:ok, list_aliases_response(), any()}
@@ -4259,10 +4178,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Returns an overview of the members of a group.
-
-  Users and groups can be members of a
-  group.
+  Returns an overview of the members of a group. Users and groups can be members
+  of a group.
   """
   @spec list_group_members(AWS.Client.t(), list_group_members_request(), Keyword.t()) ::
           {:ok, list_group_members_response(), any()}
@@ -4333,8 +4250,7 @@ defmodule AWS.WorkMail do
 
   @doc """
   Lists the mailbox export jobs started for the specified organization within the
-  last
-  seven days.
+  last seven days.
   """
   @spec list_mailbox_export_jobs(AWS.Client.t(), list_mailbox_export_jobs_request(), Keyword.t()) ::
           {:ok, list_mailbox_export_jobs_response(), any()}
@@ -4414,9 +4330,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Lists the delegates associated with a resource.
-
-  Users and groups can be resource
+  Lists the delegates associated with a resource. Users and groups can be resource
   delegates and answer requests on behalf of the resource.
   """
   @spec list_resource_delegates(AWS.Client.t(), list_resource_delegates_request(), Keyword.t()) ::
@@ -4473,14 +4387,10 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Adds a new access control rule for the specified organization.
-
-  The rule allows or
-  denies access to the organization for the specified IPv4 addresses, access
-  protocol
-  actions, user IDs and impersonation IDs. Adding a new rule with the same name as
-  an existing rule replaces
-  the older rule.
+  Adds a new access control rule for the specified organization. The rule allows
+  or denies access to the organization for the specified IPv4 addresses, access
+  protocol actions, user IDs and impersonation IDs. Adding a new rule with the
+  same name as an existing rule replaces the older rule.
   """
   @spec put_access_control_rule(AWS.Client.t(), put_access_control_rule_request(), Keyword.t()) ::
           {:ok, put_access_control_rule_response(), any()}
@@ -4531,9 +4441,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Sets permissions for a user, group, or resource.
-
-  This replaces any pre-existing
+  Sets permissions for a user, group, or resource. This replaces any pre-existing
   permissions.
   """
   @spec put_mailbox_permissions(AWS.Client.t(), put_mailbox_permissions_request(), Keyword.t()) ::
@@ -4582,11 +4490,9 @@ defmodule AWS.WorkMail do
 
   @doc """
   Registers a new domain in WorkMail and SES, and configures it for use by
-  WorkMail.
-
-  Emails received by SES for this domain are routed to the specified WorkMail
-  organization, and WorkMail has
-  permanent permission to use the specified domain for sending your users' emails.
+  WorkMail. Emails received by SES for this domain are routed to the specified
+  WorkMail organization, and WorkMail has permanent permission to use the
+  specified domain for sending your users' emails.
   """
   @spec register_mail_domain(AWS.Client.t(), register_mail_domain_request(), Keyword.t()) ::
           {:ok, register_mail_domain_response(), any()}
@@ -4601,18 +4507,11 @@ defmodule AWS.WorkMail do
 
   @doc """
   Registers an existing and disabled user, group, or resource for WorkMail use by
-  associating a mailbox and calendaring capabilities.
-
-  It performs no change if the user,
-  group, or resource is enabled and fails if the user, group, or resource is
-  deleted. This
-  operation results in the accumulation of costs. For more information, see
-  [Pricing](https://aws.amazon.com/workmail/pricing). The equivalent console
-  functionality for this operation is *Enable*.
-
-  Users can either be created by calling the `CreateUser` API operation
-  or they can be synchronized from your directory. For more information, see
-  `DeregisterFromWorkMail`.
+  associating a mailbox and calendaring capabilities. It performs no change if
+  the user, group, or resource is enabled and fails if the user, group, or
+  resource is deleted. This operation results in the accumulation of costs. For
+  more information, see [Pricing](https://aws.amazon.com/workmail/pricing). The
+  equivalent console functionality for this operation is *Enable*.
   """
   @spec register_to_work_mail(AWS.Client.t(), register_to_work_mail_request(), Keyword.t()) ::
           {:ok, register_to_work_mail_response(), any()}
@@ -4641,14 +4540,10 @@ defmodule AWS.WorkMail do
 
   @doc """
   Starts a mailbox export job to export MIME-format email messages and calendar
-  items
-  from the specified mailbox to the specified Amazon Simple Storage Service
-  (Amazon S3)
-  bucket.
-
-  For more information, see [Exporting mailbox content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
-  in
-  the *WorkMail Administrator Guide*.
+  items from the specified mailbox to the specified Amazon Simple Storage
+  Service (Amazon S3) bucket. For more information, see [Exporting mailbox
+  content](https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html)
+  in the *WorkMail Administrator Guide*.
   """
   @spec start_mailbox_export_job(AWS.Client.t(), start_mailbox_export_job_request(), Keyword.t()) ::
           {:ok, start_mailbox_export_job_response(), any()}
@@ -4662,8 +4557,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Applies the specified tags to the specified WorkMailorganization
-  resource.
+  Applies the specified tags to the specified WorkMailorganization resource.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -4678,17 +4572,11 @@ defmodule AWS.WorkMail do
 
   @doc """
   Performs a test on an availability provider to ensure that access is allowed.
-
   For EWS, it verifies the provided credentials can be used to successfully log
-  in. For Lambda, it verifies that the Lambda function can be invoked and that the
-  resource access
-  policy was configured to deny anonymous access. An anonymous invocation is one
-  done without providing either a `SourceArn` or `SourceAccount` header.
-
-  The request must contain either one provider definition (`EwsProvider` or
-  `LambdaProvider`) or the `DomainName` parameter. If the
-  `DomainName` parameter is provided, the configuration stored under the
-  `DomainName` will be tested.
+  in. For Lambda, it verifies that the Lambda function can be invoked and that
+  the resource access policy was configured to deny anonymous access. An
+  anonymous invocation is one done without providing either a `SourceArn` or
+  `SourceAccount` header.
   """
   @spec test_availability_configuration(
           AWS.Client.t(),
@@ -4706,8 +4594,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Untags the specified tags from the specified WorkMail organization
-  resource.
+  Untags the specified tags from the specified WorkMail organization resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4740,10 +4627,9 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates the default mail domain for an organization.
-
-  The default mail domain is used by the WorkMail AWS Console to suggest an email
-  address when enabling a mail user. You can only have one default domain.
+  Updates the default mail domain for an organization. The default mail domain is
+  used by the WorkMail AWS Console to suggest an email address when enabling a
+  mail user. You can only have one default domain.
   """
   @spec update_default_mail_domain(
           AWS.Client.t(),
@@ -4793,8 +4679,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates a user's current mailbox quota for a specified organization and
-  user.
+  Updates a user's current mailbox quota for a specified organization and user.
   """
   @spec update_mailbox_quota(AWS.Client.t(), update_mailbox_quota_request(), Keyword.t()) ::
           {:ok, update_mailbox_quota_response(), any()}
@@ -4826,12 +4711,10 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates the primary email for a user, group, or resource.
-
-  The current email is moved
-  into the list of aliases (or swapped between an existing alias and the current
-  primary
-  email), and the email provided in the input is promoted as the primary.
+  Updates the primary email for a user, group, or resource. The current email is
+  moved into the list of aliases (or swapped between an existing alias and the
+  current primary email), and the email provided in the input is promoted as the
+  primary.
   """
   @spec update_primary_email_address(
           AWS.Client.t(),
@@ -4849,11 +4732,9 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates data for the resource.
-
-  To have the latest information, it must be preceded by
-  a `DescribeResource` call. The dataset in the request should be the one
-  expected when performing another `DescribeResource` call.
+  Updates data for the resource. To have the latest information, it must be
+  preceded by a `DescribeResource` call. The dataset in the request should be
+  the one expected when performing another `DescribeResource` call.
   """
   @spec update_resource(AWS.Client.t(), update_resource_request(), Keyword.t()) ::
           {:ok, update_resource_response(), any()}
@@ -4867,10 +4748,8 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates data for the user.
-
-  To have the latest information, it must be preceded by a
-  `DescribeUser` call. The dataset in the request should be the one
+  Updates data for the user. To have the latest information, it must be preceded
+  by a `DescribeUser` call. The dataset in the request should be the one
   expected when performing another `DescribeUser` call.
   """
   @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::

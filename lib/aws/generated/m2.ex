@@ -4,16 +4,11 @@
 defmodule AWS.M2 do
   @moduledoc """
   Amazon Web Services Mainframe Modernization provides tools and resources to help
-  you plan and implement migration and
-  modernization from mainframes to Amazon Web Services managed runtime
-  environments.
-
-  It provides tools for
-  analyzing existing mainframe applications, developing or updating mainframe
-  applications
+  you plan and implement migration and modernization from mainframes to Amazon
+  Web Services managed runtime environments. It provides tools for analyzing
+  existing mainframe applications, developing or updating mainframe applications
   using COBOL or PL/I, and implementing an automated pipeline for continuous
-  integration and
-  continuous delivery (CI/CD) of the applications.
+  integration and continuous delivery (CI/CD) of the applications.
   """
 
   alias AWS.Client
@@ -1751,7 +1746,9 @@ defmodule AWS.M2 do
   @doc """
   Cancels the running of a specific batch job execution.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CancelBatchJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
   * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
 
@@ -1797,12 +1794,12 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Creates a new application with given parameters.
-
-  Requires an existing runtime
+  Creates a new application with given parameters. Requires an existing runtime
   environment and application definition file.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1834,8 +1831,11 @@ defmodule AWS.M2 do
   @doc """
   Starts a data set import task for a specific application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application for which you want to import data sets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateDataSetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application for
+    which you want to import data sets.
 
   ## Optional parameters:
   """
@@ -1873,7 +1873,9 @@ defmodule AWS.M2 do
   Creates and starts a deployment to deploy an application into a runtime
   environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application identifier.
 
   ## Optional parameters:
@@ -1906,7 +1908,9 @@ defmodule AWS.M2 do
   @doc """
   Creates a runtime environment for a given runtime engine.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1936,12 +1940,13 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific application.
+  Deletes a specific application. You cannot delete a running application.
 
-  You cannot delete a running application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application you want to delete.
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to delete.
 
   ## Optional parameters:
   """
@@ -1972,19 +1977,18 @@ defmodule AWS.M2 do
 
   @doc """
   Deletes a specific application from the specific runtime environment where it
-  was
-  previously deployed.
+  was previously deployed. You cannot delete a runtime environment using
+  DeleteEnvironment if any application has ever been deployed to it. This API
+  removes the association of the application with the runtime environment so you
+  can delete the environment smoothly.
 
-  You cannot delete a runtime environment using DeleteEnvironment if any
-  application has ever been deployed to it. This API removes the association of
-  the
-  application with the runtime environment so you can delete the environment
-  smoothly.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteApplicationFromEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application you want to delete.
-  * `:environment_id` (`t:string`) The unique identifier of the runtime environment where the application was previously
-         deployed.
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to delete.
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment where the application was previously deployed.
 
   ## Optional parameters:
   """
@@ -2028,15 +2032,15 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Deletes a specific runtime environment.
-
-  The environment cannot contain deployed
+  Deletes a specific runtime environment. The environment cannot contain deployed
   applications. If it does, you must delete those applications before you delete
-  the
-  environment.
+  the environment.
 
-  ## Required positional parameters:
-  * `:environment_id` (`t:string`) The unique identifier of the runtime environment you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment you want to delete.
 
   ## Optional parameters:
   """
@@ -2068,7 +2072,9 @@ defmodule AWS.M2 do
   @doc """
   Describes the details of a specific application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The identifier of the application.
 
   ## Optional parameters:
@@ -2096,7 +2102,9 @@ defmodule AWS.M2 do
   @doc """
   Returns details about a specific version of a specific application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
   * `:application_version` (`t:integer`) The specific version of the application.
 
@@ -2131,7 +2139,9 @@ defmodule AWS.M2 do
   @doc """
   Gets the details of a specific batch job execution for a specific application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetBatchJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The identifier of the application.
   * `:execution_id` (`t:string`) The unique identifier of the batch job execution.
 
@@ -2161,8 +2171,11 @@ defmodule AWS.M2 do
   @doc """
   Gets the details of a specific data set.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application that this data set is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDataSetDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application that
+    this data set is associated with.
   * `:data_set_name` (`t:string`) The name of the data set.
 
   ## Optional parameters:
@@ -2192,10 +2205,12 @@ defmodule AWS.M2 do
   Gets the status of a data set import task initiated with the
   `CreateDataSetImportTask` operation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDataSetImportTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application identifier.
-  * `:task_id` (`t:string`) The task identifier returned by the <a>CreateDataSetImportTask</a> operation.
-      
+  * `:task_id` (`t:string`) The task identifier returned by the
+    CreateDataSetImportTask operation.
 
   ## Optional parameters:
   """
@@ -2223,7 +2238,9 @@ defmodule AWS.M2 do
   @doc """
   Gets details of a specific deployment with a given deployment identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
   * `:deployment_id` (`t:string`) The unique identifier for the deployment.
 
@@ -2253,8 +2270,11 @@ defmodule AWS.M2 do
   @doc """
   Describes a specific runtime environment.
 
-  ## Required positional parameters:
-  * `:environment_id` (`t:string`) The unique identifier of the runtime environment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment.
 
   ## Optional parameters:
   """
@@ -2281,7 +2301,9 @@ defmodule AWS.M2 do
   @doc """
   Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetSignedBluinsightsUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2308,14 +2330,17 @@ defmodule AWS.M2 do
   @doc """
   Returns a list of the application versions for a specific application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListApplicationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of application versions to return.
+  * `:max_results` (`t:integer`) The maximum number of application versions to
+    return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
@@ -2357,20 +2382,21 @@ defmodule AWS.M2 do
 
   @doc """
   Lists the applications associated with a specific Amazon Web Services account.
+  You can provide the unique identifier of a specific runtime environment in a
+  query parameter to see all applications associated with that environment.
 
-  You can provide the
-  unique identifier of a specific runtime environment in a query parameter to see
-  all
-  applications associated with that environment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListApplications&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:environment_id` (`t:string`) The unique identifier of the runtime environment where the applications are
-         deployed.
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment where the applications are deployed.
   * `:max_results` (`t:integer`) The maximum number of applications to return.
-  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the applications.
-  * `:next_token` (`t:string`) A pagination token to control the number of applications displayed in the list.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the
+    applications.
+  * `:next_token` (`t:string`) A pagination token to control the number of
+    applications displayed in the list.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -2430,22 +2456,22 @@ defmodule AWS.M2 do
 
   @doc """
   Lists all the available batch job definitions based on the batch job resources
-  uploaded
-  during the application creation.
+  uploaded during the application creation. You can use the batch job
+  definitions in the list to start a batch job.
 
-  You can use the batch job definitions in the list to start
-  a batch job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobDefinitions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The identifier of the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of batch job definitions to return.
+  * `:max_results` (`t:integer`) The maximum number of batch job definitions to
+    return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
-  * `:prefix` (`t:`) If the batch job definition is a FileBatchJobDefinition, the prefix allows you to search
-         on the file names of FileBatchJobDefinitions.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
+  * `:prefix` (`t:`) If the batch job definition is a FileBatchJobDefinition, the
+    prefix allows you to search on the file names of FileBatchJobDefinitions.
   """
   @spec list_batch_job_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_definitions_response(), any()}
@@ -2498,17 +2524,23 @@ defmodule AWS.M2 do
   Lists historical, current, and scheduled batch job executions for a specific
   application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
-  * `:execution_ids` (`t:list[com.amazonaws.m2#Identifier]`) The unique identifier of each batch job execution.
+  * `:execution_ids` (`t:list[com.amazonaws.m2#Identifier]`) The unique identifier
+    of each batch job execution.
   * `:job_name` (`t:string`) The name of each batch job execution.
-  * `:max_results` (`t:integer`) The maximum number of batch job executions to return.
-  * `:next_token` (`t:string`) A pagination token to control the number of batch job executions displayed in the
-         list.
-  * `:started_after` (`t:timestamp`) The time after which the batch job executions started.
-  * `:started_before` (`t:timestamp`) The time before the batch job executions started.
+  * `:max_results` (`t:integer`) The maximum number of batch job executions to
+    return.
+  * `:next_token` (`t:string`) A pagination token to control the number of batch
+    job executions displayed in the list.
+  * `:started_after` (`t:timestamp`) The time after which the batch job executions
+    started.
+  * `:started_before` (`t:timestamp`) The time before the batch job executions
+    started.
   * `:status` (`t:string`) The status of the batch job executions.
   """
   @spec list_batch_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2595,13 +2627,15 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Lists all the job steps for JCL files to restart a batch job.
+  Lists all the job steps for JCL files to restart a batch job. This is only
+  applicable for Micro Focus engine with versions 8.0.6 and above.
 
-  This is only applicable for Micro Focus engine with versions 8.0.6 and above.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListBatchJobRestartPoints&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
-  * `:execution_id` (`t:string`) The unique identifier of each batch job execution.
+  * `:execution_id` (`t:string`) The unique identifier of each batch job
+    execution.
 
   ## Optional parameters:
   """
@@ -2634,14 +2668,16 @@ defmodule AWS.M2 do
   @doc """
   Lists the data set imports for the specified application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDataSetImportHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique identifier of the application.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_data_set_import_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_import_history_response(), any()}
@@ -2682,27 +2718,28 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Lists the data sets imported for a specific application.
-
-  In Amazon Web Services Mainframe Modernization, data sets are
-  associated with applications deployed on runtime environments. This is known as
-  importing
-  data sets. Currently, Amazon Web Services Mainframe Modernization can import
-  data sets into catalogs using
+  Lists the data sets imported for a specific application. In Amazon Web Services
+  Mainframe Modernization, data sets are associated with applications deployed
+  on runtime environments. This is known as importing data sets. Currently,
+  Amazon Web Services Mainframe Modernization can import data sets into catalogs
+  using
   [CreateDataSetImportTask](https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html).
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application for which you want to list the associated data
-         sets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDataSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application for
+    which you want to list the associated data sets.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
-  * `:name_filter` (`t:string`) Filter dataset name matching the specified pattern. Can use * and % as wild cards.
+  * `:name_filter` (`t:string`) Filter dataset name matching the specified
+    pattern. Can use * and % as wild cards.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
-  * `:prefix` (`t:string`) The prefix of the data set name, which you can use to filter the list of data
-         sets.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
+  * `:prefix` (`t:string`) The prefix of the data set name, which you can use to
+    filter the list of data sets.
   """
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2761,21 +2798,20 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Returns a list of all deployments of a specific application.
-
-  A deployment is a
+  Returns a list of all deployments of a specific application. A deployment is a
   combination of a specific application and a specific version of that
-  application. Each
-  deployment is mapped to a particular application version.
+  application. Each deployment is mapped to a particular application version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application identifier.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -2818,14 +2854,16 @@ defmodule AWS.M2 do
   @doc """
   Lists the available engine versions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEngineVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:engine_type` (`t:string`) The type of target platform.
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the beginning of the 
-  list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_engine_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_engine_versions_response(), any()}
@@ -2877,14 +2915,18 @@ defmodule AWS.M2 do
   @doc """
   Lists the runtime environments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:engine_type` (`t:string`) The engine type for the runtime environment.
-  * `:max_results` (`t:integer`) The maximum number of runtime environments to return.
-  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the runtime environments. Must be unique within the account.
-  * `:next_token` (`t:string`) A pagination token to control the number of runtime environments displayed in the
-         list.
+  * `:max_results` (`t:integer`) The maximum number of runtime environments to
+    return.
+  * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the runtime
+    environments. Must be unique within the account.
+  * `:next_token` (`t:string`) A pagination token to control the number of runtime
+    environments displayed in the list.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -2945,7 +2987,9 @@ defmodule AWS.M2 do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2973,8 +3017,11 @@ defmodule AWS.M2 do
   @doc """
   Starts an application that is currently stopped.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application you want to start.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StartApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to start.
 
   ## Optional parameters:
   """
@@ -3005,12 +3052,14 @@ defmodule AWS.M2 do
 
   @doc """
   Starts a batch job and returns the unique identifier of this execution of the
+  batch job. The associated application must be running in order to start the
   batch job.
 
-  The associated application must be running in order to start the batch job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StartBatchJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application associated with this batch job.
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application
+    associated with this batch job.
 
   ## Optional parameters:
   """
@@ -3042,8 +3091,11 @@ defmodule AWS.M2 do
   @doc """
   Stops a running application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application you want to stop.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20StopApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to stop.
 
   ## Optional parameters:
   """
@@ -3075,7 +3127,9 @@ defmodule AWS.M2 do
   @doc """
   Adds one or more tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -3108,11 +3162,14 @@ defmodule AWS.M2 do
   @doc """
   Removes one or more tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.m2#TagKey]`) The keys of the tags to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.m2#TagKey]`) The keys of the tags to
+    remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3147,8 +3204,11 @@ defmodule AWS.M2 do
   @doc """
   Updates an application and creates a new version.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The unique identifier of the application you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The unique identifier of the application you
+    want to update.
 
   ## Optional parameters:
   """
@@ -3180,8 +3240,11 @@ defmodule AWS.M2 do
   @doc """
   Updates the configuration details for a specific runtime environment.
 
-  ## Required positional parameters:
-  * `:environment_id` (`t:string`) The unique identifier of the runtime environment that you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:environment_id` (`t:string`) The unique identifier of the runtime
+    environment that you want to update.
 
   ## Optional parameters:
   """

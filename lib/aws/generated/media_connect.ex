@@ -2881,8 +2881,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Adds outputs to an existing bridge.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeOutputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -2914,8 +2916,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Adds sources to an existing bridge.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddBridgeSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -2945,13 +2949,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds media streams to an existing flow.
+  Adds media streams to an existing flow. After you add a media stream to a flow,
+  you can associate it with a source and/or an output that uses the ST 2110 JPEG
+  XS or CDI protocol.
 
-  After you add a media stream to a flow, you can associate it with a source
-  and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowMediaStreams&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -2986,12 +2991,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds outputs to an existing flow.
+  Adds outputs to an existing flow. You can create up to 50 outputs per flow.
 
-  You can create up to 50 outputs per flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowOutputs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3023,8 +3028,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Adds Sources to flow
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3056,8 +3063,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Adds VPC interfaces to flow
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20AddFlowVpcInterfaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3092,11 +3101,11 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new bridge.
+  Creates a new bridge. The request must include one source.
 
-  The request must include one source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateBridge&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3126,12 +3135,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new flow.
+  Creates a new flow. The request must include one source. The request optionally
+  can include outputs (up to 50) and entitlements (up to 50).
 
-  The request must include one source. The request optionally can include outputs
-  (up to 50) and entitlements (up to 50).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3161,11 +3170,11 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Creates a new gateway.
+  Creates a new gateway. The request must include at least one network (up to 4).
 
-  The request must include at least one network (up to 4).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20CreateGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3195,12 +3204,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a bridge.
+  Deletes a bridge. Before you can delete a bridge, you must stop the bridge.
 
-  Before you can delete a bridge, you must stop the bridge.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteBridge&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3230,12 +3239,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a flow.
+  Deletes a flow. Before you can delete a flow, you must stop the flow.
 
-  Before you can delete a flow, you must stop the flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3265,13 +3274,13 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deletes a gateway.
+  Deletes a gateway. Before you can delete a gateway, you must deregister its
+  instances and delete its bridges.
 
-  Before you can delete a gateway, you must deregister its instances and delete
-  its bridges.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeleteGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:gateway_arn` (`t:string`) 
+  ## Parameters:
+  * `:gateway_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3301,17 +3310,17 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Deregisters an instance.
+  Deregisters an instance. Before you deregister an instance, all bridges running
+  on the instance must be stopped. If you want to deregister an instance without
+  stopping the bridges, you must use the --force option.
 
-  Before you deregister an instance, all bridges running on the instance must be
-  stopped. If you want to deregister an instance without stopping the bridges, you
-  must use the --force option.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DeregisterGatewayInstance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:gateway_instance_arn` (`t:string`) 
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
 
   ## Optional parameters:
-  * `:force` (`t:boolean`) 
+  * `:force` (`t:boolean`)
   """
   @spec deregister_gateway_instance(
           AWS.Client.t(),
@@ -3351,8 +3360,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of a bridge.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3377,13 +3388,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of a flow.
+  Displays the details of a flow. The response includes the flow ARN, name, and
+  Availability Zone, as well as details about the source, outputs, and
+  entitlements.
 
-  The response includes the flow ARN, name, and Availability Zone, as well as
-  details about the source, outputs, and entitlements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3408,13 +3420,13 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays details of the flow's source stream.
+  Displays details of the flow's source stream. The response contains information
+  about the contents of the stream and its programs.
 
-  The response contains information about the contents of the stream and its
-  programs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeFlowSourceMetadata&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3439,13 +3451,13 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of a gateway.
+  Displays the details of a gateway. The response includes the gateway ARN, name,
+  and CIDR blocks, as well as details about the networks.
 
-  The response includes the gateway ARN, name, and CIDR blocks, as well as details
-  about the networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:gateway_arn` (`t:string`) 
+  ## Parameters:
+  * `:gateway_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3472,8 +3484,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of an instance.
 
-  ## Required positional parameters:
-  * `:gateway_instance_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeGatewayInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3498,13 +3512,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of an offering.
+  Displays the details of an offering. The response includes the offering
+  description, duration, outbound bandwidth, price, and Amazon Resource Name
+  (ARN).
 
-  The response includes the offering description, duration, outbound bandwidth,
-  price, and Amazon Resource Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeOffering&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:offering_arn` (`t:string`) 
+  ## Parameters:
+  * `:offering_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3529,14 +3544,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the details of a reservation.
+  Displays the details of a reservation. The response includes the reservation
+  name, state, start date and time, and the details of the offering that make up
+  the rest of the reservation (such as price, duration, and outbound bandwidth).
 
-  The response includes the reservation name, state, start date and time, and the
-  details of the offering that make up the rest of the reservation (such as price,
-  duration, and outbound bandwidth).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20DescribeReservation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:reservation_arn` (`t:string`) 
+  ## Parameters:
+  * `:reservation_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3563,8 +3578,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Grants entitlements to an existing flow.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20GrantFlowEntitlements&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3600,16 +3617,16 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of bridges that are associated with this account and an
-  optionally specified Arn.
+  optionally specified Arn. This request returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListBridges&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:filter_arn` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:filter_arn` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_bridges(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bridges_response(), any()}
@@ -3659,15 +3676,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of all entitlements that have been granted to this account.
+  Displays a list of all entitlements that have been granted to this account. This
+  request returns 20 results per page.
 
-  This request returns 20 results per page.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListEntitlements&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_entitlements(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entitlements_response(), any()}
@@ -3708,15 +3726,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of flows that are associated with this account.
+  Displays a list of flows that are associated with this account. This request
+  returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListFlows&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
@@ -3757,18 +3776,18 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of instances associated with the AWS account.
+  Displays a list of instances associated with the AWS account. This request
+  returns a paginated result. You can use the filterArn property to display only
+  the instances associated with the selected Gateway Amazon Resource Name (ARN).
 
-  This request returns a paginated result. You can use the filterArn property to
-  display only the instances associated with the selected Gateway Amazon Resource
-  Name (ARN).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGatewayInstances&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:filter_arn` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:filter_arn` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_gateway_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateway_instances_response(), any()}
@@ -3818,15 +3837,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of gateways that are associated with this account.
+  Displays a list of gateways that are associated with this account. This request
+  returns a paginated result.
 
-  This request returns a paginated result.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGateways&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
@@ -3868,17 +3888,17 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all offerings that are available to this account in the
-  current AWS Region.
+  current AWS Region. If you have an active reservation (which means you've
+  purchased an offering that has already started and hasn't expired yet), your
+  account isn't eligible for other offerings.
 
-  If you have an active reservation (which means you've purchased an offering that
-  has already started and hasn't expired yet), your account isn't eligible for
-  other offerings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListOfferings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
@@ -3920,15 +3940,16 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all reservations that have been purchased by this account in
-  the current AWS Region.
+  the current AWS Region. This list includes all reservations in all states
+  (such as active and expired).
 
-  This list includes all reservations in all states (such as active and expired).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListReservations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
@@ -3971,8 +3992,10 @@ defmodule AWS.MediaConnect do
   @doc """
   List all tags on an AWS Elemental MediaConnect resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3997,12 +4020,13 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Submits a request to purchase an offering.
+  Submits a request to purchase an offering. If you already have an active
+  reservation, you can't purchase another offering.
 
-  If you already have an active reservation, you can't purchase another offering.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20PurchaseOffering&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:offering_arn` (`t:string`) 
+  ## Parameters:
+  * `:offering_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4034,9 +4058,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Removes an output from a bridge.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
-  * `:output_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:output_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4076,9 +4102,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Removes a source from a bridge.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
-  * `:source_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveBridgeSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:source_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4116,14 +4144,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a media stream from a flow.
+  Removes a media stream from a flow. This action is only available if the media
+  stream is not associated with a source or output.
 
-  This action is only available if the media stream is not associated with a
-  source or output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowMediaStream&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:media_stream_name` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:media_stream_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4167,16 +4195,17 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes an output from an existing flow.
+  Removes an output from an existing flow. This request can be made only on an
+  output that does not have an entitlement associated with it. If the output has
+  an entitlement, you must revoke the entitlement instead. When an entitlement
+  is revoked from a flow, the service automatically removes the associated
+  output.
 
-  This request can be made only on an output that does not have an entitlement
-  associated with it. If the output has an entitlement, you must revoke the
-  entitlement instead. When an entitlement is revoked from a flow, the service
-  automatically removes the associated output.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowOutput&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:output_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:output_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4214,13 +4243,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a source from an existing flow.
+  Removes a source from an existing flow. This request can be made only if there
+  is more than one source on the flow.
 
-  This request can be made only if there is more than one source on the flow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:source_arn` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:source_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4258,16 +4288,16 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Removes a VPC Interface from an existing flow.
+  Removes a VPC Interface from an existing flow. This request can be made only on
+  a VPC interface that does not have a Source or Output associated with it. If
+  the VPC interface is referenced by a Source or Output, you must first delete
+  or update the Source or Output to no longer reference the VPC interface.
 
-  This request can be made only on a VPC interface that does not have a Source or
-  Output associated with it. If the VPC interface is referenced by a Source or
-  Output, you must first delete or update the Source or Output to no longer
-  reference the VPC interface.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RemoveFlowVpcInterface&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:vpc_interface_name` (`t:string`) 
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:vpc_interface_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4311,14 +4341,14 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Revokes an entitlement from a flow.
+  Revokes an entitlement from a flow. Once an entitlement is revoked, the content
+  becomes unavailable to the subscriber and the associated output is removed.
 
-  Once an entitlement is revoked, the content becomes unavailable to the
-  subscriber and the associated output is removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20RevokeFlowEntitlement&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:entitlement_arn` (`t:string`) 
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:entitlement_arn` (`t:string`)
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4358,8 +4388,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Starts a flow.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StartFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4391,8 +4423,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Stops a flow.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20StopFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4422,14 +4456,15 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified resourceArn.
-
-  If existing tags on a resource are not specified in the request parameters, they
+  Associates the specified tags to a resource with the specified resourceArn. If
+  existing tags on a resource are not specified in the request parameters, they
   are not changed. When a resource is deleted, the tags associated with that
   resource are deleted as well.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4461,11 +4496,13 @@ defmodule AWS.MediaConnect do
   @doc """
   Deletes specified tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]`) 
+  * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]`)
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4500,8 +4537,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates the bridge
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridge&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4523,9 +4562,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates an existing bridge output.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
-  * `:output_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:output_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4555,9 +4596,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates an existing bridge source.
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
-  * `:source_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
+  * `:source_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4587,8 +4630,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates the bridge state
 
-  ## Required positional parameters:
-  * `:bridge_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateBridgeState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bridge_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4615,8 +4660,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates flow
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4636,14 +4683,15 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  You can change an entitlement's description, subscribers, and encryption.
+  You can change an entitlement's description, subscribers, and encryption. If you
+  change the subscribers, the service will remove the outputs that are are used
+  by the subscribers that are removed.
 
-  If you change the subscribers, the service will remove the outputs that are are
-  used by the subscribers that are removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowEntitlement&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:entitlement_arn` (`t:string`) 
-  * `:flow_arn` (`t:string`) 
+  ## Parameters:
+  * `:entitlement_arn` (`t:string`)
+  * `:flow_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4673,9 +4721,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates an existing media stream.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:media_stream_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowMediaStream&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:media_stream_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4711,9 +4761,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates an existing flow output.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:output_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowOutput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:output_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4743,9 +4795,11 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates the source of a flow.
 
-  ## Required positional parameters:
-  * `:flow_arn` (`t:string`) 
-  * `:source_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateFlowSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:flow_arn` (`t:string`)
+  * `:source_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4775,8 +4829,10 @@ defmodule AWS.MediaConnect do
   @doc """
   Updates the configuration of an existing Gateway Instance.
 
-  ## Required positional parameters:
-  * `:gateway_instance_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20UpdateGatewayInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:gateway_instance_arn` (`t:string`)
 
   ## Optional parameters:
   """

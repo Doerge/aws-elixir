@@ -2757,7 +2757,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes one or more worlds in a batch operation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDeleteWorlds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2789,7 +2791,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes one or more simulation jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDescribeSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2825,10 +2829,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Cancels the specified deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelDeploymentJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2860,7 +2863,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Cancels the specified simulation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2890,12 +2895,13 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Cancels a simulation job batch.
+  Cancels a simulation job batch. When you cancel a simulation job batch, you are
+  also cancelling all of the active simulation jobs created as part of the
+  batch.
 
-  When you cancel a simulation job batch, you are also
-  cancelling all of the active simulation jobs created as part of the batch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJobBatch&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2931,7 +2937,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Cancels the specified export job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2963,7 +2971,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Cancels the specified world generator job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2997,19 +3007,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deploys a specific version of a robot application to robots in a fleet.
+  Deploys a specific version of a robot application to robots in a fleet. This API
+  is no longer supported and will throw an error if used.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateDeploymentJob&this_doc_guide=API%2520Reference)
 
-  The robot application must have a numbered `applicationVersion` for
-  consistency reasons. To create a new version, use
-  `CreateRobotApplicationVersion` or see [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
-
-  After 90 days, deployment jobs expire and will be deleted. They will no longer
-  be
-  accessible.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3041,9 +3044,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a fleet, a logical group of robots running the same robot application.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3075,9 +3078,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a robot.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobot&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3109,7 +3112,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a robot application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3141,7 +3146,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a version of a robot application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3177,7 +3184,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a simulation application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3213,7 +3222,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a simulation application with a specific revision id.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3249,11 +3260,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a simulation job.
 
-  After 90 days, simulation jobs expire and will be deleted. They will no longer
-  be
-  accessible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3285,7 +3294,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a world export job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3317,7 +3328,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates worlds using the specified template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3353,7 +3366,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Creates a world template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3385,10 +3400,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3420,10 +3434,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobot&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3455,7 +3468,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a robot application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3487,7 +3502,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a simulation application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3523,7 +3540,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deletes a world template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3555,10 +3574,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Deregisters a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeregisterRobot&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3590,10 +3608,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeDeploymentJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3625,10 +3642,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3660,10 +3676,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobot&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3695,7 +3710,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a robot application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3731,7 +3748,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a simulation application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3767,7 +3786,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a simulation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3799,7 +3820,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a simulation job batch.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJobBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3835,7 +3858,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a world.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorld&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3867,7 +3892,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a world export job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3903,7 +3930,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a world generation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3939,7 +3968,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Describes a world template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3971,7 +4002,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Gets the world template body.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20GetWorldTemplateBody&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4001,14 +4034,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of deployment jobs for a fleet.
+  Returns a list of deployment jobs for a fleet. You can optionally provide
+  filters to retrieve specific deployment jobs.
 
-  You can optionally provide filters to retrieve specific deployment jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListDeploymentJobs&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4038,14 +4069,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of fleets.
+  Returns a list of fleets. You can optionally provide filters to retrieve
+  specific fleets.
 
-  You can optionally provide filters to retrieve specific fleets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListFleets&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4075,12 +4104,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robot application.
+  Returns a list of robot application. You can optionally provide filters to
+  retrieve specific robot applications.
 
-  You can optionally provide filters to retrieve
-  specific robot applications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobotApplications&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4110,14 +4139,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robots.
+  Returns a list of robots. You can optionally provide filters to retrieve
+  specific robots.
 
-  You can optionally provide filters to retrieve specific robots.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobots&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4147,12 +4174,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation applications.
-
-  You can optionally provide filters to
+  Returns a list of simulation applications. You can optionally provide filters to
   retrieve specific simulation applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4186,12 +4213,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list simulation job batches.
+  Returns a list simulation job batches. You can optionally provide filters to
+  retrieve specific simulation batch jobs.
 
-  You can optionally provide filters to retrieve
-  specific simulation batch jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobBatches&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4225,12 +4252,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation jobs.
+  Returns a list of simulation jobs. You can optionally provide filters to
+  retrieve specific simulation jobs.
 
-  You can optionally provide filters to retrieve
-  specific simulation jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4262,8 +4289,11 @@ defmodule AWS.RoboMaker do
   @doc """
   Lists all tags on a AWS RoboMaker resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The AWS RoboMaker Amazon Resource Name (ARN) with tags to be listed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The AWS RoboMaker Amazon Resource Name (ARN) with
+    tags to be listed.
 
   ## Optional parameters:
   """
@@ -4290,7 +4320,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Lists world export jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4322,7 +4354,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Lists world generator jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldGenerationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4358,7 +4392,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Lists world templates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4390,7 +4426,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Lists worlds.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorlds&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4422,9 +4460,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Registers a robot with a fleet.
 
-  This API is no longer supported and will throw an error if used.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RegisterRobot&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4456,7 +4494,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Restarts a running simulation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RestartSimulationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4486,12 +4526,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Starts a new simulation job batch.
-
-  The batch is defined using one or more
+  Starts a new simulation job batch. The batch is defined using one or more
   `SimulationJobRequest` objects.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20StartSimulationJobBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4525,14 +4565,12 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Syncrhonizes robots in a fleet to the latest deployment.
+  Syncrhonizes robots in a fleet to the latest deployment. This is helpful if
+  robots were added after a deployment.
 
-  This is helpful if robots were added after a deployment.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20SyncDeploymentJob&this_doc_guide=API%2520Reference)
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4562,18 +4600,15 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Adds or edits tags for a AWS RoboMaker resource.
+  Adds or edits tags for a AWS RoboMaker resource. Each tag consists of a tag key
+  and a tag value. Tag keys and tag values are both required, but tag values can
+  be empty strings.
 
-  Each tag consists of a tag key and a tag value. Tag keys and tag values are both
-  required, but tag values can be empty strings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20TagResource&this_doc_guide=API%2520Reference)
 
-  For information about the rules that apply to tag keys and tag values, see
-  [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
-  in the *AWS Billing and Cost Management
-  User Guide*.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are tagging.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
+    RoboMaker resource you are tagging.
 
   ## Optional parameters:
   """
@@ -4605,19 +4640,15 @@ defmodule AWS.RoboMaker do
   @doc """
   Removes the specified tags from the specified AWS RoboMaker resource.
 
-  To remove a tag, specify the tag key. To change the tag value of an existing tag
-  key,
-  use [
-  `TagResource`
-  ](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS RoboMaker resource you are removing
-         tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the AWS
+    RoboMaker resource you are removing tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]`) A map that contains tag keys and tag values that will be unattached from the
-         resource.
+  * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]`) A map that contains tag
+    keys and tag values that will be unattached from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4652,7 +4683,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Updates a robot application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateRobotApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4684,7 +4717,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Updates a simulation application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateSimulationApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4720,7 +4755,9 @@ defmodule AWS.RoboMaker do
   @doc """
   Updates a world template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateWorldTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

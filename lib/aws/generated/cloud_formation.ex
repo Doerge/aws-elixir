@@ -3,32 +3,13 @@
 
 defmodule AWS.CloudFormation do
   @moduledoc """
-  CloudFormation
-
-  CloudFormation allows you to create and manage Amazon Web Services
-  infrastructure deployments predictably and
-  repeatedly.
-
-  You can use CloudFormation to leverage Amazon Web Services products, such as
-  Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple
-  Notification Service, Elastic Load Balancing, and Auto Scaling to build highly
-  reliable, highly
-  scalable, cost-effective applications without creating or configuring the
-  underlying Amazon Web Services
-  infrastructure.
-
-  With CloudFormation, you declare all your resources and dependencies in a
-  template file. The template defines a
-  collection of resources as a single unit called a stack. CloudFormation creates
-  and deletes all member resources of the stack
-  together and manages all dependencies between the resources for you.
-
-  For more information about CloudFormation, see the [CloudFormation product page](http://aws.amazon.com/cloudformation/).
-
-  CloudFormation makes use of other Amazon Web Services products. If you need
-  additional technical information about a
-  specific Amazon Web Services product, you can find the product's technical
-  documentation at [docs.aws.amazon.com](https://docs.aws.amazon.com/).
+  CloudFormation CloudFormation allows you to create and manage Amazon Web
+  Services infrastructure deployments predictably and repeatedly. You can use
+  CloudFormation to leverage Amazon Web Services products, such as Amazon
+  Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification
+  Service, Elastic Load Balancing, and Auto Scaling to build highly reliable,
+  highly scalable, cost-effective applications without creating or configuring
+  the underlying Amazon Web Services infrastructure.
   """
 
   alias AWS.Client
@@ -3799,12 +3780,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Activate trusted access with Organizations.
-
-  With trusted access between StackSets and Organizations
-  activated, the management account has permissions to create and manage StackSets
-  for your
-  organization.
+  Activate trusted access with Organizations. With trusted access between
+  StackSets and Organizations activated, the management account has permissions
+  to create and manage StackSets for your organization.
   """
   @spec activate_organizations_access(
           AWS.Client.t(),
@@ -3823,17 +3801,13 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Activates a public third-party extension, making it available for use in stack
-  templates.
-
-  For more information,
-  see [Using public extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html)
-  in the *CloudFormation User Guide*.
-
-  Once you have activated a public third-party extension in your account and
-  Region, use
-  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
-  [Configuring extensions at
-  the account
+  templates. For more information, see [Using public
+  extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html)
+  in the *CloudFormation User Guide*. Once you have activated a public
+  third-party extension in your account and Region, use
+  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
+  to specify configuration properties for the extension. For more information,
+  see [Configuring extensions at the account
   level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
@@ -3850,12 +3824,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns configuration data for the specified CloudFormation extensions, from the
-  CloudFormation registry
-  for the account and Region.
-
-  For more information, see [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
-  in the *CloudFormation User Guide*.
+  CloudFormation registry for the account and Region.
   """
   @spec batch_describe_type_configurations(
           AWS.Client.t(),
@@ -3873,12 +3842,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Cancels an update on the specified stack.
-
-  If the call completes successfully, the stack rolls back the update
-  and reverts to the previous stack configuration.
-
-  You can cancel only stacks that are in the `UPDATE_IN_PROGRESS` state.
+  Cancels an update on the specified stack. If the call completes successfully,
+  the stack rolls back the update and reverts to the previous stack
+  configuration.
   """
   @spec cancel_update_stack(AWS.Client.t(), cancel_update_stack_input(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3893,22 +3859,12 @@ defmodule AWS.CloudFormation do
 
   @doc """
   For a specified stack that's in the `UPDATE_ROLLBACK_FAILED` state, continues
-  rolling it back to the
-  `UPDATE_ROLLBACK_COMPLETE` state.
-
-  Depending on the cause of the failure, you can manually [ fix the error](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed)
-  and continue the rollback. By continuing the rollback, you can return your stack
-  to a working state
-  (the `UPDATE_ROLLBACK_COMPLETE` state), and then try to update the stack again.
-
-  A stack goes into the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't
-  roll back all changes after
-  a failed stack update. For example, you might have a stack that's rolling back
-  to an old database instance that was
-  deleted outside of CloudFormation. Because CloudFormation doesn't know the
-  database was deleted, it assumes that the database instance
-  still exists and attempts to roll back to it, causing the update rollback to
-  fail.
+  rolling it back to the `UPDATE_ROLLBACK_COMPLETE` state. Depending on the
+  cause of the failure, you can manually [ fix the
+  error](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed)
+  and continue the rollback. By continuing the rollback, you can return your
+  stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state), and then try
+  to update the stack again.
   """
   @spec continue_update_rollback(AWS.Client.t(), continue_update_rollback_input(), Keyword.t()) ::
           {:ok, continue_update_rollback_output(), any()}
@@ -3923,36 +3879,21 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Creates a list of changes that will be applied to a stack so that you can review
-  the changes before executing
-  them.
-
-  You can create a change set for a stack that doesn't exist or an existing stack.
-  If you create a change set for
-  a stack that doesn't exist, the change set shows all of the resources that
-  CloudFormation will create. If you create a change
-  set for an existing stack, CloudFormation compares the stack's information with
-  the information that you submit in the change
-  set and lists the differences. Use change sets to understand which resources
-  CloudFormation will create or
-  change, and how it will change resources in an existing stack, before you create
-  or update a stack.
-
-  To create a change set for a stack that doesn't exist, for the `ChangeSetType`
-  parameter, specify
-  `CREATE`. To create a change set for an existing stack, specify `UPDATE` for the
-  `ChangeSetType` parameter. To create a change set for an import operation,
-  specify `IMPORT` for
-  the `ChangeSetType` parameter. After the `CreateChangeSet` call successfully
-  completes, CloudFormation starts creating the change set. To check the status of
-  the change set or to review it, use the `DescribeChangeSet` action.
-
-  When you are satisfied with the changes the change set will make, execute the
-  change set by using the `ExecuteChangeSet` action. CloudFormation doesn't make
-  changes until you execute the change set.
-
-  To create a change set for the entire stack hierarchy, set `IncludeNestedStacks`
-  to
-  `True`.
+  the changes before executing them. You can create a change set for a stack
+  that doesn't exist or an existing stack. If you create a change set for a
+  stack that doesn't exist, the change set shows all of the resources that
+  CloudFormation will create. If you create a change set for an existing stack,
+  CloudFormation compares the stack's information with the information that you
+  submit in the change set and lists the differences. Use change sets to
+  understand which resources CloudFormation will create or change, and how it
+  will change resources in an existing stack, before you create or update a
+  stack. To create a change set for a stack that doesn't exist, for the
+  `ChangeSetType` parameter, specify `CREATE`. To create a change set for an
+  existing stack, specify `UPDATE` for the `ChangeSetType` parameter. To create
+  a change set for an import operation, specify `IMPORT` for the `ChangeSetType`
+  parameter. After the `CreateChangeSet` call successfully completes,
+  CloudFormation starts creating the change set. To check the status of the
+  change set or to review it, use the `DescribeChangeSet` action.
   """
   @spec create_change_set(AWS.Client.t(), create_change_set_input(), Keyword.t()) ::
           {:ok, create_change_set_output(), any()}
@@ -3967,10 +3908,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Creates a template from existing resources that are not already managed with
-  CloudFormation.
-
-  You can check the status of
-  the template generation using the `DescribeGeneratedTemplate` API action.
+  CloudFormation. You can check the status of the template generation using the
+  `DescribeGeneratedTemplate` API action.
   """
   @spec create_generated_template(AWS.Client.t(), create_generated_template_input(), Keyword.t()) ::
           {:ok, create_generated_template_output(), any()}
@@ -3984,10 +3923,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Creates a stack as specified in the template.
-
-  After the call completes successfully, the stack creation starts.
-  You can check the status of the stack through the `DescribeStacks` operation.
+  Creates a stack as specified in the template. After the call completes
+  successfully, the stack creation starts. You can check the status of the stack
+  through the `DescribeStacks` operation.
   """
   @spec create_stack(AWS.Client.t(), create_stack_input(), Keyword.t()) ::
           {:ok, create_stack_output(), any()}
@@ -4002,13 +3940,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Creates stack instances for the specified accounts, within the specified Amazon
-  Web Services Regions.
-
-  A stack
-  instance refers to a stack in a specific account and Region. You must specify at
-  least one value for either
-  `Accounts` or `DeploymentTargets`, and you must specify at least one value for
-  `Regions`.
+  Web Services Regions. A stack instance refers to a stack in a specific account
+  and Region. You must specify at least one value for either `Accounts` or
+  `DeploymentTargets`, and you must specify at least one value for `Regions`.
   """
   @spec create_stack_instances(AWS.Client.t(), create_stack_instances_input(), Keyword.t()) ::
           {:ok, create_stack_instances_output(), any()}
@@ -4036,11 +3970,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deactivates trusted access with Organizations.
-
-  If trusted access is deactivated, the management account does not have
-  permissions to create and manage service-managed StackSets for your
-  organization.
+  Deactivates trusted access with Organizations. If trusted access is deactivated,
+  the management account does not have permissions to create and manage
+  service-managed StackSets for your organization.
   """
   @spec deactivate_organizations_access(
           AWS.Client.t(),
@@ -4060,13 +3992,6 @@ defmodule AWS.CloudFormation do
   @doc """
   Deactivates a public extension that was previously activated in this account and
   Region.
-
-  Once deactivated, an extension can't be used in any CloudFormation operation.
-  This includes stack update operations
-  where the stack template includes the extension, even if no updates are being
-  made to the extension. In addition,
-  deactivated extensions aren't automatically updated if a new version of the
-  extension is released.
   """
   @spec deactivate_type(AWS.Client.t(), deactivate_type_input(), Keyword.t()) ::
           {:ok, deactivate_type_output(), any()}
@@ -4080,19 +4005,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deletes the specified change set.
-
-  Deleting change sets ensures that no one executes the wrong change set.
-
-  If the call successfully completes, CloudFormation successfully deleted the
-  change set.
-
-  If `IncludeNestedStacks` specifies `True` during the creation of the nested
-  change set,
-  then `DeleteChangeSet` will delete all change sets that belong to the stacks
-  hierarchy and will also
-  delete all change sets for nested stacks with the status of
-  `REVIEW_IN_PROGRESS`.
+  Deletes the specified change set. Deleting change sets ensures that no one
+  executes the wrong change set. If the call successfully completes,
+  CloudFormation successfully deleted the change set.
   """
   @spec delete_change_set(AWS.Client.t(), delete_change_set_input(), Keyword.t()) ::
           {:ok, delete_change_set_output(), any()}
@@ -4120,12 +4035,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deletes a specified stack.
-
-  Once the call completes successfully, stack deletion starts. Deleted stacks
-  don't
-  show up in the `DescribeStacks` operation if the deletion has been completed
-  successfully.
+  Deletes a specified stack. Once the call completes successfully, stack deletion
+  starts. Deleted stacks don't show up in the `DescribeStacks` operation if the
+  deletion has been completed successfully.
   """
   @spec delete_stack(AWS.Client.t(), delete_stack_input(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4154,11 +4066,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Deletes a stack set.
-
-  Before you can delete a stack set, all its member stack instances must be
-  deleted. For more
-  information about how to complete this, see `DeleteStackInstances`.
+  Deletes a stack set. Before you can delete a stack set, all its member stack
+  instances must be deleted. For more information about how to complete this,
+  see `DeleteStackInstances`.
   """
   @spec delete_stack_set(AWS.Client.t(), delete_stack_set_input(), Keyword.t()) ::
           {:ok, delete_stack_set_output(), any()}
@@ -4173,26 +4083,12 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Marks an extension or extension version as `DEPRECATED` in the CloudFormation
-  registry, removing it from
-  active use.
-
-  Deprecated extensions or extension versions cannot be used in CloudFormation
-  operations.
-
-  To deregister an entire extension, you must individually deregister all active
-  versions of that extension. If an
-  extension has only a single active version, deregistering that version results
-  in the extension itself being
-  deregistered and marked as deprecated in the registry.
-
-  You can't deregister the default version of an extension if there are other
-  active version of that extension. If
-  you do deregister the default version of an extension, the extension type itself
-  is deregistered as well and marked
-  as deprecated.
-
-  To view the deprecation status of an extension or extension version, use
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html).
+  registry, removing it from active use. Deprecated extensions or extension
+  versions cannot be used in CloudFormation operations. To deregister an entire
+  extension, you must individually deregister all active versions of that
+  extension. If an extension has only a single active version, deregistering
+  that version results in the extension itself being deregistered and marked as
+  deprecated in the registry.
   """
   @spec deregister_type(AWS.Client.t(), deregister_type_input(), Keyword.t()) ::
           {:ok, deregister_type_output(), any()}
@@ -4207,11 +4103,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Retrieves your account's CloudFormation limits, such as the maximum number of
-  stacks that you can create in your account.
-
-  For more information about account limits, see [CloudFormation Quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html)
-  in the
-  *CloudFormation User Guide*.
+  stacks that you can create in your account. For more information about account
+  limits, see [CloudFormation
+  Quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html)
+  in the *CloudFormation User Guide*.
   """
   @spec describe_account_limits(AWS.Client.t(), describe_account_limits_input(), Keyword.t()) ::
           {:ok, describe_account_limits_output(), any()}
@@ -4225,9 +4120,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the inputs for the change set and a list of changes that CloudFormation
-  will make if you execute the change set.
-
-  For more information, see [Updating Stacks Using Change Sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html)
+  will make if you execute the change set. For more information, see [Updating
+  Stacks Using Change
+  Sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html)
   in the *CloudFormation User Guide*.
   """
   @spec describe_change_set(AWS.Client.t(), describe_change_set_input(), Keyword.t()) ::
@@ -4243,8 +4138,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns hook-related information for the change set and a list of changes that
-  CloudFormation makes when you run the
-  change set.
+  CloudFormation makes when you run the change set.
   """
   @spec describe_change_set_hooks(AWS.Client.t(), describe_change_set_hooks_input(), Keyword.t()) ::
           {:ok, describe_change_set_hooks_output(), any()}
@@ -4258,12 +4152,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Describes a generated template.
-
-  The output includes details about the progress of the creation of a generated
-  template started by a `CreateGeneratedTemplate` API action or the update of a
-  generated template started
-  with an `UpdateGeneratedTemplate` API action.
+  Describes a generated template. The output includes details about the progress
+  of the creation of a generated template started by a `CreateGeneratedTemplate`
+  API action or the update of a generated template started with an
+  `UpdateGeneratedTemplate` API action.
   """
   @spec describe_generated_template(
           AWS.Client.t(),
@@ -4281,12 +4173,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Retrieves information about the account's `OrganizationAccess` status.
-
-  This API can be called either
-  by the management account or the delegated administrator by using the `CallAs`
-  parameter. This API can
-  also be called without the `CallAs` parameter by the management account.
+  Retrieves information about the account's `OrganizationAccess` status. This API
+  can be called either by the management account or the delegated administrator
+  by using the `CallAs` parameter. This API can also be called without the
+  `CallAs` parameter by the management account.
   """
   @spec describe_organizations_access(
           AWS.Client.t(),
@@ -4304,25 +4194,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns information about a CloudFormation extension publisher.
-
-  If you don't supply a `PublisherId`, and you have registered as an extension
-  publisher,
+  Returns information about a CloudFormation extension publisher. If you don't
+  supply a `PublisherId`, and you have registered as an extension publisher,
   `DescribePublisher` returns information about your own publisher account.
-
-  For more information about registering as a publisher, see:
-
-    *
-
-  [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html) 
-
-    *
-
-  [Publishing
-  extensions to make them available for public
-  use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
-  in the *CloudFormation CLI User
-  Guide*
   """
   @spec describe_publisher(AWS.Client.t(), describe_publisher_input(), Keyword.t()) ::
           {:ok, describe_publisher_output(), any()}
@@ -4350,24 +4224,14 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns information about a stack drift detection operation.
-
-  A stack drift detection operation detects whether a
-  stack's actual configuration differs, or has *drifted*, from its expected
-  configuration, as
-  defined in the stack template and any values specified as template parameters. A
-  stack is considered to have drifted
-  if one or more of its resources have drifted. For more information about stack
-  and resource drift, see [Detecting Unregulated Configuration Changes to Stacks and
+  Returns information about a stack drift detection operation. A stack drift
+  detection operation detects whether a stack's actual configuration differs, or
+  has *drifted*, from its expected configuration, as defined in the stack
+  template and any values specified as template parameters. A stack is
+  considered to have drifted if one or more of its resources have drifted. For
+  more information about stack and resource drift, see [Detecting Unregulated
+  Configuration Changes to Stacks and
   Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-
-  Use `DetectStackDrift` to initiate a stack drift detection operation.
-  `DetectStackDrift` returns a `StackDriftDetectionId` you can use to monitor the
-  progress of the
-  operation using `DescribeStackDriftDetectionStatus`. Once the drift detection
-  operation has completed, use
-  `DescribeStackResourceDrifts` to return drift information about the stack and
-  its resources.
   """
   @spec describe_stack_drift_detection_status(
           AWS.Client.t(),
@@ -4385,15 +4249,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns all stack related events for a specified stack in reverse chronological
-  order.
-
-  For more information
-  about a stack's event history, see [CloudFormation stack creation events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
+  order. For more information about a stack's event history, see [CloudFormation
+  stack creation
+  events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
   in the *CloudFormation User Guide*.
-
-  You can list events for stacks that have failed to create or have been deleted
-  by specifying the unique stack
-  identifier (stack ID).
   """
   @spec describe_stack_events(AWS.Client.t(), describe_stack_events_input(), Keyword.t()) ::
           {:ok, describe_stack_events_output(), any()}
@@ -4407,11 +4266,7 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the stack instance that's associated with the specified StackSet, Amazon
-  Web Services account, and
-  Amazon Web Services Region.
-
-  For a list of stack instances that are associated with a specific StackSet, use
-  `ListStackInstances`.
+  Web Services account, and Amazon Web Services Region.
   """
   @spec describe_stack_instance(AWS.Client.t(), describe_stack_instance_input(), Keyword.t()) ::
           {:ok, describe_stack_instance_output(), any()}
@@ -4426,10 +4281,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns a description of the specified resource in the specified stack.
-
-  For deleted stacks, DescribeStackResource returns resource information for up to
-  90 days after the stack has
-  been deleted.
   """
   @spec describe_stack_resource(AWS.Client.t(), describe_stack_resource_input(), Keyword.t()) ::
           {:ok, describe_stack_resource_output(), any()}
@@ -4443,22 +4294,14 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns drift information for the resources that have been checked for drift in
-  the specified stack.
-
-  This
-  includes actual and expected configuration values for resources where
-  CloudFormation detects configuration drift.
-
-  For a given stack, there will be one `StackResourceDrift` for each stack
-  resource that has been
-  checked for drift. Resources that haven't yet been checked for drift aren't
-  included. Resources that don't currently
-  support drift detection aren't checked, and so not included. For a list of
-  resources that support drift detection,
-  see [Resources that Support Drift Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
-
-  Use `DetectStackResourceDrift` to detect drift on individual resources, or
-  `DetectStackDrift` to detect drift on all supported resources for a given stack.
+  the specified stack. This includes actual and expected configuration values
+  for resources where CloudFormation detects configuration drift. For a given
+  stack, there will be one `StackResourceDrift` for each stack resource that has
+  been checked for drift. Resources that haven't yet been checked for drift
+  aren't included. Resources that don't currently support drift detection aren't
+  checked, and so not included. For a list of resources that support drift
+  detection, see [Resources that Support Drift
+  Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
   """
   @spec describe_stack_resource_drifts(
           AWS.Client.t(),
@@ -4476,30 +4319,11 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns Amazon Web Services resource descriptions for running and deleted
-  stacks.
-
-  If `StackName` is
-  specified, all the associated resources that are part of the stack are returned.
-  If `PhysicalResourceId`
-  is specified, the associated resources of the stack that the resource belongs to
-  are returned.
-
-  Only the first 100 resources will be returned. If your stack has more resources
-  than this, you should use
-  `ListStackResources` instead.
-
-  For deleted stacks, `DescribeStackResources` returns resource information for up
-  to 90 days after the
-  stack has been deleted.
-
-  You must specify either `StackName` or `PhysicalResourceId`, but not both. In
-  addition,
-  you can specify `LogicalResourceId` to filter the returned result. For more
-  information about resources,
-  the `LogicalResourceId` and `PhysicalResourceId`, go to the [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/).
-
-  A `ValidationError` is returned if you specify both `StackName` and
-  `PhysicalResourceId` in the same request.
+  stacks. If `StackName` is specified, all the associated resources that are
+  part of the stack are returned. If `PhysicalResourceId` is specified, the
+  associated resources of the stack that the resource belongs to are returned.
+  Only the first 100 resources will be returned. If your stack has more
+  resources than this, you should use `ListStackResources` instead.
   """
   @spec describe_stack_resources(AWS.Client.t(), describe_stack_resources_input(), Keyword.t()) ::
           {:ok, describe_stack_resources_output(), any()}
@@ -4545,14 +4369,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the description for the specified stack; if no stack name was specified,
-  then it returns the description
-  for all the stacks created.
-
-  For more information about a stack's event history, see [CloudFormation stack creation
+  then it returns the description for all the stacks created. For more
+  information about a stack's event history, see [CloudFormation stack creation
   events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html)
   in the *CloudFormation User Guide*.
-
-  If the stack doesn't exist, a `ValidationError` is returned.
   """
   @spec describe_stacks(AWS.Client.t(), describe_stacks_input(), Keyword.t()) ::
           {:ok, describe_stacks_output(), any()}
@@ -4566,11 +4386,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns detailed information about an extension that has been registered.
-
-  If you specify a `VersionId`, `DescribeType` returns information about that
-  specific
-  extension version. Otherwise, it returns information about the default extension
-  version.
   """
   @spec describe_type(AWS.Client.t(), describe_type_input(), Keyword.t()) ::
           {:ok, describe_type_output(), any()}
@@ -4585,15 +4400,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns information about an extension's registration, including its current
-  status and type and version
-  identifiers.
-
-  When you initiate a registration request using `RegisterType`, you can then use
-  `DescribeTypeRegistration` to monitor the progress of that registration request.
-
-  Once the registration request has completed, use `DescribeType` to return
-  detailed information
-  about an extension.
+  status and type and version identifiers. When you initiate a registration
+  request using `RegisterType`, you can then use `DescribeTypeRegistration` to
+  monitor the progress of that registration request.
   """
   @spec describe_type_registration(
           AWS.Client.t(),
@@ -4612,38 +4421,20 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Detects whether a stack's actual configuration differs, or has *drifted*, from
-  its expected
-  configuration, as defined in the stack template and any values specified as
-  template parameters.
-
-  For each resource in
-  the stack that supports drift detection, CloudFormation compares the actual
-  configuration of the resource with its expected
-  template configuration. Only resource properties explicitly defined in the stack
-  template are checked for drift. A
-  stack is considered to have drifted if one or more of its resources differ from
-  their expected template
-  configurations. For more information, see [Detecting Unregulated Configuration Changes to
-  Stacks and
+  its expected configuration, as defined in the stack template and any values
+  specified as template parameters. For each resource in the stack that supports
+  drift detection, CloudFormation compares the actual configuration of the
+  resource with its expected template configuration. Only resource properties
+  explicitly defined in the stack template are checked for drift. A stack is
+  considered to have drifted if one or more of its resources differ from their
+  expected template configurations. For more information, see [Detecting
+  Unregulated Configuration Changes to Stacks and
   Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-
   Use `DetectStackDrift` to detect drift on all supported resources for a given
   stack, or `DetectStackResourceDrift` to detect drift on individual resources.
-
   For a list of stack resources that currently support drift detection, see
-  [Resources that Support Drift Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
-
-  `DetectStackDrift` can take up to several minutes, depending on the number of
-  resources contained
-  within the stack. Use `DescribeStackDriftDetectionStatus` to monitor the
-  progress of a detect stack
-  drift operation. Once the drift detection operation has completed, use
-  `DescribeStackResourceDrifts`
-  to return drift information about the stack and its resources.
-
-  When detecting drift on a stack, CloudFormation doesn't detect drift on any
-  nested stacks belonging to that stack.
-  Perform `DetectStackDrift` directly on the nested stack itself.
+  [Resources that Support Drift
+  Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
   """
   @spec detect_stack_drift(AWS.Client.t(), detect_stack_drift_input(), Keyword.t()) ::
           {:ok, detect_stack_drift_output(), any()}
@@ -4657,25 +4448,16 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns information about whether a resource's actual configuration differs, or
-  has
-  *drifted*, from its expected configuration, as defined in the stack template and
-  any values
-  specified as template parameters.
-
-  This information includes actual and expected property values for resources in
-  which CloudFormation detects drift. Only resource properties explicitly defined
-  in the stack template are checked for drift.
-  For more information about stack and resource drift, see [Detecting Unregulated Configuration Changes to
-  Stacks and
+  has *drifted*, from its expected configuration, as defined in the stack
+  template and any values specified as template parameters. This information
+  includes actual and expected property values for resources in which
+  CloudFormation detects drift. Only resource properties explicitly defined in
+  the stack template are checked for drift. For more information about stack and
+  resource drift, see [Detecting Unregulated Configuration Changes to Stacks and
   Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-
   Use `DetectStackResourceDrift` to detect drift on individual resources, or
   `DetectStackDrift` to detect drift on all resources in a given stack that
   support drift detection.
-
-  Resources that don't currently support drift detection can't be checked. For a
-  list of resources that support
-  drift detection, see [Resources that Support Drift Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
   """
   @spec detect_stack_resource_drift(
           AWS.Client.t(),
@@ -4692,49 +4474,18 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Detect drift on a stack set.
-
-  When CloudFormation performs drift detection on a stack set, it performs drift
-  detection on the stack associated with each stack instance in the stack set. For
-  more information, see [How CloudFormation performs drift detection on a stack
+  Detect drift on a stack set. When CloudFormation performs drift detection on a
+  stack set, it performs drift detection on the stack associated with each stack
+  instance in the stack set. For more information, see [How CloudFormation
+  performs drift detection on a stack
   set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
-
-  `DetectStackSetDrift` returns the `OperationId` of the stack set drift detection
-  operation. Use this operation id with `DescribeStackSetOperation` to monitor the
-  progress of the
-  drift detection operation. The drift detection operation may take some time,
-  depending on the number of stack
-  instances included in the stack set, in addition to the number of resources
-  included in each stack.
-
-  Once the operation has completed, use the following actions to return drift
-  information:
-
-    *
-  Use `DescribeStackSet` to return detailed information about the stack set,
-  including detailed
-  information about the last *completed* drift operation performed on the stack
-  set. (Information
-  about drift operations that are in progress isn't included.)
-
-    *
-  Use `ListStackInstances` to return a list of stack instances belonging to the
-  stack set,
-  including the drift status and last drift time checked of each instance.
-
-    *
-  Use `DescribeStackInstance` to return detailed information about a specific
-  stack instance,
-  including its drift status and last drift time checked.
-
-  For more information about performing a drift detection operation on a stack
-  set, see [Detecting unmanaged changes in stack
-  sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
-
-  You can only run a single drift detection operation on a given stack set at one
-  time.
-
-  To stop a drift detection stack set operation, use `StopStackSetOperation`.
+  `DetectStackSetDrift` returns the `OperationId` of the stack set drift
+  detection operation. Use this operation id with `DescribeStackSetOperation` to
+  monitor the progress of the drift detection operation. The drift detection
+  operation may take some time, depending on the number of stack instances
+  included in the stack set, in addition to the number of resources included in
+  each stack. Once the operation has completed, use the following actions to
+  return drift information:
   """
   @spec detect_stack_set_drift(AWS.Client.t(), detect_stack_set_drift_input(), Keyword.t()) ::
           {:ok, detect_stack_set_drift_output(), any()}
@@ -4748,11 +4499,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the estimated monthly cost of a template.
-
-  The return value is an Amazon Web Services Simple Monthly
-  Calculator URL with a query string that describes the resources required to run
-  the template.
+  Returns the estimated monthly cost of a template. The return value is an Amazon
+  Web Services Simple Monthly Calculator URL with a query string that describes
+  the resources required to run the template.
   """
   @spec estimate_template_cost(AWS.Client.t(), estimate_template_cost_input(), Keyword.t()) ::
           {:ok, estimate_template_cost_output(), any()}
@@ -4766,24 +4515,11 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Updates a stack using the input information that was provided when the specified
-  change set was created.
-
-  After
-  the call successfully completes, CloudFormation starts updating the stack. Use
-  the `DescribeStacks` action to
-  view the status of the update.
-
-  When you execute a change set, CloudFormation deletes all other change sets
-  associated with the stack because they aren't
-  valid for the updated stack.
-
-  If a stack policy is associated with the stack, CloudFormation enforces the
-  policy during the update. You can't specify a
-  temporary stack policy that overrides the current policy.
-
-  To create a change set for the entire stack hierarchy, `IncludeNestedStacks`
-  must have been set to
-  `True`.
+  change set was created. After the call successfully completes, CloudFormation
+  starts updating the stack. Use the `DescribeStacks` action to view the status
+  of the update. When you execute a change set, CloudFormation deletes all other
+  change sets associated with the stack because they aren't valid for the
+  updated stack.
   """
   @spec execute_change_set(AWS.Client.t(), execute_change_set_input(), Keyword.t()) ::
           {:ok, execute_change_set_output(), any()}
@@ -4797,13 +4533,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Retrieves a generated template.
-
-  If the template is in an `InProgress` or `Pending` status
-  then the template returned will be the template when the template was last in a
-  `Complete` status. If the
-  template has not yet been in a `Complete` status then an empty template will be
-  returned.
+  Retrieves a generated template. If the template is in an `InProgress` or
+  `Pending` status then the template returned will be the template when the
+  template was last in a `Complete` status. If the template has not yet been in
+  a `Complete` status then an empty template will be returned.
   """
   @spec get_generated_template(AWS.Client.t(), get_generated_template_input(), Keyword.t()) ::
           {:ok, get_generated_template_output(), any()}
@@ -4817,10 +4550,8 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the stack policy for a specified stack.
-
-  If a stack doesn't have a policy, a null value is
-  returned.
+  Returns the stack policy for a specified stack. If a stack doesn't have a
+  policy, a null value is returned.
   """
   @spec get_stack_policy(AWS.Client.t(), get_stack_policy_input(), Keyword.t()) ::
           {:ok, get_stack_policy_output(), any()}
@@ -4833,15 +4564,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the template body for a specified stack.
-
-  You can get the template for running or deleted stacks.
-
-  For deleted stacks, `GetTemplate` returns the template for up to 90 days after
-  the stack has been
-  deleted.
-
-  If the template doesn't exist, a `ValidationError` is returned.
+  Returns the template body for a specified stack. You can get the template for
+  running or deleted stacks. For deleted stacks, `GetTemplate` returns the
+  template for up to 90 days after the stack has been deleted.
   """
   @spec get_template(AWS.Client.t(), get_template_input(), Keyword.t()) ::
           {:ok, get_template_output(), any()}
@@ -4855,21 +4580,11 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns information about a new or existing template.
-
-  The `GetTemplateSummary` action is useful for
-  viewing parameter information, such as default parameter values and parameter
-  types, before you create or update a
-  stack or stack set.
-
+  Returns information about a new or existing template. The `GetTemplateSummary`
+  action is useful for viewing parameter information, such as default parameter
+  values and parameter types, before you create or update a stack or stack set.
   You can use the `GetTemplateSummary` action when you submit a template, or you
-  can get template
-  information for a stack set, or a running or deleted stack.
-
-  For deleted stacks, `GetTemplateSummary` returns the template information for up
-  to 90 days after the
-  stack has been deleted. If the template doesn't exist, a `ValidationError` is
-  returned.
+  can get template information for a stack set, or a running or deleted stack.
   """
   @spec get_template_summary(AWS.Client.t(), get_template_summary_input(), Keyword.t()) ::
           {:ok, get_template_summary_output(), any()}
@@ -4883,12 +4598,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Import existing stacks into a new stack sets.
-
-  Use the stack import operation to import up to 10 stacks into a
-  new stack set in the same account as the source stack or in a different
-  administrator account and Region, by
-  specifying the stack ID of the stack you intend to import.
+  Import existing stacks into a new stack sets. Use the stack import operation to
+  import up to 10 stacks into a new stack set in the same account as the source
+  stack or in a different administrator account and Region, by specifying the
+  stack ID of the stack you intend to import.
   """
   @spec import_stacks_to_stack_set(
           AWS.Client.t(),
@@ -4906,10 +4619,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Returns the ID and status of each active change set for a stack.
-
-  For example, CloudFormation lists change sets that are
-  in the `CREATE_IN_PROGRESS` or `CREATE_PENDING` state.
+  Returns the ID and status of each active change set for a stack. For example,
+  CloudFormation lists change sets that are in the `CREATE_IN_PROGRESS` or
+  `CREATE_PENDING` state.
   """
   @spec list_change_sets(AWS.Client.t(), list_change_sets_input(), Keyword.t()) ::
           {:ok, list_change_sets_output(), any()}
@@ -4923,15 +4635,11 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Lists all exported output values in the account and Region in which you call
-  this action.
-
-  Use this action to see
-  the exported output values that you can import into other stacks. To import
-  values, use the [
+  this action. Use this action to see the exported output values that you can
+  import into other stacks. To import values, use the [
   Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
-  function.
-
-  For more information, see [ CloudFormation export stack output values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
+  function. For more information, see [ CloudFormation export stack output
+  values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
   """
   @spec list_exports(AWS.Client.t(), list_exports_input(), Keyword.t()) ::
           {:ok, list_exports_output(), any()}
@@ -4957,15 +4665,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Lists all stacks that are importing an exported output value.
-
-  To modify or remove an exported output value,
-  first use this action to see which stacks are using it. To see the exported
-  output values in your account, see `ListExports`.
-
-  For more information about importing an exported output value, see the
-  [Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
-  function.
+  Lists all stacks that are importing an exported output value. To modify or
+  remove an exported output value, first use this action to see which stacks are
+  using it. To see the exported output values in your account, see
+  `ListExports`.
   """
   @spec list_imports(AWS.Client.t(), list_imports_input(), Keyword.t()) ::
           {:ok, list_imports_output(), any()}
@@ -4978,10 +4681,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Lists the related resources for a list of resources from a resource scan.
-
-  The response indicates whether each
-  returned resource is already managed by CloudFormation.
+  Lists the related resources for a list of resources from a resource scan. The
+  response indicates whether each returned resource is already managed by
+  CloudFormation.
   """
   @spec list_resource_scan_related_resources(
           AWS.Client.t(),
@@ -4999,12 +4701,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Lists the resources from a resource scan.
-
-  The results can be filtered by resource identifier, resource type
-  prefix, tag key, and tag value. Only resources that match all specified filters
-  are returned. The response indicates
-  whether each returned resource is already managed by CloudFormation.
+  Lists the resources from a resource scan. The results can be filtered by
+  resource identifier, resource type prefix, tag key, and tag value. Only
+  resources that match all specified filters are returned. The response
+  indicates whether each returned resource is already managed by CloudFormation.
   """
   @spec list_resource_scan_resources(
           AWS.Client.t(),
@@ -5022,9 +4722,8 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  List the resource scans from newest to oldest.
-
-  By default it will return up to 10 resource scans.
+  List the resource scans from newest to oldest. By default it will return up to
+  10 resource scans.
   """
   @spec list_resource_scans(AWS.Client.t(), list_resource_scans_input(), Keyword.t()) ::
           {:ok, list_resource_scans_output(), any()}
@@ -5038,10 +4737,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns drift information for resources in a stack instance.
-
-  `ListStackInstanceResourceDrifts` returns drift information for the most recent
-  drift detection
-  operation. If an operation is in progress, it may only return partial results.
   """
   @spec list_stack_instance_resource_drifts(
           AWS.Client.t(),
@@ -5060,12 +4755,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about stack instances that are associated with the
-  specified stack set.
-
-  You can
-  filter for stack instances that are associated with a specific Amazon Web
-  Services account name or Region, or that
-  have a specific status.
+  specified stack set. You can filter for stack instances that are associated
+  with a specific Amazon Web Services account name or Region, or that have a
+  specific status.
   """
   @spec list_stack_instances(AWS.Client.t(), list_stack_instances_input(), Keyword.t()) ::
           {:ok, list_stack_instances_output(), any()}
@@ -5080,10 +4772,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns descriptions of all resources of the specified stack.
-
-  For deleted stacks, ListStackResources returns resource information for up to 90
-  days after the stack has been
-  deleted.
   """
   @spec list_stack_resources(AWS.Client.t(), list_stack_resources_input(), Keyword.t()) ::
           {:ok, list_stack_resources_output(), any()}
@@ -5147,25 +4835,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about stack sets that are associated with the user.
-
-    *
-  [Self-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in
-  to your Amazon Web Services account, `ListStackSets` returns all self-managed
-  stack sets in your Amazon Web Services account.
-
-    *
-  [Service-managed permissions] If you set the `CallAs` parameter to `SELF` while
-  signed
-  in to the organization's management account, `ListStackSets` returns all stack
-  sets in the
-  management account.
-
-    *
-  [Service-managed permissions] If you set the `CallAs` parameter to
-  `DELEGATED_ADMIN`
-  while signed in to your member account, `ListStackSets` returns all stack sets
-  with service-managed
-  permissions in the management account.
   """
   @spec list_stack_sets(AWS.Client.t(), list_stack_sets_input(), Keyword.t()) ::
           {:ok, list_stack_sets_output(), any()}
@@ -5179,14 +4848,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the summary information for stacks whose status matches the specified
-  StackStatusFilter.
-
-  Summary
-  information for stacks that have been deleted is kept for 90 days after the
-  stack is deleted. If no StackStatusFilter
-  is specified, summary information for all stacks is returned (including existing
-  stacks and stacks that have been
-  deleted).
+  StackStatusFilter. Summary information for stacks that have been deleted is
+  kept for 90 days after the stack is deleted. If no StackStatusFilter is
+  specified, summary information for all stacks is returned (including existing
+  stacks and stacks that have been deleted).
   """
   @spec list_stacks(AWS.Client.t(), list_stacks_input(), Keyword.t()) ::
           {:ok, list_stacks_output(), any()}
@@ -5243,17 +4908,12 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Publishes the specified extension to the CloudFormation registry as a public
-  extension in this Region.
-
-  Public
-  extensions are available for use by all CloudFormation users. For more
-  information about publishing extensions, see
+  extension in this Region. Public extensions are available for use by all
+  CloudFormation users. For more information about publishing extensions, see
   [Publishing extensions to make them available for public
   use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html)
-  in the *CloudFormation CLI User Guide*.
-
-  To publish an extension, you must be registered as a publisher with
-  CloudFormation. For more information, see
+  in the *CloudFormation CLI User Guide*. To publish an extension, you must be
+  registered as a publisher with CloudFormation. For more information, see
   [RegisterPublisher](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html).
   """
   @spec publish_type(AWS.Client.t(), publish_type_input(), Keyword.t()) ::
@@ -5269,10 +4929,6 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Reports progress of a resource handler to CloudFormation.
-
-  Reserved for use by the [CloudFormation CLI](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html).
-  Don't use this API
-  in your code.
   """
   @spec record_handler_progress(AWS.Client.t(), record_handler_progress_input(), Keyword.t()) ::
           {:ok, record_handler_progress_output(), any()}
@@ -5287,16 +4943,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Registers your account as a publisher of public extensions in the CloudFormation
-  registry.
-
-  Public extensions are
-  available for use by all CloudFormation users. This publisher ID applies to your
-  account in all Amazon Web Services Regions.
-
-  For information about requirements for registering as a public extension
-  publisher, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs)
-  in the *CloudFormation CLI User
-  Guide*.
+  registry. Public extensions are available for use by all CloudFormation users.
+  This publisher ID applies to your account in all Amazon Web Services Regions.
   """
   @spec register_publisher(AWS.Client.t(), register_publisher_input(), Keyword.t()) ::
           {:ok, register_publisher_output(), any()}
@@ -5310,39 +4958,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Registers an extension with the CloudFormation service.
-
-  Registering an extension makes it available for use in
-  CloudFormation templates in your Amazon Web Services account, and includes:
-
-    *
-  Validating the extension schema.
-
-    *
-  Determining which handlers, if any, have been specified for the extension.
-
-    *
-  Making the extension available for use in your account.
-
-  For more information about how to develop extensions and ready them for
-  registration, see [Creating Resource Providers](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html)
-  in the *CloudFormation CLI User Guide*.
-
-  You can have a maximum of 50 resource extension versions registered at a time.
-  This maximum is per account and
-  per Region. Use
-  [DeregisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
-
-  Once you have initiated a registration request using `RegisterType`, you can use
-  `DescribeTypeRegistration` to monitor the progress of the registration request.
-
-  Once you have registered a private extension in your account and Region, use
-  [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html)
-  to specify
-  configuration properties for the extension. For more information, see
-  [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
-  in the *CloudFormation User Guide*.
+  Registers an extension with the CloudFormation service. Registering an extension
+  makes it available for use in CloudFormation templates in your Amazon Web
+  Services account, and includes:
   """
   @spec register_type(AWS.Client.t(), register_type_input(), Keyword.t()) ::
           {:ok, register_type_output(), any()}
@@ -5357,39 +4975,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   When specifying `RollbackStack`, you preserve the state of previously
-  provisioned resources when an
-  operation fails.
-
-  You can check the status of the stack through the `DescribeStacks` operation.
-
-  Rolls back the specified stack to the last known stable state from
-  `CREATE_FAILED` or
-  `UPDATE_FAILED` stack statuses.
-
-  This operation will delete a stack if it doesn't contain a last known stable
-  state. A last known stable state
-  includes any status in a `*_COMPLETE`. This includes the following stack
+  provisioned resources when an operation fails. You can check the status of the
+  stack through the `DescribeStacks` operation. Rolls back the specified stack
+  to the last known stable state from `CREATE_FAILED` or `UPDATE_FAILED` stack
   statuses.
-
-    *
-
-  `CREATE_COMPLETE`
-
-    *
-
-  `UPDATE_COMPLETE`
-
-    *
-
-  `UPDATE_ROLLBACK_COMPLETE`
-
-    *
-
-  `IMPORT_COMPLETE`
-
-    *
-
-  `IMPORT_ROLLBACK_COMPLETE`
   """
   @spec rollback_stack(AWS.Client.t(), rollback_stack_input(), Keyword.t()) ::
           {:ok, rollback_stack_output(), any()}
@@ -5418,19 +5007,6 @@ defmodule AWS.CloudFormation do
   @doc """
   Specifies the configuration data for a registered CloudFormation extension, in
   the given account and Region.
-
-  To view the current configuration data for an extension, refer to the
-  `ConfigurationSchema` element
-  of
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at
-  the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
-  in the *CloudFormation User Guide*.
-
-  It's strongly recommended that you use dynamic references to restrict sensitive
-  configuration definitions, such
-  as third-party credentials. For more details on dynamic references, see [Using dynamic references to specify template values](https://docs.aws.amazon.com/) in
-  the *CloudFormation User Guide*.
   """
   @spec set_type_configuration(AWS.Client.t(), set_type_configuration_input(), Keyword.t()) ::
           {:ok, set_type_configuration_output(), any()}
@@ -5444,9 +5020,8 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Specify the default version of an extension.
-
-  The default version of an extension will be used in CloudFormation operations.
+  Specify the default version of an extension. The default version of an extension
+  will be used in CloudFormation operations.
   """
   @spec set_type_default_version(AWS.Client.t(), set_type_default_version_input(), Keyword.t()) ::
           {:ok, set_type_default_version_output(), any()}
@@ -5460,16 +5035,12 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Sends a signal to the specified resource with a success or failure status.
-
-  You can use the
-  `SignalResource` operation in conjunction with a creation policy or update
-  policy. CloudFormation doesn't
-  proceed with a stack creation or update until resources receive the required
-  number of signals or the timeout period
-  is exceeded. The `SignalResource` operation is useful in cases where you want to
-  send signals from
-  anywhere other than an Amazon EC2 instance.
+  Sends a signal to the specified resource with a success or failure status. You
+  can use the `SignalResource` operation in conjunction with a creation policy
+  or update policy. CloudFormation doesn't proceed with a stack creation or
+  update until resources receive the required number of signals or the timeout
+  period is exceeded. The `SignalResource` operation is useful in cases where
+  you want to send signals from anywhere other than an Amazon EC2 instance.
   """
   @spec signal_resource(AWS.Client.t(), signal_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5482,10 +5053,8 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Starts a scan of the resources in this account in this Region.
-
-  You can the status of a scan using the
-  `ListResourceScans` API action.
+  Starts a scan of the resources in this account in this Region. You can the
+  status of a scan using the `ListResourceScans` API action.
   """
   @spec start_resource_scan(AWS.Client.t(), start_resource_scan_input(), Keyword.t()) ::
           {:ok, start_resource_scan_output(), any()}
@@ -5500,11 +5069,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Stops an in-progress operation on a stack set and its associated stack
-  instances.
-
-  StackSets will cancel all the
-  unstarted stack instance deployments and wait for those are in-progress to
-  complete.
+  instances. StackSets will cancel all the unstarted stack instance deployments
+  and wait for those are in-progress to complete.
   """
   @spec stop_stack_set_operation(AWS.Client.t(), stop_stack_set_operation_input(), Keyword.t()) ::
           {:ok, stop_stack_set_operation_output(), any()}
@@ -5520,39 +5086,6 @@ defmodule AWS.CloudFormation do
   @doc """
   Tests a registered extension to make sure it meets all necessary requirements
   for being published in the CloudFormation registry.
-
-    *
-  For resource types, this includes passing all contracts tests defined for the
-  type.
-
-    *
-  For modules, this includes determining if the module's model meets all necessary
-  requirements.
-
-  For more information, see [Testing your public extension prior to
-  publishing](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing)
-  in the *CloudFormation CLI User Guide*.
-
-  If you don't specify a version, CloudFormation uses the default version of the
-  extension in your account and Region
-  for testing.
-
-  To perform testing, CloudFormation assumes the execution role specified when the
-  type was registered. For more
-  information, see
-  [RegisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html).   Once you've initiated testing on an extension using `TestType`, you can pass the
-  returned
-  `TypeVersionArn` into
-  [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html)
-  to monitor the current test
-  status and test status description for the extension.
-
-  An extension must have a test status of `PASSED` before it can be published. For
-  more information,
-  see [Publishing extensions to make them available for public
-  use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html)
-  in the *CloudFormation CLI User
-  Guide*.
   """
   @spec test_type(AWS.Client.t(), test_type_input(), Keyword.t()) ::
           {:ok, test_type_output(), any()}
@@ -5566,14 +5099,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Updates a generated template.
-
-  This can be used to change the name, add and remove resources, refresh
-  resources,
-  and change the `DeletionPolicy` and `UpdateReplacePolicy` settings. You can
-  check the status of
-  the update to the generated template using the `DescribeGeneratedTemplate` API
-  action.
+  Updates a generated template. This can be used to change the name, add and
+  remove resources, refresh resources, and change the `DeletionPolicy` and
+  `UpdateReplacePolicy` settings. You can check the status of the update to the
+  generated template using the `DescribeGeneratedTemplate` API action.
   """
   @spec update_generated_template(AWS.Client.t(), update_generated_template_input(), Keyword.t()) ::
           {:ok, update_generated_template_output(), any()}
@@ -5587,18 +5116,10 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Updates a stack as specified in the template.
-
-  After the call completes successfully, the stack update starts.
-  You can check the status of the stack through the `DescribeStacks` action.
-
-  To get a copy of the template for an existing stack, you can use the
-  `GetTemplate`
-  action.
-
-  For more information about creating an update template, updating a stack, and
-  monitoring the progress of the
-  update, see [Updating a Stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
+  Updates a stack as specified in the template. After the call completes
+  successfully, the stack update starts. You can check the status of the stack
+  through the `DescribeStacks` action. To get a copy of the template for an
+  existing stack, you can use the `GetTemplate` action.
   """
   @spec update_stack(AWS.Client.t(), update_stack_input(), Keyword.t()) ::
           {:ok, update_stack_output(), any()}
@@ -5613,31 +5134,13 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Updates the parameter values for stack instances for the specified accounts,
-  within the specified Amazon Web Services Regions.
-
-  A stack instance refers to a stack in a specific account and Region.
-
-  You can only update stack instances in Amazon Web Services Regions and accounts
-  where they already exist; to
-  create additional stack instances, use
-  [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).   During stack set updates, any parameters overridden for a stack instance aren't
-  updated, but retain their
-  overridden value.
-
-  You can only update the parameter *values* that are specified in the stack set;
-  to add or
-  delete a parameter itself, use
-  [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update the stack set
-  template. If you add a parameter to a template, before you can override the
-  parameter value specified in the stack
-  set you must first use
-  [UpdateStackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html)
-  to update all stack
-  instances with the updated template and parameter value specified in the stack
-  set. Once a stack instance has been
-  updated with the new parameter, you can then override the parameter value using
-  `UpdateStackInstances`.
+  within the specified Amazon Web Services Regions. A stack instance refers to a
+  stack in a specific account and Region. You can only update stack instances in
+  Amazon Web Services Regions and accounts where they already exist; to create
+  additional stack instances, use
+  [CreateStackInstances](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html).
+  During stack set updates, any parameters overridden for a stack instance
+  aren't updated, but retain their overridden value.
   """
   @spec update_stack_instances(AWS.Client.t(), update_stack_instances_input(), Keyword.t()) ::
           {:ok, update_stack_instances_output(), any()}
@@ -5653,12 +5156,6 @@ defmodule AWS.CloudFormation do
   @doc """
   Updates the stack set, and associated stack instances in the specified accounts
   and Amazon Web Services Regions.
-
-  Even if the stack set operation created by updating the stack set fails
-  (completely or partially, below or above
-  a specified failure tolerance), the stack set is updated with your changes.
-  Subsequent `CreateStackInstances` calls on the specified stack set use the
-  updated stack set.
   """
   @spec update_stack_set(AWS.Client.t(), update_stack_set_input(), Keyword.t()) ::
           {:ok, update_stack_set_output(), any()}
@@ -5672,18 +5169,15 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Updates termination protection for the specified stack.
-
-  If a user attempts to delete a stack with termination
-  protection enabled, the operation fails and the stack remains unchanged. For
-  more information, see [Protecting a Stack From Being
+  Updates termination protection for the specified stack. If a user attempts to
+  delete a stack with termination protection enabled, the operation fails and
+  the stack remains unchanged. For more information, see [Protecting a Stack
+  From Being
   Deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html)
-  in the *CloudFormation User Guide*.
-
-  For [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html),
-  termination protection is set on the root stack and can't be changed directly on
-  the nested
-  stack.
+  in the *CloudFormation User Guide*. For [nested
+  stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html),
+  termination protection is set on the root stack and can't be changed directly
+  on the nested stack.
   """
   @spec update_termination_protection(
           AWS.Client.t(),
@@ -5700,13 +5194,9 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Validates a specified template.
-
-  CloudFormation first checks if the template is valid JSON. If it isn't,
-  CloudFormation
-  checks if the template is valid YAML. If both these checks fail, CloudFormation
-  returns a template validation
-  error.
+  Validates a specified template. CloudFormation first checks if the template is
+  valid JSON. If it isn't, CloudFormation checks if the template is valid YAML.
+  If both these checks fail, CloudFormation returns a template validation error.
   """
   @spec validate_template(AWS.Client.t(), validate_template_input(), Keyword.t()) ::
           {:ok, validate_template_output(), any()}

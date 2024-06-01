@@ -4,13 +4,8 @@
 defmodule AWS.SageMakerMetrics do
   @moduledoc """
   Contains all data plane API operations and data types for Amazon SageMaker
-  Metrics.
-
-  Use these APIs to put and retrieve (get) features related to your training run.
-
-    *
-
-  [BatchPutMetrics](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_metrics_BatchPutMetrics.html)
+  Metrics. Use these APIs to put and retrieve (get) features related to your
+  training run.
   """
 
   alias AWS.Client
@@ -82,12 +77,12 @@ defmodule AWS.SageMakerMetrics do
   end
 
   @doc """
-  Used to ingest training metrics into SageMaker.
+  Used to ingest training metrics into SageMaker. These metrics can be visualized
+  in SageMaker Studio and retrieved with the `GetMetrics` API.
 
-  These metrics can be visualized in SageMaker Studio and
-  retrieved with the `GetMetrics` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakermetrics%20BatchPutMetrics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

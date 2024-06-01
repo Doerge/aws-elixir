@@ -4,40 +4,12 @@
 defmodule AWS.DataExchange do
   @moduledoc """
   AWS Data Exchange is a service that makes it easy for AWS customers to exchange
-  data in the cloud.
-
-  You can use the AWS Data Exchange APIs to create, update, manage, and access
-  file-based data set in the AWS Cloud.
-
-  As a subscriber, you can view and access the data sets that you have an
-  entitlement to through
-  a subscription. You can use the APIs to download or copy your entitled data sets
-  to Amazon
-  Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
-  machine
-  learning services.
-
-  As a provider, you can create and manage your data sets that you would like to
-  publish to a
-  product. Being able to package and provide your data sets into products requires
-  a few
-  steps to determine eligibility. For more information, visit the *AWS Data
-  Exchange
-  User Guide*.
-
-  A data set is a collection of data that can be changed or updated over time.
-  Data sets can be
-  updated using revisions, which represent a new version or incremental change to
-  a data set.
-  A revision contains one or more assets. An asset in AWS Data Exchange is a piece
-  of data
-  that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API,
-  AWS Lake
-  Formation data permission, or Amazon S3 data access. The asset can be a
-  structured data
-  file, an image file, or some other data file. Jobs are asynchronous import or
-  export
-  operations used to create or copy assets.
+  data in the cloud. You can use the AWS Data Exchange APIs to create, update,
+  manage, and access file-based data set in the AWS Cloud. As a subscriber, you
+  can view and access the data sets that you have an entitlement to through a
+  subscription. You can use the APIs to download or copy your entitled data sets
+  to Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS
+  analytics and machine learning services.
   """
 
   alias AWS.Client
@@ -1921,11 +1893,12 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation cancels a job.
+  This operation cancels a job. Jobs can be cancelled only when they are in the
+  WAITING state.
 
-  Jobs can be cancelled only when they are in the WAITING state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CancelJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
@@ -1958,7 +1931,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation creates a data set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1990,7 +1965,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation creates an event action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2022,7 +1999,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation creates a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2054,7 +2033,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation creates a revision for a data set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
@@ -2087,7 +2068,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes an asset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:asset_id` (`t:string`) The unique identifier for an asset.
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
@@ -2131,7 +2114,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes a data set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
@@ -2164,7 +2149,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes the event action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
@@ -2202,7 +2189,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes a revision.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20DeleteRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
 
@@ -2244,7 +2233,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about an asset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:asset_id` (`t:string`) The unique identifier for an asset.
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
@@ -2275,7 +2266,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a data set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
@@ -2303,7 +2296,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation retrieves information about an event action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
@@ -2331,7 +2326,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
@@ -2359,7 +2356,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a revision.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20GetRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
 
@@ -2390,12 +2389,16 @@ defmodule AWS.DataExchange do
   This operation lists a data set's revisions sorted by CreatedAt in descending
   order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSetRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_data_set_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_revisions_response(), any()}
@@ -2436,18 +2439,21 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation lists your data sets.
+  This operation lists your data sets. When listing by origin OWNED, results are
+  sorted by CreatedAt in descending order. When listing by origin ENTITLED,
+  there is no order and the maxResults parameter is ignored.
 
-  When listing by origin OWNED, results are sorted by CreatedAt in descending
-  order. When listing by origin ENTITLED, there is no order and the maxResults
-  parameter is ignored.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
-  * `:origin` (`t:string`) A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
+  * `:origin` (`t:string`) A property that defines the data set as OWNED by the
+    account (for providers) or ENTITLED to the account (for subscribers).
   """
   @spec list_data_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2499,12 +2505,16 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists your event actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListEventActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:event_source_id` (`t:string`) The unique identifier for the event source.
-  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_event_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_actions_response(), any()}
@@ -2556,12 +2566,16 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists your jobs sorted by CreatedAt in descending order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
-  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
@@ -2624,13 +2638,17 @@ defmodule AWS.DataExchange do
   This operation lists a revision's assets sorted alphabetically in descending
   order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListRevisionAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results returned by a single call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results returned by a
+    single call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_revision_assets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_revision_assets_response(), any()}
@@ -2674,8 +2692,11 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists the tags on the resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
 
   ## Optional parameters:
   """
@@ -2701,7 +2722,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation revokes subscribers' access to a revision.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20RevokeRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
 
@@ -2741,18 +2764,22 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
-  This operation invokes an API Gateway API asset.
+  This operation invokes an API Gateway API asset. The request is proxied to the
+  provider’s API Gateway API.
 
-  The request is proxied to the provider’s API Gateway API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendApiAsset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:query_string_parameters` (`t:map`) Attach query string parameters to the end of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
+  * `:query_string_parameters` (`t:map`) Attach query string parameters to the end
+    of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
   * `:asset_id` (`t:string`) Asset ID value for the API request.
   * `:data_set_id` (`t:string`) Data set ID value for the API request.
-  * `:method` (`t:string`) HTTP method value for the API request. Alternatively, you can use the appropriate verb in your request.
-  * `:path` (`t:string`) URI path value for the API request. Alternatively, you can set the URI path directly by invoking /v1/{pathValue}.
+  * `:method` (`t:string`) HTTP method value for the API request. Alternatively,
+    you can use the appropriate verb in your request.
+  * `:path` (`t:string`) URI path value for the API request. Alternatively, you
+    can set the URI path directly by invoking /v1/{pathValue}.
   * `:revision_id` (`t:string`) Revision ID value for the API request.
   """
   @spec send_api_asset(AWS.Client.t(), send_api_asset_request(), Keyword.t()) ::
@@ -2811,9 +2838,10 @@ defmodule AWS.DataExchange do
   @doc """
   The type of event associated with the data set.
 
-  ## Required positional parameters:
-  * `:data_set_id` (`t:string`) Affected
-         data set of the notification.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20SendDataSetNotification&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_set_id` (`t:string`) Affected data set of the notification.
 
   ## Optional parameters:
   """
@@ -2850,7 +2878,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation starts a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20StartJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The unique identifier for a job.
 
   ## Optional parameters:
@@ -2883,8 +2913,11 @@ defmodule AWS.DataExchange do
   @doc """
   This operation tags a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
 
   ## Optional parameters:
   """
@@ -2915,8 +2948,11 @@ defmodule AWS.DataExchange do
   @doc """
   This operation removes one or more tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) An Amazon Resource Name (ARN) that uniquely
+    identifies an AWS resource.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]`) The key tags.
@@ -2953,7 +2989,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates an asset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:asset_id` (`t:string`) The unique identifier for an asset.
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
@@ -2997,7 +3035,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates a data set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateDataSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
 
   ## Optional parameters:
@@ -3030,7 +3070,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates the event action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateEventAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:event_action_id` (`t:string`) The unique identifier for the event action.
 
   ## Optional parameters:
@@ -3068,7 +3110,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates a revision.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20UpdateRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
 

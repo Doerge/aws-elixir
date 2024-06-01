@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManagerUserSubscriptions do
   @moduledoc """
   With License Manager, you can create user-based subscriptions to utilize
-  licensed software with
-  a per user subscription fee on Amazon EC2 instances.
+  licensed software with a per user subscription fee on Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -592,15 +591,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Associates the user to an EC2 instance to utilize user-based subscriptions.
 
-  Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
-  in the *Amazon Web Services Billing User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20AssociateUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -632,7 +625,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Deregisters the identity provider from providing user-based subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DeregisterIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -668,7 +663,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Disassociates the user from an EC2 instance providing user-based subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DisassociateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -700,7 +697,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Lists the identity providers for user-based subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListIdentityProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -732,7 +731,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Lists the EC2 instances providing user-based subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -764,7 +765,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Lists the user-based subscription products available from an identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListProductSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -800,7 +803,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Lists user associations for an identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListUserAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -832,7 +837,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Registers an identity provider for user-based subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20RegisterIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -868,15 +875,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Starts a product subscription for a user with the specified identity provider.
 
-  Your estimated bill for charges on the number of users and related costs will
-  take 48
-  hours to appear for billing periods that haven't closed (marked as ## Pending
-  billing status) in Amazon Web Services Billing. For more information, see
-  [Viewing your monthly
-  charges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html)
-  in the *Amazon Web Services Billing User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StartProductSubscription&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -912,7 +913,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @doc """
   Stops a product subscription for a user with the specified identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StopProductSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -949,7 +952,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   Updates additional product configuration settings for the registered identity
   provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20UpdateIdentityProviderSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

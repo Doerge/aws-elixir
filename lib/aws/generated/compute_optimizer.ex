@@ -5,23 +5,18 @@ defmodule AWS.ComputeOptimizer do
   @moduledoc """
   Compute Optimizer is a service that analyzes the configuration and utilization
   metrics of your Amazon Web Services compute resources, such as Amazon EC2
-  instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes,
-  and Amazon ECS services on Fargate.
-
-  It reports whether your resources are optimal, and generates
-  optimization recommendations to reduce the cost and improve the performance of
-  your
-  workloads. Compute Optimizer also provides recent utilization metric data, in
-  addition
-  to projected utilization metric data for the recommendations, which you can use
-  to
-  evaluate which recommendation provides the best price-performance trade-off. The
-  analysis of your usage patterns can help you decide when to move or resize your
-  running
+  instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS
+  volumes, and Amazon ECS services on Fargate. It reports whether your resources
+  are optimal, and generates optimization recommendations to reduce the cost and
+  improve the performance of your workloads. Compute Optimizer also provides
+  recent utilization metric data, in addition to projected utilization metric
+  data for the recommendations, which you can use to evaluate which
+  recommendation provides the best price-performance trade-off. The analysis of
+  your usage patterns can help you decide when to move or resize your running
   resources, and still meet your performance and capacity requirements. For more
   information about Compute Optimizer, including the required permissions to use
-  the
-  service, see the [Compute Optimizer User Guide](https://docs.aws.amazon.com/compute-optimizer/latest/ug/).
+  the service, see the [Compute Optimizer User
+  Guide](https://docs.aws.amazon.com/compute-optimizer/latest/ug/).
   """
 
   alias AWS.Client
@@ -2101,11 +2096,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Deletes a recommendation preference, such as enhanced infrastructure metrics.
-
-  For more information, see [Activating enhanced infrastructure
-  metrics](https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec delete_recommendation_preferences(
           AWS.Client.t(),
@@ -2124,11 +2114,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Describes recommendation export jobs created in the last seven days.
-
-  Use the `ExportAutoScalingGroupRecommendations` or
-  `ExportEC2InstanceRecommendations` actions to request an export of your
-  recommendations. Then use the `DescribeRecommendationExportJobs` action
-  to view your export jobs.
   """
   @spec describe_recommendation_export_jobs(
           AWS.Client.t(),
@@ -2146,18 +2131,13 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Exports optimization recommendations for Auto Scaling groups.
-
-  Recommendations are exported in a comma-separated values (.csv) file, and its
-  metadata
-  in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon
-  Simple Storage Service (Amazon S3) bucket that you specify. For more
-  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can have only one Auto Scaling group export job in progress per Amazon Web
-  Services Region.
+  Exports optimization recommendations for Auto Scaling groups. Recommendations
+  are exported in a comma-separated values (.csv) file, and its metadata in a
+  JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_auto_scaling_group_recommendations(
           AWS.Client.t(),
@@ -2175,17 +2155,12 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-
   Exports optimization recommendations for Amazon ECS services on Fargate.
-
-  Recommendations are exported in a CSV file, and its metadata
-  in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket
-  that you specify. For more information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can only have one Amazon ECS service export job in progress per Amazon Web
-  Services Region.
+  Recommendations are exported in a CSV file, and its metadata in a JSON file,
+  to an existing Amazon Simple Storage Service (Amazon S3) bucket that you
+  specify. For more information, see [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_e_c_s_service_recommendations(
           AWS.Client.t(),
@@ -2203,18 +2178,13 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Exports optimization recommendations for Amazon EBS volumes.
-
-  Recommendations are exported in a comma-separated values (.csv) file, and its
-  metadata
-  in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon
-  Simple Storage Service (Amazon S3) bucket that you specify. For more
-  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can have only one Amazon EBS volume export job in progress per Amazon Web
-  Services Region.
+  Exports optimization recommendations for Amazon EBS volumes. Recommendations are
+  exported in a comma-separated values (.csv) file, and its metadata in a
+  JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_ebs_volume_recommendations(
           AWS.Client.t(),
@@ -2232,18 +2202,13 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Exports optimization recommendations for Amazon EC2 instances.
-
-  Recommendations are exported in a comma-separated values (.csv) file, and its
-  metadata
-  in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon
-  Simple Storage Service (Amazon S3) bucket that you specify. For more
-  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can have only one Amazon EC2 instance export job in progress per Amazon Web
-  Services Region.
+  Exports optimization recommendations for Amazon EC2 instances. Recommendations
+  are exported in a comma-separated values (.csv) file, and its metadata in a
+  JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_ec2_instance_recommendations(
           AWS.Client.t(),
@@ -2261,18 +2226,13 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Exports optimization recommendations for Lambda functions.
-
-  Recommendations are exported in a comma-separated values (.csv) file, and its
-  metadata
-  in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon
-  Simple Storage Service (Amazon S3) bucket that you specify. For more
-  information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can have only one Lambda function export job in progress per Amazon Web
-  Services Region.
+  Exports optimization recommendations for Lambda functions. Recommendations are
+  exported in a comma-separated values (.csv) file, and its metadata in a
+  JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_lambda_function_recommendations(
           AWS.Client.t(),
@@ -2290,19 +2250,13 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-
-  Export optimization recommendations for your licenses.
-
-  Recommendations are exported in a comma-separated values (CSV) file, and its
-  metadata
-  in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple
-  Storage Service (Amazon S3) bucket that you specify. For more information, see
-  [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
-  in the *Compute Optimizer User
-  Guide*.
-
-  You can have only one license export job in progress per Amazon Web Services
-  Region.
+  Export optimization recommendations for your licenses. Recommendations are
+  exported in a comma-separated values (CSV) file, and its metadata in a
+  JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage
+  Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting
+  Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User Guide*.
   """
   @spec export_license_recommendations(
           AWS.Client.t(),
@@ -2321,13 +2275,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Auto Scaling group recommendations.
-
-  Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups
-  that
-  meet a specific set of requirements. For more information, see the [Supported resources and
-  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_auto_scaling_group_recommendations(
           AWS.Client.t(),
@@ -2345,7 +2292,6 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-
   Returns the projected metrics of Amazon ECS service recommendations.
   """
   @spec get_e_c_s_service_recommendation_projected_metrics(
@@ -2370,14 +2316,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-
   Returns Amazon ECS service recommendations.
-
-  Compute Optimizer generates recommendations for Amazon ECS services on
-  Fargate that meet a specific set of requirements. For more
-  information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_e_c_s_service_recommendations(
           AWS.Client.t(),
@@ -2396,12 +2335,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
-
-  Compute Optimizer generates recommendations for Amazon EBS volumes that
-  meet a specific set of requirements. For more information, see the [Supported resources and
-  requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_ebs_volume_recommendations(
           AWS.Client.t(),
@@ -2420,12 +2353,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Amazon EC2 instance recommendations.
-
-  Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud
-  (Amazon EC2) instances that meet a specific set of requirements. For more
-  information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_ec2_instance_recommendations(
           AWS.Client.t(),
@@ -2445,12 +2372,6 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the projected utilization metrics of Amazon EC2 instance
   recommendations.
-
-  The `Cpu` and `Memory` metrics are the only projected
-  utilization metrics returned when you run this action. Additionally, the
-  `Memory` metric is returned only for resources that have the unified
-  CloudWatch agent installed on them. For more information, see [Enabling Memory Utilization with the CloudWatch
-  Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent).
   """
   @spec get_ec2_recommendation_projected_metrics(
           AWS.Client.t(),
@@ -2469,15 +2390,8 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns the recommendation preferences that are in effect for a given resource,
-  such
-  as enhanced infrastructure metrics.
-
-  Considers all applicable preferences that you might
-  have set at the resource, account, and organization level.
-
-  When you create a recommendation preference, you can set its status to
-  `Active` or `Inactive`. Use this action to view the
-  recommendation preferences that are in effect, or `Active`.
+  such as enhanced infrastructure metrics. Considers all applicable preferences
+  that you might have set at the resource, account, and organization level.
   """
   @spec get_effective_recommendation_preferences(
           AWS.Client.t(),
@@ -2497,12 +2411,6 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the enrollment (opt in) status of an account to the Compute Optimizer
   service.
-
-  If the account is the management account of an organization, this action also
-  confirms
-  the enrollment status of member accounts of the organization. Use the
-  `GetEnrollmentStatusesForOrganization` action to get detailed information
-  about the enrollment status of member accounts of an organization.
   """
   @spec get_enrollment_status(AWS.Client.t(), get_enrollment_status_request(), Keyword.t()) ::
           {:ok, get_enrollment_status_response(), any()}
@@ -2518,9 +2426,6 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns the Compute Optimizer enrollment (opt-in) status of organization member
   accounts, if your account is an organization management account.
-
-  To get the enrollment status of standalone accounts, use the
-  `GetEnrollmentStatus` action.
   """
   @spec get_enrollment_statuses_for_organization(
           AWS.Client.t(),
@@ -2539,12 +2444,6 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns Lambda function recommendations.
-
-  Compute Optimizer generates recommendations for functions that meet a specific
-  set
-  of requirements. For more information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_lambda_function_recommendations(
           AWS.Client.t(),
@@ -2564,12 +2463,6 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Returns license recommendations for Amazon EC2 instances that run on a specific
   license.
-
-  Compute Optimizer generates recommendations for licenses that meet a specific
-  set of requirements. For more
-  information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec get_license_recommendations(
           AWS.Client.t(),
@@ -2588,17 +2481,9 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Returns existing recommendation preferences, such as enhanced infrastructure
-  metrics.
-
-  Use the `scope` parameter to specify which preferences to return. You can
-  specify to return preferences for an organization, a specific account ID, or a
-  specific
-  EC2 instance or Auto Scaling group Amazon Resource Name (ARN).
-
-  For more information, see [Activating enhanced infrastructure
-  metrics](https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html)
-  in the *Compute Optimizer User
-  Guide*.
+  metrics. Use the `scope` parameter to specify which preferences to return. You
+  can specify to return preferences for an organization, a specific account ID,
+  or a specific EC2 instance or Auto Scaling group Amazon Resource Name (ARN).
   """
   @spec get_recommendation_preferences(
           AWS.Client.t(),
@@ -2616,30 +2501,7 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
-  Returns the optimization findings for an account.
-
-  It returns the number of:
-
-    *
-  Amazon EC2 instances in an account that are
-  `Underprovisioned`, `Overprovisioned`, or
-  `Optimized`.
-
-    *
-  Auto Scaling groups in an account that are `NotOptimized`, or
-  `Optimized`.
-
-    *
-  Amazon EBS volumes in an account that are `NotOptimized`,
-  or `Optimized`.
-
-    *
-  Lambda functions in an account that are `NotOptimized`,
-  or `Optimized`.
-
-    *
-  Amazon ECS services in an account that are `Underprovisioned`,
-  `Overprovisioned`, or `Optimized`.
+  Returns the optimization findings for an account. It returns the number of:
   """
   @spec get_recommendation_summaries(
           AWS.Client.t(),
@@ -2659,11 +2521,6 @@ defmodule AWS.ComputeOptimizer do
   @doc """
   Creates a new recommendation preference or updates an existing recommendation
   preference, such as enhanced infrastructure metrics.
-
-  For more information, see [Activating enhanced infrastructure
-  metrics](https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html)
-  in the *Compute Optimizer User
-  Guide*.
   """
   @spec put_recommendation_preferences(
           AWS.Client.t(),
@@ -2682,23 +2539,8 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
   Updates the enrollment (opt in and opt out) status of an account to the Compute
-  Optimizer service.
-
-  If the account is a management account of an organization, this action can also
-  be
-  used to enroll member accounts of the organization.
-
-  You must have the appropriate permissions to opt in to Compute Optimizer, to
-  view its
-  recommendations, and to opt out. For more information, see [Controlling access with Amazon Web Services Identity and Access
-  Management](https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html)
-  in the *Compute Optimizer User Guide*.
-
-  When you opt in, Compute Optimizer automatically creates a service-linked role
-  in your
-  account to access its data. For more information, see [Using Service-Linked Roles for Compute
-  Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html)
-  in the *Compute Optimizer User Guide*.
+  Optimizer service. If the account is a management account of an organization,
+  this action can also be used to enroll member accounts of the organization.
   """
   @spec update_enrollment_status(AWS.Client.t(), update_enrollment_status_request(), Keyword.t()) ::
           {:ok, update_enrollment_status_response(), any()}

@@ -4,10 +4,9 @@
 defmodule AWS.Imagebuilder do
   @moduledoc """
   EC2 Image Builder is a fully managed Amazon Web Services service that makes it
-  easier to automate the
-  creation, management, and deployment of customized, secure, and up-to-date
-  "golden" server images that are pre-installed and pre-configured with software
-  and settings to meet specific IT standards.
+  easier to automate the creation, management, and deployment of customized,
+  secure, and up-to-date "golden" server images that are pre-installed and
+  pre-configured with software and settings to meet specific IT standards.
   """
 
   alias AWS.Client
@@ -4293,12 +4292,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  CancelImageCreation cancels the creation of Image.
+  CancelImageCreation cancels the creation of Image. This operation can only be
+  used on images in a non-terminal state.
 
-  This operation can only be used on
-  images in a non-terminal state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelImageCreation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4320,7 +4319,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Cancel a specific image lifecycle policy runtime instance.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelLifecycleExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4345,20 +4346,12 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Creates a new component that can be used to build, validate, test, and assess
-  your
-  image.
+  your image. The component is based on a YAML document that you specify using
+  exactly one of the following methods:
 
-  The component is based on a YAML document that you specify using exactly one of
-  the following methods:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateComponent&this_doc_guide=API%2520Reference)
 
-    *
-  Inline, using the `data` property in the request body.
-
-    *
-  A URL that points to a YAML document file stored in Amazon S3, using the
-  `uri` property in the request body.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4378,12 +4371,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new container recipe.
+  Creates a new container recipe. Container recipes define how images are
+  configured, tested, and assessed.
 
-  Container recipes define how images are configured,
-  tested, and assessed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateContainerRecipe&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4403,12 +4396,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new distribution configuration.
-
-  Distribution configurations define and
+  Creates a new distribution configuration. Distribution configurations define and
   configure the outputs of your pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4432,15 +4425,14 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image.
+  Creates a new image. This request will create a new image along with all of the
+  configured output resources defined in the distribution configuration. You
+  must specify exactly one recipe for your image, using either a
+  ContainerRecipeArn or an ImageRecipeArn.
 
-  This request will create a new image along with all of the
-  configured output resources defined in the distribution configuration. You must
-  specify
-  exactly one recipe for your image, using either a ContainerRecipeArn or an
-  ImageRecipeArn.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4460,12 +4452,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image pipeline.
+  Creates a new image pipeline. Image pipelines enable you to automate the
+  creation and distribution of images.
 
-  Image pipelines enable you to automate the creation and
-  distribution of images.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImagePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4485,12 +4477,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new image recipe.
+  Creates a new image recipe. Image recipes define how images are configured,
+  tested, and assessed.
 
-  Image recipes define how images are configured, tested,
-  and assessed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImageRecipe&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4510,12 +4502,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Creates a new infrastructure configuration.
+  Creates a new infrastructure configuration. An infrastructure configuration
+  defines the environment in which your image will be built and tested.
 
-  An infrastructure configuration defines
-  the environment in which your image will be built and tested.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4541,7 +4533,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Create a lifecycle policy resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4563,7 +4557,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Create a new workflow or a new version of an existing workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4585,10 +4581,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes a component build version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the component build version to delete.
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the component build version to delete.
   """
   @spec delete_component(AWS.Client.t(), delete_component_request(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
@@ -4623,10 +4622,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes a container recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteContainerRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe to delete.
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe to delete.
   """
   @spec delete_container_recipe(AWS.Client.t(), delete_container_recipe_request(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
@@ -4661,10 +4663,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes a distribution configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the distribution configuration to delete.
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the distribution configuration to delete.
   """
   @spec delete_distribution_configuration(
           AWS.Client.t(),
@@ -4701,37 +4706,18 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Deletes an Image Builder image resource.
+  Deletes an Image Builder image resource. This does not delete any EC2 AMIs or
+  ECR container images that are created during the image build process. You must
+  clean those up separately, using the appropriate Amazon EC2 or Amazon ECR
+  console actions, or API or CLI commands.
 
-  This does not delete any EC2 AMIs or ECR container
-  images that are created during the image build process. You must clean those up
-  separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or
-  API or CLI
-  commands.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImage&this_doc_guide=API%2520Reference)
 
-    *
-  To deregister an EC2 Linux AMI, see [Deregister your Linux
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html) in
-  the *
-  *Amazon EC2 User Guide*
-  *.
-
-    *
-  To deregister an EC2 Windows AMI, see [Deregister your Windows
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html)
-  in the *
-  *Amazon EC2 Windows Guide*
-  *.
-
-    *
-  To delete a container image from Amazon ECR, see [Deleting an
-  image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html)
-  in the *Amazon ECR User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the Image Builder image resource to delete.
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    Image Builder image resource to delete.
   """
   @spec delete_image(AWS.Client.t(), delete_image_request(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
@@ -4766,10 +4752,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes an image pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImagePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image pipeline to delete.
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    pipeline to delete.
   """
   @spec delete_image_pipeline(AWS.Client.t(), delete_image_pipeline_request(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
@@ -4804,10 +4793,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes an image recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteImageRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe to delete.
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe to delete.
   """
   @spec delete_image_recipe(AWS.Client.t(), delete_image_recipe_request(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
@@ -4842,10 +4834,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes an infrastructure configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the infrastructure configuration to delete.
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the infrastructure configuration to delete.
   """
   @spec delete_infrastructure_configuration(
           AWS.Client.t(),
@@ -4884,10 +4879,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Delete the specified lifecycle policy resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the lifecycle policy resource to delete.
+  * `:lifecycle_policy_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    lifecycle policy resource to delete.
   """
   @spec delete_lifecycle_policy(AWS.Client.t(), delete_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -4922,10 +4920,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Deletes a specific workflow resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the workflow resource to delete.
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the workflow resource to delete.
   """
   @spec delete_workflow(AWS.Client.t(), delete_workflow_request(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
@@ -4960,11 +4961,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a component object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the component that you want to get. Regex requires
-  	the suffix <code>/\d+$</code>.
+  * `:component_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the component that you want to get. Regex requires the suffix /\d+$.
   """
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
@@ -4999,11 +5002,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a component policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetComponentPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component whose policy you want to
-  	retrieve.
+  * `:component_arn` (`t:string`) The Amazon Resource Name (ARN) of the component
+    whose policy you want to retrieve.
   """
   @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
@@ -5037,10 +5042,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Retrieves a container recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe to retrieve.
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe to retrieve.
   """
   @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
@@ -5074,11 +5082,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Retrieves the policy for a container recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetContainerRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the container recipe for the policy being
-  	requested.
+  * `:container_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    container recipe for the policy being requested.
   """
   @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
@@ -5112,11 +5122,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets a distribution configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the distribution configuration that you want to
-  	retrieve.
+  * `:distribution_configuration_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the distribution configuration that you want to retrieve.
   """
   @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
@@ -5155,10 +5167,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the image that you want to get.
+  * `:image_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    image that you want to get.
   """
   @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
@@ -5192,10 +5207,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve.
+  * `:image_pipeline_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    pipeline that you want to retrieve.
   """
   @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
@@ -5229,10 +5247,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImagePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.
+  * `:image_arn` (`t:string`) The Amazon Resource Name (ARN) of the image whose
+    policy you want to retrieve.
   """
   @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
@@ -5266,10 +5287,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe that you want to retrieve.
   """
   @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
@@ -5303,11 +5327,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an image recipe policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetImageRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image recipe whose policy you want to
-  	retrieve.
+  * `:image_recipe_arn` (`t:string`) The Amazon Resource Name (ARN) of the image
+    recipe whose policy you want to retrieve.
   """
   @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
@@ -5341,11 +5367,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Gets an infrastructure configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetInfrastructureConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-  	retrieve.
+  * `:infrastructure_configuration_arn` (`t:string`) The Amazon Resource Name
+    (ARN) of the infrastructure configuration that you want to retrieve.
   """
   @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
@@ -5385,10 +5413,13 @@ defmodule AWS.Imagebuilder do
   Get the runtime information that was logged for a specific runtime instance of
   the lifecycle policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecycleExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.
+  * `:lifecycle_execution_id` (`t:string`) Use the unique identifier for a runtime
+    instance of the lifecycle policy to get runtime details.
   """
   @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
@@ -5422,10 +5453,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get details for the specified image lifecycle policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN) of the image lifecycle policy resource to get.
+  * `:lifecycle_policy_arn` (`t:string`) Specifies the Amazon Resource Name (ARN)
+    of the image lifecycle policy resource to get.
   """
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
@@ -5459,10 +5493,13 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get a workflow resource object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of the workflow resource that you want to get.
+  * `:workflow_build_version_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the workflow resource that you want to get.
   """
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
@@ -5494,14 +5531,16 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get the runtime information that was logged for a specific runtime instance
-  of the workflow.
+  Get the runtime information that was logged for a specific runtime instance of
+  the workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime instance of the workflow to get 
-  	runtime details.
+  * `:workflow_execution_id` (`t:string`) Use the unique identifier for a runtime
+    instance of the workflow to get runtime details.
   """
   @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
@@ -5536,11 +5575,13 @@ defmodule AWS.Imagebuilder do
   Get the runtime information that was logged for a specific runtime instance of
   the workflow step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20GetWorkflowStepExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:step_execution_id` (`t:string`) Use the unique identifier for a specific runtime instance of the workflow step to 
-  	get runtime details for that step.
+  * `:step_execution_id` (`t:string`) Use the unique identifier for a specific
+    runtime instance of the workflow step to get runtime details for that step.
   """
   @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
@@ -5574,7 +5615,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Imports a component and transforms its data into a component document.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5595,22 +5638,16 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   When you export your virtual machine (VM) from its virtualization environment,
-  that
-  process creates a set of one or more disk container files that act as snapshots
-  of your
-  VM’s environment, settings, and data.
-
-  The Amazon EC2 API
-  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) action uses those files to import your VM and create an AMI. To import using the
-  CLI
-  command, see
+  that process creates a set of one or more disk container files that act as
+  snapshots of your VM’s environment, settings, and data. The Amazon EC2 API
+  [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html)
+  action uses those files to import your VM and create an AMI. To import using
+  the CLI command, see
   [import-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html)
 
-  You can reference the task ID from the VM import to pull in the AMI that the
-  import
-  created as the base image for your Image Builder recipe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportVmImage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5630,21 +5667,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of component build versions for the specified semantic
-  version.
+  Returns the list of component build versions for the specified semantic version.
 
-  The semantic version has four nodes: ../.
-  You can assign values for the first three, and can filter on all of them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponentBuildVersions&this_doc_guide=API%2520Reference)
 
-  **Filtering:** With semantic versioning, you have the flexibility to use
-  wildcards (x)
-  to specify the most recent versions or nodes when selecting the base image or
-  components for your
-  recipe. When you use a wildcard in any node, all nodes to the right of the first
-  wildcard must also be
-  wildcards.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5679,24 +5706,12 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns the list of components that can be filtered by name, or by using the
-  listed
-  `filters` to streamline results.
+  listed `filters` to streamline results. Newly created components can take up
+  to two minutes to appear in the ListComponents API Results.
 
-  Newly created components can take up to
-  two minutes to appear in the ListComponents API Results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponents&this_doc_guide=API%2520Reference)
 
-  The semantic version has four nodes: ../.
-  You can assign values for the first three, and can filter on all of them.
-
-  **Filtering:** With semantic versioning, you have the flexibility to use
-  wildcards (x)
-  to specify the most recent versions or nodes when selecting the base image or
-  components for your
-  recipe. When you use a wildcard in any node, all nodes to the right of the first
-  wildcard must also be
-  wildcards.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5728,7 +5743,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of container recipes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListContainerRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5760,7 +5777,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of distribution configurations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListDistributionConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5796,7 +5815,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of image build versions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageBuildVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5831,10 +5852,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   List the Packages that are associated with an Image Build Version, as determined
-  by
-  Amazon Web Services Systems Manager Inventory at build time.
+  by Amazon Web Services Systems Manager Inventory at build time.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5866,7 +5888,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of images created by the specified pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelineImages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5902,7 +5926,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of image pipelines.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5934,7 +5960,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of image recipes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5964,35 +5992,16 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns a list of image scan aggregations for your account.
-
-  You can filter by the type
-  of key that Image Builder uses to group results. For example, if you want to get
-  a list of
-  findings by severity level for one of your pipelines, you might specify your
-  pipeline
-  with the `imagePipelineArn` filter. If you don't specify a filter, Image Builder
-  returns an aggregation for your account.
-
+  Returns a list of image scan aggregations for your account. You can filter by
+  the type of key that Image Builder uses to group results. For example, if you
+  want to get a list of findings by severity level for one of your pipelines,
+  you might specify your pipeline with the `imagePipelineArn` filter. If you
+  don't specify a filter, Image Builder returns an aggregation for your account.
   To streamline results, you can use the following filters in your request:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindingAggregations&this_doc_guide=API%2520Reference)
 
-  `accountId`
-
-    *
-
-  `imageBuildVersionArn`
-
-    *
-
-  `imagePipelineArn`
-
-    *
-
-  `vulnerabilityId`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6028,7 +6037,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of image scan findings for your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6058,12 +6069,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns the list of images that you have access to.
+  Returns the list of images that you have access to. Newly created images can
+  take up to two minutes to appear in the ListImages API Results.
 
-  Newly created images can take up
-  to two minutes to appear in the ListImages API Results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImages&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6095,7 +6106,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of infrastructure configurations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListInfrastructureConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6132,7 +6145,9 @@ defmodule AWS.Imagebuilder do
   List resources that the runtime instance of the image lifecycle identified for
   lifecycle actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6168,7 +6183,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get the lifecycle runtime history for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6204,7 +6221,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Get a list of lifecycle policies in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecyclePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6236,8 +6255,11 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns the list of tags for the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    whose tags you want to retrieve.
 
   ## Optional parameters:
   """
@@ -6262,10 +6284,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Get a list of workflow steps that are waiting for action for workflows
-  in your Amazon Web Services account.
+  Get a list of workflow steps that are waiting for action for workflows in your
+  Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWaitingWorkflowSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6301,7 +6325,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Returns a list of build versions for a specific workflow resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowBuildVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6336,10 +6362,11 @@ defmodule AWS.Imagebuilder do
 
   @doc """
   Returns a list of workflow runtime instance metadata objects for a specific
-  image build
-  version.
+  image build version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6369,10 +6396,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Returns runtime data for each step in a runtime instance of the workflow
-  that you specify in the request.
+  Returns runtime data for each step in a runtime instance of the workflow that
+  you specify in the request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowStepExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6408,7 +6437,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Lists workflow build versions based on filtering parameters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6438,16 +6469,17 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to a component.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutComponentPolicy`, you must also call the RAM API
+  Applies a policy to a component. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutComponentPolicy`,
+  you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutComponentPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6467,22 +6499,19 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to a container image.
-
-  We recommend that you call the RAM API
+  Applies a policy to a container image. We recommend that you call the RAM API
   CreateResourceShare
   (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
-  to share
-  resources. If you call the Image Builder API `PutContainerImagePolicy`, you must
-  also
-  call the RAM API PromoteResourceShareCreatedFromPolicy
+  to share resources. If you call the Image Builder API
+  `PutContainerImagePolicy`, you must also call the RAM API
+  PromoteResourceShareCreatedFromPolicy
   (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
 
-  in order for the resource to be visible to all principals with whom the resource
-  is
-  shared.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutContainerRecipePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6506,16 +6535,17 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to an image.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImagePolicy`, you must also call the RAM API
+  Applies a policy to an image. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutImagePolicy`, you
+  must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImagePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6535,16 +6565,17 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Applies a policy to an image recipe.
-
-  We recommend that you call the RAM API
-  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API
-  `PutImageRecipePolicy`, you must also call the RAM API
+  Applies a policy to an image recipe. We recommend that you call the RAM API
+  [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)
+  to share resources. If you call the Image Builder API `PutImageRecipePolicy`,
+  you must also call the RAM API
   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
-  in order for the resource to be
-  visible to all principals with whom the resource is shared.
+  in order for the resource to be visible to all principals with whom the
+  resource is shared.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImageRecipePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6567,7 +6598,9 @@ defmodule AWS.Imagebuilder do
   Pauses or resumes image creation when the associated workflow runs a
   `WaitForAction` step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20SendWorkflowStepAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6593,7 +6626,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Manually triggers a pipeline to create an image.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartImagePipelineExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6617,10 +6652,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Begin asynchronous resource state update for lifecycle changes to the
-  specified image resources.
+  Begin asynchronous resource state update for lifecycle changes to the specified
+  image resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartResourceStateUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6646,8 +6683,11 @@ defmodule AWS.Imagebuilder do
   @doc """
   Adds a tag to a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to tag.
 
   ## Optional parameters:
   """
@@ -6679,11 +6719,15 @@ defmodule AWS.Imagebuilder do
   @doc """
   Removes a tag from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to untag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to untag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]`) The tag keys to
+    remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6716,12 +6760,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new distribution configuration.
-
-  Distribution configurations define and
+  Updates a new distribution configuration. Distribution configurations define and
   configure the outputs of your pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateDistributionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6745,19 +6789,13 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates an image pipeline.
+  Updates an image pipeline. Image pipelines enable you to automate the creation
+  and distribution of images. You must specify exactly one recipe for your
+  image, using either a `containerRecipeArn` or an `imageRecipeArn`.
 
-  Image pipelines enable you to automate the creation and
-  distribution of images. You must specify exactly one recipe for your image,
-  using either
-  a `containerRecipeArn` or an `imageRecipeArn`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateImagePipeline&this_doc_guide=API%2520Reference)
 
-  UpdateImagePipeline does not support selective updates for the pipeline. You
-  must
-  specify all of the required properties in the update request, not just the
-  properties that have changed.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6777,12 +6815,12 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  Updates a new infrastructure configuration.
+  Updates a new infrastructure configuration. An infrastructure configuration
+  defines the environment in which your image will be built and tested.
 
-  An infrastructure configuration defines
-  the environment in which your image will be built and tested.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6808,7 +6846,9 @@ defmodule AWS.Imagebuilder do
   @doc """
   Update the specified lifecycle policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

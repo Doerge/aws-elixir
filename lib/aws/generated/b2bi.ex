@@ -3,24 +3,13 @@
 
 defmodule AWS.B2bi do
   @moduledoc """
-  This is the *Amazon Web Services B2B Data Interchange API Reference*.
-
-  It provides descriptions, API request parameters, and the XML response for each
-  of the B2BI API actions.
-
-  B2BI enables automated exchange of EDI (electronic data interchange) based
-  business-critical transactions at cloud
-  scale, with elasticity and pay-as-you-go pricing. Businesses use EDI documents
-  to exchange
+  This is the *Amazon Web Services B2B Data Interchange API Reference*. It
+  provides descriptions, API request parameters, and the XML response for each
+  of the B2BI API actions. B2BI enables automated exchange of EDI (electronic
+  data interchange) based business-critical transactions at cloud scale, with
+  elasticity and pay-as-you-go pricing. Businesses use EDI documents to exchange
   transactional data with trading partners, such as suppliers and end customers,
-  using
-  standardized formats such as X12.
-
-  Rather than actually running a command, you can use the
-  `--generate-cli-skeleton` parameter with any API call to generate and display
-  a parameter template. You can then use the generated template to customize and
-  use as input
-  on a later command. For details, see [Generate and use a parameter skeleton file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html#cli-usage-skeleton-generate).
+  using standardized formats such as X12.
   """
 
   alias AWS.Client
@@ -1083,9 +1072,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Instantiates a capability based on the specified parameters.
-
-  A trading capability contains the information required to transform incoming EDI
+  Instantiates a capability based on the specified parameters. A trading
+  capability contains the information required to transform incoming EDI
   documents into JSON or XML outputs.
   """
   @spec create_capability(AWS.Client.t(), create_capability_request(), Keyword.t()) ::
@@ -1101,11 +1089,9 @@ defmodule AWS.B2bi do
 
   @doc """
   Creates a partnership between a customer and a trading partner, based on the
-  supplied parameters.
-
-  A partnership represents the connection between you and your trading partner. It
-  ties
-  together a profile and one or more trading capabilities.
+  supplied parameters. A partnership represents the connection between you and
+  your trading partner. It ties together a profile and one or more trading
+  capabilities.
   """
   @spec create_partnership(AWS.Client.t(), create_partnership_request(), Keyword.t()) ::
           {:ok, create_partnership_response(), any()}
@@ -1119,11 +1105,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Creates a customer profile.
-
-  You can have up to five customer profiles, each representing a distinct private
-  network. A profile is the mechanism used to create the concept of
-  a private network.
+  Creates a customer profile. You can have up to five customer profiles, each
+  representing a distinct private network. A profile is the mechanism used to
+  create the concept of a private network.
   """
   @spec create_profile(AWS.Client.t(), create_profile_request(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
@@ -1137,11 +1121,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Creates a transformer.
-
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Creates a transformer. A transformer describes how to process the incoming EDI
+  documents and extract the necessary information to the output file.
   """
   @spec create_transformer(AWS.Client.t(), create_transformer_request(), Keyword.t()) ::
           {:ok, create_transformer_response(), any()}
@@ -1155,10 +1136,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Deletes the specified capability.
-
-  A trading capability contains the information required to transform incoming EDI
-  documents into JSON or XML outputs.
+  Deletes the specified capability. A trading capability contains the information
+  required to transform incoming EDI documents into JSON or XML outputs.
   """
   @spec delete_capability(AWS.Client.t(), delete_capability_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1172,11 +1151,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Deletes the specified partnership.
-
-  A partnership represents the connection between you and your trading partner. It
-  ties
-  together a profile and one or more trading capabilities.
+  Deletes the specified partnership. A partnership represents the connection
+  between you and your trading partner. It ties together a profile and one or
+  more trading capabilities.
   """
   @spec delete_partnership(AWS.Client.t(), delete_partnership_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1190,10 +1167,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Deletes the specified profile.
-
-  A profile is the mechanism used to create the concept of
-  a private network.
+  Deletes the specified profile. A profile is the mechanism used to create the
+  concept of a private network.
   """
   @spec delete_profile(AWS.Client.t(), delete_profile_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1207,11 +1182,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Deletes the specified transformer.
-
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Deletes the specified transformer. A transformer describes how to process the
+  incoming EDI documents and extract the necessary information to the output
+  file.
   """
   @spec delete_transformer(AWS.Client.t(), delete_transformer_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1225,10 +1198,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Retrieves the details for the specified capability.
-
-  A trading capability contains the information required to transform incoming EDI
-  documents into JSON or XML outputs.
+  Retrieves the details for the specified capability. A trading capability
+  contains the information required to transform incoming EDI documents into
+  JSON or XML outputs.
   """
   @spec get_capability(AWS.Client.t(), get_capability_request(), Keyword.t()) ::
           {:ok, get_capability_response(), any()}
@@ -1243,11 +1215,9 @@ defmodule AWS.B2bi do
 
   @doc """
   Retrieves the details for a partnership, based on the partner and profile IDs
-  specified.
-
-  A partnership represents the connection between you and your trading partner. It
-  ties
-  together a profile and one or more trading capabilities.
+  specified. A partnership represents the connection between you and your
+  trading partner. It ties together a profile and one or more trading
+  capabilities.
   """
   @spec get_partnership(AWS.Client.t(), get_partnership_request(), Keyword.t()) ::
           {:ok, get_partnership_response(), any()}
@@ -1261,10 +1231,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Retrieves the details for the profile specified by the profile ID.
-
-  A profile is the mechanism used to create the concept of
-  a private network.
+  Retrieves the details for the profile specified by the profile ID. A profile is
+  the mechanism used to create the concept of a private network.
   """
   @spec get_profile(AWS.Client.t(), get_profile_request(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
@@ -1278,11 +1246,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Retrieves the details for the transformer specified by the transformer ID.
-
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Retrieves the details for the transformer specified by the transformer ID. A
+  transformer describes how to process the incoming EDI documents and extract
+  the necessary information to the output file.
   """
   @spec get_transformer(AWS.Client.t(), get_transformer_request(), Keyword.t()) ::
           {:ok, get_transformer_response(), any()}
@@ -1311,10 +1277,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Lists the capabilities associated with your Amazon Web Services account for your
-  current or specified region.
-
-  A trading capability contains the information required to transform incoming EDI
-  documents into JSON or XML outputs.
+  current or specified region. A trading capability contains the information
+  required to transform incoming EDI documents into JSON or XML outputs.
   """
   @spec list_capabilities(AWS.Client.t(), list_capabilities_request(), Keyword.t()) ::
           {:ok, list_capabilities_response(), any()}
@@ -1328,11 +1292,9 @@ defmodule AWS.B2bi do
 
   @doc """
   Lists the partnerships associated with your Amazon Web Services account for your
-  current or specified region.
-
-  A partnership represents the connection between you and your trading partner. It
-  ties
-  together a profile and one or more trading capabilities.
+  current or specified region. A partnership represents the connection between
+  you and your trading partner. It ties together a profile and one or more
+  trading capabilities.
   """
   @spec list_partnerships(AWS.Client.t(), list_partnerships_request(), Keyword.t()) ::
           {:ok, list_partnerships_response(), any()}
@@ -1347,10 +1309,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Lists the profiles associated with your Amazon Web Services account for your
-  current or specified region.
-
-  A profile is the mechanism used to create the concept of
-  a private network.
+  current or specified region. A profile is the mechanism used to create the
+  concept of a private network.
   """
   @spec list_profiles(AWS.Client.t(), list_profiles_request(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1364,9 +1324,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Lists all of the tags associated with the Amazon Resource Name (ARN) that you
-  specify.
-
-  The resource can be a capability, partnership, profile, or transformer.
+  specify. The resource can be a capability, partnership, profile, or
+  transformer.
   """
   @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1380,11 +1339,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Lists the available transformers.
-
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Lists the available transformers. A transformer describes how to process the
+  incoming EDI documents and extract the necessary information to the output
+  file.
   """
   @spec list_transformers(AWS.Client.t(), list_transformers_request(), Keyword.t()) ::
           {:ok, list_transformers_response(), any()}
@@ -1400,11 +1357,6 @@ defmodule AWS.B2bi do
   Runs a job, using a transformer, to parse input EDI (electronic data
   interchange) file into the output structures used by Amazon Web Services B2BI
   Data Interchange.
-
-  If you only want to transform EDI (electronic data interchange) documents, you
-  don't need to create profiles, partnerships or capabilities. Just
-  create and configure a transformer, and then run the `StartTransformerJob` API
-  to process your files.
   """
   @spec start_transformer_job(AWS.Client.t(), start_transformer_job_request(), Keyword.t()) ::
           {:ok, start_transformer_job_response(), any()}
@@ -1419,11 +1371,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Attaches a key-value pair to a resource, as identified by its Amazon Resource
-  Name (ARN).
-
-  Resources are capability, partnership, profile, transformers and other entities.
-
-  There is no response returned from this call.
+  Name (ARN). Resources are capability, partnership, profile, transformers and
+  other entities.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1437,10 +1386,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Maps the input file according to the provided template file.
-
-  The API call downloads the file contents from the Amazon S3 location, and passes
-  the contents in as a string, to the `inputFileContent` parameter.
+  Maps the input file according to the provided template file. The API call
+  downloads the file contents from the Amazon S3 location, and passes the
+  contents in as a string, to the `inputFileContent` parameter.
   """
   @spec test_mapping(AWS.Client.t(), test_mapping_request(), Keyword.t()) ::
           {:ok, test_mapping_response(), any()}
@@ -1454,9 +1402,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Parses the input EDI (electronic data interchange) file.
-
-  The input file has a file size limit of 250 KB.
+  Parses the input EDI (electronic data interchange) file. The input file has a
+  file size limit of 250 KB.
   """
   @spec test_parsing(AWS.Client.t(), test_parsing_request(), Keyword.t()) ::
           {:ok, test_parsing_response(), any()}
@@ -1471,9 +1418,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Detaches a key-value pair from the specified resource, as identified by its
-  Amazon Resource Name (ARN).
-
-  Resources are capability, partnership, profile, transformers and other entities.
+  Amazon Resource Name (ARN). Resources are capability, partnership, profile,
+  transformers and other entities.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1488,10 +1434,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Updates some of the parameters for a capability, based on the specified
-  parameters.
-
-  A trading capability contains the information required to transform incoming EDI
-  documents into JSON or XML outputs.
+  parameters. A trading capability contains the information required to
+  transform incoming EDI documents into JSON or XML outputs.
   """
   @spec update_capability(AWS.Client.t(), update_capability_request(), Keyword.t()) ::
           {:ok, update_capability_response(), any()}
@@ -1506,11 +1450,8 @@ defmodule AWS.B2bi do
 
   @doc """
   Updates some of the parameters for a partnership between a customer and trading
-  partner.
-
-  A partnership represents the connection between you and your trading partner. It
-  ties
-  together a profile and one or more trading capabilities.
+  partner. A partnership represents the connection between you and your trading
+  partner. It ties together a profile and one or more trading capabilities.
   """
   @spec update_partnership(AWS.Client.t(), update_partnership_request(), Keyword.t()) ::
           {:ok, update_partnership_response(), any()}
@@ -1524,10 +1465,8 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Updates the specified parameters for a profile.
-
-  A profile is the mechanism used to create the concept of
-  a private network.
+  Updates the specified parameters for a profile. A profile is the mechanism used
+  to create the concept of a private network.
   """
   @spec update_profile(AWS.Client.t(), update_profile_request(), Keyword.t()) ::
           {:ok, update_profile_response(), any()}
@@ -1541,11 +1480,9 @@ defmodule AWS.B2bi do
   end
 
   @doc """
-  Updates the specified parameters for a transformer.
-
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Updates the specified parameters for a transformer. A transformer describes how
+  to process the incoming EDI documents and extract the necessary information to
+  the output file.
   """
   @spec update_transformer(AWS.Client.t(), update_transformer_request(), Keyword.t()) ::
           {:ok, update_transformer_response(), any()}

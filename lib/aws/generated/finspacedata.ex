@@ -1405,8 +1405,11 @@ defmodule AWS.Finspacedata do
   Adds a user to a permission group to grant permissions for actions a user can
   perform in FinSpace.
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20AssociateUserToPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
@@ -1453,9 +1456,11 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a new Changeset in a FinSpace Dataset.
 
-  ## Required positional parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset where the Changeset will be created.
-    
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
+    where the Changeset will be created.
 
   ## Optional parameters:
   """
@@ -1487,8 +1492,11 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a Dataview for a Dataset.
 
-  ## Required positional parameters:
-  * `:dataset_id` (`t:string`) The unique Dataset identifier that is used to create a Dataview.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique Dataset identifier that is used to
+    create a Dataview.
 
   ## Optional parameters:
   """
@@ -1520,7 +1528,9 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a new FinSpace Dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1553,7 +1563,9 @@ defmodule AWS.Finspacedata do
   Creates a group of permissions for various actions that a user can perform in
   FinSpace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreatePermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1585,7 +1597,9 @@ defmodule AWS.Finspacedata do
   @doc """
   Creates a new user in FinSpace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1617,11 +1631,14 @@ defmodule AWS.Finspacedata do
   @doc """
   Deletes a FinSpace Dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_id` (`t:string`) The unique identifier of the Dataset to be deleted.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
@@ -1654,15 +1671,17 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Deletes a permission group.
+  Deletes a permission group. This action is irreversible.
 
-  This action is irreversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DeletePermissionGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group that you want to delete.
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group that you want to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
   @spec delete_permission_group(
           AWS.Client.t(),
@@ -1702,8 +1721,11 @@ defmodule AWS.Finspacedata do
   @doc """
   Denies access to the FinSpace web application and API for the specified user.
 
-  ## Required positional parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to deactivate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    deactivate.
 
   ## Optional parameters:
   """
@@ -1735,12 +1757,16 @@ defmodule AWS.Finspacedata do
   @doc """
   Removes a user from a permission group.
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20DisassociateUserFromPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A token that ensures idempotency. This token expires in 10 minutes.
+  * `:client_token` (`t:string`) A token that ensures idempotency. This token
+    expires in 10 minutes.
   """
   @spec disassociate_user_from_permission_group(
           AWS.Client.t(),
@@ -1789,8 +1815,11 @@ defmodule AWS.Finspacedata do
   @doc """
   Allows the specified user to access the FinSpace web application and API.
 
-  ## Required positional parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to activate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20EnableUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    activate.
 
   ## Optional parameters:
   """
@@ -1822,9 +1851,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Get information about a Changeset.
 
-  ## Required positional parameters:
-  * `:changeset_id` (`t:string`) The unique identifier of the Changeset for which to get data.
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset where the Changeset is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:changeset_id` (`t:string`) The unique identifier of the Changeset for which
+    to get data.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset
+    where the Changeset is created.
 
   ## Optional parameters:
   """
@@ -1852,9 +1885,12 @@ defmodule AWS.Finspacedata do
   @doc """
   Gets information about a Dataview.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataView&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_view_id` (`t:string`) The unique identifier for the Dataview.
-  * `:dataset_id` (`t:string`) The unique identifier for the Dataset used in the Dataview.
+  * `:dataset_id` (`t:string`) The unique identifier for the Dataset used in the
+    Dataview.
 
   ## Optional parameters:
   """
@@ -1882,7 +1918,9 @@ defmodule AWS.Finspacedata do
   @doc """
   Returns information about a Dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_id` (`t:string`) The unique identifier for a Dataset.
 
   ## Optional parameters:
@@ -1908,19 +1946,14 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Returns the credentials to access the external Dataview from an S3 location.
+  Returns the credentials to access the external Dataview from an S3 location. To
+  call this API:
 
-  To call this API:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetExternalDataViewAccessDetails&this_doc_guide=API%2520Reference)
 
-    *
-  You must retrieve the programmatic credentials.
-
-    *
-  You must be a member of a FinSpace user group, where the dataset that you want
-  to access has `Read Dataset Data` permissions.
-
-  ## Required positional parameters:
-  * `:data_view_id` (`t:string`) The unique identifier for the Dataview that you want to access.
+  ## Parameters:
+  * `:data_view_id` (`t:string`) The unique identifier for the Dataview that you
+    want to access.
   * `:dataset_id` (`t:string`) The unique identifier for the Dataset.
 
   ## Optional parameters:
@@ -1967,8 +2000,11 @@ defmodule AWS.Finspacedata do
   @doc """
   Retrieves the details of a specific permission group.
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
 
   ## Optional parameters:
   """
@@ -1993,15 +2029,18 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Request programmatic credentials to use with FinSpace SDK.
-
-  For more information, see [Step 2. Access credentials programmatically using IAM access key id and secret access
+  Request programmatic credentials to use with FinSpace SDK. For more information,
+  see [Step 2. Access credentials programmatically using IAM access key id and
+  secret access
   key](https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#accessing-credentials).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetProgrammaticAccessCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:duration_in_minutes` (`t:long`) The time duration in which the credentials remain valid. 
+  * `:duration_in_minutes` (`t:long`) The time duration in which the credentials
+    remain valid.
   * `:environment_id` (`t:string`) The FinSpace environment identifier.
   """
   @spec get_programmatic_access_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2045,7 +2084,9 @@ defmodule AWS.Finspacedata do
   @doc """
   Retrieves details for a specific user.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_id` (`t:string`) The unique identifier of the user to get data for.
 
   ## Optional parameters:
@@ -2072,10 +2113,11 @@ defmodule AWS.Finspacedata do
 
   @doc """
   A temporary Amazon S3 location, where you can copy your files from a source
-  location to stage or use
-  as a scratch space in FinSpace notebook.
+  location to stage or use as a scratch space in FinSpace notebook.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetWorkingLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2107,12 +2149,16 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists the FinSpace Changesets for a Dataset.
 
-  ## Required positional parameters:
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset to which the Changeset belongs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListChangesets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset to
+    which the Changeset belongs.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_changesets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changesets_response(), any()}
@@ -2155,12 +2201,16 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available Dataviews for a Dataset.
 
-  ## Required positional parameters:
-  * `:dataset_id` (`t:string`) The unique identifier of the Dataset for which to retrieve Dataviews.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDataViews&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_id` (`t:string`) The unique identifier of the Dataset for which to
+    retrieve Dataviews.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_data_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_views_response(), any()}
@@ -2203,11 +2253,14 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all of the active Datasets that a user has access to.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2250,11 +2303,14 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available permission groups in FinSpace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_permission_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_response(), any()}
@@ -2297,12 +2353,15 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all the permission groups that are associated with a specific user.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListPermissionGroupsByUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_id` (`t:string`) The unique identifier for the user.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_permission_groups_by_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
@@ -2345,11 +2404,14 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists all available users in FinSpace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -2392,12 +2454,16 @@ defmodule AWS.Finspacedata do
   @doc """
   Lists details of all the users in a specific permission group.
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListUsersByPermissionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
-  * `:next_token` (`t:string`) A token that indicates where a results page should begin.
+  * `:next_token` (`t:string`) A token that indicates where a results page should
+    begin.
   """
   @spec list_users_by_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_by_permission_group_response(), any()}
@@ -2443,13 +2509,15 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Resets the password for a specified user ID and generates a temporary one.
-
-  Only a superuser can reset password for other users. Resetting the password
+  Resets the password for a specified user ID and generates a temporary one. Only
+  a superuser can reset password for other users. Resetting the password
   immediately invalidates the previous password associated with the user.
 
-  ## Required positional parameters:
-  * `:user_id` (`t:string`) The unique identifier of the user that a temporary password is requested for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ResetUserPassword&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier of the user that a temporary
+    password is requested for.
 
   ## Optional parameters:
   """
@@ -2486,9 +2554,13 @@ defmodule AWS.Finspacedata do
   @doc """
   Updates a FinSpace Changeset.
 
-  ## Required positional parameters:
-  * `:changeset_id` (`t:string`) The unique identifier for the Changeset to update.
-  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset in which the Changeset is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateChangeset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:changeset_id` (`t:string`) The unique identifier for the Changeset to
+    update.
+  * `:dataset_id` (`t:string`) The unique identifier for the FinSpace Dataset in
+    which the Changeset is created.
 
   ## Optional parameters:
   """
@@ -2518,7 +2590,9 @@ defmodule AWS.Finspacedata do
   @doc """
   Updates a FinSpace Dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_id` (`t:string`) The unique identifier for the Dataset to update.
 
   ## Optional parameters:
@@ -2539,12 +2613,14 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Modifies the details of a permission group.
+  Modifies the details of a permission group. You cannot modify a
+  `permissionGroupID`.
 
-  You cannot modify a `permissionGroupID`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdatePermissionGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:permission_group_id` (`t:string`) The unique identifier for the permission group to update.
+  ## Parameters:
+  * `:permission_group_id` (`t:string`) The unique identifier for the permission
+    group to update.
 
   ## Optional parameters:
   """
@@ -2569,12 +2645,14 @@ defmodule AWS.Finspacedata do
   end
 
   @doc """
-  Modifies the details of the specified user.
+  Modifies the details of the specified user. You cannot update the `userId` for a
+  user.
 
-  You cannot update the `userId` for a user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20UpdateUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:user_id` (`t:string`) The unique identifier for the user that you want to update.
+  ## Parameters:
+  * `:user_id` (`t:string`) The unique identifier for the user that you want to
+    update.
 
   ## Optional parameters:
   """

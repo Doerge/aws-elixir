@@ -4,18 +4,6 @@
 defmodule AWS.MigrationHubStrategy do
   @moduledoc """
   Migration Hub Strategy Recommendations
-
-  This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for Migration Hub Strategy Recommendations (Strategy
-  Recommendations).
-
-  The topic for each action shows the API
-  request parameters and the response. Alternatively, you can use one of the AWS
-  SDKs to
-  access an API that is tailored to the programming language or platform that
-  you're using. For
-  more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
   """
 
   alias AWS.Client
@@ -1458,8 +1446,11 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves details about an application component.
 
-  ## Required positional parameters:
-  * `:application_component_id` (`t:string`)  The ID of the application component. The ID is unique within an AWS account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_component_id` (`t:string`) The ID of the application component.
+    The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
@@ -1490,11 +1481,13 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves a list of all the recommended strategies and tools for an application
-  component
-  running on a server.
+  component running on a server.
 
-  ## Required positional parameters:
-  * `:application_component_id` (`t:string`)  The ID of the application component. The ID is unique within an AWS account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetApplicationComponentStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_component_id` (`t:string`) The ID of the application component.
+    The ID is unique within an AWS account.
 
   ## Optional parameters:
   """
@@ -1526,8 +1519,10 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves the status of an on-going assessment.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The <code>assessmentid</code> returned by <a>StartAssessment</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The assessmentid returned by StartAssessment.
 
   ## Optional parameters:
   """
@@ -1554,8 +1549,11 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves the details about a specific import task.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the import file task. This ID is returned in the
+    response of StartImportFileTask.
 
   ## Optional parameters:
   """
@@ -1582,7 +1580,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieve the latest ID of a specific assessment task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetLatestAssessmentId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1609,7 +1609,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves your migration and modernization preferences.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1635,10 +1637,11 @@ defmodule AWS.MigrationHubStrategy do
 
   @doc """
   Retrieves overall summary including the number of servers to rehost and the
-  overall
-  number of anti-patterns.
+  overall number of anti-patterns.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1665,8 +1668,11 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves detailed information about the specified recommendation report.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetRecommendationReportDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The recommendation report generation task id returned by
+    StartRecommendationReportGeneration.
 
   ## Optional parameters:
   """
@@ -1693,14 +1699,19 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves detailed information about a specified server.
 
-  ## Required positional parameters:
-  * `:server_id` (`t:string`)  The ID of the server. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:server_id` (`t:string`) The ID of the server.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of items to include in the response. The maximum value is 100. 
-  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
-  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
-      with a token. You then use the returned token to retrieve the next set of 10. 
+  * `:max_results` (`t:integer`) The maximum number of items to include in the
+    response. The maximum value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
@@ -1743,8 +1754,10 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves recommended strategies and tools for the specified server.
 
-  ## Required positional parameters:
-  * `:server_id` (`t:string`)  The ID of the server. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetServerStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:server_id` (`t:string`) The ID of the server.
 
   ## Optional parameters:
   """
@@ -1772,7 +1785,9 @@ defmodule AWS.MigrationHubStrategy do
   Retrieves a list of all the servers fetched from customer vCenter using Strategy
   Recommendation Collector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListAnalyzableServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1804,7 +1819,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the application components (processes).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListApplicationComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1840,13 +1857,18 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the installed collectors.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListCollectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of items to include in the response. The maximum value is 100. 
-  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
-  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
-      with a token. You then use the returned token to retrieve the next set of 10. 
+  * `:max_results` (`t:integer`) The maximum number of items to include in the
+    response. The maximum value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
@@ -1889,13 +1911,18 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Retrieves a list of all the imports performed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The total number of items to return. The maximum value is 100. 
-  * `:next_token` (`t:string`)  The token from a previous call that you use to retrieve the next set of results. For example, 
-  if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You&#39;ll receive a set of 10 results along
-      with a token. You then use the returned token to retrieve the next set of 10. 
+  * `:max_results` (`t:integer`) The total number of items to return. The maximum
+    value is 100.
+  * `:next_token` (`t:string`) The token from a previous call that you use to
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}
@@ -1938,7 +1965,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Returns a list of all the servers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1970,7 +1999,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Saves the specified migration and modernization preferences.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20PutPortfolioPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2006,7 +2037,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Starts the assessment of an on-premises environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2038,7 +2071,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Starts a file import.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartImportFileTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2070,7 +2105,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Starts generating a recommendation report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartRecommendationReportGeneration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2106,7 +2143,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Stops the assessment of an on-premises environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StopAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2138,7 +2177,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Updates the configuration of an application component.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateApplicationComponentConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2174,7 +2215,9 @@ defmodule AWS.MigrationHubStrategy do
   @doc """
   Updates the configuration of the specified server.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateServerConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

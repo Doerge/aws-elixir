@@ -940,14 +940,12 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  Cancels a query that has been issued.
-
-  Cancellation is provided only if the query has
-  not completed running before the cancellation request was issued. Because
-  cancellation
-  is an idempotent operation, subsequent cancellation requests will return a
-  `CancellationMessage`, indicating that the query has already been
-  canceled. See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html)
+  Cancels a query that has been issued. Cancellation is provided only if the query
+  has not completed running before the cancellation request was issued. Because
+  cancellation is an idempotent operation, subsequent cancellation requests will
+  return a `CancellationMessage`, indicating that the query has already been
+  canceled. See [code
+  sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html)
   for details.
   """
   @spec cancel_query(AWS.Client.t(), cancel_query_request(), Keyword.t()) ::
@@ -963,11 +961,9 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   Create a scheduled query that will be run on your behalf at the configured
-  schedule.
-
-  Timestream assumes the execution role provided as part of the
-  `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use
-  the `NotificationConfiguration` parameter to configure notification for your
+  schedule. Timestream assumes the execution role provided as part of the
+  `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use the
+  `NotificationConfiguration` parameter to configure notification for your
   scheduled query operations.
   """
   @spec create_scheduled_query(AWS.Client.t(), create_scheduled_query_request(), Keyword.t()) ::
@@ -982,9 +978,7 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  Deletes a given scheduled query.
-
-  This is an irreversible operation.
+  Deletes a given scheduled query. This is an irreversible operation.
   """
   @spec delete_scheduled_query(AWS.Client.t(), delete_scheduled_query_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1000,8 +994,6 @@ defmodule AWS.TimestreamQuery do
   @doc """
   Describes the settings for your account that include the query pricing model and
   the configured maximum TCUs the service can use for your query workload.
-
-  You're charged only for the duration of compute units used for your workloads.
   """
   @spec describe_account_settings(
           AWS.Client.t(),
@@ -1019,30 +1011,11 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  DescribeEndpoints returns a list of available endpoints to make Timestream
-  API calls against.
-
-  This API is available through both Write and Query.
-
-  Because the Timestream SDKs are designed to transparently work with the
-  service’s architecture, including the management and mapping of the service
-  endpoints,
+  DescribeEndpoints returns a list of available endpoints to make Timestream API
+  calls against. This API is available through both Write and Query. Because the
+  Timestream SDKs are designed to transparently work with the service’s
+  architecture, including the management and mapping of the service endpoints,
   *it is not recommended that you use this API unless*:
-
-    *
-  You are using [VPC endpoints (Amazon Web Services PrivateLink) with Timestream
-  ](https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints)
-
-    *
-  Your application uses a programming language that does not yet have SDK
-  support
-
-    *
-  You require better control over the client-side implementation
-
-  For detailed information on how and when to use and implement DescribeEndpoints,
-  see
-  [The Endpoint Discovery Pattern](https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery).
   """
   @spec describe_endpoints(AWS.Client.t(), describe_endpoints_request(), Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
@@ -1085,7 +1058,6 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   Gets a list of all scheduled queries in the caller's Amazon account and Region.
-
   `ListScheduledQueries` is eventually consistent.
   """
   @spec list_scheduled_queries(AWS.Client.t(), list_scheduled_queries_request(), Keyword.t()) ::
@@ -1115,11 +1087,8 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   A synchronous operation that allows you to submit a query with parameters to be
-  stored
-  by Timestream for later running.
-
-  Timestream only supports using this operation with
-  `ValidateOnly` set to `true`.
+  stored by Timestream for later running. Timestream only supports using this
+  operation with `ValidateOnly` set to `true`.
   """
   @spec prepare_query(AWS.Client.t(), prepare_query_request(), Keyword.t()) ::
           {:ok, prepare_query_response(), any()}
@@ -1133,46 +1102,12 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-
-  `Query` is a synchronous operation that enables you to run a query against
-  your Amazon Timestream data.
-
-  `Query` will time out after 60 seconds.
-  You must update the default timeout in the SDK to support a timeout of 60
-  seconds. See
-  the [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html)
-  for details.
-
-  Your query request will fail in the following cases:
-
-    *
-  If you submit a `Query` request with the same client token outside
-  of the 5-minute idempotency window.
-
-    *
-  If you submit a `Query` request with the same client token, but
-  change other parameters, within the 5-minute idempotency window.
-
-    *
-  If the size of the row (including the query metadata) exceeds 1 MB, then the
-  query will fail with the following error message:
-
-  ```
-  Query aborted as max page response size has been exceeded by the output
-  result row
-  ```
-
-    *
-  If the IAM principal of the query initiator and the result reader are not the
-  same and/or the query initiator and the result reader do not have the same query
-  string in the query requests, the query will fail with an
-
-  ```
-  Invalid
-  pagination token
-  ```
-
-  error.
+  `Query` is a synchronous operation that enables you to run a query against your
+  Amazon Timestream data. `Query` will time out after 60 seconds. You must
+  update the default timeout in the SDK to support a timeout of 60 seconds. See
+  the [code
+  sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html)
+  for details. Your query request will fail in the following cases:
   """
   @spec query(AWS.Client.t(), query_request(), Keyword.t()) ::
           {:ok, query_response(), any()}
@@ -1186,12 +1121,9 @@ defmodule AWS.TimestreamQuery do
   end
 
   @doc """
-  Associate a set of tags with a Timestream resource.
-
-  You can then activate these
-  user-defined tags so that they appear on the Billing and Cost Management console
-  for
-  cost allocation tracking.
+  Associate a set of tags with a Timestream resource. You can then activate these
+  user-defined tags so that they appear on the Billing and Cost Management
+  console for cost allocation tracking.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1220,13 +1152,9 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   Transitions your account to use TCUs for query pricing and modifies the maximum
-  query compute units that you've configured.
-
-  If you reduce the value of `MaxQueryTCU` to a desired configuration, the new
-  value can take up to 24 hours to be effective.
-
-  After you've transitioned your account to use TCUs for query pricing, you can't
-  transition to using bytes scanned for query pricing.
+  query compute units that you've configured. If you reduce the value of
+  `MaxQueryTCU` to a desired configuration, the new value can take up to 24
+  hours to be effective.
   """
   @spec update_account_settings(AWS.Client.t(), update_account_settings_request(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}

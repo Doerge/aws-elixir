@@ -4,8 +4,8 @@
 defmodule AWS.VoiceID do
   @moduledoc """
   Amazon Connect Voice ID provides real-time caller authentication and fraud risk
-  detection, which
-  make voice interactions in contact centers more secure and efficient.
+  detection, which make voice interactions in contact centers more secure and
+  efficient.
   """
 
   alias AWS.Client
@@ -1442,11 +1442,8 @@ defmodule AWS.VoiceID do
 
   @doc """
   Creates a domain that contains all Amazon Connect Voice ID data, such as
-  speakers, fraudsters,
-  customer audio, and voiceprints.
-
-  Every domain is created with a default watchlist that fraudsters can be a part
-  of.
+  speakers, fraudsters, customer audio, and voiceprints. Every domain is created
+  with a default watchlist that fraudsters can be a part of.
   """
   @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
@@ -1488,9 +1485,8 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Deletes the specified fraudster from Voice ID.
-
-  This action disassociates the fraudster from any watchlists it is a part of.
+  Deletes the specified fraudster from Voice ID. This action disassociates the
+  fraudster from any watchlists it is a part of.
   """
   @spec delete_fraudster(AWS.Client.t(), delete_fraudster_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1518,13 +1514,10 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Deletes the specified watchlist from Voice ID.
-
-  This API throws an exception when
+  Deletes the specified watchlist from Voice ID. This API throws an exception when
   there are fraudsters in the watchlist that you are trying to delete. You must
-  delete the
-  fraudsters, and then delete the watchlist. Every domain has a default watchlist
-  which cannot be deleted.
+  delete the fraudsters, and then delete the watchlist. Every domain has a
+  default watchlist which cannot be deleted.
   """
   @spec delete_watchlist(AWS.Client.t(), delete_watchlist_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1630,12 +1623,10 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Disassociates the fraudsters from the watchlist specified.
-
-  Voice ID always expects a
-  fraudster to be a part of at least one watchlist. If
-  you try to disassociate a fraudster from its only watchlist, a
-  `ValidationException` is thrown.
+  Disassociates the fraudsters from the watchlist specified. Voice ID always
+  expects a fraudster to be a part of at least one watchlist. If you try to
+  disassociate a fraudster from its only watchlist, a `ValidationException` is
+  thrown.
   """
   @spec disassociate_fraudster(AWS.Client.t(), disassociate_fraudster_request(), Keyword.t()) ::
           {:ok, disassociate_fraudster_response(), any()}
@@ -1679,10 +1670,8 @@ defmodule AWS.VoiceID do
 
   @doc """
   Lists all the fraudster registration jobs in the domain with the given
-  `JobStatus`.
-
-  If `JobStatus` is not provided, this lists all
-  fraudster registration jobs in the given domain.
+  `JobStatus`. If `JobStatus` is not provided, this lists all fraudster
+  registration jobs in the given domain.
   """
   @spec list_fraudster_registration_jobs(
           AWS.Client.t(),
@@ -1715,10 +1704,8 @@ defmodule AWS.VoiceID do
 
   @doc """
   Lists all the speaker enrollment jobs in the domain with the specified
-  `JobStatus`.
-
-  If `JobStatus` is not provided, this lists all
-  jobs with all possible speaker enrollment job statuses.
+  `JobStatus`. If `JobStatus` is not provided, this lists all jobs with all
+  possible speaker enrollment job statuses.
   """
   @spec list_speaker_enrollment_jobs(
           AWS.Client.t(),
@@ -1778,17 +1765,12 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Opts out a speaker from Voice ID.
-
-  A speaker can be opted out regardless of whether or
-  not they already exist in Voice ID. If they don't yet exist, a new speaker is
-  created
-  in an opted out state. If they already exist, their existing status is
-  overridden and
-  they are opted out. Enrollment and evaluation authentication requests are
-  rejected for
-  opted out speakers, and opted out speakers have no voice embeddings stored in
-  Voice ID.
+  Opts out a speaker from Voice ID. A speaker can be opted out regardless of
+  whether or not they already exist in Voice ID. If they don't yet exist, a new
+  speaker is created in an opted out state. If they already exist, their
+  existing status is overridden and they are opted out. Enrollment and
+  evaluation authentication requests are rejected for opted out speakers, and
+  opted out speakers have no voice embeddings stored in Voice ID.
   """
   @spec opt_out_speaker(AWS.Client.t(), opt_out_speaker_request(), Keyword.t()) ::
           {:ok, opt_out_speaker_response(), any()}
@@ -1866,12 +1848,9 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Updates the specified domain.
-
-  This API has clobber behavior, and clears and replaces
-  all attributes. If an optional field, such as 'Description' is not provided, it
-  is
-  removed from the domain.
+  Updates the specified domain. This API has clobber behavior, and clears and
+  replaces all attributes. If an optional field, such as 'Description' is not
+  provided, it is removed from the domain.
   """
   @spec update_domain(AWS.Client.t(), update_domain_request(), Keyword.t()) ::
           {:ok, update_domain_response(), any()}
@@ -1885,9 +1864,8 @@ defmodule AWS.VoiceID do
   end
 
   @doc """
-  Updates the specified watchlist.
-
-  Every domain has a default watchlist which cannot be updated.
+  Updates the specified watchlist. Every domain has a default watchlist which
+  cannot be updated.
   """
   @spec update_watchlist(AWS.Client.t(), update_watchlist_request(), Keyword.t()) ::
           {:ok, update_watchlist_response(), any()}

@@ -3,27 +3,11 @@
 
 defmodule AWS.DocDBElastic do
   @moduledoc """
-  Amazon DocumentDB elastic clusters
-
-  Amazon DocumentDB elastic-clusters support workloads with millions of
-  reads/writes per second and petabytes of storage capacity.
-
-  Amazon DocumentDB elastic clusters also simplify how developers interact with
-  Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or
-  upgrade instances.
-
-  Amazon DocumentDB elastic-clusters were created to:
-
-    *
-  provide a solution for customers looking for a database that provides virtually
-  limitless scale with rich query capabilities and MongoDB API compatibility.
-
-    *
-  give customers higher connection limits, and to reduce downtime from patching.
-
-    *
-  continue investing in a cloud-native, elastic, and class leading architecture
-  for JSON workloads.
+  Amazon DocumentDB elastic clusters Amazon DocumentDB elastic-clusters support
+  workloads with millions of reads/writes per second and petabytes of storage
+  capacity. Amazon DocumentDB elastic clusters also simplify how developers
+  interact with Amazon DocumentDB elastic-clusters by eliminating the need to
+  choose, manage or upgrade instances.
   """
 
   alias AWS.Client
@@ -725,8 +709,11 @@ defmodule AWS.DocDBElastic do
   @doc """
   Copies a snapshot of an elastic cluster.
 
-  ## Required positional parameters:
-  * `:snapshot_arn` (`t:`) The Amazon Resource Name (ARN) identifier of the elastic cluster snapshot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CopyClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The Amazon Resource Name (ARN) identifier of the
+    elastic cluster snapshot.
 
   ## Optional parameters:
   """
@@ -764,7 +751,9 @@ defmodule AWS.DocDBElastic do
   Creates a new Amazon DocumentDB elastic cluster and returns its cluster
   structure.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -796,7 +785,9 @@ defmodule AWS.DocDBElastic do
   @doc """
   Creates a snapshot of an elastic cluster.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20CreateClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -828,8 +819,11 @@ defmodule AWS.DocDBElastic do
   @doc """
   Delete an elastic cluster.
 
-  ## Required positional parameters:
-  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster that is to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster that is to be
+    deleted.
 
   ## Optional parameters:
   """
@@ -861,8 +855,11 @@ defmodule AWS.DocDBElastic do
   @doc """
   Delete an elastic cluster snapshot.
 
-  ## Required positional parameters:
-  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot that is to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20DeleteClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot that
+    is to be deleted.
 
   ## Optional parameters:
   """
@@ -899,7 +896,9 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about a specific elastic cluster.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
@@ -927,7 +926,9 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about a specific elastic cluster snapshot
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20GetClusterSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
 
   ## Optional parameters:
@@ -955,14 +956,19 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about snapshots for a specified elastic cluster.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusterSnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
-  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results to receive in the response.
-  * `:next_token` (`t:string`) A pagination token provided by a previous request. 
-      If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.
-  * `:snapshot_type` (`t:`) The type of cluster snapshots to be returned. You can specify one of the following values:
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
+    to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request.
+    If this parameter is specified, the response includes only records beyond
+    this token, up to the value specified by max-results.
+  * `:snapshot_type` (`t:`) The type of cluster snapshots to be returned. You can
+    specify one of the following values:
   """
   @spec list_cluster_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cluster_snapshots_output(), any()}
@@ -1023,12 +1029,16 @@ defmodule AWS.DocDBElastic do
   @doc """
   Returns information about provisioned Amazon DocumentDB elastic clusters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListClusters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results to receive in the response.
-  * `:next_token` (`t:string`) A pagination token provided by a previous request. 
-      If this parameter is specified, the response includes only records beyond this token, up to the value specified by <code>max-results</code>.
+  * `:max_results` (`t:`) The maximum number of elastic cluster snapshot results
+    to receive in the response.
+  * `:next_token` (`t:string`) A pagination token provided by a previous request.
+    If this parameter is specified, the response includes only records beyond
+    this token, up to the value specified by max-results.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_output(), any()}
@@ -1071,8 +1081,11 @@ defmodule AWS.DocDBElastic do
   @doc """
   Lists all tags on a elastic cluster resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
 
   ## Optional parameters:
   """
@@ -1099,7 +1112,9 @@ defmodule AWS.DocDBElastic do
   @doc """
   Restores an elastic cluster from a snapshot.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20RestoreClusterFromSnapshot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:snapshot_arn` (`t:`) The ARN identifier of the elastic cluster snapshot.
 
   ## Optional parameters:
@@ -1137,7 +1152,9 @@ defmodule AWS.DocDBElastic do
   @doc """
   Restarts the stopped elastic cluster that is specified by `clusterARN`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StartCluster&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
@@ -1168,11 +1185,12 @@ defmodule AWS.DocDBElastic do
   end
 
   @doc """
-  Stops the running elastic cluster that is specified by `clusterArn`.
+  Stops the running elastic cluster that is specified by `clusterArn`. The elastic
+  cluster must be in the *available* state.
 
-  The elastic cluster must be in the *available* state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20StopCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:
@@ -1205,8 +1223,11 @@ defmodule AWS.DocDBElastic do
   @doc """
   Adds metadata tags to an elastic cluster resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
 
   ## Optional parameters:
   """
@@ -1238,11 +1259,15 @@ defmodule AWS.DocDBElastic do
   @doc """
   Removes metadata tags from an elastic cluster resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN identifier of the elastic cluster
+    resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be removed from the elastic cluster resource.
+  * `:tag_keys` (`t:list[com.amazonaws.docdbelastic#TagKey]`) The tag keys to be
+    removed from the elastic cluster resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1275,12 +1300,13 @@ defmodule AWS.DocDBElastic do
   end
 
   @doc """
-  Modifies an elastic cluster.
+  Modifies an elastic cluster. This includes updating admin-username/password,
+  upgrading the API version, and setting up a backup window and maintenance
+  window
 
-  This includes updating admin-username/password,
-  upgrading the API version, and setting up a backup window and maintenance window
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=docdbelastic%20UpdateCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cluster_arn` (`t:`) The ARN identifier of the elastic cluster.
 
   ## Optional parameters:

@@ -4,18 +4,13 @@
 defmodule AWS.ManagedBlockchainQuery do
   @moduledoc """
   Amazon Managed Blockchain (AMB) Query provides you with convenient access to
-  multi-blockchain network data, which makes
-  it easier for you to extract contextual data related to blockchain activity.
-
-  You can use AMB Query to
-  read data from public blockchain networks, such as Bitcoin Mainnet and Ethereum
-  Mainnet. You can
-  also get information such as the current and historical balances of addresses,
-  or you can get a
-  list of blockchain transactions for a given time period. Additionally, you can
-  get details of a
-  given transaction, such as transaction events, which you can further analyze or
-  use in business
+  multi-blockchain network data, which makes it easier for you to extract
+  contextual data related to blockchain activity. You can use AMB Query to read
+  data from public blockchain networks, such as Bitcoin Mainnet and Ethereum
+  Mainnet. You can also get information such as the current and historical
+  balances of addresses, or you can get a list of blockchain transactions for a
+  given time period. Additionally, you can get details of a given transaction,
+  such as transaction events, which you can further analyze or use in business
   logic for your applications.
   """
 
@@ -746,10 +741,9 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the token balance for a batch of tokens by using the `BatchGetTokenBalance`
   action for every token in the request.
 
-  Only the native tokens BTC and ETH, and the ERC-20,
-  ERC-721, and ERC 1155 token standards are supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20BatchGetTokenBalance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -781,15 +775,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Gets the information about a specific contract deployed on the blockchain.
 
-    
-  The Bitcoin blockchain networks do not support this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetAssetContract&this_doc_guide=API%2520Reference)
 
-    
-  Metadata is currently only available for some `ERC-20` contracts.
-  Metadata will be available for additional contracts in the future.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -822,10 +810,9 @@ defmodule AWS.ManagedBlockchainQuery do
   Gets the balance of a specific token, including native tokens, for a given
   address (wallet or contract) on the blockchain.
 
-  Only the native tokens BTC and ETH, and the ERC-20,
-  ERC-721, and ERC 1155 token standards are supported.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTokenBalance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -857,11 +844,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Gets the details of a transaction.
 
-  This action will return transaction details for all transactions
-  that are *confirmed* on the blockchain, even if they have not reached
-  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTransaction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -891,13 +876,12 @@ defmodule AWS.ManagedBlockchainQuery do
   end
 
   @doc """
-  Lists all the contracts for a given contract type deployed by an address
-  (either a contract address or a wallet address).
+  Lists all the contracts for a given contract type deployed by an address (either
+  a contract address or a wallet address).
 
-  The Bitcoin blockchain networks do not support this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListAssetContracts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -929,9 +913,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Lists all the transaction events for an address on the blockchain.
 
-  This operation is only supported on the Bitcoin networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListFilteredTransactionEvents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -967,20 +951,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   This action returns the following for a given blockchain network:
 
-    *
-  Lists all token balances owned by an address (either a contract
-  address or a wallet address).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTokenBalances&this_doc_guide=API%2520Reference)
 
-    *
-  Lists all token balances for all tokens created by a contract.
-
-    *
-  Lists all token balances for a given token.
-
-  You must always specify the network property of
-  the `tokenFilter` when using this operation.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1012,11 +985,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Lists all the transaction events for a transaction
 
-  This action will return transaction details for all transactions
-  that are *confirmed* on the blockchain, even if they have not reached
-  [finality](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactionEvents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1048,7 +1019,9 @@ defmodule AWS.ManagedBlockchainQuery do
   @doc """
   Lists all the transaction events for a transaction.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

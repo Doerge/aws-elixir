@@ -4,42 +4,22 @@
 defmodule AWS.GuardDuty do
   @moduledoc """
   Amazon GuardDuty is a continuous security monitoring service that analyzes and
-  processes
-  the following foundational data sources - VPC flow logs, Amazon Web Services
-  CloudTrail management event logs, CloudTrail S3 data event
-  logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity
-  belonging to container workloads, such
-  as Amazon EKS, Amazon ECS (including Amazon Web Services Fargate), and Amazon
-  EC2 instances.
-
-  It uses threat intelligence
+  processes the following foundational data sources - VPC flow logs, Amazon Web
+  Services CloudTrail management event logs, CloudTrail S3 data event logs, EKS
+  audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to
+  container workloads, such as Amazon EKS, Amazon ECS (including Amazon Web
+  Services Fargate), and Amazon EC2 instances. It uses threat intelligence
   feeds, such as lists of malicious IPs and domains, and machine learning to
-  identify
-  unexpected, potentially unauthorized, and malicious activity within your Amazon
-  Web Services environment.
-  This can include issues like escalations of privileges, uses of exposed
-  credentials, or
-  communication with malicious IPs, domains, or presence of malware on your Amazon
-  EC2 instances
-  and container workloads. For example, GuardDuty can detect compromised EC2
-  instances and
-  container workloads serving malware, or mining bitcoin.
-
-  GuardDuty also monitors Amazon Web Services account access behavior for signs of
-  compromise, such as
-  unauthorized infrastructure deployments like EC2 instances deployed in a Region
-  that has never
-  been used, or unusual API calls like a password policy change to reduce password
-  strength.
-
-  GuardDuty informs you about the status of your Amazon Web Services environment
-  by producing security
-  findings that you can view in the GuardDuty console or through Amazon
-  EventBridge. For more
-  information, see the *
-  [Amazon GuardDuty User
-  Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
-  *.
+  identify unexpected, potentially unauthorized, and malicious activity within
+  your Amazon Web Services environment. This can include issues like escalations
+  of privileges, uses of exposed credentials, or communication with malicious
+  IPs, domains, or presence of malware on your Amazon EC2 instances and
+  container workloads. For example, GuardDuty can detect compromised EC2
+  instances and container workloads serving malware, or mining bitcoin.
+  GuardDuty also monitors Amazon Web Services account access behavior for signs
+  of compromise, such as unauthorized infrastructure deployments like EC2
+  instances deployed in a Region that has never been used, or unusual API calls
+  like a password policy change to reduce password strength.
   """
 
   alias AWS.Client
@@ -4269,8 +4249,11 @@ defmodule AWS.GuardDuty do
   Accepts the invitation to be a member account and get monitored by a GuardDuty
   administrator account that sent the invitation.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -4307,8 +4290,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Accepts the invitation to be monitored by a GuardDuty administrator account.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20AcceptInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -4340,12 +4326,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Archives GuardDuty findings that are specified by the list of finding IDs.
 
-  Only the administrator account can archive findings. Member accounts don't have
-  permission to archive findings from their accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ArchiveFindings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
-      archive.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    GuardDuty service whose findings you want to archive.
 
   ## Optional parameters:
   """
@@ -4375,38 +4360,14 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a single GuardDuty detector.
+  Creates a single GuardDuty detector. A detector is a resource that represents
+  the GuardDuty service. To start using GuardDuty, you must create a detector in
+  each Region where you enable the service. You can have only one detector per
+  account per Region. All data sources are enabled in a new detector by default.
 
-  A detector is a resource that represents the
-  GuardDuty service. To start using GuardDuty, you must create a detector in each
-  Region where
-  you enable the service. You can have only one detector per account per Region.
-  All data
-  sources are enabled in a new detector by default.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateDetector&this_doc_guide=API%2520Reference)
 
-    *
-  When you don't specify any `features`, with an
-  exception to `RUNTIME_MONITORING`, all the optional features are
-  enabled by default.
-
-    *
-  When you specify some of the `features`, any feature that is not specified in
-  the
-  API call gets enabled by default, with an exception to `RUNTIME_MONITORING`.
-
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
-  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
-  You can add only one of these two features because Runtime Monitoring already
-  includes the
-  threat detection for Amazon EKS resources. For more information, see
-  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
-
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4436,15 +4397,16 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a filter using the specified finding criteria.
+  Creates a filter using the specified finding criteria. The maximum number of
+  saved filters per Amazon Web Services account per Region is 100. For more
+  information, see [Quotas for
+  GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
 
-  The maximum number of saved filters
-  per Amazon Web Services account per Region is 100. For more information, see
-  [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateFilter&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector belonging to the GuardDuty account that you want to create a filter
-      for.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector belonging to the GuardDuty
+    account that you want to create a filter for.
 
   ## Optional parameters:
   """
@@ -4475,19 +4437,16 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Creates a new IPSet, which is called a trusted IP list in the console user
-  interface.
+  interface. An IPSet is a list of IP addresses that are trusted for secure
+  communication with Amazon Web Services infrastructure and applications.
+  GuardDuty doesn't generate findings for IP addresses that are included in
+  IPSets. Only users from the administrator account can use this operation.
 
-  An
-  IPSet is a list of IP addresses that are trusted for secure communication with
-  Amazon Web Services
-  infrastructure and applications. GuardDuty doesn't generate findings for IP
-  addresses that are
-  included in IPSets. Only users from the administrator account can use this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateIPSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to create an IPSet
-      for.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account that you want to create an IPSet for.
 
   ## Optional parameters:
   """
@@ -4518,48 +4477,18 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Creates member accounts of the current Amazon Web Services account by specifying
-  a list of Amazon Web Services account
-  IDs.
+  a list of Amazon Web Services account IDs. This step is a prerequisite for
+  managing the associated member accounts either by invitation or through an
+  organization. As a delegated administrator, using `CreateMembers` will enable
+  GuardDuty in the added member accounts, with the exception of the organization
+  delegated administrator account. A delegated administrator must enable
+  GuardDuty prior to being added as a member.
 
-  This step is a prerequisite for managing the associated member accounts either
-  by
-  invitation or through an organization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateMembers&this_doc_guide=API%2520Reference)
 
-  As a delegated administrator, using `CreateMembers` will enable GuardDuty in
-  the added member accounts, with the exception of the
-  organization delegated administrator account. A delegated administrator must
-  enable GuardDuty
-  prior to being added as a member.
-
-  When you use CreateMembers as an Organizations delegated
-  administrator, GuardDuty applies your organization's auto-enable settings to the
-  member
-  accounts in this request, irrespective of the accounts being new or existing
-  members. For
-  more information about the existing auto-enable settings for your organization,
-  see
-  [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html). 
-  If you disassociate a member account that was added by invitation, the member
-  account details
-  obtained from this API, including the associated email addresses, will be
-  retained.
-  This is done so that the delegated administrator can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
-  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
-  API.
-
-  When the member accounts added through Organizations are later disassociated,
-  you (administrator)
-  can't invite them by calling the InviteMembers API. You can create an
-  association with these
-  member accounts again only by calling the CreateMembers API.
-
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to associate member
-      accounts with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account that you want to associate member accounts with.
 
   ## Optional parameters:
   """
@@ -4589,13 +4518,14 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a publishing destination to export findings to.
+  Creates a publishing destination to export findings to. The resource to export
+  findings to must exist before you use this operation.
 
-  The resource to export findings to
-  must exist before you use this operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreatePublishingDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the GuardDuty detector associated with the publishing destination.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the GuardDuty detector associated with
+    the publishing destination.
 
   ## Optional parameters:
   """
@@ -4630,14 +4560,15 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Generates sample findings of types specified by the list of finding types.
+  Generates sample findings of types specified by the list of finding types. If
+  'NULL' is specified for `findingTypes`, the API generates sample findings of
+  all supported finding types.
 
-  If 'NULL' is
-  specified for `findingTypes`, the API generates sample findings of all supported
-  finding types.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateSampleFindings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to create sample findings for.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector to create sample findings
+    for.
 
   ## Optional parameters:
   """
@@ -4672,16 +4603,15 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a new ThreatIntelSet.
+  Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP
+  addresses. GuardDuty generates findings based on ThreatIntelSets. Only users
+  of the administrator account can use this operation.
 
-  ThreatIntelSets consist of known malicious IP addresses.
-  GuardDuty generates findings based on ThreatIntelSets. Only users of the
-  administrator
-  account can use this operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20CreateThreatIntelSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to create a
-      threatIntelSet for.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account that you want to create a threatIntelSet for.
 
   ## Optional parameters:
   """
@@ -4717,10 +4647,11 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Declines invitations sent to the current member account by Amazon Web Services
-  accounts specified by
-  their account IDs.
+  accounts specified by their account IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeclineInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4752,8 +4683,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes an Amazon GuardDuty detector that is specified by the detector ID.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteDetector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -4785,8 +4719,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes the filter specified by the filter name.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
+    associated with.
   * `:filter_name` (`t:string`) The name of the filter that you want to delete.
 
   ## Optional parameters:
@@ -4826,10 +4763,11 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Deletes invitations sent to the current member account by Amazon Web Services
-  accounts specified by
-  their account IDs.
+  accounts specified by their account IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4859,13 +4797,14 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Deletes the IPSet specified by the `ipSetId`.
+  Deletes the IPSet specified by the `ipSetId`. IPSets are called trusted IP lists
+  in the console user interface.
 
-  IPSets are called trusted IP
-  lists in the console user interface.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteIPSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the IPSet.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
+    IPSet.
   * `:ip_set_id` (`t:string`) The unique ID of the IPSet to delete.
 
   ## Optional parameters:
@@ -4905,16 +4844,13 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Deletes GuardDuty member accounts (to the current GuardDuty administrator
-  account)
-  specified by the account IDs.
+  account) specified by the account IDs.
 
-  With `autoEnableOrganizationMembers` configuration for your organization set to
-  `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
-  account in your organization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
-      delete.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account whose members you want to delete.
 
   ## Optional parameters:
   """
@@ -4946,9 +4882,12 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes the publishing definition with the specified `destinationId`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeletePublishingDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:destination_id` (`t:string`) The ID of the publishing destination to delete.
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the publishing destination to delete.
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
+    publishing destination to delete.
 
   ## Optional parameters:
   """
@@ -4994,9 +4933,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
-  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DeleteThreatIntelSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the
+    threatIntelSet is associated with.
+  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that
+    you want to delete.
 
   ## Optional parameters:
   """
@@ -5040,19 +4983,15 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Returns a list of malware scans.
+  Returns a list of malware scans. Each member account can view the malware scans
+  for their own accounts. An administrator can view the malware scans for all
+  the member accounts.
 
-  Each member account can view the malware scans for their
-  own accounts. An administrator can view the malware scans for all the member
-  accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribeMalwareScans&this_doc_guide=API%2520Reference)
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
-
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the request is associated with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the request is
+    associated with.
 
   ## Optional parameters:
   """
@@ -5088,25 +5027,22 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns information about the account selected as the delegated administrator
-  for
-  GuardDuty.
+  for GuardDuty.
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to retrieve information about the delegated administrator
-      from.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector to retrieve information
+    about the delegated administrator from.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
-      response.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill
-        <code>nextToken</code> in the request with the value of <code>NextToken</code> from the
-      previous response to continue listing data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items that you want in the response.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
   """
   @spec describe_organization_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -5150,10 +5086,13 @@ defmodule AWS.GuardDuty do
   Returns information about the publishing destination specified by the provided
   `destinationId`.
 
-  ## Required positional parameters:
-  * `:destination_id` (`t:string`) The ID of the publishing destination to retrieve.
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the publishing destination to
-      retrieve.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DescribePublishingDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:destination_id` (`t:string`) The ID of the publishing destination to
+    retrieve.
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
+    publishing destination to retrieve.
 
   ## Optional parameters:
   """
@@ -5184,13 +5123,12 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Removes the existing GuardDuty delegated
-  administrator of the organization.
+  Removes the existing GuardDuty delegated administrator of the organization. Only
+  the organization's management account can run this API operation.
 
-  Only the organization's management account can run this
-  API operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5225,27 +5163,23 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Disassociates the current GuardDuty member account from its administrator
-  account.
-
-  When you
-  disassociate an invited member from a GuardDuty delegated administrator, the
-  member account details
-  obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
-  done so that the delegated administrator can invoke the
+  account. When you disassociate an invited member from a GuardDuty delegated
+  administrator, the member account details obtained from the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html)
+  API, including the associated email addresses, are retained. This is done so
+  that the delegated administrator can invoke the
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
 
-  With `autoEnableOrganizationMembers` configuration for your organization set to
-  `ALL`, you'll receive an error if you attempt to disable GuardDuty in a member
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -5288,21 +5222,11 @@ defmodule AWS.GuardDuty do
   Disassociates the current GuardDuty member account from its administrator
   account.
 
-  When you
-  disassociate an invited member from a GuardDuty delegated administrator, the
-  member account details
-  obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
-  done so that the delegated administrator can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
-  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -5338,46 +5262,27 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Disassociates GuardDuty member accounts (from the current administrator account)
-  specified
-  by the account IDs.
-
-  When you
-  disassociate an invited member from a GuardDuty delegated administrator, the
-  member account details
-  obtained from the
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) API, including the associated email addresses, are retained. This is
-  done so that the delegated administrator can invoke the
+  specified by the account IDs. When you disassociate an invited member from a
+  GuardDuty delegated administrator, the member account details obtained from
+  the
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html)
+  API, including the associated email addresses, are retained. This is done so
+  that the delegated administrator can invoke the
   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
-  [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html) API.
-
-  With `autoEnableOrganizationMembers` configuration for your organization set to
-  `ALL`, you'll receive an error if you attempt to disassociate a member account
-  before removing them from your organization.
-
-  If you disassociate a member account that was added by invitation, the member
-  account details
-  obtained from this API, including the associated email addresses, will be
-  retained.
-  This is done so that the delegated administrator can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
-  API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
-  API.
+  API. With `autoEnableOrganizationMembers` configuration for your organization
+  set to `ALL`, you'll receive an error if you attempt to disassociate a member
+  account before removing them from your organization.
 
-  When the member accounts added through Organizations are later disassociated,
-  you (administrator)
-  can't invite them by calling the InviteMembers API. You can create an
-  association with these
-  member accounts again only by calling the CreateMembers API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20DisassociateMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
-      disassociate from the administrator account.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account whose members you want to disassociate from the administrator
+    account.
 
   ## Optional parameters:
   """
@@ -5413,13 +5318,12 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Designates an Amazon Web Services account within the organization as your
-  GuardDuty delegated
-  administrator.
+  GuardDuty delegated administrator. Only the organization's management account
+  can run this API operation.
 
-  Only the organization's management account can run this
-  API operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5454,15 +5358,13 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Provides the details of the GuardDuty administrator account associated with the
-  current
-  GuardDuty member account.
+  current GuardDuty member account.
 
-  If the organization's management account or a delegated administrator runs this
-  API,
-  it will return success (`HTTP 200`) but no content.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -5487,17 +5389,17 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves aggregated statistics for your account.
+  Retrieves aggregated statistics for your account. If you are a GuardDuty
+  administrator, you can retrieve the statistics for all the resources
+  associated with the active member accounts in your organization who have
+  enabled Runtime Monitoring and have the GuardDuty security agent running on
+  their resources.
 
-  If you are a GuardDuty administrator, you
-  can retrieve the statistics for all the resources associated with the active
-  member accounts
-  in your organization who have enabled Runtime Monitoring and have the GuardDuty
-  security agent running
-  on their resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetCoverageStatistics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the GuardDuty detector associated to the coverage statistics.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the GuardDuty detector associated
+    to the coverage statistics.
 
   ## Optional parameters:
   """
@@ -5534,13 +5436,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves an Amazon GuardDuty detector specified by the detectorId.
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetDetector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that you want to get.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that you want to
+    get.
 
   ## Optional parameters:
   """
@@ -5567,8 +5467,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns the details of the filter specified by the filter name.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
+    associated with.
   * `:filter_name` (`t:string`) The name of the filter you want to get.
 
   ## Optional parameters:
@@ -5597,9 +5500,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Describes Amazon GuardDuty findings specified by finding IDs.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
-      retrieve.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    GuardDuty service whose findings you want to retrieve.
 
   ## Optional parameters:
   """
@@ -5631,13 +5536,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists Amazon GuardDuty findings statistics for the specified detector ID.
 
-  There might be regional differences because some flags might not be available in
-  all the Regions where GuardDuty
-  is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetFindingsStatistics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings&#39; statistics you
-      want to retrieve.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    GuardDuty service whose findings' statistics you want to retrieve.
 
   ## Optional parameters:
   """
@@ -5673,10 +5576,11 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Returns the count of all GuardDuty membership invitations that were sent to the
-  current
-  member account except the currently accepted invitation.
+  current member account except the currently accepted invitation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetInvitationsCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5703,8 +5607,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves the IPSet specified by the `ipSetId`.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is
+    associated with.
   * `:ip_set_id` (`t:string`) The unique ID of the IPSet to retrieve.
 
   ## Optional parameters:
@@ -5733,13 +5640,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns the details of the malware scan settings.
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMalwareScanSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the scan setting is associated with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the scan
+    setting is associated with.
 
   ## Optional parameters:
   """
@@ -5765,11 +5670,13 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Provides the details for the GuardDuty administrator account associated with the
-  current
-  GuardDuty member account.
+  current GuardDuty member account.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMasterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -5796,12 +5703,9 @@ defmodule AWS.GuardDuty do
   @doc """
   Describes which data sources are enabled for the member account's detector.
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMemberDetectors&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:detector_id` (`t:string`) The detector ID for the administrator account.
 
   ## Optional parameters:
@@ -5838,12 +5742,13 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Retrieves GuardDuty member accounts (of the current GuardDuty administrator
-  account)
-  specified by the account IDs.
+  account) specified by the account IDs.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account whose members you want to
-      retrieve.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account whose members you want to retrieve.
 
   ## Optional parameters:
   """
@@ -5873,15 +5778,13 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves how many active member accounts have
-  each feature enabled within GuardDuty.
+  Retrieves how many active member accounts have each feature enabled within
+  GuardDuty. Only a delegated GuardDuty administrator of an organization can run
+  this API.
 
-  Only a delegated GuardDuty administrator of an organization can run this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetOrganizationStatistics&this_doc_guide=API%2520Reference)
 
-  When you create a new organization, it might take up to 24
-  hours to generate the statistics for the entire organization.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5909,8 +5812,11 @@ defmodule AWS.GuardDuty do
   Provides the number of days left for each data source used in the free trial
   period.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty member account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetRemainingFreeTrialDays&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    member account.
 
   ## Optional parameters:
   """
@@ -5947,9 +5853,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
-  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that you want to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetThreatIntelSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the
+    threatIntelSet is associated with.
+  * `:threat_intel_set_id` (`t:string`) The unique ID of the threatIntelSet that
+    you want to get.
 
   ## Optional parameters:
   """
@@ -5976,19 +5886,18 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists Amazon GuardDuty usage statistics over the last 30 days for the specified
-  detector
-  ID.
+  detector ID. For newly enabled detectors or data sources, the cost returned
+  will include only the usage so far under 30 days. This may differ from the
+  cost metrics in the console, which project usage over 30 days to provide a
+  monthly cost estimate. For more information, see [Understanding How Usage
+  Costs are
+  Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
 
-  For newly enabled detectors or data sources, the cost returned will include only
-  the usage
-  so far under 30 days. This may differ from the cost metrics in the console,
-  which project
-  usage over 30 days to provide a monthly cost estimate. For more information, see
-  [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20GetUsageStatistics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose usage statistics you
-      want to retrieve.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    GuardDuty service whose usage statistics you want to retrieve.
 
   ## Optional parameters:
   """
@@ -6024,57 +5933,46 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Invites Amazon Web Services accounts to become members of an organization
-  administered by the Amazon Web Services account
-  that invokes this API.
-
-  If you are using Amazon Web Services Organizations to manage your GuardDuty
-  environment, this step is not
-  needed. For more information, see [Managing accounts with organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
-
-  To invite Amazon Web Services accounts, the first step is
-  to ensure that GuardDuty has been enabled in the potential member accounts. You
-  can now invoke this API
-  to add accounts by invitation. The
-  invited accounts can either accept or decline the invitation from their
-  GuardDuty accounts. Each invited Amazon Web Services account can
-  choose to accept the invitation from only one Amazon Web Services account. For
-  more information, see
-  [Managing GuardDuty accounts by
+  administered by the Amazon Web Services account that invokes this API. If you
+  are using Amazon Web Services Organizations to manage your GuardDuty
+  environment, this step is not needed. For more information, see [Managing
+  accounts with
+  organizations](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+  To invite Amazon Web Services accounts, the first step is to ensure that
+  GuardDuty has been enabled in the potential member accounts. You can now
+  invoke this API to add accounts by invitation. The invited accounts can either
+  accept or decline the invitation from their GuardDuty accounts. Each invited
+  Amazon Web Services account can choose to accept the invitation from only one
+  Amazon Web Services account. For more information, see [Managing GuardDuty
+  accounts by
   invitation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html).
-
   After the invite has been accepted and you choose to disassociate a member
-  account
-  (by using
-  [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html)) from your account,
-  the details of the member account obtained by invoking
+  account (by using
+  [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html))
+  from your account, the details of the member account obtained by invoking
   [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html),
-  including the
-  associated email addresses, will be retained.
-  This is done so that you can invoke InviteMembers without the need to invoke
-  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html) again. To
-  remove the details associated with a member account, you must also invoke
+  including the associated email addresses, will be retained. This is done so
+  that you can invoke InviteMembers without the need to invoke
+  [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html)
+  again. To remove the details associated with a member account, you must also
+  invoke
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html).
-
   If you disassociate a member account that was added by invitation, the member
-  account details
-  obtained from this API, including the associated email addresses, will be
-  retained.
-  This is done so that the delegated administrator can invoke the
-  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html) API without the need to invoke the CreateMembers API again. To
-  remove the details associated with a member account, the delegated administrator
-  must invoke the
+  account details obtained from this API, including the associated email
+  addresses, will be retained. This is done so that the delegated administrator
+  can invoke the
+  [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)
+  API without the need to invoke the CreateMembers API again. To remove the
+  details associated with a member account, the delegated administrator must
+  invoke the
   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)
   API.
 
-  When the member accounts added through Organizations are later disassociated,
-  you (administrator)
-  can't invite them by calling the InviteMembers API. You can create an
-  association with these
-  member accounts again only by calling the CreateMembers API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20InviteMembers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty account that you want to invite members
-      with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    account that you want to invite members with.
 
   ## Optional parameters:
   """
@@ -6104,18 +6002,15 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists coverage details for your GuardDuty account.
+  Lists coverage details for your GuardDuty account. If you're a GuardDuty
+  administrator, you can retrieve all resources associated with the active
+  member accounts in your organization.
 
-  If you're a GuardDuty administrator, you can
-  retrieve all resources associated with the active member accounts in your
-  organization.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListCoverage&this_doc_guide=API%2520Reference)
 
-  Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent
-  running on
-  their resources.
-
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector whose coverage details you want to retrieve.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector whose coverage
+    details you want to retrieve.
 
   ## Optional parameters:
   """
@@ -6147,15 +6042,19 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists detectorIds of all the existing Amazon GuardDuty detector resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListDetectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill nextToken
-      in the request with the value of NextToken from the previous response to continue listing
-      data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items that you want in the response. The default value is
+    50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
   """
   @spec list_detectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}
@@ -6198,16 +6097,21 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns a paginated list of the current filters.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the filter is
+    associated with.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill nextToken
-      in the request with the value of NextToken from the previous response to continue listing
-      data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items that you want in the response. The default value is
+    50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
   """
   @spec list_filters(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
@@ -6250,13 +6154,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists GuardDuty findings for the specified detector ID.
 
-  There might be regional differences because some flags might not be available in
-  all the Regions where GuardDuty
-  is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListFindings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that specifies the GuardDuty service whose findings you want to
-      list.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that specifies the
+    GuardDuty service whose findings you want to list.
 
   ## Optional parameters:
   """
@@ -6287,18 +6189,21 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists all GuardDuty membership invitations that were sent to the current Amazon
-  Web Services
-  account.
+  Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill nextToken
-      in the request with the value of NextToken from the previous response to continue listing
-      data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items that you want in the response. The default value is
+    50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -6339,23 +6244,25 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the IPSets of the GuardDuty service specified by the detector ID.
+  Lists the IPSets of the GuardDuty service specified by the detector ID. If you
+  use this operation from a member account, the IPSets returned are the IPSets
+  from the associated administrator account.
 
-  If you use this
-  operation from a member account, the IPSets returned are the IPSets from the
-  associated
-  administrator account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListIPSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is associated with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the IPSet is
+    associated with.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill nextToken
-      in the request with the value of NextToken from the previous response to continue listing
-      data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items you want in the response. The default value is 50.
+    The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
   """
   @spec list_ip_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_ip_sets_response(), any()}
@@ -6399,22 +6306,25 @@ defmodule AWS.GuardDuty do
   Lists details about all member accounts for the current GuardDuty administrator
   account.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector the member is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector the member is
+    associated with.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter when paginating results. Set the value of this parameter to
-      null on your first call to the list action. For subsequent calls to the action, fill nextToken
-      in the request with the value of NextToken from the previous response to continue listing
-      data.
-  * `:only_associated` (`t:string`) Specifies whether to only return associated members or to return all members (including
-      members who haven&#39;t been invited yet or have been disassociated). Member accounts must have
-      been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
-               <code>Create
-          Members</code>
-            </a>. 
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items you want in the response. The default value is 50.
+    The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter when paginating results.
+    Set the value of this parameter to null on your first call to the list
+    action. For subsequent calls to the action, fill nextToken in the request
+    with the value of NextToken from the previous response to continue listing
+    data.
+  * `:only_associated` (`t:string`) Specifies whether to only return associated
+    members or to return all members (including members who haven't been invited
+    yet or have been disassociated). Member accounts must have been previously
+    associated with the GuardDuty administrator account using Create Members .
   """
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -6464,19 +6374,21 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists the accounts designated as GuardDuty delegated administrators.
+  Lists the accounts designated as GuardDuty delegated administrators. Only the
+  organization's management account can run this API operation.
 
-  Only the organization's management account can run this
-  API operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
-  * `:next_token` (`t:string`) A token to use for paginating results that are returned in the response. Set the value of
-      this parameter to null for the first request to a list action. For subsequent calls, use the
-        <code>NextToken</code> value returned from the previous request to continue listing results
-      after the first page.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response.
+  * `:next_token` (`t:string`) A token to use for paginating results that are
+    returned in the response. Set the value of this parameter to null for the
+    first request to a list action. For subsequent calls, use the NextToken
+    value returned from the previous request to continue listing results after
+    the first page.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -6520,15 +6432,20 @@ defmodule AWS.GuardDuty do
   Returns a list of publishing destinations associated with the specified
   `detectorId`.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector to retrieve publishing destinations for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListPublishingDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector to retrieve publishing
+    destinations for.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
-  * `:next_token` (`t:string`) A token to use for paginating results that are returned in the response. Set the value of
-      this parameter to null for the first request to a list action. For subsequent calls, use the
-        <code>NextToken</code> value returned from the previous request to continue listing results
-      after the first page.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response.
+  * `:next_token` (`t:string`) A token to use for paginating results that are
+    returned in the response. Set the value of this parameter to null for the
+    first request to a list action. For subsequent calls, use the NextToken
+    value returned from the previous request to continue listing results after
+    the first page.
   """
   @spec list_publishing_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_publishing_destinations_response(), any()}
@@ -6569,16 +6486,16 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists tags for a resource.
+  Lists tags for a resource. Tagging is currently supported for detectors, finding
+  filters, IP sets, threat intel sets, and publishing destination, with a limit
+  of 50 tags per resource. When invoked, this operation returns all assigned
+  tags for a given resource.
 
-  Tagging is currently supported for detectors, finding filters,
-  IP sets, threat intel sets, and publishing destination, with a limit of 50 tags
-  per resource.
-  When invoked, this
-  operation returns all assigned tags for a given resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the given GuardDuty resource. 
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the given
+    GuardDuty resource.
 
   ## Optional parameters:
   """
@@ -6604,22 +6521,24 @@ defmodule AWS.GuardDuty do
 
   @doc """
   Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.
+  If you use this operation from a member account, the ThreatIntelSets
+  associated with the administrator account are returned.
 
-  If you
-  use this operation from a member account, the ThreatIntelSets associated with
-  the
-  administrator account are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20ListThreatIntelSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that the threatIntelSet is associated with.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that the
+    threatIntelSet is associated with.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) You can use this parameter to indicate the maximum number of items that you want in the
-      response. The default value is 50. The maximum value is 50.
-  * `:next_token` (`t:string`) You can use this parameter to paginate results in the response. Set the value of this
-      parameter to null on your first call to the list action. For subsequent calls to the action,
-      fill nextToken in the request with the value of NextToken from the previous response to
-      continue listing data.
+  * `:max_results` (`t:integer`) You can use this parameter to indicate the
+    maximum number of items that you want in the response. The default value is
+    50. The maximum value is 50.
+  * `:next_token` (`t:string`) You can use this parameter to paginate results in
+    the response. Set the value of this parameter to null on your first call to
+    the list action. For subsequent calls to the action, fill nextToken in the
+    request with the value of NextToken from the previous response to continue
+    listing data.
   """
   @spec list_threat_intel_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_threat_intel_sets_response(), any()}
@@ -6660,18 +6579,16 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Initiates the malware scan.
-
-  Invoking this API will automatically create the [Service-linked role](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html)
-  in
-  the corresponding account.
-
-  When the malware scan starts, you can use the associated scan ID to track the
-  status of the scan. For more information,
-  see
+  Initiates the malware scan. Invoking this API will automatically create the
+  [Service-linked
+  role](https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html)
+  in the corresponding account. When the malware scan starts, you can use the
+  associated scan ID to track the status of the scan. For more information, see
   [DescribeMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeMalwareScans.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20StartMalwareScan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6701,16 +6618,17 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Turns on GuardDuty monitoring of the specified member accounts.
-
-  Use this operation to
-  restart monitoring of accounts that you stopped monitoring with the
+  Turns on GuardDuty monitoring of the specified member accounts. Use this
+  operation to restart monitoring of accounts that you stopped monitoring with
+  the
   [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html)
   operation.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty administrator account associated with the
-      member accounts to monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20StartMonitoringMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector of the GuardDuty
+    administrator account associated with the member accounts to monitor.
 
   ## Optional parameters:
   """
@@ -6745,19 +6663,14 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Stops GuardDuty monitoring for the specified member accounts.
+  Stops GuardDuty monitoring for the specified member accounts. Use the
+  `StartMonitoringMembers` operation to restart monitoring for those accounts.
 
-  Use the
-  `StartMonitoringMembers` operation to restart monitoring for those
-  accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20StopMonitoringMembers&this_doc_guide=API%2520Reference)
 
-  With `autoEnableOrganizationMembers` configuration for your organization set to
-  `ALL`, you'll receive an error if you attempt to stop monitoring the member
-  accounts in your organization.
-
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector associated with the GuardDuty administrator account that is
-      monitoring member accounts.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector associated with the
+    GuardDuty administrator account that is monitoring member accounts.
 
   ## Optional parameters:
   """
@@ -6794,8 +6707,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Adds tags to a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the GuardDuty
+    resource to apply a tag to.
 
   ## Optional parameters:
   """
@@ -6827,8 +6743,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Unarchives GuardDuty findings specified by the `findingIds`.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector associated with the findings to unarchive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UnarchiveFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector associated with the
+    findings to unarchive.
 
   ## Optional parameters:
   """
@@ -6860,11 +6779,15 @@ defmodule AWS.GuardDuty do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource to remove tags from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    to remove tags from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]`) The tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.guardduty#TagKey]`) The tag keys to remove
+    from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6899,19 +6822,9 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the GuardDuty detector specified by the detector ID.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
-  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
-  You can add only one of these two features because Runtime Monitoring already
-  includes the
-  threat detection for Amazon EKS resources. For more information, see
-  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateDetector&this_doc_guide=API%2520Reference)
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:detector_id` (`t:string`) The unique ID of the detector to update.
 
   ## Optional parameters:
@@ -6944,9 +6857,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the filter specified by the filter name.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the GuardDuty service where you want to
-      update a filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
+    GuardDuty service where you want to update a filter.
   * `:filter_name` (`t:string`) The name of the filter.
 
   ## Optional parameters:
@@ -6987,8 +6902,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Marks the specified GuardDuty findings as useful or not useful.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector associated with the findings to update feedback for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateFindingsFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector associated with the
+    findings to update feedback for.
 
   ## Optional parameters:
   """
@@ -7025,9 +6943,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the IPSet specified by the IPSet ID.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty service whose IPSet you want to update.
-  * `:ip_set_id` (`t:string`) The unique ID that specifies the IPSet that you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateIPSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
+    service whose IPSet you want to update.
+  * `:ip_set_id` (`t:string`) The unique ID that specifies the IPSet that you want
+    to update.
 
   ## Optional parameters:
   """
@@ -7067,14 +6989,11 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the malware scan settings.
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateMalwareScanSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the GuardDuty service where you want to
-      update scan settings.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The unique ID of the detector that specifies the
+    GuardDuty service where you want to update scan settings.
 
   ## Optional parameters:
   """
@@ -7111,19 +7030,9 @@ defmodule AWS.GuardDuty do
   @doc """
   Contains information on member accounts to be updated.
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
-  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
-  You can add only one of these two features because Runtime Monitoring already
-  includes the
-  threat detection for Amazon EKS resources. For more information, see
-  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateMemberDetectors&this_doc_guide=API%2520Reference)
 
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:detector_id` (`t:string`) The detector ID of the administrator account.
 
   ## Optional parameters:
@@ -7159,26 +7068,15 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Configures the delegated administrator account with the provided values.
+  Configures the delegated administrator account with the provided values. You
+  must provide a value for either `autoEnableOrganizationMembers` or
+  `autoEnable`, but not both.
 
-  You must provide
-  a value for either `autoEnableOrganizationMembers` or `autoEnable`, but not
-  both.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
-  Specifying both EKS Runtime Monitoring (`EKS_RUNTIME_MONITORING`)
-  and Runtime Monitoring (`RUNTIME_MONITORING`) will cause an error.
-  You can add only one of these two features because Runtime Monitoring already
-  includes the
-  threat detection for Amazon EKS resources. For more information, see
-  [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html).
-
-  There might be regional differences because some data sources might not be
-  available in all the Amazon Web Services Regions where GuardDuty is presently
-  supported. For more
-  information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
-
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The ID of the detector that configures the delegated administrator.
+  ## Parameters:
+  * `:detector_id` (`t:string`) The ID of the detector that configures the
+    delegated administrator.
 
   ## Optional parameters:
   """
@@ -7216,9 +7114,12 @@ defmodule AWS.GuardDuty do
   Updates information about the publishing destination specified by the
   `destinationId`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdatePublishingDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:destination_id` (`t:string`) The ID of the publishing destination to update.
-  * `:detector_id` (`t:string`) The ID of the detector associated with the publishing destinations to update.
+  * `:detector_id` (`t:string`) The ID of the detector associated with the
+    publishing destinations to update.
 
   ## Optional parameters:
   """
@@ -7264,10 +7165,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
 
-  ## Required positional parameters:
-  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
-      update.
-  * `:threat_intel_set_id` (`t:string`) The unique ID that specifies the ThreatIntelSet that you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=guardduty%20UpdateThreatIntelSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_id` (`t:string`) The detectorID that specifies the GuardDuty
+    service whose ThreatIntelSet you want to update.
+  * `:threat_intel_set_id` (`t:string`) The unique ID that specifies the
+    ThreatIntelSet that you want to update.
 
   ## Optional parameters:
   """

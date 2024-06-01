@@ -3,13 +3,12 @@
 
 defmodule AWS.IoTSiteWise do
   @moduledoc """
-  Welcome to the IoT SiteWise API Reference.
-
-  IoT SiteWise is an Amazon Web Services service that connects [Industrial Internet of Things
+  Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web
+  Services service that connects [Industrial Internet of Things
   (IIoT)](https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications)
-  devices to the power of the Amazon Web Services Cloud. For more information, see
-  the
-  [IoT SiteWise User Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
+  devices to the power of the Amazon Web Services Cloud. For more information,
+  see the [IoT SiteWise User
+  Guide](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/). For
   information about IoT SiteWise quotas, see
   [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html)
   in the *IoT SiteWise User Guide*.
@@ -4346,16 +4345,17 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Associates a child asset with the given parent asset through a hierarchy defined
-  in the
-  parent asset's model.
+  in the parent asset's model. For more information, see [Associating
+  assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Associating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateAssets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the parent asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the parent asset. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -4387,14 +4387,21 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Associates a time series (data stream) with an asset property.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20AssociateTimeSeriesToAssetProperty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
   @spec associate_time_series_to_asset_property(
           AWS.Client.t(),
@@ -4435,8 +4442,11 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Associates a group (batch) of assets with an IoT SiteWise Monitor project.
 
-  ## Required positional parameters:
-  * `:project_id` (`t:string`) The ID of the project to which to associate the assets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchAssociateProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project to which to associate the
+    assets.
 
   ## Optional parameters:
   """
@@ -4473,8 +4483,11 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
 
-  ## Required positional parameters:
-  * `:project_id` (`t:string`) The ID of the project from which to disassociate the assets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchDisassociateProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) The ID of the project from which to disassociate
+    the assets.
 
   ## Optional parameters:
   """
@@ -4510,14 +4523,13 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Gets aggregated values (for example, average, minimum, and maximum) for one or
-  more asset
-  properties.
+  more asset properties. For more information, see [Querying
+  aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4551,13 +4563,14 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets the current value for one or more asset properties.
-
-  For more information, see [Querying current
+  Gets the current value for one or more asset properties. For more information,
+  see [Querying current
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
   in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4591,13 +4604,14 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets the historical values for one or more asset properties.
-
-  For more information, see
-  [Querying historical values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
+  Gets the historical values for one or more asset properties. For more
+  information, see [Querying historical
+  values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
   in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchGetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4631,43 +4645,16 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Sends a list of asset property values to IoT SiteWise.
+  Sends a list of asset property values to IoT SiteWise. Each value is a
+  timestamp-quality-value (TQV) data point. For more information, see [Ingesting
+  data using the
+  API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  Each value is a timestamp-quality-value
-  (TQV) data point. For more information, see [Ingesting data using the API](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20BatchPutAssetPropertyValue&this_doc_guide=API%2520Reference)
 
-  To identify an asset property, you must specify one of the following:
-
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html). 
-
-  With respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a
-  timestamp of no more
-  than 7 days in the past and no more than 10 minutes in the future. IoT SiteWise
-  rejects timestamps
-  outside of the inclusive range of [-7 days, +10 minutes] and returns a
-  `TimestampOutOfRangeException` error.
-
-  For each asset property, IoT SiteWise overwrites TQVs with duplicate timestamps
-  unless the newer
-  TQV has a different quality. For example, if you store a TQV `{T1, GOOD, V1}`,
-  then storing `{T1, GOOD, V2}` replaces the existing TQV.
-
-  IoT SiteWise authorizes access to each `BatchPutAssetPropertyValue` entry
-  individually.
-  For more information, see [BatchPutAssetPropertyValue authorization](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action)
-  in the
-  *IoT SiteWise User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4702,11 +4689,12 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates an access policy that grants the specified identity (IAM Identity Center
-  user, IAM Identity Center group, or
-  IAM user) access to the specified IoT SiteWise Monitor portal or project
-  resource.
+  user, IAM Identity Center group, or IAM user) access to the specified IoT
+  SiteWise Monitor portal or project resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4736,13 +4724,14 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an asset from an existing asset model.
+  Creates an asset from an existing asset model. For more information, see
+  [Creating
+  assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Creating assets](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAsset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4772,31 +4761,18 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates an asset model from specified property and hierarchy definitions.
+  Creates an asset model from specified property and hierarchy definitions. You
+  create assets from asset models. With asset models, you can easily create
+  assets of the same type that have standardized definitions. Each asset created
+  from a model inherits the asset model's property and hierarchy definitions.
+  For more information, see [Defining asset
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
+  in the *IoT SiteWise User Guide*. You can create two types of asset models,
+  `ASSET_MODEL` or `COMPONENT_MODEL`.
 
-  You create
-  assets from asset models. With asset models, you can easily create assets of the
-  same type
-  that have standardized definitions. Each asset created from a model inherits the
-  asset model's
-  property and hierarchy definitions. For more information, see [Defining asset models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModel&this_doc_guide=API%2520Reference)
 
-  You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
-
-    *
-
-  **ASSET_MODEL** – (default) An asset model that you can use to create assets.
-  Can't be included as a component in another asset model.
-
-    *
-
-  **COMPONENT_MODEL** – A reusable component that you can include in the composite
-  models of other asset models. You can't create assets directly from this type of
-  asset model.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4827,35 +4803,21 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a custom composite model from specified property and hierarchy
-  definitions.
+  definitions. There are two types of custom composite models, `inline` and
+  `component-model-based`. Use component-model-based custom composite models to
+  define standard, reusable components. A component-model-based custom composite
+  model consists of a name, a description, and the ID of the component model it
+  references. A component-model-based custom composite model has no properties
+  of its own; its referenced component model provides its associated properties
+  to any created assets. For more information, see [Custom composite models
+  (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  There are two types of custom composite models,
-  `inline` and `component-model-based`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
-  Use component-model-based custom composite models to define standard, reusable
-  components. A component-model-based custom composite model consists of a name,
-  a description, and the ID of the component model it references. A
-  component-model-based custom composite model has no properties of its own; its
-  referenced
-  component model provides its associated properties to any created assets. For
-  more information, see
-  [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
-  in the
-  *IoT SiteWise User Guide*.
-
-  Use inline custom composite models to organize the properties of an asset model.
-  The properties of inline custom composite models are local to the asset model
-  where they are
-  included and can't be used to create multiple assets.
-
-  To create a component-model-based model, specify the `composedAssetModelId` of
-  an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
-
-  To create an inline model, specify the `assetModelCompositeModelProperties` and
-  don't include an `composedAssetModelId`.
-
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model this composite model is a part of.
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model this composite model
+    is a part of.
 
   ## Optional parameters:
   """
@@ -4890,22 +4852,20 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Defines a job to ingest data to IoT SiteWise from Amazon S3.
-
-  For more information, see [Create a bulk import job
+  Defines a job to ingest data to IoT SiteWise from Amazon S3. For more
+  information, see [Create a bulk import job
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html)
-  in the *Amazon Simple Storage Service User Guide*.
-
-  Before you create a bulk import job, you must enable IoT SiteWise warm tier or
-  IoT SiteWise cold tier.
+  in the *Amazon Simple Storage Service User Guide*. Before you create a bulk
+  import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
   For more information about how to configure storage settings, see
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
-
   Bulk import is designed to store historical data to IoT SiteWise. It does not
-  trigger computations or notifications on
-  IoT SiteWise warm or cold tier storage.
+  trigger computations or notifications on IoT SiteWise warm or cold tier
+  storage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateBulkImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4937,7 +4897,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a dashboard in an IoT SiteWise Monitor project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4968,14 +4930,14 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Creates a gateway, which is a virtual or edge device that delivers industrial
-  data streams
-  from local servers to IoT SiteWise.
+  data streams from local servers to IoT SiteWise. For more information, see
+  [Ingesting data using a
+  gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Ingesting data using a gateway](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5005,17 +4967,13 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Creates a portal, which can contain projects and dashboards.
+  Creates a portal, which can contain projects and dashboards. IoT SiteWise
+  Monitor uses IAM Identity Center or IAM to authenticate portal users and
+  manage user permissions.
 
-  IoT SiteWise Monitor uses IAM Identity Center or IAM
-  to authenticate portal users and manage user permissions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreatePortal&this_doc_guide=API%2520Reference)
 
-  Before you can sign in to a new portal, you must add at least one identity to
-  that
-  portal. For more information, see [Adding or removing portal administrators](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins)
-  in the *IoT SiteWise User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5047,10 +5005,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Creates a project in the specified portal.
 
-  Make sure that the project name and description don't contain confidential
-  information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20CreateProject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5081,17 +5038,18 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Deletes an access policy that grants the specified identity access to the
-  specified
-  IoT SiteWise Monitor resource.
+  specified IoT SiteWise Monitor resource. You can use this operation to revoke
+  access to an IoT SiteWise Monitor resource.
 
-  You can use this operation to revoke access to an IoT SiteWise Monitor
-  resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAccessPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:access_policy_id` (`t:string`) The ID of the access policy to be deleted.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_access_policy(
           AWS.Client.t(),
@@ -5129,21 +5087,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes an asset.
-
-  This action can't be undone. For more information, see [Deleting assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the *IoT SiteWise User Guide*.
-
-  You can't delete an asset that's associated to another asset. For more
-  information, see
+  Deletes an asset. This action can't be undone. For more information, see
+  [Deleting assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
+  in the *IoT SiteWise User Guide*. You can't delete an asset that's associated
+  to another asset. For more information, see
   [DisassociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html).
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to delete. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_asset(AWS.Client.t(), String.t(), delete_asset_request(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
@@ -5176,24 +5138,26 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes an asset model.
-
-  This action can't be undone. You must delete all assets created
-  from an asset model before you can delete the model. Also, you can't delete an
-  asset model if
-  a parent asset model exists that contains a property formula expression that
-  depends on the
-  asset model that you want to delete. For more information, see [Deleting assets and
+  Deletes an asset model. This action can't be undone. You must delete all assets
+  created from an asset model before you can delete the model. Also, you can't
+  delete an asset model if a parent asset model exists that contains a property
+  formula expression that depends on the asset model that you want to delete.
+  For more information, see [Deleting assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model to delete. This can
+    be either the actual ID in UUID format, or else externalId: followed by the
+    external ID, if it has one. For more information, see Referencing objects
+    with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_asset_model(AWS.Client.t(), String.t(), delete_asset_model_request(), Keyword.t()) ::
           {:ok, delete_asset_model_response(), any()}
@@ -5226,24 +5190,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a composite model.
-
-  This action can't be undone. You must delete all assets created
-  from a composite model before you can delete the model. Also, you can't delete a
-  composite model if
-  a parent asset model exists that contains a property formula expression that
-  depends on the
-  asset model that you want to delete. For more information, see [Deleting assets and
+  Deletes a composite model. This action can't be undone. You must delete all
+  assets created from a composite model before you can delete the model. Also,
+  you can't delete a composite model if a parent asset model exists that
+  contains a property formula expression that depends on the asset model that
+  you want to delete. For more information, see [Deleting assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on this asset model.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteAssetModelCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model.
   * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_asset_model_composite_model(
           AWS.Client.t(),
@@ -5292,11 +5257,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a dashboard from IoT SiteWise Monitor.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dashboard_id` (`t:string`) The ID of the dashboard to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_dashboard(AWS.Client.t(), String.t(), delete_dashboard_request(), Keyword.t()) ::
           {:ok, delete_dashboard_response(), any()}
@@ -5329,12 +5298,12 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a gateway from IoT SiteWise.
+  Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the
+  gateway's files remain in your gateway's file system.
 
-  When you delete a gateway, some of the gateway's files remain
-  in your gateway's file system.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:gateway_id` (`t:string`) The ID of the gateway to delete.
 
   ## Optional parameters:
@@ -5367,11 +5336,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a portal from IoT SiteWise Monitor.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeletePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_id` (`t:string`) The ID of the portal to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_portal(AWS.Client.t(), String.t(), delete_portal_request(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
@@ -5406,11 +5379,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a project from IoT SiteWise Monitor.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_id` (`t:string`) The ID of the project.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_project(AWS.Client.t(), String.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -5443,37 +5420,26 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Deletes a time series (data stream).
+  Deletes a time series (data stream). If you delete a time series that's
+  associated with an asset property, the asset property still exists, but the
+  time series will no longer be associated with this asset property. To identify
+  a time series, do one of the following:
 
-  If you delete a time series that's associated with an
-  asset property, the asset property still exists, but the time series will no
-  longer be
-  associated with this asset property.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DeleteTimeSeries&this_doc_guide=API%2520Reference)
 
-  To identify a time series, do one of the following:
-
-    *
-  If the time series isn't associated with an asset property,
-  specify the `alias` of the time series.
-
-    *
-  If the time series is associated with an asset property,
-  specify one of the following:
-
-      *
-  The `alias` of the time series.
-
-      *
-  The `assetId` and `propertyId` that identifies the asset property.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
   @spec delete_time_series(AWS.Client.t(), delete_time_series_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5509,10 +5475,11 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Describes an access policy, which specifies an identity's access to an IoT
-  SiteWise Monitor portal or
-  project.
+  SiteWise Monitor portal or project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:access_policy_id` (`t:string`) The ID of the access policy.
 
   ## Optional parameters:
@@ -5540,7 +5507,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:action_id` (`t:string`) The ID of the action.
 
   ## Optional parameters:
@@ -5568,14 +5537,17 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset.
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:exclude_properties` (`t:boolean`) 
-      Whether or not to exclude asset properties from the response.
-    
+  * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset properties
+    from the response.
   """
   @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
@@ -5608,17 +5580,22 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about an asset composite model (also known as an asset
-  component).
-
-  An `AssetCompositeModel` is an instance of an `AssetModelCompositeModel`. If you
-  want to see information about the model this is based on, call
+  component). An `AssetCompositeModel` is an instance of an
+  `AssetModelCompositeModel`. If you want to see information about the model
+  this is based on, call
   [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html).
 
-  ## Required positional parameters:
-  * `:asset_composite_model_id` (`t:string`) The ID of a composite model on this asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_composite_model_id` (`t:string`) The ID of a composite model on this
+    asset. This can be either the actual ID in UUID format, or else externalId:
+    followed by the external ID, if it has one. For more information, see
+    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -5651,14 +5628,17 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset model.
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:exclude_properties` (`t:boolean`) 
-      Whether or not to exclude asset model properties from the response.
-    
+  * `:exclude_properties` (`t:boolean`) Whether or not to exclude asset model
+    properties from the response.
   """
   @spec describe_asset_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_model_response(), any()}
@@ -5691,16 +5671,22 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about an asset model composite model (also known as an
-  asset model component).
-
-  For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  asset model component). For more information, see [Custom composite models
+  (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
   in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on this asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetModelCompositeModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -5731,24 +5717,22 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about an asset property.
+  Retrieves information about an asset property. When you call this operation for
+  an attribute property, this response includes the default attribute value that
+  you define in the asset model. If you update the default value in the model,
+  this operation's response includes the new default value.
 
-  When you call this operation for an attribute property, this response includes
-  the
-  default attribute value that you define in the asset model. If you update the
-  default value
-  in the model, this operation's response includes the new default value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeAssetProperty&this_doc_guide=API%2520Reference)
 
-  This operation doesn't return the value of the asset property. To get the value
-  of an
-  asset property, use
-  [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html).
-
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -5774,13 +5758,14 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about a bulk import job request.
-
-  For more information, see [Describe a bulk import job
+  Retrieves information about a bulk import job request. For more information, see
+  [Describe a bulk import job
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeBulkImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job.
 
   ## Optional parameters:
@@ -5808,7 +5793,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a dashboard.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dashboard_id` (`t:string`) The ID of the dashboard.
 
   ## Optional parameters:
@@ -5835,14 +5822,14 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about the default encryption configuration for the Amazon
-  Web Services account in
-  the default or specified Region.
+  Web Services account in the default or specified Region. For more information,
+  see [Key
+  management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5869,7 +5856,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a gateway.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_id` (`t:string`) The ID of the gateway device.
 
   ## Optional parameters:
@@ -5895,24 +5884,23 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about a gateway capability configuration.
-
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
+  Retrieves information about a gateway capability configuration. Each gateway
+  capability defines data sources for a gateway. A capability configuration can
+  contain multiple data source configurations. If you define OPC-UA sources for
+  a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored
+  in one capability configuration. To list all capability configurations for a
+  gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
 
-  ## Required positional parameters:
-  * `:capability_namespace` (`t:string`) The namespace of the capability configuration.
-      For example, if you configure OPC-UA
-      sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
-        <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
-        <code>1</code>.
-  * `:gateway_id` (`t:string`) The ID of the gateway that defines the capability configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:capability_namespace` (`t:string`) The namespace of the capability
+    configuration. For example, if you configure OPC-UA sources from the IoT
+    SiteWise console, your OPC-UA capability configuration has the namespace
+    iotsitewise:opcuacollector:version, where version is a number such as 1.
+  * `:gateway_id` (`t:string`) The ID of the gateway that defines the capability
+    configuration.
 
   ## Optional parameters:
   """
@@ -5950,7 +5938,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves the current IoT SiteWise logging options.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5977,7 +5967,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_id` (`t:string`) The ID of the portal.
 
   ## Optional parameters:
@@ -6005,7 +5997,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_id` (`t:string`) The ID of the project.
 
   ## Optional parameters:
@@ -6033,7 +6027,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about the storage configuration for IoT SiteWise.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6058,32 +6054,24 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about a time series (data stream).
+  Retrieves information about a time series (data stream). To identify a time
+  series, do one of the following:
 
-  To identify a time series, do one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DescribeTimeSeries&this_doc_guide=API%2520Reference)
 
-    *
-  If the time series isn't associated with an asset property,
-  specify the `alias` of the time series.
-
-    *
-  If the time series is associated with an asset property,
-  specify one of the following:
-
-      *
-  The `alias` of the time series.
-
-      *
-  The `assetId` and `propertyId` that identifies the asset property.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
   @spec describe_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_time_series_response(), any()}
@@ -6134,12 +6122,16 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Disassociates a child asset from the given parent asset through a hierarchy
-  defined in the
-  parent asset's model.
+  defined in the parent asset's model.
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the parent asset from which to disassociate the child asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the parent asset from which to disassociate
+    the child asset. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
 
   ## Optional parameters:
   """
@@ -6176,14 +6168,21 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Disassociates a time series (data stream) from an asset property.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20DisassociateTimeSeriesFromAssetProperty&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:alias` (`t:string`) The alias that identifies the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
   """
   @spec disassociate_time_series_from_asset_property(
           AWS.Client.t(),
@@ -6224,7 +6223,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Executes an action on a target resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6257,7 +6258,9 @@ defmodule AWS.IoTSiteWise do
   Run SQL queries to retrieve metadata and time-series data from asset models,
   assets, measurements, metrics, transforms, and aggregates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ExecuteQuery&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6287,40 +6290,40 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets aggregated values for an asset property.
+  Gets aggregated values for an asset property. For more information, see
+  [Querying
+  aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  For more information, see [Querying aggregates](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates)
-  in the *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyAggregates&this_doc_guide=API%2520Reference)
 
-  To identify an asset property, you must specify one of the following:
-
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`) The data aggregating function.
+  * `:aggregate_types` (`t:list[com.amazonaws.iotsitewise#AggregateType]`) The
+    data aggregating function.
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
-  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
-      first.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:property_alias` (`t:string`) The alias that identifies the property, such as an OPC-UA server data stream path
-        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-        <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-        <i>IoT SiteWise User Guide</i>.
+  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
+    historical data, expressed in seconds in Unix epoch time.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. A result set is returned in the two cases, whichever
+    occurs first.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
-  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by which to filter asset data.
+  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
+    which to filter asset data.
   * `:resolution` (`t:string`) The time interval over which to aggregate data.
-  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.
-  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting order of the requested information.
+  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
+    query historical data, expressed in seconds in Unix epoch time.
+  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
+    order of the requested information.
   """
   @spec get_asset_property_aggregates(
           AWS.Client.t(),
@@ -6456,31 +6459,23 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets an asset property's current value.
-
-  For more information, see [Querying current
+  Gets an asset property's current value. For more information, see [Querying
+  current
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values)
-  in the *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  To identify an asset property, you must specify one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValue&this_doc_guide=API%2520Reference)
 
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
-  * `:property_alias` (`t:string`) The alias that identifies the property, such as an OPC-UA server data stream path
-        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-        <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-        <i>IoT SiteWise User Guide</i>.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
   """
   @spec get_asset_property_value(AWS.Client.t(), Keyword.t()) ::
@@ -6531,39 +6526,37 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Gets the history of an asset property's values.
-
-  For more information, see [Querying historical
+  Gets the history of an asset property's values. For more information, see
+  [Querying historical
   values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values)
-  in the *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*. To identify an asset property, you must
+  specify one of the following:
 
-  To identify an asset property, you must specify one of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetAssetPropertyValueHistory&this_doc_guide=API%2520Reference)
 
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
-  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
-      first.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:property_alias` (`t:string`) The alias that identifies the property, such as an OPC-UA server data stream path
-        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-        <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-        <i>IoT SiteWise User Guide</i>.
+  * `:end_date` (`t:timestamp`) The inclusive end of the range from which to query
+    historical data, expressed in seconds in Unix epoch time.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. A result set is returned in the two cases, whichever
+    occurs first.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
-  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by which to filter asset data.
-  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.
-  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting order of the requested information.
+  * `:qualities` (`t:list[com.amazonaws.iotsitewise#Quality]`) The quality by
+    which to filter asset data.
+  * `:start_date` (`t:timestamp`) The exclusive start of the range from which to
+    query historical data, expressed in seconds in Unix epoch time.
+  * `:time_ordering` (`t:enum["ASCENDING|DESCENDING"]`) The chronological sorting
+    order of the requested information.
   """
   @spec get_asset_property_value_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_property_value_history_response(), any()}
@@ -6668,52 +6661,46 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Get interpolated values for an asset property for a specified time interval,
-  during a
-  period of time.
+  during a period of time. If your time series is missing data points during the
+  specified time interval, you can use interpolation to estimate the missing
+  data. For example, you can use this operation to return the interpolated
+  temperature values for a wind turbine every 24 hours over a duration of 7
+  days.
 
-  If your time series is missing data points during the specified time interval,
-  you can use interpolation to estimate the missing data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20GetInterpolatedAssetPropertyValues&this_doc_guide=API%2520Reference)
 
-  For example, you can use this operation to return the interpolated temperature
-  values for
-  a wind turbine every 24 hours over a duration of 7 days.
-
-  To identify an asset property, you must specify one of the following:
-
-    *
-  The `assetId` and `propertyId` of an asset property.
-
-    *
-  A `propertyAlias`, which is a data stream alias (for example,
-  `/company/windfarm/3/turbine/7/temperature`). To define an asset property's
-  alias, see
-  [UpdateAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:asset_id` (`t:string`) The ID of the asset, in UUID format.
-  * `:end_time_in_seconds` (`t:long`) The inclusive end of the range from which to interpolate data, expressed in seconds in
-      Unix epoch time.
-  * `:end_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from <code>endTimeInSeconds</code>.
-  * `:interval_in_seconds` (`t:long`) The time interval in seconds over which to interpolate data. Each interval starts when the
-      previous one ends.
-  * `:interval_window_in_seconds` (`t:long`) The query interval for the window, in seconds. IoT SiteWise computes each interpolated value by
-      using data points from the timestamp of each interval, minus the window to the timestamp of
-      each interval plus the window. If not specified, the window ranges between the start time
-      minus the interval and the end time plus the interval.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request. If not specified, the default value is 10.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:property_alias` (`t:string`) The alias that identifies the property, such as an OPC-UA server data stream path
-        (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-        <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-        <i>IoT SiteWise User Guide</i>.
+  * `:end_time_in_seconds` (`t:long`) The inclusive end of the range from which to
+    interpolate data, expressed in seconds in Unix epoch time.
+  * `:end_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from
+    endTimeInSeconds.
+  * `:interval_in_seconds` (`t:long`) The time interval in seconds over which to
+    interpolate data. Each interval starts when the previous one ends.
+  * `:interval_window_in_seconds` (`t:long`) The query interval for the window, in
+    seconds. IoT SiteWise computes each interpolated value by using data points
+    from the timestamp of each interval, minus the window to the timestamp of
+    each interval plus the window. If not specified, the window ranges between
+    the start time minus the interval and the end time plus the interval.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 10.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:property_alias` (`t:string`) The alias that identifies the property, such as
+    an OPC-UA server data stream path (for example,
+    /company/windfarm/3/turbine/7/temperature). For more information, see
+    Mapping industrial data streams to asset properties in the IoT SiteWise User
+    Guide.
   * `:property_id` (`t:string`) The ID of the asset property, in UUID format.
-  * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]`) The quality of the asset property value. You can use this parameter as a filter to choose
-      only the asset property values that have a specific quality.
-  * `:start_time_in_seconds` (`t:long`) The exclusive start of the range from which to interpolate data, expressed in seconds in
-      Unix epoch time.
-  * `:start_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted from <code>startTimeInSeconds</code>.
+  * `:quality` (`t:enum["BAD|GOOD|UNCERTAIN"]`) The quality of the asset property
+    value. You can use this parameter as a filter to choose only the asset
+    property values that have a specific quality.
+  * `:start_time_in_seconds` (`t:long`) The exclusive start of the range from
+    which to interpolate data, expressed in seconds in Unix epoch time.
+  * `:start_time_offset_in_nanos` (`t:integer`) The nanosecond offset converted
+    from startTimeInSeconds.
   * `:type` (`t:string`) The interpolation type.
   """
   @spec get_interpolated_asset_property_values(
@@ -6871,26 +6858,30 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves a paginated list of access policies for an identity (an IAM Identity
-  Center user, an IAM Identity Center
-  group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or
-  project).
+  Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise
+  Monitor resource (a portal or project).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAccessPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:iam_arn` (`t:string`) The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-        <i>IAM User Guide</i>. This parameter is required if you specify
-        <code>IAM</code> for <code>identityType</code>.
-  * `:identity_id` (`t:string`) The ID of the identity. This parameter is required if you specify <code>USER</code> or
-        <code>GROUP</code> for <code>identityType</code>.
-  * `:identity_type` (`t:enum["GROUP|IAM|USER"]`) The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
-      if you specify <code>identityId</code>.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:resource_id` (`t:string`) The ID of the resource. This parameter is required if you specify
-        <code>resourceType</code>.
-  * `:resource_type` (`t:enum["PORTAL|PROJECT"]`) The type of resource (portal or project). This parameter is required if you specify
-        <code>resourceId</code>.
+  * `:iam_arn` (`t:string`) The ARN of the IAM user. For more information, see IAM
+    ARNs in the IAM User Guide. This parameter is required if you specify IAM
+    for identityType.
+  * `:identity_id` (`t:string`) The ID of the identity. This parameter is required
+    if you specify USER or GROUP for identityType.
+  * `:identity_type` (`t:enum["GROUP|IAM|USER"]`) The type of identity (IAM
+    Identity Center user, IAM Identity Center group, or IAM user). This
+    parameter is required if you specify identityId.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:resource_id` (`t:string`) The ID of the resource. This parameter is required
+    if you specify resourceType.
+  * `:resource_type` (`t:enum["PORTAL|PROJECT"]`) The type of resource (portal or
+    project). This parameter is required if you specify resourceId.
   """
   @spec list_access_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_policies_response(), any()}
@@ -6978,11 +6969,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of actions for a specific target resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   * `:target_resource_id` (`t:string`) The ID of the target resource.
   * `:target_resource_type` (`t:enum["ASSET"]`) The type of resource.
   """
@@ -7045,13 +7040,19 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of composite models associated with the asset model
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelCompositeModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_asset_model_composite_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_composite_models_response(), any()}
@@ -7092,21 +7093,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of properties associated with an asset model.
+  Retrieves a paginated list of properties associated with an asset model. If you
+  update properties associated with the model before you finish listing all the
+  properties, you need to start all over again.
 
-  If you update properties associated with the model before you finish listing all
-  the properties,
-  you need to start all over again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModelProperties&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:filter` (`t:enum["ALL|BASE"]`)  Filters the requested list of asset model properties. You can choose one of the following
-      options:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request. If not specified, the default value is 50.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset model
+    properties. You can choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 50.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_asset_model_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_model_properties_response(), any()}
@@ -7158,12 +7163,17 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of summaries of all asset models.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:asset_model_types` (`t:list[com.amazonaws.iotsitewise#AssetModelType]`) The type of asset model.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:asset_model_types` (`t:list[com.amazonaws.iotsitewise#AssetModelType]`) The
+    type of asset model.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_asset_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_models_response(), any()}
@@ -7213,21 +7223,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of properties associated with an asset.
+  Retrieves a paginated list of properties associated with an asset. If you update
+  properties associated with the model before you finish listing all the
+  properties, you need to start all over again.
 
-  If you update properties associated with the model before you finish listing all
-  the properties,
-  you need to start all over again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetProperties&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:filter` (`t:enum["ALL|BASE"]`)  Filters the requested list of asset properties. You can choose one of the following
-      options:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request. If not specified, the default value is 50.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:filter` (`t:enum["ALL|BASE"]`) Filters the requested list of asset
+    properties. You can choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request. If not specified, the default value is 50.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_asset_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_properties_response(), any()}
@@ -7277,22 +7291,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of asset relationships for an asset.
+  Retrieves a paginated list of asset relationships for an asset. You can use this
+  operation to identify an asset's root asset and all associated assets between
+  that asset and its root.
 
-  You can use this operation
-  to identify an asset's root asset and all associated assets between that asset
-  and its
-  root.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssetRelationships&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset. This can be either the actual ID
+    in UUID format, or else externalId: followed by the external ID, if it has
+    one. For more information, see Referencing objects with external IDs in the
+    IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:traversal_type` (`t:enum["PATH_TO_ROOT"]`) The type of traversal to use to identify asset relationships. Choose the following
-      option:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:traversal_type` (`t:enum["PATH_TO_ROOT"]`) The type of traversal to use to
+    identify asset relationships. Choose the following option:
   """
   @spec list_asset_relationships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_relationships_response(), any()}
@@ -7342,32 +7359,25 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of asset summaries.
+  Retrieves a paginated list of asset summaries. You can use this operation to do
+  the following:
 
-  You can use this operation to do the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssets&this_doc_guide=API%2520Reference)
 
-    *
-  List assets based on a specific asset model.
-
-    *
-  List top-level assets.
-
-  You can't use this operation to list all assets. To retrieve summaries for all
-  of your
-  assets, use
-  [ListAssetModels](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html)
-  to get all of your asset model IDs. Then, use ListAssets to get all
-  assets for each asset model.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model by which to filter the list of assets. This parameter is
-      required if you choose <code>ALL</code> for <code>filter</code>. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:filter` (`t:enum["ALL|TOP_LEVEL"]`) The filter for the requested list of assets. Choose one of the following options:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:asset_model_id` (`t:string`) The ID of the asset model by which to filter
+    the list of assets. This parameter is required if you choose ALL for filter.
+    This can be either the actual ID in UUID format, or else externalId:
+    followed by the external ID, if it has one. For more information, see
+    Referencing objects with external IDs in the IoT SiteWise User Guide.
+  * `:filter` (`t:enum["ALL|TOP_LEVEL"]`) The filter for the requested list of
+    assets. Choose one of the following options:
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
@@ -7426,29 +7436,31 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of associated assets.
+  Retrieves a paginated list of associated assets. You can use this operation to
+  do the following:
 
-  You can use this operation to do the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListAssociatedAssets&this_doc_guide=API%2520Reference)
 
-    *
-  List child assets associated to a parent asset by a hierarchy that you specify.
-
-    *
-  List an asset's parent asset.
-
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to query. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:hierarchy_id` (`t:string`) The ID of the hierarchy by which child assets are associated to the asset. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) To find a
-      hierarchy ID, use the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html">DescribeAsset</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a> operations. This
-      parameter is required if you choose <code>CHILD</code> for
-      <code>traversalDirection</code>.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:traversal_direction` (`t:enum["CHILD|PARENT"]`) The direction to list associated assets. Choose one of the following options:
+  * `:hierarchy_id` (`t:string`) The ID of the hierarchy by which child assets are
+    associated to the asset. (This can be either the actual ID in UUID format,
+    or else externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.) To find a hierarchy ID, use the DescribeAsset or
+    DescribeAssetModel operations. This parameter is required if you choose
+    CHILD for traversalDirection.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:traversal_direction` (`t:enum["CHILD|PARENT"]`) The direction to list
+    associated assets. Choose one of the following options:
   """
   @spec list_associated_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_assets_response(), any()}
@@ -7507,18 +7519,24 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves a paginated list of bulk import job requests.
-
-  For more information, see [List bulk import jobs
+  Retrieves a paginated list of bulk import job requests. For more information,
+  see [List bulk import jobs
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html)
   in the *IoT SiteWise User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListBulkImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:filter` (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`) You can use a filter to select the bulk import jobs that you want to retrieve.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:filter`
+    (`t:enum["ALL|CANCELLED|COMPLETED|COMPLETED_WITH_FAILURES|FAILED|PENDING|RUNNING"]`)
+    You can use a filter to select the bulk import jobs that you want to
+    retrieve.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_bulk_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_import_jobs_response(), any()}
@@ -7571,13 +7589,19 @@ defmodule AWS.IoTSiteWise do
   Retrieves a paginated list of composition relationships for an asset model of
   type `COMPONENT_MODEL`.
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListCompositionRelationships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_composition_relationships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_composition_relationships_response(), any()}
@@ -7620,11 +7644,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListDashboards&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   * `:project_id` (`t:string`) The ID of the project.
   """
   @spec list_dashboards(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -7677,11 +7705,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of gateways.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gateways_response(), any()}
@@ -7724,11 +7756,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of IoT SiteWise Monitor portals.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListPortals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
@@ -7772,12 +7808,16 @@ defmodule AWS.IoTSiteWise do
   Retrieves a paginated list of assets associated with an IoT SiteWise Monitor
   project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjectAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_id` (`t:string`) The ID of the project.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   """
   @spec list_project_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_assets_response(), any()}
@@ -7820,11 +7860,15 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
   * `:portal_id` (`t:string`) The ID of the portal.
   """
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -7877,10 +7921,12 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves the list of tags for an IoT SiteWise resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.
+  * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7914,16 +7960,23 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of time series (data streams).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20ListTimeSeries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:alias_prefix` (`t:string`) The alias prefix of the time series.
-  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:max_results` (`t:integer`) The maximum number of results to return for each paginated request.
-  * `:next_token` (`t:string`) The token to be used for the next set of paginated results.
-  * `:time_series_type` (`t:enum["ASSOCIATED|DISASSOCIATED"]`) The type of the time series. The time series type can be one of the following
-      values:
+  * `:asset_id` (`t:string`) The ID of the asset in which the asset property was
+    created. This can be either the actual ID in UUID format, or else
+    externalId: followed by the external ID, if it has one. For more
+    information, see Referencing objects with external IDs in the IoT SiteWise
+    User Guide.
+  * `:max_results` (`t:integer`) The maximum number of results to return for each
+    paginated request.
+  * `:next_token` (`t:string`) The token to be used for the next set of paginated
+    results.
+  * `:time_series_type` (`t:enum["ASSOCIATED|DISASSOCIATED"]`) The type of the
+    time series. The time series type can be one of the following values:
   """
   @spec list_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_time_series_response(), any()}
@@ -7992,13 +8045,13 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Sets the default encryption configuration for the Amazon Web Services account.
+  For more information, see [Key
+  management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see
-  [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
-  in
-  the *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutDefaultEncryptionConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8034,7 +8087,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Sets logging options for IoT SiteWise.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8056,7 +8111,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Configures storage settings for IoT SiteWise.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20PutStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8090,15 +8147,15 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Adds tags to an IoT SiteWise resource.
+  Adds tags to an IoT SiteWise resource. If a tag already exists for the resource,
+  this operation updates the tag's value.
 
-  If a tag already exists for the resource, this operation
-  updates the tag's value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to tag.
+  * `:resource_arn` (`t:string`) The ARN of the resource to tag.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -8133,11 +8190,14 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Removes a tag from an IoT SiteWise resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to untag.
-  * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]`) A list of keys for tags to remove from the resource.
+  * `:resource_arn` (`t:string`) The ARN of the resource to untag.
+  * `:tag_keys` (`t:list[com.amazonaws.iotsitewise#TagKey]`) A list of keys for
+    tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -8172,10 +8232,11 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates an existing access policy that specifies an identity's access to an IoT
-  SiteWise Monitor
-  portal or project resource.
+  SiteWise Monitor portal or project resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAccessPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:access_policy_id` (`t:string`) The ID of the access policy.
 
   ## Optional parameters:
@@ -8201,15 +8262,17 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Updates an asset's name.
+  Updates an asset's name. For more information, see [Updating assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAsset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to update. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to update. This can be either the
+    actual ID in UUID format, or else externalId: followed by the external ID,
+    if it has one. For more information, see Referencing objects with external
+    IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -8230,32 +8293,26 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates an asset model and all of the assets that were created from the model.
-
-  Each asset
-  created from the model inherits the updated asset model's property and hierarchy
-  definitions.
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
-
-  This operation overwrites the existing model with the provided model. To avoid
-  deleting
-  your asset model's properties or hierarchies, you must include their IDs and
-  definitions in
-  the updated asset model payload. For more information, see
+  Each asset created from the model inherits the updated asset model's property
+  and hierarchy definitions. For more information, see [Updating assets and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*. This operation overwrites the existing model
+  with the provided model. To avoid deleting your asset model's properties or
+  hierarchies, you must include their IDs and definitions in the updated asset
+  model payload. For more information, see
   [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
+  If you remove a property from an asset model, IoT SiteWise deletes all
+  previous data for that property. If you remove a hierarchy definition from an
+  asset model, IoT SiteWise disassociates every asset associated with that
+  hierarchy. You can't change the type or data type of an existing property.
 
-  If you remove a property from an asset model, IoT SiteWise deletes all previous
-  data for that
-  property. If you remove a hierarchy definition from an asset model, IoT SiteWise
-  disassociates every
-  asset associated with that hierarchy. You can't change the type or data type of
-  an existing
-  property.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_model_id` (`t:string`) The ID of the asset model to update. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_model_id` (`t:string`) The ID of the asset model to update. This can
+    be either the actual ID in UUID format, or else externalId: followed by the
+    external ID, if it has one. For more information, see Referencing objects
+    with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -8276,33 +8333,17 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates a composite model and all of the assets that were created from the
-  model.
+  model. Each asset created from the model inherits the updated asset model's
+  property and hierarchy definitions. For more information, see [Updating assets
+  and
+  models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  in the *IoT SiteWise User Guide*.
 
-  Each asset
-  created from the model inherits the updated asset model's property and hierarchy
-  definitions.
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModelCompositeModel&this_doc_guide=API%2520Reference)
 
-  If you remove a property from a composite asset model, IoT SiteWise deletes all
-  previous data for that property. You can’t change the type or data type of an
-  existing property.
-
-  To replace an existing composite asset model property with a new one with the
-  same `name`, do the following:
-
-    
-  Submit an `UpdateAssetModelCompositeModel` request with the entire existing
-  property removed.
-
-    
-  Submit a second `UpdateAssetModelCompositeModel` request that includes the new
-  property. The new asset property will have the same
-  `name` as the previous one and IoT SiteWise will generate a new unique `id`.
-
-  ## Required positional parameters:
-  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on this asset model.
+  ## Parameters:
+  * `:asset_model_composite_model_id` (`t:string`) The ID of a composite model on
+    this asset model.
   * `:asset_model_id` (`t:string`) The ID of the asset model, in UUID format.
 
   ## Optional parameters:
@@ -8339,18 +8380,17 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an asset property's alias and notification state.
 
-  This operation overwrites the property's existing alias and notification state.
-  To keep
-  your existing property's alias or notification state, you must include the
-  existing values
-  in the UpdateAssetProperty request. For more information, see
-  [DescribeAssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetProperty&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:asset_id` (`t:string`) The ID of the asset to be updated. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
-  * `:property_id` (`t:string`) The ID of the asset property to be updated. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-    For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.
+  ## Parameters:
+  * `:asset_id` (`t:string`) The ID of the asset to be updated. This can be either
+    the actual ID in UUID format, or else externalId: followed by the external
+    ID, if it has one. For more information, see Referencing objects with
+    external IDs in the IoT SiteWise User Guide.
+  * `:property_id` (`t:string`) The ID of the asset property to be updated. This
+    can be either the actual ID in UUID format, or else externalId: followed by
+    the external ID, if it has one. For more information, see Referencing
+    objects with external IDs in the IoT SiteWise User Guide.
 
   ## Optional parameters:
   """
@@ -8380,7 +8420,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor dashboard.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateDashboard&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dashboard_id` (`t:string`) The ID of the dashboard to update.
 
   ## Optional parameters:
@@ -8403,7 +8445,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates a gateway's name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_id` (`t:string`) The ID of the gateway to update.
 
   ## Optional parameters:
@@ -8425,18 +8469,16 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Updates a gateway capability configuration or defines a new capability
-  configuration.
-
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
+  configuration. Each gateway capability defines data sources for a gateway. A
+  capability configuration can contain multiple data source configurations. If
+  you define OPC-UA sources for a gateway in the IoT SiteWise console, all of
+  your OPC-UA sources are stored in one capability configuration. To list all
+  capability configurations for a gateway, use
   [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateGatewayCapabilityConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_id` (`t:string`) The ID of the gateway to be updated.
 
   ## Optional parameters:
@@ -8479,7 +8521,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdatePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_id` (`t:string`) The ID of the portal to update.
 
   ## Optional parameters:
@@ -8502,7 +8546,9 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:project_id` (`t:string`) The ID of the project to update.
 
   ## Optional parameters:

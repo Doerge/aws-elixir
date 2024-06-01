@@ -3,85 +3,23 @@
 
 defmodule AWS.QBusiness do
   @moduledoc """
-  This is the *Amazon Q Business* API Reference.
-
-  Amazon Q Business is a fully
+  This is the *Amazon Q Business* API Reference. Amazon Q Business is a fully
   managed, generative-AI powered enterprise chat assistant that you can deploy
-  within your
-  organization. Amazon Q Business enhances employee productivity by supporting key
-  tasks such
-  as question-answering, knowledge discovery, writing email messages, summarizing
-  text,
-  drafting document outlines, and brainstorming ideas. Users ask questions of
-  Amazon Q Business and get answers that are presented in a conversational manner.
-  For an
-  introduction to the service, see the [
-  *Amazon Q Business User Guide*
+  within your organization. Amazon Q Business enhances employee productivity by
+  supporting key tasks such as question-answering, knowledge discovery, writing
+  email messages, summarizing text, drafting document outlines, and
+  brainstorming ideas. Users ask questions of Amazon Q Business and get answers
+  that are presented in a conversational manner. For an introduction to the
+  service, see the [ *Amazon Q Business User Guide*
   ](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html).
-
-  For an overview of the Amazon Q Business APIs, see [Overview of Amazon Q Business API
+  For an overview of the Amazon Q Business APIs, see [Overview of Amazon Q
+  Business API
   operations](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview).
-
-  For information about the IAM access control permissions you need to
-  use this API, see [IAM roles for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html)
-  in the
-  *Amazon Q Business User Guide*.
-
-  You can use the following AWS SDKs to access Amazon Q Business APIs:
-
-    *
-
-  [AWS SDK for C++](https://docs.aws.amazon.com/sdk-for-cpp) 
-
-    *
-
-  [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go)
-
-    *
-
-  [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java) 
-
-    *
-
-  [AWS SDK for
-  JavaScript](https://docs.aws.amazon.com/sdk-for-javascript)
-
-    *
-
-  [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net) 
-
-    *
-
-  [AWS SDK for Python
-  (Boto3)](https://docs.aws.amazon.com/pythonsdk)
-
-    *
-
-  [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) 
-
-  The following resources provide additional information about using the Amazon Q
-  Business
-  API:
-
-    *
-
-  *
-  [Setting up for
-  Amazon Q
-  Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html)
-  *
-
-    *
-
-  *
-  [Amazon Q Business CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html)
-  *
-
-    *
-
-  *
-  [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/amazonq.html)
-  *
+  For information about the IAM access control permissions you need to use this
+  API, see [IAM roles for Amazon Q
+  Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html)
+  in the *Amazon Q Business User Guide*. You can use the following AWS SDKs to
+  access Amazon Q Business APIs:
   """
 
   alias AWS.Client
@@ -3144,16 +3082,16 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Asynchronously deletes one or more documents added using the
-  `BatchPutDocument` API from an Amazon Q Business index.
+  Asynchronously deletes one or more documents added using the `BatchPutDocument`
+  API from an Amazon Q Business index.
 
-  You can see the progress of the deletion, and any error messages related to the
-  process, by using CloudWatch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20BatchDeleteDocument&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index that contains the documents to
-            delete.
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index that
+    contains the documents to delete.
 
   ## Optional parameters:
   """
@@ -3191,27 +3129,15 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Adds one or more documents to an Amazon Q Business index.
+  Adds one or more documents to an Amazon Q Business index. You use this API to:
 
-  You use this API to:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20BatchPutDocument&this_doc_guide=API%2520Reference)
 
-    *
-  ingest your structured and unstructured documents and documents stored in an
-  Amazon S3 bucket into an Amazon Q Business index.
-
-    *
-  add custom attributes to documents in an Amazon Q Business index.
-
-    *
-  attach an access control list to the documents added to an Amazon Q Business
-  index.
-
-  You can see the progress of the deletion, and any error messages related to the
-  process, by using CloudWatch.
-
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index to add the documents to. 
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index to add
+    the documents to.
 
   ## Optional parameters:
   """
@@ -3251,16 +3177,22 @@ defmodule AWS.QBusiness do
   @doc """
   Starts or continues a streaming Amazon Q Business conversation.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business
-            conversation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20Chat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to a streaming Amazon Q Business conversation.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A token that you provide to identify the chat input.
-  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business conversation.
-  * `:parent_message_id` (`t:string`) The identifier used to associate a user message with a AI generated response.
-  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a user associated with the chat input belongs to.
-  * `:user_id` (`t:string`) The identifier of the user attached to the chat input. 
+  * `:client_token` (`t:string`) A token that you provide to identify the chat
+    input.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business
+    conversation.
+  * `:parent_message_id` (`t:string`) The identifier used to associate a user
+    message with a AI generated response.
+  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a
+    user associated with the chat input belongs to.
+  * `:user_id` (`t:string`) The identifier of the user attached to the chat input.
   """
   @spec chat(AWS.Client.t(), String.t(), chat_input(), Keyword.t()) ::
           {:ok, chat_output(), any()}
@@ -3299,12 +3231,15 @@ defmodule AWS.QBusiness do
   @doc """
   Starts or continues a non-streaming Amazon Q Business conversation.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the Amazon Q Business
-            conversation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ChatSync&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to the Amazon Q Business conversation.
 
   ## Optional parameters:
-  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a user associated with the chat input belongs to.
+  * `:user_groups` (`t:list[com.amazonaws.qbusiness#String]`) The groups that a
+    user associated with the chat input belongs to.
   * `:user_id` (`t:string`) The identifier of the user attached to the chat input.
   """
   @spec chat_sync(AWS.Client.t(), String.t(), chat_sync_input(), Keyword.t()) ::
@@ -3341,15 +3276,9 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business application.
 
-  There are new tiers for Amazon Q Business. Not all features in Amazon Q Business
-  Pro are
-  also available in Amazon Q Business Lite. For information on what's included in
-  Amazon Q Business Lite and what's included in
-  Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers).
-  You must use the Amazon Q Business console to assign subscription tiers to
-  users.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3381,14 +3310,13 @@ defmodule AWS.QBusiness do
   @doc """
   Creates a data source connector for an Amazon Q Business application.
 
-  `CreateDataSource` is a synchronous operation. The operation returns 200 if
-  the data source was successfully created. Otherwise, an exception is raised.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateDataSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`)  The identifier of the Amazon Q Business application the data source will be attached
-            to.
-  * `:index_id` (`t:string`) The identifier of the index that you want to use with the data source
-            connector.
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application the data source will be attached to.
+  * `:index_id` (`t:string`) The identifier of the index that you want to use with
+    the data source connector.
 
   ## Optional parameters:
   """
@@ -3426,22 +3354,15 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Creates an Amazon Q Business index.
+  Creates an Amazon Q Business index. To determine if index creation has
+  completed, check the `Status` field returned from a call to `DescribeIndex`.
+  The `Status` field is set to `ACTIVE` when the index is ready to use.
 
-  To determine if index creation has completed, check the `Status` field
-  returned from a call to `DescribeIndex`. The `Status` field is set
-  to `ACTIVE` when the index is ready to use.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateIndex&this_doc_guide=API%2520Reference)
 
-  Once the index is active, you can index your documents using the [
-  `BatchPutDocument`
-  ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html)
-  API or the [
-  `CreateDataSource`
-  ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)
-  API.
-
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the index.
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application using the index.
 
   ## Optional parameters:
   """
@@ -3473,8 +3394,11 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business plugin.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application that will contain the plugin.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreatePlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application that will
+    contain the plugin.
 
   ## Optional parameters:
   """
@@ -3506,8 +3430,11 @@ defmodule AWS.QBusiness do
   @doc """
   Adds a retriever to your Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of your Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateRetriever&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of your Amazon Q Business
+    application.
 
   ## Optional parameters:
   """
@@ -3538,11 +3465,13 @@ defmodule AWS.QBusiness do
 
   @doc """
   Creates a universally unique identifier (UUID) mapped to a list of local user
-  ids
-  within an application.
+  ids within an application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the user mapping will be created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application for which the
+    user mapping will be created.
 
   ## Optional parameters:
   """
@@ -3574,8 +3503,11 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business web experience.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business web experience.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20CreateWebExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience.
 
   ## Optional parameters:
   """
@@ -3612,8 +3544,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
 
   ## Optional parameters:
   """
@@ -3645,8 +3580,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes chat controls configured for an existing Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application the chat controls have been configured for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteChatControlsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application the chat
+    controls have been configured for.
 
   ## Optional parameters:
   """
@@ -3683,13 +3621,17 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business web experience conversation.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application associated with the
-            conversation.
-  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web experience conversation being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteConversation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application associated with the conversation.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience conversation being deleted.
 
   ## Optional parameters:
-  * `:user_id` (`t:string`) The identifier of the user who is deleting the conversation.
+  * `:user_id` (`t:string`) The identifier of the user who is deleting the
+    conversation.
   """
   @spec delete_conversation(
           AWS.Client.t(),
@@ -3736,17 +3678,19 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Deletes an Amazon Q Business data source connector.
-
-  While the data source is being
-  deleted, the `Status` field returned by a call to the
+  Deletes an Amazon Q Business data source connector. While the data source is
+  being deleted, the `Status` field returned by a call to the
   `DescribeDataSource` API is set to `DELETING`.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application used with the data source
-            connector.
-  * `:data_source_id` (`t:string`) The identifier of the data source connector that you want to delete. 
-  * `:index_id` (`t:string`) The identifier of the index used with the data source connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application used with the data source connector.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector
+    that you want to delete.
+  * `:index_id` (`t:string`) The identifier of the index used with the data source
+    connector.
 
   ## Optional parameters:
   """
@@ -3793,29 +3737,22 @@ defmodule AWS.QBusiness do
 
   @doc """
   Deletes a group so that all users and sub groups that belong to the group can no
-  longer access documents only available to that group.
+  longer access documents only available to that group. For example, after
+  deleting the group "Summer Interns", all interns who belonged to that group no
+  longer see intern-only documents in their chat results.
 
-  For example, after deleting the
-  group "Summer Interns", all interns who belonged to that group no longer see
-  intern-only
-  documents in their chat results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteGroup&this_doc_guide=API%2520Reference)
 
-  If you want to delete, update, or replace users or sub groups of a group, you
-  need to
-  use the `PutGroup` operation. For example, if a user in the group
-  "Engineering" leaves the engineering team and another user takes their place,
-  you
-  provide an updated list of users or sub groups that belong to the "Engineering"
-  group
-  when calling `PutGroup`.
-
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application in which the group mapping belongs.
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application in which the
+    group mapping belongs.
   * `:group_name` (`t:string`) The name of the group you want to delete.
-  * `:index_id` (`t:string`) The identifier of the index you want to delete the group from.
+  * `:index_id` (`t:string`) The identifier of the index you want to delete the
+    group from.
 
   ## Optional parameters:
-  * `:data_source_id` (`t:string`) The identifier of the data source linked to the group
+  * `:data_source_id` (`t:string`) The identifier of the data source linked to the
+    group
   """
   @spec delete_group(
           AWS.Client.t(),
@@ -3859,9 +3796,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business index.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application the Amazon Q Business index is linked
-            to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application the Amazon Q Business index is linked to.
   * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
 
   ## Optional parameters:
@@ -3896,8 +3835,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business plugin.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier the application attached to the Amazon Q Business plugin.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeletePlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier the application attached to the
+    Amazon Q Business plugin.
   * `:plugin_id` (`t:string`) The identifier of the plugin being deleted.
 
   ## Optional parameters:
@@ -3938,8 +3880,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes the retriever used by an Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteRetriever&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application using the retriever.
   * `:retriever_id` (`t:string`) The identifier of the retriever being deleted.
 
   ## Optional parameters:
@@ -3980,8 +3925,11 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes a user by email id.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application from which the user is being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application from which
+    the user is being deleted.
   * `:user_id` (`t:string`) The user email being deleted.
 
   ## Optional parameters:
@@ -4016,10 +3964,13 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business web experience.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the Amazon Q Business web
-            experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20DeleteWebExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to the Amazon Q Business web experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience being deleted.
 
   ## Optional parameters:
   """
@@ -4065,8 +4016,11 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
 
   ## Optional parameters:
   """
@@ -4092,18 +4046,21 @@ defmodule AWS.QBusiness do
 
   @doc """
   Gets information about an chat controls configured for an existing Amazon Q
-  Business
-  application.
+  Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the chat controls are configured.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetChatControlsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application for which the
+    chat controls are configured.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of configured chat controls to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of Amazon Q Business chat controls
-            configured.
+  * `:max_results` (`t:integer`) The maximum number of configured chat controls to
+    return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business chat controls configured.
   """
   @spec get_chat_controls_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_chat_controls_configuration_response(), any()}
@@ -4146,10 +4103,14 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business data source connector.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
   * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identfier of the index used with the data source connector.
+  * `:index_id` (`t:string`) The identfier of the index used with the data source
+    connector.
 
   ## Optional parameters:
   """
@@ -4177,13 +4138,17 @@ defmodule AWS.QBusiness do
   @doc """
   Describes a group by group name.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application id the group is attached to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application id the group
+    is attached to.
   * `:group_name` (`t:string`) The name of the group.
   * `:index_id` (`t:string`) The identifier of the index the group is attached to.
 
   ## Optional parameters:
-  * `:data_source_id` (`t:string`) The identifier of the data source the group is attached to.
+  * `:data_source_id` (`t:string`) The identifier of the data source the group is
+    attached to.
   """
   @spec get_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
@@ -4218,9 +4183,13 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business index.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
-  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index you want information on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application connected to the index.
+  * `:index_id` (`t:string`) The identifier of the Amazon Q Business index you
+    want information on.
 
   ## Optional parameters:
   """
@@ -4248,8 +4217,11 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business plugin.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application which contains the plugin.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetPlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application which
+    contains the plugin.
   * `:plugin_id` (`t:string`) The identifier of the plugin.
 
   ## Optional parameters:
@@ -4279,8 +4251,11 @@ defmodule AWS.QBusiness do
   Gets information about an existing retriever used by an Amazon Q Business
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetRetriever&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application using the retriever.
   * `:retriever_id` (`t:string`) The identifier of the retriever.
 
   ## Optional parameters:
@@ -4308,11 +4283,13 @@ defmodule AWS.QBusiness do
 
   @doc """
   Describes the universally unique identifier (UUID) associated with a local user
-  in a
-  data source.
+  in a data source.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application connected to the user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application connected to
+    the user.
   * `:user_id` (`t:string`) The user email address attached to the user.
 
   ## Optional parameters:
@@ -4341,9 +4318,13 @@ defmodule AWS.QBusiness do
   @doc """
   Gets information about an existing Amazon Q Business web experience.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the web experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20GetWebExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to the web experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience.
 
   ## Optional parameters:
   """
@@ -4371,13 +4352,17 @@ defmodule AWS.QBusiness do
   @doc """
   Lists Amazon Q Business applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business applications to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of Amazon Q Business applications.
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business
+    applications to return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business applications.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -4420,16 +4405,21 @@ defmodule AWS.QBusiness do
   @doc """
   Lists one or more Amazon Q Business conversations.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListConversations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business conversations to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of Amazon Q Business conversations.
-  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q Business web experience conversation.
-        
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business
+    conversations to return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business conversations.
+  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q
+    Business web experience conversation.
   """
   @spec list_conversations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_conversations_response(), any()}
@@ -4482,20 +4472,29 @@ defmodule AWS.QBusiness do
   Get information about an Amazon Q Business data source connector
   synchronization.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the data source.
-  * `:data_source_id` (`t:string`)  The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q Business data source connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDataSourceSyncJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application connected to the data source.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q
+    Business data source connector.
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp`)  The end time of the data source connector sync.
-  * `:max_results` (`t:integer`) The maximum number of synchronization jobs to return in the response.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incpmplete because there is more data to
-            retriever, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of responses.
-  * `:start_time` (`t:timestamp`)  The start time of the data source connector sync. 
-  * `:status_filter` (`t:enum["ABORTED|FAILED|INCOMPLETE|STOPPING|SUCCEEDED|SYNCING|SYNCING_INDEXING"]`) Only returns synchronization jobs with the <code>Status</code> field equal to the
-            specified status.
+  * `:end_time` (`t:timestamp`) The end time of the data source connector sync.
+  * `:max_results` (`t:integer`) The maximum number of synchronization jobs to
+    return in the response.
+  * `:next_token` (`t:string`) If the maxResults response was incpmplete because
+    there is more data to retriever, Amazon Q Business returns a pagination
+    token in the response. You can use this pagination token to retrieve the
+    next set of responses.
+  * `:start_time` (`t:timestamp`) The start time of the data source connector
+    sync.
+  * `:status_filter`
+    (`t:enum["ABORTED|FAILED|INCOMPLETE|STOPPING|SUCCEEDED|SYNCING|SYNCING_INDEXING"]`)
+    Only returns synchronization jobs with the Status field equal to the
+    specified status.
   """
   @spec list_data_source_sync_jobs(
           AWS.Client.t(),
@@ -4578,17 +4577,21 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the Amazon Q Business data source connectors that you have created.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the data source
-            connectors.
-  * `:index_id` (`t:string`) The identifier of the index used with one or more data source connectors.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to the data source connectors.
+  * `:index_id` (`t:string`) The identifier of the index used with one or more
+    data source connectors.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of data source connectors to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of Amazon Q Business data source
-            connectors.
+  * `:max_results` (`t:integer`) The maximum number of data source connectors to
+    return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business data source connectors.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
@@ -4632,16 +4635,22 @@ defmodule AWS.QBusiness do
   @doc """
   A list of documents attached to an index.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application id the documents are attached to.
-  * `:index_id` (`t:string`) The identifier of the index the documents are attached to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListDocuments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application id the
+    documents are attached to.
+  * `:index_id` (`t:string`) The identifier of the index the documents are
+    attached to.
 
   ## Optional parameters:
-  * `:data_source_ids` (`t:list[com.amazonaws.qbusiness#DataSourceId]`) The identifier of the data sources the documents are attached to.
+  * `:data_source_ids` (`t:list[com.amazonaws.qbusiness#DataSourceId]`) The
+    identifier of the data sources the documents are attached to.
   * `:max_results` (`t:integer`) The maximum number of documents to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of documents.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of documents.
   """
   @spec list_documents(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_documents_response(), any()}
@@ -4694,18 +4703,25 @@ defmodule AWS.QBusiness do
   @doc """
   Provides a list of groups that are mapped to users.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application for getting a list of groups mapped to users.
-  * `:index_id` (`t:string`) The identifier of the index for getting a list of groups mapped to users.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application for getting a
+    list of groups mapped to users.
+  * `:index_id` (`t:string`) The identifier of the index for getting a list of
+    groups mapped to users.
 
   ## Optional parameters:
-  * `:data_source_id` (`t:string`) The identifier of the data source for getting a list of groups mapped to users.
-  * `:max_results` (`t:integer`) The maximum number of returned groups that are mapped to users.
-  * `:next_token` (`t:string`) If the previous response was incomplete (because there is more data to retrieve),
-            Amazon Q Business returns a pagination token in the response. You can use this pagination
-            token to retrieve the next set of groups that are mapped to users.
-  * `:updated_earlier_than` (`t:timestamp`) The timestamp identifier used for the latest <code>PUT</code> or <code>DELETE</code>
-            action for mapping users to their groups.
+  * `:data_source_id` (`t:string`) The identifier of the data source for getting a
+    list of groups mapped to users.
+  * `:max_results` (`t:integer`) The maximum number of returned groups that are
+    mapped to users.
+  * `:next_token` (`t:string`) If the previous response was incomplete (because
+    there is more data to retrieve), Amazon Q Business returns a pagination
+    token in the response. You can use this pagination token to retrieve the
+    next set of groups that are mapped to users.
+  * `:updated_earlier_than` (`t:timestamp`) The timestamp identifier used for the
+    latest PUT or DELETE action for mapping users to their groups.
   """
   @spec list_groups(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -4773,14 +4789,18 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the Amazon Q Business indices you have created.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListIndices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application connected to the index.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of indices to return.
-  * `:next_token` (`t:string`) If the maxResults response was incomplete because there is more data to retrieve,
-            Amazon Q Business returns a pagination token in the response. You can use this pagination
-            token to retrieve the next set of Amazon Q Business indices.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business indices.
   """
   @spec list_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
@@ -4823,16 +4843,21 @@ defmodule AWS.QBusiness do
   @doc """
   Gets a list of messages associated with an Amazon Q Business web experience.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier for the Amazon Q Business application.
-  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web experience conversation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListMessages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier for the Amazon Q Business
+    application.
+  * `:conversation_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience conversation.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of messages to return.
-  * `:next_token` (`t:string`) If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
-            returns a next token as a pagination token to retrieve the next set of messages.
-  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q Business web experience
-            conversation.
+  * `:next_token` (`t:string`) If the number of retrievers returned exceeds
+    maxResults, Amazon Q Business returns a next token as a pagination token to
+    retrieve the next set of messages.
+  * `:user_id` (`t:string`) The identifier of the user involved in the Amazon Q
+    Business web experience conversation.
   """
   @spec list_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_messages_response(), any()}
@@ -4885,14 +4910,18 @@ defmodule AWS.QBusiness do
   @doc """
   Lists configured Amazon Q Business plugins.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application the plugin is attached to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListPlugins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application the plugin is
+    attached to.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of documents to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of plugins.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of plugins.
   """
   @spec list_plugins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_plugins_response(), any()}
@@ -4935,14 +4964,17 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the retriever used by an Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application using the retriever.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListRetrievers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application using the retriever.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of retrievers returned.
-  * `:next_token` (`t:string`) If the number of retrievers returned exceeds <code>maxResults</code>, Amazon Q Business
-            returns a next token as a pagination token to retrieve the next set of
-            retrievers.
+  * `:next_token` (`t:string`) If the number of retrievers returned exceeds
+    maxResults, Amazon Q Business returns a next token as a pagination token to
+    retrieve the next set of retrievers.
   """
   @spec list_retrievers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_retrievers_response(), any()}
@@ -4983,14 +5015,14 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Gets a list of tags associated with a specified resource.
+  Gets a list of tags associated with a specified resource. Amazon Q Business
+  applications and data sources can have tags associated with them.
 
-  Amazon Q Business applications
-  and data sources can have tags associated with them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
-            a list of tags for.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
+    Business application or data source to get a list of tags for.
 
   ## Optional parameters:
   """
@@ -5017,15 +5049,19 @@ defmodule AWS.QBusiness do
   @doc """
   Lists one or more Amazon Q Business Web Experiences.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application linked to the listed web
-            experiences.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20ListWebExperiences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application linked to the listed web experiences.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business Web Experiences to return.
-  * `:next_token` (`t:string`) If the <code>maxResults</code> response was incomplete because there is more data to
-            retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-            pagination token to retrieve the next set of Amazon Q Business conversations.
+  * `:max_results` (`t:integer`) The maximum number of Amazon Q Business Web
+    Experiences to return.
+  * `:next_token` (`t:string`) If the maxResults response was incomplete because
+    there is more data to retrieve, Amazon Q Business returns a pagination token
+    in the response. You can use this pagination token to retrieve the next set
+    of Amazon Q Business conversations.
   """
   @spec list_web_experiences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_web_experiences_response(), any()}
@@ -5067,13 +5103,17 @@ defmodule AWS.QBusiness do
 
   @doc """
   Enables your end user to provide feedback on their Amazon Q Business generated
-  chat
-  responses.
+  chat responses.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application associated with the feedback.
-  * `:conversation_id` (`t:string`) The identifier of the conversation the feedback is attached to.
-  * `:message_id` (`t:string`) The identifier of the chat message that the feedback was given for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20PutFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application associated
+    with the feedback.
+  * `:conversation_id` (`t:string`) The identifier of the conversation the
+    feedback is attached to.
+  * `:message_id` (`t:string`) The identifier of the chat message that the
+    feedback was given for.
 
   ## Optional parameters:
   * `:user_id` (`t:string`) The identifier of the user giving the feedback.
@@ -5125,22 +5165,15 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Create, or updates, a mapping of users—who have access to a document—to
-  groups.
+  Create, or updates, a mapping of users—who have access to a document—to groups.
 
-  You can also map sub groups to groups. For example, the group "Company
-  Intellectual
-  Property Teams" includes sub groups "Research" and "Engineering". These sub
-  groups
-  include their own list of users or people who work in these teams. Only users
-  who work
-  in research and engineering, and therefore belong in the intellectual property
-  group,
-  can see top-secret company documents in their Amazon Q Business chat results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20PutGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application in which the user and group mapping belongs.
-  * `:index_id` (`t:string`) The identifier of the index in which you want to map users to their groups.
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application in which the
+    user and group mapping belongs.
+  * `:index_id` (`t:string`) The identifier of the index in which you want to map
+    users to their groups.
 
   ## Optional parameters:
   """
@@ -5162,15 +5195,17 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Starts a data source connector synchronization job.
-
-  If a synchronization job is
+  Starts a data source connector synchronization job. If a synchronization job is
   already in progress, Amazon Q Business returns a `ConflictException`.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of Amazon Q Business application the data source is connected to.
-  * `:data_source_id` (`t:string`)  The identifier of the data source connector. 
-  * `:index_id` (`t:string`) The identifier of the index used with the data source connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20StartDataSourceSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of Amazon Q Business application
+    the data source is connected to.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index used with the data source
+    connector.
 
   ## Optional parameters:
   """
@@ -5219,11 +5254,14 @@ defmodule AWS.QBusiness do
   Stops an Amazon Q Business data source connector synchronization job already in
   progress.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application that the data source is connected
-            to.
-  * `:data_source_id` (`t:string`)  The identifier of the data source connector. 
-  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q Business data source connector.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20StopDataSourceSyncJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application that the data source is connected to.
+  * `:data_source_id` (`t:string`) The identifier of the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index used with the Amazon Q
+    Business data source connector.
 
   ## Optional parameters:
   """
@@ -5270,15 +5308,14 @@ defmodule AWS.QBusiness do
 
   @doc """
   Adds the specified tag to the specified Amazon Q Business application or data
-  source
-  resource.
+  source resource. If the tag already exists, the existing value is replaced
+  with the new value.
 
-  If the tag already exists, the existing value is replaced with the new
-  value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to
-            tag.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
+    Business application or data source to tag.
 
   ## Optional parameters:
   """
@@ -5310,13 +5347,16 @@ defmodule AWS.QBusiness do
   @doc """
   Removes a tag from an Amazon Q Business application or a data source.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to
-            remove the tag from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the Amazon Q
+    Business application, or data source to remove the tag from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.qbusiness#TagKey]`) A list of tag keys to remove from the Amazon Q Business application or data source. If a
-            tag key does not exist on the resource, it is ignored.
+  * `:tag_keys` (`t:list[com.amazonaws.qbusiness#TagKey]`) A list of tag keys to
+    remove from the Amazon Q Business application or data source. If a tag key
+    does not exist on the resource, it is ignored.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5351,8 +5391,11 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an existing Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application.
 
   ## Optional parameters:
   """
@@ -5375,8 +5418,11 @@ defmodule AWS.QBusiness do
   Updates an set of chat controls configured for an existing Amazon Q Business
   application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application for which the chat controls are configured.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateChatControlsConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application for which the
+    chat controls are configured.
 
   ## Optional parameters:
   """
@@ -5413,11 +5459,14 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an existing Amazon Q Business data source connector.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`)  The identifier of the Amazon Q Business application the data source is attached
-            to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application the data source is attached to.
   * `:data_source_id` (`t:string`) The identifier of the data source connector.
-  * `:index_id` (`t:string`) The identifier of the index attached to the data source connector.
+  * `:index_id` (`t:string`) The identifier of the index attached to the data
+    source connector.
 
   ## Optional parameters:
   """
@@ -5455,8 +5504,11 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an Amazon Q Business index.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application connected to the index.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application connected to the index.
   * `:index_id` (`t:string`) The identifier of the Amazon Q Business index.
 
   ## Optional parameters:
@@ -5481,8 +5533,11 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an Amazon Q Business plugin.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application the plugin is attached to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdatePlugin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application the plugin is
+    attached to.
   * `:plugin_id` (`t:string`) The identifier of the plugin.
 
   ## Optional parameters:
@@ -5513,8 +5568,11 @@ defmodule AWS.QBusiness do
   @doc """
   Updates the retriever used for your Amazon Q Business application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of your Amazon Q Business application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateRetriever&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of your Amazon Q Business
+    application.
   * `:retriever_id` (`t:string`) The identifier of your retriever.
 
   ## Optional parameters:
@@ -5545,8 +5603,11 @@ defmodule AWS.QBusiness do
   @doc """
   Updates a information associated with a user id.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the application the user is attached to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the application the user is
+    attached to.
   * `:user_id` (`t:string`) The email id attached to the user.
 
   ## Optional parameters:
@@ -5571,9 +5632,13 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an Amazon Q Business web experience.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The identifier of the Amazon Q Business application attached to the web experience.
-  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web experience.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qbusiness%20UpdateWebExperience&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The identifier of the Amazon Q Business
+    application attached to the web experience.
+  * `:web_experience_id` (`t:string`) The identifier of the Amazon Q Business web
+    experience.
 
   ## Optional parameters:
   """

@@ -3,46 +3,10 @@
 
 defmodule AWS.PI do
   @moduledoc """
-  Amazon RDS Performance Insights
-
-  Amazon RDS Performance Insights enables you to monitor and explore different
-  dimensions of database load based on data captured from a running DB instance.
-
-  The guide
-  provides detailed information about Performance Insights data types, parameters
-  and errors.
-
-  When Performance Insights is enabled, the Amazon RDS Performance Insights API
-  provides visibility into the performance of your DB instance. Amazon CloudWatch
-  provides the
-  authoritative source for Amazon Web Services service-vended monitoring metrics.
-  Performance Insights offers a domain-specific view of DB load.
-
-  DB load is measured as average active sessions. Performance Insights provides
-  the data to API consumers as a two-dimensional time-series dataset. The time
-  dimension
-  provides DB load data for each time point in the queried time range. Each time
-  point decomposes overall load in relation to the requested
-  dimensions, measured at that time point. Examples include SQL, Wait event, User,
-  and Host.
-
-    *
-  To learn more about Performance Insights and Amazon Aurora DB instances, go to
-  the *
-  [ Amazon Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html)
-  *.
-
-    *
-  To learn more about Performance Insights and Amazon RDS DB instances, go to the
-  *
-  [ Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html)
-  *.
-
-    *
-  To learn more about Performance Insights and Amazon DocumentDB clusters, go to
-  the *
-  [ Amazon DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html)
-  *.
+  Amazon RDS Performance Insights Amazon RDS Performance Insights enables you to
+  monitor and explore different dimensions of database load based on data
+  captured from a running DB instance. The guide provides detailed information
+  about Performance Insights data types, parameters and errors.
   """
 
   alias AWS.Client
@@ -744,8 +708,8 @@ defmodule AWS.PI do
   end
 
   @doc """
-  Creates a new performance analysis report for a specific time period for the
-  DB instance.
+  Creates a new performance analysis report for a specific time period for the DB
+  instance.
   """
   @spec create_performance_analysis_report(
           AWS.Client.t(),
@@ -782,10 +746,6 @@ defmodule AWS.PI do
 
   @doc """
   For a specific time period, retrieve the top `N` dimension keys for a metric.
-
-  Each response element returns a maximum of 500 bytes. For larger elements, such
-  as SQL statements,
-  only the first 500 bytes are returned.
   """
   @spec describe_dimension_keys(AWS.Client.t(), describe_dimension_keys_request(), Keyword.t()) ::
           {:ok, describe_dimension_keys_response(), any()}
@@ -800,14 +760,10 @@ defmodule AWS.PI do
 
   @doc """
   Get the attributes of the specified dimension group for a DB instance or data
-  source.
-
-  For example, if you specify a SQL ID,
-  `GetDimensionKeyDetails` retrieves the full text of the dimension
-  `db.sql.statement` associated with this ID.
-  This operation is useful because `GetResourceMetrics` and
-  `DescribeDimensionKeys` don't support retrieval of large
-  SQL statement text.
+  source. For example, if you specify a SQL ID, `GetDimensionKeyDetails`
+  retrieves the full text of the dimension `db.sql.statement` associated with
+  this ID. This operation is useful because `GetResourceMetrics` and
+  `DescribeDimensionKeys` don't support retrieval of large SQL statement text.
   """
   @spec get_dimension_key_details(
           AWS.Client.t(),
@@ -826,12 +782,9 @@ defmodule AWS.PI do
 
   @doc """
   Retrieves the report including the report ID, status, time details, and the
-  insights
-  with recommendations.
-
-  The report status can be `RUNNING`,
-  `SUCCEEDED`, or `FAILED`. The insights include the
-  `description` and `recommendation` fields.
+  insights with recommendations. The report status can be `RUNNING`,
+  `SUCCEEDED`, or `FAILED`. The insights include the `description` and
+  `recommendation` fields.
   """
   @spec get_performance_analysis_report(
           AWS.Client.t(),
@@ -849,10 +802,8 @@ defmodule AWS.PI do
   end
 
   @doc """
-  Retrieve the metadata for different features.
-
-  For example, the metadata might indicate
-  that a feature is turned on or off on a specific DB instance.
+  Retrieve the metadata for different features. For example, the metadata might
+  indicate that a feature is turned on or off on a specific DB instance.
   """
   @spec get_resource_metadata(AWS.Client.t(), get_resource_metadata_request(), Keyword.t()) ::
           {:ok, get_resource_metadata_response(), any()}
@@ -867,16 +818,9 @@ defmodule AWS.PI do
 
   @doc """
   Retrieve Performance Insights metrics for a set of data sources over a time
-  period.
-
-  You can provide
-  specific dimension groups and dimensions, and provide filtering criteria for
-  each group. You must specify an aggregate function for
+  period. You can provide specific dimension groups and dimensions, and provide
+  filtering criteria for each group. You must specify an aggregate function for
   each metric.
-
-  Each response element returns a maximum of 500 bytes. For larger elements, such
-  as SQL statements,
-  only the first 500 bytes are returned.
   """
   @spec get_resource_metrics(AWS.Client.t(), get_resource_metrics_request(), Keyword.t()) ::
           {:ok, get_resource_metrics_response(), any()}
@@ -928,9 +872,8 @@ defmodule AWS.PI do
   end
 
   @doc """
-  Lists all the analysis reports created for the DB instance.
-
-  The reports are sorted based on the start time of each report.
+  Lists all the analysis reports created for the DB instance. The reports are
+  sorted based on the start time of each report.
   """
   @spec list_performance_analysis_reports(
           AWS.Client.t(),

@@ -4,180 +4,8 @@
 defmodule AWS.ControlTower do
   @moduledoc """
   Amazon Web Services Control Tower offers application programming interface (API)
-  operations that support programmatic interaction with these types of resources:
-
-    *
-
-  [
-  *controls*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/controls.html)
-
-    *
-
-  [
-  *landing zones*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch.html)
-
-    *
-
-  [
-  *baselines*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html)
-
-  For more information about these types of resources, see the [
-  *Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html).
-
-  ## About control APIs
-
-  These interfaces allow you to apply the Amazon Web Services library of
-  pre-defined
-  *controls* to your organizational units, programmatically. In Amazon Web
-  Services Control Tower, the terms "control" and "guardrail" are synonyms.
-
-  To call these APIs, you'll need to know:
-
-    *
-  the `controlIdentifier` for the control--or guardrail--you are targeting.
-
-    *
-  the ARN associated with the target organizational unit (OU), which we call the
-  `targetIdentifier`.
-
-    *
-  the ARN associated with a resource that you wish to tag or untag.
-
-  ## To get the `controlIdentifier` for your Amazon Web Services Control Tower
-  control:
-
-  The `controlIdentifier` is an ARN that is specified for each
-  control. You can view the `controlIdentifier` in the console on the **Control
-  details** page, as well as in the documentation.
-
-  The `controlIdentifier` is unique in each Amazon Web Services Region for each
-  control. You can
-  find the `controlIdentifier` for each Region and control in the [Tables of control
-  metadata](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
-  or the [Control availability by Region tables](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
-  in the *Amazon Web Services Control Tower User Guide.*
-
-  A quick-reference list of control identifers for the Amazon Web Services Control
-  Tower legacy *Strongly recommended* and
-  *Elective* controls is given in [Resource identifiers for APIs and
-  controls](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html)
-  in the [Controls reference guide section](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html)
-  of the *Amazon Web Services Control Tower User Guide*. Remember that *Mandatory*
-  controls
-  cannot be added or removed.
-
-  ## ARN format:
-  `arn:aws:controltower:{REGION}::control/{CONTROL_NAME}`
-
-  ## Example:
-
-  `arn:aws:controltower:us-west-2::control/AWS-GR_AUTOSCALING_LAUNCH_CONFIG_PUBLIC_IP_DISABLED`
-
-  ## To get the `targetIdentifier`:
-
-  The `targetIdentifier` is the ARN for an OU.
-
-  In the Amazon Web Services Organizations console, you can find the ARN for the
-  OU on the **Organizational unit details** page associated with that OU.
-
-  ## OU ARN format:
-
-  `arn:${Partition}:organizations::${MasterAccountId}:ou/o-${OrganizationId}/ou-${OrganizationalUnitId}`
-
-  ##  About landing zone APIs
-
-  You can configure and launch an Amazon Web Services Control Tower landing zone
-  with APIs. For an introduction and steps, see [Getting started with Amazon Web Services Control Tower using
-  APIs](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-apis.html).
-
-  For an overview of landing zone API operations, see [ Amazon Web Services Control Tower supports landing zone
-  APIs](https://docs.aws.amazon.com/controltower/latest/userguide/2023-all.html#landing-zone-apis).
-  The individual API operations for landing zones are detailed in this document,
-  the [API reference manual](https://docs.aws.amazon.com/controltower/latest/APIReference/API_Operations.html),
-  in the "Actions" section.
-
-  ## About baseline APIs
-
-  You can apply the `AWSControlTowerBaseline` baseline to an organizational unit
-  (OU) as a way to register the OU with Amazon Web Services Control Tower,
-  programmatically. For a general overview of this capability, see [Amazon Web Services Control Tower supports APIs for OU registration and configuration with
-  baselines](https://docs.aws.amazon.com/controltower/latest/userguide/2024-all.html#baseline-apis).
-
-  You can call the baseline API operations to view the baselines that Amazon Web
-  Services Control Tower enables for your landing zone, on your behalf, when
-  setting up the landing zone. These baselines are read-only baselines.
-
-  The individual API operations for baselines are detailed in this document, the
-  [API reference manual](https://docs.aws.amazon.com/controltower/latest/APIReference/API_Operations.html),
-  in the "Actions" section. For usage examples, see [Baseline API input and output examples with
-  CLI](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
-
-  ## Details and examples
-
-    *
-
-  [Control API input and output examples with CLI](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
-
-    *
-
-  [Baseline API input and output examples with CLI](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html)
-
-    *
-
-  [Enable controls with CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls.html)
-
-    *
-
-  [Launch a landing zone with CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/lz-apis-cfn-setup.html)
-
-    *
-
-  [Control metadata tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
-
-    *
-
-  [Control availability by Region tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
-
-    *
-
-  [List of identifiers for legacy controls](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html)
-
-    *
-
-  [Controls reference guide](https://docs.aws.amazon.com/controltower/latest/userguide/controls.html)
-
-    *
-
-  [Controls library groupings](https://docs.aws.amazon.com/controltower/latest/userguide/controls-reference.html)
-
-    *
-
-  [Creating Amazon Web Services Control Tower resources with Amazon Web Services CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/creating-resources-with-cloudformation.html)
-
-  To view the open source resource repository on GitHub, see
-  [aws-cloudformation/aws-cloudformation-resource-providers-controltower](https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-controltower) 
-
-  ## Recording API Requests
-
-  Amazon Web Services Control Tower supports Amazon Web Services CloudTrail, a
-  service that records Amazon Web Services API calls for your
-  Amazon Web Services account and delivers log files to an Amazon S3 bucket. By
-  using information collected by
-  CloudTrail, you can determine which requests the Amazon Web Services Control
-  Tower service received, who made
-  the request and when, and so on. For more about Amazon Web Services Control
-  Tower and its support for
-  CloudTrail, see [Logging Amazon Web Services Control Tower
-  Actions with Amazon Web Services
-  CloudTrail](https://docs.aws.amazon.com/controltower/latest/userguide/logging-using-cloudtrail.html)
-  in the Amazon Web Services Control Tower User Guide. To learn more about
-  CloudTrail, including how to turn it on and find your log files, see the Amazon
-  Web Services CloudTrail User
-  Guide.
+  operations that support programmatic interaction with these types of
+  resources:
   """
 
   alias AWS.Client
@@ -1368,13 +1196,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Creates a new landing zone.
+  Creates a new landing zone. This API call starts an asynchronous operation that
+  creates and configures a landing zone, based on the parameters specified in
+  the manifest JSON file.
 
-  This API call starts an asynchronous operation that creates and configures a
-  landing zone,
-  based on the parameters specified in the manifest JSON file.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20CreateLandingZone&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1404,13 +1232,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Decommissions a landing zone.
+  Decommissions a landing zone. This API call starts an asynchronous operation
+  that deletes Amazon Web Services Control Tower resources deployed in accounts
+  managed by Amazon Web Services Control Tower.
 
-  This API call starts an asynchronous operation that deletes Amazon Web Services
-  Control Tower
-  resources deployed in accounts managed by Amazon Web Services Control Tower.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DeleteLandingZone&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1440,15 +1268,15 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Disable an `EnabledBaseline` resource on the specified Target.
-
-  This API starts an asynchronous operation to remove all resources deployed as
-  part of the baseline enablement. The resource will vary depending on the enabled
-  baseline. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Disable an `EnabledBaseline` resource on the specified Target. This API starts
+  an asynchronous operation to remove all resources deployed as part of the
+  baseline enablement. The resource will vary depending on the enabled baseline.
+  For usage examples, see [ *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1478,16 +1306,15 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  This API call turns off a control.
-
-  It starts an asynchronous operation that deletes AWS
-  resources on the specified organizational unit and the accounts it contains. The
-  resources
-  will vary according to the control that you specify. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  This API call turns off a control. It starts an asynchronous operation that
+  deletes AWS resources on the specified organizational unit and the accounts it
+  contains. The resources will vary according to the control that you specify.
+  For usage examples, see [ *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1517,14 +1344,15 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Enable (apply) a `Baseline` to a Target.
-
-  This API starts an asynchronous operation to deploy resources specified by the
-  `Baseline` to the specified Target. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Enable (apply) a `Baseline` to a Target. This API starts an asynchronous
+  operation to deploy resources specified by the `Baseline` to the specified
+  Target. For usage examples, see [ *the Amazon Web Services Control Tower User
+  Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1554,17 +1382,16 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  This API call activates a control.
-
-  It starts an asynchronous operation that creates Amazon Web Services
-  resources on the specified organizational unit and the accounts it contains. The
-  resources
-  created will vary according to the control that you specify. For usage examples,
-  see [
-  *the Amazon Web Services Control Tower User Guide*
+  This API call activates a control. It starts an asynchronous operation that
+  creates Amazon Web Services resources on the specified organizational unit and
+  the accounts it contains. The resources created will vary according to the
+  control that you specify. For usage examples, see [ *the Amazon Web Services
+  Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1595,13 +1422,13 @@ defmodule AWS.ControlTower do
 
   @doc """
   Retrieve details about an existing `Baseline` resource by specifying its
-  identifier.
-
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  identifier. For usage examples, see [ *the Amazon Web Services Control Tower
+  User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1633,14 +1460,14 @@ defmodule AWS.ControlTower do
   @doc """
   Returns the details of an asynchronous baseline operation, as initiated by any
   of these APIs: `EnableBaseline`, `DisableBaseline`, `UpdateEnabledBaseline`,
-  `ResetEnabledBaseline`.
-
-  A status message is displayed in case of operation failure. For usage examples,
-  see [
-  *the Amazon Web Services Control Tower User Guide*
+  `ResetEnabledBaseline`. A status message is displayed in case of operation
+  failure. For usage examples, see [ *the Amazon Web Services Control Tower User
+  Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaselineOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1670,15 +1497,15 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns the status of a particular `EnableControl` or
-  `DisableControl` operation.
-
-  Displays a message in case of error. Details for an
-  operation are available for 90 days. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Returns the status of a particular `EnableControl` or `DisableControl`
+  operation. Displays a message in case of error. Details for an operation are
+  available for 90 days. For usage examples, see [ *the Amazon Web Services
+  Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetControlOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1710,7 +1537,9 @@ defmodule AWS.ControlTower do
   @doc """
   Retrieve details of an `EnabledBaseline` resource by specifying its identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1740,13 +1569,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Retrieves details about an enabled control.
-
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Retrieves details about an enabled control. For usage examples, see [ *the
+  Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1776,11 +1605,11 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns details about the landing zone.
+  Returns details about the landing zone. Displays a message in case of error.
 
-  Displays a message in case of error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZone&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1810,12 +1639,12 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns the status of the specified landing zone operation.
+  Returns the status of the specified landing zone operation. Details for an
+  operation are available for 90 days.
 
-  Details for an operation are available for
-  90 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZoneOperation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1849,13 +1678,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns a summary list of all available baselines.
-
-  For usage examples, see [
+  Returns a summary list of all available baselines. For usage examples, see [
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListBaselines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1887,7 +1716,9 @@ defmodule AWS.ControlTower do
   @doc """
   Provides a list of operations in progress or queued.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListControlOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1917,14 +1748,15 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns a list of summaries describing `EnabledBaseline` resources.
-
-  You can filter the list by the corresponding `Baseline` or `Target` of the
-  `EnabledBaseline` resources. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Returns a list of summaries describing `EnabledBaseline` resources. You can
+  filter the list by the corresponding `Baseline` or `Target` of the
+  `EnabledBaseline` resources. For usage examples, see [ *the Amazon Web
+  Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledBaselines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1955,14 +1787,13 @@ defmodule AWS.ControlTower do
 
   @doc """
   Lists the controls enabled by Amazon Web Services Control Tower on the specified
-  organizational unit and
-  the accounts it contains.
-
-  For usage examples, see [
+  organizational unit and the accounts it contains. For usage examples, see [
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1993,14 +1824,12 @@ defmodule AWS.ControlTower do
 
   @doc """
   Returns the landing zone ARN for the landing zone deployed in your managed
-  account.
+  account. This API also creates an ARN for existing accounts that do not yet
+  have a landing zone ARN.
 
-  This API also
-  creates an ARN for existing accounts that do not yet have a landing zone ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListLandingZones&this_doc_guide=API%2520Reference)
 
-  Returns one landing zone ARN.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2030,14 +1859,14 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Returns a list of tags associated with the resource.
-
-  For usage examples, see [
+  Returns a list of tags associated with the resource. For usage examples, see [
   *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The ARN of the resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
   """
@@ -2062,14 +1891,14 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Re-enables an `EnabledBaseline` resource.
-
-  For example, this API can re-apply the existing `Baseline` after a new member
-  account is moved to the target OU. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Re-enables an `EnabledBaseline` resource. For example, this API can re-apply the
+  existing `Baseline` after a new member account is moved to the target OU. For
+  usage examples, see [ *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetEnabledBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2099,12 +1928,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  This API call resets a landing zone.
+  This API call resets a landing zone. It starts an asynchronous operation that
+  resets the landing zone to the parameters specified in its original
+  configuration.
 
-  It starts an asynchronous operation that resets the
-  landing zone to the parameters specified in its original configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetLandingZone&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2134,13 +1964,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Applies tags to a resource.
-
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Applies tags to a resource. For usage examples, see [ *the Amazon Web Services
+  Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to be tagged.
 
   ## Optional parameters:
@@ -2171,17 +2001,18 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Removes tags from a resource.
-
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Removes tags from a resource. For usage examples, see [ *the Amazon Web Services
+  Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]`) Tag keys to be removed from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]`) Tag keys to be
+    removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2214,13 +2045,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  Updates an `EnabledBaseline` resource's applied parameters or version.
-
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
+  Updates an `EnabledBaseline` resource's applied parameters or version. For usage
+  examples, see [ *the Amazon Web Services Control Tower User Guide*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledBaseline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2250,25 +2081,14 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Updates the configuration of an already enabled control. If the enabled control
+  shows an `EnablementStatus` of SUCCEEDED, supply parameters that are different
+  from the currently configured parameters. Otherwise, Amazon Web Services
+  Control Tower will not accept the request.
 
-  Updates the configuration of an already enabled control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledControl&this_doc_guide=API%2520Reference)
 
-  If the enabled control shows an `EnablementStatus` of SUCCEEDED, supply
-  parameters that are different from the currently configured parameters.
-  Otherwise, Amazon Web Services Control Tower will not accept the request.
-
-  If the enabled control shows an `EnablementStatus` of FAILED, Amazon Web
-  Services Control Tower will update the control to match any valid parameters
-  that you supply.
-
-  If the `DriftSummary` status for the control shows as DRIFTED, you cannot call
-  this API. Instead, you can update the control by calling `DisableControl` and
-  again calling `EnableControl`, or you can run an extending governance operation.
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2298,14 +2118,13 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
-  This API call updates the landing zone.
+  This API call updates the landing zone. It starts an asynchronous operation that
+  updates the landing zone based on the new landing zone version, or on the
+  changed parameters specified in the updated manifest file.
 
-  It starts an asynchronous operation that updates the
-  landing zone based on the new landing zone version, or on the changed parameters
-  specified in the
-  updated manifest file.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateLandingZone&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

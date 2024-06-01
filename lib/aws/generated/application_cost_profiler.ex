@@ -4,15 +4,9 @@
 defmodule AWS.ApplicationCostProfiler do
   @moduledoc """
   This reference provides descriptions of the AWS Application Cost Profiler API.
-
   The AWS Application Cost Profiler API provides programmatic access to view,
-  create, update, and delete
-  application cost report definitions, as well as to import your usage data into
-  the Application Cost Profiler
-  service.
-
-  For more information about using this service, see the [AWS Application Cost Profiler User
-  Guide](https://docs.aws.amazon.com/application-cost-profiler/latest/userguide/introduction.html).
+  create, update, and delete application cost report definitions, as well as to
+  import your usage data into the Application Cost Profiler service.
   """
 
   alias AWS.Client
@@ -312,12 +306,12 @@ defmodule AWS.ApplicationCostProfiler do
   end
 
   @doc """
-  Deletes the specified report definition in AWS Application Cost Profiler.
+  Deletes the specified report definition in AWS Application Cost Profiler. This
+  stops the report from being generated.
 
-  This stops the report from being
-  generated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20DeleteReportDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:report_id` (`t:string`) Required. ID of the report to delete.
 
   ## Optional parameters:
@@ -356,7 +350,9 @@ defmodule AWS.ApplicationCostProfiler do
   Retrieves the definition of a report already configured in AWS Application Cost
   Profiler.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20GetReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:report_id` (`t:string`) ID of the report to retrieve.
 
   ## Optional parameters:
@@ -384,13 +380,9 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Ingests application usage data from Amazon Simple Storage Service (Amazon S3).
 
-  The data must already exist in the S3 location. As part of the action, AWS
-  Application Cost Profiler
-  copies the object from your S3 bucket to an S3 bucket owned by Amazon for
-  processing
-  asynchronously.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ImportApplicationUsage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -422,13 +414,14 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Retrieves a list of all reports and their configurations for your AWS account.
 
-  The maximum number of reports is one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ListReportDefinitions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
-  * `:next_token` (`t:string`) The token value from a previous call to access the next page of results.
+  * `:next_token` (`t:string`) The token value from a previous call to access the
+    next page of results.
   """
   @spec list_report_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_definitions_result(), any()}
@@ -471,7 +464,9 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Creates the report definition for a report in Application Cost Profiler.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20PutReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -503,7 +498,9 @@ defmodule AWS.ApplicationCostProfiler do
   @doc """
   Updates existing report in AWS Application Cost Profiler.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20UpdateReportDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:report_id` (`t:string`) Required. ID of the report to update.
 
   ## Optional parameters:

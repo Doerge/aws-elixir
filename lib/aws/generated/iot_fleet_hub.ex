@@ -338,16 +338,9 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Creates a Fleet Hub for IoT Device Management web application.
 
-  When creating a Fleet Hub application, you must create an organization instance
-  of
-  IAM Identity Center if you don't already have one. The Fleet Hub application you
-  create must also be in
-  the same Amazon Web Services Region of the organization instance of IAM Identity
-  Center. For more information see [Enabling IAM Identity
-  Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html)
-  and [Organization instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20CreateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -379,12 +372,15 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Deletes a Fleet Hub for IoT Device Management web application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_application(AWS.Client.t(), String.t(), delete_application_request(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -419,7 +415,9 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Gets information about a Fleet Hub for IoT Device Management web application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20DescribeApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:
@@ -448,7 +446,9 @@ defmodule AWS.IoTFleetHub do
   Gets a list of Fleet Hub for IoT Device Management web applications for the
   current account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token used to get the next set of results.
@@ -485,7 +485,9 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -511,11 +513,12 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Adds to or modifies the tags of the specified resource.
+  Adds to or modifies the tags of the specified resource. Tags are metadata which
+  can be used to manage a resource.
 
-  Tags are metadata which can be used to manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -548,11 +551,14 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Removes the specified tags (metadata) from the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]`) A list of the keys of the tags to be removed from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]`) A list of the keys of
+    the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -587,7 +593,9 @@ defmodule AWS.IoTFleetHub do
   @doc """
   Updates information about a Fleet Hub for IoT Device Management web application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The unique Id of the web application.
 
   ## Optional parameters:

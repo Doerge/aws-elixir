@@ -4,66 +4,6 @@
 defmodule AWS.WorkDocs do
   @moduledoc """
   The Amazon WorkDocs API is designed for the following use cases:
-
-    *
-  File Migration: File migration applications are supported for users who
-  want to migrate their files from an on-premises or off-premises file system or
-  service.
-
-  Users can insert files into a user directory structure, as well as
-  allow for basic metadata changes, such as modifications to the permissions of
-  files.
-
-    *
-  Security: Support security applications are supported for users who have
-  additional security needs, such as antivirus or data loss prevention. The API
-  actions, along with CloudTrail, allow these applications to detect when
-  changes occur in Amazon WorkDocs. Then, the application can take the necessary
-  actions and replace the target file. If the target file violates the policy, the
-  application can also choose to email the user.
-
-    *
-  eDiscovery/Analytics: General administrative applications are supported,
-  such as eDiscovery and analytics. These applications can choose to mimic or
-  record the actions in an Amazon WorkDocs site, along with CloudTrail, to
-  replicate data for eDiscovery, backup, or analytical applications.
-
-  All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed.
-  They not only require the use of the Amazon Web Services SDK, but also allow for
-  the exclusive use of
-  IAM users and roles to help facilitate access, trust, and permission policies.
-  By
-  creating a role and allowing an IAM user to access the Amazon WorkDocs site, the
-  IAM user gains full administrative visibility into the entire Amazon WorkDocs
-  site (or as
-  set in the IAM policy). This includes, but is not limited to, the ability to
-  modify file
-  permissions and upload any file to any user. This allows developers to perform
-  the three
-  use cases above, as well as give users the ability to grant access on a
-  selective basis
-  using the IAM model.
-
-  The pricing for Amazon WorkDocs APIs varies depending on the API call type for
-  these actions:
-
-    
-
-  `READ (Get*)`
-
-    
-
-  `WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)`
-
-    
-
-  `LIST (Describe*)`
-
-    
-
-  `DELETE*, CANCEL`
-
-  For information about Amazon WorkDocs API pricing, see [Amazon WorkDocs Pricing](https://aws.amazon.com/workdocs/pricing/).
   """
 
   alias AWS.Client
@@ -2079,19 +2019,20 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Aborts the upload of the specified document version that was previously
-  initiated
-  by `InitiateDocumentVersionUpload`.
-
-  The client should make this call
+  initiated by `InitiateDocumentVersionUpload`. The client should make this call
   only when it no longer intends to upload the document version, or fails to do
   so.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AbortDocumentVersionUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The ID of the version.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec abort_document_version_upload(
           AWS.Client.t(),
@@ -2138,16 +2079,17 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Activates the specified user.
+  Activates the specified user. Only active users can access Amazon WorkDocs.
 
-  Only active users can access Amazon
-  WorkDocs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20ActivateUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:user_id` (`t:string`) The ID of the user.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec activate_user(AWS.Client.t(), String.t(), activate_user_request(), Keyword.t()) ::
           {:ok, activate_user_response(), any()}
@@ -2181,17 +2123,19 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Creates a set of permissions for the specified folder or document.
-
-  The resource
+  Creates a set of permissions for the specified folder or document. The resource
   permissions are overwritten if the principals already have different
   permissions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20AddResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec add_resource_permissions(
           AWS.Client.t(),
@@ -2232,12 +2176,16 @@ defmodule AWS.WorkDocs do
   @doc """
   Adds a new comment to the specified document version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The ID of the document version.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec create_comment(
           AWS.Client.t(),
@@ -2279,16 +2227,19 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Adds one or more custom properties to the specified resource (a folder,
-  document,
-  or version).
+  document, or version).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateCustomMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is being added to a document
-            version.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is
+    being added to a document version.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec create_custom_metadata(
           AWS.Client.t(),
@@ -2323,10 +2274,14 @@ defmodule AWS.WorkDocs do
   @doc """
   Creates a folder with the specified name and parent folder.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec create_folder(AWS.Client.t(), create_folder_request(), Keyword.t()) ::
           {:ok, create_folder_response(), any()}
@@ -2360,14 +2315,17 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Adds the specified list of labels to the given resource (a document or
-  folder)
+  Adds the specified list of labels to the given resource (a document or folder)
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateLabels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec create_labels(AWS.Client.t(), String.t(), create_labels_request(), Keyword.t()) ::
           {:ok, create_labels_response(), any()}
@@ -2391,16 +2349,12 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Configure Amazon WorkDocs to use Amazon SNS notifications.
+  Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives
+  a confirmation message, and must confirm the subscription.
 
-  The endpoint receives a
-  confirmation message, and must confirm the subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateNotificationSubscription&this_doc_guide=API%2520Reference)
 
-  For more information, see [Setting up notifications for an IAM user or role](https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html)
-  in the *Amazon WorkDocs Developer
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:organization_id` (`t:string`) The ID of the organization.
 
   ## Optional parameters:
@@ -2436,15 +2390,17 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Creates a user in a Simple AD or Microsoft AD directory.
-
-  The status of a newly
+  Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
   created user is "ACTIVE". New users can access Amazon WorkDocs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20CreateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -2481,11 +2437,15 @@ defmodule AWS.WorkDocs do
   Deactivates the specified user, which revokes the user's access to Amazon
   WorkDocs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeactivateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_id` (`t:string`) The ID of the user.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec deactivate_user(AWS.Client.t(), String.t(), deactivate_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2521,13 +2481,17 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the specified comment from the document version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:comment_id` (`t:string`) The ID of the comment.
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The ID of the document version.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_comment(
           AWS.Client.t(),
@@ -2578,16 +2542,22 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes custom metadata from the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_id` (`t:string`) The ID of the resource, either a document or folder.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteCustomMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource, either a document or
+    folder.
 
   ## Optional parameters:
-  * `:delete_all` (`t:boolean`) Flag to indicate removal of all custom metadata properties from the specified
-            resource.
-  * `:keys` (`t:list[com.amazonaws.workdocs#CustomMetadataKeyType]`) List of properties to remove.
-  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is being deleted from a document
-            version.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:delete_all` (`t:boolean`) Flag to indicate removal of all custom metadata
+    properties from the specified resource.
+  * `:keys` (`t:list[com.amazonaws.workdocs#CustomMetadataKeyType]`) List of
+    properties to remove.
+  * `:version_id` (`t:string`) The ID of the version, if the custom metadata is
+    being deleted from a document version.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_custom_metadata(
           AWS.Client.t(),
@@ -2634,11 +2604,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Permanently deletes the specified document and its associated metadata.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_document(AWS.Client.t(), String.t(), delete_document_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2674,13 +2648,19 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes a specific version of a document.
 
-  ## Required positional parameters:
-  * `:document_id` (`t:string`) The ID of the document associated with the version being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteDocumentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:document_id` (`t:string`) The ID of the document associated with the version
+    being deleted.
   * `:version_id` (`t:string`) The ID of the version being deleted.
 
   ## Optional parameters:
-  * `:delete_prior_versions` (`t:boolean`) Deletes all versions of a document prior to the current version.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:delete_prior_versions` (`t:boolean`) Deletes all versions of a document
+    prior to the current version.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_document_version(
           AWS.Client.t(),
@@ -2727,11 +2707,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Permanently deletes the specified folder and its contents.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_folder(AWS.Client.t(), String.t(), delete_folder_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2767,11 +2751,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the contents of the specified folder.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteFolderContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_folder_contents(
           AWS.Client.t(),
@@ -2812,13 +2800,19 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the specified list of labels from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteLabels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:delete_all` (`t:boolean`) Flag to request removal of all labels from the specified resource.
-  * `:labels` (`t:list[com.amazonaws.workdocs#SharedLabel]`) List of labels to delete from the resource.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:delete_all` (`t:boolean`) Flag to request removal of all labels from the
+    specified resource.
+  * `:labels` (`t:list[com.amazonaws.workdocs#SharedLabel]`) List of labels to
+    delete from the resource.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec delete_labels(AWS.Client.t(), String.t(), delete_labels_request(), Keyword.t()) ::
           {:ok, delete_labels_response(), any()}
@@ -2859,7 +2853,9 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the specified subscription from the specified organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteNotificationSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:organization_id` (`t:string`) The ID of the organization.
   * `:subscription_id` (`t:string`) The ID of the subscription.
 
@@ -2907,15 +2903,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Deletes the specified user from a Simple AD or Microsoft AD directory.
 
-  Deleting a user immediately and permanently deletes all content in that user's
-  folder structure. Site retention policies do NOT apply to this type of deletion.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DeleteUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:user_id` (`t:string`) The ID of the user.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Do not set this field when using
-            administrative API actions, as in accessing the API using Amazon Web Services credentials.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Do
+    not set this field when using administrative API actions, as in accessing
+    the API using Amazon Web Services credentials.
   """
   @spec delete_user(AWS.Client.t(), String.t(), delete_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2951,28 +2947,36 @@ defmodule AWS.WorkDocs do
   @doc """
   Describes the user activities in a specified time period.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:activity_types` (`t:string`) Specifies which activity types to include in the response. If this field is left
-            empty, all activity types are returned.
-  * `:end_time` (`t:timestamp`) The timestamp that determines the end time of the activities. The response includes
-            the activities performed before the specified timestamp.
-  * `:include_indirect_activities` (`t:boolean`) Includes indirect activities. An indirect activity results from a direct activity
-            performed on a parent resource. For example, sharing a parent folder (the direct
-            activity) shares all of the subfolders and documents within the parent folder (the
-            indirect activity).
+  * `:activity_types` (`t:string`) Specifies which activity types to include in
+    the response. If this field is left empty, all activity types are returned.
+  * `:end_time` (`t:timestamp`) The timestamp that determines the end time of the
+    activities. The response includes the activities performed before the
+    specified timestamp.
+  * `:include_indirect_activities` (`t:boolean`) Includes indirect activities. An
+    indirect activity results from a direct activity performed on a parent
+    resource. For example, sharing a parent folder (the direct activity) shares
+    all of the subfolders and documents within the parent folder (the indirect
+    activity).
   * `:limit` (`t:integer`) The maximum number of items to return.
   * `:marker` (`t:string`) The marker for the next set of results.
-  * `:organization_id` (`t:string`) The ID of the organization. This is a mandatory parameter when using administrative
-            API (SigV4) requests.
-  * `:resource_id` (`t:string`) The document or folder ID for which to describe activity types.
-  * `:start_time` (`t:timestamp`) The timestamp that determines the starting time of the activities. The response
-            includes the activities performed after the specified timestamp.
-  * `:user_id` (`t:string`) The ID of the user who performed the action. The response includes activities
-            pertaining to this user. This is an optional parameter and is only applicable for
-            administrative API (SigV4) requests.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:organization_id` (`t:string`) The ID of the organization. This is a
+    mandatory parameter when using administrative API (SigV4) requests.
+  * `:resource_id` (`t:string`) The document or folder ID for which to describe
+    activity types.
+  * `:start_time` (`t:timestamp`) The timestamp that determines the starting time
+    of the activities. The response includes the activities performed after the
+    specified timestamp.
+  * `:user_id` (`t:string`) The ID of the user who performed the action. The
+    response includes activities pertaining to this user. This is an optional
+    parameter and is only applicable for administrative API (SigV4) requests.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_activities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_activities_response(), any()}
@@ -3089,15 +3093,19 @@ defmodule AWS.WorkDocs do
   @doc """
   List all the comments for the specified document version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeComments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The ID of the document version.
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of items to return.
-  * `:marker` (`t:string`) The marker for the next set of results. This marker was received from a previous
-            call.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_comments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_comments_response(), any()}
@@ -3151,20 +3159,23 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves the document versions for the specified document.
 
-  By default, only active versions are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeDocumentVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:fields` (`t:string`) Specify &quot;SOURCE&quot; to include initialized versions and a URL for the source
-            document.
-  * `:include` (`t:string`) A comma-separated list of values. Specify &quot;INITIALIZED&quot; to include incomplete
-            versions.
-  * `:limit` (`t:integer`) The maximum number of versions to return with this call.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call.)
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:fields` (`t:string`) Specify "SOURCE" to include initialized versions and a
+    URL for the source document.
+  * `:include` (`t:string`) A comma-separated list of values. Specify
+    "INITIALIZED" to include incomplete versions.
+  * `:limit` (`t:integer`) The maximum number of versions to return with this
+    call.
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_document_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_document_versions_response(), any()}
@@ -3236,25 +3247,24 @@ defmodule AWS.WorkDocs do
   Describes the contents of the specified folder, including its documents and
   subfolders.
 
-  By default, Amazon WorkDocs returns the first 100 active document and folder
-  metadata items. If there are more results, the response includes a marker that
-  you can
-  use to request the next set of results. You can also request initialized
-  documents.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeFolderContents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:include` (`t:string`) The contents to include. Specify &quot;INITIALIZED&quot; to include initialized
-            documents.
+  * `:include` (`t:string`) The contents to include. Specify "INITIALIZED" to
+    include initialized documents.
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
-  * `:marker` (`t:string`) The marker for the next set of results. This marker was received from a previous
-            call.
-  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) The order for the contents of the folder.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) The order for the contents of the
+    folder.
   * `:sort` (`t:enum["DATE|NAME"]`) The sorting criteria.
   * `:type` (`t:enum["ALL|DOCUMENT|FOLDER"]`) The type of items.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_folder_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_folder_contents_response(), any()}
@@ -3341,20 +3351,22 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Describes the groups specified by the query.
+  Describes the groups specified by the query. Groups are defined by the
+  underlying Active Directory.
 
-  Groups are defined by the underlying
-  Active Directory.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call.)
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   * `:organization_id` (`t:string`) The ID of the organization.
   * `:search_query` (`t:string`) A query to describe groups by group name.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_groups_response(), any()}
@@ -3425,13 +3437,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Lists the specified notification subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeNotificationSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:organization_id` (`t:string`) The ID of the organization.
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call.)
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   """
   @spec describe_notification_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_notification_subscriptions_response(), any()}
@@ -3474,15 +3488,19 @@ defmodule AWS.WorkDocs do
   @doc """
   Describes the permissions of a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of items to return with this call.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call)
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call)
   * `:principal_id` (`t:string`) The ID of the principal to filter permissions by.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_resource_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_permissions_response(), any()}
@@ -3543,26 +3561,18 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Describes the current user's special folders; the `RootFolder` and the
-  `RecycleBin`.
+  `RecycleBin`. `RootFolder` is the root of user's files and folders and
+  `RecycleBin` is the root of recycled items. This is not a valid action for
+  SigV4 (administrative API) clients.
 
-  `RootFolder` is the root of user's files and
-  folders and `RecycleBin` is the root of recycled items. This is not a valid
-  action for SigV4 (administrative API) clients.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeRootFolders&this_doc_guide=API%2520Reference)
 
-  This action requires an authentication token. To get an authentication token,
-  register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User
-  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the
-  *Amazon
-  WorkDocs Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:limit` (`t:integer`) The maximum number of items to return.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call.)
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
   """
   @spec describe_root_folders(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -3614,32 +3624,33 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Describes the specified users.
-
-  You can describe all users or filter the results
+  Describes the specified users. You can describe all users or filter the results
   (for example, by status or organization).
 
-  By default, Amazon WorkDocs returns the first 24 active or pending users. If
-  there
-  are more results, the response includes a marker that you can use to request the
-  next
-  set of results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20DescribeUsers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:fields` (`t:string`) A comma-separated list of values. Specify &quot;STORAGE_METADATA&quot; to include the user
-            storage quota and utilization information.
-  * `:include` (`t:enum["ACTIVE_PENDING|ALL"]`) The state of the users. Specify &quot;ALL&quot; to include inactive users.
+  * `:fields` (`t:string`) A comma-separated list of values. Specify
+    "STORAGE_METADATA" to include the user storage quota and utilization
+    information.
+  * `:include` (`t:enum["ACTIVE_PENDING|ALL"]`) The state of the users. Specify
+    "ALL" to include inactive users.
   * `:limit` (`t:integer`) The maximum number of items to return.
-  * `:marker` (`t:string`) The marker for the next set of results. (You received this marker from a previous
-            call.)
+  * `:marker` (`t:string`) The marker for the next set of results. (You received
+    this marker from a previous call.)
   * `:order` (`t:enum["ASCENDING|DESCENDING"]`) The order for the results.
   * `:organization_id` (`t:string`) The ID of the organization.
-  * `:query` (`t:string`) A query to filter users by user name. Remember the following about the <code>Userids</code> and <code>Query</code> parameters:
-  * `:sort` (`t:enum["FULL_NAME|STORAGE_LIMIT|STORAGE_USED|USER_NAME|USER_STATUS"]`) The sorting criteria.
+  * `:query` (`t:string`) A query to filter users by user name. Remember the
+    following about the Userids and Query parameters:
+  * `:sort`
+    (`t:enum["FULL_NAME|STORAGE_LIMIT|STORAGE_USED|USER_NAME|USER_STATUS"]`) The
+    sorting criteria.
   * `:user_ids` (`t:string`) The IDs of the users.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec describe_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_users_response(), any()}
@@ -3754,19 +3765,11 @@ defmodule AWS.WorkDocs do
 
   @doc """
   Retrieves details of the current user for whom the authentication token was
-  generated.
+  generated. This is not a valid action for SigV4 (administrative API) clients.
 
-  This is not a valid action for SigV4 (administrative API) clients.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetCurrentUser&this_doc_guide=API%2520Reference)
 
-  This action requires an authentication token. To get an authentication token,
-  register an application with Amazon WorkDocs. For more information, see
-  [Authentication and Access Control for User
-  Applications](https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html)
-  in the
-  *Amazon
-  WorkDocs Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token.
@@ -3804,12 +3807,17 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves details of a document.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocument&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:include_custom_metadata` (`t:boolean`) Set this to <code>TRUE</code> to include custom metadata in the response.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec get_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_response(), any()}
@@ -3854,21 +3862,20 @@ defmodule AWS.WorkDocs do
   Retrieves the path information (the hierarchy from the root folder) for the
   requested document.
 
-  By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-  requested document and only includes the IDs of the parent folders in the path.
-  You can
-  limit the maximum number of levels. You can also request the names of the parent
-  folders.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentPath&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:fields` (`t:string`) A comma-separated list of values. Specify <code>NAME</code> to include the names of
-            the parent folders.
-  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to return.
+  * `:fields` (`t:string`) A comma-separated list of values. Specify NAME to
+    include the names of the parent folders.
+  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
+    return.
   * `:marker` (`t:string`) This value is not supported.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec get_document_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_path_response(), any()}
@@ -3930,15 +3937,20 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves version metadata for the specified document.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetDocumentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The version ID of the document.
 
   ## Optional parameters:
-  * `:fields` (`t:string`) A comma-separated list of values. Specify &quot;SOURCE&quot; to include a URL for the source
-            document.
-  * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom metadata in the response.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:fields` (`t:string`) A comma-separated list of values. Specify "SOURCE" to
+    include a URL for the source document.
+  * `:include_custom_metadata` (`t:boolean`) Set this to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec get_document_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_document_version_response(), any()}
@@ -3992,12 +4004,17 @@ defmodule AWS.WorkDocs do
   @doc """
   Retrieves the metadata of the specified folder.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:include_custom_metadata` (`t:boolean`) Set to TRUE to include custom metadata in the response.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:include_custom_metadata` (`t:boolean`) Set to TRUE to include custom
+    metadata in the response.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec get_folder(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_response(), any()}
@@ -4042,21 +4059,20 @@ defmodule AWS.WorkDocs do
   Retrieves the path information (the hierarchy from the root folder) for the
   specified folder.
 
-  By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-  requested folder and only includes the IDs of the parent folders in the path.
-  You can
-  limit the maximum number of levels. You can also request the parent folder
-  names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetFolderPath&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:fields` (`t:string`) A comma-separated list of values. Specify &quot;NAME&quot; to include the names of the parent
-            folders.
-  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to return.
+  * `:fields` (`t:string`) A comma-separated list of values. Specify "NAME" to
+    include the names of the parent folders.
+  * `:limit` (`t:integer`) The maximum number of levels in the hierarchy to
+    return.
   * `:marker` (`t:string`) This value is not supported.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec get_folder_path(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_folder_path_response(), any()}
@@ -4116,20 +4132,23 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Retrieves a collection of resources, including folders and documents.
-
-  The only
+  Retrieves a collection of resources, including folders and documents. The only
   `CollectionType` supported is `SHARED_WITH_ME`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20GetResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:collection_type` (`t:enum["SHARED_WITH_ME"]`) The collection type.
   * `:limit` (`t:integer`) The maximum number of resources to return.
-  * `:marker` (`t:string`) The marker for the next set of results. This marker was received from a previous call.
-  * `:user_id` (`t:string`) The user ID for the resource collection. This is a required field for accessing the
-            API operation using IAM credentials.
-  * `:authentication_token` (`t:string`) The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:marker` (`t:string`) The marker for the next set of results. This marker was
+    received from a previous call.
+  * `:user_id` (`t:string`) The user ID for the resource collection. This is a
+    required field for accessing the API operation using IAM credentials.
+  * `:authentication_token` (`t:string`) The Amazon WorkDocs authentication token.
+    Not required when using Amazon Web Services administrator credentials to
+    access the API.
   """
   @spec get_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resources_response(), any()}
@@ -4198,22 +4217,20 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Creates a new document object and version object.
+  Creates a new document object and version object. The client specifies the
+  parent folder ID and name of the document to upload. The ID is optionally
+  specified when creating a new version of an existing document. This is the
+  first step to upload a document. Next, upload the document to the URL returned
+  from the call, and then call `UpdateDocumentVersion`.
 
-  The client specifies the parent folder ID and name of the document to upload.
-  The
-  ID is optionally specified when creating a new version of an existing document.
-  This is
-  the first step to upload a document. Next, upload the document to the URL
-  returned from
-  the call, and then call `UpdateDocumentVersion`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20InitiateDocumentVersionUpload&this_doc_guide=API%2520Reference)
 
-  To cancel the document upload, call `AbortDocumentVersionUpload`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec initiate_document_version_upload(
           AWS.Client.t(),
@@ -4253,11 +4270,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Removes all the permissions from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveAllResourcePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec remove_all_resource_permissions(
           AWS.Client.t(),
@@ -4296,16 +4317,20 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Removes the permission for the specified principal from the specified
-  resource.
+  Removes the permission for the specified principal from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RemoveResourcePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:principal_id` (`t:string`) The principal ID of the resource.
   * `:resource_id` (`t:string`) The ID of the resource.
 
   ## Optional parameters:
-  * `:principal_type` (`t:enum["ANONYMOUS|GROUP|INVITE|ORGANIZATION|USER"]`) The principal type of the resource.
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:principal_type` (`t:enum["ANONYMOUS|GROUP|INVITE|ORGANIZATION|USER"]`) The
+    principal type of the resource.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec remove_resource_permission(
           AWS.Client.t(),
@@ -4358,11 +4383,15 @@ defmodule AWS.WorkDocs do
   @doc """
   Recovers a deleted version of an Amazon WorkDocs document.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20RestoreDocumentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec restore_document_versions(
           AWS.Client.t(),
@@ -4404,10 +4433,14 @@ defmodule AWS.WorkDocs do
   Searches metadata and the content of folders, documents, document versions, and
   comments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20SearchResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec search_resources(AWS.Client.t(), search_resources_request(), Keyword.t()) ::
           {:ok, search_resources_response(), any()}
@@ -4441,16 +4474,18 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Updates the specified attributes of a document.
+  Updates the specified attributes of a document. The user must have access to
+  both the document and its parent folder, if applicable.
 
-  The user must have access to both
-  the document and its parent folder, if applicable.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocument&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec update_document(AWS.Client.t(), String.t(), update_document_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4486,18 +4521,16 @@ defmodule AWS.WorkDocs do
   @doc """
   Changes the status of the document version to ACTIVE.
 
-  Amazon WorkDocs also sets its document container to ACTIVE. This is the last
-  step
-  in a document upload, after the client uploads the document to an S3-presigned
-  URL
-  returned by `InitiateDocumentVersionUpload`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateDocumentVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:document_id` (`t:string`) The ID of the document.
   * `:version_id` (`t:string`) The version ID of the document.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec update_document_version(
           AWS.Client.t(),
@@ -4538,16 +4571,18 @@ defmodule AWS.WorkDocs do
   end
 
   @doc """
-  Updates the specified attributes of the specified folder.
+  Updates the specified attributes of the specified folder. The user must have
+  access to both the folder and its parent folder, if applicable.
 
-  The user must have access
-  to both the folder and its parent folder, if applicable.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateFolder&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:folder_id` (`t:string`) The ID of the folder.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec update_folder(AWS.Client.t(), String.t(), update_folder_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4584,11 +4619,15 @@ defmodule AWS.WorkDocs do
   Updates the specified attributes of the specified user, and grants or revokes
   administrative privileges to the Amazon WorkDocs site.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workdocs%20UpdateUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_id` (`t:string`) The ID of the user.
 
   ## Optional parameters:
-  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+  * `:authentication_token` (`t:string`) Amazon WorkDocs authentication token. Not
+    required when using Amazon Web Services administrator credentials to access
+    the API.
   """
   @spec update_user(AWS.Client.t(), String.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}

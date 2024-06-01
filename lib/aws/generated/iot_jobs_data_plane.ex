@@ -4,27 +4,13 @@
 defmodule AWS.IoTJobsDataPlane do
   @moduledoc """
   AWS IoT Jobs is a service that allows you to define a set of jobs — remote
-  operations that are sent to
-  and executed on one or more devices connected to AWS IoT.
-
-  For example, you can define a job that instructs a
-  set of devices to download and install application or firmware updates, reboot,
-  rotate certificates, or perform
-  remote troubleshooting operations.
-
-  To create a job, you make a job document which is a description of the remote
-  operations to be
-  performed, and you specify a list of targets that should perform the operations.
-  The targets can be individual
-  things, thing groups or both.
-
-  AWS IoT Jobs sends a message to inform the targets that a job is available. The
-  target starts the
-  execution of the job by downloading the job document, performing the operations
-  it specifies, and reporting its
-  progress to AWS IoT. The Jobs service provides commands to track the progress of
-  a job on a specific target and
-  for all the targets of the job
+  operations that are sent to and executed on one or more devices connected to
+  AWS IoT. For example, you can define a job that instructs a set of devices to
+  download and install application or firmware updates, reboot, rotate
+  certificates, or perform remote troubleshooting operations. To create a job,
+  you make a job document which is a description of the remote operations to be
+  performed, and you specify a list of targets that should perform the
+  operations. The targets can be individual things, thing groups or both.
   """
 
   alias AWS.Client
@@ -303,14 +289,20 @@ defmodule AWS.IoTJobsDataPlane do
   @doc """
   Gets details of a job execution.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was created.
-  * `:thing_name` (`t:string`) The thing name associated with the device the job execution is running on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20DescribeJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
+    created.
+  * `:thing_name` (`t:string`) The thing name associated with the device the job
+    execution is running on.
 
   ## Optional parameters:
-  * `:execution_number` (`t:long`) Optional. A number that identifies a particular job execution on a particular device. If not specified,
-         the latest job execution is returned.
-  * `:include_job_document` (`t:boolean`) Optional. When set to true, the response contains the job document. The default is false.
+  * `:execution_number` (`t:long`) Optional. A number that identifies a particular
+    job execution on a particular device. If not specified, the latest job
+    execution is returned.
+  * `:include_job_document` (`t:boolean`) Optional. When set to true, the response
+    contains the job document. The default is false.
   """
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
@@ -353,7 +345,9 @@ defmodule AWS.IoTJobsDataPlane do
   @doc """
   Gets the list of all jobs for a thing that are not in a terminal status.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20GetPendingJobExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing that is executing the job.
 
   ## Optional parameters:
@@ -382,7 +376,9 @@ defmodule AWS.IoTJobsDataPlane do
   Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution
   for a thing.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20StartNextPendingJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing associated with the device.
 
   ## Optional parameters:
@@ -410,8 +406,11 @@ defmodule AWS.IoTJobsDataPlane do
   @doc """
   Updates the status of a job execution.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotjobsdataplane%20UpdateJobExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier assigned to this job when it was
+    created.
   * `:thing_name` (`t:string`) The name of the thing associated with the device.
 
   ## Optional parameters:

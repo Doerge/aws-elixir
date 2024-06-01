@@ -4,15 +4,11 @@
 defmodule AWS.DataZone do
   @moduledoc """
   Amazon DataZone is a data management service that enables you to catalog,
-  discover,
-  govern, share, and analyze your data.
-
-  With Amazon DataZone, you can share and access your
-  data across accounts and supported regions. Amazon DataZone simplifies your
-  experience
-  across Amazon Web Services services, including, but not limited to, Amazon
-  Redshift, Amazon
-  Athena, Amazon Web Services Glue, and Amazon Web Services Lake Formation.
+  discover, govern, share, and analyze your data. With Amazon DataZone, you can
+  share and access your data across accounts and supported regions. Amazon
+  DataZone simplifies your experience across Amazon Web Services services,
+  including, but not limited to, Amazon Redshift, Amazon Athena, Amazon Web
+  Services Glue, and Amazon Web Services Lake Formation.
   """
 
   alias AWS.Client
@@ -5389,11 +5385,13 @@ defmodule AWS.DataZone do
 
   @doc """
   Accepts automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptPredictions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
   * `:identifier` (`t:string`) The identifier of the asset.
 
   ## Optional parameters:
@@ -5430,9 +5428,13 @@ defmodule AWS.DataZone do
   @doc """
   Accepts a subscription request to a specific asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The Amazon DataZone domain where the specified subscription request is being accepted.
-  * `:identifier` (`t:string`) The unique identifier of the subscription request that is to be accepted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20AcceptSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The Amazon DataZone domain where the
+    specified subscription request is being accepted.
+  * `:identifier` (`t:string`) The unique identifier of the subscription request
+    that is to be accepted.
 
   ## Optional parameters:
   """
@@ -5468,9 +5470,11 @@ defmodule AWS.DataZone do
   @doc """
   Cancels the metadata generation run.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the metadata generation run is to be
-         cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the metadata generation run is to be cancelled.
   * `:identifier` (`t:string`) The ID of the metadata generation run.
 
   ## Optional parameters:
@@ -5517,10 +5521,13 @@ defmodule AWS.DataZone do
   @doc """
   Cancels the subscription to the specified asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone domain where the subscription request is being
-         cancelled.
-  * `:identifier` (`t:string`) The unique identifier of the subscription that is being cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CancelSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
+    domain where the subscription request is being cancelled.
+  * `:identifier` (`t:string`) The unique identifier of the subscription that is
+    being cancelled.
 
   ## Optional parameters:
   """
@@ -5550,8 +5557,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates an asset in Amazon DataZone catalog.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) Amazon DataZone domain where the asset is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) Amazon DataZone domain where the asset is
+    created.
 
   ## Optional parameters:
   """
@@ -5583,8 +5593,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a revision of the asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the domain where the asset is being revised.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetRevision&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the domain where
+    the asset is being revised.
   * `:identifier` (`t:string`) The identifier of the asset.
 
   ## Optional parameters:
@@ -5631,9 +5644,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a custom asset type.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone domain where the custom asset type is being
-         created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The unique identifier of the Amazon DataZone
+    domain where the custom asset type is being created.
 
   ## Optional parameters:
   """
@@ -5665,8 +5680,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone data source.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where the data source is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the data source is created.
 
   ## Optional parameters:
   """
@@ -5698,7 +5716,9 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5730,8 +5750,11 @@ defmodule AWS.DataZone do
   @doc """
   Create an Amazon DataZone environment.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which the environment is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the environment is created.
 
   ## Optional parameters:
   """
@@ -5763,8 +5786,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone environment profile.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this environment profile is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this environment profile is created.
 
   ## Optional parameters:
   """
@@ -5801,8 +5827,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a metadata form type.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this metadata form type is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this metadata form type is created.
 
   ## Optional parameters:
   """
@@ -5834,8 +5863,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone business glossary.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this business glossary is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary is created.
 
   ## Optional parameters:
   """
@@ -5867,8 +5899,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a business glossary term.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this business glossary term is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary term is created.
 
   ## Optional parameters:
   """
@@ -5905,8 +5940,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a group profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which the group profile is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the group profile is created.
 
   ## Optional parameters:
   """
@@ -5942,10 +5980,11 @@ defmodule AWS.DataZone do
 
   @doc """
   Publishes a listing (a record of an asset at a given time) or removes a listing
-  from the
-  catalog.
+  from the catalog.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateListingChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
 
   ## Optional parameters:
@@ -5983,8 +6022,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates an Amazon DataZone project.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this project is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this project is created.
 
   ## Optional parameters:
   """
@@ -6016,9 +6058,13 @@ defmodule AWS.DataZone do
   @doc """
   Creates a project membership in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which project membership is created.
-  * `:project_identifier` (`t:string`) The ID of the project for which this project membership was created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateProjectMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which project membership is created.
+  * `:project_identifier` (`t:string`) The ID of the project for which this
+    project membership was created.
 
   ## Optional parameters:
   """
@@ -6064,8 +6110,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a subsscription grant in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription grant is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription grant is created.
 
   ## Optional parameters:
   """
@@ -6102,8 +6151,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a subscription request in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription request is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription request is created.
 
   ## Optional parameters:
   """
@@ -6140,9 +6192,13 @@ defmodule AWS.DataZone do
   @doc """
   Creates a subscription target in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which subscription target is created.
-  * `:environment_identifier` (`t:string`) The ID of the environment in which subscription target is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which subscription target is created.
+  * `:environment_identifier` (`t:string`) The ID of the environment in which
+    subscription target is created.
 
   ## Optional parameters:
   """
@@ -6188,8 +6244,11 @@ defmodule AWS.DataZone do
   @doc """
   Creates a user profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a user profile is created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a user profile is created.
 
   ## Optional parameters:
   """
@@ -6221,8 +6280,11 @@ defmodule AWS.DataZone do
   @doc """
   Delets an asset in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the asset is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset is deleted.
   * `:identifier` (`t:string`) The identifier of the asset that is deleted.
 
   ## Optional parameters:
@@ -6257,8 +6319,11 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an asset type in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the asset type is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset type is deleted.
   * `:identifier` (`t:string`) The identifier of the asset type that is deleted.
 
   ## Optional parameters:
@@ -6299,13 +6364,16 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a data source in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the data source is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the data source is deleted.
   * `:identifier` (`t:string`) The identifier of the data source that is deleted.
 
   ## Optional parameters:
-  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-         request.
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
   """
   @spec delete_data_source(
           AWS.Client.t(),
@@ -6348,13 +6416,17 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a Amazon DataZone domain.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The identifier of the Amazon Web Services domain that is to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the Amazon Web Services domain
+    that is to be deleted.
 
   ## Optional parameters:
-  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-         request.
-  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child entities within the domain.
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
+  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child
+    entities within the domain.
   """
   @spec delete_domain(AWS.Client.t(), String.t(), delete_domain_input(), Keyword.t()) ::
           {:ok, delete_domain_output(), any()}
@@ -6390,9 +6462,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an environment in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the environment is deleted.
-  * `:identifier` (`t:string`) The identifier of the environment that is to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment is deleted.
+  * `:identifier` (`t:string`) The identifier of the environment that is to be
+    deleted.
 
   ## Optional parameters:
   """
@@ -6432,9 +6508,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes the blueprint configuration in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the blueprint configuration is deleted.
-  * `:environment_blueprint_identifier` (`t:string`) The ID of the blueprint the configuration of which is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the blueprint configuration is deleted.
+  * `:environment_blueprint_identifier` (`t:string`) The ID of the blueprint the
+    configuration of which is deleted.
 
   ## Optional parameters:
   """
@@ -6480,8 +6560,11 @@ defmodule AWS.DataZone do
   @doc """
   Deletes an environment profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the environment profile is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the environment profile is deleted.
   * `:identifier` (`t:string`) The ID of the environment profile that is deleted.
 
   ## Optional parameters:
@@ -6528,9 +6611,13 @@ defmodule AWS.DataZone do
   @doc """
   Delets and metadata form type in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the metadata form type is deleted.
-  * `:form_type_identifier` (`t:string`) The ID of the metadata form type that is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the metadata form type is deleted.
+  * `:form_type_identifier` (`t:string`) The ID of the metadata form type that is
+    deleted.
 
   ## Optional parameters:
   """
@@ -6576,8 +6663,11 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a business glossary in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the business glossary is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the business glossary is deleted.
   * `:identifier` (`t:string`) The ID of the business glossary that is deleted.
 
   ## Optional parameters:
@@ -6618,9 +6708,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a business glossary term in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the business glossary term is deleted.
-  * `:identifier` (`t:string`) The ID of the business glossary term that is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the business glossary term is deleted.
+  * `:identifier` (`t:string`) The ID of the business glossary term that is
+    deleted.
 
   ## Optional parameters:
   """
@@ -6666,7 +6760,9 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a listing (a record of an asset at a given time).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteListing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
   * `:identifier` (`t:string`) The ID of the listing to be deleted.
 
@@ -6708,12 +6804,17 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a project in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the project is deleted.
-  * `:identifier` (`t:string`) The identifier of the project that is to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the project is deleted.
+  * `:identifier` (`t:string`) The identifier of the project that is to be
+    deleted.
 
   ## Optional parameters:
-  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child entities within the project.
+  * `:skip_deletion_check` (`t:`) Specifies the optional flag to delete all child
+    entities within the project.
   """
   @spec delete_project(
           AWS.Client.t(),
@@ -6756,9 +6857,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes project membership in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where project membership is deleted.
-  * `:project_identifier` (`t:string`) The ID of the Amazon DataZone project the membership to which is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteProjectMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    project membership is deleted.
+  * `:project_identifier` (`t:string`) The ID of the Amazon DataZone project the
+    membership to which is deleted.
 
   ## Optional parameters:
   """
@@ -6804,8 +6909,11 @@ defmodule AWS.DataZone do
   @doc """
   Deletes and subscription grant in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where the subscription grant is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the subscription grant is deleted.
   * `:identifier` (`t:string`) The ID of the subscription grant that is deleted.
 
   ## Optional parameters:
@@ -6852,8 +6960,11 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a subscription request in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription request is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription request is deleted.
   * `:identifier` (`t:string`) The ID of the subscription request that is deleted.
 
   ## Optional parameters:
@@ -6900,9 +7011,13 @@ defmodule AWS.DataZone do
   @doc """
   Deletes a subscription target in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription target is deleted.
-  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone environment in which the subscription target is deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription target is deleted.
+  * `:environment_identifier` (`t:string`) The ID of the Amazon DataZone
+    environment in which the subscription target is deleted.
   * `:identifier` (`t:string`) The ID of the subscription target that is deleted.
 
   ## Optional parameters:
@@ -6951,16 +7066,22 @@ defmodule AWS.DataZone do
   @doc """
   Deletes the specified time series form for the specified asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that houses the asset for which you want to delete
-         a time series form.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to delete a time series form.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you want to delete a time series form.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20DeleteTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the asset for which you want to delete a time series form.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    delete a time series form.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to delete a time series form.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique, case-sensitive identifier to ensure idempotency of the request. This field is
-         automatically populated if not provided.
-  * `:form_name` (`t:string`) The name of the time series form that you want to delete.
+  * `:client_token` (`t:string`) A unique, case-sensitive identifier to ensure
+    idempotency of the request. This field is automatically populated if not
+    provided.
+  * `:form_name` (`t:string`) The name of the time series form that you want to
+    delete.
   """
   @spec delete_time_series_data_points(
           AWS.Client.t(),
@@ -7012,8 +7133,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain to which the asset belongs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain to
+    which the asset belongs.
   * `:identifier` (`t:string`) The ID of the Amazon DataZone asset.
 
   ## Optional parameters:
@@ -7052,8 +7176,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone asset type.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the asset type exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetAssetType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the asset type exists.
   * `:identifier` (`t:string`) The ID of the asset type.
 
   ## Optional parameters:
@@ -7092,8 +7219,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone data source.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the data source exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the data source exists.
   * `:identifier` (`t:string`) The ID of the Amazon DataZone data source.
 
   ## Optional parameters:
@@ -7122,8 +7252,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone data source run.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the domain in which this data source run was performed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDataSourceRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the domain in which this data
+    source run was performed.
   * `:identifier` (`t:string`) The ID of the data source run.
 
   ## Optional parameters:
@@ -7152,8 +7285,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone domain.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The identifier of the specified Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The identifier of the specified Amazon DataZone
+    domain.
 
   ## Optional parameters:
   """
@@ -7180,8 +7316,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone environment.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where the environment exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    the environment exists.
   * `:identifier` (`t:string`) The ID of the Amazon DataZone environment.
 
   ## Optional parameters:
@@ -7210,8 +7349,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an Amazon DataZone blueprint.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which this blueprint exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which this
+    blueprint exists.
   * `:identifier` (`t:string`) The ID of this Amazon DataZone blueprint.
 
   ## Optional parameters:
@@ -7240,8 +7382,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets the blueprint configuration in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where this blueprint exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    this blueprint exists.
   * `:environment_blueprint_identifier` (`t:string`) He ID of the blueprint.
 
   ## Optional parameters:
@@ -7280,8 +7425,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets an evinronment profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this environment profile exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this environment profile exists.
   * `:identifier` (`t:string`) The ID of the environment profile.
 
   ## Optional parameters:
@@ -7310,8 +7458,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a metadata form type in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this metadata form type exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetFormType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this metadata form type exists.
   * `:form_type_identifier` (`t:string`) The ID of the metadata form type.
 
   ## Optional parameters:
@@ -7350,8 +7501,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a business glossary in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this business glossary exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary exists.
   * `:identifier` (`t:string`) The ID of the business glossary.
 
   ## Optional parameters:
@@ -7380,8 +7534,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a business glossary term in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which this business glossary term exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which this business glossary term exists.
   * `:identifier` (`t:string`) The ID of the business glossary term.
 
   ## Optional parameters:
@@ -7410,8 +7567,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a group profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which the group profile exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the group profile exists.
   * `:group_identifier` (`t:string`) The identifier of the group profile.
 
   ## Optional parameters:
@@ -7440,8 +7600,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets the data portal URL for the specified Amazon DataZone domain.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the data portal of which you want to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetIamPortalLoginUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
+    data portal of which you want to get.
 
   ## Optional parameters:
   """
@@ -7478,7 +7641,9 @@ defmodule AWS.DataZone do
   @doc """
   Gets a listing (a record of an asset at a given time).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetListing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain.
   * `:identifier` (`t:string`) The ID of the listing.
 
@@ -7518,9 +7683,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a metadata generation run in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain the metadata generation run of which you want to
-         get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain the
+    metadata generation run of which you want to get.
   * `:identifier` (`t:string`) The identifier of the metadata generation run.
 
   ## Optional parameters:
@@ -7554,8 +7721,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a project in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the project exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the project exists.
   * `:identifier` (`t:string`) The ID of the project.
 
   ## Optional parameters:
@@ -7584,8 +7754,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets a subscription in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription exists.
   * `:identifier` (`t:string`) The ID of the subscription.
 
   ## Optional parameters:
@@ -7614,8 +7787,11 @@ defmodule AWS.DataZone do
   @doc """
   Gets the subscription grant in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription grant exists.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionGrant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription grant exists.
   * `:identifier` (`t:string`) The ID of the subscription grant.
 
   ## Optional parameters:
@@ -7644,10 +7820,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the details of the specified subscription request.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to get the subscription request
-         details.
-  * `:identifier` (`t:string`) The identifier of the subscription request the details of which to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionRequestDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to get the subscription request details.
+  * `:identifier` (`t:string`) The identifier of the subscription request the
+    details of which to get.
 
   ## Optional parameters:
   """
@@ -7680,9 +7859,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets the subscription target in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which the subscription target exists.
-  * `:environment_identifier` (`t:string`) The ID of the environment associated with the subscription target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which the subscription target exists.
+  * `:environment_identifier` (`t:string`) The ID of the environment associated
+    with the subscription target.
   * `:identifier` (`t:string`) The ID of the subscription target.
 
   ## Optional parameters:
@@ -7717,15 +7900,20 @@ defmodule AWS.DataZone do
   @doc """
   Gets the existing data point for the asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that houses the asset for which you want to get the
-         data point.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to get the data point.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you want to get the data point.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetTimeSeriesDataPoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the asset for which you want to get the data point.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    get the data point.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to get the data point.
   * `:identifier` (`t:string`) The ID of the data point that you want to get.
 
   ## Optional parameters:
-  * `:form_name` (`t:string`) The name of the time series form that houses the data point that you want to get.
+  * `:form_name` (`t:string`) The name of the time series form that houses the
+    data point that you want to get.
   """
   @spec get_time_series_data_point(
           AWS.Client.t(),
@@ -7776,9 +7964,13 @@ defmodule AWS.DataZone do
   @doc """
   Gets a user profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the data portal of which you want to get.
-  * `:user_identifier` (`t:string`) The identifier of the user for which you want to get the user profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20GetUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) the ID of the Amazon DataZone domain the
+    data portal of which you want to get.
+  * `:user_identifier` (`t:string`) The identifier of the user for which you want
+    to get the user profile.
 
   ## Optional parameters:
   * `:type` (`t:enum["IAM|SSO"]`) The type of the user profile.
@@ -7816,22 +8008,24 @@ defmodule AWS.DataZone do
   @doc """
   Lists the revisions for the asset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListAssetRevisions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_identifier` (`t:string`) The identifier of the domain.
   * `:identifier` (`t:string`) The identifier of the asset.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of revisions to return in a single call to
-            <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater
-         than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-         value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the
-         next set of revisions.
-  * `:next_token` (`t:string`) When the number of revisions is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of revisions, the response includes
-         a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
-         list the next set of revisions.
+  * `:max_results` (`t:integer`) The maximum number of revisions to return in a
+    single call to ListAssetRevisions. When the number of revisions to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListAssetRevisions to list
+    the next set of revisions.
+  * `:next_token` (`t:string`) When the number of revisions is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of revisions, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListAssetRevisions to list the next set of
+    revisions.
   """
   @spec list_asset_revisions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_revisions_output(), any()}
@@ -7875,24 +8069,28 @@ defmodule AWS.DataZone do
   @doc """
   Lists data source run activities.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to list data source run
-         activities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRunActivities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to list data source run activities.
   * `:identifier` (`t:string`) The identifier of the data source run.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of activities to return in a single call to
-            <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is
-         greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListDataSourceRunActivities</code> to list the next set of activities.
-  * `:next_token` (`t:string`) When the number of activities is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of activities, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListDataSourceRunActivities</code> to list the next set of activities.
-  * `:status` (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`) The status of the data source run.
+  * `:max_results` (`t:integer`) The maximum number of activities to return in a
+    single call to ListDataSourceRunActivities. When the number of activities to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListDataSourceRunActivities to list the next set of activities.
+  * `:next_token` (`t:string`) When the number of activities is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of activities, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSourceRunActivities to list
+    the next set of activities.
+  * `:status`
+    (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`)
+    The status of the data source run.
   """
   @spec list_data_source_run_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_run_activities_output(), any()}
@@ -7950,24 +8148,26 @@ defmodule AWS.DataZone do
   @doc """
   Lists data source runs in Amazon DataZone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSourceRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_source_identifier` (`t:string`) The identifier of the data source.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to invoke the
-            <code>ListDataSourceRuns</code> action.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to invoke the ListDataSourceRuns action.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of runs to return in a single call to
-         <code>ListDataSourceRuns</code>. When the number of runs to be listed is greater than the
-         value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
-         you can use in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
-         runs.
-  * `:next_token` (`t:string`) When the number of runs is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of runs, the response includes a
-         pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-         value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
-         runs.
-  * `:status` (`t:enum["FAILED|PARTIALLY_SUCCEEDED|REQUESTED|RUNNING|SUCCESS"]`) The status of the data source.
+  * `:max_results` (`t:integer`) The maximum number of runs to return in a single
+    call to ListDataSourceRuns. When the number of runs to be listed is greater
+    than the value of MaxResults, the response contains a NextToken value that
+    you can use in a subsequent call to ListDataSourceRuns to list the next set
+    of runs.
+  * `:next_token` (`t:string`) When the number of runs is greater than the default
+    value for the MaxResults parameter, or if you explicitly specify a value for
+    MaxResults that is less than the number of runs, the response includes a
+    pagination token named NextToken. You can specify this NextToken value in a
+    subsequent call to ListDataSourceRuns to list the next set of runs.
+  * `:status` (`t:enum["FAILED|PARTIALLY_SUCCEEDED|REQUESTED|RUNNING|SUCCESS"]`)
+    The status of the data source.
   """
   @spec list_data_source_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_runs_output(), any()}
@@ -8025,25 +8225,32 @@ defmodule AWS.DataZone do
   @doc """
   Lists data sources in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to list the data sources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to list the data sources.
 
   ## Optional parameters:
-  * `:environment_identifier` (`t:`) The identifier of the environment in which to list the data sources.
-  * `:max_results` (`t:integer`) The maximum number of data sources to return in a single call to
-            <code>ListDataSources</code>. When the number of data sources to be listed is greater
-         than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-         value that you can use in a subsequent call to <code>ListDataSources</code> to list the
-         next set of data sources.
+  * `:environment_identifier` (`t:`) The identifier of the environment in which to
+    list the data sources.
+  * `:max_results` (`t:integer`) The maximum number of data sources to return in a
+    single call to ListDataSources. When the number of data sources to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDataSources to list the
+    next set of data sources.
   * `:name` (`t:string`) The name of the data source.
-  * `:next_token` (`t:string`) When the number of data sources is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of data sources, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to
-         list the next set of data sources.
-  * `:project_identifier` (`t:`) The identifier of the project in which to list data sources.
-  * `:status` (`t:enum["CREATING|DELETING|FAILED_CREATION|FAILED_DELETION|FAILED_UPDATE|READY|RUNNING|UPDATING"]`) The status of the data source.
+  * `:next_token` (`t:string`) When the number of data sources is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data sources, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSources to list the next set
+    of data sources.
+  * `:project_identifier` (`t:`) The identifier of the project in which to list
+    data sources.
+  * `:status`
+    (`t:enum["CREATING|DELETING|FAILED_CREATION|FAILED_DELETION|FAILED_UPDATE|READY|RUNNING|UPDATING"]`)
+    The status of the data source.
   * `:type` (`t:string`) The type of the data source.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -8132,21 +8339,24 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone domains.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of domains to return in a single call to <code>ListDomains</code>.
-         When the number of domains to be listed is greater than the value of
-            <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-         can use in a subsequent call to <code>ListDomains</code> to list the next set of
-         domains.
-  * `:next_token` (`t:string`) When the number of domains is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of domains, the response includes a
-         pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-         value in a subsequent call to <code>ListDomains</code> to list the next set of
-         domains.
-  * `:status` (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`) The status of the data source.
+  * `:max_results` (`t:integer`) The maximum number of domains to return in a
+    single call to ListDomains. When the number of domains to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDomains to list the next
+    set of domains.
+  * `:next_token` (`t:string`) When the number of domains is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of domains, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListDomains to list the next set of domains.
+  * `:status`
+    (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`)
+    The status of the data source.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_output(), any()}
@@ -8198,23 +8408,26 @@ defmodule AWS.DataZone do
   @doc """
   Lists blueprint configurations for a Amazon DataZone environment.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprintConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of blueprint configurations to return in a single call to
-            <code>ListEnvironmentBlueprintConfigurations</code>. When the number of configurations
-         to be listed is greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
-         configurations.
-  * `:next_token` (`t:string`) When the number of blueprint configurations is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of configurations, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
-         configurations.
+  * `:max_results` (`t:integer`) The maximum number of blueprint configurations to
+    return in a single call to ListEnvironmentBlueprintConfigurations. When the
+    number of configurations to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListEnvironmentBlueprintConfigurations to list the next
+    set of configurations.
+  * `:next_token` (`t:string`) When the number of blueprint configurations is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    configurations, the response includes a pagination token named NextToken.
+    You can specify this NextToken value in a subsequent call to
+    ListEnvironmentBlueprintConfigurations to list the next set of
+    configurations.
   """
   @spec list_environment_blueprint_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
@@ -8262,23 +8475,27 @@ defmodule AWS.DataZone do
   @doc """
   Lists blueprints in an Amazon DataZone environment.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentBlueprints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:managed` (`t:`) Specifies whether the environment blueprint is managed by Amazon DataZone.
-  * `:max_results` (`t:integer`) The maximum number of blueprints to return in a single call to
-            <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
-         greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.
+  * `:managed` (`t:`) Specifies whether the environment blueprint is managed by
+    Amazon DataZone.
+  * `:max_results` (`t:integer`) The maximum number of blueprints to return in a
+    single call to ListEnvironmentBlueprints. When the number of blueprints to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListEnvironmentBlueprints to list the next set of blueprints.
   * `:name` (`t:string`) The name of the Amazon DataZone environment.
-  * `:next_token` (`t:string`) When the number of blueprints in the environment is greater than the default value for
-         the <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of blueprints in the environment,
-         the response includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.
+  * `:next_token` (`t:string`) When the number of blueprints in the environment is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    blueprints in the environment, the response includes a pagination token
+    named NextToken. You can specify this NextToken value in a subsequent call
+    to ListEnvironmentBlueprintsto list the next set of blueprints.
   """
   @spec list_environment_blueprints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprints_output(), any()}
@@ -8339,30 +8556,35 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone environment profiles.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironmentProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services account where you want to list environment
-         profiles.
-  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you want to list environment profiles.
-  * `:environment_blueprint_identifier` (`t:string`) The identifier of the blueprint that was used to create the environment profiles that
-         you want to list.
-  * `:max_results` (`t:integer`) The maximum number of environment profiles to return in a single call to
-            <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be
-         listed is greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListEnvironmentProfiles</code> to list the next set of environment
-         profiles.
-  * `:name` (`t:string`) 
-  * `:next_token` (`t:string`) When the number of environment profiles is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of environment profiles, the
-         response includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListEnvironmentProfiles</code> to list the next set of environment
-         profiles.
-  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone project.
+  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
+    account where you want to list environment profiles.
+  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
+    want to list environment profiles.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the
+    blueprint that was used to create the environment profiles that you want to
+    list.
+  * `:max_results` (`t:integer`) The maximum number of environment profiles to
+    return in a single call to ListEnvironmentProfiles. When the number of
+    environment profiles to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListEnvironmentProfiles to list the next set of environment
+    profiles.
+  * `:name` (`t:string`)
+  * `:next_token` (`t:string`) When the number of environment profiles is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of environment
+    profiles, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListEnvironmentProfiles
+    to list the next set of environment profiles.
+  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
+    project.
   """
   @spec list_environment_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_profiles_output(), any()}
@@ -8451,30 +8673,39 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone environments.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services account where you want to list
-         environments.
-  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you want to list environments.
-  * `:environment_blueprint_identifier` (`t:string`) The identifier of the Amazon DataZone blueprint.
-  * `:environment_profile_identifier` (`t:string`) The identifier of the environment profile.
-  * `:max_results` (`t:integer`) The maximum number of environments to return in a single call to
-            <code>ListEnvironments</code>. When the number of environments to be listed is greater
-         than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-         value that you can use in a subsequent call to <code>ListEnvironments</code> to list the
-         next set of environments.
+  * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
+    account where you want to list environments.
+  * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
+    want to list environments.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the Amazon
+    DataZone blueprint.
+  * `:environment_profile_identifier` (`t:string`) The identifier of the
+    environment profile.
+  * `:max_results` (`t:integer`) The maximum number of environments to return in a
+    single call to ListEnvironments. When the number of environments to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListEnvironments to
+    list the next set of environments.
   * `:name` (`t:`) The name of the environment.
-  * `:next_token` (`t:string`) When the number of environments is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of environments, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
-         list the next set of environments.
-  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone project.
+  * `:next_token` (`t:string`) When the number of environments is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of environments, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListEnvironments to list the next
+    set of environments.
+  * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
+    project.
   * `:provider` (`t:`) The provider of the environment.
-  * `:status` (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`) The status of the environments that you want to list.
+  * `:status`
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`)
+    The status of the environments that you want to list.
   """
   @spec list_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
@@ -8591,23 +8822,29 @@ defmodule AWS.DataZone do
   @doc """
   Lists all metadata generation runs.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where you want to list metadata generation
-         runs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListMetadataGenerationRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    you want to list metadata generation runs.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of metadata generation runs to return in a single call to
-         ListMetadataGenerationRuns. When the number of metadata generation runs to be listed is
-         greater than the value of MaxResults, the response contains a NextToken value that you can
-         use in a subsequent call to ListMetadataGenerationRuns to list the next set of
-         revisions.
-  * `:next_token` (`t:string`) When the number of metadata generation runs is greater than the default value for the
-         MaxResults parameter, or if you explicitly specify a value for MaxResults that is less than
-         the number of metadata generation runs, the response includes a pagination token named
-         NextToken. You can specify this NextToken value in a subsequent call to
-         ListMetadataGenerationRuns to list the next set of revisions.
-  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|SUBMITTED|SUCCEEDED"]`) The status of the metadata generation runs.
-  * `:type` (`t:enum["BUSINESS_DESCRIPTIONS"]`) The type of the metadata generation runs.
+  * `:max_results` (`t:integer`) The maximum number of metadata generation runs to
+    return in a single call to ListMetadataGenerationRuns. When the number of
+    metadata generation runs to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListMetadataGenerationRuns to list the next set of
+    revisions.
+  * `:next_token` (`t:string`) When the number of metadata generation runs is
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    metadata generation runs, the response includes a pagination token named
+    NextToken. You can specify this NextToken value in a subsequent call to
+    ListMetadataGenerationRuns to list the next set of revisions.
+  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|SUBMITTED|SUCCEEDED"]`) The
+    status of the metadata generation runs.
+  * `:type` (`t:enum["BUSINESS_DESCRIPTIONS"]`) The type of the metadata
+    generation runs.
   """
   @spec list_metadata_generation_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metadata_generation_runs_output(), any()}
@@ -8668,23 +8905,27 @@ defmodule AWS.DataZone do
   @doc """
   Lists all Amazon DataZone notifications.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
   * `:after_timestamp` (`t:`) The time after which you want to list notifications.
-  * `:before_timestamp` (`t:`) The time before which you want to list notifications.
-  * `:max_results` (`t:integer`) The maximum number of notifications to return in a single call to
-            <code>ListNotifications</code>. When the number of notifications to be listed is greater
-         than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-         value that you can use in a subsequent call to <code>ListNotifications</code> to list the
-         next set of notifications.
-  * `:next_token` (`t:string`) When the number of notifications is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of notifications, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
-         list the next set of notifications.
+  * `:before_timestamp` (`t:`) The time before which you want to list
+    notifications.
+  * `:max_results` (`t:integer`) The maximum number of notifications to return in
+    a single call to ListNotifications. When the number of notifications to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListNotifications
+    to list the next set of notifications.
+  * `:next_token` (`t:string`) When the number of notifications is greater than
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of notifications, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListNotifications to list the next
+    set of notifications.
   * `:subjects` (`t:list[smithy.api#String]`) The subjects of notifications.
   * `:task_status` (`t:enum["ACTIVE|INACTIVE"]`) The task status of notifications.
   * `:type` (`t:enum["EVENT|TASK"]`) The type of notifications.
@@ -8775,25 +9016,30 @@ defmodule AWS.DataZone do
   @doc """
   Lists all members of the specified project.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which you want to list project
-         memberships.
-  * `:project_identifier` (`t:string`) The identifier of the project whose memberships you want to list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjectMemberships&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to list project memberships.
+  * `:project_identifier` (`t:string`) The identifier of the project whose
+    memberships you want to list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of memberships to return in a single call to
-            <code>ListProjectMemberships</code>. When the number of memberships to be listed is
-         greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListProjectMemberships</code> to list the next set of memberships.
-  * `:next_token` (`t:string`) When the number of memberships is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of memberships, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
-         to list the next set of memberships.
-  * `:sort_by` (`t:enum["NAME"]`) The method by which you want to sort the project memberships.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the project memberships.
+  * `:max_results` (`t:integer`) The maximum number of memberships to return in a
+    single call to ListProjectMemberships. When the number of memberships to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListProjectMemberships to list the next set of memberships.
+  * `:next_token` (`t:string`) When the number of memberships is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of memberships, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListProjectMemberships to list the
+    next set of memberships.
+  * `:sort_by` (`t:enum["NAME"]`) The method by which you want to sort the project
+    memberships.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the project
+    memberships.
   """
   @spec list_project_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_memberships_output(), any()}
@@ -8860,23 +9106,25 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone projects.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
   * `:group_identifier` (`t:`) The identifier of a group.
-  * `:max_results` (`t:integer`) The maximum number of projects to return in a single call to <code>ListProjects</code>.
-         When the number of projects to be listed is greater than the value of
-            <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-         can use in a subsequent call to <code>ListProjects</code> to list the next set of
-         projects.
+  * `:max_results` (`t:integer`) The maximum number of projects to return in a
+    single call to ListProjects. When the number of projects to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListProjects to list the next
+    set of projects.
   * `:name` (`t:string`) The name of the project.
-  * `:next_token` (`t:string`) When the number of projects is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of projects, the response includes
-         a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
-         the next set of projects.
+  * `:next_token` (`t:string`) When the number of projects is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of projects, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListProjects to list the next set of projects.
   * `:user_identifier` (`t:`) The identifier of the Amazon DataZone user.
   """
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -8947,27 +9195,35 @@ defmodule AWS.DataZone do
   @doc """
   Lists subscription grants.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionGrants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:environment_id` (`t:string`) The identifier of the Amazon DataZone environment.
-  * `:max_results` (`t:integer`) The maximum number of subscription grants to return in a single call to
-            <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed
-         is greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListSubscriptionGrants</code> to list the next set of subscription grants.
-  * `:next_token` (`t:string`) When the number of subscription grants is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of subscription grants, the
-         response includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
-         to list the next set of subscription grants.
-  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way of sorting the results of this action.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order of this action.
-  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing.
+  * `:environment_id` (`t:string`) The identifier of the Amazon DataZone
+    environment.
+  * `:max_results` (`t:integer`) The maximum number of subscription grants to
+    return in a single call to ListSubscriptionGrants. When the number of
+    subscription grants to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionGrants to list the next set of subscription grants.
+  * `:next_token` (`t:string`) When the number of subscription grants is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    grants, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionGrants
+    to list the next set of subscription grants.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way of sorting
+    the results of this action.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order of
+    this action.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
+    listing.
   * `:subscription_id` (`t:string`) The identifier of the subscription.
-  * `:subscription_target_id` (`t:string`) The identifier of the subscription target.
+  * `:subscription_target_id` (`t:string`) The identifier of the subscription
+    target.
   """
   @spec list_subscription_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -9064,29 +9320,37 @@ defmodule AWS.DataZone do
   @doc """
   Lists Amazon DataZone subscription requests.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:approver_project_id` (`t:string`) The identifier of the subscription request approver&#39;s project.
-  * `:max_results` (`t:integer`) The maximum number of subscription requests to return in a single call to
-            <code>ListSubscriptionRequests</code>. When the number of subscription requests to be
-         listed is greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListSubscriptionRequests</code> to list the next set of subscription
-         requests.
-  * `:next_token` (`t:string`) When the number of subscription requests is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of subscription requests, the
-         response includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListSubscriptionRequests</code> to list the next set of subscription
-         requests.
-  * `:owning_project_id` (`t:string`) The identifier of the project for the subscription requests.
-  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way to sort the results of this action.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for the results of this action.
-  * `:status` (`t:enum["ACCEPTED|PENDING|REJECTED"]`) Specifies the status of the subscription requests.
-  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing.
+  * `:approver_project_id` (`t:string`) The identifier of the subscription request
+    approver's project.
+  * `:max_results` (`t:integer`) The maximum number of subscription requests to
+    return in a single call to ListSubscriptionRequests. When the number of
+    subscription requests to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionRequests to list the next set of subscription
+    requests.
+  * `:next_token` (`t:string`) When the number of subscription requests is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    requests, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to
+    ListSubscriptionRequests to list the next set of subscription requests.
+  * `:owning_project_id` (`t:string`) The identifier of the project for the
+    subscription requests.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way to sort the
+    results of this action.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
+  * `:status` (`t:enum["ACCEPTED|PENDING|REJECTED"]`) Specifies the status of the
+    subscription requests.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
+    listing.
   """
   @spec list_subscription_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_requests_output(), any()}
@@ -9183,27 +9447,31 @@ defmodule AWS.DataZone do
   @doc """
   Lists subscription targets in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain where you want to list subscription
-         targets.
-  * `:environment_identifier` (`t:string`) The identifier of the environment where you want to list subscription targets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptionTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    where you want to list subscription targets.
+  * `:environment_identifier` (`t:string`) The identifier of the environment where
+    you want to list subscription targets.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of subscription targets to return in a single call to
-            <code>ListSubscriptionTargets</code>. When the number of subscription targets to be
-         listed is greater than the value of <code>MaxResults</code>, the response contains a
-            <code>NextToken</code> value that you can use in a subsequent call to
-            <code>ListSubscriptionTargets</code> to list the next set of subscription targets.
-      
-  * `:next_token` (`t:string`) When the number of subscription targets is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of subscription targets, the
-         response includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to
-            <code>ListSubscriptionTargets</code> to list the next set of subscription
-         targets.
-  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the results of this action are to be sorted.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for the results of this action.
+  * `:max_results` (`t:integer`) The maximum number of subscription targets to
+    return in a single call to ListSubscriptionTargets. When the number of
+    subscription targets to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionTargets to list the next set of subscription
+    targets.
+  * `:next_token` (`t:string`) When the number of subscription targets is greater
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    targets, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionTargets
+    to list the next set of subscription targets.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
+    results of this action are to be sorted.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
   """
   @spec list_subscription_targets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_targets_output(), any()}
@@ -9270,30 +9538,37 @@ defmodule AWS.DataZone do
   @doc """
   Lists subscriptions in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
-  * `:approver_project_id` (`t:string`) The identifier of the project for the subscription&#39;s approver.
-  * `:max_results` (`t:integer`) The maximum number of subscriptions to return in a single call to
-            <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater
-         than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-         value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the
-         next set of Subscriptions. 
-  * `:next_token` (`t:string`) When the number of subscriptions is greater than the default value for the
-            <code>MaxResults</code> parameter, or if you explicitly specify a value for
-            <code>MaxResults</code> that is less than the number of subscriptions, the response
-         includes a pagination token named <code>NextToken</code>. You can specify this
-            <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
-         list the next set of subscriptions.
+  * `:approver_project_id` (`t:string`) The identifier of the project for the
+    subscription's approver.
+  * `:max_results` (`t:integer`) The maximum number of subscriptions to return in
+    a single call to ListSubscriptions. When the number of subscriptions to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListSubscriptions
+    to list the next set of Subscriptions.
+  * `:next_token` (`t:string`) When the number of subscriptions is greater than
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of subscriptions, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListSubscriptions to list the next
+    set of subscriptions.
   * `:owning_project_id` (`t:string`) The identifier of the owning project.
-  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the results of this action are to be sorted.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for the results of this action.
-  * `:status` (`t:enum["APPROVED|CANCELLED|REVOKED"]`) The status of the subscriptions that you want to list.
-  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing for the subscriptions that you want to
-         list.
-  * `:subscription_request_identifier` (`t:string`) The identifier of the subscription request for the subscriptions that you want to
-         list.
+  * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
+    results of this action are to be sorted.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
+    the results of this action.
+  * `:status` (`t:enum["APPROVED|CANCELLED|REVOKED"]`) The status of the
+    subscriptions that you want to list.
+  * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing
+    for the subscriptions that you want to list.
+  * `:subscription_request_identifier` (`t:string`) The identifier of the
+    subscription request for the subscriptions that you want to list.
   """
   @spec list_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscriptions_output(), any()}
@@ -9400,7 +9675,9 @@ defmodule AWS.DataZone do
   @doc """
   Lists tags for the specified resource in Amazon DataZone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the resource whose tags you want to list.
 
   ## Optional parameters:
@@ -9428,25 +9705,33 @@ defmodule AWS.DataZone do
   @doc """
   Lists time series data points.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that houses the assets for which you want to list
-         time series data points.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to list data points.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you want to list data points.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain that
+    houses the assets for which you want to list time series data points.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    list data points.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to list data points.
 
   ## Optional parameters:
-  * `:ended_at` (`t:`) The timestamp at which the data points that you wanted to list ended.
+  * `:ended_at` (`t:`) The timestamp at which the data points that you wanted to
+    list ended.
   * `:form_name` (`t:string`) The name of the time series data points form.
-  * `:max_results` (`t:integer`) The maximum number of data points to return in a single call to
-         ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the
-         value of MaxResults, the response contains a NextToken value that you can use in a
-         subsequent call to ListTimeSeriesDataPoints to list the next set of data points.
-  * `:next_token` (`t:string`) When the number of data points is greater than the default value for the MaxResults
-         parameter, or if you explicitly specify a value for MaxResults that is less than the number
-         of data points, the response includes a pagination token named NextToken. You can specify
-         this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set
-         of data points.
-  * `:started_at` (`t:`) The timestamp at which the data points that you want to list started.
+  * `:max_results` (`t:integer`) The maximum number of data points to return in a
+    single call to ListTimeSeriesDataPoints. When the number of data points to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListTimeSeriesDataPoints to list the next set of data points.
+  * `:next_token` (`t:string`) When the number of data points is greater than the
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data points, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the
+    next set of data points.
+  * `:started_at` (`t:`) The timestamp at which the data points that you want to
+    list started.
   """
   @spec list_time_series_data_points(
           AWS.Client.t(),
@@ -9531,11 +9816,15 @@ defmodule AWS.DataZone do
   @doc """
   Posts time series data points to Amazon DataZone for the specified asset.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in which you want to post time series data
-         points.
-  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to post time series data points.
-  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you want to post data points.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PostTimeSeriesDataPoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain in
+    which you want to post time series data points.
+  * `:entity_identifier` (`t:string`) The ID of the asset for which you want to
+    post time series data points.
+  * `:entity_type` (`t:enum["ASSET|LISTING"]`) The type of the asset for which you
+    want to post data points.
 
   ## Optional parameters:
   """
@@ -9584,9 +9873,13 @@ defmodule AWS.DataZone do
   Writes the configuration for the specified environment blueprint in Amazon
   DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
-  * `:environment_blueprint_identifier` (`t:string`) The identifier of the environment blueprint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20PutEnvironmentBlueprintConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
+  * `:environment_blueprint_identifier` (`t:string`) The identifier of the
+    environment blueprint.
 
   ## Optional parameters:
   """
@@ -9621,11 +9914,13 @@ defmodule AWS.DataZone do
 
   @doc """
   Rejects automatically generated business-friendly metadata for your Amazon
-  DataZone
-  assets.
+  DataZone assets.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectPredictions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
   * `:identifier` (`t:string`) The identifier of the prediction.
 
   ## Optional parameters:
@@ -9662,10 +9957,13 @@ defmodule AWS.DataZone do
   @doc """
   Rejects the specified subscription request.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which the subscription request was
-         rejected.
-  * `:identifier` (`t:string`) The identifier of the subscription request that was rejected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RejectSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which the subscription request was rejected.
+  * `:identifier` (`t:string`) The identifier of the subscription request that was
+    rejected.
 
   ## Optional parameters:
   """
@@ -9701,8 +9999,11 @@ defmodule AWS.DataZone do
   @doc """
   Revokes a specified subscription in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain where you want to revoke a subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20RevokeSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    where you want to revoke a subscription.
   * `:identifier` (`t:string`) The identifier of the revoked subscription.
 
   ## Optional parameters:
@@ -9733,8 +10034,11 @@ defmodule AWS.DataZone do
   @doc """
   Searches for assets in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20Search&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone
+    domain.
 
   ## Optional parameters:
   """
@@ -9766,9 +10070,11 @@ defmodule AWS.DataZone do
   @doc """
   Searches group profiles in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which you want to search group
-         profiles.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchGroupProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to search group profiles.
 
   ## Optional parameters:
   """
@@ -9805,8 +10111,11 @@ defmodule AWS.DataZone do
   @doc """
   Searches listings (records of an asset at a given time) in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which to search listings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchListings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
+    search listings.
 
   ## Optional parameters:
   """
@@ -9838,9 +10147,11 @@ defmodule AWS.DataZone do
   @doc """
   Searches for types in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code>
-         action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to invoke the SearchTypes action.
 
   ## Optional parameters:
   """
@@ -9872,9 +10183,11 @@ defmodule AWS.DataZone do
   @doc """
   Searches user profiles in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which you want to search user
-         profiles.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20SearchUserProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which you want to search user profiles.
 
   ## Optional parameters:
   """
@@ -9911,9 +10224,12 @@ defmodule AWS.DataZone do
   @doc """
   Start the run of the specified data source in Amazon DataZone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartDataSourceRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_source_identifier` (`t:string`) The identifier of the data source.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which to start a data source run.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which to start a data source run.
 
   ## Optional parameters:
   """
@@ -9959,9 +10275,11 @@ defmodule AWS.DataZone do
   @doc """
   Starts the metadata generation run.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where you want to start a metadata generation
-         run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20StartMetadataGenerationRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The ID of the Amazon DataZone domain where
+    you want to start a metadata generation run.
 
   ## Optional parameters:
   """
@@ -9998,8 +10316,11 @@ defmodule AWS.DataZone do
   @doc """
   Tags a resource in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource to be tagged in Amazon DataZone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to be tagged in Amazon
+    DataZone.
 
   ## Optional parameters:
   """
@@ -10031,11 +10352,15 @@ defmodule AWS.DataZone do
   @doc """
   Untags a resource in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource to be untagged in Amazon DataZone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to be untagged in Amazon
+    DataZone.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]`) Specifies the tag keys for the <code>UntagResource</code> action.
+  * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]`) Specifies the tag keys
+    for the UntagResource action.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -10070,8 +10395,11 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified data source in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which to update a data source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which to
+    update a data source.
   * `:identifier` (`t:string`) The identifier of the data source to be updated.
 
   ## Optional parameters:
@@ -10112,12 +10440,15 @@ defmodule AWS.DataZone do
   @doc """
   Updates a Amazon DataZone domain.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The ID of the Amazon Web Services domain that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The ID of the Amazon Web Services domain that is to
+    be updated.
 
   ## Optional parameters:
-  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-         request.
+  * `:client_token` (`t:`) A unique, case-sensitive identifier that is provided to
+    ensure the idempotency of the request.
   """
   @spec update_domain(AWS.Client.t(), String.t(), update_domain_input(), Keyword.t()) ::
           {:ok, update_domain_output(), any()}
@@ -10142,9 +10473,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified environment in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the domain in which the environment is to be updated.
-  * `:identifier` (`t:string`) The identifier of the environment that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the domain in which the
+    environment is to be updated.
+  * `:identifier` (`t:string`) The identifier of the environment that is to be
+    updated.
 
   ## Optional parameters:
   """
@@ -10184,10 +10519,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified environment profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which an environment profile is to be
-         updated.
-  * `:identifier` (`t:string`) The identifier of the environment profile that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateEnvironmentProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which an environment profile is to be updated.
+  * `:identifier` (`t:string`) The identifier of the environment profile that is
+    to be updated.
 
   ## Optional parameters:
   """
@@ -10233,10 +10571,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the business glossary in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a business glossary is to be
-         updated.
-  * `:identifier` (`t:string`) The identifier of the business glossary to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a business glossary is to be updated.
+  * `:identifier` (`t:string`) The identifier of the business glossary to be
+    updated.
 
   ## Optional parameters:
   """
@@ -10276,10 +10617,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates a business glossary term in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a business glossary term is to be
-         updated.
-  * `:identifier` (`t:string`) The identifier of the business glossary term that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGlossaryTerm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a business glossary term is to be updated.
+  * `:identifier` (`t:string`) The identifier of the business glossary term that
+    is to be updated.
 
   ## Optional parameters:
   """
@@ -10325,9 +10669,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified group profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a group profile is updated.
-  * `:group_identifier` (`t:string`) The identifier of the group profile that is updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateGroupProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a group profile is updated.
+  * `:group_identifier` (`t:string`) The identifier of the group profile that is
+    updated.
 
   ## Optional parameters:
   """
@@ -10363,9 +10711,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified project in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a project is to be updated.
-  * `:identifier` (`t:string`) The identifier of the project that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a project is to be updated.
+  * `:identifier` (`t:string`) The identifier of the project that is to be
+    updated.
 
   ## Optional parameters:
   """
@@ -10406,12 +10758,15 @@ defmodule AWS.DataZone do
   Updates the status of the specified subscription grant status in Amazon
   DataZone.
 
-  ## Required positional parameters:
-  * `:asset_identifier` (`t:string`) The identifier of the asset the subscription grant status of which is to be
-         updated.
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a subscription grant status is to be
-         updated.
-  * `:identifier` (`t:string`) The identifier of the subscription grant the status of which is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionGrantStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:asset_identifier` (`t:string`) The identifier of the asset the subscription
+    grant status of which is to be updated.
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription grant status is to be updated.
+  * `:identifier` (`t:string`) The identifier of the subscription grant the status
+    of which is to be updated.
 
   ## Optional parameters:
   """
@@ -10459,10 +10814,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates a specified subscription request in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a subscription request is to be
-         updated.
-  * `:identifier` (`t:string`) The identifier of the subscription request that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionRequest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription request is to be updated.
+  * `:identifier` (`t:string`) The identifier of the subscription request that is
+    to be updated.
 
   ## Optional parameters:
   """
@@ -10508,12 +10866,15 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified subscription target in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a subscription target is to be
-         updated.
-  * `:environment_identifier` (`t:string`) The identifier of the environment in which a subscription target is to be
-         updated.
-  * `:identifier` (`t:string`) Identifier of the subscription target that is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateSubscriptionTarget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a subscription target is to be updated.
+  * `:environment_identifier` (`t:string`) The identifier of the environment in
+    which a subscription target is to be updated.
+  * `:identifier` (`t:string`) Identifier of the subscription target that is to be
+    updated.
 
   ## Optional parameters:
   """
@@ -10561,9 +10922,13 @@ defmodule AWS.DataZone do
   @doc """
   Updates the specified user profile in Amazon DataZone.
 
-  ## Required positional parameters:
-  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain in which a user profile is updated.
-  * `:user_identifier` (`t:string`) The identifier of the user whose user profile is to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20UpdateUserProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_identifier` (`t:string`) The identifier of the Amazon DataZone domain
+    in which a user profile is updated.
+  * `:user_identifier` (`t:string`) The identifier of the user whose user profile
+    is to be updated.
 
   ## Optional parameters:
   """

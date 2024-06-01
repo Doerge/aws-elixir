@@ -3,24 +3,13 @@
 
 defmodule AWS.ECR do
   @moduledoc """
-  Amazon Elastic Container Registry
-
-  Amazon Elastic Container Registry (Amazon ECR) is a managed container image
-  registry service.
-
-  Customers can use the
-  familiar Docker CLI, or their preferred client, to push, pull, and manage
-  images. Amazon ECR
-  provides a secure, scalable, and reliable registry for your Docker or Open
-  Container
-  Initiative (OCI) images. Amazon ECR supports private repositories with
-  resource-based
-  permissions using IAM so that specific users or Amazon EC2 instances can access
-  repositories and images.
-
-  Amazon ECR has service endpoints in each supported Region. For more information,
-  see [Amazon ECR endpoints](https://docs.aws.amazon.com/general/latest/gr/ecr.html) in the
-  *Amazon Web Services General Reference*.
+  Amazon Elastic Container Registry Amazon Elastic Container Registry (Amazon ECR)
+  is a managed container image registry service. Customers can use the familiar
+  Docker CLI, or their preferred client, to push, pull, and manage images.
+  Amazon ECR provides a secure, scalable, and reliable registry for your Docker
+  or Open Container Initiative (OCI) images. Amazon ECR supports private
+  repositories with resource-based permissions using IAM so that specific users
+  or Amazon EC2 instances can access repositories and images.
   """
 
   alias AWS.Client
@@ -2433,16 +2422,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Checks the availability of one or more image layers in a repository.
-
-  When an image is pushed to a repository, each image layer is checked to verify
-  if it
+  Checks the availability of one or more image layers in a repository. When an
+  image is pushed to a repository, each image layer is checked to verify if it
   has been uploaded before. If it has been uploaded, then the image layer is
   skipped.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
   """
   @spec batch_check_layer_availability(
           AWS.Client.t(),
@@ -2460,19 +2443,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Deletes a list of specified images within a repository.
-
-  Images are specified with
-  either an `imageTag` or `imageDigest`.
-
-  You can remove a tag from an image by specifying the image's tag in your
-  request. When
-  you remove the last tag from an image, the image is deleted from your
-  repository.
-
-  You can completely delete an image (and all of its tags) by specifying the
-  image's
-  digest in your request.
+  Deletes a list of specified images within a repository. Images are specified
+  with either an `imageTag` or `imageDigest`. You can remove a tag from an image
+  by specifying the image's tag in your request. When you remove the last tag
+  from an image, the image is deleted from your repository.
   """
   @spec batch_delete_image(AWS.Client.t(), batch_delete_image_request(), Keyword.t()) ::
           {:ok, batch_delete_image_response(), any()}
@@ -2486,14 +2460,8 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Gets detailed information for an image.
-
-  Images are specified with either an
+  Gets detailed information for an image. Images are specified with either an
   `imageTag` or `imageDigest`.
-
-  When an image is pulled, the BatchGetImage API is called once to retrieve the
-  image
-  manifest.
   """
   @spec batch_get_image(AWS.Client.t(), batch_get_image_request(), Keyword.t()) ::
           {:ok, batch_get_image_response(), any()}
@@ -2526,19 +2494,10 @@ defmodule AWS.ECR do
 
   @doc """
   Informs Amazon ECR that the image layer upload has completed for a specified
-  registry,
-  repository name, and upload ID.
-
-  You can optionally provide a `sha256` digest
-  of the image layer for data validation purposes.
-
-  When an image is pushed, the CompleteLayerUpload API is called once per each new
-  image
-  layer to verify that the upload has completed.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  registry, repository name, and upload ID. You can optionally provide a
+  `sha256` digest of the image layer for data validation purposes. When an image
+  is pushed, the CompleteLayerUpload API is called once per each new image layer
+  to verify that the upload has completed.
   """
   @spec complete_layer_upload(AWS.Client.t(), complete_layer_upload_request(), Keyword.t()) ::
           {:ok, complete_layer_upload_response(), any()}
@@ -2552,12 +2511,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Creates a pull through cache rule.
-
-  A pull through cache rule provides a way to cache
-  images from an upstream registry source in your Amazon ECR private registry. For
-  more
-  information, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html)
+  Creates a pull through cache rule. A pull through cache rule provides a way to
+  cache images from an upstream registry source in your Amazon ECR private
+  registry. For more information, see [Using pull through cache
+  rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec create_pull_through_cache_rule(
@@ -2576,11 +2533,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Creates a repository.
-
-  For more information, see [Amazon ECR repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
-  in the
-  *Amazon Elastic Container Registry User Guide*.
+  Creates a repository. For more information, see [Amazon ECR
+  repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
+  in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec create_repository(AWS.Client.t(), create_repository_request(), Keyword.t()) ::
           {:ok, create_repository_response(), any()}
@@ -2640,9 +2595,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Deletes a repository.
-
-  If the repository isn't empty, you must either delete the
+  Deletes a repository. If the repository isn't empty, you must either delete the
   contents of the repository or use the `force` option to delete the repository
   and have Amazon ECR delete all of its contents on your behalf.
   """
@@ -2709,17 +2662,6 @@ defmodule AWS.ECR do
 
   @doc """
   Returns metadata about the images in a repository.
-
-  Beginning with Docker version 1.9, the Docker client compresses image layers
-  before pushing them to a V2 Docker registry. The output of the
-
-  ```
-  docker
-  images
-  ```
-
-  command shows the uncompressed image size, so it may return a
-  larger image size than the image sizes returned by `DescribeImages`.
   """
   @spec describe_images(AWS.Client.t(), describe_images_request(), Keyword.t()) ::
           {:ok, describe_images_response(), any()}
@@ -2751,11 +2693,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Describes the settings for a registry.
-
-  The replication configuration for a repository
-  can be created or updated with the `PutReplicationConfiguration` API
-  action.
+  Describes the settings for a registry. The replication configuration for a
+  repository can be created or updated with the `PutReplicationConfiguration`
+  API action.
   """
   @spec describe_registry(AWS.Client.t(), describe_registry_request(), Keyword.t()) ::
           {:ok, describe_registry_response(), any()}
@@ -2783,18 +2723,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Retrieves an authorization token.
-
-  An authorization token represents your IAM
+  Retrieves an authorization token. An authorization token represents your IAM
   authentication credentials and can be used to access any Amazon ECR registry
-  that your IAM
-  principal has access to. The authorization token is valid for 12 hours.
-
-  The `authorizationToken` returned is a base64 encoded string that can be
-  decoded and used in a `docker login` command to authenticate to a registry.
-  The CLI offers an `get-login-password` command that simplifies the login
-  process. For more information, see [Registry authentication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth)
-  in the *Amazon Elastic Container Registry User Guide*.
+  that your IAM principal has access to. The authorization token is valid for 12
+  hours.
   """
   @spec get_authorization_token(AWS.Client.t(), get_authorization_token_request(), Keyword.t()) ::
           {:ok, get_authorization_token_response(), any()}
@@ -2809,17 +2741,9 @@ defmodule AWS.ECR do
 
   @doc """
   Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer.
-
-  You can
-  only get URLs for image layers that are referenced in an image.
-
-  When an image is pulled, the GetDownloadUrlForLayer API is called once per image
-  layer
-  that is not already cached.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  You can only get URLs for image layers that are referenced in an image. When
+  an image is pulled, the GetDownloadUrlForLayer API is called once per image
+  layer that is not already cached.
   """
   @spec get_download_url_for_layer(
           AWS.Client.t(),
@@ -2916,17 +2840,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Notifies Amazon ECR that you intend to upload an image layer.
-
-  When an image is pushed, the InitiateLayerUpload API is called once per image
-  layer
-  that has not already been uploaded. Whether or not an image layer has been
-  uploaded is
+  Notifies Amazon ECR that you intend to upload an image layer. When an image is
+  pushed, the InitiateLayerUpload API is called once per image layer that has
+  not already been uploaded. Whether or not an image layer has been uploaded is
   determined by the BatchCheckLayerAvailability API action.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
   """
   @spec initiate_layer_upload(AWS.Client.t(), initiate_layer_upload_request(), Keyword.t()) ::
           {:ok, initiate_layer_upload_response(), any()}
@@ -2941,14 +2858,6 @@ defmodule AWS.ECR do
 
   @doc """
   Lists all the image IDs for the specified repository.
-
-  You can filter images based on whether or not they are tagged by using the
-  `tagStatus` filter and specifying either `TAGGED`,
-  `UNTAGGED` or `ANY`. For example, you can filter your results
-  to return only `UNTAGGED` images and then pipe that result to a
-  `BatchDeleteImage` operation to delete them. Or, you can filter your
-  results to return only `TAGGED` images to list all of the tags in your
-  repository.
   """
   @spec list_images(AWS.Client.t(), list_images_request(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
@@ -2976,17 +2885,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Creates or updates the image manifest and tags associated with an image.
-
-  When an image is pushed and all new image layers have been uploaded, the
-  PutImage API
+  Creates or updates the image manifest and tags associated with an image. When an
+  image is pushed and all new image layers have been uploaded, the PutImage API
   is called once to create or update the image manifest and the tags associated
-  with the
-  image.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  with the image.
   """
   @spec put_image(AWS.Client.t(), put_image_request(), Keyword.t()) ::
           {:ok, put_image_response(), any()}
@@ -3000,14 +2902,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-
-  The `PutImageScanningConfiguration` API is being deprecated, in favor
-  of specifying the image scanning configuration at the registry level.
-
-  For more
+  The `PutImageScanningConfiguration` API is being deprecated, in favor of
+  specifying the image scanning configuration at the registry level. For more
   information, see `PutRegistryScanningConfiguration`.
-
-  Updates the image scanning configuration for the specified repository.
   """
   @spec put_image_scanning_configuration(
           AWS.Client.t(),
@@ -3025,10 +2922,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Updates the image tag mutability settings for the specified repository.
-
-  For more
-  information, see [Image tag mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
+  Updates the image tag mutability settings for the specified repository. For more
+  information, see [Image tag
+  mutability](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec put_image_tag_mutability(AWS.Client.t(), put_image_tag_mutability_request(), Keyword.t()) ::
@@ -3043,10 +2939,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Creates or updates the lifecycle policy for the specified repository.
-
-  For more
-  information, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+  Creates or updates the lifecycle policy for the specified repository. For more
+  information, see [Lifecycle policy
+  template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
   """
   @spec put_lifecycle_policy(AWS.Client.t(), put_lifecycle_policy_request(), Keyword.t()) ::
           {:ok, put_lifecycle_policy_response(), any()}
@@ -3061,11 +2956,6 @@ defmodule AWS.ECR do
 
   @doc """
   Creates or updates the permissions policy for your registry.
-
-  A registry policy is used to specify permissions for another Amazon Web Services
-  account and is used
-  when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html)
-  in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec put_registry_policy(AWS.Client.t(), put_registry_policy_request(), Keyword.t()) ::
           {:ok, put_registry_policy_response(), any()}
@@ -3097,22 +2987,14 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Creates or updates the replication configuration for a registry.
-
-  The existing
+  Creates or updates the replication configuration for a registry. The existing
   replication configuration for a repository can be retrieved with the
-  `DescribeRegistry` API action. The first time the
-  PutReplicationConfiguration API is called, a service-linked IAM role is created
-  in
-  your account for the replication process. For more information, see [Using service-linked roles for Amazon
+  `DescribeRegistry` API action. The first time the PutReplicationConfiguration
+  API is called, a service-linked IAM role is created in your account for the
+  replication process. For more information, see [Using service-linked roles for
+  Amazon
   ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html)
-  in the
-  *Amazon Elastic Container Registry User Guide*.
-
-  When configuring cross-account replication, the destination account must grant
-  the
-  source account permission to replicate. This permission is controlled using a
-  registry permissions policy. For more information, see `PutRegistryPolicy`.
+  in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec put_replication_configuration(
           AWS.Client.t(),
@@ -3131,9 +3013,8 @@ defmodule AWS.ECR do
 
   @doc """
   Applies a repository policy to the specified repository to control access
-  permissions.
-
-  For more information, see [Amazon ECR Repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
+  permissions. For more information, see [Amazon ECR Repository
+  policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec set_repository_policy(AWS.Client.t(), set_repository_policy_request(), Keyword.t()) ::
@@ -3148,14 +3029,11 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Starts an image vulnerability scan.
-
-  An image scan can only be started once per 24
-  hours on an individual image. This limit includes if an image was scanned on
-  initial
-  push. For more information, see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
-  in the
-  *Amazon Elastic Container Registry User Guide*.
+  Starts an image vulnerability scan. An image scan can only be started once per
+  24 hours on an individual image. This limit includes if an image was scanned
+  on initial push. For more information, see [Image
+  scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
+  in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec start_image_scan(AWS.Client.t(), start_image_scan_request(), Keyword.t()) ::
           {:ok, start_image_scan_response(), any()}
@@ -3169,10 +3047,9 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Starts a preview of a lifecycle policy for the specified repository.
-
-  This allows you
-  to see the results before associating the lifecycle policy with the repository.
+  Starts a preview of a lifecycle policy for the specified repository. This allows
+  you to see the results before associating the lifecycle policy with the
+  repository.
   """
   @spec start_lifecycle_policy_preview(
           AWS.Client.t(),
@@ -3190,10 +3067,8 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Adds specified tags to a resource with the specified ARN.
-
-  Existing tags on a resource
-  are not changed if they are not specified in the request parameters.
+  Adds specified tags to a resource with the specified ARN. Existing tags on a
+  resource are not changed if they are not specified in the request parameters.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3239,17 +3114,10 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Uploads an image layer part to Amazon ECR.
-
-  When an image is pushed, each new image layer is uploaded in parts. The maximum
-  size
-  of each image layer part can be 20971520 bytes (or about 20MB). The
-  UploadLayerPart API
-  is called once per each new image layer part.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  Uploads an image layer part to Amazon ECR. When an image is pushed, each new
+  image layer is uploaded in parts. The maximum size of each image layer part
+  can be 20971520 bytes (or about 20MB). The UploadLayerPart API is called once
+  per each new image layer part.
   """
   @spec upload_layer_part(AWS.Client.t(), upload_layer_part_request(), Keyword.t()) ::
           {:ok, upload_layer_part_response(), any()}
@@ -3264,13 +3132,9 @@ defmodule AWS.ECR do
 
   @doc """
   Validates an existing pull through cache rule for an upstream registry that
-  requires
-  authentication.
-
-  This will retrieve the contents of the Amazon Web Services Secrets Manager
-  secret, verify the
-  syntax, and then validate that authentication to the upstream registry is
-  successful.
+  requires authentication. This will retrieve the contents of the Amazon Web
+  Services Secrets Manager secret, verify the syntax, and then validate that
+  authentication to the upstream registry is successful.
   """
   @spec validate_pull_through_cache_rule(
           AWS.Client.t(),

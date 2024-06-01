@@ -4,11 +4,8 @@
 defmodule AWS.IoT1ClickDevices do
   @moduledoc """
   Describes all of the AWS IoT 1-Click device-related API operations for the
-  service.
-
-  Also provides sample requests, responses, and errors for the supported web
-  services
-  protocols.
+  service. Also provides sample requests, responses, and errors for the
+  supported web services protocols.
   """
 
   alias AWS.Client
@@ -506,11 +503,13 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Adds device(s) to your account (i.e., claim one or more devices) if and only if
-  you
-  received a claim code with the device(s).
+  you received a claim code with the device(s).
 
-  ## Required positional parameters:
-  * `:claim_code` (`t:string`) The claim code, starting with &quot;C-&quot;, as provided by the device manufacturer.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ClaimDevicesByClaimCode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:claim_code` (`t:string`) The claim code, starting with "C-", as provided by
+    the device manufacturer.
 
   ## Optional parameters:
   """
@@ -538,7 +537,9 @@ defmodule AWS.IoT1ClickDevices do
   Given a device ID, returns a DescribeDeviceResponse object describing the
   details of the device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -566,12 +567,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, finalizes the claim request for the associated device.
 
-  Claiming a device consists of initiating a claim, then publishing a device
-  event,
-  and finalizing the claim. For a device of type button, a device event can
-  be published by simply clicking the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20FinalizeDeviceClaim&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -599,7 +597,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, returns the invokable methods associated with the device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20GetDeviceMethods&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -627,12 +627,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Given a device ID, initiates a claim request for the associated device.
 
-  Claiming a device consists of initiating a claim, then publishing a device
-  event,
-  and finalizing the claim. For a device of type button, a device event can
-  be published by simply clicking the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InitiateDeviceClaim&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -659,12 +656,11 @@ defmodule AWS.IoT1ClickDevices do
 
   @doc """
   Given a device ID, issues a request to invoke a named device method (with
-  possible
-  parameters).
+  possible parameters). See the "Example POST" code snippet below.
 
-  See the "Example POST" code snippet below.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20InvokeDeviceMethod&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -700,22 +696,22 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Using a device ID, returns a DeviceEventsResponse object containing an
-  array of events for the device.
+  Using a device ID, returns a DeviceEventsResponse object containing an array of
+  events for the device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDeviceEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
-  * `:from_time_stamp` (`t:timestamp[date-time]`) The start date for the device event query, in ISO8061 format. For example,
-  2018-03-28T15:45:12.880Z
-
-  * `:max_results` (`t:integer`) The maximum number of results to return per request. If not set, a default value of
-  100 is used.
+  * `:from_time_stamp` (`t:timestamp[date-time]`) The start date for the device
+    event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
-  * `:to_time_stamp` (`t:timestamp[date-time]`) The end date for the device event query, in ISO8061 format. For example,
-  2018-03-28T15:45:12.880Z
-
+  * `:to_time_stamp` (`t:timestamp[date-time]`) The end date for the device event
+    query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
   """
   @spec list_device_events(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_events_response(), any()}
@@ -782,12 +778,14 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Lists the 1-Click compatible devices associated with your AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:device_type` (`t:string`) The type of the device, such as &quot;button&quot;.
-  * `:max_results` (`t:integer`) The maximum number of results to return per request. If not set, a default value of
-  100 is used.
+  * `:device_type` (`t:string`) The type of the device, such as "button".
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
@@ -840,7 +838,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Lists the tags associated with the specified resource ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -866,13 +866,14 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Adds or updates the tags associated with the resource ARN.
+  Adds or updates the tags associated with the resource ARN. See [AWS IoT 1-Click
+  Service
+  Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
+  for the maximum number of tags allowed per resource.
 
-  See [AWS IoT 1-Click Service Limits](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits)
-  for the maximum number of tags allowed per
-  resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -905,7 +906,9 @@ defmodule AWS.IoT1ClickDevices do
   @doc """
   Disassociates a device from your AWS account using its device ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UnclaimDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:
@@ -929,11 +932,14 @@ defmodule AWS.IoT1ClickDevices do
   Using tag keys, deletes the tags (key/value pairs) associated with the specified
   resource ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`) A collections of tag keys. For example, {&quot;key1&quot;,&quot;key2&quot;}
+  * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`) A
+    collections of tag keys. For example, {"key1","key2"}
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -966,10 +972,12 @@ defmodule AWS.IoT1ClickDevices do
   end
 
   @doc """
-  Using a Boolean value (true or false), this operation
-  enables or disables the device given a device ID.
+  Using a Boolean value (true or false), this operation enables or disables the
+  device given a device ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20UpdateDeviceState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:device_id` (`t:string`) The unique identifier of the device.
 
   ## Optional parameters:

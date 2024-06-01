@@ -4,21 +4,9 @@
 defmodule AWS.Deadline do
   @moduledoc """
   The Amazon Web Services Deadline Cloud API provides infrastructure and
-  centralized management for your
-  projects.
-
-  Use the Deadline Cloud API to onboard users, assign projects, and attach
-  permissions
-  specific to their job function.
-
-  With Deadline Cloud, content production teams can deploy resources for their
-  workforce securely
-  in the cloud, reducing the costs of added physical infrastructure. Keep your
-  content
-  production operations secure, while allowing your contributors to access the
-  tools they
-  need, such as scalable high-speed storage, licenses, and cost management
-  services.
+  centralized management for your projects. Use the Deadline Cloud API to
+  onboard users, assign projects, and attach permissions specific to their job
+  function.
   """
 
   alias AWS.Client
@@ -4858,9 +4846,12 @@ defmodule AWS.Deadline do
   @doc """
   Assigns a farm membership level to a member.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The ID of the farm to associate with the member.
-  * `:principal_id` (`t:string`) The member&#39;s principal ID to associate with the farm.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    farm.
 
   ## Optional parameters:
   """
@@ -4890,10 +4881,13 @@ defmodule AWS.Deadline do
   @doc """
   Assigns a fleet membership level to a member.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the fleet to associate with the member.
   * `:fleet_id` (`t:string`) The ID of the fleet to associate with a member.
-  * `:principal_id` (`t:string`) The member&#39;s principal ID to associate with a fleet.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with a
+    fleet.
 
   ## Optional parameters:
   """
@@ -4931,10 +4925,13 @@ defmodule AWS.Deadline do
   @doc """
   Assigns a job membership level to a member
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the job to associate with the member.
   * `:job_id` (`t:string`) The job ID to associate with the member.
-  * `:principal_id` (`t:string`) The member&#39;s principal ID to associate with the job.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    job.
   * `:queue_id` (`t:string`) The queue ID to associate to the member.
 
   ## Optional parameters:
@@ -4975,9 +4972,12 @@ defmodule AWS.Deadline do
   @doc """
   Assigns a queue membership level to a member
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssociateMemberToQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the queue to associate with the member.
-  * `:principal_id` (`t:string`) The member&#39;s principal ID to associate with the queue.
+  * `:principal_id` (`t:string`) The member's principal ID to associate with the
+    queue.
   * `:queue_id` (`t:string`) The ID of the queue to associate to the member.
 
   ## Optional parameters:
@@ -5014,13 +5014,13 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Get Amazon Web Services credentials from the fleet role.
+  Get Amazon Web Services credentials from the fleet role. The IAM permissions of
+  the credentials are scoped down to have read-only access.
 
-  The IAM permissions of the credentials are
-  scoped down to have read-only access.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForRead&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID for the fleet&#39;s farm.
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
   * `:fleet_id` (`t:string`) The fleet ID.
 
   ## Optional parameters:
@@ -5049,8 +5049,10 @@ defmodule AWS.Deadline do
   @doc """
   Get credentials from the fleet role for a worker.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID for the fleet&#39;s farm.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeFleetRoleForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the fleet's farm.
   * `:fleet_id` (`t:string`) The fleet ID that contains the worker.
   * `:worker_id` (`t:string`) The ID of the worker assuming the fleet role.
 
@@ -5090,12 +5092,12 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Gets Amazon Web Services credentials from the queue role.
+  Gets Amazon Web Services credentials from the queue role. The IAM permissions of
+  the credentials are scoped down to have read-only access.
 
-  The IAM permissions of the credentials are
-  scoped down to have read-only access.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForRead&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm containing the queue.
   * `:queue_id` (`t:string`) The queue ID.
 
@@ -5125,9 +5127,13 @@ defmodule AWS.Deadline do
   @doc """
   Allows a user to assume a role for a queue.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue that the user assumes the role for.
-  * `:queue_id` (`t:string`) The queue ID of the queue that the user assumes the role for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue that the user assumes the
+    role for.
+  * `:queue_id` (`t:string`) The queue ID of the queue that the user assumes the
+    role for.
 
   ## Optional parameters:
   """
@@ -5155,7 +5161,9 @@ defmodule AWS.Deadline do
   @doc """
   Allows a worker to assume a queue role.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20AssumeQueueRoleForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the worker assuming the queue role.
   * `:fleet_id` (`t:string`) The fleet ID of the worker assuming the queue role.
   * `:worker_id` (`t:string`) The worker ID of the worker assuming the queue role.
@@ -5210,12 +5218,15 @@ defmodule AWS.Deadline do
   @doc """
   Get batched job details for a worker.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the worker that&#39;s fetching job details. The worker must have an
-         assignment on a job to fetch job details.
-  * `:fleet_id` (`t:string`) The fleet ID of the worker that&#39;s fetching job details. The worker must have an
-         assignment on a job to fetch job details.
-  * `:worker_id` (`t:string`) The worker ID of the worker containing the job details to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20BatchGetJobEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the worker that's fetching job details.
+    The worker must have an assignment on a job to fetch job details.
+  * `:fleet_id` (`t:string`) The fleet ID of the worker that's fetching job
+    details. The worker must have an assignment on a job to fetch job details.
+  * `:worker_id` (`t:string`) The worker ID of the worker containing the job
+    details to get.
 
   ## Optional parameters:
   """
@@ -5256,7 +5267,9 @@ defmodule AWS.Deadline do
   @doc """
   Copies a job template to an Amazon S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CopyJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to copy.
   * `:job_id` (`t:string`) The job ID to copy.
   * `:queue_id` (`t:string`) The queue ID to copy.
@@ -5300,11 +5313,14 @@ defmodule AWS.Deadline do
   @doc """
   Creates a budget to set spending thresholds for your rendering activity.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to include in this budget.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_budget(AWS.Client.t(), String.t(), create_budget_request(), Keyword.t()) ::
           {:ok, create_budget_response(), any()}
@@ -5338,19 +5354,18 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a farm to allow space for queues and fleets.
+  Creates a farm to allow space for queues and fleets. Farms are the space where
+  the components of your renders gather and are pieced together in the cloud.
+  Farms contain budgets and allow you to enforce permissions. Deadline Cloud
+  farms are a useful container for large projects.
 
-  Farms are the space where the
-  components of your renders gather and are pieced together in the cloud. Farms
-  contain
-  budgets and allow you to enforce permissions. Deadline Cloud farms are a useful
-  container for
-  large projects.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFarm&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_farm(AWS.Client.t(), create_farm_request(), Keyword.t()) ::
           {:ok, create_farm_response(), any()}
@@ -5384,18 +5399,18 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a fleet.
+  Creates a fleet. Fleets gather information relating to compute, or capacity, for
+  renders within your farms. You can choose to manage your own capacity or opt
+  to have fleets fully managed by Deadline Cloud.
 
-  Fleets gather information relating to compute, or capacity, for renders
-  within your farms. You can choose to manage your own capacity or opt to have
-  fleets fully
-  managed by Deadline Cloud.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to connect to the fleet.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_fleet(AWS.Client.t(), String.t(), create_fleet_request(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
@@ -5429,17 +5444,18 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a job.
+  Creates a job. A job is a render submission submitted by a user. It contains
+  specific job properties outlined as steps and tasks.
 
-  A job is a render submission submitted by a user. It contains specific
-  job properties outlined as steps and tasks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to connect to the job.
   * `:queue_id` (`t:string`) The ID of the queue that the job is submitted to.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_job(AWS.Client.t(), String.t(), String.t(), create_job_request(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
@@ -5477,10 +5493,13 @@ defmodule AWS.Deadline do
   Creates a license endpoint to integrate your various licensed software used for
   rendering on Deadline Cloud.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_license_endpoint(AWS.Client.t(), create_license_endpoint_request(), Keyword.t()) ::
           {:ok, create_license_endpoint_response(), any()}
@@ -5515,17 +5534,17 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates an Amazon Web Services Deadline Cloud monitor that you can use to view
-  your farms, queues, and
-  fleets.
+  your farms, queues, and fleets. After you submit a job, you can track the
+  progress of the tasks and steps that make up the job, and then download the
+  job's results.
 
-  After you submit a job, you can track the progress of the tasks and steps that
-  make
-  up the job, and then download the job's results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_monitor(AWS.Client.t(), create_monitor_request(), Keyword.t()) ::
           {:ok, create_monitor_response(), any()}
@@ -5559,16 +5578,18 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a queue to coordinate the order in which jobs run on a farm.
+  Creates a queue to coordinate the order in which jobs run on a farm. A queue can
+  also specify where to pull resources and indicate where to output completed
+  jobs.
 
-  A queue can also
-  specify where to pull resources and indicate where to output completed jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueue&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to connect to the queue.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_queue(AWS.Client.t(), String.t(), create_queue_request(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
@@ -5604,12 +5625,15 @@ defmodule AWS.Deadline do
   @doc """
   Creates an environment for a queue that defines how jobs in the queue run.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to connect to the environment.
   * `:queue_id` (`t:string`) The queue ID to connect the queue and environment.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_queue_environment(
           AWS.Client.t(),
@@ -5652,7 +5676,9 @@ defmodule AWS.Deadline do
   @doc """
   Creates an association between a queue and a fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The ID of the farm that the queue and fleet belong to.
 
   ## Optional parameters:
@@ -5679,14 +5705,17 @@ defmodule AWS.Deadline do
 
   @doc """
   Creates a storage profile that specifies the operating system, file type, and
-  file
-  location of resources used on a farm.
+  file location of resources used on a farm.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the storage profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to connect to the storage
+    profile.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_storage_profile(
           AWS.Client.t(),
@@ -5725,21 +5754,20 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Creates a worker.
+  Creates a worker. A worker tells your instance how much processing power (vCPU),
+  and memory (GiB) you’ll need to assemble the digital assets held within a
+  particular instance. You can specify certain instance types to use, or let the
+  worker know which instances types to exclude.
 
-  A worker tells your instance how much processing power (vCPU), and
-  memory (GiB) you’ll need to assemble the digital assets held within a particular
-  instance.
-  You can specify certain instance types to use, or let the worker know which
-  instances types
-  to exclude.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20CreateWorker&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to connect to the worker.
   * `:fleet_id` (`t:string`) The fleet ID to connect to the worker.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec create_worker(
           AWS.Client.t(),
@@ -5782,7 +5810,9 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a budget.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:budget_id` (`t:string`) The budget ID of the budget to delete.
   * `:farm_id` (`t:string`) The farm ID of the farm to remove from the budget.
 
@@ -5824,7 +5854,9 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a farm.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to delete.
 
   ## Optional parameters:
@@ -5857,12 +5889,15 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm to remove from the fleet.
   * `:fleet_id` (`t:string`) The fleet ID of the fleet to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec delete_fleet(AWS.Client.t(), String.t(), String.t(), delete_fleet_request(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
@@ -5899,8 +5934,11 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a license endpoint.
 
-  ## Required positional parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID of the license endpoint to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID of the license
+    endpoint to delete.
 
   ## Optional parameters:
   """
@@ -5937,8 +5975,11 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a metered product.
 
-  ## Required positional parameters:
-  * `:license_endpoint_id` (`t:string`) The ID of the license endpoint from which to remove the metered product.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMeteredProduct&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The ID of the license endpoint from which
+    to remove the metered product.
   * `:product_id` (`t:string`) The product ID to remove from the license endpoint.
 
   ## Optional parameters:
@@ -5983,15 +6024,15 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Removes a Deadline Cloud monitor.
+  Removes a Deadline Cloud monitor. After you delete a monitor, you can create a
+  new one and attach farms to the monitor.
 
-  After you delete a monitor, you can create a new one and
-  attach farms to the monitor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_id` (`t:string`) The unique identifier of the monitor to delete. This ID is returned by the
-            <code>CreateMonitor</code> operation, and is included in the response to the
-            <code>GetMonitor</code> operation.
+  ## Parameters:
+  * `:monitor_id` (`t:string`) The unique identifier of the monitor to delete.
+    This ID is returned by the CreateMonitor operation, and is included in the
+    response to the GetMonitor operation.
 
   ## Optional parameters:
   """
@@ -6023,7 +6064,9 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a queue.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The ID of the farm from which to remove the queue.
   * `:queue_id` (`t:string`) The queue ID of the queue to delete.
 
@@ -6059,9 +6102,13 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a queue environment.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the queue environment.
-  * `:queue_environment_id` (`t:string`) The queue environment ID of the queue environment to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the queue
+    environment.
+  * `:queue_environment_id` (`t:string`) The queue environment ID of the queue
+    environment to delete.
   * `:queue_id` (`t:string`) The queue ID of the queue environment to delete.
 
   ## Optional parameters:
@@ -6110,8 +6157,11 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a queue-fleet association.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm that holds the queue-fleet association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm that holds the queue-fleet
+    association.
   * `:fleet_id` (`t:string`) The fleet ID of the queue-fleet association.
   * `:queue_id` (`t:string`) The queue ID of the queue-fleet association.
 
@@ -6161,9 +6211,13 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a storage profile.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the storage profile.
-  * `:storage_profile_id` (`t:string`) The storage profile ID of the storage profile to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm from which to remove the
+    storage profile.
+  * `:storage_profile_id` (`t:string`) The storage profile ID of the storage
+    profile to delete.
 
   ## Optional parameters:
   """
@@ -6209,7 +6263,9 @@ defmodule AWS.Deadline do
   @doc """
   Deletes a worker.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DeleteWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the worker to delete.
   * `:fleet_id` (`t:string`) The fleet ID of the worker to delete.
   * `:worker_id` (`t:string`) The worker ID of the worker to delete.
@@ -6253,9 +6309,13 @@ defmodule AWS.Deadline do
   @doc """
   Disassociates a member from a farm.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm to disassociate from the member.
-  * `:principal_id` (`t:string`) A member&#39;s principal ID to disassociate from a farm.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm to disassociate from the
+    member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    farm.
 
   ## Optional parameters:
   """
@@ -6301,10 +6361,15 @@ defmodule AWS.Deadline do
   @doc """
   Disassociates a member from a fleet.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the fleet to disassociate a member from.
-  * `:fleet_id` (`t:string`) The fleet ID of the fleet to from which to disassociate a member.
-  * `:principal_id` (`t:string`) A member&#39;s principal ID to disassociate from a fleet.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the fleet to disassociate a member
+    from.
+  * `:fleet_id` (`t:string`) The fleet ID of the fleet to from which to
+    disassociate a member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    fleet.
 
   ## Optional parameters:
   """
@@ -6352,11 +6417,16 @@ defmodule AWS.Deadline do
   @doc """
   Disassociates a member from a job.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID for the job to disassociate from the member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the job to disassociate from the
+    member.
   * `:job_id` (`t:string`) The job ID to disassociate from a member in a job.
-  * `:principal_id` (`t:string`) A member&#39;s principal ID to disassociate from a job.
-  * `:queue_id` (`t:string`) The queue ID connected to a job for which you&#39;re disassociating a member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    job.
+  * `:queue_id` (`t:string`) The queue ID connected to a job for which you're
+    disassociating a member.
 
   ## Optional parameters:
   """
@@ -6406,10 +6476,15 @@ defmodule AWS.Deadline do
   @doc """
   Disassociates a member from a queue.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID for the queue to disassociate from a member.
-  * `:principal_id` (`t:string`) A member&#39;s principal ID to disassociate from a queue.
-  * `:queue_id` (`t:string`) The queue ID of the queue in which you&#39;re disassociating from a member.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20DisassociateMemberFromQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID for the queue to disassociate from a
+    member.
+  * `:principal_id` (`t:string`) A member's principal ID to disassociate from a
+    queue.
+  * `:queue_id` (`t:string`) The queue ID of the queue in which you're
+    disassociating from a member.
 
   ## Optional parameters:
   """
@@ -6457,7 +6532,9 @@ defmodule AWS.Deadline do
   @doc """
   Get a budget.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:budget_id` (`t:string`) The budget ID.
   * `:farm_id` (`t:string`) The farm ID of the farm connected to the budget.
 
@@ -6487,7 +6564,9 @@ defmodule AWS.Deadline do
   @doc """
   Get a farm.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm.
 
   ## Optional parameters:
@@ -6515,7 +6594,9 @@ defmodule AWS.Deadline do
   @doc """
   Get a fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm in the fleet.
   * `:fleet_id` (`t:string`) The fleet ID of the fleet to get.
 
@@ -6545,7 +6626,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a Deadline Cloud job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm in the job.
   * `:job_id` (`t:string`) The job ID.
   * `:queue_id` (`t:string`) The queue ID associated with the job.
@@ -6576,7 +6659,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a licence endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetLicenseEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:license_endpoint_id` (`t:string`) The license endpoint ID.
 
   ## Optional parameters:
@@ -6604,9 +6689,11 @@ defmodule AWS.Deadline do
   @doc """
   Gets information about the specified monitor.
 
-  ## Required positional parameters:
-  * `:monitor_id` (`t:string`) The unique identifier for the monitor. This ID is returned by the
-            <code>CreateMonitor</code> operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetMonitor&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:monitor_id` (`t:string`) The unique identifier for the monitor. This ID is
+    returned by the CreateMonitor operation.
 
   ## Optional parameters:
   """
@@ -6633,7 +6720,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm in the queue.
   * `:queue_id` (`t:string`) The queue ID for the queue to retrieve.
 
@@ -6663,7 +6752,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the queue environment.
   * `:queue_environment_id` (`t:string`) The queue environment ID.
   * `:queue_id` (`t:string`) The queue ID for the queue environment.
@@ -6700,8 +6791,11 @@ defmodule AWS.Deadline do
   @doc """
   Gets a queue-fleet association.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the farm that contains the queue-fleet association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the farm that contains the queue-fleet
+    association.
   * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association.
   * `:queue_id` (`t:string`) The queue ID for the queue-fleet association.
 
@@ -6737,7 +6831,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the session.
   * `:job_id` (`t:string`) The job ID for the session.
   * `:queue_id` (`t:string`) The queue ID for the session.
@@ -6769,7 +6865,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a session action for the job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the session action.
   * `:job_id` (`t:string`) The job ID for the session.
   * `:queue_id` (`t:string`) The queue ID for the session action.
@@ -6813,23 +6911,26 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Gets a set of statistics for queues or farms.
-
-  Before you can call the
+  Gets a set of statistics for queues or farms. Before you can call the
   `GetSessionStatisticsAggregation` operation, you must first call the
-  `StartSessionsStatisticsAggregation` operation. Statistics are available for
-  1 hour after you call the `StartSessionsStatisticsAggregation` operation.
+  `StartSessionsStatisticsAggregation` operation. Statistics are available for 1
+  hour after you call the `StartSessionsStatisticsAggregation` operation.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The identifier of the farm to include in the statistics. This should be the same as the
-         farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code>
-         operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The identifier of the farm to include in the
+    statistics. This should be the same as the farm ID used in the call to the
+    StartSessionsStatisticsAggregation operation.
 
   ## Optional parameters:
-  * `:aggregation_id` (`t:string`) The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation
-         that identifies the aggregated statistics.
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:aggregation_id` (`t:string`) The identifier returned by the
+    StartSessionsStatisticsAggregation operation that identifies the aggregated
+    statistics.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec get_sessions_statistics_aggregation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sessions_statistics_aggregation_response(), any()}
@@ -6886,7 +6987,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the step.
   * `:job_id` (`t:string`) The job ID for the step.
   * `:queue_id` (`t:string`) The queue ID for the step.
@@ -6918,7 +7021,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a storage profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the storage profile.
   * `:storage_profile_id` (`t:string`) The storage profile ID.
 
@@ -6948,10 +7053,13 @@ defmodule AWS.Deadline do
   @doc """
   Gets a storage profile for a queue.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetStorageProfileForQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the queue in storage profile.
   * `:queue_id` (`t:string`) The queue ID the queue in the storage profile.
-  * `:storage_profile_id` (`t:string`) The storage profile ID for the storage profile in the queue.
+  * `:storage_profile_id` (`t:string`) The storage profile ID for the storage
+    profile in the queue.
 
   ## Optional parameters:
   """
@@ -6991,7 +7099,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the farm connected to the task.
   * `:job_id` (`t:string`) The job ID of the job connected to the task.
   * `:queue_id` (`t:string`) The queue ID for the queue connected to the task.
@@ -7032,7 +7142,9 @@ defmodule AWS.Deadline do
   @doc """
   Gets a worker.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20GetWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the worker.
   * `:fleet_id` (`t:string`) The fleet ID of the worker.
   * `:worker_id` (`t:string`) The worker ID.
@@ -7063,11 +7175,15 @@ defmodule AWS.Deadline do
   @doc """
   A list of the available metered products.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListAvailableMeteredProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_available_metered_products(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_available_metered_products_response(), any()}
@@ -7110,12 +7226,16 @@ defmodule AWS.Deadline do
   @doc """
   A list of budgets in a farm.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListBudgets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID associated with the budgets.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status to list for the budgets.
   """
   @spec list_budgets(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -7168,12 +7288,16 @@ defmodule AWS.Deadline do
   @doc """
   Lists the members of a farm.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarmMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_farm_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_farm_members_response(), any()}
@@ -7216,12 +7340,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists farms.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFarms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
-  * `:principal_id` (`t:string`) The principal ID of the member to list on the farm.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID of the member to list on the
+    farm.
   """
   @spec list_farms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_farms_response(), any()}
@@ -7273,13 +7402,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists fleet members.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleetMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the fleet.
   * `:fleet_id` (`t:string`) The fleet ID to include on the list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_fleet_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleet_members_response(), any()}
@@ -7323,15 +7456,22 @@ defmodule AWS.Deadline do
   @doc """
   Lists fleets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the fleets.
 
   ## Optional parameters:
   * `:display_name` (`t:string`) The display names of a list of fleets.
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
-  * `:principal_id` (`t:string`) The principal ID of the members to include in the fleet.
-  * `:status` (`t:enum["ACTIVE|CREATE_FAILED|CREATE_IN_PROGRESS|UPDATE_FAILED|UPDATE_IN_PROGRESS"]`) The status of the fleet.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID of the members to include in the
+    fleet.
+  * `:status`
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATE_IN_PROGRESS|UPDATE_FAILED|UPDATE_IN_PROGRESS"]`)
+    The status of the fleet.
   """
   @spec list_fleets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
@@ -7401,14 +7541,18 @@ defmodule AWS.Deadline do
   @doc """
   Lists members on a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the job to list.
   * `:job_id` (`t:string`) The job ID to include on the list.
   * `:queue_id` (`t:string`) The queue ID to include on the list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_job_members(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_members_response(), any()}
@@ -7452,13 +7596,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the jobs.
   * `:queue_id` (`t:string`) The queue ID for the job.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   * `:principal_id` (`t:string`) The principal ID of the members on the jobs.
   """
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -7512,11 +7660,15 @@ defmodule AWS.Deadline do
   @doc """
   Lists license endpoints.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListLicenseEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_license_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_license_endpoints_response(), any()}
@@ -7559,12 +7711,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists metered products.
 
-  ## Required positional parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID to include on the list of metered products.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMeteredProducts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID to include on the
+    list of metered products.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_metered_products(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metered_products_response(), any()}
@@ -7608,11 +7765,15 @@ defmodule AWS.Deadline do
   @doc """
   Gets a list of your monitors in Deadline Cloud.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitors_response(), any()}
@@ -7655,13 +7816,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists queue environments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the queue environment list.
   * `:queue_id` (`t:string`) The queue ID for the queue environment list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_queue_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_environments_response(), any()}
@@ -7705,13 +7870,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists queue-fleet associations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueFleetAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the queue-fleet association list.
 
   ## Optional parameters:
   * `:fleet_id` (`t:string`) The fleet ID for the queue-fleet association list.
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   * `:queue_id` (`t:string`) The queue ID for the queue-fleet association list.
   """
   @spec list_queue_fleet_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -7773,13 +7942,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists the members in a queue.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueueMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the queue.
   * `:queue_id` (`t:string`) The queue ID to include on the list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_queue_members(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queue_members_response(), any()}
@@ -7823,15 +7996,21 @@ defmodule AWS.Deadline do
   @doc """
   Lists queues.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListQueues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the queue.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
-  * `:principal_id` (`t:string`) The principal ID. This filter is only valid when using Nimble Studio credentials and
-         should match the user ID in the credentials of the caller.
-  * `:status` (`t:enum["IDLE|SCHEDULING|SCHEDULING_BLOCKED"]`) The status of the queues listed.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:principal_id` (`t:string`) The principal ID. This filter is only valid when
+    using Nimble Studio credentials and should match the user ID in the
+    credentials of the caller.
+  * `:status` (`t:enum["IDLE|SCHEDULING|SCHEDULING_BLOCKED"]`) The status of the
+    queues listed.
   """
   @spec list_queues(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
@@ -7892,15 +8071,20 @@ defmodule AWS.Deadline do
   @doc """
   Lists session actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the session actions list.
   * `:job_id` (`t:string`) The job ID for the session actions list.
   * `:queue_id` (`t:string`) The queue ID for the session actions list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
-  * `:session_id` (`t:string`) The session ID to include on the sessions action list.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
+  * `:session_id` (`t:string`) The session ID to include on the sessions action
+    list.
   * `:task_id` (`t:string`) The task ID for the session actions list.
   """
   @spec list_session_actions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
@@ -7963,14 +8147,18 @@ defmodule AWS.Deadline do
   @doc """
   Lists sessions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the list of sessions.
   * `:job_id` (`t:string`) The job ID for the list of sessions.
   * `:queue_id` (`t:string`) The queue ID for the list of sessions
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_sessions(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
@@ -8014,14 +8202,18 @@ defmodule AWS.Deadline do
   @doc """
   Lists sessions for a worker.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSessionsForWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the session.
   * `:fleet_id` (`t:string`) The fleet ID for the session.
   * `:worker_id` (`t:string`) The worker ID for the session.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_sessions_for_worker(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sessions_for_worker_response(), any()}
@@ -8065,15 +8257,19 @@ defmodule AWS.Deadline do
   @doc """
   Lists step consumers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepConsumers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the list of step consumers.
   * `:job_id` (`t:string`) The job ID for the step consumer.
   * `:queue_id` (`t:string`) The queue ID for the step consumer.
   * `:step_id` (`t:string`) The step ID to include on the list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_step_consumers(
           AWS.Client.t(),
@@ -8124,15 +8320,19 @@ defmodule AWS.Deadline do
   @doc """
   Lists the dependencies for a step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStepDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID for the step dependencies list.
   * `:job_id` (`t:string`) The job ID for the step dependencies list.
   * `:queue_id` (`t:string`) The queue ID for the step dependencies list.
   * `:step_id` (`t:string`) The step ID to include on the list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_step_dependencies(
           AWS.Client.t(),
@@ -8190,14 +8390,18 @@ defmodule AWS.Deadline do
   @doc """
   Lists steps for a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to include on the list of steps.
   * `:job_id` (`t:string`) The job ID to include on the list of steps.
   * `:queue_id` (`t:string`) The queue ID to include on the list of steps.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_steps(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_steps_response(), any()}
@@ -8241,12 +8445,16 @@ defmodule AWS.Deadline do
   @doc """
   Lists storage profiles.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the storage profile.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_storage_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_response(), any()}
@@ -8289,13 +8497,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists storage profiles for a queue.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The farm ID of the queue&#39;s storage profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListStorageProfilesForQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The farm ID of the queue's storage profile.
   * `:queue_id` (`t:string`) The queue ID for the storage profile.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_storage_profiles_for_queue(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_storage_profiles_for_queue_response(), any()}
@@ -8339,7 +8551,9 @@ defmodule AWS.Deadline do
   @doc """
   Lists tags for a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN to list tags for.
 
   ## Optional parameters:
@@ -8367,15 +8581,19 @@ defmodule AWS.Deadline do
   @doc """
   Lists tasks for a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID connected to the tasks.
   * `:job_id` (`t:string`) The job ID for the tasks.
   * `:queue_id` (`t:string`) The queue ID connected to the tasks.
   * `:step_id` (`t:string`) The step ID for the tasks.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_tasks(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_tasks_response(), any()}
@@ -8419,13 +8637,17 @@ defmodule AWS.Deadline do
   @doc """
   Lists workers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20ListWorkers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID connected to the workers.
   * `:fleet_id` (`t:string`) The fleet ID of the workers.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> to start from the beginning.
+  * `:max_results` (`t:integer`) The maximum number of results to return. Use this
+    parameter with NextToken to get results as a set of sequential pages.
+  * `:next_token` (`t:string`) The token for the next set of results, or null to
+    start from the beginning.
   """
   @spec list_workers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workers_response(), any()}
@@ -8469,8 +8691,11 @@ defmodule AWS.Deadline do
   @doc """
   Adds a metered product.
 
-  ## Required positional parameters:
-  * `:license_endpoint_id` (`t:string`) The license endpoint ID to add to the metered product.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20PutMeteredProduct&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:license_endpoint_id` (`t:string`) The license endpoint ID to add to the
+    metered product.
   * `:product_id` (`t:string`) The product ID to add to the metered product.
 
   ## Optional parameters:
@@ -8507,7 +8732,9 @@ defmodule AWS.Deadline do
   @doc """
   Searches for jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the job.
 
   ## Optional parameters:
@@ -8540,7 +8767,9 @@ defmodule AWS.Deadline do
   @doc """
   Searches for steps.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to use for the step search.
 
   ## Optional parameters:
@@ -8573,7 +8802,9 @@ defmodule AWS.Deadline do
   @doc """
   Searches for tasks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the task.
 
   ## Optional parameters:
@@ -8606,7 +8837,9 @@ defmodule AWS.Deadline do
   @doc """
   Searches for workers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20SearchWorkers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID in the workers search.
 
   ## Optional parameters:
@@ -8638,15 +8871,15 @@ defmodule AWS.Deadline do
 
   @doc """
   Starts an asynchronous request for getting aggregated statistics about queues
-  and farms.
-
-  Get the statistics using the `GetSessionsStatisticsAggregation` operation.
-  Statistics are available for 1 hour after you call the
+  and farms. Get the statistics using the `GetSessionsStatisticsAggregation`
+  operation. Statistics are available for 1 hour after you call the
   `StartSessionsStatisticsAggregation` operation.
 
-  ## Required positional parameters:
-  * `:farm_id` (`t:string`) The identifier of the farm that contains queues or fleets to return statistics
-         for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20StartSessionsStatisticsAggregation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:farm_id` (`t:string`) The identifier of the farm that contains queues or
+    fleets to return statistics for.
 
   ## Optional parameters:
   """
@@ -8683,7 +8916,9 @@ defmodule AWS.Deadline do
   @doc """
   Tags a resource using the resource's ARN and desired tags.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to apply tags to.
 
   ## Optional parameters:
@@ -8716,7 +8951,9 @@ defmodule AWS.Deadline do
   @doc """
   Removes a tag from a resource using the resource's ARN and tag to remove.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource to remove the tag from.
 
   ## Optional parameters:
@@ -8755,12 +8992,15 @@ defmodule AWS.Deadline do
   @doc """
   Updates a budget that sets spending thresholds for rendering activity.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateBudget&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:budget_id` (`t:string`) The budget ID to update.
   * `:farm_id` (`t:string`) The farm ID of the budget to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_budget(
           AWS.Client.t(),
@@ -8803,7 +9043,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates a farm.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFarm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
 
   ## Optional parameters:
@@ -8836,12 +9078,15 @@ defmodule AWS.Deadline do
   @doc """
   Updates a fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateFleet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:fleet_id` (`t:string`) The fleet ID to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_fleet(AWS.Client.t(), String.t(), String.t(), update_fleet_request(), Keyword.t()) ::
           {:ok, update_fleet_response(), any()}
@@ -8878,13 +9123,16 @@ defmodule AWS.Deadline do
   @doc """
   Updates a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the job to update.
   * `:job_id` (`t:string`) The job ID to update.
   * `:queue_id` (`t:string`) The queue ID of the job to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_job(
           AWS.Client.t(),
@@ -8926,12 +9174,12 @@ defmodule AWS.Deadline do
   end
 
   @doc """
-  Modifies the settings for a Deadline Cloud monitor.
+  Modifies the settings for a Deadline Cloud monitor. You can modify one or all of
+  the settings when you call `UpdateMonitor`.
 
-  You can modify one or all of the settings
-  when you call `UpdateMonitor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:monitor_id` (`t:string`) The unique identifier of the monitor to update.
 
   ## Optional parameters:
@@ -8964,7 +9212,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates a queue.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update in the queue.
   * `:queue_id` (`t:string`) The queue ID to update.
 
@@ -9006,13 +9256,16 @@ defmodule AWS.Deadline do
   @doc """
   Updates the queue environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID of the queue environment to update.
   * `:queue_environment_id` (`t:string`) The queue environment ID to update.
   * `:queue_id` (`t:string`) The queue ID of the queue environment to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_queue_environment(
           AWS.Client.t(),
@@ -9063,7 +9316,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates a queue-fleet association.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateQueueFleetAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:fleet_id` (`t:string`) The fleet ID to update.
   * `:queue_id` (`t:string`) The queue ID to update.
@@ -9114,14 +9369,17 @@ defmodule AWS.Deadline do
   @doc """
   Updates a session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update in the session.
   * `:job_id` (`t:string`) The job ID to update in the session.
   * `:queue_id` (`t:string`) The queue ID to update in the session.
   * `:session_id` (`t:string`) The session ID to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_session(
           AWS.Client.t(),
@@ -9174,14 +9432,17 @@ defmodule AWS.Deadline do
   @doc """
   Updates a step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:job_id` (`t:string`) The job ID to update.
   * `:queue_id` (`t:string`) The queue ID to update.
   * `:step_id` (`t:string`) The step ID to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_step(
           AWS.Client.t(),
@@ -9226,12 +9487,15 @@ defmodule AWS.Deadline do
   @doc """
   Updates a storage profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateStorageProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:storage_profile_id` (`t:string`) The storage profile ID to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_storage_profile(
           AWS.Client.t(),
@@ -9280,7 +9544,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates a task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:job_id` (`t:string`) The job ID to update.
   * `:queue_id` (`t:string`) The queue ID to update.
@@ -9288,7 +9554,8 @@ defmodule AWS.Deadline do
   * `:task_id` (`t:string`) The task ID to update.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) The unique token which the server uses to recognize retries of the same request.
+  * `:client_token` (`t:string`) The unique token which the server uses to
+    recognize retries of the same request.
   """
   @spec update_task(
           AWS.Client.t(),
@@ -9343,7 +9610,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates a worker.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:fleet_id` (`t:string`) The fleet ID to update.
   * `:worker_id` (`t:string`) The worker ID to update.
@@ -9387,7 +9656,9 @@ defmodule AWS.Deadline do
   @doc """
   Updates the schedule for a worker.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=deadline%20UpdateWorkerSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:farm_id` (`t:string`) The farm ID to update.
   * `:fleet_id` (`t:string`) The fleet ID to update.
   * `:worker_id` (`t:string`) The worker ID to update.

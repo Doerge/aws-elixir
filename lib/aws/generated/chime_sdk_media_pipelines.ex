@@ -4,11 +4,10 @@
 defmodule AWS.ChimeSDKMediaPipelines do
   @moduledoc """
   The Amazon Chime SDK media pipeline APIs in this section allow software
-  developers to
-  create Amazon Chime SDK media pipelines that capture, concatenate, or stream
-  your Amazon Chime SDK meetings.
-
-  For more information about media pipelines, see [Amazon Chime SDK media pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
+  developers to create Amazon Chime SDK media pipelines that capture,
+  concatenate, or stream your Amazon Chime SDK meetings. For more information
+  about media pipelines, see [Amazon Chime SDK media
+  pipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html).
   """
 
   alias AWS.Client
@@ -2087,7 +2086,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates a media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2123,7 +2124,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates a media concatenation pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaConcatenationPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2159,7 +2162,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates a media insights pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2196,7 +2201,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   A structure that contains the static configurations for a media insights
   pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2232,7 +2239,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates a media live connector pipeline in an Amazon Chime SDK meeting.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaLiveConnectorPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2268,7 +2277,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates an Kinesis video stream pool for the media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2304,7 +2315,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Creates a streaming media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaStreamPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2340,8 +2353,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Deletes the media pipeline.
 
-  ## Required positional parameters:
-  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline being deleted. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:media_pipeline_id` (`t:string`) The ID of the media pipeline being deleted.
 
   ## Optional parameters:
   """
@@ -2378,8 +2393,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Deletes the specified configuration settings.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be deleted. Valid values include the name and ARN of the media insights pipeline configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    deleted. Valid values include the name and ARN of the media insights
+    pipeline configuration.
 
   ## Optional parameters:
   """
@@ -2421,7 +2440,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Deletes the media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:media_pipeline_id` (`t:string`) The ID of the media pipeline to delete.
 
   ## Optional parameters:
@@ -2459,7 +2480,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Deletes an Kinesis video stream pool.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20DeleteMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The ID of the pool being deleted.
 
   ## Optional parameters:
@@ -2502,7 +2525,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an existing media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaCapturePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
 
   ## Optional parameters:
@@ -2530,8 +2555,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets the configuration settings for a media insights pipeline.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the requested resource.  Valid values include the name and ARN of the media insights pipeline configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the requested resource.
+    Valid values include the name and ARN of the media insights pipeline
+    configuration.
 
   ## Optional parameters:
   """
@@ -2558,7 +2587,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an existing media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:media_pipeline_id` (`t:string`) The ID of the pipeline that you want to get.
 
   ## Optional parameters:
@@ -2586,7 +2617,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Gets an Kinesis video stream pool.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The ID of the video stream pool.
 
   ## Optional parameters:
@@ -2614,8 +2647,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Retrieves the details of the specified speaker search task.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
   * `:speaker_search_task_id` (`t:string`) The ID of the speaker search task.
 
   ## Optional parameters:
@@ -2649,9 +2685,13 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Retrieves the details of a voice tone analysis task.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20GetVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
 
   ## Optional parameters:
   """
@@ -2684,11 +2724,15 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Returns a list of media pipelines.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Valid Range: 1 - 99.
-  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
@@ -2731,10 +2775,13 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Lists the available media insights pipeline configurations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaInsightsPipelineConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_media_insights_pipeline_configurations(AWS.Client.t(), Keyword.t()) ::
@@ -2778,11 +2825,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Lists the video stream pools in the media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelineKinesisVideoStreamPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call.
-  * `:next_token` (`t:string`) The token used to return the next page of results. 
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call.
+  * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_media_pipeline_kinesis_video_stream_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
@@ -2825,11 +2875,15 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Returns a list of media pipelines.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single call. Valid Range: 1 - 99.
-  * `:next_token` (`t:string`) The token used to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single call. Valid Range: 1 - 99.
+  * `:next_token` (`t:string`) The token used to retrieve the next page of
+    results.
   """
   @spec list_media_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipelines_response(), any()}
@@ -2872,10 +2926,14 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Lists the tags available for a media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline&#39;s region, resource ID, and pipeline ID.
+  * `:resource_arn` (`t:string`) The ARN of the media pipeline associated with any
+    tags. The ARN consists of the pipeline's region, resource ID, and pipeline
+    ID.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2909,14 +2967,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Starts a speaker search task.
 
-  Before starting any speaker search tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StartSpeakerSearchTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -2953,20 +3008,20 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  Starts a voice tone analysis task.
+  Starts a voice tone analysis task. For more information about voice tone
+  analysis, see [Using Amazon Chime SDK voice
+  analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html)
+  in the *Amazon Chime SDK Developer Guide*. Before starting any voice tone
+  analysis tasks, you must provide all notices and obtain all consents from the
+  speaker as required under applicable privacy and biometrics laws, and as
+  required under the [AWS service terms](https://aws.amazon.com/service-terms/)
+  for the Amazon Chime SDK.
 
-  For more information about voice tone analysis, see
-  [Using Amazon Chime SDK voice analytics](https://docs.aws.amazon.com/chime-sdk/latest/dg/voice-analytics.html)
-  in the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StartVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
 
-  Before starting any voice tone analysis tasks, you must provide all notices and
-  obtain all consents from the speaker as required under applicable privacy and
-  biometrics laws, and as required under the
-  [AWS service terms](https://aws.amazon.com/service-terms/) for the Amazon Chime
-  SDK.
-
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -3005,8 +3060,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Stops a speaker search task.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StopSpeakerSearchTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
   * `:speaker_search_task_id` (`t:string`) The speaker search task ID.
 
   ## Optional parameters:
@@ -3053,9 +3111,13 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Stops a voice tone analysis task.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
-  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20StopVoiceToneAnalysisTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
+  * `:voice_tone_analysis_task_id` (`t:string`) The ID of the voice tone analysis
+    task.
 
   ## Optional parameters:
   """
@@ -3099,11 +3161,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   end
 
   @doc """
-  The ARN of the media pipeline that you want to tag.
+  The ARN of the media pipeline that you want to tag. Consists of the pipeline's
+  endpoint region, resource ID, and pipeline ID.
 
-  Consists of the pipeline's endpoint region, resource ID, and pipeline ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3135,7 +3198,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Removes any tags from a media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3167,8 +3232,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Updates the media insights pipeline's configuration settings.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier for the resource to be updated. Valid values include the name and ARN of the media insights pipeline configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier for the resource to be
+    updated. Valid values include the name and ARN of the media insights
+    pipeline configuration.
 
   ## Optional parameters:
   """
@@ -3200,8 +3269,11 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Updates the status of a media insights pipeline.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) The unique identifier of the resource to be updated. Valid values include the ID and ARN of the media insights pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaInsightsPipelineStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`) The unique identifier of the resource to be
+    updated. Valid values include the ID and ARN of the media insights pipeline.
 
   ## Optional parameters:
   """
@@ -3228,7 +3300,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @doc """
   Updates an Kinesis video stream pool in a media pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UpdateMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The ID of the video stream pool.
 
   ## Optional parameters:

@@ -4,16 +4,7 @@
 defmodule AWS.AppIntegrations do
   @moduledoc """
   The Amazon AppIntegrations service enables you to configure and reuse
-  connections to external
-  applications.
-
-  For information about how you can use external applications with Amazon Connect,
-  see
-  [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html)
-  and [Deliver information to agents using Amazon Connect
-  Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  connections to external applications.
   """
 
   alias AWS.Client
@@ -950,9 +941,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Creates and persists an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -984,13 +975,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Creates and persists a DataIntegration resource.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been
-  previously associated. Use a different DataIntegration, or recreate the
-  DataIntegration
-  using the `CreateDataIntegration` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateDataIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1021,16 +1008,14 @@ defmodule AWS.AppIntegrations do
 
   @doc """
   Creates an EventIntegration, given a specified name, description, and a
-  reference to an
-  Amazon EventBridge bus in your account and a partner event source that pushes
-  events to
-  that bus.
+  reference to an Amazon EventBridge bus in your account and a partner event
+  source that pushes events to that bus. No objects are created in the your
+  account, only metadata that is persisted on the EventIntegration control
+  plane.
 
-  No objects are created in the your account, only metadata that is persisted on
-  the
-  EventIntegration control plane.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateEventIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1060,11 +1045,12 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the Application.
+  Deletes the Application. Only Applications that don't have any Application
+  Associations can be deleted.
 
-  Only Applications that don't have any Application Associations can be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
@@ -1095,21 +1081,15 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the DataIntegration.
-
-  Only DataIntegrations that don't have any
+  Deletes the DataIntegration. Only DataIntegrations that don't have any
   DataIntegrationAssociations can be deleted. Deleting a DataIntegration also
-  deletes the
-  underlying Amazon AppFlow flow and service linked role.
+  deletes the underlying Amazon AppFlow flow and service linked role.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteDataIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:data_integration_identifier` (`t:string`) A unique identifier for the DataIntegration.
+  ## Parameters:
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the
+    DataIntegration.
 
   ## Optional parameters:
   """
@@ -1149,12 +1129,12 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  Deletes the specified existing event integration.
+  Deletes the specified existing event integration. If the event integration is
+  associated with clients, the request is rejected.
 
-  If the event integration is associated
-  with clients, the request is rejected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20DeleteEventIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:
@@ -1192,9 +1172,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Get an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
@@ -1222,13 +1202,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns information about the DataIntegration.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetDataIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:identifier` (`t:string`) A unique identifier.
 
   ## Optional parameters:
@@ -1256,8 +1232,10 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns information about the event integration.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the event integration. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20GetEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:
   """
@@ -1284,13 +1262,16 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of application associations for an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplicationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) A unique identifier for the Application.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_application_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_associations_response(), any()}
@@ -1333,14 +1314,15 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Lists applications in the account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplications&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1383,19 +1365,17 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of DataIntegration associations in the account.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrationAssociations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:data_integration_identifier` (`t:string`) A unique identifier for the DataIntegration.
+  ## Parameters:
+  * `:data_integration_identifier` (`t:string`) A unique identifier for the
+    DataIntegration.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_data_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_integration_associations_response(), any()}
@@ -1443,18 +1423,15 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of DataIntegrations in the account.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_data_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_integrations_response(), any()}
@@ -1497,13 +1474,16 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of event integration associations in the account.
 
-  ## Required positional parameters:
-  * `:event_integration_name` (`t:string`) The name of the event integration. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrationAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:event_integration_name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_event_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_integration_associations_response(), any()}
@@ -1550,12 +1530,15 @@ defmodule AWS.AppIntegrations do
   @doc """
   Returns a paginated list of event integrations in the account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_event_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_integrations_response(), any()}
@@ -1598,8 +1581,10 @@ defmodule AWS.AppIntegrations do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1626,7 +1611,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Adds the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1659,7 +1646,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1698,9 +1687,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   This API is in preview release and subject to change.
 
-  Updates and persists an Application resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the Application.
 
   ## Optional parameters:
@@ -1733,13 +1722,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Updates the description of a DataIntegration.
 
-  You cannot create a DataIntegration association for a DataIntegration that has
-  been previously associated.
-  Use a different DataIntegration, or recreate the DataIntegration using the
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateDataIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:identifier` (`t:string`) A unique identifier for the DataIntegration.
 
   ## Optional parameters:
@@ -1777,7 +1762,9 @@ defmodule AWS.AppIntegrations do
   @doc """
   Updates the description of an event integration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20UpdateEventIntegration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the event integration.
 
   ## Optional parameters:

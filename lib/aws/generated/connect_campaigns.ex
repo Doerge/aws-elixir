@@ -853,11 +853,12 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Creates a campaign for the specified Amazon Connect account.
+  Creates a campaign for the specified Amazon Connect account. This API is
+  idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20CreateCampaign&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -879,8 +880,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Deletes a campaign from the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -912,8 +915,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Deletes a connect instance config from the specified AWS account.
 
-  ## Required positional parameters:
-  * `:connect_instance_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteConnectInstanceConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -956,8 +961,10 @@ defmodule AWS.ConnectCampaigns do
   Delete the Connect Campaigns onboarding job for the specified Amazon Connect
   instance.
 
-  ## Required positional parameters:
-  * `:connect_instance_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DeleteInstanceOnboardingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -999,8 +1006,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Describes the specific campaign.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20DescribeCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1027,8 +1036,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get state of a campaign for the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignState&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1055,7 +1066,9 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get state of campaigns for the specified Amazon Connect account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignStateBatch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1087,8 +1100,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific Connect instance config.
 
-  ## Required positional parameters:
-  * `:connect_instance_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetConnectInstanceConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1115,8 +1130,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific instance onboarding job status.
 
-  ## Required positional parameters:
-  * `:connect_instance_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetInstanceOnboardingJobStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1144,7 +1161,9 @@ defmodule AWS.ConnectCampaigns do
   Provides summary information about the campaigns under the specified Amazon
   Connect account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListCampaigns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1176,8 +1195,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   List tags for a resource.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1204,8 +1225,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Pauses a campaign for the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PauseCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1235,12 +1258,13 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Creates dials requests for the specified campaign Amazon Connect account.
+  Creates dials requests for the specified campaign Amazon Connect account. This
+  API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20PutDialRequestBatch&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1267,8 +1291,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ResumeCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1300,8 +1326,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Starts a campaign for the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1333,8 +1361,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Onboard the specific Amazon Connect instance to Connect Campaigns.
 
-  ## Required positional parameters:
-  * `:connect_instance_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StartInstanceOnboardingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connect_instance_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1361,8 +1391,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20StopCampaign&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1394,8 +1426,10 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Tag a resource.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1427,11 +1461,13 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Untag a resource.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]`) 
+  * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]`)
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1464,12 +1500,12 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the dialer config of a campaign.
+  Updates the dialer config of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignDialerConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1504,12 +1540,12 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the name of a campaign.
+  Updates the name of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignName&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1544,12 +1580,12 @@ defmodule AWS.ConnectCampaigns do
   end
 
   @doc """
-  Updates the outbound call config of a campaign.
+  Updates the outbound call config of a campaign. This API is idempotent.
 
-  This API is idempotent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20UpdateCampaignOutboundCallConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """

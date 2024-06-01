@@ -3,21 +3,8 @@
 
 defmodule AWS.Elasticsearch do
   @moduledoc """
-  Amazon Elasticsearch Configuration Service
-
-  Use the Amazon Elasticsearch Configuration API to create, configure, and manage
-  Elasticsearch domains.
-
-  For sample code that uses the Configuration API, see the [Amazon Elasticsearch Service Developer
-  Guide](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html).
-  The guide also contains [sample code for sending signed HTTP requests to the Elasticsearch
-  APIs](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html).
-
-  The endpoint for configuration service requests is region-specific:
-  es.*region*.amazonaws.com.
-  For example, es.us-east-1.amazonaws.com. For a current list of supported regions
-  and endpoints,
-  see [Regions and Endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions).
+  Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch
+  Configuration API to create, configure, and manage Elasticsearch domains.
   """
 
   alias AWS.Client
@@ -2743,8 +2730,11 @@ defmodule AWS.Elasticsearch do
   Allows the destination domain owner to accept an inbound cross-cluster search
   connection request.
 
-  ## Required positional parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to accept.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AcceptInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to accept.
 
   ## Optional parameters:
   """
@@ -2776,14 +2766,14 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Attaches tags to an existing Elasticsearch domain.
-
-  Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may
-  have up to 10 tags. See [
-  Tagging Amazon Elasticsearch Service Domains for more
+  Attaches tags to an existing Elasticsearch domain. Tags are a set of
+  case-sensitive key value pairs. An Elasticsearch domain may have up to 10
+  tags. See [ Tagging Amazon Elasticsearch Service Domains for more
   information.](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging)
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2815,9 +2805,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Associates a package with an Amazon ES domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want to associate the package with.
-  * `:package_id` (`t:string`) Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AssociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
+    package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to
+    associate with a domain. Use DescribePackages to find this value.
 
   ## Optional parameters:
   """
@@ -2858,8 +2852,11 @@ defmodule AWS.Elasticsearch do
   Provides access to an Amazon OpenSearch Service domain through the use of an
   interface VPC endpoint.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to provide access to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    provide access to.
 
   ## Optional parameters:
   """
@@ -2898,8 +2895,11 @@ defmodule AWS.Elasticsearch do
   @doc """
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain configuration request to cancel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+    configuration request to cancel.
 
   ## Optional parameters:
   """
@@ -2934,12 +2934,13 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Cancels a scheduled service software update for an Amazon ES domain.
+  Cancels a scheduled service software update for an Amazon ES domain. You can
+  only perform this operation before the `AutomatedUpdateDate` and when the
+  `UpdateStatus` is in the `PENDING_UPDATE` state.
 
-  You can only perform this operation before the `AutomatedUpdateDate` and when
-  the `UpdateStatus` is in the `PENDING_UPDATE` state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CancelElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2973,13 +2974,14 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Creates a new Elasticsearch domain.
-
-  For more information,
-  see [Creating Elasticsearch Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
+  Creates a new Elasticsearch domain. For more information, see [Creating
+  Elasticsearch
+  Domains](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains)
   in the *Amazon Elasticsearch Service Developer Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3016,7 +3018,9 @@ defmodule AWS.Elasticsearch do
   Creates a new cross-cluster search connection from a source domain to a
   destination domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3052,7 +3056,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Create a package for use with Amazon ES domains.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3084,7 +3090,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Creates an Amazon OpenSearch Service-managed VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3114,12 +3122,14 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Permanently deletes the specified Elasticsearch domain and all of its data.
+  Permanently deletes the specified Elasticsearch domain and all of its data. Once
+  a domain is deleted, it cannot be recovered.
 
-  Once a domain is deleted, it cannot be recovered.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you want to permanently delete.
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you want
+    to permanently delete.
 
   ## Optional parameters:
   """
@@ -3155,14 +3165,15 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Deletes the service-linked role that Elasticsearch Service uses to manage and
-  maintain VPC domains.
-
-  Role deletion will fail if any existing VPC domains use the role. You must
-  delete any such Elasticsearch domains before deleting the role. See [Deleting Elasticsearch Service
+  maintain VPC domains. Role deletion will fail if any existing VPC domains use
+  the role. You must delete any such Elasticsearch domains before deleting the
+  role. See [Deleting Elasticsearch Service
   Role](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr)
   in *VPC Endpoints for Amazon Elasticsearch Service Domains*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteElasticsearchServiceRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3195,8 +3206,11 @@ defmodule AWS.Elasticsearch do
   Allows the destination domain owner to delete an existing inbound cross-cluster
   search connection.
 
-  ## Required positional parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to permanently delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3241,8 +3255,11 @@ defmodule AWS.Elasticsearch do
   Allows the source domain owner to delete an existing outbound cross-cluster
   search connection.
 
-  ## Required positional parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the outbound connection that you want to permanently delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteOutboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the outbound
+    connection that you want to permanently delete.
 
   ## Optional parameters:
   """
@@ -3286,8 +3303,11 @@ defmodule AWS.Elasticsearch do
   @doc """
   Delete the package.
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) Internal ID of the package that you want to delete. Use <code>DescribePackages</code> to find this value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeletePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) Internal ID of the package that you want to delete.
+    Use DescribePackages to find this value.
 
   ## Optional parameters:
   """
@@ -3319,8 +3339,11 @@ defmodule AWS.Elasticsearch do
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
 
-  ## Required positional parameters:
-  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint to be
+    deleted.
 
   ## Optional parameters:
   """
@@ -3358,8 +3381,11 @@ defmodule AWS.Elasticsearch do
   Provides scheduled Auto-Tune action details for the Elasticsearch domain, such
   as Auto-Tune action type, description, severity, and scheduled date.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Specifies the domain name for which you want Auto-Tune action details.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Specifies the domain name for which you want
+    Auto-Tune action details.
 
   ## Optional parameters:
   """
@@ -3385,16 +3411,18 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Returns information about the current blue/green deployment happening on a
-  domain, including
-  a change ID, status, and progress stages.
+  domain, including a change ID, status, and progress stages.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The domain you want to get the progress information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain you want to get the progress
+    information about.
 
   ## Optional parameters:
-  * `:change_id` (`t:string`) The specific change ID for which you want to get progress information. This is an optional parameter.
-        If omitted, the service returns information about the most recent configuration change.
-      
+  * `:change_id` (`t:string`) The specific change ID for which you want to get
+    progress information. This is an optional parameter. If omitted, the service
+    returns information about the most recent configuration change.
   """
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
@@ -3429,8 +3457,11 @@ defmodule AWS.Elasticsearch do
   Returns domain configuration information about the specified Elasticsearch
   domain, including the domain ID, domain endpoint, and domain ARN.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain for which you want information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain for which you
+    want information.
 
   ## Optional parameters:
   """
@@ -3459,8 +3490,11 @@ defmodule AWS.Elasticsearch do
   domain, such as the state, creation date, update version, and update date for
   cluster options.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The Elasticsearch domain that you want to get information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The Elasticsearch domain that you want to get
+    information about.
 
   ## Optional parameters:
   """
@@ -3488,7 +3522,9 @@ defmodule AWS.Elasticsearch do
   Returns domain configuration information about the specified Elasticsearch
   domains, including the domain ID, domain endpoint, and domain ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3522,45 +3558,24 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-
   Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
+  When modifying existing Domain, specify the ``` `DomainName` ``` to know what
+  Limits are supported for modifying.
 
-  When modifying existing Domain, specify the
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeElasticsearchInstanceTypeLimits&this_doc_guide=API%2520Reference)
 
-  ```
-
-  `DomainName`
-
-  ```
-
-  to know what Limits are supported for modifying.
-
-  ## Required positional parameters:
-  * `:elasticsearch_version` (`t:string`) 
-      Version of Elasticsearch for which
-      <code>
-        <a>Limits</a>
-      </code>
-      are needed.
-    
-  * `:instance_type` (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`) 
-      The instance type for an Elasticsearch cluster for which Elasticsearch
-      <code>
-        <a>Limits</a>
-      </code>
-      are needed.
-    
+  ## Parameters:
+  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which
+    Limits are needed.
+  * `:instance_type`
+    (`t:enum["m5_xlarge_elasticsearch|i3_xlarge_elasticsearch|d2_2xlarge_elasticsearch|i3_2xlarge_elasticsearch|c4_large_elasticsearch|i3_4xlarge_elasticsearch|m4_xlarge_elasticsearch|c4_4xlarge_elasticsearch|m5_large_elasticsearch|c5_large_elasticsearch|t2_micro_elasticsearch|r3_8xlarge_elasticsearch|r4_8xlarge_elasticsearch|c5_2xlarge_elasticsearch|r4_16xlarge_elasticsearch|r4_4xlarge_elasticsearch|r3_xlarge_elasticsearch|m3_medium_elasticsearch|m5_12xlarge_elasticsearch|d2_xlarge_elasticsearch|r4_xlarge_elasticsearch|c5_xlarge_elasticsearch|ultrawarm1_medium_elasticsearch|c5_4xlarge_elasticsearch|r3_2xlarge_elasticsearch|r5_xlarge_elasticsearch|m3_large_elasticsearch|t2_small_elasticsearch|d2_8xlarge_elasticsearch|m4_2xlarge_elasticsearch|m4_4xlarge_elasticsearch|r4_large_elasticsearch|i2_xlarge_elasticsearch|r4_2xlarge_elasticsearch|m3_2xlarge_elasticsearch|r3_large_elasticsearch|m5_4xlarge_elasticsearch|t2_medium_elasticsearch|c4_8xlarge_elasticsearch|c5_18xlarge_elasticsearch|r5_4xlarge_elasticsearch|d2_4xlarge_elasticsearch|m4_large_elasticsearch|i3_8xlarge_elasticsearch|c5_9xlarge_elasticsearch|i3_large_elasticsearch|ultrawarm1_large_elasticsearch|r5_12xlarge_elasticsearch|m5_2xlarge_elasticsearch|r3_4xlarge_elasticsearch|i3_16xlarge_elasticsearch|r5_large_elasticsearch|m4_10xlarge_elasticsearch|c4_2xlarge_elasticsearch|i2_2xlarge_elasticsearch|c4_xlarge_elasticsearch|m3_xlarge_elasticsearch|r5_2xlarge_elasticsearch"]`)
+    The instance type for an Elasticsearch cluster for which Elasticsearch
+    Limits are needed.
 
   ## Optional parameters:
-  * `:domain_name` (`t:string`) 
-      DomainName represents the name of the Domain that we are trying to
-      modify. This should be present only if we are
-      querying for Elasticsearch
-      <code>
-        <a>Limits</a>
-      </code>
-      for existing domain.
-    
+  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
+    we are trying to modify. This should be present only if we are querying for
+    Elasticsearch Limits for existing domain.
   """
   @spec describe_elasticsearch_instance_type_limits(
           AWS.Client.t(),
@@ -3605,7 +3620,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all the inbound cross-cluster search connections for a destination domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeInboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3641,7 +3658,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all the outbound cross-cluster search connections for a source domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeOutboundCrossClusterSearchConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3675,11 +3694,12 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Describes all packages available to Amazon ES.
+  Describes all packages available to Amazon ES. Includes options for filtering,
+  limiting the number of results, and pagination.
 
-  Includes options for filtering, limiting the number of results, and pagination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribePackages&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3711,13 +3731,18 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists available reserved Elasticsearch instance offerings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstanceOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Set this value to limit the number of results returned. If not specified, defaults to 100.
-  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
-  containing NextToken. It is used for pagination.
-  * `:reserved_elasticsearch_instance_offering_id` (`t:string`) The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_offering_id` (`t:string`) The offering
+    identifier filter value. Use this parameter to show only the available
+    offering that matches the specified reservation identifier.
   """
   @spec describe_reserved_elasticsearch_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
@@ -3770,13 +3795,18 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns information about reserved Elasticsearch instances for this account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeReservedElasticsearchInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Set this value to limit the number of results returned. If not specified, defaults to 100.
-  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
-  containing NextToken. It is used for pagination.
-  * `:reserved_elasticsearch_instance_id` (`t:string`) The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. If not specified, defaults to 100.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
+  * `:reserved_elasticsearch_instance_id` (`t:string`) The reserved instance
+    identifier filter value. Use this parameter to show only the reservation
+    that matches the specified reserved Elasticsearch instance ID.
   """
   @spec describe_reserved_elasticsearch_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
@@ -3829,7 +3859,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3861,9 +3893,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Dissociates a package from the Amazon ES domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want to associate the package with.
-  * `:package_id` (`t:string`) Internal ID of the package that you want to associate with a domain. Use <code>DescribePackages</code> to find this value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20DissociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want to associate the
+    package with.
+  * `:package_id` (`t:string`) Internal ID of the package that you want to
+    associate with a domain. Use DescribePackages to find this value.
 
   ## Optional parameters:
   """
@@ -3901,23 +3937,16 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
+  Returns a list of upgrade compatible Elastisearch versions. You can optionally
+  pass a ``` `DomainName` ``` to get all upgrade compatible Elasticsearch
+  versions for that specific domain.
 
-  Returns a list of upgrade compatible Elastisearch versions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetCompatibleElasticsearchVersions&this_doc_guide=API%2520Reference)
 
-  You can optionally pass a
-
-  ```
-
-  `DomainName`
-
-  ```
-
-  to get all upgrade compatible Elasticsearch versions for that specific domain.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:domain_name` (`t:string`) 
+  * `:domain_name` (`t:string`)
   """
   @spec get_compatible_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
@@ -3952,12 +3981,17 @@ defmodule AWS.Elasticsearch do
   Returns a list of versions of the package, along with their creation time and
   commit message.
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) Returns an audit history of versions of the package.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) Returns an audit history of versions of the
+    package.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of versions.
-  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
@@ -4001,12 +4035,14 @@ defmodule AWS.Elasticsearch do
   Retrieves the complete history of the last 10 upgrades that were performed on
   the domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
@@ -4050,8 +4086,10 @@ defmodule AWS.Elasticsearch do
   Retrieves the latest status of the last upgrade or upgrade eligibility check
   that was performed on the domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4079,10 +4117,14 @@ defmodule AWS.Elasticsearch do
   Returns the name of all Elasticsearch domains owned by the current user's
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`)  Optional parameter to filter the output by domain engine type. Acceptable values are &#39;Elasticsearch&#39; and &#39;OpenSearch&#39;. 
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Optional parameter to
+    filter the output by domain engine type. Acceptable values are
+    'Elasticsearch' and 'OpenSearch'.
   """
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
@@ -4116,12 +4158,16 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all Amazon ES domains associated with the package.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:package_id` (`t:string`) The package for which to list domains.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of domains.
-  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
@@ -4165,22 +4211,21 @@ defmodule AWS.Elasticsearch do
   List all Elasticsearch instance types that are supported for given
   ElasticsearchVersion
 
-  ## Required positional parameters:
-  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which list of supported elasticsearch
-      instance types are needed.
-    
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchInstanceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:elasticsearch_version` (`t:string`) Version of Elasticsearch for which list
+    of supported elasticsearch instance types are needed.
 
   ## Optional parameters:
-  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are
-      querying for list of available Elasticsearch instance types when modifying existing domain.
-    
-  * `:max_results` (`t:integer`) 
-    Set this value to limit the number of results returned.
-    Value provided must be greater than 30 else it wont be honored.
-
-  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API call produced result
-      containing NextToken. It is used for pagination.
-    
+  * `:domain_name` (`t:string`) DomainName represents the name of the Domain that
+    we are trying to modify. This should be present only if we are querying for
+    list of available Elasticsearch instance types when modifying existing
+    domain.
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. Value provided must be greater than 30 else it wont be honored.
+  * `:next_token` (`t:string`) NextToken should be sent in case if earlier API
+    call produced result containing NextToken. It is used for pagination.
   """
   @spec list_elasticsearch_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
@@ -4232,14 +4277,14 @@ defmodule AWS.Elasticsearch do
   @doc """
   List all supported Elasticsearch versions
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListElasticsearchVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-      Set this value to limit the number of results returned.
-      Value provided must be greater than 10 else it wont be honored.
-    
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`) Set this value to limit the number of results
+    returned. Value provided must be greater than 10 else it wont be honored.
+  * `:next_token` (`t:string`)
   """
   @spec list_elasticsearch_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
@@ -4282,12 +4327,17 @@ defmodule AWS.Elasticsearch do
   @doc """
   Lists all packages associated with the Amazon ES domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain for which you want to list associated packages.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list
+    associated packages.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Limits results to a maximum number of packages.
-  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+  * `:next_token` (`t:string`) Used for pagination. Only necessary if a previous
+    API call includes a non-null NextToken value. If provided, returns results
+    for the next page.
   """
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
@@ -4330,10 +4380,13 @@ defmodule AWS.Elasticsearch do
   @doc """
   Returns all tags for the given Elasticsearch domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`)  Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.
+  * `:arn` (`t:string`) Specify the ARN for the Elasticsearch domain to which the
+    tags are attached that you want to view.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -4365,15 +4418,18 @@ defmodule AWS.Elasticsearch do
   end
 
   @doc """
-  Retrieves information about each principal that is allowed to access a
-  given Amazon OpenSearch Service domain through the use of an interface VPC
-  endpoint.
+  Retrieves information about each principal that is allowed to access a given
+  Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to retrieve access information for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    retrieve access information for.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of paginated results.
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
+    paginated results.
   """
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
@@ -4408,7 +4464,9 @@ defmodule AWS.Elasticsearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   account and Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:next_token` (`t:string`) Identifier to allow retrieval of paginated results.
@@ -4446,11 +4504,15 @@ defmodule AWS.Elasticsearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
   particular domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the ElasticSearch domain whose VPC endpoints are to be listed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the ElasticSearch domain whose VPC
+    endpoints are to be listed.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of paginated results.
+  * `:next_token` (`t:string`) Provides an identifier to allow retrieval of
+    paginated results.
   """
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
@@ -4484,7 +4546,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Allows you to purchase reserved Elasticsearch instances.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20PurchaseReservedElasticsearchInstanceOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4521,8 +4585,11 @@ defmodule AWS.Elasticsearch do
   Allows the destination domain owner to reject an inbound cross-cluster search
   connection request.
 
-  ## Required positional parameters:
-  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound connection that you want to reject.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RejectInboundCrossClusterSearchConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:cross_cluster_search_connection_id` (`t:string`) The id of the inbound
+    connection that you want to reject.
 
   ## Optional parameters:
   """
@@ -4556,7 +4623,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Removes the specified set of tags from the specified Elasticsearch domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RemoveTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4587,10 +4656,11 @@ defmodule AWS.Elasticsearch do
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface
-  VPC endpoint.
+  an interface VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
 
   ## Optional parameters:
@@ -4628,7 +4698,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Schedules a service software update for an Amazon ES domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20StartElasticsearchServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4665,8 +4737,11 @@ defmodule AWS.Elasticsearch do
   Modifies the cluster configuration of the specified Elasticsearch domain,
   setting as setting the instance type and the number of instances.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you are updating. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateElasticsearchDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the Elasticsearch domain that you are
+    updating.
 
   ## Optional parameters:
   """
@@ -4703,7 +4778,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Updates a package for use with Amazon ES domains.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4735,7 +4812,9 @@ defmodule AWS.Elasticsearch do
   @doc """
   Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4768,7 +4847,9 @@ defmodule AWS.Elasticsearch do
   Allows you to either upgrade your domain or perform an Upgrade eligibility check
   to a compatible Elasticsearch version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticsearchservice%20UpgradeElasticsearchDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

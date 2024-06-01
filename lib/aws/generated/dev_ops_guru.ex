@@ -4,28 +4,18 @@
 defmodule AWS.DevOpsGuru do
   @moduledoc """
   Amazon DevOps Guru is a fully managed service that helps you identify anomalous
-  behavior in
-  business critical operational applications.
-
-  You specify the Amazon Web Services resources that you
-  want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web
-  Services CloudTrail events related to those
-  resources are analyzed. When anomalous behavior is detected, DevOps Guru creates
-  an
-  *insight* that includes recommendations, related events, and
+  behavior in business critical operational applications. You specify the Amazon
+  Web Services resources that you want DevOps Guru to cover, then the Amazon
+  CloudWatch metrics and Amazon Web Services CloudTrail events related to those
+  resources are analyzed. When anomalous behavior is detected, DevOps Guru
+  creates an *insight* that includes recommendations, related events, and
   related metrics that can help you improve your operational applications. For
-  more
-  information, see [What is Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
-
+  more information, see [What is Amazon DevOps
+  Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
   You can specify 1 or 2 Amazon Simple Notification Service topics so you are
-  notified every time a new insight
-  is created. You can also enable DevOps Guru to generate an OpsItem in Amazon Web
-  Services Systems Manager for each
-  insight to help you manage and track your work addressing insights.
-
-  To learn about the DevOps Guru workflow, see [How DevOps Guru works](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works).
-  To
-  learn about DevOps Guru concepts, see [Concepts in DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html).
+  notified every time a new insight is created. You can also enable DevOps Guru
+  to generate an OpsItem in Amazon Web Services Systems Manager for each insight
+  to help you manage and track your work addressing insights.
   """
 
   alias AWS.Client
@@ -2313,25 +2303,13 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Adds a notification channel to DevOps Guru.
+  Adds a notification channel to DevOps Guru. A notification channel is used to
+  notify you about important DevOps Guru events, such as when an insight is
+  generated.
 
-  A notification channel is used to notify you
-  about important DevOps Guru events, such as when an insight is generated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20AddNotificationChannel&this_doc_guide=API%2520Reference)
 
-  If you use an Amazon SNS topic in another account, you must attach a policy to
-  it that grants DevOps Guru permission
-  to send it notifications. DevOps Guru adds the required policy on your behalf to
-  send notifications using Amazon SNS in your account. DevOps Guru only supports
-  standard SNS topics.
-  For more information, see [Permissions for Amazon SNS
-  topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html).
-
-  If you use an Amazon SNS topic that is encrypted by an Amazon Web Services Key
-  Management Service customer-managed key (CMK), then you must add permissions
-  to the CMK. For more information, see [Permissions for Amazon Web Services KMS–encrypted Amazon SNS
-  topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2354,7 +2332,9 @@ defmodule AWS.DevOpsGuru do
   Deletes the insight along with the associated anomalies, events and
   recommendations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DeleteInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the insight.
 
   ## Optional parameters:
@@ -2386,13 +2366,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the number of open reactive insights, the number of open proactive
-  insights,
-  and the number of metrics analyzed in your Amazon Web Services account.
+  insights, and the number of metrics analyzed in your Amazon Web Services
+  account. Use these numbers to gauge the health of operations in your Amazon
+  Web Services account.
 
-  Use these numbers to gauge the
-  health of operations in your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountHealth&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2418,12 +2398,12 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   For the time range passed in, returns the number of open reactive insight that
-  were
-  created, the number of open proactive insights that were created, and the Mean
-  Time to Recover (MTTR) for all
-  closed reactive insights.
+  were created, the number of open proactive insights that were created, and the
+  Mean Time to Recover (MTTR) for all closed reactive insights.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountOverview&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2459,8 +2439,10 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an anomaly that you specify using its ID.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The ID of the anomaly. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAnomaly&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the anomaly.
 
   ## Optional parameters:
   * `:account_id` (`t:string`) The ID of the member account.
@@ -2496,15 +2478,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the integration status of services that are integrated with DevOps Guru
-  as Consumer
-  via EventBridge.
+  as Consumer via EventBridge. The one service that can be integrated with
+  DevOps Guru is Amazon CodeGuru Profiler, which can produce proactive
+  recommendations which can be stored and viewed in DevOps Guru.
 
-  The one service that can be integrated with DevOps Guru is Amazon CodeGuru
-  Profiler, which can produce proactive recommendations which can be stored and
-  viewed in
-  DevOps Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeEventSourcesConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2541,7 +2521,9 @@ defmodule AWS.DevOpsGuru do
   Returns the most recent feedback submitted in the current Amazon Web Services
   account and Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2573,8 +2555,10 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an insight that you specify using its ID.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The ID of the insight. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the insight.
 
   ## Optional parameters:
   * `:account_id` (`t:string`) The ID of the member account in the organization.
@@ -2610,10 +2594,11 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns active insights, predictive insights, and resource hours analyzed in
-  last
-  hour.
+  last hour.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2648,11 +2633,11 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns an overview of your organization's history based on the specified time
-  range.
+  range. The overview includes the total reactive and proactive insights.
 
-  The overview includes the total reactive and proactive insights.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationOverview&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2686,13 +2671,13 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Provides an overview of your system's health.
+  Provides an overview of your system's health. If additional member accounts are
+  part of your organization, you can filter those accounts using the
+  `AccountIds` field.
 
-  If additional member accounts are part
-  of your organization, you can filter those accounts using the `AccountIds`
-  field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationResourceCollectionHealth&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2727,27 +2712,33 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the number of open proactive insights, open reactive insights, and the
-  Mean Time to Recover (MTTR)
-  for all closed insights in resource collections in your account.
+  Mean Time to Recover (MTTR) for all closed insights in resource collections in
+  your account. You specify the type of Amazon Web Services resources
+  collection. The two types of Amazon Web Services resource collections
+  supported are Amazon Web Services CloudFormation stacks and Amazon Web
+  Services resources that contain the same Amazon Web Services tag. DevOps Guru
+  can be configured to analyze the Amazon Web Services resources that are
+  defined in the stacks or that are tagged using the same tag *key*. You can
+  specify up to 500 Amazon Web Services CloudFormation stacks.
 
-  You specify the type of
-  Amazon Web Services resources collection. The two types of Amazon Web Services
-  resource collections supported are Amazon Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeResourceCollectionHealth&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_collection_type` (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`)  An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
-  	are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and 
-          Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze 
-      	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. 
+  ## Parameters:
+  * `:resource_collection_type`
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`) An Amazon Web
+    Services resource collection type. This type specifies how analyzed Amazon
+    Web Services resources are defined. The two types of Amazon Web Services
+    resource collections supported are Amazon Web Services CloudFormation stacks
+    and Amazon Web Services resources that contain the same Amazon Web Services
+    tag. DevOps Guru can be configured to analyze the Amazon Web Services
+    resources that are defined in the stacks or that are tagged using the same
+    tag key. You can specify up to 500 Amazon Web Services CloudFormation
+    stacks.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The pagination token to use to retrieve 
-   the next page of results for this operation. If this value is null, it retrieves the first page.
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec describe_resource_collection_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_collection_health_response(), any()}
@@ -2785,12 +2776,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns the integration status of services that are integrated with DevOps Guru.
+  The one service that can be integrated with DevOps Guru is Amazon Web Services
+  Systems Manager, which can be used to create an OpsItem for each generated
+  insight.
 
-  The one service that can be integrated with DevOps Guru
-  is Amazon Web Services Systems Manager, which can be used to create an OpsItem
-  for each generated insight.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeServiceIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2816,19 +2808,19 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon
-  Web Services resources.
-
-  For more information,
-  see [Estimate your Amazon DevOps Guru
+  Web Services resources. For more information, see [Estimate your Amazon DevOps
+  Guru
   costs](https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html)
-  and
-  [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
+  and [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20GetCostEstimation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The pagination token to use to retrieve 
-   the next page of results for this operation. If this value is null, it retrieves the first page.
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec get_cost_estimation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cost_estimation_response(), any()}
@@ -2861,23 +2853,25 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns lists Amazon Web Services resources that are of the specified resource
-  collection type.
+  collection type. The two types of Amazon Web Services resource collections
+  supported are Amazon Web Services CloudFormation stacks and Amazon Web
+  Services resources that contain the same Amazon Web Services tag. DevOps Guru
+  can be configured to analyze the Amazon Web Services resources that are
+  defined in the stacks or that are tagged using the same tag *key*. You can
+  specify up to 500 Amazon Web Services CloudFormation stacks.
 
-  The two types of Amazon Web Services resource collections supported are Amazon
-  Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20GetResourceCollection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_collection_type` (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`)  The type of Amazon Web Services resource collections to return. The one valid value is
-  		<code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. 
+  ## Parameters:
+  * `:resource_collection_type`
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]`) The type of Amazon
+    Web Services resource collections to return. The one valid value is
+    CLOUD_FORMATION for Amazon Web Services CloudFormation stacks.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The pagination token to use to retrieve 
-   the next page of results for this operation. If this value is null, it retrieves the first page.
+  * `:next_token` (`t:string`) The pagination token to use to retrieve the next
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec get_resource_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_collection_response(), any()}
@@ -2910,11 +2904,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns a list of the anomalies that belong to an insight that you specify using
-  its
-  ID.
+  its ID.
 
-  ## Required positional parameters:
-  * `:insight_id` (`t:string`)  The ID of the insight. The returned anomalies belong to this insight. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListAnomaliesForInsight&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:insight_id` (`t:string`) The ID of the insight. The returned anomalies
+    belong to this insight.
 
   ## Optional parameters:
   """
@@ -2949,10 +2945,11 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-
   Returns the list of log groups that contain log anomalies.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListAnomalousLogGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2987,11 +2984,11 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Returns a list of the events emitted by the resources that are evaluated by
-  DevOps Guru.
+  DevOps Guru. You can use filters to specify which events are returned.
 
-  You can use filters to specify which events are returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListEvents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3021,13 +3018,13 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your Amazon Web Services account.
+  Returns a list of insights in your Amazon Web Services account. You can specify
+  which insights are returned by their start time and status (`ONGOING`,
+  `CLOSED`, or `ANY`).
 
-  You can specify which insights are
-  returned by their start time and status (`ONGOING`, `CLOSED`, or
-  `ANY`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListInsights&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3057,11 +3054,12 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-
   Returns the list of all log groups that are being monitored and tagged by DevOps
   Guru.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListMonitoredResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3091,16 +3089,15 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of notification channels configured for DevOps Guru.
+  Returns a list of notification channels configured for DevOps Guru. Each
+  notification channel is used to notify you when DevOps Guru generates an
+  insight that contains information about how to improve your operations. The
+  one supported notification channel is Amazon Simple Notification Service
+  (Amazon SNS).
 
-  Each notification
-  channel is used to notify you when DevOps Guru generates an insight that
-  contains information
-  about how to improve your operations. The one
-  supported notification channel is Amazon Simple Notification Service (Amazon
-  SNS).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListNotificationChannels&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3136,7 +3133,9 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns a list of insights associated with the account or OU Id.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListOrganizationInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3170,12 +3169,12 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of a specified insight's recommendations.
+  Returns a list of a specified insight's recommendations. Each recommendation
+  includes a list of related metrics and a list of related events.
 
-  Each recommendation includes
-  a list of related metrics and a list of related events.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListRecommendations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3207,7 +3206,9 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Collects customer feedback about the specified insight.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20PutFeedback&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3227,15 +3228,14 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Removes a notification channel from DevOps Guru.
+  Removes a notification channel from DevOps Guru. A notification channel is used
+  to notify you when DevOps Guru generates an insight that contains information
+  about how to improve your operations.
 
-  A notification channel is used to notify
-  you when DevOps Guru generates an insight that contains information about how to
-  improve your
-  operations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20RemoveNotificationChannel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`)  The ID of the notification channel to be removed. 
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the notification channel to be removed.
 
   ## Optional parameters:
   """
@@ -3270,19 +3270,14 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your Amazon Web Services account.
+  Returns a list of insights in your Amazon Web Services account. You can specify
+  which insights are returned by their start time, one or more statuses
+  (`ONGOING` or `CLOSED`), one or more severities (`LOW`, `MEDIUM`, and `HIGH`),
+  and type (`REACTIVE` or `PROACTIVE`).
 
-  You can specify which insights are
-  returned by their start time, one or more statuses (`ONGOING` or `CLOSED`), one
-  or more severities
-  (`LOW`, `MEDIUM`, and `HIGH`), and type
-  (`REACTIVE` or `PROACTIVE`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchInsights&this_doc_guide=API%2520Reference)
 
-  Use the `Filters` parameter to specify status and severity search
-  parameters. Use the `Type` parameter to specify `REACTIVE` or
-  `PROACTIVE` in your search.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3312,19 +3307,14 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Returns a list of insights in your organization.
-
-  You can specify which insights are
-  returned by their start time, one or more statuses (`ONGOING`,
-  `CLOSED`, and `CLOSED`), one or more severities
-  (`LOW`, `MEDIUM`, and `HIGH`), and type
+  Returns a list of insights in your organization. You can specify which insights
+  are returned by their start time, one or more statuses (`ONGOING`, `CLOSED`,
+  and `CLOSED`), one or more severities (`LOW`, `MEDIUM`, and `HIGH`), and type
   (`REACTIVE` or `PROACTIVE`).
 
-  Use the `Filters` parameter to specify status and severity search
-  parameters. Use the `Type` parameter to specify `REACTIVE` or
-  `PROACTIVE` in your search.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchOrganizationInsights&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3359,10 +3349,11 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Starts the creation of an estimate of the monthly cost to analyze your Amazon
-  Web Services
-  resources.
+  Web Services resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20StartCostEstimation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3383,15 +3374,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Enables or disables integration with a service that can be integrated with
-  DevOps Guru.
+  DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon
+  CodeGuru Profiler, which can produce proactive recommendations which can be
+  stored and viewed in DevOps Guru.
 
-  The
-  one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler,
-  which
-  can produce proactive recommendations which can be stored and viewed in DevOps
-  Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateEventSourcesConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3415,18 +3404,18 @@ defmodule AWS.DevOpsGuru do
   end
 
   @doc """
-  Updates the collection of resources that DevOps Guru analyzes.
+  Updates the collection of resources that DevOps Guru analyzes. The two types of
+  Amazon Web Services resource collections supported are Amazon Web Services
+  CloudFormation stacks and Amazon Web Services resources that contain the same
+  Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon
+  Web Services resources that are defined in the stacks or that are tagged using
+  the same tag *key*. You can specify up to 500 Amazon Web Services
+  CloudFormation stacks. This method also creates the IAM role required for you
+  to use DevOps Guru.
 
-  The two types of Amazon Web Services resource collections supported are Amazon
-  Web Services CloudFormation stacks and
-  Amazon Web Services resources that contain the same Amazon Web Services tag.
-  DevOps Guru can be configured to analyze
-  the Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks. This method also creates the IAM role required for
-  you to use DevOps Guru.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateResourceCollection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3451,14 +3440,13 @@ defmodule AWS.DevOpsGuru do
 
   @doc """
   Enables or disables integration with a service that can be integrated with
-  DevOps Guru.
+  DevOps Guru. The one service that can be integrated with DevOps Guru is Amazon
+  Web Services Systems Manager, which can be used to create an OpsItem for each
+  generated insight.
 
-  The
-  one service that can be integrated with DevOps Guru is Amazon Web Services
-  Systems Manager, which can be used to create
-  an OpsItem for each generated insight.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateServiceIntegration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

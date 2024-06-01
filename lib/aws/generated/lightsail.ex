@@ -5,31 +5,12 @@ defmodule AWS.Lightsail do
   @moduledoc """
   Amazon Lightsail is the easiest way to get started with Amazon Web Services
   (Amazon Web Services) for developers who need to build websites or web
-  applications.
-
-  It includes
-  everything you need to launch your project quickly - instances (virtual private
-  servers),
-  container services, storage buckets, managed databases, SSD-based block storage,
-  static IP
-  addresses, load balancers, content delivery network (CDN) distributions, DNS
-  management of
+  applications. It includes everything you need to launch your project quickly -
+  instances (virtual private servers), container services, storage buckets,
+  managed databases, SSD-based block storage, static IP addresses, load
+  balancers, content delivery network (CDN) distributions, DNS management of
   registered domains, and resource snapshots (backups) - for a low, predictable
-  monthly
-  price.
-
-  You can manage your Lightsail resources using the Lightsail console, Lightsail
-  API,
-  Command Line Interface (CLI), or SDKs. For more information about Lightsail
-  concepts and tasks, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
-
-  This API Reference provides detailed information about the actions, data types,
-  parameters, and errors of the Lightsail service. For more information about the
-  supported
-  Amazon Web Services Regions, endpoints, and service quotas of the Lightsail
-  service, see
-  [Amazon Lightsail Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *Amazon Web Services General Reference*.
+  monthly price.
   """
 
   alias AWS.Client
@@ -7229,23 +7210,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery
-  network (CDN)
-  distribution.
-
-  After the certificate is attached, your distribution accepts HTTPS traffic for
-  all of the
-  domains that are associated with the certificate.
-
-  Use the `CreateCertificate` action to create a certificate that you can attach
-  to your distribution.
-
-  Only certificates created in the `us-east-1`
-  Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
-  distributions are global resources that can reference an origin in any Amazon
-  Web Services
-  Region, and distribute its content globally. However, all distributions are
-  located in the
-  `us-east-1` Region.
+  network (CDN) distribution. After the certificate is attached, your
+  distribution accepts HTTPS traffic for all of the domains that are associated
+  with the certificate.
   """
   @spec attach_certificate_to_distribution(
           AWS.Client.t(),
@@ -7264,12 +7231,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Attaches a block storage disk to a running or stopped Lightsail instance and
-  exposes it
-  to the instance with the specified disk name.
-
-  The `attach disk` operation supports tag-based access control via resource tags
-  applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  exposes it to the instance with the specified disk name.
   """
   @spec attach_disk(AWS.Client.t(), attach_disk_request(), Keyword.t()) ::
           {:ok, attach_disk_result(), any()}
@@ -7283,21 +7245,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Attaches one or more Lightsail instances to a load balancer.
-
-  After some time, the instances are attached to the load balancer and the health
-  check
-  status is available.
-
-  The `attach instances to load balancer` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Attaches one or more Lightsail instances to a load balancer. After some time,
+  the instances are attached to the load balancer and the health check status is
+  available.
   """
   @spec attach_instances_to_load_balancer(
           AWS.Client.t(),
@@ -7315,26 +7265,12 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Attaches a Transport Layer Security (TLS) certificate to your load balancer.
-
-  TLS is just
-  an updated, more secure version of Secure Socket Layer (SSL).
-
-  Once you create and validate your certificate, you can attach it to your load
-  balancer.
+  Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS
+  is just an updated, more secure version of Secure Socket Layer (SSL). Once you
+  create and validate your certificate, you can attach it to your load balancer.
   You can also use this API to rotate the certificates on your account. Use the
-  `AttachLoadBalancerTlsCertificate` action with the non-attached certificate, and
-  it will replace the existing one and become the attached certificate.
-
-  The `AttachLoadBalancerTlsCertificate` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  `AttachLoadBalancerTlsCertificate` action with the non-attached certificate,
+  and it will replace the existing one and become the attached certificate.
   """
   @spec attach_load_balancer_tls_certificate(
           AWS.Client.t(),
@@ -7367,10 +7303,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Closes ports for a specific Amazon Lightsail instance.
-
-  The `CloseInstancePublicPorts` action supports tag-based access control via
-  resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec close_instance_public_ports(
           AWS.Client.t(),
@@ -7389,39 +7321,11 @@ defmodule AWS.Lightsail do
 
   @doc """
   Copies a manual snapshot of an instance or disk as another manual snapshot, or
-  copies an
-  automatic snapshot of an instance or disk as a manual snapshot.
-
-  This operation can also be
-  used to copy a manual or automatic snapshot of an instance or a disk from one
-  Amazon Web Services Region to another in Amazon Lightsail.
-
-  When copying a *manual snapshot*, be sure to define the
-
-  ```
-  source
-  region
-  ```
-
-  , `source snapshot name`, and `target snapshot name`
-  parameters.
-
-  When copying an *automatic snapshot*, be sure to define the
-  `source region`, `source resource name`,
-
-  ```
-  target snapshot
-  name
-  ```
-
-  , and either the `restore date` or the
-
-  ```
-  use latest restorable
-  auto snapshot
-  ```
-
-  parameters.
+  copies an automatic snapshot of an instance or disk as a manual snapshot. This
+  operation can also be used to copy a manual or automatic snapshot of an
+  instance or a disk from one Amazon Web Services Region to another in Amazon
+  Lightsail. When copying a *manual snapshot*, be sure to define the ``` source
+  region ``` , `source snapshot name`, and `target snapshot name` parameters.
   """
   @spec copy_snapshot(AWS.Client.t(), copy_snapshot_request(), Keyword.t()) ::
           {:ok, copy_snapshot_result(), any()}
@@ -7436,14 +7340,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail bucket.
-
-  A bucket is a cloud storage resource available in the Lightsail object storage
-  service.
-  Use buckets to store objects such as data and its descriptive metadata. For more
-  information
-  about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
-  in the *Amazon Lightsail Developer
-  Guide*.
   """
   @spec create_bucket(AWS.Client.t(), create_bucket_request(), Keyword.t()) ::
           {:ok, create_bucket_result(), any()}
@@ -7457,25 +7353,16 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a new access key for the specified Amazon Lightsail bucket.
-
-  Access keys consist of
-  an access key ID and corresponding secret access key.
-
-  Access keys grant full programmatic access to the specified bucket and its
-  objects. You
+  Creates a new access key for the specified Amazon Lightsail bucket. Access keys
+  consist of an access key ID and corresponding secret access key. Access keys
+  grant full programmatic access to the specified bucket and its objects. You
   can have a maximum of two access keys per bucket. Use the
-  [GetBucketAccessKeys](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html) action to get a list of current access keys for a specific bucket. For more
-  information about access keys, see [Creating access keys for a bucket in Amazon
+  [GetBucketAccessKeys](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html)
+  action to get a list of current access keys for a specific bucket. For more
+  information about access keys, see [Creating access keys for a bucket in
+  Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
-  in the
-  *Amazon Lightsail Developer Guide*.
-
-  The `secretAccessKey` value is returned only in response to the
-  `CreateBucketAccessKey` action. You can get a secret access key only when you
-  first create an access key; you cannot get the secret access key later. If you
-  lose the
-  secret access key, you must create a new access key.
+  in the *Amazon Lightsail Developer Guide*.
   """
   @spec create_bucket_access_key(AWS.Client.t(), create_bucket_access_key_request(), Keyword.t()) ::
           {:ok, create_bucket_access_key_result(), any()}
@@ -7490,21 +7377,10 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network
-  (CDN)
-  distribution and a container service.
-
-  After the certificate is valid, use the `AttachCertificateToDistribution`
-  action to use the certificate and its domains with your distribution. Or use the
-  `UpdateContainerService` action to use the certificate and its domains with your
-  container service.
-
-  Only certificates created in the `us-east-1`
-  Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
-  distributions are global resources that can reference an origin in any Amazon
-  Web Services
-  Region, and distribute its content globally. However, all distributions are
-  located in the
-  `us-east-1` Region.
+  (CDN) distribution and a container service. After the certificate is valid,
+  use the `AttachCertificateToDistribution` action to use the certificate and
+  its domains with your distribution. Or use the `UpdateContainerService` action
+  to use the certificate and its domains with your container service.
   """
   @spec create_certificate(AWS.Client.t(), create_certificate_request(), Keyword.t()) ::
           {:ok, create_certificate_result(), any()}
@@ -7519,27 +7395,10 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance
-  from an exported
-  Amazon Lightsail snapshot.
-
-  This operation results in a CloudFormation stack record that can be
-  used to track the AWS CloudFormation stack created. Use the
-
-  ```
-  get cloud formation stack
-  records
-  ```
-
-  operation to get a list of the CloudFormation stacks created.
-
-  Wait until after your new Amazon EC2 instance is created before running the
-
-  ```
-  create
-  cloud formation stack
-  ```
-
-  operation again with the same export snapshot record.
+  from an exported Amazon Lightsail snapshot. This operation results in a
+  CloudFormation stack record that can be used to track the AWS CloudFormation
+  stack created. Use the ``` get cloud formation stack records ``` operation to
+  get a list of the CloudFormation stacks created.
   """
   @spec create_cloud_formation_stack(
           AWS.Client.t(),
@@ -7558,15 +7417,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an email or SMS text message contact method.
-
-  A contact method is used to send you notifications about your Amazon Lightsail
-  resources.
-  You can add one email address and one mobile phone number contact method in each
-  Amazon Web Services Region. However, SMS text messaging is not supported in some
-  Amazon Web Services
-  Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   @spec create_contact_method(AWS.Client.t(), create_contact_method_request(), Keyword.t()) ::
           {:ok, create_contact_method_result(), any()}
@@ -7581,12 +7431,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail container service.
-
-  A Lightsail container service is a compute resource to which you can deploy
-  containers.
-  For more information, see [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services)
-  in the *Lightsail Dev
-  Guide*.
   """
   @spec create_container_service(AWS.Client.t(), create_container_service_request(), Keyword.t()) ::
           {:ok, create_container_service_result(), any()}
@@ -7600,25 +7444,12 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a deployment for your Amazon Lightsail container service.
-
-  A deployment specifies the containers that will be launched on the container
-  service and
+  Creates a deployment for your Amazon Lightsail container service. A deployment
+  specifies the containers that will be launched on the container service and
   their settings, such as the ports to open, the environment variables to apply,
-  and the launch
-  command to run. It also specifies the container that will serve as the public
-  endpoint of the
-  deployment and its settings, such as the HTTP or HTTPS port to use, and the
-  health check
-  configuration.
-
-  You can deploy containers to your container service using container images from
-  a public
-  registry such as Amazon ECR Public, or from your local machine. For more
-  information, see
-  [Creating container images for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
-  in the
-  *Amazon Lightsail Developer Guide*.
+  and the launch command to run. It also specifies the container that will serve
+  as the public endpoint of the deployment and its settings, such as the HTTP or
+  HTTPS port to use, and the health check configuration.
   """
   @spec create_container_service_deployment(
           AWS.Client.t(),
@@ -7637,36 +7468,15 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a temporary set of log in credentials that you can use to log in to the
-  Docker
-  process on your local machine.
-
-  After you're logged in, you can use the native Docker commands
-  to push your local container images to the container image registry of your
-  Amazon Lightsail
-  account so that you can use them with your Lightsail container service. The log
-  in
-  credentials expire 12 hours after they are created, at which point you will need
-  to create a
-  new set of log in credentials.
-
-  You can only push container images to the container service registry of your
-  Lightsail
-  account. You cannot pull container images or perform any other container image
-  management
-  actions on the container service registry.
-
-  After you push your container images to the container image registry of your
-  Lightsail
-  account, use the `RegisterContainerImage` action to register the pushed images
-  to a
-  specific Lightsail container service.
-
-  This action is not required if you install and use the Lightsail Control
-  (lightsailctl) plugin to push container images to your Lightsail container
-  service. For
-  more information, see [Pushing and managing container images on your Amazon Lightsail container
-  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
-  in the *Amazon Lightsail Developer Guide*.
+  Docker process on your local machine. After you're logged in, you can use the
+  native Docker commands to push your local container images to the container
+  image registry of your Amazon Lightsail account so that you can use them with
+  your Lightsail container service. The log in credentials expire 12 hours after
+  they are created, at which point you will need to create a new set of log in
+  credentials. You can only push container images to the container service
+  registry of your Lightsail account. You cannot pull container images or
+  perform any other container image management actions on the container service
+  registry.
   """
   @spec create_container_service_registry_login(
           AWS.Client.t(),
@@ -7685,11 +7495,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a block storage disk that can be attached to an Amazon Lightsail
-  instance in the
-  same Availability Zone (`us-east-2a`).
-
-  The `create disk` operation supports tag-based access control via request tags.
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  instance in the same Availability Zone (`us-east-2a`).
   """
   @spec create_disk(AWS.Client.t(), create_disk_request(), Keyword.t()) ::
           {:ok, create_disk_result(), any()}
@@ -7703,22 +7509,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a block storage disk from a manual or automatic snapshot of a disk.
-
-  The resulting
-  disk can be attached to an Amazon Lightsail instance in the same Availability
-  Zone
-  (`us-east-2a`).
-
-  The `create disk from snapshot` operation supports tag-based access control via
-  request tags and resource tags applied to the resource identified by
-
-  ```
-  disk snapshot
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Creates a block storage disk from a manual or automatic snapshot of a disk. The
+  resulting disk can be attached to an Amazon Lightsail instance in the same
+  Availability Zone (`us-east-2a`).
   """
   @spec create_disk_from_snapshot(
           AWS.Client.t(),
@@ -7736,43 +7529,18 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a snapshot of a block storage disk.
-
-  You can use snapshots for backups, to make
-  copies of disks, and to save data before shutting down a Lightsail instance.
-
-  You can take a snapshot of an attached disk that is in use; however, snapshots
-  only
-  capture data that has been written to your disk at the time the snapshot command
-  is issued.
-  This may exclude any data that has been cached by any applications or the
-  operating system. If
-  you can pause any file systems on the disk long enough to take a snapshot, your
-  snapshot
-  should be complete. Nevertheless, if you cannot pause all file writes to the
-  disk, you should
+  Creates a snapshot of a block storage disk. You can use snapshots for backups,
+  to make copies of disks, and to save data before shutting down a Lightsail
+  instance. You can take a snapshot of an attached disk that is in use; however,
+  snapshots only capture data that has been written to your disk at the time the
+  snapshot command is issued. This may exclude any data that has been cached by
+  any applications or the operating system. If you can pause any file systems on
+  the disk long enough to take a snapshot, your snapshot should be complete.
+  Nevertheless, if you cannot pause all file writes to the disk, you should
   unmount the disk from within the Lightsail instance, issue the create disk
-  snapshot command,
-  and then remount the disk to ensure a consistent and complete snapshot. You may
-  remount and
-  use your disk while the snapshot status is pending.
-
-  You can also use this operation to create a snapshot of an instance's system
-  volume. You
-  might want to do this, for example, to recover data from the system volume of a
-  botched
-  instance or to create a backup of the system volume like you would for a block
-  storage disk.
-  To create a snapshot of a system volume, just define the `instance name`
-  parameter
-  when issuing the snapshot command, and a snapshot of the defined instance's
-  system volume will
-  be created. After the snapshot is available, you can create a block storage disk
-  from the
-  snapshot and attach it to a running instance to access the data on the disk.
-
-  The `create disk snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  snapshot command, and then remount the disk to ensure a consistent and
+  complete snapshot. You may remount and use your disk while the snapshot status
+  is pending.
   """
   @spec create_disk_snapshot(AWS.Client.t(), create_disk_snapshot_request(), Keyword.t()) ::
           {:ok, create_disk_snapshot_result(), any()}
@@ -7787,12 +7555,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates an Amazon Lightsail content delivery network (CDN) distribution.
-
-  A distribution is a globally distributed network of caching servers that improve
-  the
-  performance of your website or web application hosted on a Lightsail instance.
-  For more
-  information, see [Content delivery networks in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions).
   """
   @spec create_distribution(AWS.Client.t(), create_distribution_request(), Keyword.t()) ::
           {:ok, create_distribution_result(), any()}
@@ -7807,9 +7569,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a domain resource for the specified domain (example.com).
-
-  The `create domain` operation supports tag-based access control via request
-  tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_domain(AWS.Client.t(), create_domain_request(), Keyword.t()) ::
           {:ok, create_domain_result(), any()}
@@ -7824,14 +7583,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates one of the following domain name system (DNS) records in a domain DNS
-  zone:
-  Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS),
-  start of authority
-  (SOA), service locator (SRV), or text (TXT).
-
-  The `create domain entry` operation supports tag-based access control via
-  resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  zone: Address (A), canonical name (CNAME), mail exchanger (MX), name server
+  (NS), start of authority (SOA), service locator (SRV), or text (TXT).
   """
   @spec create_domain_entry(AWS.Client.t(), create_domain_entry_request(), Keyword.t()) ::
           {:ok, create_domain_entry_result(), any()}
@@ -7846,15 +7599,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates two URLs that are used to access a virtual computer’s graphical user
-  interface
-  (GUI) session.
-
-  The primary URL initiates a web-based NICE DCV session to the virtual
-  computer's application. The secondary URL initiates a web-based NICE DCV session
-  to the
-  virtual computer's operating session.
-
-  Use `StartGUISession` to open the session.
+  interface (GUI) session. The primary URL initiates a web-based NICE DCV
+  session to the virtual computer's application. The secondary URL initiates a
+  web-based NICE DCV session to the virtual computer's operating session.
   """
   @spec create_g_ui_session_access_details(
           AWS.Client.t(),
@@ -7872,12 +7619,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a snapshot of a specific virtual private server, or *instance*.
-
-  You can use a snapshot to create a new instance that is based on that snapshot.
-
-  The `create instance snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Creates a snapshot of a specific virtual private server, or *instance*. You can
+  use a snapshot to create a new instance that is based on that snapshot.
   """
   @spec create_instance_snapshot(AWS.Client.t(), create_instance_snapshot_request(), Keyword.t()) ::
           {:ok, create_instance_snapshot_result(), any()}
@@ -7892,9 +7635,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates one or more Amazon Lightsail instances.
-
-  The `create instances` operation supports tag-based access control via request
-  tags. For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_instances(AWS.Client.t(), create_instances_request(), Keyword.t()) ::
           {:ok, create_instances_result(), any()}
@@ -7910,11 +7650,6 @@ defmodule AWS.Lightsail do
   @doc """
   Creates one or more new instances from a manual or automatic snapshot of an
   instance.
-
-  The `create instances from snapshot` operation supports tag-based access
-  control via request tags and resource tags applied to the resource identified by
-  `instance snapshot name`. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_instances_from_snapshot(
           AWS.Client.t(),
@@ -7934,16 +7669,6 @@ defmodule AWS.Lightsail do
   @doc """
   Creates a custom SSH key pair that you can use with an Amazon Lightsail
   instance.
-
-  Use the
-  [DownloadDefaultKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html) action to create a Lightsail default key
-  pair in an Amazon Web Services Region where a default key pair does not
-  currently
-  exist.
-
-  The `create key pair` operation supports tag-based access control via request
-  tags. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_key_pair(AWS.Client.t(), create_key_pair_request(), Keyword.t()) ::
           {:ok, create_key_pair_result(), any()}
@@ -7957,20 +7682,13 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a Lightsail load balancer.
-
-  To learn more about deciding whether to load balance
-  your application, see [Configure your Lightsail instances for load balancing](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing).
-  You can create up to 5
-  load balancers per AWS Region in your account.
-
-  When you create a load balancer, you can specify a unique name and port
-  settings. To
-  change additional load balancer settings, use the `UpdateLoadBalancerAttribute`
-  operation.
-
-  The `create load balancer` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Creates a Lightsail load balancer. To learn more about deciding whether to load
+  balance your application, see [Configure your Lightsail instances for load
+  balancing](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing).
+  You can create up to 5 load balancers per AWS Region in your account. When you
+  create a load balancer, you can specify a unique name and port settings. To
+  change additional load balancer settings, use the
+  `UpdateLoadBalancerAttribute` operation.
   """
   @spec create_load_balancer(AWS.Client.t(), create_load_balancer_request(), Keyword.t()) ::
           {:ok, create_load_balancer_result(), any()}
@@ -7984,19 +7702,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.
-
-  TLS is just an updated, more secure version of Secure Socket Layer (SSL).
-
-  The `CreateLoadBalancerTlsCertificate` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Creates an SSL/TLS certificate for an Amazon Lightsail load balancer. TLS is
+  just an updated, more secure version of Secure Socket Layer (SSL).
   """
   @spec create_load_balancer_tls_certificate(
           AWS.Client.t(),
@@ -8015,9 +7722,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a new database in Amazon Lightsail.
-
-  The `create relational database` operation supports tag-based access control
-  via request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_relational_database(
           AWS.Client.t(),
@@ -8036,18 +7740,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Creates a new database from an existing database snapshot in Amazon Lightsail.
-
   You can create a new database from a snapshot in if something goes wrong with
-  your
-  original database, or to change it to a different plan, such as a high
-  availability or
-  standard plan.
-
-  The `create relational database from snapshot` operation supports tag-based
-  access control via request tags and resource tags applied to the resource
-  identified by
-  relationalDatabaseSnapshotName. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  your original database, or to change it to a different plan, such as a high
+  availability or standard plan.
   """
   @spec create_relational_database_from_snapshot(
           AWS.Client.t(),
@@ -8065,14 +7760,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates a snapshot of your database in Amazon Lightsail.
-
-  You can use snapshots for backups,
-  to make copies of a database, and to save data before deleting a database.
-
-  The `create relational database snapshot` operation supports tag-based access
-  control via request tags. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Creates a snapshot of your database in Amazon Lightsail. You can use snapshots
+  for backups, to make copies of a database, and to save data before deleting a
+  database.
   """
   @spec create_relational_database_snapshot(
           AWS.Client.t(),
@@ -8091,13 +7781,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an alarm.
-
-  An alarm is used to monitor a single metric for one of your resources. When a
-  metric
-  condition is met, the alarm can notify you by email, SMS text message, and a
-  banner displayed
-  on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
   """
   @spec delete_alarm(AWS.Client.t(), delete_alarm_request(), Keyword.t()) ::
           {:ok, delete_alarm_result(), any()}
@@ -8111,9 +7794,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes an automatic snapshot of an instance or disk.
-
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  Deletes an automatic snapshot of an instance or disk. For more information, see
+  the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec delete_auto_snapshot(AWS.Client.t(), delete_auto_snapshot_request(), Keyword.t()) ::
           {:ok, delete_auto_snapshot_result(), any()}
@@ -8128,10 +7811,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a Amazon Lightsail bucket.
-
-  When you delete your bucket, the bucket name is released and can be reused for a
-  new
-  bucket in your account or another Amazon Web Services account.
   """
   @spec delete_bucket(AWS.Client.t(), delete_bucket_request(), Keyword.t()) ::
           {:ok, delete_bucket_result(), any()}
@@ -8145,15 +7824,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes an access key for the specified Amazon Lightsail bucket.
-
-  We recommend that you delete an access key if the secret access key is
-  compromised.
-
-  For more information about access keys, see [Creating access keys for a bucket in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
-  in the
-  *Amazon Lightsail Developer Guide*.
+  Deletes an access key for the specified Amazon Lightsail bucket. We recommend
+  that you delete an access key if the secret access key is compromised.
   """
   @spec delete_bucket_access_key(AWS.Client.t(), delete_bucket_access_key_request(), Keyword.t()) ::
           {:ok, delete_bucket_access_key_result(), any()}
@@ -8168,13 +7840,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery
-  network (CDN)
-  distribution.
-
-  Certificates that are currently attached to a distribution cannot be deleted.
-  Use the
-  `DetachCertificateFromDistribution` action to detach a certificate from a
-  distribution.
+  network (CDN) distribution.
   """
   @spec delete_certificate(AWS.Client.t(), delete_certificate_request(), Keyword.t()) ::
           {:ok, delete_certificate_result(), any()}
@@ -8189,15 +7855,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a contact method.
-
-  A contact method is used to send you notifications about your Amazon Lightsail
-  resources.
-  You can add one email address and one mobile phone number contact method in each
-  Amazon Web Services Region. However, SMS text messaging is not supported in some
-  Amazon Web Services
-  Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   @spec delete_contact_method(AWS.Client.t(), delete_contact_method_request(), Keyword.t()) ::
           {:ok, delete_contact_method_result(), any()}
@@ -8240,16 +7897,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes the specified block storage disk.
-
-  The disk must be in the `available`
-  state (not attached to a Lightsail instance).
-
-  The disk may remain in the `deleting` state for several minutes.
-
-  The `delete disk` operation supports tag-based access control via resource tags
-  applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Deletes the specified block storage disk. The disk must be in the `available`
+  state (not attached to a Lightsail instance). The disk may remain in the
+  `deleting` state for several minutes.
   """
   @spec delete_disk(AWS.Client.t(), delete_disk_request(), Keyword.t()) ::
           {:ok, delete_disk_result(), any()}
@@ -8263,22 +7913,12 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes the specified disk snapshot.
-
-  When you make periodic snapshots of a disk, the snapshots are incremental, and
-  only the
-  blocks on the device that have changed since your last snapshot are saved in the
-  new snapshot.
-  When you delete a snapshot, only the data not needed for any other snapshot is
-  removed. So
-  regardless of which prior snapshots have been deleted, all active snapshots will
-  have access
-  to all the information needed to restore the disk.
-
-  The `delete disk snapshot` operation supports tag-based access control via
-  resource tags applied to the resource identified by `disk snapshot name`. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Deletes the specified disk snapshot. When you make periodic snapshots of a disk,
+  the snapshots are incremental, and only the blocks on the device that have
+  changed since your last snapshot are saved in the new snapshot. When you
+  delete a snapshot, only the data not needed for any other snapshot is removed.
+  So regardless of which prior snapshots have been deleted, all active snapshots
+  will have access to all the information needed to restore the disk.
   """
   @spec delete_disk_snapshot(AWS.Client.t(), delete_disk_snapshot_request(), Keyword.t()) ::
           {:ok, delete_disk_snapshot_result(), any()}
@@ -8307,11 +7947,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the specified domain recordset and all of its domain records.
-
-  The `delete domain` operation supports tag-based access control via resource
-  tags applied to the resource identified by `domain name`. For more information,
-  see
-  the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_domain(AWS.Client.t(), delete_domain_request(), Keyword.t()) ::
           {:ok, delete_domain_result(), any()}
@@ -8326,10 +7961,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a specific domain entry.
-
-  The `delete domain entry` operation supports tag-based access control via
-  resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_domain_entry(AWS.Client.t(), delete_domain_entry_request(), Keyword.t()) ::
           {:ok, delete_domain_entry_result(), any()}
@@ -8344,11 +7975,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an Amazon Lightsail instance.
-
-  The `delete instance` operation supports tag-based access control via resource
-  tags applied to the resource identified by `instance name`. For more
-  information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_instance(AWS.Client.t(), delete_instance_request(), Keyword.t()) ::
           {:ok, delete_instance_result(), any()}
@@ -8362,13 +7988,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Deletes a specific snapshot of a virtual private server (or
-  *instance*).
-
-  The `delete instance snapshot` operation supports tag-based access control via
-  resource tags applied to the resource identified by `instance snapshot name`.
-  For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Deletes a specific snapshot of a virtual private server (or *instance*).
   """
   @spec delete_instance_snapshot(AWS.Client.t(), delete_instance_snapshot_request(), Keyword.t()) ::
           {:ok, delete_instance_snapshot_result(), any()}
@@ -8383,21 +8003,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the specified key pair by removing the public key from Amazon Lightsail.
-
-  You can delete key pairs that were created using the
-  [ImportKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html) and
-  [CreateKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html)
-  actions, as well as the Lightsail default key pair. A new default
-  key pair will not be created unless you launch an instance without specifying a
-  custom key
-  pair, or you call the
-  [DownloadDefaultKeyPair](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html) API.
-
-  The `delete key pair` operation supports tag-based access control via resource
-  tags applied to the resource identified by `key pair name`. For more
-  information,
-  see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_key_pair(AWS.Client.t(), delete_key_pair_request(), Keyword.t()) ::
           {:ok, delete_key_pair_result(), any()}
@@ -8412,18 +8017,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the known host key or certificate used by the Amazon Lightsail
-  browser-based SSH or
-  RDP clients to authenticate an instance.
-
-  This operation enables the Lightsail browser-based
-  SSH or RDP clients to connect to the instance after a host key mismatch.
-
-  Perform this operation only if you were expecting the host key or certificate
-  mismatch
-  or if you are familiar with the new host key or certificate on the instance. For
-  more
-  information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
-  client](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
+  browser-based SSH or RDP clients to authenticate an instance. This operation
+  enables the Lightsail browser-based SSH or RDP clients to connect to the
+  instance after a host key mismatch.
   """
   @spec delete_known_host_keys(AWS.Client.t(), delete_known_host_keys_request(), Keyword.t()) ::
           {:ok, delete_known_host_keys_result(), any()}
@@ -8438,16 +8034,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a Lightsail load balancer and all its associated SSL/TLS certificates.
-
-  Once the
-  load balancer is deleted, you will need to create a new load balancer, create a
-  new
-  certificate, and verify domain ownership again.
-
-  The `delete load balancer` operation supports tag-based access control via
-  resource tags applied to the resource identified by `load balancer name`. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Once the load balancer is deleted, you will need to create a new load
+  balancer, create a new certificate, and verify domain ownership again.
   """
   @spec delete_load_balancer(AWS.Client.t(), delete_load_balancer_request(), Keyword.t()) ::
           {:ok, delete_load_balancer_result(), any()}
@@ -8462,16 +8050,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
-
-  The `DeleteLoadBalancerTlsCertificate` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_load_balancer_tls_certificate(
           AWS.Client.t(),
@@ -8490,11 +8068,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a database in Amazon Lightsail.
-
-  The `delete relational database` operation supports tag-based access control
-  via resource tags applied to the resource identified by relationalDatabaseName.
-  For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_relational_database(
           AWS.Client.t(),
@@ -8513,11 +8086,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes a database snapshot in Amazon Lightsail.
-
-  The `delete relational database snapshot` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-  relationalDatabaseName. For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_relational_database_snapshot(
           AWS.Client.t(),
@@ -8536,12 +8104,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery
-  network (CDN)
-  distribution.
-
-  After the certificate is detached, your distribution stops accepting traffic for
-  all of
-  the domains that are associated with the certificate.
+  network (CDN) distribution.
   """
   @spec detach_certificate_from_distribution(
           AWS.Client.t(),
@@ -8559,16 +8122,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Detaches a stopped block storage disk from a Lightsail instance.
-
-  Make sure to unmount
-  any file systems on the device within your operating system before stopping the
-  instance and
-  detaching the disk.
-
-  The `detach disk` operation supports tag-based access control via resource tags
-  applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Detaches a stopped block storage disk from a Lightsail instance. Make sure to
+  unmount any file systems on the device within your operating system before
+  stopping the instance and detaching the disk.
   """
   @spec detach_disk(AWS.Client.t(), detach_disk_request(), Keyword.t()) ::
           {:ok, detach_disk_result(), any()}
@@ -8582,21 +8138,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Detaches the specified instances from a Lightsail load balancer.
-
-  This operation waits until the instances are no longer needed before they are
-  detached
-  from the load balancer.
-
-  The `detach instances from load balancer` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Detaches the specified instances from a Lightsail load balancer. This operation
+  waits until the instances are no longer needed before they are detached from
+  the load balancer.
   """
   @spec detach_instances_from_load_balancer(
           AWS.Client.t(),
@@ -8628,9 +8172,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Disables an add-on for an Amazon Lightsail resource.
-
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  Disables an add-on for an Amazon Lightsail resource. For more information, see
+  the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec disable_add_on(AWS.Client.t(), disable_add_on_request(), Keyword.t()) ::
           {:ok, disable_add_on_result(), any()}
@@ -8645,9 +8189,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Downloads the regional Amazon Lightsail default key pair.
-
-  This action also creates a Lightsail default key pair if a default key pair
-  does not currently exist in the Amazon Web Services Region.
   """
   @spec download_default_key_pair(
           AWS.Client.t(),
@@ -8665,10 +8206,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Enables or modifies an add-on for an Amazon Lightsail resource.
-
-  For more information, see
-  the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  Enables or modifies an add-on for an Amazon Lightsail resource. For more
+  information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec enable_add_on(AWS.Client.t(), enable_add_on_request(), Keyword.t()) ::
           {:ok, enable_add_on_result(), any()}
@@ -8683,31 +8223,14 @@ defmodule AWS.Lightsail do
 
   @doc """
   Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon
-  Elastic Compute Cloud (Amazon EC2).
-
-  This operation results in an export snapshot record that can be used with the
-
-  ```
-  create
-  cloud formation stack
-  ```
-
-  operation to create new Amazon EC2 instances.
-
-  Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images
-  (AMIs), and the
-  instance system disk appears as an Amazon Elastic Block Store (Amazon EBS)
-  volume. Exported disk snapshots appear in
-  Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web
-  Services Region in
-  Amazon EC2 as the source Lightsail snapshot.
-
-  The `export snapshot` operation supports tag-based access control via resource
-  tags applied to the resource identified by `source snapshot name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
-
-  Use the `get instance snapshots` or `get disk snapshots`
-  operations to get a list of snapshots that you can export to Amazon EC2.
+  Elastic Compute Cloud (Amazon EC2). This operation results in an export
+  snapshot record that can be used with the ``` create cloud formation stack ```
+  operation to create new Amazon EC2 instances. Exported instance snapshots
+  appear in Amazon EC2 as Amazon Machine Images (AMIs), and the instance system
+  disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported
+  disk snapshots appear in Amazon EC2 as Amazon EBS volumes. Snapshots are
+  exported to the same Amazon Web Services Region in Amazon EC2 as the source
+  Lightsail snapshot.
   """
   @spec export_snapshot(AWS.Client.t(), export_snapshot_request(), Keyword.t()) ::
           {:ok, export_snapshot_result(), any()}
@@ -8735,19 +8258,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns information about the configured alarms.
-
-  Specify an alarm name in your request to
-  return information about a specific alarm, or specify a monitored resource name
-  to return
-  information about all alarms for a specific resource.
-
-  An alarm is used to monitor a single metric for one of your resources. When a
-  metric
-  condition is met, the alarm can notify you by email, SMS text message, and a
-  banner displayed
-  on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Returns information about the configured alarms. Specify an alarm name in your
+  request to return information about a specific alarm, or specify a monitored
+  resource name to return information about all alarms for a specific resource.
   """
   @spec get_alarms(AWS.Client.t(), get_alarms_request(), Keyword.t()) ::
           {:ok, get_alarms_result(), any()}
@@ -8761,10 +8274,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the available automatic snapshots for an instance or disk.
-
-  For more information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  Returns the available automatic snapshots for an instance or disk. For more
+  information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec get_auto_snapshots(AWS.Client.t(), get_auto_snapshots_request(), Keyword.t()) ::
           {:ok, get_auto_snapshots_result(), any()}
@@ -8778,22 +8290,10 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the list of available instance images, or *blueprints*.
-
-  You can
-  use a blueprint to create a new instance already running a specific operating
-  system, as well
-  as a preinstalled app or development stack. The software each instance is
-  running depends on
-  the blueprint image you choose.
-
-  Use active blueprints when creating new instances. Inactive blueprints are
-  listed to
-  support customers with existing instances and are not necessarily available to
-  create new
-  instances. Blueprints are marked inactive when they become outdated due to
-  operating system
-  updates or new application releases.
+  Returns the list of available instance images, or *blueprints*. You can use a
+  blueprint to create a new instance already running a specific operating
+  system, as well as a preinstalled app or development stack. The software each
+  instance is running depends on the blueprint image you choose.
   """
   @spec get_blueprints(AWS.Client.t(), get_blueprints_request(), Keyword.t()) ::
           {:ok, get_blueprints_result(), any()}
@@ -8808,13 +8308,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the existing access key IDs for the specified Amazon Lightsail bucket.
-
-  This action does not return the secret access key value of an access key. You
-  can get a
-  secret access key only when you create it from the response of the
-  [CreateBucketAccessKey](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html)
-  action. If you lose the secret access key, you must create
-  a new access key.
   """
   @spec get_bucket_access_keys(AWS.Client.t(), get_bucket_access_keys_request(), Keyword.t()) ::
           {:ok, get_bucket_access_keys_result(), any()}
@@ -8828,16 +8321,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the bundles that you can apply to a Amazon Lightsail bucket.
-
-  The bucket bundle specifies the monthly cost, storage quota, and data transfer
-  quota for a
-  bucket.
-
-  Use the
-  [UpdateBucketBundle](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html)
-  action to update the
-  bundle for a bucket.
+  Returns the bundles that you can apply to a Amazon Lightsail bucket. The bucket
+  bundle specifies the monthly cost, storage quota, and data transfer quota for
+  a bucket.
   """
   @spec get_bucket_bundles(AWS.Client.t(), get_bucket_bundles_request(), Keyword.t()) ::
           {:ok, get_bucket_bundles_result(), any()}
@@ -8852,12 +8338,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the data points of a specific metric for an Amazon Lightsail bucket.
-
-  Metrics report the utilization of a bucket. View and collect metric data
-  regularly to
-  monitor the number of objects stored in a bucket (including object versions) and
-  the storage
-  space used by those objects.
   """
   @spec get_bucket_metric_data(AWS.Client.t(), get_bucket_metric_data_request(), Keyword.t()) ::
           {:ok, get_bucket_metric_data_result(), any()}
@@ -8871,16 +8351,10 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns information about one or more Amazon Lightsail buckets.
-
-  The information returned
-  includes the synchronization status of the Amazon Simple Storage Service (Amazon
-  S3)
-  account-level block public access feature for your Lightsail buckets.
-
-  For more information about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
-  in the *Amazon Lightsail Developer
-  Guide*.
+  Returns information about one or more Amazon Lightsail buckets. The information
+  returned includes the synchronization status of the Amazon Simple Storage
+  Service (Amazon S3) account-level block public access feature for your
+  Lightsail buckets.
   """
   @spec get_buckets(AWS.Client.t(), get_buckets_request(), Keyword.t()) ::
           {:ok, get_buckets_result(), any()}
@@ -8895,17 +8369,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the bundles that you can apply to an Amazon Lightsail instance when you
-  create
-  it.
-
-  A bundle describes the specifications of an instance, such as the monthly cost,
-  amount of
-  memory, the number of vCPUs, amount of storage space, and monthly network data
-  transfer
-  quota.
-
-  Bundles are referred to as *instance plans* in the Lightsail
-  console.
+  create it. A bundle describes the specifications of an instance, such as the
+  monthly cost, amount of memory, the number of vCPUs, amount of storage space,
+  and monthly network data transfer quota.
   """
   @spec get_bundles(AWS.Client.t(), get_bundles_request(), Keyword.t()) ::
           {:ok, get_bundles_result(), any()}
@@ -8920,11 +8386,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about one or more Amazon Lightsail SSL/TLS certificates.
-
-  To get a summary of a certificate, omit `includeCertificateDetails` from your
-  request. The response will include only the certificate Amazon Resource Name
-  (ARN),
-  certificate name, domain name, and tags.
   """
   @spec get_certificates(AWS.Client.t(), get_certificates_request(), Keyword.t()) ::
           {:ok, get_certificates_result(), any()}
@@ -8938,18 +8399,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the CloudFormation stack record created as a result of the
-
-  ```
-  create cloud
-  formation stack
-  ```
-
-  operation.
-
-  An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an
-  exported Lightsail
-  snapshot.
+  Returns the CloudFormation stack record created as a result of the ``` create
+  cloud formation stack ``` operation.
   """
   @spec get_cloud_formation_stack_records(
           AWS.Client.t(),
@@ -8967,19 +8418,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns information about the configured contact methods.
-
-  Specify a protocol in your
-  request to return information about a specific contact method.
-
-  A contact method is used to send you notifications about your Amazon Lightsail
-  resources.
-  You can add one email address and one mobile phone number contact method in each
-  Amazon Web Services Region. However, SMS text messaging is not supported in some
-  Amazon Web Services
-  Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  Returns information about the configured contact methods. Specify a protocol in
+  your request to return information about a specific contact method.
   """
   @spec get_contact_methods(AWS.Client.t(), get_contact_methods_request(), Keyword.t()) ::
           {:ok, get_contact_methods_result(), any()}
@@ -8994,8 +8434,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about Amazon Lightsail containers, such as the current
-  version of the
-  Lightsail Control (lightsailctl) plugin.
+  version of the Lightsail Control (lightsailctl) plugin.
   """
   @spec get_container_api_metadata(
           AWS.Client.t(),
@@ -9014,14 +8453,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the container images that are registered to your Amazon Lightsail
-  container
-  service.
-
-  If you created a deployment on your Lightsail container service that uses
-  container
-  images from a public registry like Docker Hub, those images are not returned as
-  part of this
-  action. Those images are not registered to your Lightsail container service.
+  container service.
   """
   @spec get_container_images(AWS.Client.t(), get_container_images_request(), Keyword.t()) ::
           {:ok, get_container_images_result(), any()}
@@ -9036,20 +8468,9 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the log events of a container of your Amazon Lightsail container
-  service.
-
-  If your container service has more than one node (i.e., a scale greater than 1),
-  then the
-  log events that are returned for the specified container are merged from all
-  nodes on your
-  container service.
-
-  Container logs are retained for a certain amount of time. For more information,
-  see
-  [Amazon Lightsail endpoints and
-  quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *Amazon Web Services General
-  Reference*.
+  service. If your container service has more than one node (i.e., a scale
+  greater than 1), then the log events that are returned for the specified
+  container are merged from all nodes on your container service.
   """
   @spec get_container_log(AWS.Client.t(), get_container_log_request(), Keyword.t()) ::
           {:ok, get_container_log_result(), any()}
@@ -9063,22 +8484,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the deployments for your Amazon Lightsail container service
-
-  A deployment specifies the settings, such as the ports and launch command, of
-  containers
+  Returns the deployments for your Amazon Lightsail container service A deployment
+  specifies the settings, such as the ports and launch command, of containers
   that are deployed to your container service.
-
-  The deployments are ordered by version in ascending order. The newest version is
-  listed at
-  the top of the response.
-
-  A set number of deployments are kept before the oldest one is replaced with the
-  newest
-  one. For more information, see [Amazon Lightsail endpoints and
-  quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html) in the
-  *Amazon Web Services General
-  Reference*.
   """
   @spec get_container_service_deployments(
           AWS.Client.t(),
@@ -9098,11 +8506,6 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of a specific metric of your Amazon Lightsail container
   service.
-
-  Metrics report the utilization of your resources. Monitor and collect metric
-  data
-  regularly to maintain the reliability, availability, and performance of your
-  resources.
   """
   @spec get_container_service_metric_data(
           AWS.Client.t(),
@@ -9121,12 +8524,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the list of powers that can be specified for your Amazon Lightsail
-  container
-  services.
-
-  The power specifies the amount of memory, the number of vCPUs, and the base
-  price of the
-  container service.
+  container services.
   """
   @spec get_container_service_powers(
           AWS.Client.t(),
@@ -9159,10 +8557,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Retrieves information about the cost estimate for a specified resource.
-
-  A cost estimate
-  will not generate for a resource that has been deleted.
+  Retrieves information about the cost estimate for a specified resource. A cost
+  estimate will not generate for a resource that has been deleted.
   """
   @spec get_cost_estimate(AWS.Client.t(), get_cost_estimate_request(), Keyword.t()) ::
           {:ok, get_cost_estimate_result(), any()}
@@ -9205,8 +8601,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all block storage disk snapshots in your AWS account
-  and
-  region.
+  and region.
   """
   @spec get_disk_snapshots(AWS.Client.t(), get_disk_snapshots_request(), Keyword.t()) ::
           {:ok, get_disk_snapshots_result(), any()}
@@ -9236,12 +8631,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the bundles that can be applied to your Amazon Lightsail content
-  delivery network
-  (CDN) distributions.
-
-  A distribution bundle specifies the monthly network transfer quota and monthly
-  cost of
-  your distribution.
+  delivery network (CDN) distributions.
   """
   @spec get_distribution_bundles(AWS.Client.t(), get_distribution_bundles_request(), Keyword.t()) ::
           {:ok, get_distribution_bundles_result(), any()}
@@ -9256,8 +8646,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the timestamp and status of the last cache reset of a specific Amazon
-  Lightsail
-  content delivery network (CDN) distribution.
+  Lightsail content delivery network (CDN) distribution.
   """
   @spec get_distribution_latest_cache_reset(
           AWS.Client.t(),
@@ -9276,14 +8665,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the data points of a specific metric for an Amazon Lightsail content
-  delivery
-  network (CDN) distribution.
-
-  Metrics report the utilization of your resources, and the error counts generated
-  by them.
-  Monitor and collect metric data regularly to maintain the reliability,
-  availability, and
-  performance of your resources.
+  delivery network (CDN) distribution.
   """
   @spec get_distribution_metric_data(
           AWS.Client.t(),
@@ -9302,8 +8684,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about one or more of your Amazon Lightsail content delivery
-  network
-  (CDN) distributions.
+  network (CDN) distributions.
   """
   @spec get_distributions(AWS.Client.t(), get_distributions_request(), Keyword.t()) ::
           {:ok, get_distributions_result(), any()}
@@ -9345,20 +8726,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns all export snapshot records created as a result of the
-
-  ```
-  export
-  snapshot
-  ```
-
-  operation.
-
-  An export snapshot record can be used to create a new Amazon EC2 instance and
-  its related
-  resources with the
-  [CreateCloudFormationStack](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html)
-  action.
+  Returns all export snapshot records created as a result of the ``` export
+  snapshot ``` operation.
   """
   @spec get_export_snapshot_records(
           AWS.Client.t(),
@@ -9377,8 +8746,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about a specific Amazon Lightsail instance, which is a
-  virtual private
-  server.
+  virtual private server.
   """
   @spec get_instance(AWS.Client.t(), get_instance_request(), Keyword.t()) ::
           {:ok, get_instance_result(), any()}
@@ -9393,13 +8761,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns temporary SSH keys you can use to connect to a specific virtual private
-  server, or
-  *instance*.
-
-  The `get instance access details` operation supports tag-based access control
-  via resource tags applied to the resource identified by `instance name`. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  server, or *instance*.
   """
   @spec get_instance_access_details(
           AWS.Client.t(),
@@ -9418,14 +8780,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the data points for the specified Amazon Lightsail instance metric,
-  given an
-  instance name.
-
-  Metrics report the utilization of your resources, and the error counts generated
-  by them.
-  Monitor and collect metric data regularly to maintain the reliability,
-  availability, and
-  performance of your resources.
+  given an instance name.
   """
   @spec get_instance_metric_data(AWS.Client.t(), get_instance_metric_data_request(), Keyword.t()) ::
           {:ok, get_instance_metric_data_result(), any()}
@@ -9440,8 +8795,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the firewall port states for a specific Amazon Lightsail instance, the
-  IP addresses
-  allowed to connect to the instance through the ports, and the protocol.
+  IP addresses allowed to connect to the instance through the ports, and the
+  protocol.
   """
   @spec get_instance_port_states(AWS.Client.t(), get_instance_port_states_request(), Keyword.t()) ::
           {:ok, get_instance_port_states_result(), any()}
@@ -9483,9 +8838,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the state of a specific instance.
-
-  Works on one instance at a time.
+  Returns the state of a specific instance. Works on one instance at a time.
   """
   @spec get_instance_state(AWS.Client.t(), get_instance_state_request(), Keyword.t()) ::
           {:ok, get_instance_state_result(), any()}
@@ -9557,12 +8910,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about health metrics for your Lightsail load balancer.
-
-  Metrics report the utilization of your resources, and the error counts generated
-  by them.
-  Monitor and collect metric data regularly to maintain the reliability,
-  availability, and
-  performance of your resources.
   """
   @spec get_load_balancer_metric_data(
           AWS.Client.t(),
@@ -9581,14 +8928,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about the TLS certificates that are associated with the
-  specified
-  Lightsail load balancer.
-
-  TLS is just an updated, more secure version of Secure Socket Layer (SSL).
-
-  You can have a maximum of 2 certificates associated with a Lightsail load
-  balancer. One
-  is active and the other is inactive.
+  specified Lightsail load balancer. TLS is just an updated, more secure version
+  of Secure Socket Layer (SSL).
   """
   @spec get_load_balancer_tls_certificates(
           AWS.Client.t(),
@@ -9608,10 +8949,6 @@ defmodule AWS.Lightsail do
   @doc """
   Returns a list of TLS security policies that you can apply to Lightsail load
   balancers.
-
-  For more information about load balancer TLS security policies, see [Configuring TLS security policies on your Amazon Lightsail load
-  balancers](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
-  in the *Amazon Lightsail Developer Guide*.
   """
   @spec get_load_balancer_tls_policies(
           AWS.Client.t(),
@@ -9643,10 +8980,9 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns information about a specific operation.
-
-  Operations include events such as when you
-  create an instance, allocate a static IP, attach a static IP, and so on.
+  Returns information about a specific operation. Operations include events such
+  as when you create an instance, allocate a static IP, attach a static IP, and
+  so on.
   """
   @spec get_operation(AWS.Client.t(), get_operation_request(), Keyword.t()) ::
           {:ok, get_operation_result(), any()}
@@ -9661,11 +8997,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns information about all operations.
-
-  Results are returned from oldest to newest, up to a maximum of 200. Results can
-  be paged
-  by making each subsequent call to `GetOperations` use the maximum (last)
-  `statusChangedAt` value from the previous request.
   """
   @spec get_operations(AWS.Client.t(), get_operations_request(), Keyword.t()) ::
           {:ok, get_operations_result(), any()}
@@ -9697,16 +9028,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns a list of all valid regions for Amazon Lightsail.
-
-  Use the
-
-  ```
-  include
-  availability zones
-  ```
-
-  parameter to also return the Availability Zones in a
+  Returns a list of all valid regions for Amazon Lightsail. Use the ``` include
+  availability zones ``` parameter to also return the Availability Zones in a
   region.
   """
   @spec get_regions(AWS.Client.t(), get_regions_request(), Keyword.t()) ::
@@ -9735,14 +9058,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns a list of available database blueprints in Amazon Lightsail.
-
-  A blueprint describes
-  the major engine version of a database.
-
-  You can use a blueprint ID to create a new database that runs a specific
-  database
-  engine.
+  Returns a list of available database blueprints in Amazon Lightsail. A blueprint
+  describes the major engine version of a database.
   """
   @spec get_relational_database_blueprints(
           AWS.Client.t(),
@@ -9760,13 +9077,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Returns the list of bundles that are available in Amazon Lightsail.
-
-  A bundle describes the
-  performance specifications for a database.
-
-  You can use a bundle ID to create a new database with explicit performance
-  specifications.
+  Returns the list of bundles that are available in Amazon Lightsail. A bundle
+  describes the performance specifications for a database.
   """
   @spec get_relational_database_bundles(
           AWS.Client.t(),
@@ -9840,12 +9152,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns the current, previous, or pending versions of the master user password
-  for a
-  Lightsail database.
-
-  The `GetRelationalDatabaseMasterUserPassword` operation supports tag-based
-  access control via resource tags applied to the resource identified by
-  relationalDatabaseName.
+  for a Lightsail database.
   """
   @spec get_relational_database_master_user_password(
           AWS.Client.t(),
@@ -9865,12 +9172,6 @@ defmodule AWS.Lightsail do
   @doc """
   Returns the data points of the specified metric for a database in Amazon
   Lightsail.
-
-  Metrics report the utilization of your resources, and the error counts generated
-  by them.
-  Monitor and collect metric data regularly to maintain the reliability,
-  availability, and
-  performance of your resources.
   """
   @spec get_relational_database_metric_data(
           AWS.Client.t(),
@@ -9889,14 +9190,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Returns all of the runtime parameters offered by the underlying database
-  software, or
-  engine, for a specific database in Amazon Lightsail.
-
-  In addition to the parameter names and values, this operation returns other
-  information
-  about each parameter. This information includes whether changes require a
-  reboot, whether the
-  parameter is modifiable, the allowed values, and the data types.
+  software, or engine, for a specific database in Amazon Lightsail.
   """
   @spec get_relational_database_parameters(
           AWS.Client.t(),
@@ -10036,12 +9330,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Opens ports for a specific Amazon Lightsail instance, and specifies the IP
-  addresses
-  allowed to connect to the instance through the ports, and the protocol.
-
-  The `OpenInstancePublicPorts` action supports tag-based access control via
-  resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  addresses allowed to connect to the instance through the ports, and the
+  protocol.
   """
   @spec open_instance_public_ports(
           AWS.Client.t(),
@@ -10073,24 +9363,12 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates or updates an alarm, and associates it with the specified metric.
-
-  An alarm is used to monitor a single metric for one of your resources. When a
-  metric
-  condition is met, the alarm can notify you by email, SMS text message, and a
-  banner displayed
-  on the Amazon Lightsail console. For more information, see [Alarms in Amazon
+  Creates or updates an alarm, and associates it with the specified metric. An
+  alarm is used to monitor a single metric for one of your resources. When a
+  metric condition is met, the alarm can notify you by email, SMS text message,
+  and a banner displayed on the Amazon Lightsail console. For more information,
+  see [Alarms in Amazon
   Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
-
-  When this action creates an alarm, the alarm state is immediately set to
-  `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
-  appropriately. Any actions associated with the new state are then executed.
-
-  When you update an existing alarm, its state is left unchanged, but the update
-  completely
-  overwrites the previous configuration of the alarm. The alarm is then evaluated
-  with the
-  updated configuration.
   """
   @spec put_alarm(AWS.Client.t(), put_alarm_request(), Keyword.t()) ::
           {:ok, put_alarm_result(), any()}
@@ -10105,21 +9383,12 @@ defmodule AWS.Lightsail do
 
   @doc """
   Opens ports for a specific Amazon Lightsail instance, and specifies the IP
-  addresses
-  allowed to connect to the instance through the ports, and the protocol.
-
-  This action also
-  closes all currently open ports that are not included in the request. Include
-  all of the ports
-  and the protocols you want to open in your `PutInstancePublicPorts`request. Or
-  use
-  the `OpenInstancePublicPorts` action to open ports without closing currently
-  open
+  addresses allowed to connect to the instance through the ports, and the
+  protocol. This action also closes all currently open ports that are not
+  included in the request. Include all of the ports and the protocols you want
+  to open in your `PutInstancePublicPorts`request. Or use the
+  `OpenInstancePublicPorts` action to open ports without closing currently open
   ports.
-
-  The `PutInstancePublicPorts` action supports tag-based access control via
-  resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec put_instance_public_ports(
           AWS.Client.t(),
@@ -10138,11 +9407,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Restarts a specific instance.
-
-  The `reboot instance` operation supports tag-based access control via resource
-  tags applied to the resource identified by `instance name`. For more
-  information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec reboot_instance(AWS.Client.t(), reboot_instance_request(), Keyword.t()) ::
           {:ok, reboot_instance_result(), any()}
@@ -10157,11 +9421,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Restarts a specific database in Amazon Lightsail.
-
-  The `reboot relational database` operation supports tag-based access control
-  via resource tags applied to the resource identified by relationalDatabaseName.
-  For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec reboot_relational_database(
           AWS.Client.t(),
@@ -10180,13 +9439,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Registers a container image to your Amazon Lightsail container service.
-
-  This action is not required if you install and use the Lightsail Control
-  (lightsailctl) plugin to push container images to your Lightsail container
-  service. For
-  more information, see [Pushing and managing container images on your Amazon Lightsail container
-  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
-  in the *Amazon Lightsail Developer Guide*.
   """
   @spec register_container_image(AWS.Client.t(), register_container_image_request(), Keyword.t()) ::
           {:ok, register_container_image_result(), any()}
@@ -10215,12 +9467,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes currently cached content from your Amazon Lightsail content delivery
-  network (CDN)
-  distribution.
-
-  After resetting the cache, the next time a content request is made, your
-  distribution
-  pulls, serves, and caches it from the origin.
+  network (CDN) distribution.
   """
   @spec reset_distribution_cache(AWS.Client.t(), reset_distribution_cache_request(), Keyword.t()) ::
           {:ok, reset_distribution_cache_result(), any()}
@@ -10235,29 +9482,13 @@ defmodule AWS.Lightsail do
 
   @doc """
   Sends a verification request to an email contact method to ensure it's owned by
-  the
-  requester.
-
-  SMS contact methods don't need to be verified.
-
-  A contact method is used to send you notifications about your Amazon Lightsail
-  resources.
-  You can add one email address and one mobile phone number contact method in each
-  Amazon Web Services Region. However, SMS text messaging is not supported in some
-  Amazon Web Services
-  Regions, and SMS text messages cannot be sent to some countries/regions. For
-  more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
-
-  A verification request is sent to the contact method when you initially create
-  it. Use
-  this action to send another verification request if a previous verification
-  request was
-  deleted, or has expired.
-
-  Notifications are not sent to an email contact method until after it is
-  verified, and
-  confirmed as valid.
+  the requester. SMS contact methods don't need to be verified. A contact method
+  is used to send you notifications about your Amazon Lightsail resources. You
+  can add one email address and one mobile phone number contact method in each
+  Amazon Web Services Region. However, SMS text messaging is not supported in
+  some Amazon Web Services Regions, and SMS text messages cannot be sent to some
+  countries/regions. For more information, see [Notifications in Amazon
+  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
   """
   @spec send_contact_method_verification(
           AWS.Client.t(),
@@ -10276,12 +9507,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Sets the IP address type for an Amazon Lightsail resource.
-
-  Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6
-  for the
-  specified resource. Alternately, you can use this action to disable dual-stack,
-  and enable
-  IPv4 only.
   """
   @spec set_ip_address_type(AWS.Client.t(), set_ip_address_type_request(), Keyword.t()) ::
           {:ok, set_ip_address_type_result(), any()}
@@ -10297,10 +9522,6 @@ defmodule AWS.Lightsail do
   @doc """
   Sets the Amazon Lightsail resources that can access the specified Lightsail
   bucket.
-
-  Lightsail buckets currently support setting access for Lightsail instances in
-  the same
-  Amazon Web Services Region.
   """
   @spec set_resource_access_for_bucket(
           AWS.Client.t(),
@@ -10318,14 +9539,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Creates an SSL/TLS certificate that secures traffic for your website.
-
-  After the
+  Creates an SSL/TLS certificate that secures traffic for your website. After the
   certificate is created, it is installed on the specified Lightsail instance.
-
-  If you provide more than one domain name in the request, at least one name must
-  be less
-  than or equal to 63 characters in length.
   """
   @spec setup_instance_https(AWS.Client.t(), setup_instance_https_request(), Keyword.t()) ::
           {:ok, setup_instance_https_result(), any()}
@@ -10340,11 +9555,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Initiates a graphical user interface (GUI) session that’s used to access a
-  virtual
-  computer’s operating system and application.
-
-  The session will be active for 1 hour. Use this
-  action to resume the session after it expires.
+  virtual computer’s operating system and application. The session will be
+  active for 1 hour. Use this action to resume the session after it expires.
   """
   @spec start_g_ui_session(AWS.Client.t(), start_g_ui_session_request(), Keyword.t()) ::
           {:ok, start_g_ui_session_result(), any()}
@@ -10358,22 +9570,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Starts a specific Amazon Lightsail instance from a stopped state.
-
-  To restart an instance,
-  use the `reboot instance` operation.
-
-  When you start a stopped instance, Lightsail assigns a new public IP address to
-  the
-  instance. To use the same IP address after stopping and starting an instance,
-  create a
-  static IP address and attach it to the instance. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
-
-  The `start instance` operation supports tag-based access control via resource
-  tags applied to the resource identified by `instance name`. For more
-  information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Starts a specific Amazon Lightsail instance from a stopped state. To restart an
+  instance, use the `reboot instance` operation.
   """
   @spec start_instance(AWS.Client.t(), start_instance_request(), Keyword.t()) ::
           {:ok, start_instance_result(), any()}
@@ -10387,15 +9585,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Starts a specific database from a stopped state in Amazon Lightsail.
-
-  To restart a database,
-  use the `reboot relational database` operation.
-
-  The `start relational database` operation supports tag-based access control via
-  resource tags applied to the resource identified by relationalDatabaseName. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Starts a specific database from a stopped state in Amazon Lightsail. To restart
+  a database, use the `reboot relational database` operation.
   """
   @spec start_relational_database(
           AWS.Client.t(),
@@ -10414,11 +9605,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Terminates a web-based NICE DCV session that’s used to access a virtual
-  computer’s
-  operating system or application.
-
-  The session will close and any unsaved data will be
-  lost.
+  computer’s operating system or application. The session will close and any
+  unsaved data will be lost.
   """
   @spec stop_g_ui_session(AWS.Client.t(), stop_g_ui_session_request(), Keyword.t()) ::
           {:ok, stop_g_ui_session_result(), any()}
@@ -10433,18 +9621,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Stops a specific Amazon Lightsail instance that is currently running.
-
-  When you start a stopped instance, Lightsail assigns a new public IP address to
-  the
-  instance. To use the same IP address after stopping and starting an instance,
-  create a
-  static IP address and attach it to the instance. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
-
-  The `stop instance` operation supports tag-based access control via resource
-  tags applied to the resource identified by `instance name`. For more
-  information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec stop_instance(AWS.Client.t(), stop_instance_request(), Keyword.t()) ::
           {:ok, stop_instance_result(), any()}
@@ -10459,11 +9635,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Stops a specific database that is currently running in Amazon Lightsail.
-
-  The `stop relational database` operation supports tag-based access control via
-  resource tags applied to the resource identified by relationalDatabaseName. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec stop_relational_database(AWS.Client.t(), stop_relational_database_request(), Keyword.t()) ::
           {:ok, stop_relational_database_result(), any()}
@@ -10477,18 +9648,15 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Adds one or more tags to the specified Amazon Lightsail resource.
-
-  Each resource can have a
-  maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys
-  must be unique
-  per resource. For more information about tags, see the [Amazon Lightsail Developer
+  Adds one or more tags to the specified Amazon Lightsail resource. Each resource
+  can have a maximum of 50 tags. Each tag consists of a key and an optional
+  value. Tag keys must be unique per resource. For more information about tags,
+  see the [Amazon Lightsail Developer
   Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags).
-
-  The `tag resource` operation supports tag-based access control via request tags
-  and resource tags applied to the resource identified by `resource name`. For
-  more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  The `tag resource` operation supports tag-based access control via request
+  tags and resource tags applied to the resource identified by `resource name`.
+  For more information, see the [Amazon Lightsail Developer
+  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
@@ -10502,20 +9670,10 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Tests an alarm by displaying a banner on the Amazon Lightsail console.
-
-  If a notification
-  trigger is configured for the specified alarm, the test also sends a
-  notification to the
-  notification protocol (`Email` and/or `SMS`) configured for the
-  alarm.
-
-  An alarm is used to monitor a single metric for one of your resources. When a
-  metric
-  condition is met, the alarm can notify you by email, SMS text message, and a
-  banner displayed
-  on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Tests an alarm by displaying a banner on the Amazon Lightsail console. If a
+  notification trigger is configured for the specified alarm, the test also
+  sends a notification to the notification protocol (`Email` and/or `SMS`)
+  configured for the alarm.
   """
   @spec test_alarm(AWS.Client.t(), test_alarm_request(), Keyword.t()) ::
           {:ok, test_alarm_result(), any()}
@@ -10544,13 +9702,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Deletes the specified set of tag keys and their values from the specified Amazon
-  Lightsail
-  resource.
-
-  The `untag resource` operation supports tag-based access control via request
-  tags and resource tags applied to the resource identified by `resource name`.
-  For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Lightsail resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
@@ -10565,11 +9717,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates an existing Amazon Lightsail bucket.
-
-  Use this action to update the configuration of an existing bucket, such as
-  versioning,
-  public accessibility, and the Amazon Web Services accounts that can access the
-  bucket.
   """
   @spec update_bucket(AWS.Client.t(), update_bucket_request(), Keyword.t()) ::
           {:ok, update_bucket_result(), any()}
@@ -10583,31 +9730,14 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.
-
-  A bucket bundle specifies the monthly cost, storage space, and data transfer
-  quota for a
-  bucket. You can update a bucket's bundle only one time within a monthly Amazon
-  Web Services
-  billing cycle. To determine if you can update a bucket's bundle, use the
+  Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket. A
+  bucket bundle specifies the monthly cost, storage space, and data transfer
+  quota for a bucket. You can update a bucket's bundle only one time within a
+  monthly Amazon Web Services billing cycle. To determine if you can update a
+  bucket's bundle, use the
   [GetBuckets](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html)
-  action. The
-  `ableToUpdateBundle` parameter in the response will indicate whether you can
-  currently update a bucket's bundle.
-
-  Update a bucket's bundle if it's consistently going over its storage space or
-  data
-  transfer quota, or if a bucket's usage is consistently in the lower range of its
-  storage space
-  or data transfer quota. Due to the unpredictable usage fluctuations that a
-  bucket might
-  experience, we strongly recommend that you update a bucket's bundle only as a
-  long-term
-  strategy, instead of as a short-term, monthly cost-cutting measure. Choose a
-  bucket bundle
-  that will provide the bucket with ample storage space and data transfer for a
-  long time to
-  come.
+  action. The `ableToUpdateBundle` parameter in the response will indicate
+  whether you can currently update a bucket's bundle.
   """
   @spec update_bucket_bundle(AWS.Client.t(), update_bucket_bundle_request(), Keyword.t()) ::
           {:ok, update_bucket_bundle_result(), any()}
@@ -10622,8 +9752,7 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates the configuration of your Amazon Lightsail container service, such as
-  its power,
-  scale, and public domain names.
+  its power, scale, and public domain names.
   """
   @spec update_container_service(AWS.Client.t(), update_container_service_request(), Keyword.t()) ::
           {:ok, update_container_service_result(), any()}
@@ -10639,8 +9768,6 @@ defmodule AWS.Lightsail do
   @doc """
   Updates an existing Amazon Lightsail content delivery network (CDN)
   distribution.
-
-  Use this action to update the configuration of your existing distribution.
   """
   @spec update_distribution(AWS.Client.t(), update_distribution_request(), Keyword.t()) ::
           {:ok, update_distribution_result(), any()}
@@ -10655,22 +9782,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates the bundle of your Amazon Lightsail content delivery network (CDN)
-  distribution.
-
-  A distribution bundle specifies the monthly network transfer quota and monthly
-  cost of
-  your distribution.
-
-  Update your distribution's bundle if your distribution is going over its monthly
-  network
-  transfer quota and is incurring an overage fee.
-
-  You can update your distribution's bundle only one time within your monthly
-  Amazon Web Services billing cycle. To determine if you can update your
-  distribution's bundle, use the
-  `GetDistributions` action. The `ableToUpdateBundle` parameter in the
-  result will indicate whether you can currently update your distribution's
-  bundle.
+  distribution. A distribution bundle specifies the monthly network transfer
+  quota and monthly cost of your distribution.
   """
   @spec update_distribution_bundle(
           AWS.Client.t(),
@@ -10689,10 +9802,6 @@ defmodule AWS.Lightsail do
 
   @doc """
   Updates a domain recordset after it is created.
-
-  The `update domain entry` operation supports tag-based access control via
-  resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
   """
   @spec update_domain_entry(AWS.Client.t(), update_domain_entry_request(), Keyword.t()) ::
           {:ok, update_domain_entry_result(), any()}
@@ -10707,14 +9816,11 @@ defmodule AWS.Lightsail do
 
   @doc """
   Modifies the Amazon Lightsail instance metadata parameters on a running or
-  stopped
-  instance.
-
-  When you modify the parameters on a running instance, the `GetInstance`
-  or `GetInstances` API operation initially responds with a state of
-  `pending`. After the parameter modifications are successfully applied, the state
-  changes to `applied` in subsequent `GetInstance` or
-  `GetInstances` API calls. For more information, see [Use IMDSv2 with an Amazon Lightsail
+  stopped instance. When you modify the parameters on a running instance, the
+  `GetInstance` or `GetInstances` API operation initially responds with a state
+  of `pending`. After the parameter modifications are successfully applied, the
+  state changes to `applied` in subsequent `GetInstance` or `GetInstances` API
+  calls. For more information, see [Use IMDSv2 with an Amazon Lightsail
   instance](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service)
   in the *Amazon Lightsail Developer Guide*.
   """
@@ -10734,20 +9840,8 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Updates the specified attribute for a load balancer.
-
-  You can only update one attribute at
-  a time.
-
-  The `update load balancer attribute` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-
-  ```
-  load balancer
-  name
-  ```
-
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Updates the specified attribute for a load balancer. You can only update one
+  attribute at a time.
   """
   @spec update_load_balancer_attribute(
           AWS.Client.t(),
@@ -10766,15 +9860,8 @@ defmodule AWS.Lightsail do
 
   @doc """
   Allows the update of one or more attributes of a database in Amazon Lightsail.
-
   Updates are applied immediately, or in cases where the updates could result in
-  an outage,
-  are applied during the database's predefined maintenance window.
-
-  The `update relational database` operation supports tag-based access control
-  via resource tags applied to the resource identified by relationalDatabaseName.
-  For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  an outage, are applied during the database's predefined maintenance window.
   """
   @spec update_relational_database(
           AWS.Client.t(),
@@ -10793,21 +9880,12 @@ defmodule AWS.Lightsail do
 
   @doc """
   Allows the update of one or more parameters of a database in Amazon Lightsail.
-
   Parameter updates don't cause outages; therefore, their application is not
-  subject to the
-  preferred maintenance window. However, there are two ways in which parameter
-  updates are
-  applied: `dynamic` or `pending-reboot`. Parameters marked with a
-  `dynamic` apply type are applied immediately. Parameters marked with a
-  `pending-reboot` apply type are applied only after the database is rebooted
-  using
-  the `reboot relational database` operation.
-
-  The `update relational database parameters` operation supports tag-based access
-  control via resource tags applied to the resource identified by
-  relationalDatabaseName. For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  subject to the preferred maintenance window. However, there are two ways in
+  which parameter updates are applied: `dynamic` or `pending-reboot`. Parameters
+  marked with a `dynamic` apply type are applied immediately. Parameters marked
+  with a `pending-reboot` apply type are applied only after the database is
+  rebooted using the `reboot relational database` operation.
   """
   @spec update_relational_database_parameters(
           AWS.Client.t(),

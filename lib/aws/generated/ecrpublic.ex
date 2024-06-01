@@ -4,20 +4,6 @@
 defmodule AWS.ECRPUBLIC do
   @moduledoc """
   Amazon Elastic Container Registry Public
-
-  Amazon Elastic Container Registry Public (Amazon ECR Public) is a managed
-  container image registry service.
-
-  Amazon ECR provides both
-  public and private registries to host your container images. You can use the
-  Docker CLI or
-  your preferred client to push, pull, and manage images. Amazon ECR provides a
-  secure, scalable,
-  and reliable registry for your Docker or Open Container Initiative (OCI) images.
-  Amazon ECR
-  supports public repositories with this API. For information about the Amazon ECR
-  API for private
-  repositories, see [Amazon Elastic Container Registry API Reference](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html).
   """
 
   alias AWS.Client
@@ -1251,17 +1237,9 @@ defmodule AWS.ECRPUBLIC do
 
   @doc """
   Checks the availability of one or more image layers that are within a repository
-  in a
-  public registry.
-
-  When an image is pushed to a repository, each image layer is checked to
-  verify if it has been uploaded before. If it has been uploaded, then the image
-  layer is
-  skipped.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  in a public registry. When an image is pushed to a repository, each image
+  layer is checked to verify if it has been uploaded before. If it has been
+  uploaded, then the image layer is skipped.
   """
   @spec batch_check_layer_availability(
           AWS.Client.t(),
@@ -1280,19 +1258,10 @@ defmodule AWS.ECRPUBLIC do
 
   @doc """
   Deletes a list of specified images that are within a repository in a public
-  registry.
-
-  Images are specified with either an `imageTag` or
-  `imageDigest`.
-
-  You can remove a tag from an image by specifying the image's tag in your
-  request. When
-  you remove the last tag from an image, the image is deleted from your
+  registry. Images are specified with either an `imageTag` or `imageDigest`. You
+  can remove a tag from an image by specifying the image's tag in your request.
+  When you remove the last tag from an image, the image is deleted from your
   repository.
-
-  You can completely delete an image (and all of its tags) by specifying the
-  digest of the
-  image in your request.
   """
   @spec batch_delete_image(AWS.Client.t(), batch_delete_image_request(), Keyword.t()) ::
           {:ok, batch_delete_image_response(), any()}
@@ -1307,19 +1276,10 @@ defmodule AWS.ECRPUBLIC do
 
   @doc """
   Informs Amazon ECR that the image layer upload is complete for a specified
-  public registry,
-  repository name, and upload ID.
-
-  You can optionally provide a `sha256` digest of
-  the image layer for data validation purposes.
-
-  When an image is pushed, the CompleteLayerUpload API is called once for each new
-  image
-  layer to verify that the upload is complete.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  public registry, repository name, and upload ID. You can optionally provide a
+  `sha256` digest of the image layer for data validation purposes. When an image
+  is pushed, the CompleteLayerUpload API is called once for each new image layer
+  to verify that the upload is complete.
   """
   @spec complete_layer_upload(AWS.Client.t(), complete_layer_upload_request(), Keyword.t()) ::
           {:ok, complete_layer_upload_response(), any()}
@@ -1333,9 +1293,8 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Creates a repository in a public registry.
-
-  For more information, see [Amazon ECR repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
+  Creates a repository in a public registry. For more information, see [Amazon ECR
+  repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec create_repository(AWS.Client.t(), create_repository_request(), Keyword.t()) ::
@@ -1350,11 +1309,10 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Deletes a repository in a public registry.
-
-  If the repository contains images, you must
-  either manually delete all images in the repository or use the `force` option.
-  This option deletes all images on your behalf before deleting the repository.
+  Deletes a repository in a public registry. If the repository contains images,
+  you must either manually delete all images in the repository or use the
+  `force` option. This option deletes all images on your behalf before deleting
+  the repository.
   """
   @spec delete_repository(AWS.Client.t(), delete_repository_request(), Keyword.t()) ::
           {:ok, delete_repository_response(), any()}
@@ -1398,13 +1356,6 @@ defmodule AWS.ECRPUBLIC do
   @doc """
   Returns metadata that's related to the images in a repository in a public
   registry.
-
-  Beginning with Docker version 1.9, the Docker client compresses image layers
-  before
-  pushing them to a V2 Docker registry. The output of the `docker images`
-  command shows the uncompressed image size. Therefore, it might return a larger
-  image
-  size than the image sizes that are returned by `DescribeImages`.
   """
   @spec describe_images(AWS.Client.t(), describe_images_request(), Keyword.t()) ::
           {:ok, describe_images_response(), any()}
@@ -1446,14 +1397,10 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Retrieves an authorization token.
-
-  An authorization token represents your IAM
+  Retrieves an authorization token. An authorization token represents your IAM
   authentication credentials. You can use it to access any Amazon ECR registry
-  that your IAM
-  principal has access to. The authorization token is valid for 12 hours. This API
-  requires
-  the `ecr-public:GetAuthorizationToken` and
+  that your IAM principal has access to. The authorization token is valid for 12
+  hours. This API requires the `ecr-public:GetAuthorizationToken` and
   `sts:GetServiceBearerToken` permissions.
   """
   @spec get_authorization_token(AWS.Client.t(), get_authorization_token_request(), Keyword.t()) ::
@@ -1486,10 +1433,8 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Retrieve catalog metadata for a repository in a public registry.
-
-  This metadata is
-  displayed publicly in the Amazon ECR Public Gallery.
+  Retrieve catalog metadata for a repository in a public registry. This metadata
+  is displayed publicly in the Amazon ECR Public Gallery.
   """
   @spec get_repository_catalog_data(
           AWS.Client.t(),
@@ -1521,17 +1466,10 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Notifies Amazon ECR that you intend to upload an image layer.
-
-  When an image is pushed, the InitiateLayerUpload API is called once for each
-  image layer
-  that hasn't already been uploaded. Whether an image layer uploads is determined
-  by the
-  BatchCheckLayerAvailability API action.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  Notifies Amazon ECR that you intend to upload an image layer. When an image is
+  pushed, the InitiateLayerUpload API is called once for each image layer that
+  hasn't already been uploaded. Whether an image layer uploads is determined by
+  the BatchCheckLayerAvailability API action.
   """
   @spec initiate_layer_upload(AWS.Client.t(), initiate_layer_upload_request(), Keyword.t()) ::
           {:ok, initiate_layer_upload_response(), any()}
@@ -1560,17 +1498,9 @@ defmodule AWS.ECRPUBLIC do
 
   @doc """
   Creates or updates the image manifest and tags that are associated with an
-  image.
-
-  When an image is pushed and all new image layers have been uploaded, the
-  PutImage API is
-  called once to create or update the image manifest and the tags that are
-  associated with
-  the image.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  image. When an image is pushed and all new image layers have been uploaded,
+  the PutImage API is called once to create or update the image manifest and the
+  tags that are associated with the image.
   """
   @spec put_image(AWS.Client.t(), put_image_request(), Keyword.t()) ::
           {:ok, put_image_response(), any()}
@@ -1621,9 +1551,8 @@ defmodule AWS.ECRPUBLIC do
 
   @doc """
   Applies a repository policy to the specified public repository to control access
-  permissions.
-
-  For more information, see [Amazon ECR Repository Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
+  permissions. For more information, see [Amazon ECR Repository
+  Policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html)
   in the *Amazon Elastic Container Registry User Guide*.
   """
   @spec set_repository_policy(AWS.Client.t(), set_repository_policy_request(), Keyword.t()) ::
@@ -1638,13 +1567,10 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
-
-  If existing tags on a resource aren't specified in the request parameters, they
-  aren't
-  changed. When a resource is deleted, the tags associated with that resource are
-  also
-  deleted.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource aren't specified in the request parameters, they
+  aren't changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1672,17 +1598,10 @@ defmodule AWS.ECRPUBLIC do
   end
 
   @doc """
-  Uploads an image layer part to Amazon ECR.
-
-  When an image is pushed, each new image layer is uploaded in parts. The maximum
-  size of
-  each image layer part can be 20971520 bytes (about 20MB). The UploadLayerPart
-  API is called
-  once for each new image layer part.
-
-  This operation is used by the Amazon ECR proxy and is not generally used by
-  customers for pulling and pushing images. In most cases, you should use the
-  `docker` CLI to pull, tag, and push images.
+  Uploads an image layer part to Amazon ECR. When an image is pushed, each new
+  image layer is uploaded in parts. The maximum size of each image layer part
+  can be 20971520 bytes (about 20MB). The UploadLayerPart API is called once for
+  each new image layer part.
   """
   @spec upload_layer_part(AWS.Client.t(), upload_layer_part_request(), Keyword.t()) ::
           {:ok, upload_layer_part_response(), any()}

@@ -4,25 +4,17 @@
 defmodule AWS.Transfer do
   @moduledoc """
   Transfer Family is a fully managed service that enables the transfer of files
-  over the File
-  Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
-  (SSH) File
-  Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
-  (Amazon S3) or Amazon EFS.
-
-  Additionally, you can use Applicability Statement 2 (AS2) to transfer files into
-  and out of Amazon S3.
-  Amazon Web Services helps you seamlessly migrate your file transfer workflows to
-  Transfer Family by integrating
-  with existing authentication systems, and providing DNS routing with Amazon
-  Route 53 so
-  nothing changes for your customers and partners, or their applications. With
-  your data in
-  Amazon S3, you can use it with Amazon Web Services for processing, analytics,
-  machine learning, and
-  archiving. Getting started with Transfer Family is easy since there is no
-  infrastructure to buy and
-  set up.
+  over the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS),
+  or Secure Shell (SSH) File Transfer Protocol (SFTP) directly into and out of
+  Amazon Simple Storage Service (Amazon S3) or Amazon EFS. Additionally, you can
+  use Applicability Statement 2 (AS2) to transfer files into and out of Amazon
+  S3. Amazon Web Services helps you seamlessly migrate your file transfer
+  workflows to Transfer Family by integrating with existing authentication
+  systems, and providing DNS routing with Amazon Route 53 so nothing changes for
+  your customers and partners, or their applications. With your data in Amazon
+  S3, you can use it with Amazon Web Services for processing, analytics, machine
+  learning, and archiving. Getting started with Transfer Family is easy since
+  there is no infrastructure to buy and set up.
   """
 
   alias AWS.Client
@@ -2686,15 +2678,11 @@ defmodule AWS.Transfer do
 
   @doc """
   Used by administrators to choose which groups in the directory should have
-  access to
-  upload and download files over the enabled protocols using Transfer Family.
-
-  For example, a
-  Microsoft Active Directory might contain 50,000 users, but only a small fraction
-  might need
-  the ability to transfer files to the server. An administrator can use
-  `CreateAccess` to limit the access to the correct set of users who need this
-  ability.
+  access to upload and download files over the enabled protocols using Transfer
+  Family. For example, a Microsoft Active Directory might contain 50,000 users,
+  but only a small fraction might need the ability to transfer files to the
+  server. An administrator can use `CreateAccess` to limit the access to the
+  correct set of users who need this ability.
   """
   @spec create_access(AWS.Client.t(), create_access_request(), Keyword.t()) ::
           {:ok, create_access_response(), any()}
@@ -2708,18 +2696,11 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Creates an agreement.
-
-  An agreement is a bilateral trading partner agreement, or partnership,
-  between an Transfer Family server and an AS2 process. The agreement defines the
-  file and message
-  transfer relationship between the server and the AS2 process. To define an
-  agreement, Transfer Family
-  combines a server, local profile, partner profile, certificate, and other
-  attributes.
-
-  The partner is identified with the `PartnerProfileId`, and the AS2 process is
-  identified with the `LocalProfileId`.
+  Creates an agreement. An agreement is a bilateral trading partner agreement, or
+  partnership, between an Transfer Family server and an AS2 process. The
+  agreement defines the file and message transfer relationship between the
+  server and the AS2 process. To define an agreement, Transfer Family combines a
+  server, local profile, partner profile, certificate, and other attributes.
   """
   @spec create_agreement(AWS.Client.t(), create_agreement_request(), Keyword.t()) ::
           {:ok, create_agreement_response(), any()}
@@ -2734,16 +2715,13 @@ defmodule AWS.Transfer do
 
   @doc """
   Creates the connector, which captures the parameters for a connection for the
-  AS2 or SFTP protocol.
-
-  For AS2, the connector is required for sending files to an externally hosted AS2
-  server. For SFTP, the connector is required when sending files to an SFTP server
-  or receiving files from an SFTP server.
-  For more details about connectors, see [Configure AS2 connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-as2-connector.html)
-  and [Create SFTP connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html).
-
-  You must specify exactly one configuration object: either for AS2 (`As2Config`)
-  or SFTP (`SftpConfig`).
+  AS2 or SFTP protocol. For AS2, the connector is required for sending files to
+  an externally hosted AS2 server. For SFTP, the connector is required when
+  sending files to an SFTP server or receiving files from an SFTP server. For
+  more details about connectors, see [Configure AS2
+  connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-as2-connector.html)
+  and [Create SFTP
+  connectors](https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html).
   """
   @spec create_connector(AWS.Client.t(), create_connector_request(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
@@ -2772,14 +2750,9 @@ defmodule AWS.Transfer do
 
   @doc """
   Instantiates an auto-scaling virtual server based on the selected file transfer
-  protocol
-  in Amazon Web Services.
-
-  When you make updates to your file transfer protocol-enabled server or when you
-  work
-  with users, use the service-generated `ServerId` property that is assigned to
-  the
-  newly created server.
+  protocol in Amazon Web Services. When you make updates to your file transfer
+  protocol-enabled server or when you work with users, use the service-generated
+  `ServerId` property that is assigned to the newly created server.
   """
   @spec create_server(AWS.Client.t(), create_server_request(), Keyword.t()) ::
           {:ok, create_server_response(), any()}
@@ -2794,15 +2767,12 @@ defmodule AWS.Transfer do
 
   @doc """
   Creates a user and associates them with an existing file transfer
-  protocol-enabled server.
-
-  You can only create and associate users with servers that have the
-  `IdentityProviderType` set to `SERVICE_MANAGED`. Using parameters for
-  `CreateUser`, you can specify the user name, set the home directory, store the
-  user's public key, and assign the user's Identity and Access Management (IAM)
-  role. You can also optionally add a session policy, and assign metadata with
-  tags that can
-  be used to group and search for users.
+  protocol-enabled server. You can only create and associate users with servers
+  that have the `IdentityProviderType` set to `SERVICE_MANAGED`. Using
+  parameters for `CreateUser`, you can specify the user name, set the home
+  directory, store the user's public key, and assign the user's Identity and
+  Access Management (IAM) role. You can also optionally add a session policy,
+  and assign metadata with tags that can be used to group and search for users.
   """
   @spec create_user(AWS.Client.t(), create_user_request(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -2816,13 +2786,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-
   Allows you to create a workflow with specified steps and step details the
-  workflow invokes after file transfer completes.
-
-  After creating a workflow, you can associate the workflow created with any
-  transfer servers by specifying the `workflow-details` field in `CreateServer`
-  and `UpdateServer` operations.
+  workflow invokes after file transfer completes. After creating a workflow, you
+  can associate the workflow created with any transfer servers by specifying the
+  `workflow-details` field in `CreateServer` and `UpdateServer` operations.
   """
   @spec create_workflow(AWS.Client.t(), create_workflow_request(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
@@ -2836,8 +2803,8 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Allows you to delete the access specified in the `ServerID` and
-  `ExternalID` parameters.
+  Allows you to delete the access specified in the `ServerID` and `ExternalID`
+  parameters.
   """
   @spec delete_access(AWS.Client.t(), delete_access_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2865,8 +2832,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Deletes the certificate that's specified in the `CertificateId`
-  parameter.
+  Deletes the certificate that's specified in the `CertificateId` parameter.
   """
   @spec delete_certificate(AWS.Client.t(), delete_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2923,8 +2889,6 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the file transfer protocol-enabled server that you specify.
-
-  No response returns from this operation.
   """
   @spec delete_server(AWS.Client.t(), delete_server_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2953,11 +2917,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Deletes the user belonging to a file transfer protocol-enabled server you
-  specify.
-
-  No response returns from this operation.
-
-  When you delete a user from a server, the user's information is lost.
+  specify. No response returns from this operation.
   """
   @spec delete_user(AWS.Client.t(), delete_user_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2986,13 +2946,8 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the access that is assigned to the specific file transfer
-  protocol-enabled
-  server, as identified by its `ServerId` property and its
+  protocol-enabled server, as identified by its `ServerId` property and its
   `ExternalId`.
-
-  The response from this call returns the properties of the access that is
-  associated with
-  the `ServerId` value that was specified.
   """
   @spec describe_access(AWS.Client.t(), describe_access_request(), Keyword.t()) ::
           {:ok, describe_access_response(), any()}
@@ -3050,12 +3005,6 @@ defmodule AWS.Transfer do
   @doc """
   You can use `DescribeExecution` to check the details of the execution of the
   specified workflow.
-
-  This API call only returns details for in-progress workflows.
-
-  If you provide an ID for an execution that is not in progress, or if the
-  execution doesn't match the specified workflow ID, you receive a
-  `ResourceNotFound` exception.
   """
   @spec describe_execution(AWS.Client.t(), describe_execution_request(), Keyword.t()) ::
           {:ok, describe_execution_response(), any()}
@@ -3099,10 +3048,9 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the security policy that is attached to your server or SFTP connector.
-
   The response contains a description of the security policy's properties. For
-  more
-  information about security policies, see [Working with security policies for
+  more information about security policies, see [Working with security policies
+  for
   servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
   or [Working with security policies for SFTP
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
@@ -3120,12 +3068,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes a file transfer protocol-enabled server that you specify by passing
-  the
-  `ServerId` parameter.
-
-  The response contains a description of a server's properties. When you set
-  `EndpointType` to VPC, the response will contain the
-  `EndpointDetails`.
+  the `ServerId` parameter.
   """
   @spec describe_server(AWS.Client.t(), describe_server_request(), Keyword.t()) ::
           {:ok, describe_server_response(), any()}
@@ -3140,12 +3083,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Describes the user assigned to the specific file transfer protocol-enabled
-  server, as
-  identified by its `ServerId` property.
-
-  The response from this call returns the properties of the user associated with
-  the
-  `ServerId` value that was specified.
+  server, as identified by its `ServerId` property.
   """
   @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
@@ -3174,9 +3112,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Imports the signing and encryption certificates that you need to create local
-  (AS2)
-  profiles and partner
-  profiles.
+  (AS2) profiles and partner profiles.
   """
   @spec import_certificate(AWS.Client.t(), import_certificate_request(), Keyword.t()) ::
           {:ok, import_certificate_response(), any()}
@@ -3190,8 +3126,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Adds a host key to the server that's specified by the `ServerId`
-  parameter.
+  Adds a host key to the server that's specified by the `ServerId` parameter.
   """
   @spec import_host_key(AWS.Client.t(), import_host_key_request(), Keyword.t()) ::
           {:ok, import_host_key_response(), any()}
@@ -3206,11 +3141,8 @@ defmodule AWS.Transfer do
 
   @doc """
   Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a
-  `UserName` value assigned to the specific file transfer protocol-enabled server,
-  identified by `ServerId`.
-
-  The response returns the `UserName` value, the `ServerId` value, and
-  the name of the `SshPublicKeyId`.
+  `UserName` value assigned to the specific file transfer protocol-enabled
+  server, identified by `ServerId`.
   """
   @spec import_ssh_public_key(AWS.Client.t(), import_ssh_public_key_request(), Keyword.t()) ::
           {:ok, import_ssh_public_key_response(), any()}
@@ -3239,13 +3171,10 @@ defmodule AWS.Transfer do
 
   @doc """
   Returns a list of the agreements for the server that's identified by the
-  `ServerId` that you supply.
-
-  If you want to limit the results to a certain number,
-  supply a value for the `MaxResults` parameter. If you ran the command previously
-  and received a value for `NextToken`, you can supply that value to continue
-  listing
-  agreements from where you left off.
+  `ServerId` that you supply. If you want to limit the results to a certain
+  number, supply a value for the `MaxResults` parameter. If you ran the command
+  previously and received a value for `NextToken`, you can supply that value to
+  continue listing agreements from where you left off.
   """
   @spec list_agreements(AWS.Client.t(), list_agreements_request(), Keyword.t()) ::
           {:ok, list_agreements_response(), any()}
@@ -3260,14 +3189,10 @@ defmodule AWS.Transfer do
 
   @doc """
   Returns a list of the current certificates that have been imported into Transfer
-  Family.
-
-  If you want to
-  limit the results to a certain number, supply a value for the `MaxResults`
-  parameter. If you ran the command previously and received a value for the
-  `NextToken` parameter, you can supply that value to continue listing
-  certificates
-  from where you left off.
+  Family. If you want to limit the results to a certain number, supply a value
+  for the `MaxResults` parameter. If you ran the command previously and received
+  a value for the `NextToken` parameter, you can supply that value to continue
+  listing certificates from where you left off.
   """
   @spec list_certificates(AWS.Client.t(), list_certificates_request(), Keyword.t()) ::
           {:ok, list_certificates_response(), any()}
@@ -3296,9 +3221,6 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists all in-progress executions for the specified workflow.
-
-  If the specified workflow ID cannot be found, `ListExecutions` returns a
-  `ResourceNotFound` exception.
   """
   @spec list_executions(AWS.Client.t(), list_executions_request(), Keyword.t()) ::
           {:ok, list_executions_response(), any()}
@@ -3327,13 +3249,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Returns a list of the profiles for your system.
-
-  If you want to limit the results to a
-  certain number, supply a value for the `MaxResults` parameter. If you ran the
-  command previously and received a value for `NextToken`, you can supply that
-  value
-  to continue listing profiles from where you left off.
+  Returns a list of the profiles for your system. If you want to limit the results
+  to a certain number, supply a value for the `MaxResults` parameter. If you ran
+  the command previously and received a value for `NextToken`, you can supply
+  that value to continue listing profiles from where you left off.
   """
   @spec list_profiles(AWS.Client.t(), list_profiles_request(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -3348,10 +3267,8 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the security policies that are attached to your servers and SFTP
-  connectors.
-
-  For more information
-  about security policies, see [Working with security policies for
+  connectors. For more information about security policies, see [Working with
+  security policies for
   servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
   or [Working with security policies for SFTP
   connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
@@ -3369,8 +3286,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the file transfer protocol-enabled servers that are associated with your
-  Amazon Web Services
-  account.
+  Amazon Web Services account.
   """
   @spec list_servers(AWS.Client.t(), list_servers_request(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
@@ -3385,10 +3301,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists all of the tags associated with the Amazon Resource Name (ARN) that you
-  specify.
-
-  The
-  resource can be a user, server, or role.
+  specify. The resource can be a user, server, or role.
   """
   @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3403,8 +3316,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Lists the users for a file transfer protocol-enabled server that you specify by
-  passing
-  the `ServerId` parameter.
+  passing the `ServerId` parameter.
   """
   @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -3434,10 +3346,6 @@ defmodule AWS.Transfer do
 
   @doc """
   Sends a callback for asynchronous custom steps.
-
-  The `ExecutionId`, `WorkflowId`, and `Token` are passed to the target resource
-  during execution of a custom step of a workflow.
-  You must include those with their callback as well as providing a status.
   """
   @spec send_workflow_step_state(AWS.Client.t(), send_workflow_step_state_request(), Keyword.t()) ::
           {:ok, send_workflow_step_state_response(), any()}
@@ -3451,64 +3359,15 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Retrieves a list of the contents of a directory from a remote SFTP server.
-
-  You specify the
-  connector ID, the output path, and the remote directory path. You can also
-  specify the
-  optional `MaxItems` value to control the maximum number of items that are listed
-  from the remote directory. This API returns a list of all files and directories
-  in the remote
-  directory (up to the maximum value), but does not return files or folders in
-  sub-directories.
-  That is, it only returns a list of files and directories one-level deep.
-
-  After you receive the listing file, you can provide the files that you want to
-  transfer to
-  the `RetrieveFilePaths` parameter of the `StartFileTransfer` API
-  call.
-
-  The naming convention for the output file is
-
-  ```
-
-  *connector-ID*-*listing-ID*.json
-  ```
-
-  . The
-  output file contains the following information:
-
-    *
-
-  `filePath`: the complete path of a remote file, relative to the directory
-  of the listing request for your SFTP connector on the remote server.
-
-    *
-
-  `modifiedTimestamp`: the last time the file was modified, in UTC time
-  format. This field is optional. If the remote file attributes don't contain a
-  timestamp,
-  it is omitted from the file listing.
-
-    *
-
-  `size`: the size of the file, in bytes. This field is optional. If the
-  remote file attributes don't contain a file size, it is omitted from the file
-  listing.
-
-    *
-
-  `path`: the complete path of a remote directory, relative to the directory
-  of the listing request for your SFTP connector on the remote server.
-
-    *
-
-  `truncated`: a flag indicating whether the list output contains all of the
-  items contained in the remote directory or not. If your `Truncated` output
-  value is true, you can increase the value provided in the optional `max-items`
-  input attribute to be able to list more items (up to the maximum allowed list
-  size of
-  10,000 items).
+  Retrieves a list of the contents of a directory from a remote SFTP server. You
+  specify the connector ID, the output path, and the remote directory path. You
+  can also specify the optional `MaxItems` value to control the maximum number
+  of items that are listed from the remote directory. This API returns a list of
+  all files and directories in the remote directory (up to the maximum value),
+  but does not return files or folders in sub-directories. That is, it only
+  returns a list of files and directories one-level deep. After you receive the
+  listing file, you can provide the files that you want to transfer to the
+  `RetrieveFilePaths` parameter of the `StartFileTransfer` API call.
   """
   @spec start_directory_listing(AWS.Client.t(), start_directory_listing_request(), Keyword.t()) ::
           {:ok, start_directory_listing_response(), any()}
@@ -3524,30 +3383,6 @@ defmodule AWS.Transfer do
   @doc """
   Begins a file transfer between local Amazon Web Services storage and a remote
   AS2 or SFTP server.
-
-    *
-  For an AS2 connector, you specify the `ConnectorId` and one or more
-  `SendFilePaths` to identify the files
-  you want to transfer.
-
-    *
-  For an SFTP connector, the file transfer can be either outbound or inbound. In
-  both
-  cases, you specify the `ConnectorId`. Depending on the direction of the
-  transfer,
-  you also specify the following items:
-
-      *
-  If you are transferring file from a partner's SFTP server to Amazon Web Services
-  storage, you specify one or more `RetrieveFilePaths` to identify the files
-  you want to transfer, and a `LocalDirectoryPath` to specify the destination
-  folder.
-
-      *
-  If you are transferring file to a partner's SFTP server from Amazon Web Services
-  storage, you specify one or more `SendFilePaths` to identify the files you
-  want to transfer, and a `RemoteDirectoryPath` to specify the destination
-  folder.
   """
   @spec start_file_transfer(AWS.Client.t(), start_file_transfer_request(), Keyword.t()) ::
           {:ok, start_file_transfer_response(), any()}
@@ -3562,17 +3397,11 @@ defmodule AWS.Transfer do
 
   @doc """
   Changes the state of a file transfer protocol-enabled server from `OFFLINE` to
-  `ONLINE`.
-
-  It has no impact on a server that is already `ONLINE`. An
-  `ONLINE` server can accept and process file transfer jobs.
-
-  The state of `STARTING` indicates that the server is in an intermediate state,
-  either not fully able to respond, or not fully online. The values of
-  `START_FAILED`
-  can indicate an error condition.
-
-  No response is returned from this call.
+  `ONLINE`. It has no impact on a server that is already `ONLINE`. An `ONLINE`
+  server can accept and process file transfer jobs. The state of `STARTING`
+  indicates that the server is in an intermediate state, either not fully able
+  to respond, or not fully online. The values of `START_FAILED` can indicate an
+  error condition.
   """
   @spec start_server(AWS.Client.t(), start_server_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3587,23 +3416,11 @@ defmodule AWS.Transfer do
 
   @doc """
   Changes the state of a file transfer protocol-enabled server from `ONLINE` to
-  `OFFLINE`.
-
-  An `OFFLINE` server cannot accept and process file transfer
-  jobs. Information tied to your server, such as server and user properties, are
-  not affected by
-  stopping your server.
-
-  Stopping the server does not reduce or impact your file transfer protocol
-  endpoint
-  billing; you must delete the server to stop being billed.
-
-  The state of `STOPPING` indicates that the server is in an intermediate state,
-  either not fully able to respond, or not fully offline. The values of
-  `STOP_FAILED`
-  can indicate an error condition.
-
-  No response is returned from this call.
+  `OFFLINE`. An `OFFLINE` server cannot accept and process file transfer jobs.
+  Information tied to your server, such as server and user properties, are not
+  affected by stopping your server. Stopping the server does not reduce or
+  impact your file transfer protocol endpoint billing; you must delete the
+  server to stop being billed.
   """
   @spec stop_server(AWS.Client.t(), stop_server_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3618,11 +3435,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Attaches a key-value pair to a resource, as identified by its Amazon Resource
-  Name (ARN).
-
-  Resources are users, servers, roles, and other entities.
-
-  There is no response returned from this call.
+  Name (ARN). Resources are users, servers, roles, and other entities.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3636,12 +3449,9 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Tests whether your SFTP connector is set up successfully.
-
-  We highly recommend that you call this
-  operation to test your ability to transfer files between local Amazon Web
-  Services storage and a trading partner's
-  SFTP server.
+  Tests whether your SFTP connector is set up successfully. We highly recommend
+  that you call this operation to test your ability to transfer files between
+  local Amazon Web Services storage and a trading partner's SFTP server.
   """
   @spec test_connection(AWS.Client.t(), test_connection_request(), Keyword.t()) ::
           {:ok, test_connection_response(), any()}
@@ -3656,63 +3466,13 @@ defmodule AWS.Transfer do
 
   @doc """
   If the `IdentityProviderType` of a file transfer protocol-enabled server is
-  `AWS_DIRECTORY_SERVICE` or `API_Gateway`, tests whether your identity
-  provider is set up successfully.
-
-  We highly recommend that you call this operation to test your
-  authentication method as soon as you create your server. By doing so, you can
-  troubleshoot
-  issues with the identity provider integration to ensure that your users can
-  successfully use
-  the service.
-
-  The `ServerId` and `UserName` parameters are required. The `ServerProtocol`,
-  `SourceIp`, and `UserPassword` are all optional.
-
-  Note the following:
-
-    *
-  You cannot use `TestIdentityProvider` if the
-  `IdentityProviderType` of your server is `SERVICE_MANAGED`.
-
-    *
-
-  `TestIdentityProvider` does not work with keys: it only accepts
-  passwords.
-
-    *
-
-  `TestIdentityProvider` can test the password operation for a custom Identity
-  Provider that handles keys and passwords.
-
-    *
-
-  If you provide any incorrect values for any parameters, the `Response` field is
-  empty.
-
-    *
-
-  If you provide a server ID for a server that uses service-managed users, you get
-  an error:
-
-  ```
-
-  An error occurred (InvalidRequestException) when calling the
-  TestIdentityProvider operation: s-*server-ID* not configured for external auth
-
-  ```
-
-    *
-
-  If you enter a Server ID for the `--server-id` parameter that does not identify
-  an actual Transfer server, you receive the following error:
-
-  `An error occurred (ResourceNotFoundException) when calling the
-  TestIdentityProvider operation: Unknown server`.
-
-  It is possible your sever is in a different region. You can specify a region by
-  adding the following: `--region region-code`,
-  such as `--region us-east-2` to specify a server in **US East (Ohio)**.
+  `AWS_DIRECTORY_SERVICE` or `API_Gateway`, tests whether your identity provider
+  is set up successfully. We highly recommend that you call this operation to
+  test your authentication method as soon as you create your server. By doing
+  so, you can troubleshoot issues with the identity provider integration to
+  ensure that your users can successfully use the service. The `ServerId` and
+  `UserName` parameters are required. The `ServerProtocol`, `SourceIp`, and
+  `UserPassword` are all optional.
   """
   @spec test_identity_provider(AWS.Client.t(), test_identity_provider_request(), Keyword.t()) ::
           {:ok, test_identity_provider_response(), any()}
@@ -3727,12 +3487,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Detaches a key-value pair from a resource, as identified by its Amazon Resource
-  Name
-  (ARN).
-
-  Resources are users, servers, roles, and other entities.
-
-  No response is returned from this call.
+  Name (ARN). Resources are users, servers, roles, and other entities.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3761,11 +3516,9 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Updates some of the parameters for an existing agreement.
-
-  Provide the
-  `AgreementId` and the `ServerId` for the agreement that you want to
-  update, along with the new values for the parameters to update.
+  Updates some of the parameters for an existing agreement. Provide the
+  `AgreementId` and the `ServerId` for the agreement that you want to update,
+  along with the new values for the parameters to update.
   """
   @spec update_agreement(AWS.Client.t(), update_agreement_request(), Keyword.t()) ::
           {:ok, update_agreement_response(), any()}
@@ -3793,9 +3546,7 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Updates some of the parameters for an existing connector.
-
-  Provide the
+  Updates some of the parameters for an existing connector. Provide the
   `ConnectorId` for the connector that you want to update, along with the new
   values for the parameters to update.
   """
@@ -3826,12 +3577,9 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Updates some of the parameters for an existing profile.
-
-  Provide the `ProfileId`
+  Updates some of the parameters for an existing profile. Provide the `ProfileId`
   for the profile that you want to update, along with the new values for the
-  parameters to
-  update.
+  parameters to update.
   """
   @spec update_profile(AWS.Client.t(), update_profile_request(), Keyword.t()) ::
           {:ok, update_profile_response(), any()}
@@ -3846,11 +3594,7 @@ defmodule AWS.Transfer do
 
   @doc """
   Updates the file transfer protocol-enabled server's properties after that server
-  has
-  been created.
-
-  The `UpdateServer` call returns the `ServerId` of the server you
-  updated.
+  has been created.
   """
   @spec update_server(AWS.Client.t(), update_server_request(), Keyword.t()) ::
           {:ok, update_server_response(), any()}
@@ -3864,29 +3608,10 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Assigns new properties to a user.
-
-  Parameters you pass modify any or all of the following:
-  the home directory, role, and policy for the `UserName` and `ServerId`
-  you specify.
-
-  The response returns the `ServerId` and the `UserName` for the
-  updated user.
-
-  In the console, you can select *Restricted* when you create or update a
-  user. This ensures that the user can't access anything outside of their home
-  directory. The
-  programmatic way to configure this behavior is to update the user. Set their
-  `HomeDirectoryType` to `LOGICAL`, and specify
-  `HomeDirectoryMappings` with `Entry` as root (`/`) and
-  `Target` as their home directory.
-
-  For example, if the user's home directory is `/test/admin-user`, the following
-  command updates the user so that their configuration in the console shows the
-  *Restricted* flag as selected.
-
-  ` aws transfer update-user --server-id <server-id> --user-name admin-user
-  --home-directory-type LOGICAL --home-directory-mappings "[{\"Entry\":\"/\", \"Target\":\"/test/admin-user\"}]"`
+  Assigns new properties to a user. Parameters you pass modify any or all of the
+  following: the home directory, role, and policy for the `UserName` and
+  `ServerId` you specify. The response returns the `ServerId` and the `UserName`
+  for the updated user.
   """
   @spec update_user(AWS.Client.t(), update_user_request(), Keyword.t()) ::
           {:ok, update_user_response(), any()}

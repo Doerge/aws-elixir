@@ -4,29 +4,12 @@
 defmodule AWS.OAM do
   @moduledoc """
   Use Amazon CloudWatch Observability Access Manager to create and manage links
-  between source accounts and
-  monitoring accounts by using *CloudWatch cross-account observability*.
-
-  With
-  CloudWatch cross-account observability, you can monitor and troubleshoot
-  applications that span
-  multiple accounts within a Region. Seamlessly search, visualize, and analyze
-  your metrics,
-  logs, traces, and Application Insights applications in any of the linked
-  accounts without account boundaries.
-
-  Set up one or more Amazon Web Services accounts as *monitoring
-  accounts* and link them with multiple *source accounts*. A
-  monitoring account is a central Amazon Web Services account that can view and
-  interact with
-  observability data generated from source accounts. A source account is an
-  individual Amazon Web Services account that generates observability data for the
-  resources that reside in it.
-  Source accounts share their observability data with the monitoring account. The
-  shared
-  observability data can include metrics in Amazon CloudWatch, logs in Amazon
-  CloudWatch Logs, traces in X-Ray, and applications in Amazon CloudWatch
-  Application Insights.
+  between source accounts and monitoring accounts by using *CloudWatch
+  cross-account observability*. With CloudWatch cross-account observability, you
+  can monitor and troubleshoot applications that span multiple accounts within a
+  Region. Seamlessly search, visualize, and analyze your metrics, logs, traces,
+  and Application Insights applications in any of the linked accounts without
+  account boundaries.
   """
 
   alias AWS.Client
@@ -665,31 +648,18 @@ defmodule AWS.OAM do
 
   @doc """
   Creates a link between a source account and a sink that you have created in a
-  monitoring account.
+  monitoring account. After the link is created, data is sent from the source
+  account to the monitoring account. When you create a link, you can optionally
+  specify filters that specify which metric namespaces and which log groups are
+  shared from the source account to the monitoring account. Before you create a
+  link, you must create a sink in the monitoring account and create a sink
+  policy in that account. The sink policy must permit the source account to link
+  to it. You can grant permission to source accounts by granting permission to
+  an entire organization or to individual accounts.
 
-  After the link is created,
-  data is sent from the source account to the monitoring account. When you create
-  a link, you can optionally specify filters
-  that specify which metric namespaces and which log groups are shared from the
-  source account to the monitoring account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateLink&this_doc_guide=API%2520Reference)
 
-  Before you create a link, you must create a sink in the monitoring account and
-  create a
-  sink policy in that account. The sink policy must permit the source account to
-  link to it. You
-  can grant permission to source accounts by granting permission to an entire
-  organization or to
-  individual accounts.
-
-  For more information, see
-  [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html) and
-  [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
-
-  Each monitoring account can be linked to as many as 100,000 source accounts.
-
-  Each source account can be linked to as many as five monitoring accounts.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -719,23 +689,17 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Use this to create a *sink* in the current account, so that it can be
-  used as a monitoring account in CloudWatch cross-account observability.
-
-  A sink is a resource that
-  represents an attachment point in a monitoring account. Source accounts can link
-  to the sink
-  to send observability data.
-
-  After you create a sink, you must create a sink policy that allows source
-  accounts to attach to it.
-  For more information, see
+  Use this to create a *sink* in the current account, so that it can be used as a
+  monitoring account in CloudWatch cross-account observability. A sink is a
+  resource that represents an attachment point in a monitoring account. Source
+  accounts can link to the sink to send observability data. After you create a
+  sink, you must create a sink policy that allows source accounts to attach to
+  it. For more information, see
   [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
 
-  Each account can contain one sink per Region. If you delete a sink, you can then
-  create a new one in that Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateSink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -765,12 +729,12 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Deletes a link between a monitoring account sink and a source account.
+  Deletes a link between a monitoring account sink and a source account. You must
+  run this operation in the source account.
 
-  You must run this operation
-  in the source account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -800,11 +764,12 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Deletes a sink.
+  Deletes a sink. You must delete all links to a sink before you can delete that
+  sink.
 
-  You must delete all links to a sink before you can delete that sink.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteSink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -836,11 +801,9 @@ defmodule AWS.OAM do
   @doc """
   Returns complete information about one link.
 
-  To use this operation, provide the link ARN. To retrieve a list of link ARNs,
-  use
-  [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -872,11 +835,9 @@ defmodule AWS.OAM do
   @doc """
   Returns complete information about one monitoring account sink.
 
-  To use this operation, provide the sink ARN. To retrieve a list of sink ARNs,
-  use
-  [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -906,13 +867,13 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Returns the current sink policy attached to this sink.
+  Returns the current sink policy attached to this sink. The sink policy specifies
+  what accounts can attach to this sink as source accounts, and what types of
+  data they can share.
 
-  The sink policy specifies what
-  accounts can attach to this sink as source accounts, and what types of data they
-  can share.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSinkPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -945,12 +906,9 @@ defmodule AWS.OAM do
   Returns a list of source account links that are linked to this monitoring
   account sink.
 
-  To use this operation, provide the sink ARN. To retrieve a list of sink ARNs,
-  use
-  [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html).   To find a list of links for one source account, use
-  [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListAttachedLinks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -981,14 +939,11 @@ defmodule AWS.OAM do
 
   @doc """
   Use this operation in a source account to return a list of links to monitoring
-  account sinks that
-  this source account has.
+  account sinks that this source account has.
 
-  To find a list of links for one monitoring account sink, use
-  [ListAttachedLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html)
-  from within the monitoring account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListLinks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1021,7 +976,9 @@ defmodule AWS.OAM do
   Use this operation in a monitoring account to return the list of sinks created
   in that account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListSinks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1051,12 +1008,14 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Displays the tags associated with a resource.
+  Displays the tags associated with a resource. Both sinks and links support
+  tagging.
 
-  Both sinks and links support tagging.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the  resource that you want to view tags for.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that you want to view
+    tags for.
 
   ## Optional parameters:
   """
@@ -1082,37 +1041,14 @@ defmodule AWS.OAM do
 
   @doc """
   Creates or updates the resource policy that grants permissions to source
-  accounts to link to the monitoring account sink.
+  accounts to link to the monitoring account sink. When you create a sink
+  policy, you can grant permissions to all accounts in an organization or to
+  individual accounts. You can also use a sink policy to limit the types of data
+  that is shared. The three types that you can allow or deny are:
 
-  When you create a sink policy, you can grant
-  permissions to all accounts in an organization or to individual accounts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20PutSinkPolicy&this_doc_guide=API%2520Reference)
 
-  You can also use a sink policy to limit the types of data that is shared. The
-  three types that
-  you can allow or deny are:
-
-    *
-
-  **Metrics** - Specify with
-  `AWS::CloudWatch::Metric`
-
-    *
-
-  **Log groups** - Specify with `AWS::Logs::LogGroup`
-
-    *
-
-  **Traces** - Specify with `AWS::XRay::Trace`
-
-    *
-
-  **Application Insights - Applications** - Specify with
-  `AWS::ApplicationInsights::Application`
-
-  See the examples in this section to see how to specify permitted source accounts
-  and data types.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1142,35 +1078,16 @@ defmodule AWS.OAM do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified resource.
-
-  Both sinks and links can be tagged.
-
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
+  Assigns one or more tags (key-value pairs) to the specified resource. Both sinks
+  and links can be tagged. Tags can help you organize and categorize your
+  resources. You can also use them to scope user permissions by granting a user
   permission to access or change only resources with certain tag values.
 
-  Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of characters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20TagResource&this_doc_guide=API%2520Reference)
 
-  You can use the `TagResource` action with a resource that already has tags. If
-  you specify a new tag key for the alarm,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  alarm, the new tag value that you specify replaces
-  the previous value for that tag.
-
-  You can associate as many as 50 tags with a resource.
-
-  Unlike tagging permissions in other Amazon Web Services services, to tag or
-  untag links and
-  sinks you must have the `oam:ResourceTag` permission. The
-  `iam:ResourceTag` permission does not allow you to tag and untag links and
-  sinks.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the  resource that you&#39;re adding tags to.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that you're adding tags
+    to.
 
   ## Optional parameters:
   """
@@ -1192,17 +1109,15 @@ defmodule AWS.OAM do
   @doc """
   Removes one or more tags from the specified resource.
 
-  Unlike tagging permissions in other Amazon Web Services services, to tag or
-  untag links and
-  sinks you must have the `oam:ResourceTag` permission. The
-  `iam:TagResource` permission does not allow you to tag and untag links and
-  sinks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that you&#39;re removing tags from.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that you're removing tags
+    from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]`) The list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]`) The list of tag keys to
+    remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1236,19 +1151,14 @@ defmodule AWS.OAM do
 
   @doc """
   Use this operation to change what types of data are shared from a source account
-  to its linked
-  monitoring account sink.
+  to its linked monitoring account sink. You can't change the sink or change the
+  monitoring account with this operation. When you update a link, you can
+  optionally specify filters that specify which metric namespaces and which log
+  groups are shared from the source account to the monitoring account.
 
-  You can't change the sink or change the monitoring account with this operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20UpdateLink&this_doc_guide=API%2520Reference)
 
-  When you update a link, you can optionally specify filters
-  that specify which metric namespaces and which log groups are shared from the
-  source account to the monitoring account.
-
-  To update the list of tags associated with the sink, use
-  [TagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

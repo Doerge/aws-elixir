@@ -4,13 +4,10 @@
 defmodule AWS.Wisdom do
   @moduledoc """
   Amazon Connect Wisdom delivers agents the information they need to solve
-  customer issues as they're
-  actively speaking with customers.
-
-  Agents can search across connected repositories from within
-  their agent desktop to find answers quickly. Use Amazon Connect Wisdom to create
-  an assistant and a
-  knowledge base, for example, or manage content by uploading custom files.
+  customer issues as they're actively speaking with customers. Agents can search
+  across connected repositories from within their agent desktop to find answers
+  quickly. Use Amazon Connect Wisdom to create an assistant and a knowledge
+  base, for example, or manage content by uploading custom files.
   """
 
   alias AWS.Client
@@ -1844,7 +1841,9 @@ defmodule AWS.Wisdom do
   @doc """
   Creates an Amazon Connect Wisdom assistant.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateAssistant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1875,15 +1874,14 @@ defmodule AWS.Wisdom do
 
   @doc """
   Creates an association between an Amazon Connect Wisdom assistant and another
-  resource.
+  resource. Currently, the only supported association is with a knowledge base.
+  An assistant can have only a single association.
 
-  Currently, the
-  only supported association is with a knowledge base. An assistant can have only
-  a single
-  association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateAssistantAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -1918,16 +1916,17 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Creates Wisdom content.
-
-  Before to calling this API, use
+  Creates Wisdom content. Before to calling this API, use
   [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html)
-  to
-  upload an asset.
+  to upload an asset.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -1959,34 +1958,9 @@ defmodule AWS.Wisdom do
   @doc """
   Creates a knowledge base.
 
-  When using this API, you cannot reuse [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
-  DataIntegrations with external knowledge bases such as Salesforce and
-  ServiceNow. If you do,
-  you'll get an `InvalidRequestException` error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
-  For example, you're programmatically managing your external knowledge base, and
-  you want
-  to add or remove one of the fields that is being ingested from Salesforce. Do
-  the
-  following:
-
-    
-  Call
-  [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html). 
-    
-  Call
-  [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html).
-
-    
-  Call
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  to recreate the DataIntegration or a create different
-  one.
-
-    
-  Call CreateKnowledgeBase.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2018,9 +1992,13 @@ defmodule AWS.Wisdom do
   @doc """
   Creates a Wisdom quick response.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateQuickResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -2055,15 +2033,15 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Creates a session.
+  Creates a session. A session is a contextual container used for generating
+  recommendations. Amazon Connect creates a new Wisdom session for each contact
+  on which Wisdom is enabled.
 
-  A session is a contextual container used for generating
-  recommendations. Amazon Connect creates a new Wisdom session for each contact on
-  which
-  Wisdom is enabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20CreateSession&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2095,8 +2073,11 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes an assistant.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteAssistant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2128,9 +2109,13 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes an assistant association.
 
-  ## Required positional parameters:
-  * `:assistant_association_id` (`t:string`) The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteAssistantAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_association_id` (`t:string`) The identifier of the assistant
+    association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2176,10 +2161,15 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes the content.
 
-  ## Required positional parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -2219,10 +2209,13 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes the quick response import job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:import_job_id` (`t:string`) The identifier of the import job to be deleted.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it.
 
   ## Optional parameters:
   """
@@ -2268,19 +2261,11 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes the knowledge base.
 
-  When you use this API to delete an external knowledge base such as Salesforce or
-  ServiceNow, you must also delete the [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
-  DataIntegration. This is because you can't reuse the DataIntegration after it's
-  been
-  associated with an external knowledge base. However, you can delete and recreate
-  it. See
-  [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html) and
-  [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  in the *Amazon AppIntegrations API
-  Reference*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteKnowledgeBase&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The knowledge base to delete content from.
+    Can be either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2317,10 +2302,15 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes a quick response.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The knowledge base from which the quick response is deleted. The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it.
-  * `:quick_response_id` (`t:string`) The identifier of the quick response to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20DeleteQuickResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The knowledge base from which the quick
+    response is deleted. The identifier of the knowledge base. This should not
+    be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content
+    resource to it.
+  * `:quick_response_id` (`t:string`) The identifier of the quick response to
+    delete.
 
   ## Optional parameters:
   """
@@ -2366,8 +2356,11 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about an assistant.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetAssistant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2394,9 +2387,13 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about an assistant association.
 
-  ## Required positional parameters:
-  * `:assistant_association_id` (`t:string`) The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetAssistantAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_association_id` (`t:string`) The identifier of the assistant
+    association. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2429,10 +2426,15 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves content, including a pre-signed URL to download the content.
 
-  ## Required positional parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -2460,10 +2462,15 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves summary information about the content.
 
-  ## Required positional parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetContentSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -2491,9 +2498,12 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves the started import job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:import_job_id` (`t:string`) The identifier of the import job to retrieve.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base that the import job belongs to.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base that
+    the import job belongs to.
 
   ## Optional parameters:
   """
@@ -2521,9 +2531,13 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about the knowledge base.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -2550,8 +2564,11 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves the quick response.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetQuickResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should be a QUICK_RESPONSES type knowledge base.
   * `:quick_response_id` (`t:string`) The identifier of the quick response.
 
   ## Optional parameters:
@@ -2578,26 +2595,29 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Retrieves recommendations for the specified session.
-
-  To avoid retrieving the same
-  recommendations in subsequent calls, use
-  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the
-  `waitTimeSeconds` parameter. Short poll is the default behavior and only returns
-  recommendations already available. To perform a manual query against an
-  assistant, use
+  Retrieves recommendations for the specified session. To avoid retrieving the
+  same recommendations in subsequent calls, use
+  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html).
+  This API supports long-polling behavior with the `waitTimeSeconds` parameter.
+  Short poll is the default behavior and only returns recommendations already
+  available. To perform a manual query against an assistant, use
   [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html).
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:wait_time_seconds` (`t:integer`) The duration (in seconds) for which the call waits for a recommendation to be made
-      available before returning. If a recommendation is available, the call returns sooner than
-        <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the
-      call returns successfully with an empty list.
+  * `:wait_time_seconds` (`t:integer`) The duration (in seconds) for which the
+    call waits for a recommendation to be made available before returning. If a
+    recommendation is available, the call returns sooner than WaitTimeSeconds.
+    If no messages are available and the wait time expires, the call returns
+    successfully with an empty list.
   """
   @spec get_recommendations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
@@ -2641,9 +2661,13 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information for a specified session.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20GetSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -2671,13 +2695,17 @@ defmodule AWS.Wisdom do
   @doc """
   Lists information about assistant associations.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListAssistantAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_assistant_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assistant_associations_response(), any()}
@@ -2720,12 +2748,15 @@ defmodule AWS.Wisdom do
   @doc """
   Lists information about assistants.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListAssistants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_assistants(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assistants_response(), any()}
@@ -2768,14 +2799,19 @@ defmodule AWS.Wisdom do
   @doc """
   Lists the content.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contents_response(), any()}
@@ -2818,14 +2854,19 @@ defmodule AWS.Wisdom do
   @doc """
   Lists information about import jobs.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
@@ -2868,12 +2909,15 @@ defmodule AWS.Wisdom do
   @doc """
   Lists the knowledge bases.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_knowledge_bases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
@@ -2916,14 +2960,19 @@ defmodule AWS.Wisdom do
   @doc """
   Lists information about quick response.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListQuickResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_quick_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_quick_responses_response(), any()}
@@ -2966,7 +3015,9 @@ defmodule AWS.Wisdom do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2993,17 +3044,18 @@ defmodule AWS.Wisdom do
 
   @doc """
   Removes the specified recommendations from the specified assistant's queue of
-  newly
-  available recommendations.
-
-  You can use this API in conjunction with
+  newly available recommendations. You can use this API in conjunction with
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html)
-  and a `waitTimeSeconds` input for long-polling
-  behavior and avoiding duplicate recommendations.
+  and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate
+  recommendations.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20NotifyRecommendationsReceived&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
+  * `:session_id` (`t:string`) The identifier of the session. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3047,14 +3099,15 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Performs a manual search against the specified assistant.
-
-  To retrieve recommendations for
-  an assistant, use
+  Performs a manual search against the specified assistant. To retrieve
+  recommendations for an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html).
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20QueryAssistant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   """
@@ -3086,9 +3139,13 @@ defmodule AWS.Wisdom do
   @doc """
   Removes a URI template from a knowledge base.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20RemoveKnowledgeBaseTemplateUri&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -3128,19 +3185,22 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Searches for content in a specified knowledge base.
+  Searches for content in a specified knowledge base. Can be used to get a
+  specific content resource by its name.
 
-  Can be used to get a specific content
-  resource by its name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20SearchContent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec search_content(AWS.Client.t(), String.t(), search_content_request(), Keyword.t()) ::
           {:ok, search_content_response(), any()}
@@ -3176,13 +3236,18 @@ defmodule AWS.Wisdom do
   @doc """
   Searches existing Wisdom quick responses in a Wisdom knowledge base.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20SearchQuickResponses&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the
+    ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec search_quick_responses(
           AWS.Client.t(),
@@ -3223,13 +3288,17 @@ defmodule AWS.Wisdom do
   @doc """
   Searches for sessions.
 
-  ## Required positional parameters:
-  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20SearchSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assistant_id` (`t:string`) The identifier of the Wisdom assistant. Can be
+    either the ID or the ARN. URLs cannot contain the ARN.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
-  * `:next_token` (`t:string`) The token for the next set of results. Use the value returned in the previous 
-  response in the next request to retrieve the next set of results.
+  * `:next_token` (`t:string`) The token for the next set of results. Use the
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec search_sessions(AWS.Client.t(), String.t(), search_sessions_request(), Keyword.t()) ::
           {:ok, search_sessions_response(), any()}
@@ -3263,20 +3332,22 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Get a URL to upload content to a knowledge base.
-
-  To upload content, first make a PUT
-  request to the returned URL with your file, making sure to include the required
-  headers. Then
-  use
-  [CreateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html) to finalize the content creation process or
+  Get a URL to upload content to a knowledge base. To upload content, first make a
+  PUT request to the returned URL with your file, making sure to include the
+  required headers. Then use
+  [CreateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html)
+  to finalize the content creation process or
   [UpdateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html)
-  to modify an existing resource. You can only upload content to a
-  knowledge base of type CUSTOM.
+  to modify an existing resource. You can only upload content to a knowledge
+  base of type CUSTOM.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20StartContentUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -3312,21 +3383,17 @@ defmodule AWS.Wisdom do
 
   @doc """
   Start an asynchronous job to import Wisdom resources from an uploaded source
-  file.
+  file. Before calling this API, use
+  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html)
+  to upload an asset that contains the resource data. *
 
-  Before calling this API, use
-  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to
-  upload an asset that contains the resource data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20StartImportJob&this_doc_guide=API%2520Reference)
 
-    *
-  For importing Wisdom quick responses, you need to upload a csv file including
-  the quick responses. For information about how to format the csv file for
-  importing quick responses, see [Import quick
-  responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
-
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -3358,7 +3425,9 @@ defmodule AWS.Wisdom do
   @doc """
   Adds the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -3391,7 +3460,9 @@ defmodule AWS.Wisdom do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -3430,10 +3501,14 @@ defmodule AWS.Wisdom do
   @doc """
   Updates information about the content.
 
-  ## Required positional parameters:
-  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20UpdateContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:content_id` (`t:string`) The identifier of the content. Can be either the ID
+    or the ARN. URLs cannot contain the ARN.
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN
 
   ## Optional parameters:
   """
@@ -3471,18 +3546,20 @@ defmodule AWS.Wisdom do
   end
 
   @doc """
-  Updates the template URI of a knowledge base.
-
-  This is only supported for knowledge bases
-  of type EXTERNAL. Include a single variable in `${variable}` format; this
-  interpolated by Wisdom using ingested content. For example, if you ingest a
-  Salesforce
-  article, it has an `Id` value, and you can set the template URI to
+  Updates the template URI of a knowledge base. This is only supported for
+  knowledge bases of type EXTERNAL. Include a single variable in `${variable}`
+  format; this interpolated by Wisdom using ingested content. For example, if
+  you ingest a Salesforce article, it has an `Id` value, and you can set the
+  template URI to
   `https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view`.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20UpdateKnowledgeBaseTemplateUri&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
 
   ## Optional parameters:
   """
@@ -3524,9 +3601,13 @@ defmodule AWS.Wisdom do
   @doc """
   Updates an existing Wisdom quick response.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge 
-  base if you&#39;re storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wisdom%20UpdateQuickResponse&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The identifier of the knowledge base. This
+    should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom
+    Content resource to it. Can be either the ID or the ARN. URLs cannot contain
+    the ARN.
   * `:quick_response_id` (`t:string`) The identifier of the quick response.
 
   ## Optional parameters:

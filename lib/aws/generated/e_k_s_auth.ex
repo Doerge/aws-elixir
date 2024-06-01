@@ -3,8 +3,8 @@
 
 defmodule AWS.EKSAuth do
   @moduledoc """
-  The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only
-  used by the EKS Pod Identity Agent.
+  The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only used
+  by the EKS Pod Identity Agent.
   """
 
   alias AWS.Client
@@ -216,13 +216,9 @@ defmodule AWS.EKSAuth do
   The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only used
   by the EKS Pod Identity Agent.
 
-  We recommend that applications use the Amazon Web Services SDKs to connect to
-  Amazon Web Services services; if
-  credentials from an EKS Pod Identity association are available in the pod, the
-  latest versions of the
-  SDKs use them automatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=eksauth%20AssumeRoleForPodIdentity&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cluster_name` (`t:string`) The name of the cluster for the request.
 
   ## Optional parameters:

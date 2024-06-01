@@ -1144,50 +1144,16 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  The CLI doesn't support `InvokeAgent`. Sends a prompt for the agent to process
+  and respond to. Note the following fields for the request:
 
-  The CLI doesn't support `InvokeAgent`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20InvokeAgent&this_doc_guide=API%2520Reference)
 
-  Sends a prompt for the agent to process and respond to. Note the following
-  fields for the request:
-
-    *
-  To continue the same conversation with an agent, use the same `sessionId` value
-  in the request.
-
-    *
-  To activate trace enablement, turn `enableTrace` to `true`. Trace enablement
-  helps you follow the agent's reasoning process that led it to the information it
-  processed, the actions it took, and the final result it yielded. For more
-  information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
-
-    *
-  End a conversation by setting `endSession` to `true`.
-
-    *
-  In the `sessionState` object, you can include attributes for the session or
-  prompt or, if you configured an action group to return control, results from
-  invocation of the action group.
-
-  The response is returned in the `bytes` field of the `chunk` object.
-
-    *
-  The `attribution` object contains citations for parts of the response.
-
-    *
-  If you set `enableTrace` to `true` in the request, you can trace the agent's
-  steps and reasoning process that led it to the response.
-
-    *
-  If the action predicted was configured to return control, the response returns
-  parameters for the action, elicited from the user, in the `returnControl` field.
-
-    *
-  Errors are also surfaced in the response.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:agent_alias_id` (`t:string`) The alias of the agent to use.
   * `:agent_id` (`t:string`) The unique identifier of the agent to use.
-  * `:session_id` (`t:string`) The unique identifier of the session. Use the same value across requests to continue the same conversation.
+  * `:session_id` (`t:string`) The unique identifier of the session. Use the same
+    value across requests to continue the same conversation.
 
   ## Optional parameters:
   """
@@ -1238,8 +1204,11 @@ defmodule AWS.BedrockAgentRuntime do
   @doc """
   Queries a knowledge base and retrieves information from it.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to query.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20Retrieve&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to query.
 
   ## Optional parameters:
   """
@@ -1270,10 +1239,11 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Queries a knowledge base and generates responses based on the retrieved results.
-
   The response only cites sources that are relevant to the query.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20RetrieveAndGenerate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

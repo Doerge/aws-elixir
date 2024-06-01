@@ -311,21 +311,12 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Creates an endpoint and associates it with the specified Outpost.
+  Creates an endpoint and associates it with the specified Outpost. It can take up
+  to 5 minutes for this action to finish.
 
-  It can take up to 5 minutes for this action to finish.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20CreateEndpoint&this_doc_guide=API%2520Reference)
 
-  Related actions include:
-
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html) 
-
-    *
-
-  [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -355,25 +346,15 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Deletes an endpoint.
+  Deletes an endpoint. It can take up to 5 minutes for this action to finish.
 
-  It can take up to 5 minutes for this action to finish.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20DeleteEndpoint&this_doc_guide=API%2520Reference)
 
-  Related actions include:
-
-    *
-
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [ListEndpoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_ListEndpoints.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:endpoint_id` (`t:string`) The ID of the endpoint.
-  * `:outpost_id` (`t:string`) The ID of the Outposts. 
+  * `:outpost_id` (`t:string`) The ID of the Outposts.
   """
   @spec delete_endpoint(AWS.Client.t(), delete_endpoint_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -407,24 +388,18 @@ defmodule AWS.S3Outposts do
   end
 
   @doc """
-  Lists endpoints associated with the specified Outpost.
+  Lists endpoints associated with the specified Outpost. Related actions include:
 
-  Related actions include:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListEndpoints&this_doc_guide=API%2520Reference)
 
-    *
-
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of endpoints that will be returned in the response.
-  * `:next_token` (`t:string`) If a previous response from this operation included a <code>NextToken</code> value, 
-            provide that value here to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be
+    returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included
+    a NextToken value, provide that value here to retrieve the next page of
+    results.
   """
   @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_endpoints_result(), any()}
@@ -466,20 +441,20 @@ defmodule AWS.S3Outposts do
 
   @doc """
   Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services
-  account.
+  account. Includes S3 on Outposts that you have access to as the Outposts
+  owner, or as a shared user from Resource Access Manager (RAM).
 
-  Includes S3 on Outposts that you have access to as the Outposts owner, or as a
-  shared user
-  from Resource Access Manager (RAM).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListOutpostsWithS3&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of Outposts to return. The limit is 100.
-  * `:next_token` (`t:string`) When you can get additional results from the <code>ListOutpostsWithS3</code> call, a
-                <code>NextToken</code> parameter is returned in the output. You can then pass in a
-            subsequent command to the <code>NextToken</code> parameter to continue listing
-            additional Outposts.
+  * `:max_results` (`t:integer`) The maximum number of Outposts to return. The
+    limit is 100.
+  * `:next_token` (`t:string`) When you can get additional results from the
+    ListOutpostsWithS3 call, a NextToken parameter is returned in the output.
+    You can then pass in a subsequent command to the NextToken parameter to
+    continue listing additional Outposts.
   """
   @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_with_s3_result(), any()}
@@ -521,24 +496,18 @@ defmodule AWS.S3Outposts do
 
   @doc """
   Lists all endpoints associated with an Outpost that has been shared by Amazon
-  Web Services Resource Access Manager (RAM).
+  Web Services Resource Access Manager (RAM). Related actions include:
 
-  Related actions include:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListSharedEndpoints&this_doc_guide=API%2520Reference)
 
-    *
-
-  [CreateEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html) 
-
-    *
-
-  [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of endpoints that will be returned in the response.
-  * `:next_token` (`t:string`) If a previous response from this operation included a <code>NextToken</code> value, you
-            can provide that value here to retrieve the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of endpoints that will be
+    returned in the response.
+  * `:next_token` (`t:string`) If a previous response from this operation included
+    a NextToken value, you can provide that value here to retrieve the next page
+    of results.
   * `:outpost_id` (`t:string`) The ID of the Amazon Web Services Outpost.
   """
   @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::

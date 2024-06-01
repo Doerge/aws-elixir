@@ -4,24 +4,6 @@
 defmodule AWS.DeviceFarm do
   @moduledoc """
   Welcome to the AWS Device Farm API documentation, which contains APIs for:
-
-    *
-  Testing on desktop browsers
-
-  Device Farm makes it possible for you to test your web applications on desktop
-  browsers using
-  Selenium.
-
-  The APIs for desktop browser testing contain `TestGrid` in their names. For
-  more information, see [Testing Web Applications on Selenium with Device
-  Farm](https://docs.aws.amazon.com/devicefarm/latest/testgrid/).
-
-    *
-  Testing on real mobile devices
-
-  Device Farm makes it possible for you to test apps on physical phones, tablets,
-  and other
-  devices in the cloud. For more information, see the [Device Farm Developer Guide](https://docs.aws.amazon.com/devicefarm/latest/developerguide/).
   """
 
   alias AWS.Client
@@ -3310,9 +3292,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Creates a Selenium testing project.
-
-  Projects are used to track `TestGridSession`
+  Creates a Selenium testing project. Projects are used to track `TestGridSession`
   instances.
   """
   @spec create_test_grid_project(AWS.Client.t(), create_test_grid_project_request(), Keyword.t()) ::
@@ -3328,8 +3308,7 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Creates a signed, short-term URL that can be passed to a Selenium
-  `RemoteWebDriver`
-  constructor.
+  `RemoteWebDriver` constructor.
   """
   @spec create_test_grid_url(AWS.Client.t(), create_test_grid_url_request(), Keyword.t()) ::
           {:ok, create_test_grid_url_result(), any()}
@@ -3358,8 +3337,7 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Creates a configuration record in Device Farm for your Amazon Virtual Private
-  Cloud
-  (VPC) endpoint.
+  Cloud (VPC) endpoint.
   """
   @spec create_vpce_configuration(
           AWS.Client.t(),
@@ -3377,10 +3355,8 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Deletes a device pool given the pool ARN.
-
-  Does not allow deletion of curated pools
-  owned by the system.
+  Deletes a device pool given the pool ARN. Does not allow deletion of curated
+  pools owned by the system.
   """
   @spec delete_device_pool(AWS.Client.t(), delete_device_pool_request(), Keyword.t()) ::
           {:ok, delete_device_pool_result(), any()}
@@ -3423,8 +3399,6 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Deletes an AWS Device Farm project, given the project ARN.
-
-  Deleting this resource does not stop an in-progress run.
   """
   @spec delete_project(AWS.Client.t(), delete_project_request(), Keyword.t()) ::
           {:ok, delete_project_result(), any()}
@@ -3457,8 +3431,6 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Deletes the run, given the run ARN.
-
-  Deleting this resource does not stop an in-progress run.
   """
   @spec delete_run(AWS.Client.t(), delete_run_request(), Keyword.t()) ::
           {:ok, delete_run_result(), any()}
@@ -3472,11 +3444,8 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Deletes a Selenium testing project and all content generated under it.
-
-  You cannot undo this operation.
-
-  You cannot delete a project if it has active sessions.
+  Deletes a Selenium testing project and all content generated under it. You
+  cannot undo this operation.
   """
   @spec delete_test_grid_project(AWS.Client.t(), delete_test_grid_project_request(), Keyword.t()) ::
           {:ok, delete_test_grid_project_result(), any()}
@@ -3523,8 +3492,7 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns the number of unmetered iOS or unmetered Android devices that have been
-  purchased by the
-  account.
+  purchased by the account.
   """
   @spec get_account_settings(AWS.Client.t(), get_account_settings_request(), Keyword.t()) ::
           {:ok, get_account_settings_result(), any()}
@@ -3642,14 +3610,10 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Gets the current status and future status of all offerings purchased by an AWS
-  account.
-
-  The response
-  indicates how many offerings are currently available and the offerings that will
-  be available in the next
-  period. The API returns a `NotEligible` error if the user is not permitted to
-  invoke the
-  operation. If you must be able to invoke this operation, contact
+  account. The response indicates how many offerings are currently available and
+  the offerings that will be available in the next period. The API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation. If
+  you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   @spec get_offering_status(AWS.Client.t(), get_offering_status_request(), Keyword.t()) ::
@@ -3753,16 +3717,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   A session is an instance of a browser created through a `RemoteWebDriver` with
-  the URL from `CreateTestGridUrlResult$url`.
-
-  You can use the following to look up sessions:
-
-    *
-  The session ARN (`GetTestGridSessionRequest$sessionArn`).
-
-    *
-  The project ARN and a session ID (`GetTestGridSessionRequest$projectArn` and
-  `GetTestGridSessionRequest$sessionId`).
+  the URL from `CreateTestGridUrlResult$url`. You can use the following to look
+  up sessions:
   """
   @spec get_test_grid_session(AWS.Client.t(), get_test_grid_session_request(), Keyword.t()) ::
           {:ok, get_test_grid_session_result(), any()}
@@ -3791,8 +3747,7 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns information about the configuration settings for your Amazon Virtual
-  Private
-  Cloud (VPC) endpoint.
+  Private Cloud (VPC) endpoint.
   """
   @spec get_vpce_configuration(AWS.Client.t(), get_vpce_configuration_request(), Keyword.t()) ::
           {:ok, get_vpce_configuration_result(), any()}
@@ -3806,12 +3761,9 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Installs an application to the device in a remote access session.
-
-  For Android
+  Installs an application to the device in a remote access session. For Android
   applications, the file must be in .apk format. For iOS applications, the file
-  must be in
-  .ipa format.
+  must be in .ipa format.
   """
   @spec install_to_remote_access_session(
           AWS.Client.t(),
@@ -3844,8 +3796,7 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns information about the private device instances associated with one or
-  more AWS
-  accounts.
+  more AWS accounts.
   """
   @spec list_device_instances(AWS.Client.t(), list_device_instances_request(), Keyword.t()) ::
           {:ok, list_device_instances_result(), any()}
@@ -3929,14 +3880,11 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Returns a list of offering promotions.
-
-  Each offering promotion record contains the ID and description
-  of the promotion. The API returns a `NotEligible` error if the caller is not
-  permitted to invoke
-  the operation. Contact
-  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if
-  you must be able to invoke this operation.
+  Returns a list of offering promotions. Each offering promotion record contains
+  the ID and description of the promotion. The API returns a `NotEligible` error
+  if the caller is not permitted to invoke the operation. Contact
+  [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com)
+  if you must be able to invoke this operation.
   """
   @spec list_offering_promotions(AWS.Client.t(), list_offering_promotions_request(), Keyword.t()) ::
           {:ok, list_offering_promotions_result(), any()}
@@ -3951,13 +3899,9 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns a list of all historical purchases, renewals, and system renewal
-  transactions for an AWS
-  account.
-
-  The list is paginated and ordered by a descending timestamp (most recent
-  transactions are first).
-  The API returns a `NotEligible` error if the user is not permitted to invoke the
-  operation. If
+  transactions for an AWS account. The list is paginated and ordered by a
+  descending timestamp (most recent transactions are first). The API returns a
+  `NotEligible` error if the user is not permitted to invoke the operation. If
   you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
@@ -3978,14 +3922,10 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Returns a list of products or offerings that the user can manage through the
-  API.
-
-  Each offering record
-  indicates the recurring price per unit and the frequency for that offering. The
-  API returns a
-  `NotEligible` error if the user is not permitted to invoke the operation. If you
-  must be
-  able to invoke this operation, contact
+  API. Each offering record indicates the recurring price per unit and the
+  frequency for that offering. The API returns a `NotEligible` error if the user
+  is not permitted to invoke the operation. If you must be able to invoke this
+  operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   @spec list_offerings(AWS.Client.t(), list_offerings_request(), Keyword.t()) ::
@@ -4167,18 +4107,6 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Gets information about unique problems, such as exceptions or crashes.
-
-  Unique problems are defined as a single instance of an error across a run, job,
-  or suite. For example,
-  if a call in your application consistently raises an exception (
-
-  ```
-  OutOfBoundsException in
-  MyActivity.java:386
-  ```
-
-  ), `ListUniqueProblems` returns a single entry instead of many
-  individual entries for that exception.
   """
   @spec list_unique_problems(AWS.Client.t(), list_unique_problems_request(), Keyword.t()) ::
           {:ok, list_unique_problems_result(), any()}
@@ -4221,14 +4149,10 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Immediately purchases offerings for an AWS account.
-
-  Offerings renew with the latest total purchased
-  quantity for an offering, unless the renewal was overridden. The API returns a
-  `NotEligible`
-  error if the user is not permitted to invoke the operation. If you must be able
-  to invoke this operation,
-  contact
+  Immediately purchases offerings for an AWS account. Offerings renew with the
+  latest total purchased quantity for an offering, unless the renewal was
+  overridden. The API returns a `NotEligible` error if the user is not permitted
+  to invoke the operation. If you must be able to invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   @spec purchase_offering(AWS.Client.t(), purchase_offering_request(), Keyword.t()) ::
@@ -4244,12 +4168,9 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Explicitly sets the quantity of devices to renew for an offering, starting from
-  the
-  `effectiveDate` of the next period.
-
-  The API returns a `NotEligible` error if the
-  user is not permitted to invoke the operation. If you must be able to invoke
-  this operation, contact
+  the `effectiveDate` of the next period. The API returns a `NotEligible` error
+  if the user is not permitted to invoke the operation. If you must be able to
+  invoke this operation, contact
   [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
   """
   @spec renew_offering(AWS.Client.t(), renew_offering_request(), Keyword.t()) ::
@@ -4278,14 +4199,11 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Initiates a stop request for the current job.
-
-  AWS Device Farm immediately stops the job on the device
-  where tests have not started. You are not billed for this device. On the device
-  where tests have started,
-  setup suite and teardown suite tests run to completion on the device. You are
-  billed for setup, teardown,
-  and any tests that were in progress or already completed.
+  Initiates a stop request for the current job. AWS Device Farm immediately stops
+  the job on the device where tests have not started. You are not billed for
+  this device. On the device where tests have started, setup suite and teardown
+  suite tests run to completion on the device. You are billed for setup,
+  teardown, and any tests that were in progress or already completed.
   """
   @spec stop_job(AWS.Client.t(), stop_job_request(), Keyword.t()) ::
           {:ok, stop_job_result(), any()}
@@ -4317,13 +4235,10 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Initiates a stop request for the current test run.
-
-  AWS Device Farm immediately stops the run on devices
-  where tests have not started. You are not billed for these devices. On devices
-  where tests have started
-  executing, setup suite and teardown suite tests run to completion on those
-  devices. You are billed for
+  Initiates a stop request for the current test run. AWS Device Farm immediately
+  stops the run on devices where tests have not started. You are not billed for
+  these devices. On devices where tests have started executing, setup suite and
+  teardown suite tests run to completion on those devices. You are billed for
   setup, teardown, and any tests that were in progress or already completed.
   """
   @spec stop_run(AWS.Client.t(), stop_run_request(), Keyword.t()) ::
@@ -4338,12 +4253,10 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
-
-  If existing tags
-  on a resource are not specified in the request parameters, they are not changed.
-  When a resource is deleted,
-  the tags associated with that resource are also deleted.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource are not specified in the request parameters, they
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -4386,11 +4299,8 @@ defmodule AWS.DeviceFarm do
 
   @doc """
   Modifies the name, description, and rules in a device pool given the attributes
-  and
-  the pool ARN.
-
-  Rule updates are all-or-nothing, meaning they can only be updated as a
-  whole (or not at all).
+  and the pool ARN. Rule updates are all-or-nothing, meaning they can only be
+  updated as a whole (or not at all).
   """
   @spec update_device_pool(AWS.Client.t(), update_device_pool_request(), Keyword.t()) ::
           {:ok, update_device_pool_result(), any()}
@@ -4432,8 +4342,7 @@ defmodule AWS.DeviceFarm do
   end
 
   @doc """
-  Modifies the specified project name, given the project ARN and a new
-  name.
+  Modifies the specified project name, given the project ARN and a new name.
   """
   @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}

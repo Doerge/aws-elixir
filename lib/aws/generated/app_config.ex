@@ -5,173 +5,15 @@ defmodule AWS.AppConfig do
   @moduledoc """
   AppConfig feature flags and dynamic configurations help software builders
   quickly and securely adjust application behavior in production environments
-  without full
-  code deployments.
-
-  AppConfig speeds up software release frequency, improves
-  application resiliency, and helps you address emergent issues more quickly. With
-  feature
-  flags, you can gradually release new capabilities to users and measure the
-  impact of those
-  changes before fully deploying the new capabilities to all users. With
-  operational flags
-  and dynamic configurations, you can update block lists, allow lists, throttling
-  limits,
-  logging verbosity, and perform other operational tuning to quickly respond to
-  issues in
-  production environments.
-
-  AppConfig is a capability of Amazon Web Services Systems Manager.
-
-  Despite the fact that application configuration content can vary greatly from
-  application to application, AppConfig supports the following use cases, which
-  cover a broad spectrum of customer needs:
-
-    *
-
-  **Feature flags and toggles** - Safely release new
-  capabilities to your customers in a controlled environment. Instantly roll back
-  changes if you experience a problem.
-
-    *
-
-  **Application tuning** - Carefully introduce
-  application changes while testing the impact of those changes with users in
-  production environments.
-
-    *
-
-  **Allow list or block list** - Control access to
-  premium features or instantly block specific users without deploying new code.
-
-    *
-
-  **Centralized configuration storage** - Keep your
-  configuration data organized and consistent across all of your workloads. You
-  can use
-  AppConfig to deploy configuration data stored in the AppConfig
-  hosted configuration store, Secrets Manager, Systems Manager, Parameter
-  Store, or Amazon S3.
-
-  ## How AppConfig works
-
-  This section provides a high-level description of how AppConfig works and how
-  you get started.
-
-  ## Definitions
-
-  ### 1. Identify configuration values in code you want to manage in the cloud
-
-  Before you start creating AppConfig artifacts, we recommend you
-  identify configuration data in your code that you want to dynamically manage
-  using
-  AppConfig. Good examples include feature flags or toggles, allow and
-  block lists, logging verbosity, service limits, and throttling rules, to name a
-  few.
-
-  If your configuration data already exists in the cloud, you can take advantage
-  of AppConfig validation, deployment, and extension features to further
-  streamline configuration data management.
-
-  ### 2. Create an application namespace
-
-  To create a namespace, you create an AppConfig artifact called an
-  application. An application is simply an organizational construct like a
-  folder.
-
-  ### 3. Create environments
-
-  For each AppConfig application, you define one or more environments.
-  An environment is a logical grouping of targets, such as applications in a
-  `Beta` or `Production` environment, Lambda functions,
-  or containers. You can also define environments for application subcomponents,
-  such as the `Web`, `Mobile`, and
-  `Back-end`.
-
-  You can configure Amazon CloudWatch alarms for each environment. The system
-  monitors
-  alarms during a configuration deployment. If an alarm is triggered, the system
-  rolls back the configuration.
-
-  ### 4. Create a configuration profile
-
-  A configuration profile includes, among other things, a URI that enables
-  AppConfig to locate your configuration data in its stored location
-  and a profile type. AppConfig supports two configuration profile types:
-  feature flags and freeform configurations. Feature flag configuration profiles
-  store their data in the AppConfig hosted configuration store and the URI
-  is simply `hosted`. For freeform configuration profiles, you can store
-  your data in the AppConfig hosted configuration store or any Amazon Web Services
-  service that integrates with AppConfig, as described in [Creating a free form configuration
-  profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html)
-  in the the *AppConfig User Guide*.
-
-  A configuration profile can also include optional validators to ensure your
-  configuration data is syntactically and semantically correct. AppConfig
-  performs a check using the validators when you start a deployment. If any errors
-  are detected, the deployment rolls back to the previous configuration data.
-
-  ### 5. Deploy configuration data
-
-  When you create a new deployment, you specify the following:
-
-    
-  An application ID
-
-    
-  A configuration profile ID
-
-    
-  A configuration version
-
-    
-  An environment ID where you want to deploy the configuration data
-
-    
-  A deployment strategy ID that defines how fast you want the changes to
-  take effect
-
-  When you call the
-  [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action, AppConfig performs the following
-  tasks:
-
-    
-  Retrieves the configuration data from the underlying data store by using
-  the location URI in the configuration profile.
-
-    
-  Verifies the configuration data is syntactically and semantically correct
-  by using the validators you specified when you created your configuration
-  profile.
-
-    
-  Caches a copy of the data so it is ready to be retrieved by your
-  application. This cached copy is called the *deployed
-  data*.
-
-  ### 6. Retrieve the configuration
-
-  You can configure AppConfig Agent as a local host and have the agent
-  poll AppConfig for configuration updates. The agent calls the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html)
-  and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API actions and caches your configuration data
-  locally. To retrieve the data, your application makes an HTTP call to the
-  localhost server. AppConfig Agent supports several use cases, as
-  described in [Simplified
-  retrieval
-  methods](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html)
-  in the the *AppConfig User
-  Guide*.
-
-  If AppConfig Agent isn't supported for your use case, you can
-  configure your application to poll AppConfig for configuration updates
-  by directly calling the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
-  API actions.
-
-  This reference is intended to be used with the [AppConfig User Guide](http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html).
+  without full code deployments. AppConfig speeds up software release frequency,
+  improves application resiliency, and helps you address emergent issues more
+  quickly. With feature flags, you can gradually release new capabilities to
+  users and measure the impact of those changes before fully deploying the new
+  capabilities to all users. With operational flags and dynamic configurations,
+  you can update block lists, allow lists, throttling limits, logging verbosity,
+  and perform other operational tuning to quickly respond to issues in
+  production environments. AppConfig is a capability of Amazon Web Services
+  Systems Manager.
   """
 
   alias AWS.Client
@@ -1401,18 +1243,15 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an application.
+  Creates an application. In AppConfig, an application is simply an organizational
+  construct like a folder. This organizational construct has a relationship with
+  some unit of executable code. For example, you could create an application
+  called MyMobileApp to organize and manage configuration data for a mobile
+  application installed by your users.
 
-  In AppConfig, an application is simply an
-  organizational construct like a folder. This organizational construct has a
-  relationship
-  with some unit of executable code. For example, you could create an application
-  called
-  MyMobileApp to organize and manage configuration data for a mobile application
-  installed by
-  your users.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1442,54 +1281,13 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a configuration profile, which is information that enables AppConfig
-  to access the configuration source.
-
-  Valid configuration sources include the
+  Creates a configuration profile, which is information that enables AppConfig to
+  access the configuration source. Valid configuration sources include the
   following:
 
-    *
-  Configuration data in YAML, JSON, and other formats stored in the AppConfig
-  hosted configuration store
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateConfigurationProfile&this_doc_guide=API%2520Reference)
 
-    *
-  Configuration data stored as objects in an Amazon Simple Storage Service (Amazon
-  S3)
-  bucket
-
-    *
-  Pipelines stored in CodePipeline
-
-    *
-  Secrets stored in Secrets Manager
-
-    *
-  Standard and secure string parameters stored in Amazon Web Services Systems
-  Manager Parameter Store
-
-    *
-  Configuration data in SSM documents stored in the Systems Manager document store
-
-  A configuration profile includes the following information:
-
-    *
-  The URI location of the configuration data.
-
-    *
-  The Identity and Access Management (IAM) role that provides access to the
-  configuration data.
-
-    *
-  A validator for the configuration data. Available validators include either a
-  JSON
-  Schema or an Amazon Web Services Lambda function.
-
-  For more information, see [Create a Configuration and a Configuration
-  Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html)
-  in the *AppConfig
-  User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
@@ -1526,15 +1324,14 @@ defmodule AWS.AppConfig do
 
   @doc """
   Creates a deployment strategy that defines important criteria for rolling out
-  your
-  configuration to the designated targets.
+  your configuration to the designated targets. A deployment strategy includes
+  the overall duration required, a percentage of targets to receive the
+  deployment during each interval, an algorithm that defines how percentage
+  grows, and bake time.
 
-  A deployment strategy includes the overall
-  duration required, a percentage of targets to receive the deployment during each
-  interval,
-  an algorithm that defines how percentage grows, and bake time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateDeploymentStrategy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1568,20 +1365,18 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an environment.
-
-  For each application, you define one or more environments. An
-  environment is a deployment group of AppConfig targets, such as applications in
-  a
-  `Beta` or `Production` environment. You can also define
-  environments for application subcomponents such as the `Web`,
-  `Mobile` and `Back-end` components for your application. You can
-  configure Amazon CloudWatch alarms for each environment. The system monitors
-  alarms during a
+  Creates an environment. For each application, you define one or more
+  environments. An environment is a deployment group of AppConfig targets, such
+  as applications in a `Beta` or `Production` environment. You can also define
+  environments for application subcomponents such as the `Web`, `Mobile` and
+  `Back-end` components for your application. You can configure Amazon
+  CloudWatch alarms for each environment. The system monitors alarms during a
   configuration deployment. If an alarm is triggered, the system rolls back the
   configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
@@ -1612,44 +1407,24 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates an AppConfig extension.
+  Creates an AppConfig extension. An extension augments your ability to inject
+  logic or behavior at different points during the AppConfig workflow of
+  creating or deploying a configuration. You can create your own extensions or
+  use the Amazon Web Services authored extensions provided by AppConfig. For an
+  AppConfig extension that uses Lambda, you must create a Lambda function to
+  perform any computation and processing defined in the extension. If you plan
+  to create custom versions of the Amazon Web Services authored notification
+  extensions, you only need to specify an Amazon Resource Name (ARN) in the
+  `Uri` field for the new extension version.
 
-  An extension augments your ability to inject
-  logic or behavior at different points during the AppConfig workflow of creating
-  or deploying a configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtension&this_doc_guide=API%2520Reference)
 
-  You can create your own extensions or use the Amazon Web Services authored
-  extensions provided by
-  AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda
-  function to perform any computation and processing
-  defined in the extension. If you plan to create custom versions of the Amazon
-  Web Services
-  authored notification extensions, you only need to specify an Amazon Resource
-  Name (ARN) in
-  the `Uri` field for the new extension version.
-
-    *
-  For a custom EventBridge notification extension, enter the ARN of the
-  EventBridge
-  default events in the `Uri` field.
-
-    *
-  For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
-  topic in the `Uri` field.
-
-    *
-  For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
-  message queue in the `Uri` field.
-
-  For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
-  in the *AppConfig User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:latest_version_number` (`t:integer`) You can omit this field when you create an extension. When you create a new version,
-         specify the most recent current version number. For example, you create version 3, enter 2
-         for this field.
+  * `:latest_version_number` (`t:integer`) You can omit this field when you create
+    an extension. When you create a new version, specify the most recent current
+    version number. For example, you create version 3, enter 2 for this field.
   """
   @spec create_extension(AWS.Client.t(), create_extension_request(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -1684,30 +1459,22 @@ defmodule AWS.AppConfig do
 
   @doc """
   When you create an extension or configure an Amazon Web Services authored
-  extension, you
-  associate the extension with an AppConfig application, environment, or
-  configuration profile.
-
-  For example, you can choose to run the
-
-  ```
-  AppConfig
-  deployment events to Amazon SNS
-  ```
-
-  Amazon Web Services authored extension and receive notifications on an Amazon
-  SNS
-  topic anytime a configuration deployment is started for a specific application.
-  Defining
-  which extension to associate with an AppConfig resource is called an
-  *extension association*. An extension association is a specified
-  relationship between an extension and an AppConfig resource, such as an
-  application or a configuration profile. For more information about extensions
-  and
-  associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  extension, you associate the extension with an AppConfig application,
+  environment, or configuration profile. For example, you can choose to run the
+  ``` AppConfig deployment events to Amazon SNS ``` Amazon Web Services authored
+  extension and receive notifications on an Amazon SNS topic anytime a
+  configuration deployment is started for a specific application. Defining which
+  extension to associate with an AppConfig resource is called an *extension
+  association*. An extension association is a specified relationship between an
+  extension and an AppConfig resource, such as an application or a configuration
+  profile. For more information about extensions and associations, see
+  [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1741,24 +1508,26 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a new configuration in the AppConfig hosted configuration
-  store.
+  Creates a new configuration in the AppConfig hosted configuration store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-  * `:content_type` (`t:string`) A standard MIME type describing the format of the configuration content. For more
-         information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.
+  * `:content_type` (`t:string`) A standard MIME type describing the format of the
+    configuration content. For more information, see Content-Type.
   * `:description` (`t:string`) A description of the configuration.
-  * `:latest_version_number` (`t:integer`) An optional locking token used to prevent race conditions from overwriting configuration
-         updates when creating a new version. To ensure your data is not overwritten when creating
-         multiple hosted configuration versions in rapid succession, specify the version number of
-         the latest hosted configuration version.
-  * `:version_label` (`t:string`) An optional, user-defined label for the AppConfig hosted configuration
-         version. This value must contain at least one non-numeric character. For example,
-         &quot;v2.2.0&quot;.
+  * `:latest_version_number` (`t:integer`) An optional locking token used to
+    prevent race conditions from overwriting configuration updates when creating
+    a new version. To ensure your data is not overwritten when creating multiple
+    hosted configuration versions in rapid succession, specify the version
+    number of the latest hosted configuration version.
+  * `:version_label` (`t:string`) An optional, user-defined label for the
+    AppConfig hosted configuration version. This value must contain at least one
+    non-numeric character. For example, "v2.2.0".
   """
   @spec create_hosted_configuration_version(
           AWS.Client.t(),
@@ -1823,12 +1592,12 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an application.
+  Deletes an application. Deleting an application does not delete a configuration
+  from a host.
 
-  Deleting an application does not delete a configuration from a
-  host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application to delete.
 
   ## Optional parameters:
@@ -1859,14 +1628,16 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes a configuration profile.
+  Deletes a configuration profile. Deleting a configuration profile does not
+  delete a configuration from a host.
 
-  Deleting a configuration profile does not delete a
-  configuration from a host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteConfigurationProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The application ID that includes the configuration profile you want to delete.
-  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile you want to delete.
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID that includes the
+    configuration profile you want to delete.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
+    you want to delete.
 
   ## Optional parameters:
   """
@@ -1910,13 +1681,14 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes a deployment strategy.
-
-  Deleting a deployment strategy does not delete a
+  Deletes a deployment strategy. Deleting a deployment strategy does not delete a
   configuration from a host.
 
-  ## Required positional parameters:
-  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy you
+    want to delete.
 
   ## Optional parameters:
   """
@@ -1951,14 +1723,16 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an environment.
+  Deletes an environment. Deleting an environment does not delete a configuration
+  from a host.
 
-  Deleting an environment does not delete a configuration from a
-  host.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The application ID that includes the environment that you want to delete.
-  * `:environment_id` (`t:string`) The ID of the environment that you want to delete.
+  ## Parameters:
+  * `:application_id` (`t:string`) The application ID that includes the
+    environment that you want to delete.
+  * `:environment_id` (`t:string`) The ID of the environment that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -1996,17 +1770,18 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an AppConfig extension.
+  Deletes an AppConfig extension. You must delete all associations to an extension
+  before you delete the extension.
 
-  You must delete all associations to an
-  extension before you delete the extension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtension&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, ID, or Amazon Resource Name
+    (ARN) of the extension you want to delete.
 
   ## Optional parameters:
-  * `:version_number` (`t:integer`) A specific version of an extension to delete. If omitted, the highest version is
-         deleted.
+  * `:version_number` (`t:integer`) A specific version of an extension to delete.
+    If omitted, the highest version is deleted.
   """
   @spec delete_extension(AWS.Client.t(), String.t(), delete_extension_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2039,13 +1814,14 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Deletes an extension association.
+  Deletes an extension association. This action doesn't delete extensions defined
+  in the association.
 
-  This action doesn't delete extensions defined in the
-  association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteExtensionAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:extension_association_id` (`t:string`) The ID of the extension association to delete.
+  ## Parameters:
+  * `:extension_association_id` (`t:string`) The ID of the extension association
+    to delete.
 
   ## Optional parameters:
   """
@@ -2088,7 +1864,9 @@ defmodule AWS.AppConfig do
   Deletes a version of a configuration from the AppConfig hosted configuration
   store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20DeleteHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
   * `:version_number` (`t:integer`) The versions number to delete.
@@ -2139,7 +1917,9 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application you want to get.
 
   ## Optional parameters:
@@ -2167,34 +1947,23 @@ defmodule AWS.AppConfig do
   @doc """
   (Deprecated) Retrieves the latest deployed configuration.
 
-  Note the following important information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfiguration&this_doc_guide=API%2520Reference)
 
-    
-  This API action is deprecated. Calls to receive configuration data should use
-  the
-  [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and
-  [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)
-  APIs instead.
-
-    
-
-  `GetConfiguration` is a priced call. For more information, see
-  [Pricing](https://aws.amazon.com/systems-manager/pricing/).
-
-  ## Required positional parameters:
-  * `:application` (`t:string`) The application to get. Specify either the application name or the application
-         ID.
-  * `:configuration` (`t:string`) The configuration to get. Specify either the configuration name or the configuration
-         ID.
-  * `:environment` (`t:string`) The environment to get. Specify either the environment name or the environment
-         ID.
+  ## Parameters:
+  * `:application` (`t:string`) The application to get. Specify either the
+    application name or the application ID.
+  * `:configuration` (`t:string`) The configuration to get. Specify either the
+    configuration name or the configuration ID.
+  * `:environment` (`t:string`) The environment to get. Specify either the
+    environment name or the environment ID.
 
   ## Optional parameters:
-  * `:client_configuration_version` (`t:string`) The configuration version returned in the most recent <code>GetConfiguration</code>
-         response.
-  * `:client_id` (`t:string`) The clientId parameter in the following command is a unique, user-specified ID to
-         identify the client for the configuration. This ID enables AppConfig to deploy
-         the configuration in intervals, as defined in the deployment strategy. 
+  * `:client_configuration_version` (`t:string`) The configuration version
+    returned in the most recent GetConfiguration response.
+  * `:client_id` (`t:string`) The clientId parameter in the following command is a
+    unique, user-specified ID to identify the client for the configuration. This
+    ID enables AppConfig to deploy the configuration in intervals, as defined in
+    the deployment strategy.
   """
   @spec get_configuration(
           AWS.Client.t(),
@@ -2263,10 +2032,13 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about a configuration profile.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the configuration profile you want to
-         get.
-  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile that you want to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetConfigurationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    configuration profile you want to get.
+  * `:configuration_profile_id` (`t:string`) The ID of the configuration profile
+    that you want to get.
 
   ## Optional parameters:
   """
@@ -2299,10 +2071,14 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about a configuration deployment.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the deployment you want to get. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    deployment you want to get.
   * `:deployment_number` (`t:integer`) The sequence number of the deployment.
-  * `:environment_id` (`t:string`) The ID of the environment that includes the deployment you want to get. 
+  * `:environment_id` (`t:string`) The ID of the environment that includes the
+    deployment you want to get.
 
   ## Optional parameters:
   """
@@ -2334,19 +2110,17 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Retrieves information about a deployment strategy.
+  Retrieves information about a deployment strategy. A deployment strategy defines
+  important criteria for rolling out your configuration to the designated
+  targets. A deployment strategy includes the overall duration required, a
+  percentage of targets to receive the deployment during each interval, an
+  algorithm that defines how percentage grows, and bake time.
 
-  A deployment strategy defines
-  important criteria for rolling out your configuration to the designated targets.
-  A
-  deployment strategy includes the overall duration required, a percentage of
-  targets to
-  receive the deployment during each interval, an algorithm that defines how
-  percentage
-  grows, and bake time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetDeploymentStrategy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to get.
+  ## Parameters:
+  * `:deployment_strategy_id` (`t:string`) The ID of the deployment strategy to
+    get.
 
   ## Optional parameters:
   """
@@ -2371,18 +2145,18 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Retrieves information about an environment.
+  Retrieves information about an environment. An environment is a deployment group
+  of AppConfig applications, such as applications in a `Production` environment
+  or in an `EU_Region` environment. Each configuration deployment targets an
+  environment. You can enable one or more Amazon CloudWatch alarms for an
+  environment. If an alarm is triggered during a deployment, AppConfig roles
+  back the configuration.
 
-  An environment is a deployment group of
-  AppConfig applications, such as applications in a `Production`
-  environment or in an `EU_Region` environment. Each configuration deployment
-  targets an environment. You can enable one or more Amazon CloudWatch alarms for
-  an environment. If
-  an alarm is triggered during a deployment, AppConfig roles back the
-  configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application that includes the environment you want to get.
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that includes the
+    environment you want to get.
   * `:environment_id` (`t:string`) The ID of the environment that you want to get.
 
   ## Optional parameters:
@@ -2411,12 +2185,15 @@ defmodule AWS.AppConfig do
   @doc """
   Returns information about an AppConfig extension.
 
-  ## Required positional parameters:
-  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
 
   ## Optional parameters:
-  * `:version_number` (`t:integer`) The extension version number. If no version number was defined, AppConfig uses
-         the highest version.
+  * `:version_number` (`t:integer`) The extension version number. If no version
+    number was defined, AppConfig uses the highest version.
   """
   @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -2448,13 +2225,14 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Returns information about an AppConfig extension association.
-
-  For more
-  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Returns information about an AppConfig extension association. For more
+  information about extensions and associations, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:extension_association_id` (`t:string`) The extension association ID to get.
 
   ## Optional parameters:
@@ -2482,7 +2260,9 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about a specific configuration version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20GetHostedConfigurationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
   * `:version_number` (`t:integer`) The version.
@@ -2540,15 +2320,20 @@ defmodule AWS.AppConfig do
   @doc """
   Lists all applications in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Next token is a pagination token generated by AppConfig to describe what page the previous List call ended on. For the first List
-         request, the nextToken should not be set. On subsequent calls, the nextToken parameter
-         should be set to the previous responses nextToken value. Use this token to get the next set
-         of results. 
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Next token is a
+    pagination token generated by AppConfig to describe what page the previous
+    List call ended on. For the first List request, the nextToken should not be
+    set. On subsequent calls, the nextToken parameter should be set to the
+    previous responses nextToken value. Use this token to get the next set of
+    results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
@@ -2591,15 +2376,20 @@ defmodule AWS.AppConfig do
   @doc """
   Lists the configuration profiles for an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListConfigurationProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
-  * `:type` (`t:string`) A filter based on the type of configurations that the configuration profile contains. A
-         configuration can be a feature flag or a freeform configuration.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
+  * `:type` (`t:string`) A filter based on the type of configurations that the
+    configuration profile contains. A configuration can be a feature flag or a
+    freeform configuration.
   """
   @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
@@ -2651,12 +2441,16 @@ defmodule AWS.AppConfig do
   @doc """
   Lists deployment strategies.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeploymentStrategies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
   @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
@@ -2699,17 +2493,20 @@ defmodule AWS.AppConfig do
   @doc """
   Lists the deployments for an environment in descending deployment number order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:environment_id` (`t:string`) The environment ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items that may be returned for this call. If there are items that
-         have not yet been returned, the response will include a non-null <code>NextToken</code>
-         that you can provide in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) The token returned by a prior call to this operation indicating the next set of results
-         to be returned. If not specified, the operation will return the first set of
-         results.
+  * `:max_results` (`t:integer`) The maximum number of items that may be returned
+    for this call. If there are items that have not yet been returned, the
+    response will include a non-null NextToken that you can provide in a
+    subsequent call to get the next set of results.
+  * `:next_token` (`t:string`) The token returned by a prior call to this
+    operation indicating the next set of results to be returned. If not
+    specified, the operation will return the first set of results.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
@@ -2753,13 +2550,17 @@ defmodule AWS.AppConfig do
   @doc """
   Lists the environments for an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
   @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
@@ -2800,22 +2601,27 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Lists all AppConfig extension associations in the account.
-
-  For more
-  information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Lists all AppConfig extension associations in the account. For more information
+  about extensions and associations, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensionAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
-  * `:extension_version_number` (`t:integer`) The version number for the extension defined in the association.
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results or pass null to
-         get the first set of results. 
-  * `:resource_identifier` (`t:string`) The ARN of an application, configuration profile, or environment.
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
+  * `:extension_version_number` (`t:integer`) The version number for the extension
+    defined in the association.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results or pass null to get the first set of results.
+  * `:resource_identifier` (`t:string`) The ARN of an application, configuration
+    profile, or environment.
   """
   @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
@@ -2884,18 +2690,21 @@ defmodule AWS.AppConfig do
 
   @doc """
   Lists all custom and Amazon Web Services authored AppConfig extensions in the
-  account.
-
-  For more information about extensions, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  account. For more information about extensions, see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:name` (`t:string`) The extension name.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results. 
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
   """
   @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
@@ -2948,17 +2757,23 @@ defmodule AWS.AppConfig do
   Lists configurations stored in the AppConfig hosted configuration store by
   version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListHostedConfigurationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to return for this call. The call also returns a token that
-         you can specify in a subsequent call to get the next set of results.
-  * `:next_token` (`t:string`) A token to start the list. Use this token to get the next set of results. 
-  * `:version_label` (`t:string`) An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a
-         wildcard, for example &quot;v2*&quot;. If you don&#39;t specify an asterisk at the end of the value, only
-         an exact match is returned.
+  * `:max_results` (`t:integer`) The maximum number of items to return for this
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
+  * `:next_token` (`t:string`) A token to start the list. Use this token to get
+    the next set of results.
+  * `:version_label` (`t:string`) An optional filter that can be used to specify
+    the version label of an AppConfig hosted configuration version. This
+    parameter supports filtering by prefix using a wildcard, for example "v2*".
+    If you don't specify an asterisk at the end of the value, only an exact
+    match is returned.
   """
   @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
@@ -3016,7 +2831,9 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves the list of key-value tags assigned to the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The resource ARN.
 
   ## Optional parameters:
@@ -3044,7 +2861,9 @@ defmodule AWS.AppConfig do
   @doc """
   Starts a deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StartDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:environment_id` (`t:string`) The environment ID.
 
@@ -3084,13 +2903,12 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Stops a deployment.
+  Stops a deployment. This API action works only on deployments that have a status
+  of `DEPLOYING`. This action moves the deployment to a status of `ROLLED_BACK`.
 
-  This API action works only on deployments that have a status of
-  `DEPLOYING`. This action moves the deployment to a status of
-  `ROLLED_BACK`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20StopDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:deployment_number` (`t:integer`) The sequence number of the deployment.
   * `:environment_id` (`t:string`) The environment ID.
@@ -3139,14 +2957,15 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Assigns metadata to an AppConfig resource.
+  Assigns metadata to an AppConfig resource. Tags help organize and categorize
+  your AppConfig resources. Each tag consists of a key and an optional value,
+  both of which you define. You can specify a maximum of 50 tags for a resource.
 
-  Tags help organize and categorize
-  your AppConfig resources. Each tag consists of a key and an optional value, both
-  of which you define. You can specify a maximum of 50 tags for a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which to retrieve
+    tags.
 
   ## Optional parameters:
   """
@@ -3178,7 +2997,9 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a tag key and value from an AppConfig resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource for which to remove tags.
 
   ## Optional parameters:
@@ -3217,7 +3038,9 @@ defmodule AWS.AppConfig do
   @doc """
   Updates an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
 
   ## Optional parameters:
@@ -3250,7 +3073,9 @@ defmodule AWS.AppConfig do
   @doc """
   Updates a configuration profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateConfigurationProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The ID of the configuration profile.
 
@@ -3298,7 +3123,9 @@ defmodule AWS.AppConfig do
   @doc """
   Updates a deployment strategy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateDeploymentStrategy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:deployment_strategy_id` (`t:string`) The deployment strategy ID.
 
   ## Optional parameters:
@@ -3336,7 +3163,9 @@ defmodule AWS.AppConfig do
   @doc """
   Updates an environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:environment_id` (`t:string`) The environment ID.
 
@@ -3376,14 +3205,16 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Updates an AppConfig extension.
-
-  For more information about extensions, see
-  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Updates an AppConfig extension. For more information about extensions, see
+  [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
-  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtension&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
+    Name (ARN) of the extension.
 
   ## Optional parameters:
   """
@@ -3413,14 +3244,16 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Updates an association.
-
-  For more information about extensions and associations, see
-  [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
+  Updates an association. For more information about extensions and associations,
+  see [Extending
+  workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
 
-  ## Required positional parameters:
-  * `:extension_association_id` (`t:string`) The system-generated ID for the association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20UpdateExtensionAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:extension_association_id` (`t:string`) The system-generated ID for the
+    association.
 
   ## Optional parameters:
   """
@@ -3462,12 +3295,15 @@ defmodule AWS.AppConfig do
   @doc """
   Uses the validators in a configuration profile to validate a configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ValidateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The application ID.
   * `:configuration_profile_id` (`t:string`) The configuration profile ID.
 
   ## Optional parameters:
-  * `:configuration_version` (`t:string`) The version of the configuration to validate.
+  * `:configuration_version` (`t:string`) The version of the configuration to
+    validate.
   """
   @spec validate_configuration(
           AWS.Client.t(),

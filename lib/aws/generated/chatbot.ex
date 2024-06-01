@@ -1271,7 +1271,9 @@ defmodule AWS.Chatbot do
   @doc """
   Creates Chime Webhook Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1307,7 +1309,9 @@ defmodule AWS.Chatbot do
   @doc """
   Creates MS Teams Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1343,7 +1347,9 @@ defmodule AWS.Chatbot do
   @doc """
   Creates Slack Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1379,7 +1385,9 @@ defmodule AWS.Chatbot do
   @doc """
   Deletes a Chime Webhook Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1415,7 +1423,9 @@ defmodule AWS.Chatbot do
   @doc """
   Deletes MS Teams Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1450,12 +1460,12 @@ defmodule AWS.Chatbot do
 
   @doc """
   Deletes the Microsoft Teams team authorization allowing for channels to be
-  configured in that Microsoft Teams team.
+  configured in that Microsoft Teams team. Note that the Microsoft Teams team
+  must have no channels configured to remove it.
 
-  Note that the Microsoft Teams team must have no channels configured to remove
-  it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsConfiguredTeam&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1491,7 +1501,9 @@ defmodule AWS.Chatbot do
   @doc """
   Deletes a Teams user identity
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsUserIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1527,7 +1539,9 @@ defmodule AWS.Chatbot do
   @doc """
   Deletes Slack Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1563,7 +1577,9 @@ defmodule AWS.Chatbot do
   @doc """
   Deletes a Slack user identity
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackUserIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1598,11 +1614,12 @@ defmodule AWS.Chatbot do
 
   @doc """
   Deletes the Slack workspace authorization that allows channels to be configured
-  in that workspace.
+  in that workspace. This requires all configured channels in the workspace to
+  be deleted.
 
-  This requires all configured channels in the workspace to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackWorkspaceAuthorization&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1638,7 +1655,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists Chime Webhook Configurations optionally filtered by ChatConfigurationArn
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeChimeWebhookConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1674,7 +1693,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackChannelConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1710,7 +1731,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists all Slack user identities with a mapped role.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackUserIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1746,7 +1769,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists all authorized Slack Workspaces for AWS Account
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackWorkspaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1782,7 +1807,9 @@ defmodule AWS.Chatbot do
   @doc """
   Get Chatbot account level preferences
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetAccountPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1814,7 +1841,9 @@ defmodule AWS.Chatbot do
   @doc """
   Get a single MS Teams Channel Configurations
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1850,7 +1879,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists MS Teams Channel Configurations optionally filtered by TeamId
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsChannelConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1886,7 +1917,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists all authorized MS teams for AWS Account
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsConfiguredTeams&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1922,7 +1955,9 @@ defmodule AWS.Chatbot do
   @doc """
   Lists all Microsoft Teams user identities with a mapped role.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsUserIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1958,7 +1993,9 @@ defmodule AWS.Chatbot do
   @doc """
   Retrieves the list of tags applied to a configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1990,7 +2027,9 @@ defmodule AWS.Chatbot do
   @doc """
   Applies the supplied tags to a configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2022,7 +2061,9 @@ defmodule AWS.Chatbot do
   @doc """
   Removes the supplied tags from a configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2054,7 +2095,9 @@ defmodule AWS.Chatbot do
   @doc """
   Update Chatbot account level preferences
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateAccountPreferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2090,7 +2133,9 @@ defmodule AWS.Chatbot do
   @doc """
   Updates a Chime Webhook Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2126,7 +2171,9 @@ defmodule AWS.Chatbot do
   @doc """
   Updates MS Teams Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2162,7 +2209,9 @@ defmodule AWS.Chatbot do
   @doc """
   Updates Slack Channel Configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

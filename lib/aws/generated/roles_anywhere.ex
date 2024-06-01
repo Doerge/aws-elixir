@@ -4,29 +4,18 @@
 defmodule AWS.RolesAnywhere do
   @moduledoc """
   Identity and Access Management Roles Anywhere provides a secure way for your
-  workloads such as
-  servers, containers, and applications that run outside of Amazon Web Services to
-  obtain
-  temporary Amazon Web Services credentials.
-
-  Your workloads can use the same IAM policies and roles you have for native
-  Amazon Web Services applications to access Amazon Web Services resources. Using
-  IAM Roles Anywhere eliminates the need to
-  manage long-term credentials for workloads running outside of Amazon Web
-  Services.
-
-  To use IAM Roles Anywhere, your workloads must use X.509 certificates
-  issued by their certificate authority (CA). You register the CA with IAM
-  Roles Anywhere as a trust anchor to establish trust between your public key
-  infrastructure
-  (PKI) and IAM Roles Anywhere. If you don't manage your own PKI system, you
-  can use Private Certificate Authority to create a CA and then use that to
-  establish trust with
+  workloads such as servers, containers, and applications that run outside of
+  Amazon Web Services to obtain temporary Amazon Web Services credentials. Your
+  workloads can use the same IAM policies and roles you have for native Amazon
+  Web Services applications to access Amazon Web Services resources. Using IAM
+  Roles Anywhere eliminates the need to manage long-term credentials for
+  workloads running outside of Amazon Web Services. To use IAM Roles Anywhere,
+  your workloads must use X.509 certificates issued by their certificate
+  authority (CA). You register the CA with IAM Roles Anywhere as a trust anchor
+  to establish trust between your public key infrastructure (PKI) and IAM Roles
+  Anywhere. If you don't manage your own PKI system, you can use Private
+  Certificate Authority to create a CA and then use that to establish trust with
   IAM Roles Anywhere.
-
-  This guide describes the IAM Roles Anywhere operations that you can call
-  programmatically. For more information about IAM Roles Anywhere, see the
-  [IAM Roles Anywhere User Guide](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html).
   """
 
   alias AWS.Client
@@ -764,14 +753,12 @@ defmodule AWS.RolesAnywhere do
 
   @doc """
   Creates a *profile*, a list of the roles that Roles Anywhere service is trusted
-  to assume.
+  to assume. You use profiles to intersect permissions with IAM managed
+  policies.
 
-  You use profiles to intersect permissions with IAM managed policies.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:CreateProfile`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -801,18 +788,16 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Creates a trust anchor to establish trust between IAM Roles Anywhere and
-  your certificate authority (CA).
+  Creates a trust anchor to establish trust between IAM Roles Anywhere and your
+  certificate authority (CA). You can define a trust anchor as a reference to an
+  Private Certificate Authority (Private CA) or by uploading a CA certificate.
+  Your Amazon Web Services workloads can authenticate with the trust anchor
+  using certificates issued by the CA in exchange for temporary Amazon Web
+  Services credentials.
 
-  You can define a trust anchor as a reference to an Private Certificate Authority
-  (Private CA) or by uploading a CA certificate. Your Amazon Web Services
-  workloads can authenticate with the trust anchor using certificates issued by
-  the CA in exchange for temporary Amazon Web Services credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:CreateTrustAnchor`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -844,12 +829,16 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Delete an entry from the attribute mapping rules enforced by a given profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteAttributeMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
-  * `:certificate_field` (`t:string`) Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
-  * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a certificate field; for example, CN, OU, UID from a Subject.
+  * `:certificate_field` (`t:string`) Fields (x509Subject, x509Issuer and x509SAN)
+    within X.509 certificates.
+  * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a
+    certificate field; for example, CN, OU, UID from a Subject.
   """
   @spec delete_attribute_mapping(
           AWS.Client.t(),
@@ -890,11 +879,11 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteCrl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
 
   ## Optional parameters:
   """
@@ -926,10 +915,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -962,10 +950,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Deletes a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:DeleteTrustAnchor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DeleteTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
@@ -1003,11 +990,11 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Disables a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:DisableCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableCrl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
 
   ## Optional parameters:
   """
@@ -1037,14 +1024,12 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Disables a profile.
+  Disables a profile. When disabled, temporary credential requests with this
+  profile fail.
 
-  When disabled, temporary credential requests with this profile fail.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:DisableProfile`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -1075,15 +1060,12 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Disables a trust anchor.
+  Disables a trust anchor. When disabled, temporary credential requests specifying
+  this trust anchor are unauthorized.
 
-  When disabled, temporary credential requests specifying this trust anchor are
-  unauthorized.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20DisableTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:DisableTrustAnchor`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
@@ -1119,16 +1101,14 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Enables a certificate revocation list (CRL).
+  Enables a certificate revocation list (CRL). When enabled, certificates stored
+  in the CRL are unauthorized to receive session credentials.
 
-  When enabled, certificates stored in the CRL are unauthorized to receive session
-  credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableCrl&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:EnableCrl`.
-
-  ## Required positional parameters:
-  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
 
   ## Optional parameters:
   """
@@ -1160,10 +1140,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Enables temporary credential requests for a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:EnableProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -1194,15 +1173,12 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Enables a trust anchor.
+  Enables a trust anchor. When enabled, certificates in the trust anchor chain are
+  authorized for trust validation.
 
-  When enabled, certificates in the trust anchor chain are authorized for trust
-  validation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20EnableTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:EnableTrustAnchor`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
@@ -1240,11 +1216,11 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a certificate revocation list (CRL).
 
-  ## Required permissions: 
-  `rolesanywhere:GetCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetCrl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
 
   ## Optional parameters:
   """
@@ -1271,10 +1247,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a profile.
 
-  ## Required permissions: 
-  `rolesanywhere:GetProfile`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -1300,19 +1275,15 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Gets a *subject*, which associates a certificate identity with
-  authentication attempts.
-
-  The subject stores auditing information such as the status
-  of the last authentication attempt, the certificate data used in the attempt,
-  and the
+  Gets a *subject*, which associates a certificate identity with authentication
+  attempts. The subject stores auditing information such as the status of the
+  last authentication attempt, the certificate data used in the attempt, and the
   last time the associated identity attempted authentication.
 
-  ## Required permissions: 
-  `rolesanywhere:GetSubject`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetSubject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:subject_id` (`t:string`) The unique identifier of the subject. 
+  ## Parameters:
+  * `:subject_id` (`t:string`) The unique identifier of the subject.
 
   ## Optional parameters:
   """
@@ -1339,10 +1310,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Gets a trust anchor.
 
-  ## Required permissions: 
-  `rolesanywhere:GetTrustAnchor`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20GetTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:
@@ -1368,18 +1338,14 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Imports the certificate revocation list (CRL).
-
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate Authority (CA).In order to be properly
-  imported, a CRL must be in PEM
-  format. IAM Roles Anywhere
+  Imports the certificate revocation list (CRL). A CRL is a list of certificates
+  that have been revoked by the issuing certificate Authority (CA).In order to
+  be properly imported, a CRL must be in PEM format. IAM Roles Anywhere
   validates against the CRL before issuing credentials.
 
-  ## Required permissions: 
-  `rolesanywhere:ImportCrl`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ImportCrl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1412,14 +1378,15 @@ defmodule AWS.RolesAnywhere do
   Lists all certificate revocation lists (CRL) in the authenticated account and
   Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListCrls`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListCrls&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list. 
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
   @spec list_crls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_crls_response(), any()}
@@ -1462,14 +1429,15 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists all profiles in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListProfiles`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListProfiles&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list. 
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1512,14 +1480,15 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the subjects in the authenticated account and Amazon Web Services Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListSubjects`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListSubjects&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list. 
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
   @spec list_subjects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subjects_response(), any()}
@@ -1562,10 +1531,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Lists the tags attached to the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTagsForResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
@@ -1603,14 +1571,15 @@ defmodule AWS.RolesAnywhere do
   Lists the trust anchors in the authenticated account and Amazon Web Services
   Region.
 
-  ## Required permissions: 
-  `rolesanywhere:ListTrustAnchors`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListTrustAnchors&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:`) A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.
-  * `:page_size` (`t:`) The number of resources in the paginated list. 
+  * `:next_token` (`t:`) A token that indicates where the output should continue
+    from, if a previous request did not show all results. To get the next
+    results, make the request again with this value.
+  * `:page_size` (`t:`) The number of resources in the paginated list.
   """
   @spec list_trust_anchors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_anchors_response(), any()}
@@ -1652,12 +1621,12 @@ defmodule AWS.RolesAnywhere do
 
   @doc """
   Put an entry in the attribute mapping rules that will be enforced by a given
-  profile.
+  profile. A mapping specifies a certificate field and one or more specifiers
+  that have contextual meanings.
 
-  A mapping specifies a certificate field and one or more specifiers that have
-  contextual meanings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20PutAttributeMapping&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -1683,16 +1652,13 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Attaches a list of *notification settings* to a trust anchor.
+  Attaches a list of *notification settings* to a trust anchor. A notification
+  setting includes information such as event name, threshold, status of the
+  notification setting, and the channel to notify.
 
-  A notification setting includes information such as event name, threshold,
-  status of
-  the notification setting, and the channel to notify.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20PutNotificationSettings&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:PutNotificationSettings`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1728,10 +1694,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Resets the *custom notification setting* to IAM Roles Anywhere default setting.
 
-  ## Required permissions: 
-  `rolesanywhere:ResetNotificationSettings`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ResetNotificationSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1767,10 +1732,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Attaches tags to a resource.
 
-  ## Required permissions: 
-  `rolesanywhere:TagResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1802,10 +1766,9 @@ defmodule AWS.RolesAnywhere do
   @doc """
   Removes tags from the resource.
 
-  ## Required permissions: 
-  `rolesanywhere:UntagResource`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1835,17 +1798,15 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates the certificate revocation list (CRL).
+  Updates the certificate revocation list (CRL). A CRL is a list of certificates
+  that have been revoked by the issuing certificate authority (CA). IAM Roles
+  Anywhere validates against the CRL before issuing credentials.
 
-  A CRL is a list of certificates that have
-  been revoked by the issuing certificate authority (CA). IAM Roles Anywhere
-  validates against the CRL before issuing credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateCrl&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateCrl`.
-
-  ## Required positional parameters:
-  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation list (CRL).
+  ## Parameters:
+  * `:crl_id` (`t:string`) The unique identifier of the certificate revocation
+    list (CRL).
 
   ## Optional parameters:
   """
@@ -1875,16 +1836,13 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a *profile*, a list of the roles that IAM
-  Roles Anywhere service is trusted to assume.
+  Updates a *profile*, a list of the roles that IAM Roles Anywhere service is
+  trusted to assume. You use profiles to intersect permissions with IAM managed
+  policies.
 
-  You use profiles to intersect permissions with
-  IAM managed policies.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateProfile&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateProfile`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_id` (`t:string`) The unique identifier of the profile.
 
   ## Optional parameters:
@@ -1915,23 +1873,16 @@ defmodule AWS.RolesAnywhere do
   end
 
   @doc """
-  Updates a trust anchor.
+  Updates a trust anchor. You establish trust between IAM Roles Anywhere and your
+  certificate authority (CA) by configuring a trust anchor. You can define a
+  trust anchor as a reference to an Private Certificate Authority (Private CA)
+  or by uploading a CA certificate. Your Amazon Web Services workloads can
+  authenticate with the trust anchor using certificates issued by the CA in
+  exchange for temporary Amazon Web Services credentials.
 
-  You establish trust between IAM Roles Anywhere
-  and your certificate authority (CA) by configuring a trust anchor. You can
-  define a trust
-  anchor as a reference to an Private Certificate Authority (Private CA) or by
-  uploading a
-  CA certificate. Your Amazon Web Services workloads can authenticate with the
-  trust anchor
-  using certificates issued by the CA in exchange for temporary Amazon Web
-  Services
-  credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UpdateTrustAnchor&this_doc_guide=API%2520Reference)
 
-  ## Required permissions: 
-  `rolesanywhere:UpdateTrustAnchor`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:trust_anchor_id` (`t:string`) The unique identifier of the trust anchor.
 
   ## Optional parameters:

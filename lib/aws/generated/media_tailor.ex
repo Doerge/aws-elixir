@@ -4,18 +4,12 @@
 defmodule AWS.MediaTailor do
   @moduledoc """
   Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad
-  insertion and linear channels.
-
-  With MediaTailor, you can assemble existing content into a linear stream and
-  serve targeted ads to viewers while maintaining broadcast quality in
-  over-the-top (OTT) video applications. For information about using the service,
-  including detailed information about the settings covered in this guide, see the
-  [AWS Elemental MediaTailor User Guide](https://docs.aws.amazon.com/mediatailor/latest/ug/).
-
-  Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations
-  and channels the same as you do through the console. For example, you specify ad
-  insertion behavior and mapping information for the origin server and the ad
-  decision server (ADS).
+  insertion and linear channels. With MediaTailor, you can assemble existing
+  content into a linear stream and serve targeted ads to viewers while
+  maintaining broadcast quality in over-the-top (OTT) video applications. For
+  information about using the service, including detailed information about the
+  settings covered in this guide, see the [AWS Elemental MediaTailor User
+  Guide](https://docs.aws.amazon.com/mediatailor/latest/ug/).
   """
 
   alias AWS.Client
@@ -1847,7 +1841,9 @@ defmodule AWS.MediaTailor do
   @doc """
   Configures Amazon CloudWatch log settings for a channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1872,7 +1868,9 @@ defmodule AWS.MediaTailor do
   @doc """
   Amazon CloudWatch log settings for a playback configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForPlaybackConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1895,12 +1893,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Creates a channel. For information about MediaTailor channels, see [Working with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -1932,7 +1931,9 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateLiveSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:live_source_name` (`t:string`) The name of the live source.
   * `:source_location_name` (`t:string`) The name of the source location.
 
@@ -1977,16 +1978,18 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a prefetch schedule for a playback configuration.
-
-  A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain
-  ads before an ad break happens. For more information about ad prefetching, see
-  [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  Creates a prefetch schedule for a playback configuration. A prefetch schedule
+  allows you to tell MediaTailor to fetch and prepare certain ads before an ad
+  break happens. For more information about ad prefetching, see [Using ad
+  prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreatePrefetchSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name to assign to the schedule request.
-  * `:playback_configuration_name` (`t:string`) The name to assign to the playback configuration.
+  * `:playback_configuration_name` (`t:string`) The name to assign to the playback
+    configuration.
 
   ## Optional parameters:
   """
@@ -2029,12 +2032,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a program within a channel.
-
-  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  Creates a program within a channel. For information about programs, see [Working
+  with
+  programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel for this Program.
   * `:program_name` (`t:string`) The name of the Program.
 
@@ -2073,14 +2078,16 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a source location.
-
-  A source location is a container for sources. For more information about source
-  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  Creates a source location. A source location is a container for sources. For
+  more information about source locations, see [Working with source
+  locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name associated with the source location.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateSourceLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name associated with the source
+    location.
 
   ## Optional parameters:
   """
@@ -2116,9 +2123,12 @@ defmodule AWS.MediaTailor do
   @doc """
   The VOD source configuration parameters.
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location for this VOD source.
-  * `:vod_source_name` (`t:string`) The name associated with the VOD source.&gt;
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20CreateVodSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location for this
+    VOD source.
+  * `:vod_source_name` (`t:string`) The name associated with the VOD source.>
 
   ## Optional parameters:
   """
@@ -2161,12 +2171,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Deletes a channel. For information about MediaTailor channels, see [Working with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -2198,8 +2209,11 @@ defmodule AWS.MediaTailor do
   @doc """
   The channel policy to delete.
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this channel policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteChannelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel associated with this
+    channel policy.
 
   ## Optional parameters:
   """
@@ -2235,9 +2249,12 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source to delete.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteLiveSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -2280,12 +2297,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a playback configuration.
-
-  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  Deletes a playback configuration. For information about MediaTailor
+  configurations, see [Working with configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeletePlaybackConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the playback configuration.
 
   ## Optional parameters:
@@ -2320,16 +2338,21 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a prefetch schedule for a specific playback configuration.
-
-  If you call `DeletePrefetchSchedule` on an expired prefetch schedule,
-  MediaTailor returns an HTTP 404 status code. For more information about ad
-  prefetching, see [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  Deletes a prefetch schedule for a specific playback configuration. If you call
+  `DeletePrefetchSchedule` on an expired prefetch schedule, MediaTailor returns
+  an HTTP 404 status code. For more information about ad prefetching, see [Using
+  ad
+  prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the prefetch schedule. If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.
-  * `:playback_configuration_name` (`t:string`) The name of the playback configuration for this prefetch schedule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeletePrefetchSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the prefetch schedule. If the action is
+    successful, the service sends back an HTTP 204 response with an empty HTTP
+    body.
+  * `:playback_configuration_name` (`t:string`) The name of the playback
+    configuration for this prefetch schedule.
 
   ## Optional parameters:
   """
@@ -2372,12 +2395,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a program within a channel.
-
-  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  Deletes a program within a channel. For information about programs, see [Working
+  with
+  programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
   * `:program_name` (`t:string`) The name of the program.
 
@@ -2416,13 +2441,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Deletes a source location.
-
-  A source location is a container for sources. For more information about source
-  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  Deletes a source location. A source location is a container for sources. For
+  more information about source locations, see [Working with source
+  locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteSourceLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
@@ -2459,8 +2485,11 @@ defmodule AWS.MediaTailor do
   @doc """
   The video on demand (VOD) source to delete.
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DeleteVodSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string`) The name of the VOD source.
 
   ## Optional parameters:
@@ -2504,12 +2533,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Describes a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Describes a channel. For information about MediaTailor channels, see [Working
+  with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -2536,9 +2567,12 @@ defmodule AWS.MediaTailor do
   @doc """
   The live source to describe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeLiveSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -2568,13 +2602,16 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Describes a program within a channel.
-
-  For information about programs, see [Working with programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
+  Describes a program within a channel. For information about programs, see
+  [Working with
+  programs](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this Program.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel associated with this
+    Program.
   * `:program_name` (`t:string`) The name of the program.
 
   ## Optional parameters:
@@ -2600,13 +2637,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Describes a source location.
-
-  A source location is a container for sources. For more information about source
-  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  Describes a source location. A source location is a container for sources. For
+  more information about source locations, see [Working with source
+  locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeSourceLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
@@ -2634,8 +2672,11 @@ defmodule AWS.MediaTailor do
   Provides details about a specific video on demand (VOD) source in a specific
   source location.
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20DescribeVodSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string`) The name of the VOD Source.
 
   ## Optional parameters:
@@ -2666,12 +2707,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Returns the channel's IAM policy.
+  Returns the channel's IAM policy. IAM policies are used to control access to
+  your channel.
 
-  IAM policies are used to control access to your channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetChannelPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this Channel Policy.
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel associated with this
+    Channel Policy.
 
   ## Optional parameters:
   """
@@ -2697,14 +2740,23 @@ defmodule AWS.MediaTailor do
   @doc """
   Retrieves information about your channel's schedule.
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel associated with this Channel Schedule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetChannelSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel associated with this
+    Channel Schedule.
 
   ## Optional parameters:
   * `:audience` (`t:string`) The single audience for GetChannelScheduleRequest.
-  * `:duration_minutes` (`t:string`) The duration in minutes of the channel schedule.
-  * `:max_results` (`t:integer`) The maximum number of channel schedules that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channel schedules, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) (Optional) If the playback configuration has more than <code>MaxResults</code> channel schedules, use <code>NextToken</code> to get the second and subsequent pages of results.
+  * `:duration_minutes` (`t:string`) The duration in minutes of the channel
+    schedule.
+  * `:max_results` (`t:integer`) The maximum number of channel schedules that you
+    want MediaTailor to return in response to the current request. If there are
+    more than MaxResults channel schedules, use the value of NextToken in the
+    response to get the next page of results.
+  * `:next_token` (`t:string`) (Optional) If the playback configuration has more
+    than MaxResults channel schedules, use NextToken to get the second and
+    subsequent pages of results.
   """
   @spec get_channel_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_schedule_response(), any()}
@@ -2762,12 +2814,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves a playback configuration.
-
-  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  Retrieves a playback configuration. For information about MediaTailor
+  configurations, see [Working with configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetPlaybackConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The identifier for the playback configuration.
 
   ## Optional parameters:
@@ -2792,16 +2845,22 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves a prefetch schedule for a playback configuration.
-
-  A prefetch schedule allows you to tell MediaTailor to fetch and prepare certain
-  ads before an ad break happens. For more information about ad prefetching, see
-  [Using ad prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
+  Retrieves a prefetch schedule for a playback configuration. A prefetch schedule
+  allows you to tell MediaTailor to fetch and prepare certain ads before an ad
+  break happens. For more information about ad prefetching, see [Using ad
+  prefetching](https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.
-  * `:playback_configuration_name` (`t:string`) Returns information about the prefetch schedule for a specific playback configuration. If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20GetPrefetchSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`) The name of the prefetch schedule. The name must be
+    unique among all prefetch schedules that are associated with the specified
+    playback configuration.
+  * `:playback_configuration_name` (`t:string`) Returns information about the
+    prefetch schedule for a specific playback configuration. If you call
+    GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns an
+    HTTP 404 status code.
 
   ## Optional parameters:
   """
@@ -2829,11 +2888,18 @@ defmodule AWS.MediaTailor do
   Lists the alerts that are associated with a MediaTailor channel assembly
   resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListAlerts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of alerts that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> alerts, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of alerts that you want
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults alerts, use the value of NextToken in the response to get
+    the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
   """
   @spec list_alerts(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2886,11 +2952,18 @@ defmodule AWS.MediaTailor do
   Retrieves information about the channels that are associated with the current
   AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of channels that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> channels, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults channels, use the value of NextToken in the response to get
+    the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -2930,16 +3003,23 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Lists the live sources contained in a source location.
+  Lists the live sources contained in a source location. A source represents a
+  piece of content.
 
-  A source represents a piece of content.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListLiveSources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Sources list.
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this Live Sources list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of live sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> live sources, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of live sources that you want
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults live sources, use the value of NextToken in the response to
+    get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_live_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_live_sources_response(), any()}
@@ -2979,16 +3059,22 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Retrieves existing playback configurations.
-
-  For information about MediaTailor configurations, see [Working with Configurations in AWS Elemental
+  Retrieves existing playback configurations. For information about MediaTailor
+  configurations, see [Working with Configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListPlaybackConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of playback configurations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> playback configurations, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of playback configurations
+    that you want MediaTailor to return in response to the current request. If
+    there are more than MaxResults playback configurations, use the value of
+    NextToken in the response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_playback_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_configurations_response(), any()}
@@ -3030,8 +3116,11 @@ defmodule AWS.MediaTailor do
   @doc """
   Lists the prefetch schedules for a playback configuration.
 
-  ## Required positional parameters:
-  * `:playback_configuration_name` (`t:string`) Retrieves the prefetch schedule(s) for a specific playback configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListPrefetchSchedules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:playback_configuration_name` (`t:string`) Retrieves the prefetch schedule(s)
+    for a specific playback configuration.
 
   ## Optional parameters:
   """
@@ -3070,15 +3159,21 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Lists the source locations for a channel.
+  Lists the source locations for a channel. A source location defines the host
+  server URL, and contains a list of sources.
 
-  A source location defines the host server URL, and contains a list of sources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListSourceLocations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of source locations that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> source locations, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of source locations that you
+    want MediaTailor to return in response to the current request. If there are
+    more than MaxResults source locations, use the value of NextToken in the
+    response to get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_source_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_locations_response(), any()}
@@ -3118,14 +3213,17 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  A list of tags that are associated with this resource.
+  A list of tags that are associated with this resource. Tags are key-value pairs
+  that you can associate with Amazon resources to help with organization, access
+  control, and cost tracking. For more information, see [Tagging AWS Elemental
+  MediaTailor
+  Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
 
-  Tags are key-value pairs that you can associate with Amazon resources to help
-  with organization, access control, and cost tracking. For more information, see
-  [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with this resource.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
+    this resource.
 
   ## Optional parameters:
   """
@@ -3150,16 +3248,23 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Lists the VOD sources contained in a source location.
+  Lists the VOD sources contained in a source location. A source represents a
+  piece of content.
 
-  A source represents a piece of content.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListVodSources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source list.
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this VOD Source list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of VOD sources that you want MediaTailor to return in response to the current request. If there are more than <code>MaxResults</code> VOD sources, use the value of <code>NextToken</code> in the response to get the next page of results.
-  * `:next_token` (`t:string`) Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.
+  * `:max_results` (`t:integer`) The maximum number of VOD sources that you want
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults VOD sources, use the value of NextToken in the response to
+    get the next page of results.
+  * `:next_token` (`t:string`) Pagination token returned by the list request when
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_vod_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vod_sources_response(), any()}
@@ -3199,12 +3304,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates an IAM policy for the channel.
+  Creates an IAM policy for the channel. IAM policies are used to control access
+  to your channel.
 
-  IAM policies are used to control access to your channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20PutChannelPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The channel name associated with this Channel Policy.
+  ## Parameters:
+  * `:channel_name` (`t:string`) The channel name associated with this Channel
+    Policy.
 
   ## Optional parameters:
   """
@@ -3223,12 +3330,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Creates a playback configuration.
-
-  For information about MediaTailor configurations, see [Working with configurations in AWS Elemental
+  Creates a playback configuration. For information about MediaTailor
+  configurations, see [Working with configurations in AWS Elemental
   MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20PutPlaybackConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3251,12 +3359,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Starts a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Starts a channel. For information about MediaTailor channels, see [Working with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20StartChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -3276,12 +3385,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Stops a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Stops a channel. For information about MediaTailor channels, see [Working with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20StopChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -3301,14 +3411,16 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  The resource to tag.
+  The resource to tag. Tags are key-value pairs that you can associate with Amazon
+  resources to help with organization, access control, and cost tracking. For
+  more information, see [Tagging AWS Elemental MediaTailor
+  Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
 
-  Tags are key-value pairs that you can associate with Amazon resources to help
-  with organization, access control, and cost tracking. For more information, see
-  [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with the resource.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) associated with
+    the resource.
 
   ## Optional parameters:
   """
@@ -3340,11 +3452,15 @@ defmodule AWS.MediaTailor do
   @doc """
   The resource to untag.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to untag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    untag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]`) The tag keys associated with the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]`) The tag keys
+    associated with the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3377,12 +3493,13 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates a channel.
-
-  For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
+  Updates a channel. For information about MediaTailor channels, see [Working with
+  channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel.
 
   ## Optional parameters:
@@ -3404,9 +3521,12 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a live source's configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateLiveSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:live_source_name` (`t:string`) The name of the live source.
-  * `:source_location_name` (`t:string`) The name of the source location associated with this Live Source.
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this Live Source.
 
   ## Optional parameters:
   """
@@ -3441,7 +3561,9 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a program within a channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel for this Program.
   * `:program_name` (`t:string`) The name of the Program.
 
@@ -3470,13 +3592,14 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Updates a source location.
-
-  A source location is a container for sources. For more information about source
-  locations, see [Working with source locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
+  Updates a source location. A source location is a container for sources. For
+  more information about source locations, see [Working with source
+  locations](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html)
   in the *MediaTailor User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateSourceLocation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:source_location_name` (`t:string`) The name of the source location.
 
   ## Optional parameters:
@@ -3503,8 +3626,11 @@ defmodule AWS.MediaTailor do
   @doc """
   Updates a VOD source's configuration.
 
-  ## Required positional parameters:
-  * `:source_location_name` (`t:string`) The name of the source location associated with this VOD Source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20UpdateVodSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:source_location_name` (`t:string`) The name of the source location
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string`) The name of the VOD source.
 
   ## Optional parameters:

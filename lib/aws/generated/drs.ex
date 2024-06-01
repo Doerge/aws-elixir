@@ -2463,11 +2463,12 @@ defmodule AWS.Drs do
 
   @doc """
   Associate a Source Network to an existing CloudFormation Stack and modify launch
-  templates to use this network.
+  templates to use this network. Can be used for reverting to previously
+  deployed CloudFormation stacks.
 
-  Can be used for reverting to previously deployed CloudFormation stacks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20AssociateSourceNetworkStack&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2504,7 +2505,9 @@ defmodule AWS.Drs do
   Create an extended source server in the target Account based on the source
   server in staging account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateExtendedSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2540,7 +2543,9 @@ defmodule AWS.Drs do
   @doc """
   Creates a new Launch Configuration Template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2576,7 +2581,9 @@ defmodule AWS.Drs do
   @doc """
   Creates a new ReplicationConfigurationTemplate.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2612,7 +2619,9 @@ defmodule AWS.Drs do
   @doc """
   Create a new Source Network resource for a provided VPC ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateSourceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2644,7 +2653,9 @@ defmodule AWS.Drs do
   @doc """
   Deletes a single Job by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2676,7 +2687,9 @@ defmodule AWS.Drs do
   @doc """
   Deletes a resource launch action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2708,7 +2721,9 @@ defmodule AWS.Drs do
   @doc """
   Deletes a single Launch Configuration Template by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2742,12 +2757,13 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Deletes a single Recovery Instance by ID.
+  Deletes a single Recovery Instance by ID. This deletes the Recovery Instance
+  resource from Elastic Disaster Recovery. The Recovery Instance must be
+  disconnected first in order to delete it.
 
-  This deletes the Recovery Instance resource from Elastic Disaster Recovery. The
-  Recovery Instance must be disconnected first in order to delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteRecoveryInstance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2779,7 +2795,9 @@ defmodule AWS.Drs do
   @doc """
   Deletes a single Replication Configuration Template by ID
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2815,7 +2833,9 @@ defmodule AWS.Drs do
   @doc """
   Delete Source Network resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2845,11 +2865,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Deletes a single Source Server by ID.
+  Deletes a single Source Server by ID. The Source Server must be disconnected
+  first.
 
-  The Source Server must be disconnected first.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceServer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2881,7 +2902,9 @@ defmodule AWS.Drs do
   @doc """
   Retrieves a detailed Job log with pagination.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2911,16 +2934,16 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Returns a list of Jobs.
+  Returns a list of Jobs. Use the JobsID and fromDate and toDate filters to limit
+  which jobs are returned. The response is sorted by creationDataTime - latest
+  date first. Jobs are created by the StartRecovery, TerminateRecoveryInstances
+  and StartFailbackLaunch APIs. Jobs are also created by DiagnosticLaunch and
+  TerminateDiagnosticInstances, which are APIs available only to *Support* and
+  only used in response to relevant support tickets.
 
-  Use the JobsID and fromDate and toDate filters to limit which jobs are returned.
-  The response is sorted by creationDataTime - latest date first. Jobs are created
-  by the StartRecovery, TerminateRecoveryInstances and StartFailbackLaunch APIs.
-  Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances,
-  which are APIs available only to *Support* and only used in response to relevant
-  support tickets.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2953,7 +2976,9 @@ defmodule AWS.Drs do
   Lists all Launch Configuration Templates, filtered by Launch Configuration
   Template IDs
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2989,7 +3014,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all Recovery Instances or multiple Recovery Instances by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoveryInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3025,7 +3052,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all Recovery Snapshots for a single Source Server.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoverySnapshots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3061,7 +3090,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3097,7 +3128,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all Source Networks or multiple Source Networks filtered by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceNetworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3129,7 +3162,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all Source Servers or multiple Source Servers filtered by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3159,21 +3194,22 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Disconnect a Recovery Instance from Elastic Disaster Recovery.
-
-  Data replication is stopped immediately. All AWS resources created by Elastic
-  Disaster Recovery for enabling the replication of the Recovery Instance will be
-  terminated / deleted within 90 minutes. If the agent on the Recovery Instance
-  has not been prevented from communicating with the Elastic Disaster Recovery
-  service, then it will receive a command to uninstall itself (within
-  approximately 10 minutes). The following properties of the Recovery Instance
-  will be changed immediately: dataReplicationInfo.dataReplicationState will be
-  set to DISCONNECTED; The totalStorageBytes property for each of
+  Disconnect a Recovery Instance from Elastic Disaster Recovery. Data replication
+  is stopped immediately. All AWS resources created by Elastic Disaster Recovery
+  for enabling the replication of the Recovery Instance will be terminated /
+  deleted within 90 minutes. If the agent on the Recovery Instance has not been
+  prevented from communicating with the Elastic Disaster Recovery service, then
+  it will receive a command to uninstall itself (within approximately 10
+  minutes). The following properties of the Recovery Instance will be changed
+  immediately: dataReplicationInfo.dataReplicationState will be set to
+  DISCONNECTED; The totalStorageBytes property for each of
   dataReplicationInfo.replicatedDisks will be set to zero;
   dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
   nullified.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectRecoveryInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3207,21 +3243,23 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Disconnects a specific Source Server from Elastic Disaster Recovery.
-
-  Data replication is stopped immediately. All AWS resources created by Elastic
+  Disconnects a specific Source Server from Elastic Disaster Recovery. Data
+  replication is stopped immediately. All AWS resources created by Elastic
   Disaster Recovery for enabling the replication of the Source Server will be
-  terminated / deleted within 90 minutes. You cannot disconnect a Source Server if
-  it has a Recovery Instance. If the agent on the Source Server has not been
-  prevented from communicating with the Elastic Disaster Recovery service, then it
-  will receive a command to uninstall itself (within approximately 10 minutes).
-  The following properties of the SourceServer will be changed immediately:
-  dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The
-  totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
-  be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  terminated / deleted within 90 minutes. You cannot disconnect a Source Server
+  if it has a Recovery Instance. If the agent on the Source Server has not been
+  prevented from communicating with the Elastic Disaster Recovery service, then
+  it will receive a command to uninstall itself (within approximately 10
+  minutes). The following properties of the SourceServer will be changed
+  immediately: dataReplicationInfo.dataReplicationState will be set to
+  DISCONNECTED; The totalStorageBytes property for each of
+  dataReplicationInfo.replicatedDisks will be set to zero;
+  dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be
+  nullified.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectSourceServer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3253,7 +3291,9 @@ defmodule AWS.Drs do
   @doc """
   Export the Source Network CloudFormation template to an S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ExportSourceNetworkCfnTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3289,7 +3329,9 @@ defmodule AWS.Drs do
   @doc """
   Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3325,7 +3367,9 @@ defmodule AWS.Drs do
   @doc """
   Gets a LaunchConfiguration, filtered by Source Server IDs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3357,7 +3401,9 @@ defmodule AWS.Drs do
   @doc """
   Gets a ReplicationConfiguration, filtered by Source Server ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3393,7 +3439,9 @@ defmodule AWS.Drs do
   @doc """
   Initialize Elastic Disaster Recovery.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20InitializeService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3424,14 +3472,13 @@ defmodule AWS.Drs do
 
   @doc """
   Returns a list of source servers on a staging account that are extensible, which
-  means that:
-  a.
-
-  The source server is not already extended into this Account.
-  b. The source server on the Account we’re reading from is not an extension of
+  means that: a. The source server is not already extended into this Account. b.
+  The source server on the Account we’re reading from is not an extension of
   another source server.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListExtensibleSourceServers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3467,7 +3514,9 @@ defmodule AWS.Drs do
   @doc """
   Lists resource launch actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListLaunchActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3499,7 +3548,9 @@ defmodule AWS.Drs do
   @doc """
   Returns an array of staging accounts for existing extended source servers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListStagingAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of staging Accounts to retrieve.
@@ -3546,8 +3597,11 @@ defmodule AWS.Drs do
   @doc """
   List all tags for your Elastic Disaster Recovery resources.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags should be returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags should be
+    returned.
 
   ## Optional parameters:
   """
@@ -3574,7 +3628,9 @@ defmodule AWS.Drs do
   @doc """
   Puts a resource launch action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20PutLaunchAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3604,14 +3660,15 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  WARNING: RetryDataReplication is deprecated.
+  WARNING: RetryDataReplication is deprecated. Causes the data replication
+  initiation sequence to begin immediately upon next Handshake for the specified
+  Source Server ID, regardless of when the previous initiation started. This
+  command will work only if the Source Server is stalled or is in a DISCONNECTED
+  or STOPPED state.
 
-  Causes the data replication initiation sequence to begin immediately upon next
-  Handshake for the specified Source Server ID, regardless of when the previous
-  initiation started. This command will work only if the Source Server is stalled
-  or is in a DISCONNECTED or STOPPED state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20RetryDataReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3642,14 +3699,13 @@ defmodule AWS.Drs do
 
   @doc """
   Start replication to origin / target region - applies only to protected
-  instances that originated in EC2.
+  instances that originated in EC2. For recovery instances on target region -
+  starts replication back to origin region. For failback instances on origin
+  region - starts replication to target region to re-protect them.
 
-  For recovery instances on target region - starts replication back to origin
-  region.
-  For failback instances on origin region - starts replication to target region to
-  re-protect them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ReverseReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3680,12 +3736,12 @@ defmodule AWS.Drs do
 
   @doc """
   Initiates a Job for launching the machine that is being failed back to from the
-  specified Recovery Instance.
+  specified Recovery Instance. This will run conversion on the failback client
+  and will reboot your machine, thus completing the failback process.
 
-  This will run conversion on the failback client and will reboot your machine,
-  thus completing the failback process.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartFailbackLaunch&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3715,12 +3771,13 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Launches Recovery Instances for the specified Source Servers.
+  Launches Recovery Instances for the specified Source Servers. For each Source
+  Server you may choose a point in time snapshot to launch from, or use an on
+  demand snapshot.
 
-  For each Source Server you may choose a point in time snapshot to launch from,
-  or use an on demand snapshot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartRecovery&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3750,12 +3807,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Starts replication for a stopped Source Server.
+  Starts replication for a stopped Source Server. This action would make the
+  Source Server protected again and restart billing for it.
 
-  This action would make the Source Server protected again and restart billing for
-  it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3786,11 +3843,11 @@ defmodule AWS.Drs do
 
   @doc """
   Deploy VPC for the specified Source Network and modify launch templates to use
-  this network.
+  this network. The VPC will be deployed using a dedicated CloudFormation stack.
 
-  The VPC will be deployed using a dedicated CloudFormation stack.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkRecovery&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3824,11 +3881,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Starts replication for a Source Network.
+  Starts replication for a Source Network. This action would make the Source
+  Network protected.
 
-  This action would make the Source Network protected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3862,12 +3920,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops the failback process for a specified Recovery Instance.
+  Stops the failback process for a specified Recovery Instance. This changes the
+  Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.
 
-  This changes the Failback State of the Recovery Instance back to
-  FAILBACK_NOT_STARTED.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopFailback&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3897,12 +3955,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops replication for a Source Server.
+  Stops replication for a Source Server. This action would make the Source Server
+  unprotected, delete its existing snapshots and stop billing for it.
 
-  This action would make the Source Server unprotected, delete its existing
-  snapshots and stop billing for it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3932,11 +3990,12 @@ defmodule AWS.Drs do
   end
 
   @doc """
-  Stops replication for a Source Network.
+  Stops replication for a Source Network. This action would make the Source
+  Network unprotected.
 
-  This action would make the Source Network unprotected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopSourceNetworkReplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3971,14 +4030,15 @@ defmodule AWS.Drs do
 
   @doc """
   Adds or overwrites only the specified tags for the specified Elastic Disaster
-  Recovery resource or resources.
+  Recovery resource or resources. When you specify an existing tag key, the
+  value is overwritten with the new value. Each resource can have a maximum of
+  50 tags. Each tag consists of a key and optional value.
 
-  When you specify an existing tag key, the value is overwritten with the new
-  value. Each resource can have a maximum of 50 tags. Each tag consists of a key
-  and optional value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be added or updated.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
+    added or updated.
 
   ## Optional parameters:
   """
@@ -4009,10 +4069,12 @@ defmodule AWS.Drs do
 
   @doc """
   Initiates a Job for terminating the EC2 resources associated with the specified
-  Recovery Instances, and then will delete the Recovery Instances from the Elastic
-  Disaster Recovery service.
+  Recovery Instances, and then will delete the Recovery Instances from the
+  Elastic Disaster Recovery service.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20TerminateRecoveryInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4049,8 +4111,11 @@ defmodule AWS.Drs do
   Deletes the specified set of tags from the specified set of Elastic Disaster
   Recovery resources.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) ARN of the resource for which tags are to be
+    removed.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[com.amazonaws.drs#TagKey]`) Array of tags to be removed.
@@ -4089,7 +4154,9 @@ defmodule AWS.Drs do
   Allows you to update the failback replication configuration of a Recovery
   Instance by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4125,7 +4192,9 @@ defmodule AWS.Drs do
   @doc """
   Updates a LaunchConfiguration by Source Server ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4161,7 +4230,9 @@ defmodule AWS.Drs do
   @doc """
   Updates an existing Launch Configuration Template by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4197,7 +4268,9 @@ defmodule AWS.Drs do
   @doc """
   Allows you to update a ReplicationConfiguration by Source Server ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4233,7 +4306,9 @@ defmodule AWS.Drs do
   @doc """
   Updates a ReplicationConfigurationTemplate by ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

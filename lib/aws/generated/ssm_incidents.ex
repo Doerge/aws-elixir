@@ -4,22 +4,9 @@
 defmodule AWS.SSMIncidents do
   @moduledoc """
   Systems Manager Incident Manager is an incident management console designed to
-  help users
-  mitigate and recover from incidents affecting their Amazon Web Services-hosted
-  applications.
-
-  An
-  incident is any unplanned interruption or reduction in quality of services.
-
-  Incident Manager increases incident resolution by notifying responders of
-  impact,
-  highlighting relevant troubleshooting data, and providing collaboration tools to
-  get services
-  back up and running. To achieve the primary goal of reducing the
-  time-to-resolution of
-  critical incidents, Incident Manager automates response plans and enables
-  responder
-  team escalation.
+  help users mitigate and recover from incidents affecting their Amazon Web
+  Services-hosted applications. An incident is any unplanned interruption or
+  reduction in quality of services.
   """
 
   alias AWS.Client
@@ -1468,15 +1455,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Retrieves details about all specified findings for an incident, including
-  descriptive details about each finding.
-
-  A finding
-  represents a recent application environment change made by an CodeDeploy
-  deployment or an CloudFormation stack creation or update that can be
-  investigated as a
+  descriptive details about each finding. A finding represents a recent
+  application environment change made by an CodeDeploy deployment or an
+  CloudFormation stack creation or update that can be investigated as a
   potential cause of the incident.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20BatchGetIncidentFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1511,10 +1497,11 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   A replication set replicates and encrypts your data to the provided Regions with
-  the
-  provided KMS key.
+  the provided KMS key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1544,14 +1531,13 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Creates a response plan that automates the initial response to incidents.
+  Creates a response plan that automates the initial response to incidents. A
+  response plan engages contacts, starts chat channel collaboration, and
+  initiates runbooks at the beginning of an incident.
 
-  A response plan
-  engages contacts, starts chat channel collaboration, and initiates runbooks at
-  the beginning
-  of an incident.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateResponsePlan&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1582,15 +1568,13 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Creates a custom timeline event on the incident details page of an incident
-  record.
+  record. Incident Manager automatically creates timeline events that mark key
+  moments during an incident. You can create custom timeline events to mark
+  important events that Incident Manager can detect automatically.
 
-  Incident Manager automatically creates timeline events that mark key moments
-  during an incident.
-  You can create custom timeline events to mark important events that Incident
-  Manager can detect
-  automatically.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20CreateTimelineEvent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1622,7 +1606,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Delete an incident record from Incident Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteIncidentRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1652,15 +1638,16 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Deletes all Regions in your replication set.
+  Deletes all Regions in your replication set. Deleting the replication set
+  deletes all Incident Manager data.
 
-  Deleting the replication set deletes all
-  Incident Manager data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteReplicationSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you&#39;re deleting.
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set
+    you're deleting.
   """
   @spec delete_replication_set(AWS.Client.t(), delete_replication_set_input(), Keyword.t()) ::
           {:ok, delete_replication_set_output(), any()}
@@ -1694,10 +1681,11 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Deletes the resource policy that Resource Access Manager uses to share your
-  Incident Manager
-  resource.
+  Incident Manager resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1727,13 +1715,13 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Deletes the specified response plan.
+  Deletes the specified response plan. Deleting a response plan stops all linked
+  CloudWatch alarms and EventBridge events from creating an incident with this
+  response plan.
 
-  Deleting a response plan stops all linked CloudWatch alarms and EventBridge
-  events from creating an incident with this response
-  plan.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteResponsePlan&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1765,7 +1753,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Deletes a timeline event from an incident.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20DeleteTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1797,7 +1787,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Returns the details for the specified incident record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetIncidentRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the incident record.
@@ -1834,10 +1826,13 @@ defmodule AWS.SSMIncidents do
   @doc """
   Retrieve your Incident Manager replication set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you want to retrieve.
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the replication set you
+    want to retrieve.
   """
   @spec get_replication_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_replication_set_output(), any()}
@@ -1871,11 +1866,13 @@ defmodule AWS.SSMIncidents do
   @doc """
   Retrieves the resource policies attached to the specified response plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResourcePolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan with the attached resource policy.
-    
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the response
+    plan with the attached resource policy.
   """
   @spec get_resource_policies(AWS.Client.t(), get_resource_policies_input(), Keyword.t()) ::
           {:ok, get_resource_policies_output(), any()}
@@ -1910,7 +1907,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Retrieves the details of the specified response plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the response plan.
@@ -1947,12 +1946,15 @@ defmodule AWS.SSMIncidents do
   @doc """
   Retrieves a timeline event based on its ID and incident record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20GetTimelineEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:event_id` (`t:string`) The ID of the event. You can get an event&#39;s ID when you create it, or by using
-        <code>ListTimelineEvents</code>.
-  * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the incident that includes the timeline event.
+  * `:event_id` (`t:string`) The ID of the event. You can get an event's ID when
+    you create it, or by using ListTimelineEvents.
+  * `:incident_record_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    incident that includes the timeline event.
   """
   @spec get_timeline_event(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_timeline_event_output(), any()}
@@ -1994,14 +1996,14 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Retrieves a list of the IDs of findings, plus their last modified times, that
-  have been
-  identified for a specified incident.
+  have been identified for a specified incident. A finding represents a recent
+  application environment change made by an CloudFormation stack creation or
+  update or an CodeDeploy deployment that can be investigated as a potential
+  cause of the incident.
 
-  A finding represents a recent application environment
-  change made by an CloudFormation stack creation or update or an CodeDeploy
-  deployment that can be investigated as a potential cause of the incident.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentFindings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2031,12 +2033,12 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Lists all incident records in your account.
+  Lists all incident records in your account. Use this command to retrieve the
+  Amazon Resource Name (ARN) of the incident record you want to update.
 
-  Use this command to retrieve the Amazon
-  Resource Name (ARN) of the incident record you want to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListIncidentRecords&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2068,7 +2070,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   List all related items for an incident record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2100,7 +2104,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Lists details about the replication set configured in your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListReplicationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2132,7 +2138,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Lists all response plans in your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListResponsePlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2164,8 +2172,11 @@ defmodule AWS.SSMIncidents do
   @doc """
   Lists the tags that are attached to the specified response plan or incident.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan or incident.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan or
+    incident.
 
   ## Optional parameters:
   """
@@ -2192,7 +2203,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Lists timeline events for the specified incident record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20ListTimelineEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2222,14 +2235,15 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Adds a resource policy to the specified response plan.
-
-  The resource policy is used to
-  share the response plan using Resource Access Manager (RAM). For more
-  information about cross-account sharing, see [Cross-Region and cross-account incident
+  Adds a resource policy to the specified response plan. The resource policy is
+  used to share the response plan using Resource Access Manager (RAM). For more
+  information about cross-account sharing, see [Cross-Region and cross-account
+  incident
   management](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2262,7 +2276,9 @@ defmodule AWS.SSMIncidents do
   Used to start an incident from CloudWatch alarms, EventBridge events, or
   manually.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20StartIncident&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2294,8 +2310,11 @@ defmodule AWS.SSMIncidents do
   @doc """
   Adds a tag to a response plan.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan you&#39;re adding the tags to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
+    you're adding the tags to.
 
   ## Optional parameters:
   """
@@ -2327,11 +2346,15 @@ defmodule AWS.SSMIncidents do
   @doc """
   Removes a tag from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan you&#39;re removing a tag from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the response plan
+    you're removing a tag from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag to remove from the response plan.
+  * `:tag_keys` (`t:list[com.amazonaws.ssmincidents#TagKey]`) The name of the tag
+    to remove from the response plan.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2365,10 +2388,11 @@ defmodule AWS.SSMIncidents do
 
   @doc """
   Update deletion protection to either allow or deny deletion of the final Region
-  in a
-  replication set.
+  in a replication set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateDeletionProtection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2402,14 +2426,14 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Update the details of an incident record.
+  Update the details of an incident record. You can use this operation to update
+  an incident record from the defined chat channel. For more information about
+  using actions in chat channels, see [Interacting through
+  chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
 
-  You can use this operation to update an incident
-  record from the defined chat channel. For more information about using actions
-  in chat
-  channels, see [Interacting through chat](https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateIncidentRecord&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2441,7 +2465,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Add or remove related items from the related items tab of an incident record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateRelatedItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2473,7 +2499,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Add or delete Regions from your replication set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateReplicationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2505,7 +2533,9 @@ defmodule AWS.SSMIncidents do
   @doc """
   Updates the specified response plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateResponsePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2535,11 +2565,11 @@ defmodule AWS.SSMIncidents do
   end
 
   @doc """
-  Updates a timeline event.
+  Updates a timeline event. You can update events of type `Custom Event`.
 
-  You can update events of type `Custom Event`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmincidents%20UpdateTimelineEvent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

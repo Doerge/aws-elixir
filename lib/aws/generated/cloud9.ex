@@ -3,75 +3,8 @@
 
 defmodule AWS.Cloud9 do
   @moduledoc """
-  Cloud9
-
-  Cloud9 is a collection of tools that you can use to code, build, run, test,
-  debug, and
-  release software in the cloud.
-
-  For more information about Cloud9, see the [Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide).
-
-  Cloud9 supports these operations:
-
-    *
-
-  `CreateEnvironmentEC2`: Creates an Cloud9 development environment, launches
-  an Amazon EC2 instance, and then connects from the instance to the environment.
-
-    *
-
-  `CreateEnvironmentMembership`: Adds an environment member to an
-  environment.
-
-    *
-
-  `DeleteEnvironment`: Deletes an environment. If an Amazon EC2 instance is
-  connected to the environment, also terminates the instance.
-
-    *
-
-  `DeleteEnvironmentMembership`: Deletes an environment member from an
-  environment.
-
-    *
-
-  `DescribeEnvironmentMemberships`: Gets information about environment
-  members for an environment.
-
-    *
-
-  `DescribeEnvironments`: Gets information about environments.
-
-    *
-
-  `DescribeEnvironmentStatus`: Gets status information for an
-  environment.
-
-    *
-
-  `ListEnvironments`: Gets a list of environment identifiers.
-
-    *
-
-  `ListTagsForResource`: Gets the tags for an environment.
-
-    *
-
-  `TagResource`: Adds tags to an environment.
-
-    *
-
-  `UntagResource`: Removes tags from an environment.
-
-    *
-
-  `UpdateEnvironment`: Changes the settings of an existing
-  environment.
-
-    *
-
-  `UpdateEnvironmentMembership`: Changes the settings of an existing
-  environment member for an environment.
+  Cloud9 Cloud9 is a collection of tools that you can use to code, build, run,
+  test, debug, and release software in the cloud.
   """
 
   alias AWS.Client
@@ -667,8 +600,8 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Creates an Cloud9 development environment, launches an Amazon Elastic Compute
-  Cloud (Amazon EC2) instance, and
-  then connects from the instance to the environment.
+  Cloud (Amazon EC2) instance, and then connects from the instance to the
+  environment.
   """
   @spec create_environment_ec2(AWS.Client.t(), create_environment_ec2_request(), Keyword.t()) ::
           {:ok, create_environment_ec2_result(), any()}
@@ -700,10 +633,8 @@ defmodule AWS.Cloud9 do
   end
 
   @doc """
-  Deletes an Cloud9 development environment.
-
-  If an Amazon EC2 instance is connected to the
-  environment, also terminates the instance.
+  Deletes an Cloud9 development environment. If an Amazon EC2 instance is
+  connected to the environment, also terminates the instance.
   """
   @spec delete_environment(AWS.Client.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_result(), any()}
@@ -815,9 +746,6 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Adds tags to an Cloud9 development environment.
-
-  Tags that you add to an Cloud9 environment by using this method will NOT be
-  automatically propagated to underlying resources.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}

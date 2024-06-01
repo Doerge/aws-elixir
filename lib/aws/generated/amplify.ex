@@ -4,14 +4,12 @@
 defmodule AWS.Amplify do
   @moduledoc """
   Amplify enables developers to develop and deploy cloud-powered mobile and web
-  apps.
-
-  Amplify Hosting provides a continuous delivery and hosting service for web
-  applications.
-  For more information, see the [Amplify Hosting User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
+  apps. Amplify Hosting provides a continuous delivery and hosting service for
+  web applications. For more information, see the [Amplify Hosting User
+  Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html). The
   Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
-  documentation
-  for client app development. For more information, see the [Amplify Framework.](https://docs.amplify.aws/)
+  documentation for client app development. For more information, see the
+  [Amplify Framework.](https://docs.amplify.aws/)
   """
 
   alias AWS.Client
@@ -1523,7 +1521,9 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1555,16 +1555,10 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new backend environment for an Amplify app.
 
-  This API is available only to Amplify Gen 1 applications where the
-  backend is created using Amplify Studio or the Amplify
-  command line interface (CLI). This API isn’t available to applications created
-  using the
-  Amplify Gen 2 public preview. When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateBackendEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -1601,8 +1595,10 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new branch for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateBranch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -1632,19 +1628,14 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Creates a deployment for a manually deployed Amplify app.
+  Creates a deployment for a manually deployed Amplify app. Manually deployed apps
+  are not connected to a repository.
 
-  Manually deployed apps are
-  not connected to a repository.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateDeployment&this_doc_guide=API%2520Reference)
 
-  The maximum duration between the `CreateDeployment` call and the
-  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
-  hours, the `StartDeployment` call and the associated `Job` will
-  fail.
-
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`)  The name of the branch to use for the job. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the job.
 
   ## Optional parameters:
   """
@@ -1682,13 +1673,13 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Creates a new domain association for an Amplify app.
+  Creates a new domain association for an Amplify app. This action associates a
+  custom domain with the Amplify app
 
-  This action associates a custom
-  domain with the Amplify app
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateDomainAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -1725,8 +1716,10 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new webhook on an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -1758,8 +1751,10 @@ defmodule AWS.Amplify do
   @doc """
   Deletes an existing Amplify app specified by an app ID.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -1791,17 +1786,12 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a backend environment for an Amplify app.
 
-  This API is available only to Amplify Gen 1 applications where the
-  backend was created using Amplify Studio or the Amplify
-  command line interface (CLI). This API isn’t available to applications created
-  using the
-  Amplify Gen 2 public preview. When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteBackendEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID of an Amplify app. 
-  * `:environment_name` (`t:string`) The name of a backend environment of an Amplify app. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID of an Amplify app.
+  * `:environment_name` (`t:string`) The name of a backend environment of an
+    Amplify app.
 
   ## Optional parameters:
   """
@@ -1847,9 +1837,11 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a branch for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteBranch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch.
 
   ## Optional parameters:
   """
@@ -1887,9 +1879,11 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a domain association for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique id for an Amplify app. 
-  * `:domain_name` (`t:string`)  The name of the domain. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteDomainAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique id for an Amplify app.
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -1927,10 +1921,12 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a job for a branch of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
-  * `:job_id` (`t:string`)  The unique ID for the job. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the job.
+  * `:job_id` (`t:string`) The unique ID for the job.
 
   ## Optional parameters:
   """
@@ -1971,8 +1967,10 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a webhook.
 
-  ## Required positional parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20DeleteWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:webhook_id` (`t:string`) The unique ID for a webhook.
 
   ## Optional parameters:
   """
@@ -2004,8 +2002,10 @@ defmodule AWS.Amplify do
   @doc """
   Returns the website access logs for a specific time range using a presigned URL.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GenerateAccessLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -2042,8 +2042,10 @@ defmodule AWS.Amplify do
   @doc """
   Returns an existing Amplify app specified by an app ID.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -2070,8 +2072,10 @@ defmodule AWS.Amplify do
   @doc """
   Returns the artifact info that corresponds to an artifact id.
 
-  ## Required positional parameters:
-  * `:artifact_id` (`t:string`) The unique ID for an artifact. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetArtifactUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:artifact_id` (`t:string`) The unique ID for an artifact.
 
   ## Optional parameters:
   """
@@ -2098,17 +2102,11 @@ defmodule AWS.Amplify do
   @doc """
   Returns a backend environment for an Amplify app.
 
-  This API is available only to Amplify Gen 1 applications where the
-  backend was created using Amplify Studio or the Amplify
-  command line interface (CLI). This API isn’t available to applications created
-  using the
-  Amplify Gen 2 public preview. When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetBackendEnvironment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique id for an Amplify app. 
-  * `:environment_name` (`t:string`) The name for the backend environment. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique id for an Amplify app.
+  * `:environment_name` (`t:string`) The name for the backend environment.
 
   ## Optional parameters:
   """
@@ -2136,9 +2134,11 @@ defmodule AWS.Amplify do
   @doc """
   Returns a branch for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetBranch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch.
 
   ## Optional parameters:
   """
@@ -2165,9 +2165,11 @@ defmodule AWS.Amplify do
   @doc """
   Returns the domain information for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique id for an Amplify app. 
-  * `:domain_name` (`t:string`)  The name of the domain. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetDomainAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique id for an Amplify app.
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -2194,10 +2196,12 @@ defmodule AWS.Amplify do
   @doc """
   Returns a job for a branch of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
-  * `:job_id` (`t:string`) The unique ID for the job. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the job.
+  * `:job_id` (`t:string`) The unique ID for the job.
 
   ## Optional parameters:
   """
@@ -2225,8 +2229,10 @@ defmodule AWS.Amplify do
   @doc """
   Returns the webhook information that corresponds to a specified webhook ID.
 
-  ## Required positional parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20GetWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:webhook_id` (`t:string`) The unique ID for a webhook.
 
   ## Optional parameters:
   """
@@ -2253,12 +2259,16 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of the existing Amplify apps.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. If non-null, the pagination token is returned in a result. Pass
-            its value in another request to retrieve more entries. 
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. If non-null, the pagination
+    token is returned in a result. Pass its value in another request to retrieve
+    more entries.
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_result(), any()}
@@ -2301,16 +2311,20 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of artifacts for a specified app, branch, and job.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of a branch that is part of an Amplify app. 
-  * `:job_id` (`t:string`) The unique ID for a job. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListArtifacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of a branch that is part of an Amplify
+    app.
+  * `:job_id` (`t:string`) The unique ID for a job.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. Set to null to start listing artifacts from start. If a non-null
-            pagination token is returned in a result, pass its value in here to list more artifacts.
-        
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    artifacts from start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more artifacts.
   """
   @spec list_artifacts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
@@ -2354,23 +2368,19 @@ defmodule AWS.Amplify do
   @doc """
   Lists the backend environments for an Amplify app.
 
-  This API is available only to Amplify Gen 1 applications where the
-  backend was created using Amplify Studio or the Amplify
-  command line interface (CLI). This API isn’t available to applications created
-  using the
-  Amplify Gen 2 public preview. When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListBackendEnvironments&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
-  * `:environment_name` (`t:string`) The name of the backend environment 
-  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. Set to null to start listing backend environments from the start.
-            If a non-null pagination token is returned in a result, pass its value in here to list
-            more backend environments. 
+  * `:environment_name` (`t:string`) The name of the backend environment
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    backend environments from the start. If a non-null pagination token is
+    returned in a result, pass its value in here to list more backend
+    environments.
   """
   @spec list_backend_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backend_environments_result(), any()}
@@ -2422,14 +2432,17 @@ defmodule AWS.Amplify do
   @doc """
   Lists the branches of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListBranches&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. Set to null to start listing branches from the start. If a
-            non-null pagination token is returned in a result, pass its value in here to list more
-            branches. 
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    branches from the start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more branches.
   """
   @spec list_branches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_branches_result(), any()}
@@ -2472,14 +2485,17 @@ defmodule AWS.Amplify do
   @doc """
   Returns the domain associations for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListDomainAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`)  A pagination token. Set to null to start listing apps from the start. If non-null, a
-            pagination token is returned in a result. Pass its value in here to list more projects.
-        
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    apps from the start. If non-null, a pagination token is returned in a
+    result. Pass its value in here to list more projects.
   """
   @spec list_domain_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_associations_result(), any()}
@@ -2522,15 +2538,18 @@ defmodule AWS.Amplify do
   @doc """
   Lists the jobs for a branch of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the request. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the request.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. Set to null to start listing steps from the start. If a non-null
-            pagination token is returned in a result, pass its value in here to list more steps.
-        
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    steps from the start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more steps.
   """
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
@@ -2574,8 +2593,11 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to list tags. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to list
+    tags.
 
   ## Optional parameters:
   """
@@ -2602,14 +2624,17 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of webhooks for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListWebhooks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of records to list in a single response. 
-  * `:next_token` (`t:string`) A pagination token. Set to null to start listing webhooks from the start. If
-            non-null,the pagination token is returned in a result. Pass its value in here to list
-            more webhooks. 
+  * `:max_results` (`t:integer`) The maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) A pagination token. Set to null to start listing
+    webhooks from the start. If non-null,the pagination token is returned in a
+    result. Pass its value in here to list more webhooks.
   """
   @spec list_webhooks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_webhooks_result(), any()}
@@ -2650,19 +2675,14 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Starts a deployment for a manually deployed app.
-
-  Manually deployed apps are not
+  Starts a deployment for a manually deployed app. Manually deployed apps are not
   connected to a repository.
 
-  The maximum duration between the `CreateDeployment` call and the
-  `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
-  hours, the `StartDeployment` call and the associated `Job` will
-  fail.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StartDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the job.
 
   ## Optional parameters:
   """
@@ -2702,9 +2722,11 @@ defmodule AWS.Amplify do
   @doc """
   Starts a new job for a branch of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the job. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StartJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the job.
 
   ## Optional parameters:
   """
@@ -2738,10 +2760,13 @@ defmodule AWS.Amplify do
   @doc """
   Stops a job that is in progress for a branch of an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch to use for the stop job request. 
-  * `:job_id` (`t:string`)  The unique id for the job. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20StopJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch to use for the stop job
+    request.
+  * `:job_id` (`t:string`) The unique id for the job.
 
   ## Optional parameters:
   """
@@ -2782,8 +2807,11 @@ defmodule AWS.Amplify do
   @doc """
   Tags the resource with a tag key and value.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) to use to tag a resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to tag a
+    resource.
 
   ## Optional parameters:
   """
@@ -2815,11 +2843,15 @@ defmodule AWS.Amplify do
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to untag a resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to use to untag a
+    resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]`) The tag keys to use to untag a resource. 
+  * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]`) The tag keys to use to
+    untag a resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2854,8 +2886,10 @@ defmodule AWS.Amplify do
   @doc """
   Updates an existing Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID for an Amplify app. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
 
   ## Optional parameters:
   """
@@ -2887,9 +2921,11 @@ defmodule AWS.Amplify do
   @doc """
   Updates a branch for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:branch_name` (`t:string`) The name of the branch. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateBranch&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:branch_name` (`t:string`) The name of the branch.
 
   ## Optional parameters:
   """
@@ -2927,9 +2963,11 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new domain association for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`)  The unique ID for an Amplify app. 
-  * `:domain_name` (`t:string`)  The name of the domain. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateDomainAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID for an Amplify app.
+  * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   """
@@ -2967,8 +3005,10 @@ defmodule AWS.Amplify do
   @doc """
   Updates a webhook.
 
-  ## Required positional parameters:
-  * `:webhook_id` (`t:string`) The unique ID for a webhook. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20UpdateWebhook&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:webhook_id` (`t:string`) The unique ID for a webhook.
 
   ## Optional parameters:
   """

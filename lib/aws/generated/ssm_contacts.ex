@@ -4,19 +4,9 @@
 defmodule AWS.SSMContacts do
   @moduledoc """
   Systems Manager Incident Manager is an incident management console designed to
-  help users
-  mitigate and recover from incidents affecting their Amazon Web Services-hosted
-  applications.
-
-  An incident is any unplanned interruption or reduction in quality of services.
-
-  Incident Manager increases incident resolution by notifying responders of
-  impact, highlighting relevant troubleshooting data, and providing collaboration
-  tools to
-  get services back up and running. To achieve the primary goal of reducing the
-  time-to-resolution of critical incidents, Incident Manager automates response
-  plans
-  and enables responder team escalation.
+  help users mitigate and recover from incidents affecting their Amazon Web
+  Services-hosted applications. An incident is any unplanned interruption or
+  reduction in quality of services.
   """
 
   alias AWS.Client
@@ -1752,10 +1742,8 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Activates a contact's contact channel.
-
-  Incident Manager can't engage a contact until the
-  contact channel has been activated.
+  Activates a contact's contact channel. Incident Manager can't engage a contact
+  until the contact channel has been activated.
   """
   @spec activate_contact_channel(AWS.Client.t(), activate_contact_channel_request(), Keyword.t()) ::
           {:ok, activate_contact_channel_result(), any()}
@@ -1770,10 +1758,8 @@ defmodule AWS.SSMContacts do
 
   @doc """
   Contacts are either the contacts that Incident Manager engages during an
-  incident or the
-  escalation plans that Incident Manager uses to engage contacts in phases during
-  an
-  incident.
+  incident or the escalation plans that Incident Manager uses to engage contacts
+  in phases during an incident.
   """
   @spec create_contact(AWS.Client.t(), create_contact_request(), Keyword.t()) ::
           {:ok, create_contact_result(), any()}
@@ -1831,8 +1817,7 @@ defmodule AWS.SSMContacts do
 
   @doc """
   To no longer receive Incident Manager engagements to a contact channel, you can
-  deactivate
-  the channel.
+  deactivate the channel.
   """
   @spec deactivate_contact_channel(
           AWS.Client.t(),
@@ -1850,14 +1835,11 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  To remove a contact from Incident Manager, you can delete the contact.
-
-  Deleting a contact
-  removes them from all escalation plans and related response plans. Deleting an
-  escalation
-  plan removes it from all related response plans. You will have to recreate the
-  contact and
-  its contact channels before you can use it again.
+  To remove a contact from Incident Manager, you can delete the contact. Deleting
+  a contact removes them from all escalation plans and related response plans.
+  Deleting an escalation plan removes it from all related response plans. You
+  will have to recreate the contact and its contact channels before you can use
+  it again.
   """
   @spec delete_contact(AWS.Client.t(), delete_contact_request(), Keyword.t()) ::
           {:ok, delete_contact_result(), any()}
@@ -1872,14 +1854,9 @@ defmodule AWS.SSMContacts do
 
   @doc """
   To no longer receive engagements on a contact channel, you can delete the
-  channel from a
-  contact.
-
-  Deleting the contact channel removes it from the contact's engagement plan. If
-  you
-  delete the only contact channel for a contact, you won't be able to engage that
-  contact
-  during an incident.
+  channel from a contact. Deleting the contact channel removes it from the
+  contact's engagement plan. If you delete the only contact channel for a
+  contact, you won't be able to engage that contact during an incident.
   """
   @spec delete_contact_channel(AWS.Client.t(), delete_contact_channel_request(), Keyword.t()) ::
           {:ok, delete_contact_channel_result(), any()}
@@ -1893,10 +1870,8 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Deletes a rotation from the system.
-
-  If a rotation belongs to more than one on-call
-  schedule, this operation deletes it from all of them.
+  Deletes a rotation from the system. If a rotation belongs to more than one
+  on-call schedule, this operation deletes it from all of them.
   """
   @spec delete_rotation(AWS.Client.t(), delete_rotation_request(), Keyword.t()) ::
           {:ok, delete_rotation_result(), any()}
@@ -1925,9 +1900,8 @@ defmodule AWS.SSMContacts do
 
   @doc """
   Incident Manager uses engagements to engage contacts and escalation plans during
+  an incident. Use this command to describe the engagement that occurred during
   an incident.
-
-  Use this command to describe the engagement that occurred during an incident.
   """
   @spec describe_engagement(AWS.Client.t(), describe_engagement_request(), Keyword.t()) ::
           {:ok, describe_engagement_result(), any()}
@@ -2082,15 +2056,11 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Returns the resolution path of an engagement.
-
-  For example, the escalation plan engaged
-  in an incident might target an on-call schedule that includes several contacts
-  in a
-  rotation, but just one contact on-call when the incident starts. The resolution
-  path
-  indicates the hierarchy of *escalation plan > on-call schedule >
-  contact*.
+  Returns the resolution path of an engagement. For example, the escalation plan
+  engaged in an incident might target an on-call schedule that includes several
+  contacts in a rotation, but just one contact on-call when the incident starts.
+  The resolution path indicates the hierarchy of *escalation plan > on-call
+  schedule > contact*.
   """
   @spec list_page_resolutions(AWS.Client.t(), list_page_resolutions_request(), Keyword.t()) ::
           {:ok, list_page_resolutions_result(), any()}
@@ -2133,9 +2103,6 @@ defmodule AWS.SSMContacts do
 
   @doc """
   Returns a list of shifts based on rotation configuration parameters.
-
-  The Incident Manager primarily uses this operation to populate the ## Preview
-  calendar. It is not typically run by end users.
   """
   @spec list_preview_rotation_shifts(
           AWS.Client.t(),
@@ -2209,11 +2176,10 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Adds a resource policy to the specified contact or escalation plan.
-
-  The resource policy
-  is used to share the contact or escalation plan using Resource Access Manager
-  (RAM). For more information about cross-account sharing, see [Setting up cross-account
+  Adds a resource policy to the specified contact or escalation plan. The resource
+  policy is used to share the contact or escalation plan using Resource Access
+  Manager (RAM). For more information about cross-account sharing, see [Setting
+  up cross-account
   functionality](https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html).
   """
   @spec put_contact_policy(AWS.Client.t(), put_contact_policy_request(), Keyword.t()) ::
@@ -2228,11 +2194,10 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Sends an activation code to a contact channel.
-
-  The contact can use this code to activate
-  the contact channel in the console or with the `ActivateChannel` operation.
-  Incident Manager can't engage a contact channel until it has been activated.
+  Sends an activation code to a contact channel. The contact can use this code to
+  activate the contact channel in the console or with the `ActivateChannel`
+  operation. Incident Manager can't engage a contact channel until it has been
+  activated.
   """
   @spec send_activation_code(AWS.Client.t(), send_activation_code_request(), Keyword.t()) ::
           {:ok, send_activation_code_result(), any()}
@@ -2246,10 +2211,8 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Starts an engagement to a contact or escalation plan.
-
-  The engagement engages each
-  contact specified in the incident.
+  Starts an engagement to a contact or escalation plan. The engagement engages
+  each contact specified in the incident.
   """
   @spec start_engagement(AWS.Client.t(), start_engagement_request(), Keyword.t()) ::
           {:ok, start_engagement_result(), any()}
@@ -2264,9 +2227,7 @@ defmodule AWS.SSMContacts do
 
   @doc """
   Stops an engagement before it finishes the final stage of the escalation plan or
-  engagement plan.
-
-  Further contacts aren't engaged.
+  engagement plan. Further contacts aren't engaged.
   """
   @spec stop_engagement(AWS.Client.t(), stop_engagement_request(), Keyword.t()) ::
           {:ok, stop_engagement_result(), any()}
@@ -2280,10 +2241,8 @@ defmodule AWS.SSMContacts do
   end
 
   @doc """
-  Tags a contact or escalation plan.
-
-  You can tag only contacts and escalation plans in the
-  first region of your replication set.
+  Tags a contact or escalation plan. You can tag only contacts and escalation
+  plans in the first region of your replication set.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}

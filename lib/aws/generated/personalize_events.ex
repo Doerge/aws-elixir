@@ -4,11 +4,9 @@
 defmodule AWS.PersonalizeEvents do
   @moduledoc """
   Amazon Personalize can consume real-time user event data, such as *stream* or
-  *click* data, and use
-  it for model training either alone or combined with historical data.
-
-  For more information see
-  [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
+  *click* data, and use it for model training either alone or combined with
+  historical data. For more information see [Recording item interaction
+  events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
   """
 
   alias AWS.Client
@@ -225,17 +223,13 @@ defmodule AWS.PersonalizeEvents do
   end
 
   @doc """
-  Records action interaction event data.
+  Records action interaction event data. An *action interaction* event is an
+  interaction between a user and an *action*. For example, a user taking an
+  action, such a enrolling in a membership program or downloading your app.
 
-  An *action interaction* event is an interaction between a user and an *action*.
-  For example, a user taking an action, such a enrolling in a membership program
-  or downloading your app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActionInteractions&this_doc_guide=API%2520Reference)
 
-  For more information about recording action interactions, see [Recording action interaction
-  events](https://docs.aws.amazon.com/personalize/latest/dg/recording-action-interaction-events.html).
-  For more information about actions in an Actions dataset, see [Actions dataset](https://docs.aws.amazon.com/personalize/latest/dg/actions-datasets.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -265,12 +259,13 @@ defmodule AWS.PersonalizeEvents do
   end
 
   @doc """
-  Adds one or more actions to an Actions dataset.
+  Adds one or more actions to an Actions dataset. For more information see
+  [Importing actions
+  individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html).
 
-  For more information see
-  [Importing actions individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -300,12 +295,13 @@ defmodule AWS.PersonalizeEvents do
   end
 
   @doc """
-  Records item interaction event data.
+  Records item interaction event data. For more information see [Recording item
+  interaction
+  events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
 
-  For more information see
-  [Recording item interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutEvents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -335,12 +331,13 @@ defmodule AWS.PersonalizeEvents do
   end
 
   @doc """
-  Adds one or more items to an Items dataset.
+  Adds one or more items to an Items dataset. For more information see [Importing
+  items
+  individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
 
-  For more information see
-  [Importing items individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutItems&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -370,12 +367,13 @@ defmodule AWS.PersonalizeEvents do
   end
 
   @doc """
-  Adds one or more users to a Users dataset.
+  Adds one or more users to a Users dataset. For more information see [Importing
+  users
+  individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
 
-  For more information see
-  [Importing users individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutUsers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

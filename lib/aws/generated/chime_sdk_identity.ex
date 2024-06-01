@@ -4,13 +4,10 @@
 defmodule AWS.ChimeSDKIdentity do
   @moduledoc """
   The Amazon Chime SDK Identity APIs in this section allow software developers to
-  create
-  and manage unique instances of their messaging applications.
-
-  These APIs provide the
-  overarching framework for creating and sending messages. For more information
-  about the
-  identity APIs, refer to [Amazon Chime SDK identity](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Identity.html).
+  create and manage unique instances of their messaging applications. These APIs
+  provide the overarching framework for creating and sending messages. For more
+  information about the identity APIs, refer to [Amazon Chime SDK
+  identity](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Identity.html).
   """
 
   alias AWS.Client
@@ -1283,14 +1280,13 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account.
+  Creates an Amazon Chime SDK messaging `AppInstance` under an AWS account. Only
+  SDK messaging customers use this API. `CreateAppInstance` supports idempotency
+  behavior as described in the AWS API Standard.
 
-  Only SDK messaging customers use this API. `CreateAppInstance` supports
-  idempotency behavior as described in the AWS API Standard.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
-  identity
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1320,27 +1316,13 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Promotes an `AppInstanceUser` or `AppInstanceBot` to an
-  `AppInstanceAdmin`.
-
-  The
+  Promotes an `AppInstanceUser` or `AppInstanceBot` to an `AppInstanceAdmin`. The
   promoted entity can perform the following actions.
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
-  `ChannelModerator` actions across all channels in the
-  `AppInstance`.
-
-    *
-
-  `DeleteChannelMessage` actions.
-
-  Only an `AppInstanceUser` and `AppInstanceBot` can be promoted to an
-  `AppInstanceAdmin`
-  role.
-
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1375,12 +1357,12 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Creates a bot under an Amazon Chime `AppInstance`.
-
-  The request consists of a
+  Creates a bot under an Amazon Chime `AppInstance`. The request consists of a
   unique `Configuration` and `Name` for that bot.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1410,12 +1392,12 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Creates a user under an Amazon Chime `AppInstance`.
-
-  The request consists of a
+  Creates a user under an Amazon Chime `AppInstance`. The request consists of a
   unique `appInstanceUserId` and `Name` for that user.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1447,8 +1429,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstance` and all associated data asynchronously.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1483,15 +1467,15 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Demotes an `AppInstanceAdmin` to an `AppInstanceUser` or
-  `AppInstanceBot`.
+  Demotes an `AppInstanceAdmin` to an `AppInstanceUser` or `AppInstanceBot`. This
+  action does not delete the user.
 
-  This action
-  does not delete the user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceAdmin&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the <code>AppInstance</code>&#39;s administrator.
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  ## Parameters:
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstance's
+    administrator.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1537,8 +1521,11 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstanceBot`.
 
-  ## Required positional parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code> being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot being
+    deleted.
 
   ## Optional parameters:
   """
@@ -1575,8 +1562,11 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deletes an `AppInstanceUser`.
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeleteAppInstanceUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user request being
+    deleted.
 
   ## Optional parameters:
   """
@@ -1613,9 +1603,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Deregisters an `AppInstanceUserEndpoint`.
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
-  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DeregisterAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string`) The unique identifier of the
+    AppInstanceUserEndpoint.
 
   ## Optional parameters:
   """
@@ -1661,8 +1654,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstance`.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1689,9 +1684,11 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceAdmin`.
 
-  ## Required positional parameters:
-  * `:app_instance_admin_arn` (`t:string`) The ARN of the <code>AppInstanceAdmin</code>.
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_admin_arn` (`t:string`) The ARN of the AppInstanceAdmin.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1724,8 +1721,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   The `AppInstanceBot's` information.
 
-  ## Required positional parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot.
 
   ## Optional parameters:
   """
@@ -1752,8 +1751,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceUser`.
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceUser&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
   ## Optional parameters:
   """
@@ -1780,9 +1781,12 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns the full details of an `AppInstanceUserEndpoint`.
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
-  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20DescribeAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string`) The unique identifier of the
+    AppInstanceUserEndpoint.
 
   ## Optional parameters:
   """
@@ -1815,8 +1819,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Gets the retention settings for an `AppInstance`.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20GetAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -1843,13 +1849,16 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Returns a list of the administrators in the `AppInstance`.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceAdmins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of administrators that you want to return.
-  * `:next_token` (`t:string`) The token returned from previous API requests until the number of administrators is
-         reached.
+  * `:max_results` (`t:integer`) The maximum number of administrators that you
+    want to return.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of administrators is reached.
   """
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
@@ -1892,12 +1901,15 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Lists all `AppInstanceBots` created under a single `AppInstance`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceBots&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
   * `:max_results` (`t:integer`) The maximum number of requests to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested bots are returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested bots are returned.
   """
   @spec list_app_instance_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_bots_response(), any()}
@@ -1950,12 +1962,16 @@ defmodule AWS.ChimeSDKIdentity do
   Lists all the `AppInstanceUserEndpoints` created under a single
   `AppInstanceUser`.
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceUserEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of endpoints that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested endpoints are returned.
+  * `:max_results` (`t:integer`) The maximum number of endpoints that you want to
+    return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested endpoints are returned.
   """
   @spec list_app_instance_user_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
@@ -1996,15 +2012,18 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  List all `AppInstanceUsers` created under a single
-  `AppInstance`.
+  List all `AppInstanceUsers` created under a single `AppInstance`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstanceUsers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
-  * `:max_results` (`t:integer`) The maximum number of requests that you want returned.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested users are returned.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+  * `:max_results` (`t:integer`) The maximum number of requests that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested users are returned.
   """
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
@@ -2054,15 +2073,17 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Lists all Amazon Chime `AppInstance`s created under a single AWS
-  account.
+  Lists all Amazon Chime `AppInstance`s created under a single AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of <code>AppInstance</code>s that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API requests until you reach the maximum number of
-            <code>AppInstances</code>.
+  * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
+    to return.
+  * `:next_token` (`t:string`) The token passed by previous API requests until you
+    reach the maximum number of AppInstances.
   """
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
@@ -2105,7 +2126,9 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Lists the tags applied to an Amazon Chime SDK identity resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
@@ -2140,11 +2163,12 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Sets the amount of time in days that a given `AppInstance` retains
-  data.
+  Sets the amount of time in days that a given `AppInstance` retains data.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20PutAppInstanceRetentionSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -2176,16 +2200,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Sets the number of days before the `AppInstanceUser` is automatically deleted.
 
-  A background process deletes expired `AppInstanceUsers` within 6 hours of
-  expiration.
-  Actual deletion times may vary.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20PutAppInstanceUserExpirationSettings&this_doc_guide=API%2520Reference)
 
-  Expired `AppInstanceUsers` that have not yet been deleted appear as active, and
-  you can update
-  their expiration settings. The system honors the new settings.
-
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
   ## Optional parameters:
   """
@@ -2217,13 +2235,14 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Registers an endpoint under an Amazon Chime `AppInstanceUser`.
+  Registers an endpoint under an Amazon Chime `AppInstanceUser`. The endpoint
+  receives messages for a user. For push notifications, the endpoint is a mobile
+  device used to receive mobile push notifications for a user.
 
-  The endpoint receives messages for a user. For push notifications, the endpoint
-  is a mobile device used to receive mobile push notifications for a user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20RegisterAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
   ## Optional parameters:
   """
@@ -2265,7 +2284,9 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK identity resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2298,7 +2319,9 @@ defmodule AWS.ChimeSDKIdentity do
   Removes the specified tags from the specified Amazon Chime SDK identity
   resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2330,8 +2353,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Updates `AppInstance` metadata.
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstance&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
 
   ## Optional parameters:
   """
@@ -2358,8 +2383,10 @@ defmodule AWS.ChimeSDKIdentity do
   @doc """
   Updates the name and metadata of an `AppInstanceBot`.
 
-  ## Required positional parameters:
-  * `:app_instance_bot_arn` (`t:string`) The ARN of the <code>AppInstanceBot</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceBot&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_instance_bot_arn` (`t:string`) The ARN of the AppInstanceBot.
 
   ## Optional parameters:
   """
@@ -2384,13 +2411,12 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Updates the details of an `AppInstanceUser`.
+  Updates the details of an `AppInstanceUser`. You can update names and metadata.
 
-  You can update names and
-  metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
 
   ## Optional parameters:
   """
@@ -2415,13 +2441,15 @@ defmodule AWS.ChimeSDKIdentity do
   end
 
   @doc """
-  Updates the details of an `AppInstanceUserEndpoint`.
+  Updates the details of an `AppInstanceUserEndpoint`. You can update the name and
+  `AllowMessage` values.
 
-  You can update the name and `AllowMessage` values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UpdateAppInstanceUserEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code>.
-  * `:endpoint_id` (`t:string`) The unique identifier of the <code>AppInstanceUserEndpoint</code>.
+  ## Parameters:
+  * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUser.
+  * `:endpoint_id` (`t:string`) The unique identifier of the
+    AppInstanceUserEndpoint.
 
   ## Optional parameters:
   """

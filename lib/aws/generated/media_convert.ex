@@ -3967,7 +3967,9 @@ defmodule AWS.MediaConvert do
   Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS
   Elemental MediaConvert.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20AssociateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3997,12 +3999,13 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Permanently cancel a job.
+  Permanently cancel a job. Once you have canceled a job, you can't start it
+  again.
 
-  Once you have canceled a job, you can't start it again.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CancelJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4032,12 +4035,13 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding job.
-
-  For information about jobs and job settings, see the User Guide at
+  Create a new transcoding job. For information about jobs and job settings, see
+  the User Guide at
   http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4067,12 +4071,12 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new job template.
+  Create a new job template. For information about job templates see the User
+  Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  For information about job templates see the User Guide at
-  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateJobTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4102,12 +4106,12 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new preset.
-
-  For information about job templates see the User Guide at
+  Create a new preset. For information about job templates see the User Guide at
   http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreatePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4137,12 +4141,13 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create a new transcoding queue.
-
-  For information about queues, see Working With Queues in the User Guide at
+  Create a new transcoding queue. For information about queues, see Working With
+  Queues in the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20CreateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4174,8 +4179,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a job template you have created.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4212,7 +4219,9 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a policy that you created.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4244,8 +4253,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a preset you have created.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeletePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4277,8 +4288,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a queue you have created.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DeleteQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4311,7 +4324,9 @@ defmodule AWS.MediaConvert do
   Send an request with an empty body to the regional API endpoint to get your
   account API endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DescribeEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4345,8 +4360,10 @@ defmodule AWS.MediaConvert do
   Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert
   resource.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20DisassociateCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4383,8 +4400,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific transcoding job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4411,8 +4430,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific job template.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4439,7 +4460,9 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for your policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4466,8 +4489,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific preset.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetPreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4494,8 +4519,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific queue.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20GetQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4520,19 +4547,20 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your job templates.
+  Retrieve a JSON array of up to twenty of your job templates. This will return
+  the templates themselves, not just a list of them. To retrieve the next twenty
+  templates, use the nextToken string returned with the array
 
-  This will return the templates themselves, not just a list of them. To retrieve
-  the next twenty templates, use the nextToken string returned with the array
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListJobTemplates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:category` (`t:string`) 
-  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
+  * `:category` (`t:string`)
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -4600,20 +4628,21 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your most recently created jobs.
+  Retrieve a JSON array of up to twenty of your most recently created jobs. This
+  array includes in-process, completed, and errored jobs. This will return the
+  jobs themselves, not just a list of the jobs. To retrieve the twenty next most
+  recent jobs, use the nextToken string returned with the array.
 
-  This array includes in-process, completed, and errored jobs. This will return
-  the jobs themselves, not just a list of the jobs. To retrieve the twenty next
-  most recent jobs, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListJobs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
-  * `:queue` (`t:string`) 
-  * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
+  * `:queue` (`t:string`)
+  * `:status` (`t:enum["CANCELED|COMPLETE|ERROR|PROGRESSING|SUBMITTED"]`)
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -4681,19 +4710,20 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your presets.
+  Retrieve a JSON array of up to twenty of your presets. This will return the
+  presets themselves, not just a list of them. To retrieve the next twenty
+  presets, use the nextToken string returned with the array.
 
-  This will return the presets themselves, not just a list of them. To retrieve
-  the next twenty presets, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListPresets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:category` (`t:string`) 
-  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
+  * `:category` (`t:string`)
+  * `:list_by` (`t:enum["CREATION_DATE|NAME|SYSTEM"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
@@ -4761,18 +4791,19 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Retrieve a JSON array of up to twenty of your queues.
+  Retrieve a JSON array of up to twenty of your queues. This will return the
+  queues themselves, not just a list of them. To retrieve the next twenty
+  queues, use the nextToken string returned with the array.
 
-  This will return the queues themselves, not just a list of them. To retrieve the
-  next twenty queues, use the nextToken string returned with the array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListQueues&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:list_by` (`t:enum["CREATION_DATE|NAME"]`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:order` (`t:enum["ASCENDING|DESCENDING"]`) 
+  * `:list_by` (`t:enum["CREATION_DATE|NAME"]`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:order` (`t:enum["ASCENDING|DESCENDING"]`)
   """
   @spec list_queues(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_queues_response(), any()}
@@ -4833,8 +4864,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the tags for a MediaConvert resource.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4859,12 +4892,12 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Create or change your policy.
+  Create or change your policy. For more information about policies, see the user
+  guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 
-  For more information about policies, see the user guide at
-  http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20PutPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4884,12 +4917,13 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Add tags to a MediaConvert queue, preset, or job template.
-
-  For information about tagging, see the User Guide at
+  Add tags to a MediaConvert queue, preset, or job template. For information about
+  tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4919,13 +4953,14 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Remove tags from a MediaConvert queue, preset, or job template.
-
-  For information about tagging, see the User Guide at
+  Remove tags from a MediaConvert queue, preset, or job template. For information
+  about tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4947,8 +4982,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing job templates.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4975,8 +5012,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing presets.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdatePreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4998,8 +5037,10 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing queues.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconvert%20UpdateQueue&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:string`)
 
   ## Optional parameters:
   """

@@ -4,15 +4,6 @@
 defmodule AWS.SESv2 do
   @moduledoc """
   Amazon SES API v2
-
-  [Amazon SES](http://aws.amazon.com/ses) is an Amazon Web Services service that you can use to send email messages to your customers.
-
-  If you're new to Amazon SES API v2, you might find it helpful to review the
-  [Amazon Simple Email Service Developer
-  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). The *Amazon SES
-  Developer Guide* provides information
-  and code samples that demonstrate how to use Amazon SES API v2 features
-  programmatically.
   """
 
   alias AWS.Client
@@ -3802,10 +3793,9 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieves batches of metric data collected based on your sending activity.
 
-  You can execute this operation no more than 16 times per second,
-  and with at most 160 queries from the batches per second (cumulative).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20BatchGetMetricData&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3837,7 +3827,9 @@ defmodule AWS.SESv2 do
   @doc """
   Cancels an export job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CancelExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The export job ID.
 
   ## Optional parameters:
@@ -3858,18 +3850,15 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create a configuration set.
+  Create a configuration set. *Configuration sets* are groups of rules that you
+  can apply to the emails that you send. You apply a configuration set to an
+  email by specifying the name of the configuration set when you call the Amazon
+  SES API v2. When you apply a configuration set to an email, all of the rules
+  in that configuration set are applied to the email.
 
-  *Configuration sets* are groups of
-  rules that you can apply to the emails that you send. You apply a configuration
-  set to
-  an email by specifying the name of the configuration set when you call the
-  Amazon SES API v2. When
-  you apply a configuration set to an email, all of the rules in that
-  configuration set
-  are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3899,20 +3888,16 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create an event destination.
+  Create an event destination. *Events* include message sends, deliveries, opens,
+  clicks, bounces, and complaints. *Event destinations* are places that you can
+  send information about these events to. For example, you can send event data
+  to Amazon SNS to receive notifications when you receive bounces or complaints,
+  or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for
+  long-term storage.
 
-  *Events* include message sends,
-  deliveries, opens, clicks, bounces, and complaints. *Event
-  destinations* are places that you can send information about these events
-  to. For example, you can send event data to Amazon SNS to receive notifications
-  when you
-  receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
-  stream data to Amazon S3 for long-term
-  storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  A single configuration set can include more than one event destination.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set .
 
   ## Optional parameters:
@@ -3956,11 +3941,13 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates a contact, which is an end-user who is receiving the email, and adds
-  them to a
-  contact list.
+  them to a contact list.
 
-  ## Required positional parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list to which the contact should be added.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the
+    contact should be added.
 
   ## Optional parameters:
   """
@@ -3992,7 +3979,9 @@ defmodule AWS.SESv2 do
   @doc """
   Creates a contact list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4022,16 +4011,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Creates a new custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Creates a new custom verification email template. For more information about
+  custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4065,16 +4052,15 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create a new pool of dedicated IP addresses.
+  Create a new pool of dedicated IP addresses. A pool can include one or more
+  dedicated IP addresses that are associated with your Amazon Web Services
+  account. You can associate a pool with a configuration set. When you send an
+  email that uses that configuration set, the message is sent from one of the
+  addresses in the associated pool.
 
-  A pool can include one or more dedicated
-  IP addresses that are associated with your Amazon Web Services account. You can
-  associate a pool with
-  a configuration set. When you send an email that uses that configuration set,
-  the
-  message is sent from one of the addresses in the associated pool.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4104,21 +4090,18 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Create a new predictive inbox placement test.
+  Create a new predictive inbox placement test. Predictive inbox placement tests
+  can help you predict how your messages will be handled by various email
+  providers around the world. When you perform a predictive inbox placement
+  test, you provide a sample message that contains the content that you plan to
+  send to your customers. Amazon SES then sends that message to special email
+  addresses spread across several major email providers. After about 24 hours,
+  the test is complete, and you can use the `GetDeliverabilityTestReport`
+  operation to view the results of the test.
 
-  Predictive inbox placement tests can help you predict how your messages will be
-  handled
-  by various email providers around the world. When you perform a predictive inbox
-  placement test, you provide a
-  sample message that contains the content that you plan to send to your
-  customers. Amazon SES
-  then sends that message to special email addresses spread across several major
-  email
-  providers. After about 24 hours, the test is complete, and you can use the
-  `GetDeliverabilityTestReport` operation to view the results of the
-  test.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4152,52 +4135,17 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Starts the process of verifying an email identity.
-
-  An *identity* is
-  an email address or domain that you use when you send email. Before you can use
-  an
+  Starts the process of verifying an email identity. An *identity* is an email
+  address or domain that you use when you send email. Before you can use an
   identity to send email, you first have to verify it. By verifying an identity,
-  you
-  demonstrate that you're the owner of the identity, and that you've given Amazon
-  SES API v2
-  permission to send email from the identity.
+  you demonstrate that you're the owner of the identity, and that you've given
+  Amazon SES API v2 permission to send email from the identity. When you verify
+  an email address, Amazon SES sends an email to the address. Your email address
+  is verified as soon as you follow the link in the verification email.
 
-  When you verify an email address, Amazon SES sends an email to the address. Your
-  email
-  address is verified as soon as you follow the link in the verification email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
-  When you verify a domain without specifying the `DkimSigningAttributes`
-  object, this operation provides a set of DKIM tokens. You can convert these
-  tokens into
-  CNAME records, which you then add to the DNS configuration for your domain. Your
-  domain
-  is verified when Amazon SES detects these records in the DNS configuration for
-  your domain.
-  This verification method is known as [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
-
-  Alternatively, you can perform the verification process by providing your own
-  public-private key pair. This verification method is known as Bring Your Own
-  DKIM
-  (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation
-  has to include the `DkimSigningAttributes` object. When you specify this
-  object, you provide a selector (a component of the DNS record name that
-  identifies the
-  public key to use for DKIM authentication) and a private key.
-
-  When you verify a domain, this operation provides a set of DKIM tokens, which
-  you can
-  convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
-  for your
-  domain. Your domain is verified when Amazon SES detects these records in the DNS
-  configuration for your domain. For some DNS providers, it can take 72 hours or
-  more to
-  complete the domain verification process.
-
-  Additionally, you can associate an existing configuration set with the email
-  identity that you're verifying.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4228,21 +4176,12 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API is for the identity owner only. If you
+  have not verified the identity, this API will return an error.
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
   * `:policy_name` (`t:string`) The name of the policy.
 
@@ -4288,15 +4227,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Creates an email template.
+  Creates an email template. Email templates enable you to send personalized email
+  to one or more destinations in a single API operation. For more information,
+  see the [Amazon SES Developer
+  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
-  Email templates enable you to send personalized email to
-  one or more destinations in a single API operation. For more information, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4328,9 +4266,9 @@ defmodule AWS.SESv2 do
   @doc """
   Creates an export job for a data source and destination.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateExportJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4362,7 +4300,9 @@ defmodule AWS.SESv2 do
   @doc """
   Creates an import job for a data destination.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4394,14 +4334,9 @@ defmodule AWS.SESv2 do
   @doc """
   Delete an existing configuration set.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
@@ -4439,18 +4374,13 @@ defmodule AWS.SESv2 do
   @doc """
   Delete an event destination.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon SNS to
-  receive notifications when you receive bounces or complaints, or you can use
-  Amazon Kinesis Data Firehose to
-  stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination to
-            delete.
-  * `:event_destination_name` (`t:string`) The name of the event destination to delete.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination to delete.
+  * `:event_destination_name` (`t:string`) The name of the event destination to
+    delete.
 
   ## Optional parameters:
   """
@@ -4496,9 +4426,12 @@ defmodule AWS.SESv2 do
   @doc """
   Removes a contact from a contact list.
 
-  ## Required positional parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list from which the contact should be removed.
-  * `:email_address` (`t:string`) The contact&#39;s email address.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list from which the
+    contact should be removed.
+  * `:email_address` (`t:string`) The contact's email address.
 
   ## Optional parameters:
   """
@@ -4538,7 +4471,9 @@ defmodule AWS.SESv2 do
   @doc """
   Deletes a contact list and all of the contacts on that list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteContactList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
@@ -4574,17 +4509,17 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Deletes an existing custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Deletes an existing custom verification email template. For more information
+  about custom verification email templates, see [Using custom verification
+  email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email template that you want to delete.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to delete.
 
   ## Optional parameters:
   """
@@ -4628,8 +4563,11 @@ defmodule AWS.SESv2 do
   @doc """
   Delete a dedicated IP pool.
 
-  ## Required positional parameters:
-  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pool_name` (`t:string`) The name of the dedicated IP pool that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -4664,13 +4602,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Deletes an email identity.
+  Deletes an email identity. An identity can be either an email address or a
+  domain name.
 
-  An identity can be either an email address or a domain
-  name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentity&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:email_identity` (`t:string`) The identity (that is, the email address or domain) to delete.
+  ## Parameters:
+  * `:email_identity` (`t:string`) The identity (that is, the email address or
+    domain) to delete.
 
   ## Optional parameters:
   """
@@ -4706,24 +4645,13 @@ defmodule AWS.SESv2 do
 
   @doc """
   Deletes the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API returns successfully even if a policy
+  with the specified name does not exist. This API is for the identity owner
+  only. If you have not verified the identity, this API will return an error.
 
-  This API returns successfully even if a policy with the specified
-  name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
-
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
   * `:policy_name` (`t:string`) The name of the policy.
 
@@ -4771,9 +4699,9 @@ defmodule AWS.SESv2 do
   @doc """
   Deletes an email template.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the template to be deleted.
 
   ## Optional parameters:
@@ -4811,8 +4739,11 @@ defmodule AWS.SESv2 do
   @doc """
   Removes an email address from the suppression list for your account.
 
-  ## Required positional parameters:
-  * `:email_address` (`t:string`) The suppressed email destination to remove from the account suppression list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20DeleteSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_address` (`t:string`) The suppressed email destination to remove from
+    the account suppression list.
 
   ## Optional parameters:
   """
@@ -4848,10 +4779,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Obtain information about the email-sending status and capabilities of your
-  Amazon SES
-  account in the current Amazon Web Services Region.
+  Amazon SES account in the current Amazon Web Services Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4878,12 +4810,15 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieve a list of the blacklists that your dedicated IP addresses appear on.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetBlacklistReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`) A list of IP addresses that you want to retrieve blacklist information about. You can
-            only specify the dedicated IP addresses that you use to send email using Amazon SES or
-            Amazon Pinpoint.
+  * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`) A
+    list of IP addresses that you want to retrieve blacklist information about.
+    You can only specify the dedicated IP addresses that you use to send email
+    using Amazon SES or Amazon Pinpoint.
   """
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
@@ -4916,18 +4851,12 @@ defmodule AWS.SESv2 do
 
   @doc """
   Get information about an existing configuration set, including the dedicated IP
-  pool
-  that it's associated with, whether or not it's enabled for sending email, and
-  more.
+  pool that it's associated with, whether or not it's enabled for sending email,
+  and more.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
@@ -4956,16 +4885,11 @@ defmodule AWS.SESv2 do
   Retrieve a list of event destinations that are associated with a configuration
   set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon SNS to
-  receive notifications when you receive bounces or complaints, or you can use
-  Amazon Kinesis Data Firehose to
-  stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination.
 
   ## Optional parameters:
   """
@@ -4997,9 +4921,12 @@ defmodule AWS.SESv2 do
   @doc """
   Returns a contact from a contact list.
 
-  ## Required positional parameters:
-  * `:contact_list_name` (`t:string`) The name of the contact list to which the contact belongs.
-  * `:email_address` (`t:string`) The contact&#39;s email address.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:contact_list_name` (`t:string`) The name of the contact list to which the
+    contact belongs.
+  * `:email_address` (`t:string`) The contact's email address.
 
   ## Optional parameters:
   """
@@ -5025,12 +4952,12 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Returns contact list metadata.
+  Returns contact list metadata. It does not return any information about the
+  contacts present in the list.
 
-  It does not return any information about the contacts
-  present in the list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetContactList&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
@@ -5057,17 +4984,16 @@ defmodule AWS.SESv2 do
 
   @doc """
   Returns the custom email verification template for the template name you
-  specify.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  specify. For more information about custom verification email templates, see
+  [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email template that you want to retrieve.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to retrieve.
 
   ## Optional parameters:
   """
@@ -5094,14 +5020,15 @@ defmodule AWS.SESv2 do
 
   @doc """
   Get information about a dedicated IP address, including the name of the
-  dedicated IP
-  pool that it's associated with, as well information about the automatic warm-up
-  process
-  for the address.
+  dedicated IP pool that it's associated with, as well information about the
+  automatic warm-up process for the address.
 
-  ## Required positional parameters:
-  * `:ip` (`t:string`) The IP address that you want to obtain more information about. The value you specify
-            has to be a dedicated IP address that&#39;s assocaited with your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to obtain more information
+    about. The value you specify has to be a dedicated IP address that's
+    assocaited with your Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -5128,7 +5055,9 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieve information about the dedicated pool.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIpPool&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:pool_name` (`t:string`) The name of the dedicated IP pool to retrieve.
 
   ## Optional parameters:
@@ -5155,19 +5084,22 @@ defmodule AWS.SESv2 do
 
   @doc """
   List the dedicated IP addresses that are associated with your Amazon Web
-  Services
-  account.
+  Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
-            position of the dedicated IP pool in the list of IP pools.
-  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
-            If the number of results is larger than the number you specified in this parameter, then
-            the response includes a <code>NextToken</code> element, which you can use to obtain
-            additional results.
-  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP address is associated with.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    GetDedicatedIps to indicate the position of the dedicated IP pool in the
+    list of IP pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    GetDedicatedIpsRequest. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
+  * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
+    address is associated with.
   """
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
@@ -5218,23 +5150,14 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieve information about the status of the Deliverability dashboard for your
-  account.
+  account. When the Deliverability dashboard is enabled, you gain access to
+  reputation, deliverability, and other metrics for the domains that you use to
+  send email. You also gain the ability to perform predictive inbox placement
+  tests.
 
-  When
-  the Deliverability dashboard is enabled, you gain access to reputation,
-  deliverability, and other
-  metrics for the domains that you use to send email. You also gain the ability to
-  perform
-  predictive inbox placement tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon SES and other Amazon Web
-  Services services. For more
-  information about the features and cost of a Deliverability dashboard
-  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5261,8 +5184,11 @@ defmodule AWS.SESv2 do
   @doc """
   Retrieve the results of a predictive inbox placement test.
 
-  ## Required positional parameters:
-  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox placement test.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityTestReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:report_id` (`t:string`) A unique string that identifies the predictive inbox
+    placement test.
 
   ## Optional parameters:
   """
@@ -5287,15 +5213,16 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Retrieve all the deliverability data for a specific campaign.
+  Retrieve all the deliverability data for a specific campaign. This data is
+  available for a campaign only if the campaign sent email by using a domain
+  that the Deliverability dashboard is enabled for.
 
-  This data is available
-  for a campaign only if the campaign sent email by using a domain that the
-  Deliverability dashboard is enabled for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainDeliverabilityCampaign&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:campaign_id` (`t:string`) The unique identifier for the campaign. The Deliverability dashboard automatically generates
-            and assigns this identifier to a campaign.
+  ## Parameters:
+  * `:campaign_id` (`t:string`) The unique identifier for the campaign. The
+    Deliverability dashboard automatically generates and assigns this identifier
+    to a campaign.
 
   ## Optional parameters:
   """
@@ -5321,18 +5248,20 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieve inbox placement and engagement rates for the domains that you use to
-  send
-  email.
+  send email.
 
-  ## Required positional parameters:
-  * `:domain` (`t:string`) The domain that you want to obtain deliverability metrics for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDomainStatisticsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain` (`t:string`) The domain that you want to obtain deliverability
+    metrics for.
 
   ## Optional parameters:
-  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to obtain domain deliverability metrics for.
-            The <code>EndDate</code> that you specify has to be less than or equal to 30 days after
-            the <code>StartDate</code>.
-  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to obtain domain deliverability metrics
-            for.
+  * `:end_date` (`t:timestamp`) The last day (in Unix time) that you want to
+    obtain domain deliverability metrics for. The EndDate that you specify has
+    to be less than or equal to 30 days after the StartDate.
+  * `:start_date` (`t:timestamp`) The first day (in Unix time) that you want to
+    obtain domain deliverability metrics for.
   """
   @spec get_domain_statistics_report(
           AWS.Client.t(),
@@ -5387,12 +5316,12 @@ defmodule AWS.SESv2 do
 
   @doc """
   Provides information about a specific identity, including the identity's
-  verification
-  status, sending authorization policies, its DKIM authentication status, and its
-  custom
-  Mail-From settings.
+  verification status, sending authorization policies, its DKIM authentication
+  status, and its custom Mail-From settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
@@ -5419,24 +5348,14 @@ defmodule AWS.SESv2 do
 
   @doc """
   Returns the requested sending authorization policies for the given identity (an
-  email
-  address or a domain).
-
-  The policies are returned as a map of policy names to policy
-  contents. You can retrieve a maximum of 20 policies at a time.
-
-  This API is for the identity owner only. If you have not verified the identity,
+  email address or a domain). The policies are returned as a map of policy names
+  to policy contents. You can retrieve a maximum of 20 policies at a time. This
+  API is for the identity owner only. If you have not verified the identity,
   this API will return an error.
 
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailIdentityPolicies&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
@@ -5463,12 +5382,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Displays the template object (which includes the subject line, HTML part and
-  text
-  part) for the template you specify.
+  text part) for the template you specify.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:
@@ -5496,7 +5414,9 @@ defmodule AWS.SESv2 do
   @doc """
   Provides information about an export job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The export job ID.
 
   ## Optional parameters:
@@ -5524,7 +5444,9 @@ defmodule AWS.SESv2 do
   @doc """
   Provides information about an import job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the import job.
 
   ## Optional parameters:
@@ -5554,13 +5476,11 @@ defmodule AWS.SESv2 do
   subject, the recipient address, email tags, as well as events associated with
   the message.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetMessageInsights&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:message_id` (`t:string`) 
-            A <code>MessageId</code> is a unique identifier for a message, and is
-            returned when sending emails through Amazon SES.
-        
+  ## Parameters:
+  * `:message_id` (`t:string`) A MessageId is a unique identifier for a message,
+    and is returned when sending emails through Amazon SES.
 
   ## Optional parameters:
   """
@@ -5586,11 +5506,13 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieves information about a specific email address that's on the suppression
-  list
-  for your account.
+  list for your account.
 
-  ## Required positional parameters:
-  * `:email_address` (`t:string`) The email address that&#39;s on the account suppression list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_address` (`t:string`) The email address that's on the account
+    suppression list.
 
   ## Optional parameters:
   """
@@ -5618,22 +5540,18 @@ defmodule AWS.SESv2 do
   List all of the configuration sets associated with your account in the current
   region.
 
-  *Configuration sets* are groups of rules that you can apply to the
-  emails you send. You apply a configuration set to an email by including a
-  reference to
-  the configuration set in the headers of the email. When you apply a
-  configuration set to
-  an email, all of the rules in that configuration set are applied to the email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListConfigurationSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListConfigurationSets</code> to
-            indicate the position in the list of configuration sets.
-  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListConfigurationSets</code>.
-            If the number of results is larger than the number you specified in this parameter, then
-            the response includes a <code>NextToken</code> element, which you can use to obtain
-            additional results.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListConfigurationSets to indicate the position in the list of configuration
+    sets.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListConfigurationSets. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -5676,18 +5594,19 @@ defmodule AWS.SESv2 do
   @doc """
   Lists all of the contact lists available.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContactLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A string token indicating that there might be additional contact lists available to be
-            listed. Use the token provided in the Response to use in the subsequent call to
-            ListContactLists with the same parameters to retrieve the next page of contact
-            lists.
-  * `:page_size` (`t:integer`) Maximum number of contact lists to return at once. Use this parameter to paginate
-            results. If additional contact lists exist beyond the specified limit, the
-                <code>NextToken</code> element is sent in the response. Use the
-                <code>NextToken</code> value in subsequent requests to retrieve additional
-            lists.
+  * `:next_token` (`t:string`) A string token indicating that there might be
+    additional contact lists available to be listed. Use the token provided in
+    the Response to use in the subsequent call to ListContactLists with the same
+    parameters to retrieve the next page of contact lists.
+  * `:page_size` (`t:integer`) Maximum number of contact lists to return at once.
+    Use this parameter to paginate results. If additional contact lists exist
+    beyond the specified limit, the NextToken element is sent in the response.
+    Use the NextToken value in subsequent requests to retrieve additional lists.
   """
   @spec list_contact_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contact_lists_response(), any()}
@@ -5730,7 +5649,9 @@ defmodule AWS.SESv2 do
   @doc """
   Lists the contacts present in a specific contact list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
@@ -5762,27 +5683,23 @@ defmodule AWS.SESv2 do
 
   @doc """
   Lists the existing custom verification email templates for your account in the
-  current
-  Amazon Web Services Region.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  current Amazon Web Services Region. For more information about custom
+  verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListCustomVerificationEmailTemplates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-                <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the
-            list of custom verification email templates.
+    ListCustomVerificationEmailTemplates to indicate the position in the list of
+    custom verification email templates.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-                <code>ListCustomVerificationEmailTemplates</code>. If the number of results is
-            larger than the number you specified in this parameter, then the response includes a
-                <code>NextToken</code> element, which you can use to obtain additional
-            results.
+    ListCustomVerificationEmailTemplates. If the number of results is larger
+    than the number you specified in this parameter, then the response includes
+    a NextToken element, which you can use to obtain additional results.
   """
   @spec list_custom_verification_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
@@ -5824,18 +5741,20 @@ defmodule AWS.SESv2 do
 
   @doc """
   List all of the dedicated IP pools that exist in your Amazon Web Services
-  account in the current
-  Region.
+  account in the current Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
-            the position in the list of dedicated IP pools.
-  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
-            If the number of results is larger than the number you specified in this parameter, then
-            the response includes a <code>NextToken</code> element, which you can use to obtain
-            additional results.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDedicatedIpPools to indicate the position in the list of dedicated IP
+    pools.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListDedicatedIpPools. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
@@ -5877,23 +5796,22 @@ defmodule AWS.SESv2 do
 
   @doc """
   Show a list of the predictive inbox placement tests that you've performed,
-  regardless of their statuses.
+  regardless of their statuses. For predictive inbox placement tests that are
+  complete, you can use the `GetDeliverabilityTestReport` operation to view the
+  results.
 
-  For
-  predictive inbox placement tests that are complete, you can use the
-  `GetDeliverabilityTestReport`
-  operation to view the results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to
-            indicate the position in the list of predictive inbox placement tests.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListDeliverabilityTestReports to indicate the position in the list of
+    predictive inbox placement tests.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-                <code>ListDeliverabilityTestReports</code>. If the number of results is larger than
-            the number you specified in this parameter, then the response includes a
-                <code>NextToken</code> element, which you can use to obtain additional
-            results.
+    ListDeliverabilityTestReports. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   """
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
@@ -5935,29 +5853,29 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieve deliverability data for all the campaigns that used a specific domain
-  to send
-  email during a specified time range.
+  to send email during a specified time range. This data is available for a
+  domain only if you enabled the Deliverability dashboard for the domain.
 
-  This data is available for a domain only if you
-  enabled the Deliverability dashboard for the domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDomainDeliverabilityCampaigns&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data for.
+  ## Parameters:
+  * `:subscribed_domain` (`t:string`) The domain to obtain deliverability data
+    for.
 
   ## Optional parameters:
-  * `:end_date` (`t:timestamp`) The last day that you want to obtain deliverability data for.
-            This value has to be less than or equal to 30 days after the value of the
-                <code>StartDate</code> parameter.
+  * `:end_date` (`t:timestamp`) The last day that you want to obtain
+    deliverability data for. This value has to be less than or equal to 30 days
+    after the value of the StartDate parameter.
   * `:next_token` (`t:string`) A token that’s returned from a previous call to the
-                <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
-            position of a campaign in the list of campaigns.
-  * `:page_size` (`t:integer`) The maximum number of results to include in response to a single call to the
-                <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
-            is larger than the number that you specify in this parameter, the response includes a
-                <code>NextToken</code> element, which you can use to obtain additional
-            results.
-  * `:start_date` (`t:timestamp`) The first day that you want to obtain deliverability data
-            for.
+    ListDomainDeliverabilityCampaigns operation. This token indicates the
+    position of a campaign in the list of campaigns.
+  * `:page_size` (`t:integer`) The maximum number of results to include in
+    response to a single call to the ListDomainDeliverabilityCampaigns
+    operation. If the number of results is larger than the number that you
+    specify in this parameter, the response includes a NextToken element, which
+    you can use to obtain additional results.
+  * `:start_date` (`t:timestamp`) The first day that you want to obtain
+    deliverability data for.
   """
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
@@ -6030,23 +5948,22 @@ defmodule AWS.SESv2 do
 
   @doc """
   Returns a list of all of the email identities that are associated with your
-  Amazon Web Services
-  account.
+  Amazon Web Services account. An identity can be either an email address or a
+  domain. This operation returns identities that are verified as well as those
+  that aren't. This operation returns identities that are associated with Amazon
+  SES and Amazon Pinpoint.
 
-  An identity can be either an email address or a domain. This operation returns
-  identities that are verified as well as those that aren't. This operation
-  returns
-  identities that are associated with Amazon SES and Amazon Pinpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailIdentities&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
-            the position in the list of identities.
-  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListEmailIdentities</code>. If
-            the number of results is larger than the number you specified in this parameter, then
-            the response includes a <code>NextToken</code> element, which you can use to obtain
-            additional results.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListEmailIdentities to indicate the position in the list of identities.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListEmailIdentities. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
@@ -6088,19 +6005,19 @@ defmodule AWS.SESv2 do
 
   @doc """
   Lists the email templates present in your Amazon SES account in the current
-  Amazon Web Services
-  Region.
+  Amazon Web Services Region.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailTemplates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListEmailTemplates</code> to indicate
-            the position in the list of email templates.
-  * `:page_size` (`t:integer`) The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of
-            results is larger than the number you specified in this parameter, then the response
-            includes a <code>NextToken</code> element, which you can use to obtain additional results.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListEmailTemplates to indicate the position in the list of email templates.
+  * `:page_size` (`t:integer`) The number of results to show in a single call to
+    ListEmailTemplates. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_templates_response(), any()}
@@ -6143,7 +6060,9 @@ defmodule AWS.SESv2 do
   @doc """
   Lists all of the export jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6175,7 +6094,9 @@ defmodule AWS.SESv2 do
   @doc """
   Lists all of the import jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6208,9 +6129,9 @@ defmodule AWS.SESv2 do
   Lists the recommendations present in your Amazon SES account in the current
   Amazon Web Services Region.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListRecommendations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6243,21 +6164,26 @@ defmodule AWS.SESv2 do
   Retrieves a list of email addresses that are on the suppression list for your
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListSuppressedDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email destinations so that it only includes
-            addresses that were added to the list before a specific date.
-  * `:next_token` (`t:string`) A token returned from a previous call to <code>ListSuppressedDestinations</code> to
-            indicate the position in the list of suppressed email addresses.
+  * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email
+    destinations so that it only includes addresses that were added to the list
+    before a specific date.
+  * `:next_token` (`t:string`) A token returned from a previous call to
+    ListSuppressedDestinations to indicate the position in the list of
+    suppressed email addresses.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-                <code>ListSuppressedDestinations</code>. If the number of results is larger than the
-            number you specified in this parameter, then the response includes a
-                <code>NextToken</code> element, which you can use to obtain additional
-            results.
-  * `:reasons` (`t:list[com.amazonaws.sesv2#SuppressionListReason]`) The factors that caused the email address to be added to .
-  * `:start_date` (`t:timestamp`) Used to filter the list of suppressed email destinations so that it only includes
-            addresses that were added to the list after a specific date.
+    ListSuppressedDestinations. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
+  * `:reasons` (`t:list[com.amazonaws.sesv2#SuppressionListReason]`) The factors
+    that caused the email address to be added to .
+  * `:start_date` (`t:timestamp`) Used to filter the list of suppressed email
+    destinations so that it only includes addresses that were added to the list
+    after a specific date.
   """
   @spec list_suppressed_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suppressed_destinations_response(), any()}
@@ -6326,21 +6252,19 @@ defmodule AWS.SESv2 do
 
   @doc """
   Retrieve a list of the tags (keys and values) that are associated with a
-  specified
-  resource.
-
-  A *tag* is a label that you optionally define and associate
-  with a resource. Each tag consists of a required *tag key* and an
-  optional associated *tag value*. A tag key is a general label that
-  acts as a category for more specific tag values. A tag value acts as a
-  descriptor within
+  specified resource. A *tag* is a label that you optionally define and
+  associate with a resource. Each tag consists of a required *tag key* and an
+  optional associated *tag value*. A tag key is a general label that acts as a
+  category for more specific tag values. A tag value acts as a descriptor within
   a tag key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
-            information for.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to retrieve tag information for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6374,7 +6298,9 @@ defmodule AWS.SESv2 do
   @doc """
   Enable or disable the automatic warm-up feature for dedicated IP addresses.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6400,7 +6326,9 @@ defmodule AWS.SESv2 do
   @doc """
   Update your Amazon SES account details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6432,7 +6360,9 @@ defmodule AWS.SESv2 do
   @doc """
   Enable or disable the ability of your account to send email.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6458,7 +6388,9 @@ defmodule AWS.SESv2 do
   @doc """
   Change the settings for the account-level suppression list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSuppressionAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6484,9 +6416,9 @@ defmodule AWS.SESv2 do
   @doc """
   Update your Amazon SES account VDM attributes.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountVdmAttributes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6510,13 +6442,15 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Associate a configuration set with a dedicated IP pool.
+  Associate a configuration set with a dedicated IP pool. You can use dedicated IP
+  pools to create groups of dedicated IP addresses for sending specific types of
+  email.
 
-  You can use dedicated IP pools
-  to create groups of dedicated IP addresses for sending specific types of email.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetDeliveryOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to associate with a dedicated IP pool.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    associate with a dedicated IP pool.
 
   ## Optional parameters:
   """
@@ -6549,10 +6483,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Enable or disable collection of reputation metrics for emails that you send
-  using a
-  particular configuration set in a specific Amazon Web Services Region.
+  using a particular configuration set in a specific Amazon Web Services Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetReputationOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
@@ -6586,11 +6521,13 @@ defmodule AWS.SESv2 do
 
   @doc """
   Enable or disable email sending for messages that use a particular configuration
-  set
-  in a specific Amazon Web Services Region.
+  set in a specific Amazon Web Services Region.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to enable or disable email sending for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSendingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    enable or disable email sending for.
 
   ## Optional parameters:
   """
@@ -6624,9 +6561,11 @@ defmodule AWS.SESv2 do
   @doc """
   Specify the account suppression list preferences for a configuration set.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set to change the suppression list preferences
-            for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetSuppressionOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set to
+    change the suppression list preferences for.
 
   ## Optional parameters:
   """
@@ -6659,10 +6598,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Specify a custom domain to use for open and click tracking elements in email
-  that you
-  send.
+  that you send.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetTrackingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
@@ -6697,9 +6637,9 @@ defmodule AWS.SESv2 do
   @doc """
   Specify VDM preferences for email that you send using the configuration set.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutConfigurationSetVdmOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:configuration_set_name` (`t:string`) The name of the configuration set.
 
   ## Optional parameters:
@@ -6734,16 +6674,12 @@ defmodule AWS.SESv2 do
   @doc """
   Move a dedicated IP address to an existing dedicated IP pool.
 
-  The dedicated IP address that you specify must already exist, and must be
-  associated with your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpInPool&this_doc_guide=API%2520Reference)
 
-  The dedicated IP pool you specify must already exist. You can create a new pool
-  by
-  using the `CreateDedicatedIpPool` operation.
-
-  ## Required positional parameters:
-  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP pool. The value you specify
-            has to be a dedicated IP address that&#39;s associated with your Amazon Web Services account.
+  ## Parameters:
+  * `:ip` (`t:string`) The IP address that you want to move to the dedicated IP
+    pool. The value you specify has to be a dedicated IP address that's
+    associated with your Amazon Web Services account.
 
   ## Optional parameters:
   """
@@ -6770,9 +6706,9 @@ defmodule AWS.SESv2 do
   @doc """
   Used to convert a dedicated IP pool to a different scaling mode.
 
-  `MANAGED` pools cannot be converted to `STANDARD` scaling mode.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDedicatedIpPoolScalingAttributes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pool_name` (`t:string`) The name of the dedicated IP pool.
 
   ## Optional parameters:
@@ -6823,22 +6759,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Enable or disable the Deliverability dashboard.
+  Enable or disable the Deliverability dashboard. When you enable the
+  Deliverability dashboard, you gain access to reputation, deliverability, and
+  other metrics for the domains that you use to send email. You also gain the
+  ability to perform predictive inbox placement tests.
 
-  When you enable the Deliverability dashboard, you gain
-  access to reputation, deliverability, and other metrics for the domains that you
-  use to
-  send email. You also gain the ability to perform predictive inbox placement
-  tests.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
-  When you use the Deliverability dashboard, you pay a monthly subscription
-  charge, in addition
-  to any other fees that you accrue by using Amazon SES and other Amazon Web
-  Services services. For more
-  information about the features and cost of a Deliverability dashboard
-  subscription, see [Amazon SES Pricing](http://aws.amazon.com/ses/pricing/).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6864,8 +6792,11 @@ defmodule AWS.SESv2 do
   @doc """
   Used to associate a configuration set with an email identity.
 
-  ## Required positional parameters:
-  * `:email_identity` (`t:string`) The email address or domain to associate with a configuration set.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityConfigurationSetAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:email_identity` (`t:string`) The email address or domain to associate with a
+    configuration set.
 
   ## Optional parameters:
   """
@@ -6897,7 +6828,9 @@ defmodule AWS.SESv2 do
   @doc """
   Used to enable or disable DKIM authentication for an email identity.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
@@ -6924,30 +6857,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Used to configure or change the DKIM authentication settings for an email domain
-  identity.
+  identity. You can use this operation to do any of the following:
 
-  You can use this operation to do any of the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityDkimSigningAttributes&this_doc_guide=API%2520Reference)
 
-    *
-  Update the signing attributes for an identity that uses Bring Your Own DKIM
-  (BYODKIM).
-
-    *
-  Update the key length that should be used for Easy DKIM.
-
-    *
-  Change from using no DKIM authentication to using Easy DKIM.
-
-    *
-  Change from using no DKIM authentication to using BYODKIM.
-
-    *
-  Change from using Easy DKIM to using BYODKIM.
-
-    *
-  Change from using BYODKIM to using Easy DKIM.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
@@ -6978,27 +6892,16 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Used to enable or disable feedback forwarding for an identity.
+  Used to enable or disable feedback forwarding for an identity. This setting
+  determines what happens when an identity is used to send an email that results
+  in a bounce or complaint event. If the value is `true`, you receive email
+  notifications when bounce or complaint events occur. These notifications are
+  sent to the address that you specified in the `Return-Path` header of the
+  original email.
 
-  This setting determines
-  what happens when an identity is used to send an email that results in a bounce
-  or
-  complaint event.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityFeedbackAttributes&this_doc_guide=API%2520Reference)
 
-  If the value is `true`, you receive email notifications when bounce or
-  complaint events occur. These notifications are sent to the address that you
-  specified
-  in the `Return-Path` header of the original email.
-
-  You're required to have a method of tracking bounces and complaints. If you
-  haven't
-  set up another mechanism for receiving bounce or complaint notifications (for
-  example,
-  by setting up an event destination), you receive an email notification when
-  these events
-  occur (even if this setting is disabled).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
 
   ## Optional parameters:
@@ -7032,7 +6935,9 @@ defmodule AWS.SESv2 do
   Used to enable or disable the custom Mail-From domain configuration for an email
   identity.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutEmailIdentityMailFromAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:email_identity` (`t:string`) The verified email identity.
 
   ## Optional parameters:
@@ -7065,7 +6970,9 @@ defmodule AWS.SESv2 do
   @doc """
   Adds an email address to the suppression list for your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutSuppressedDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7091,7 +6998,9 @@ defmodule AWS.SESv2 do
   @doc """
   Composes an email message to multiple destinations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendBulkEmail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7122,24 +7031,17 @@ defmodule AWS.SESv2 do
 
   @doc """
   Adds an email address to the list of identities for your Amazon SES account in
-  the current
-  Amazon Web Services Region and attempts to verify it.
-
-  As a result of executing this
-  operation, a customized verification email is sent to the specified address.
-
-  To use this operation, you must first create a custom verification email
-  template. For
-  more information about creating and using custom verification email templates,
-  see
-  [Using custom verification email
+  the current Amazon Web Services Region and attempts to verify it. As a result
+  of executing this operation, a customized verification email is sent to the
+  specified address. To use this operation, you must first create a custom
+  verification email template. For more information about creating and using
+  custom verification email templates, see [Using custom verification email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendCustomVerificationEmail&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7173,33 +7075,12 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Sends an email message.
+  Sends an email message. You can use the Amazon SES API v2 to send the following
+  types of messages:
 
-  You can use the Amazon SES API v2 to send the following types of
-  messages:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendEmail&this_doc_guide=API%2520Reference)
 
-    *
-
-  **Simple** – A standard email message. When
-  you create this type of message, you specify the sender, the recipient, and the
-  message body, and Amazon SES assembles the message for you.
-
-    *
-
-  **Raw** – A raw, MIME-formatted email
-  message. When you send this type of email, you have to specify all of the
-  message headers, as well as the message body. You can use this message type to
-  send messages that contain attachments. The message that you specify has to be a
-  valid MIME message.
-
-    *
-
-  **Templated** – A message that contains
-  personalization tags. When you send this type of email, Amazon SES API v2
-  automatically
-  replaces the tags with values that you specify.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7229,23 +7110,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Add one or more tags (keys and values) to a specified resource.
+  Add one or more tags (keys and values) to a specified resource. A *tag* is a
+  label that you optionally define and associate with a resource. Tags can help
+  you categorize and manage resources in different ways, such as by purpose,
+  owner, environment, or other criteria. A resource can have as many as 50 tags.
 
-  A
-  *tag* is a label that you optionally define and associate with a
-  resource. Tags can help you categorize and manage resources in different ways,
-  such as
-  by purpose, owner, environment, or other criteria. A resource can have as many
-  as 50
-  tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TagResource&this_doc_guide=API%2520Reference)
 
-  Each tag consists of a required *tag key* and an
-  associated *tag value*, both of which you define. A tag key is a
-  general label that acts as a category for more specific tag values. A tag value
-  acts as
-  a descriptor within a tag key.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7276,12 +7148,11 @@ defmodule AWS.SESv2 do
 
   @doc """
   Creates a preview of the MIME content of an email when provided with a template
-  and a
-  set of replacement data.
+  and a set of replacement data.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TestRenderEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:
@@ -7319,13 +7190,16 @@ defmodule AWS.SESv2 do
   @doc """
   Remove one or more tags (keys and values) from a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove one or more
-            tags from.
-  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]`) The tags (tag keys) that you want to remove from the resource. When you specify a tag
-            key, the action removes both that key and its associated tag value.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove one or more tags from.
+  * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]`) The tags (tag keys) that
+    you want to remove from the resource. When you specify a tag key, the action
+    removes both that key and its associated tag value.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7361,17 +7235,11 @@ defmodule AWS.SESv2 do
   @doc """
   Update the configuration of an event destination for a configuration set.
 
-  *Events* include message sends, deliveries, opens, clicks, bounces,
-  and complaints. *Event destinations* are places that you can send
-  information about these events to. For example, you can send event data to
-  Amazon SNS to
-  receive notifications when you receive bounces or complaints, or you can use
-  Amazon Kinesis Data Firehose to
-  stream data to Amazon S3 for long-term storage.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) The name of the configuration set that contains the event destination to
-            modify.
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`) The name of the configuration set that
+    contains the event destination to modify.
   * `:event_destination_name` (`t:string`) The name of the event destination.
 
   ## Optional parameters:
@@ -7408,13 +7276,11 @@ defmodule AWS.SESv2 do
   @doc """
   Updates a contact's preferences for a list.
 
-  You must specify all existing topic preferences in the
-  `TopicPreferences` object, not just the ones that need updating;
-  otherwise, all your existing preferences will be removed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContact&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:contact_list_name` (`t:string`) The name of the contact list.
-  * `:email_address` (`t:string`) The contact&#39;s email address.
+  * `:email_address` (`t:string`) The contact's email address.
 
   ## Optional parameters:
   """
@@ -7442,11 +7308,11 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Updates contact list metadata.
+  Updates contact list metadata. This operation does a complete replacement.
 
-  This operation does a complete replacement.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateContactList&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:contact_list_name` (`t:string`) The name of the contact list.
 
   ## Optional parameters:
@@ -7472,17 +7338,17 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Updates an existing custom verification email template.
-
-  For more information about custom verification email templates, see [Using custom verification email
+  Updates an existing custom verification email template. For more information
+  about custom verification email templates, see [Using custom verification
+  email
   templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom)
-  in the *Amazon SES Developer
-  Guide*.
+  in the *Amazon SES Developer Guide*.
 
-  You can execute this operation no more than once per second.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the custom verification email template that you want to update.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the custom verification email
+    template that you want to update.
 
   ## Optional parameters:
   """
@@ -7515,24 +7381,13 @@ defmodule AWS.SESv2 do
 
   @doc """
   Updates the specified sending authorization policy for the given identity (an
-  email
-  address or a domain).
+  email address or a domain). This API returns successfully even if a policy
+  with the specified name does not exist. This API is for the identity owner
+  only. If you have not verified the identity, this API will return an error.
 
-  This API returns successfully even if a policy with the specified
-  name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailIdentityPolicy&this_doc_guide=API%2520Reference)
 
-  This API is for the identity owner only. If you have not verified the identity,
-  this API will return an error.
-
-  Sending authorization is a feature that enables an identity owner to authorize
-  other
-  senders to use its identities. For information about using sending
-  authorization, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:email_identity` (`t:string`) The email identity.
   * `:policy_name` (`t:string`) The name of the policy.
 
@@ -7568,15 +7423,14 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
-  Updates an email template.
+  Updates an email template. Email templates enable you to send personalized email
+  to one or more destinations in a single API operation. For more information,
+  see the [Amazon SES Developer
+  Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
-  Email templates enable you to send personalized email to
-  one or more destinations in a single API operation. For more information, see
-  the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20UpdateEmailTemplate&this_doc_guide=API%2520Reference)
 
-  You can execute this operation no more than once per second.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the template.
 
   ## Optional parameters:

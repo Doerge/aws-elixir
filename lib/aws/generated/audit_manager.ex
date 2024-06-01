@@ -3,55 +3,12 @@
 
 defmodule AWS.AuditManager do
   @moduledoc """
-  Welcome to the Audit Manager API reference.
-
-  This guide is for developers who
+  Welcome to the Audit Manager API reference. This guide is for developers who
   need detailed information about the Audit Manager API operations, data types,
-  and
-  errors.
-
-  Audit Manager is a service that provides automated evidence collection so that
-  you
-  can continually audit your Amazon Web Services usage. You can use it to assess
-  the
-  effectiveness of your controls, manage risk, and simplify compliance.
-
-  Audit Manager provides prebuilt frameworks that structure and automate
-  assessments
-  for a given compliance standard. Frameworks include a prebuilt collection of
-  controls with
-  descriptions and testing procedures. These controls are grouped according to the
-  requirements of the specified compliance standard or regulation. You can also
-  customize
-  frameworks and controls to support internal audits with specific requirements.
-
-  Use the following links to get started with the Audit Manager API:
-
-    *
-
-  [Actions](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html): An
-  alphabetical list of all Audit Manager API operations.
-
-    *
-
-  [Data
-  types](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html):
-  An alphabetical list of all Audit Manager data
-  types.
-
-    *
-
-  [Common parameters](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html):
-  Parameters that all operations can use.
-
-    *
-
-  [Common errors](https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html):
-  Client and server errors that all operations can return.
-
-  If you're new to Audit Manager, we recommend that you review the [
-  Audit Manager User
-  Guide](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html).
+  and errors. Audit Manager is a service that provides automated evidence
+  collection so that you can continually audit your Amazon Web Services usage.
+  You can use it to assess the effectiveness of your controls, manage risk, and
+  simplify compliance.
   """
 
   alias AWS.Client
@@ -2717,8 +2674,10 @@ defmodule AWS.AuditManager do
   Associates an evidence folder to an assessment report in an Audit Manager
   assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20AssociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -2751,8 +2710,10 @@ defmodule AWS.AuditManager do
   Associates a list of evidence to an assessment report in an Audit Manager
   assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchAssociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -2786,8 +2747,10 @@ defmodule AWS.AuditManager do
   @doc """
   Creates a batch of delegations for an assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchCreateDelegationByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -2829,8 +2792,10 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes a batch of delegations for an assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDeleteDelegationByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -2862,8 +2827,10 @@ defmodule AWS.AuditManager do
   @doc """
   Disassociates a list of evidence from an assessment report in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchDisassociateAssessmentReportEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -2896,38 +2863,16 @@ defmodule AWS.AuditManager do
 
   @doc """
   Adds one or more pieces of evidence to a control in an Audit Manager assessment.
-
   You can import manual evidence from any S3 bucket by specifying the S3 URI of
-  the
-  object. You can also upload a file from your browser, or enter plain text in
-  response to a
-  risk assessment question.
+  the object. You can also upload a file from your browser, or enter plain text
+  in response to a risk assessment question.
 
-  The following restrictions apply to this action:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20BatchImportEvidenceToAssessmentControl&this_doc_guide=API%2520Reference)
 
-    *
-
-  `manualEvidence` can be only one of the following:
-  `evidenceFileName`, `s3ResourcePath`, or
-  `textResponse`
-
-    *
-  Maximum size of an individual evidence file: 100 MB
-
-    *
-  Number of daily manual evidence uploads per control: 100
-
-    *
-  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
-  in the *Audit Manager User Guide*
-
-  For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
-  Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
-
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
-  * `:control_id` (`t:string`)  The identifier for the control. 
-  * `:control_set_id` (`t:string`)  The identifier for the control set. 
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_id` (`t:string`) The identifier for the control.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
 
   ## Optional parameters:
   """
@@ -2975,7 +2920,9 @@ defmodule AWS.AuditManager do
   @doc """
   Creates an assessment in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3007,7 +2954,9 @@ defmodule AWS.AuditManager do
   @doc """
   Creates a custom framework in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3043,8 +2992,10 @@ defmodule AWS.AuditManager do
   @doc """
   Creates an assessment report for the specified assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateAssessmentReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -3081,7 +3032,9 @@ defmodule AWS.AuditManager do
   @doc """
   Creates a new custom control in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20CreateControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3113,8 +3066,10 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes an assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -3146,8 +3101,10 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes a custom framework in Audit Manager.
 
-  ## Required positional parameters:
-  * `:framework_id` (`t:string`)  The identifier for the custom framework. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The identifier for the custom framework.
 
   ## Optional parameters:
   """
@@ -3184,11 +3141,15 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes a share request for a custom framework in Audit Manager.
 
-  ## Required positional parameters:
-  * `:request_id` (`t:string`) The unique identifier for the share request to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:request_id` (`t:string`) The unique identifier for the share request to be
+    deleted.
 
   ## Optional parameters:
-  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share request is a sent request or a received request.
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
+    request is a sent request or a received request.
   """
   @spec delete_assessment_framework_share(
           AWS.Client.t(),
@@ -3226,46 +3187,16 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Deletes an assessment report in Audit Manager.
+  Deletes an assessment report in Audit Manager. When you run the
+  `DeleteAssessmentReport` operation, Audit Manager attempts to delete the
+  following data:
 
-  When you run the `DeleteAssessmentReport` operation, Audit Manager
-  attempts to delete the following data:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteAssessmentReport&this_doc_guide=API%2520Reference)
 
-    1.
-  The specified assessment report that’s stored in your S3 bucket
-
-    2.
-  The associated metadata that’s stored in Audit Manager
-
-  If Audit Manager can’t access the assessment report in your S3 bucket, the
-  report
-  isn’t deleted. In this event, the `DeleteAssessmentReport` operation doesn’t
-  fail. Instead, it proceeds to delete the associated metadata only. You must then
-  delete the
-  assessment report from the S3 bucket yourself.
-
-  This scenario happens when Audit Manager receives a `403 (Forbidden)` or
-  `404 (Not Found)` error from Amazon S3. To avoid this, make sure that
-  your S3 bucket is available, and that you configured the correct permissions for
-  Audit Manager to delete resources in your S3 bucket. For an example permissions
-  policy that
-  you can use, see [Assessment report destination permissions](https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination)
-  in the *Audit Manager User Guide*. For information about the issues that could
-  cause a
-
-  ```
-  403
-  (Forbidden)
-  ```
-
-  or `404 (Not Found`) error from Amazon S3, see
-  [List of Error Codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList)
-  in the *Amazon Simple Storage Service API
-  Reference*.
-
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:assessment_report_id` (`t:string`)  The unique identifier for the assessment report. 
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
+    report.
 
   ## Optional parameters:
   """
@@ -3311,15 +3242,10 @@ defmodule AWS.AuditManager do
   @doc """
   Deletes a custom control in Audit Manager.
 
-  When you invoke this operation, the custom control is deleted from any
-  frameworks or
-  assessments that it’s currently part of. As a result, Audit Manager will stop
-  collecting evidence for that custom control in all of your assessments. This
-  includes
-  assessments that you previously created before you deleted the custom control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeleteControl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:control_id` (`t:string`)  The unique identifier for the control. 
+  ## Parameters:
+  * `:control_id` (`t:string`) The unique identifier for the control.
 
   ## Optional parameters:
   """
@@ -3351,18 +3277,9 @@ defmodule AWS.AuditManager do
   @doc """
   Deregisters an account in Audit Manager.
 
-  Before you deregister, you can use the
-  [UpdateSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html) API operation to set your preferred data retention policy. By
-  default, Audit Manager retains your data. If you want to delete your data, you
-  can
-  use the `DeregistrationPolicy` attribute to request the deletion of your
-  data.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterAccount&this_doc_guide=API%2520Reference)
 
-  For more information about data retention, see [Data
-  Protection](https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html)
-  in the *Audit Manager User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3393,94 +3310,16 @@ defmodule AWS.AuditManager do
 
   @doc """
   Removes the specified Amazon Web Services account as a delegated administrator
-  for
-  Audit Manager.
+  for Audit Manager. When you remove a delegated administrator from your Audit
+  Manager settings, you continue to have access to the evidence that you
+  previously collected under that account. This is also the case when you
+  deregister a delegated administrator from Organizations. However, Audit
+  Manager stops collecting and attaching evidence to that delegated
+  administrator account moving forward.
 
-  When you remove a delegated administrator from your Audit Manager settings, you
-  continue to have access to the evidence that you previously collected under that
-  account.
-  This is also the case when you deregister a delegated administrator from
-  Organizations. However, Audit Manager stops collecting and attaching evidence to
-  that delegated administrator account moving forward.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DeregisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
-  Keep in mind the following cleanup task if you use evidence finder:
-
-  Before you use your management account to remove a delegated administrator, make
-  sure
-  that the current delegated administrator account signs in to Audit Manager and
-  disables evidence finder first. Disabling evidence finder automatically deletes
-  the
-  event data store that was created in their account when they enabled evidence
-  finder. If
-  this task isn’t completed, the event data store remains in their account. In
-  this case,
-  we recommend that the original delegated administrator goes to CloudTrail Lake
-  and manually [deletes the event data
-  store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html).
-
-  This cleanup task is necessary to ensure that you don't end up with multiple
-  event
-  data stores. Audit Manager ignores an unused event data store after you remove
-  or
-  change a delegated administrator account. However, the unused event data store
-  continues
-  to incur storage costs from CloudTrail Lake if you don't delete it.
-
-  When you deregister a delegated administrator account for Audit Manager, the
-  data
-  for that account isn’t deleted. If you want to delete resource data for a
-  delegated
-  administrator account, you must perform that task separately before you
-  deregister the
-  account. Either, you can do this in the Audit Manager console. Or, you can use
-  one of
-  the delete API operations that are provided by Audit Manager.
-
-  To delete your Audit Manager resource data, see the following instructions:
-
-    *
-
-  [DeleteAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html) (see also: [Deleting an
-  assessment](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html) (see also: [Deleting a
-  custom
-  framework](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html) (see also: [Deleting a share
-  request](https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteAssessmentReport](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html) (see also: [Deleting an assessment
-  report](https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps)
-  in the *Audit Manager User
-  Guide*)
-
-    *
-
-  [DeleteControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html) (see also: [Deleting a custom
-  control](https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html)
-  in the *Audit Manager User
-  Guide*)
-
-  At this time, Audit Manager doesn't provide an option to delete evidence for a
-  specific delegated administrator. Instead, when your management account
-  deregisters Audit Manager, we perform a cleanup for the current delegated
-  administrator account at the
-  time of deregistration.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3517,8 +3356,10 @@ defmodule AWS.AuditManager do
   Disassociates an evidence folder from the specified assessment report in Audit
   Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20DisassociateAssessmentReportEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -3552,7 +3393,9 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the registration status of an account in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAccountStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3579,8 +3422,10 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -3607,8 +3452,10 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified framework.
 
-  ## Required positional parameters:
-  * `:framework_id` (`t:string`)  The identifier for the framework. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The identifier for the framework.
 
   ## Optional parameters:
   """
@@ -3635,9 +3482,12 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the URL of an assessment report in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:assessment_report_id` (`t:string`)  The unique identifier for the assessment report. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetAssessmentReportUrl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:assessment_report_id` (`t:string`) The unique identifier for the assessment
+    report.
 
   ## Optional parameters:
   """
@@ -3670,14 +3520,18 @@ defmodule AWS.AuditManager do
   @doc """
   Gets a list of changelogs from Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetChangeLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
-  * `:control_id` (`t:string`)  The unique identifier for the control. 
-  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
-  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:control_id` (`t:string`) The unique identifier for the control.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_change_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_change_logs_response(), any()}
@@ -3738,8 +3592,10 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified control.
 
-  ## Required positional parameters:
-  * `:control_id` (`t:string`)  The identifier for the control. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_id` (`t:string`) The identifier for the control.
 
   ## Optional parameters:
   """
@@ -3766,11 +3622,15 @@ defmodule AWS.AuditManager do
   @doc """
   Gets a list of delegations from an audit owner to a delegate.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetDelegations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_delegations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegations_response(), any()}
@@ -3813,11 +3673,14 @@ defmodule AWS.AuditManager do
   @doc """
   Gets information about a specified evidence item.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
-  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
-  * `:evidence_id` (`t:string`)  The unique identifier for the evidence. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
+  * `:evidence_id` (`t:string`) The unique identifier for the evidence.
 
   ## Optional parameters:
   """
@@ -3852,14 +3715,19 @@ defmodule AWS.AuditManager do
   @doc """
   Gets all evidence from a specified evidence folder in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
-  * `:control_set_id` (`t:string`)  The identifier for the control set. 
-  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceByEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_evidence_by_evidence_folder(
           AWS.Client.t(),
@@ -3914,33 +3782,20 @@ defmodule AWS.AuditManager do
 
   @doc """
   Creates a presigned Amazon S3 URL that can be used to upload a file as manual
-  evidence.
-
-  For instructions on how to use this operation, see [Upload a file from your browser
+  evidence. For instructions on how to use this operation, see [Upload a file
+  from your browser
   ](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files)
-  in the *Audit Manager User
-  Guide*.
+  in the *Audit Manager User Guide*. The following restrictions apply to this
+  operation:
 
-  The following restrictions apply to this operation:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFileUploadUrl&this_doc_guide=API%2520Reference)
 
-    *
-  Maximum size of an individual evidence file: 100 MB
-
-    *
-  Number of daily manual evidence uploads per control: 100
-
-    *
-  Supported file formats: See [Supported file types for manual evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files)
-  in the *Audit Manager User Guide*
-
-  For more information about Audit Manager service restrictions, see [Quotas and restrictions for Audit
-  Manager](https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:file_name` (`t:string`) The file that you want to upload. For a list of supported file formats, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported file types for manual evidence</a> in the <i>Audit Manager
-            User Guide</i>.
+  * `:file_name` (`t:string`) The file that you want to upload. For a list of
+    supported file formats, see Supported file types for manual evidence in the
+    Audit Manager User Guide.
   """
   @spec get_evidence_file_upload_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
@@ -3974,10 +3829,13 @@ defmodule AWS.AuditManager do
   @doc """
   Gets an evidence folder from a specified assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
-  * `:evidence_folder_id` (`t:string`)  The unique identifier for the folder that the evidence is stored in. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFolder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
+  * `:evidence_folder_id` (`t:string`) The unique identifier for the folder that
+    the evidence is stored in.
 
   ## Optional parameters:
   """
@@ -4011,12 +3869,16 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the evidence folders from a specified assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_evidence_folders_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
@@ -4058,17 +3920,20 @@ defmodule AWS.AuditManager do
 
   @doc """
   Gets a list of evidence folders that are associated with a specified control in
-  an
-  Audit Manager assessment.
+  an Audit Manager assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The identifier for the assessment. 
-  * `:control_id` (`t:string`)  The identifier for the control. 
-  * `:control_set_id` (`t:string`)  The identifier for the control set. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetEvidenceFoldersByAssessmentControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The identifier for the assessment.
+  * `:control_id` (`t:string`) The identifier for the control.
+  * `:control_set_id` (`t:string`) The identifier for the control set.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec get_evidence_folders_by_assessment_control(
           AWS.Client.t(),
@@ -4124,7 +3989,9 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the latest analytics data for all your current active assessments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsights&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4151,8 +4018,10 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the latest analytics data for a specific active assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetInsightsByAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -4178,10 +4047,11 @@ defmodule AWS.AuditManager do
 
   @doc """
   Gets the name of the delegated Amazon Web Services administrator account for a
-  specified
-  organization.
+  specified organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4207,14 +4077,14 @@ defmodule AWS.AuditManager do
 
   @doc """
   Gets a list of all of the Amazon Web Services that you can choose to include in
-  your assessment.
-
-  When you [create an assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html),
-  specify which of these services you want to include to
-  narrow the assessment's
+  your assessment. When you [create an
+  assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html),
+  specify which of these services you want to include to narrow the assessment's
   [scope](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetServicesInScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4241,8 +4111,12 @@ defmodule AWS.AuditManager do
   @doc """
   Gets the settings for a specified Amazon Web Services account.
 
-  ## Required positional parameters:
-  * `:attribute` (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`)  The list of setting attribute enum values. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20GetSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute`
+    (`t:enum["ALL|DEFAULT_ASSESSMENT_REPORTS_DESTINATION|DEFAULT_EXPORT_DESTINATION|DEFAULT_PROCESS_OWNERS|DEREGISTRATION_POLICY|EVIDENCE_FINDER_ENABLEMENT|IS_AWS_ORG_ENABLED|SNS_TOPIC"]`)
+    The list of setting attribute enum values.
 
   ## Optional parameters:
   """
@@ -4268,23 +4142,20 @@ defmodule AWS.AuditManager do
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  and a
-  specific active assessment.
+  and a specific active assessment.
 
-  Control insights are listed only if the control belongs to the control domain
-  and
-  assessment that was specified. Moreover, the control must have collected
-  evidence on the
-  `lastUpdated` date of `controlInsightsByAssessment`. If neither
-  of these conditions are met, no data is listed for that control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the active assessment. 
-  * `:control_domain_id` (`t:string`) The unique identifier for the control domain. 
-  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
+  * `:control_domain_id` (`t:string`) The unique identifier for the control
+    domain.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_assessment_control_insights_by_control_domain(
           AWS.Client.t(),
@@ -4356,12 +4227,17 @@ defmodule AWS.AuditManager do
   Returns a list of sent or received share requests for custom frameworks in Audit
   Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworkShareRequests&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
-  * `:request_type` (`t:enum["RECEIVED|SENT"]`)  Specifies whether the share request is a sent request or a received request.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
+  * `:request_type` (`t:enum["RECEIVED|SENT"]`) Specifies whether the share
+    request is a sent request or a received request.
   """
   @spec list_assessment_framework_share_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
@@ -4412,15 +4288,19 @@ defmodule AWS.AuditManager do
 
   @doc """
   Returns a list of the frameworks that are available in the Audit Manager
-  framework
-  library.
+  framework library.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentFrameworks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]`)  The type of framework, such as a standard framework or a custom framework. 
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:framework_type` (`t:enum["CUSTOM|STANDARD"]`) The type of framework, such as
+    a standard framework or a custom framework.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_assessment_frameworks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assessment_frameworks_response(), any()}
@@ -4472,11 +4352,15 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of assessment reports created in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessmentReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_assessment_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessment_reports_response(), any()}
@@ -4519,12 +4403,16 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of current and past assessments from Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListAssessments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
-  * `:status` (`t:enum["ACTIVE|INACTIVE"]`)  The current status of the assessment.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The current status of the assessment.
   """
   @spec list_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assessments_response(), any()}
@@ -4577,17 +4465,15 @@ defmodule AWS.AuditManager do
   Lists the latest analytics data for control domains across all of your active
   assessments.
 
-  A control domain is listed only if at least one of the controls within that
-  domain
-  collected evidence on the `lastUpdated` date of
-  `controlDomainInsights`. If this condition isn’t met, no data is listed
-  for that control domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsights&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_control_domain_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_response(), any()}
@@ -4630,18 +4516,16 @@ defmodule AWS.AuditManager do
   @doc """
   Lists analytics data for control domains within a specified active assessment.
 
-  A control domain is listed only if at least one of the controls within that
-  domain
-  collected evidence on the `lastUpdated` date of
-  `controlDomainInsights`. If this condition isn’t met, no data is listed
-  for that domain.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlDomainInsightsByAssessment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:assessment_id` (`t:string`) The unique identifier for the active assessment. 
-  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
+  * `:assessment_id` (`t:string`) The unique identifier for the active assessment.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_control_domain_insights_by_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
@@ -4692,21 +4576,19 @@ defmodule AWS.AuditManager do
 
   @doc """
   Lists the latest analytics data for controls within a specific control domain
-  across all
-  active assessments.
+  across all active assessments.
 
-  Control insights are listed only if the control belongs to the control domain
-  that
-  was specified and the control collected evidence on the `lastUpdated` date of
-  `controlInsightsMetadata`. If neither of these conditions are met, no data
-  is listed for that control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControlInsightsByControlDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:control_domain_id` (`t:string`) The unique identifier for the control domain. 
-  * `:max_results` (`t:integer`) Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`) The pagination token that&#39;s used to fetch the next set of results. 
+  * `:control_domain_id` (`t:string`) The unique identifier for the control
+    domain.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_control_insights_by_control_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
@@ -4762,12 +4644,17 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of controls from Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:control_type` (`t:enum["CUSTOM|STANDARD"]`)  The type of control, such as a standard control or a custom control. 
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:control_type` (`t:enum["CUSTOM|STANDARD"]`) The type of control, such as a
+    standard control or a custom control.
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
@@ -4820,12 +4707,18 @@ defmodule AWS.AuditManager do
   Returns a list of keywords that are pre-mapped to the specified control data
   source.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListKeywordsForDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
-  * `:source` (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`)  The control mapping data source that the keywords apply to. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
+  * `:source`
+    (`t:enum["AWS_API_CALL|AWS_CLOUDTRAIL|AWS_CONFIG|AWS_SECURITY_HUB|MANUAL"]`)
+    The control mapping data source that the keywords apply to.
   """
   @spec list_keywords_for_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keywords_for_data_source_response(), any()}
@@ -4877,11 +4770,15 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of all Audit Manager notifications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListNotifications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`)  Represents the maximum number of results on a page or for an API request call. 
-  * `:next_token` (`t:string`)  The pagination token that&#39;s used to fetch the next set of results. 
+  * `:max_results` (`t:integer`) Represents the maximum number of results on a
+    page or for an API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+    set of results.
   """
   @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_response(), any()}
@@ -4924,8 +4821,10 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of tags for the specified resource in Audit Manager.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -4952,7 +4851,9 @@ defmodule AWS.AuditManager do
   @doc """
   Enables Audit Manager for the specified Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4985,7 +4886,9 @@ defmodule AWS.AuditManager do
   Enables an Amazon Web Services account within the organization as the delegated
   administrator for Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20RegisterOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5019,61 +4922,16 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Creates a share request for a custom framework in Audit Manager.
-
-  The share request specifies a recipient and notifies them that a custom
-  framework is
+  Creates a share request for a custom framework in Audit Manager. The share
+  request specifies a recipient and notifies them that a custom framework is
   available. Recipients have 120 days to accept or decline the request. If no
-  action is
-  taken, the share request expires.
+  action is taken, the share request expires.
 
-  When you create a share request, Audit Manager stores a snapshot of your custom
-  framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager
-  also
-  stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services
-  Region.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20StartAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
 
-  Audit Manager deletes the snapshot and the backup snapshot when one of the
-  following
-  events occurs:
-
-    *
-  The sender revokes the share request.
-
-    *
-  The recipient declines the share request.
-
-    *
-  The recipient encounters an error and doesn't successfully accept the share
-  request.
-
-    *
-  The share request expires before the recipient responds to the request.
-
-  When a sender [resends a share request](https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend),
-  the snapshot is replaced with an updated version that
-  corresponds with the latest version of the custom framework.
-
-  When a recipient accepts a share request, the snapshot is replicated into their
-  Amazon Web Services account under the Amazon Web Services Region that was
-  specified in the share
-  request.
-
-  When you invoke the `StartAssessmentFrameworkShare` API, you are about to
-  share a custom framework with another Amazon Web Services account. You may not
-  share a
-  custom framework that is derived from a standard framework if the standard
-  framework is
-  designated as not eligible for sharing by Amazon Web Services, unless you have
-  obtained
-  permission to do so from the owner of the standard framework. To learn more
-  about which
-  standard frameworks are eligible for sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility)
-  in the *Audit Manager User
-  Guide*.
-
-  ## Required positional parameters:
-  * `:framework_id` (`t:string`)  The unique identifier for the custom framework to be shared. 
+  ## Parameters:
+  * `:framework_id` (`t:string`) The unique identifier for the custom framework to
+    be shared.
 
   ## Optional parameters:
   """
@@ -5110,8 +4968,10 @@ defmodule AWS.AuditManager do
   @doc """
   Tags the specified resource in Audit Manager.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -5143,11 +5003,15 @@ defmodule AWS.AuditManager do
   @doc """
   Removes a tag from a resource in Audit Manager.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the specified resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the specified
+    resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]`)  The name or key of the tag. 
+  * `:tag_keys` (`t:list[com.amazonaws.auditmanager#TagKey]`) The name or key of
+    the tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5182,8 +5046,10 @@ defmodule AWS.AuditManager do
   @doc """
   Edits an Audit Manager assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -5205,10 +5071,12 @@ defmodule AWS.AuditManager do
   @doc """
   Updates a control within an assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:control_id` (`t:string`)  The unique identifier for the control. 
-  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_id` (`t:string`) The unique identifier for the control.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
 
   ## Optional parameters:
   """
@@ -5246,9 +5114,11 @@ defmodule AWS.AuditManager do
   @doc """
   Updates the status of a control set in an Audit Manager assessment.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
-  * `:control_set_id` (`t:string`)  The unique identifier for the control set. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentControlSetStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
+  * `:control_set_id` (`t:string`) The unique identifier for the control set.
 
   ## Optional parameters:
   """
@@ -5284,8 +5154,10 @@ defmodule AWS.AuditManager do
   @doc """
   Updates a custom framework in Audit Manager.
 
-  ## Required positional parameters:
-  * `:framework_id` (`t:string`)  The unique identifier for the framework. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFramework&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:framework_id` (`t:string`) The unique identifier for the framework.
 
   ## Optional parameters:
   """
@@ -5312,8 +5184,10 @@ defmodule AWS.AuditManager do
   @doc """
   Updates a share request for a custom framework in Audit Manager.
 
-  ## Required positional parameters:
-  * `:request_id` (`t:string`)  The unique identifier for the share request. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentFrameworkShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:request_id` (`t:string`) The unique identifier for the share request.
 
   ## Optional parameters:
   """
@@ -5340,8 +5214,10 @@ defmodule AWS.AuditManager do
   @doc """
   Updates the status of an assessment in Audit Manager.
 
-  ## Required positional parameters:
-  * `:assessment_id` (`t:string`)  The unique identifier for the assessment. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateAssessmentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:assessment_id` (`t:string`) The unique identifier for the assessment.
 
   ## Optional parameters:
   """
@@ -5368,8 +5244,10 @@ defmodule AWS.AuditManager do
   @doc """
   Updates a custom control in Audit Manager.
 
-  ## Required positional parameters:
-  * `:control_id` (`t:string`)  The identifier for the control. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:control_id` (`t:string`) The identifier for the control.
 
   ## Optional parameters:
   """
@@ -5391,7 +5269,9 @@ defmodule AWS.AuditManager do
   @doc """
   Updates Audit Manager settings for the current account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20UpdateSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5413,7 +5293,9 @@ defmodule AWS.AuditManager do
   @doc """
   Validates the integrity of an assessment report in Audit Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=auditmanager%20ValidateAssessmentReportIntegrity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

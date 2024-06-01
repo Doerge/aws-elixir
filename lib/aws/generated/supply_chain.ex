@@ -3,20 +3,11 @@
 
 defmodule AWS.SupplyChain do
   @moduledoc """
-
   AWS Supply Chain is a cloud-based application that works with your enterprise
-  resource planning (ERP) and supply chain management systems.
-
-  Using AWS Supply Chain, you can connect and extract your inventory, supply, and
-  demand related data from existing ERP or supply chain systems into a single data
-  model.
-
-  The AWS Supply Chain API supports configuration data import for Supply Planning.
-
-  All AWS Supply chain API operations are Amazon-authenticated and
-  certificate-signed. They not only require the use of the AWS SDK, but also allow
-  for the exclusive use of AWS Identity and Access Management users and roles to
-  help facilitate access, trust, and permission policies.
+  resource planning (ERP) and supply chain management systems. Using AWS Supply
+  Chain, you can connect and extract your inventory, supply, and demand related
+  data from existing ERP or supply chain systems into a single data model. The
+  AWS Supply Chain API supports configuration data import for Supply Planning.
   """
 
   alias AWS.Client
@@ -225,15 +216,12 @@ defmodule AWS.SupplyChain do
 
   @doc """
   CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of
-  Materials (BOM) entity.
+  Materials (BOM) entity. For information on the product_bom entity, see the AWS
+  Supply Chain User Guide.
 
-  For information on the product_bom entity, see the AWS Supply Chain User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20CreateBillOfMaterialsImportJob&this_doc_guide=API%2520Reference)
 
-  The CSV file must be located in an Amazon S3 location accessible to AWS Supply
-  Chain. It is recommended to use the same Amazon S3 bucket created during your
-  AWS Supply Chain instance creation.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
 
   ## Optional parameters:
@@ -273,7 +261,9 @@ defmodule AWS.SupplyChain do
   @doc """
   Get status and details of a BillOfMaterialsImportJob.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20GetBillOfMaterialsImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
   * `:job_id` (`t:string`) The BillOfMaterialsImportJob identifier.
 
@@ -303,7 +293,9 @@ defmodule AWS.SupplyChain do
   @doc """
   Send transactional data events with real-time data for analysis or monitoring.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supplychain%20SendDataIntegrationEvent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:instance_id` (`t:string`) The AWS Supply Chain instance identifier.
 
   ## Optional parameters:

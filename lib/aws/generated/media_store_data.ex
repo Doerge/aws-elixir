@@ -4,11 +4,8 @@
 defmodule AWS.MediaStoreData do
   @moduledoc """
   An AWS Elemental MediaStore asset is an object, similar to an object in the
-  Amazon S3
-  service.
-
-  Objects are the fundamental entities that are stored in AWS Elemental
-  MediaStore.
+  Amazon S3 service. Objects are the fundamental entities that are stored in AWS
+  Elemental MediaStore.
   """
 
   alias AWS.Client
@@ -233,9 +230,11 @@ defmodule AWS.MediaStoreData do
   @doc """
   Deletes an object at the specified path.
 
-  ## Required positional parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
-         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DeleteObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
 
   ## Optional parameters:
   """
@@ -267,9 +266,11 @@ defmodule AWS.MediaStoreData do
   @doc """
   Gets the headers for an object at the specified path.
 
-  ## Required positional parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
-         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20DescribeObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
 
   ## Optional parameters:
   """
@@ -312,18 +313,22 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Downloads the object at the specified path.
+  Downloads the object at the specified path. If the object’s upload availability
+  is set to `streaming`, AWS Elemental MediaStore downloads the object even if
+  it’s still uploading the object.
 
-  If the object’s upload availability is set to `streaming`, AWS Elemental
-  MediaStore downloads the object even if it’s still uploading the object.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20GetObject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
-         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
 
   ## Optional parameters:
-  * `:range` (`t:string`) The range bytes of an object to retrieve. For more information about the
-          <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.
+  * `:range` (`t:string`) The range bytes of an object to retrieve. For more
+    information about the Range header, see
+    http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35. AWS
+    Elemental MediaStore ignores this header for partially uploaded objects that
+    have streaming upload availability.
   """
   @spec get_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_response(), any()}
@@ -380,21 +385,24 @@ defmodule AWS.MediaStoreData do
   Provides a list of metadata entries about folders and objects in the specified
   folder.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20ListItems&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return per API request. For example, you submit a
-            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
-         items match your request, the service returns no more than the first 500 items. (The
-         service also returns a <code>NextToken</code> value that you can use to fetch the next
-         batch of results.) The service might return fewer results than the <code>MaxResults</code>
-         value.
-  * `:next_token` (`t:string`) The token that identifies which batch of results that you want to see. For example,
-         you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The
-         service returns the first batch of results (up to 500) and a <code>NextToken</code> value.
-         To see the next batch of results, you can submit the <code>ListItems</code> request a
-         second time and specify the <code>NextToken</code> value.
-  * `:path` (`t:string`) The path in the container from which to retrieve items. Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
+  * `:max_results` (`t:integer`) The maximum number of results to return per API
+    request. For example, you submit a ListItems request with MaxResults set at
+    500. Although 2,000 items match your request, the service returns no more
+    than the first 500 items. (The service also returns a NextToken value that
+    you can use to fetch the next batch of results.) The service might return
+    fewer results than the MaxResults value.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    that you want to see. For example, you submit a ListItems request with
+    MaxResults set at 500. The service returns the first batch of results (up to
+    500) and a NextToken value. To see the next batch of results, you can submit
+    the ListItems request a second time and specify the NextToken value.
+  * `:path` (`t:string`) The path in the container from which to retrieve items.
+    Format: //
   """
   @spec list_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_items_response(), any()}
@@ -444,25 +452,30 @@ defmodule AWS.MediaStoreData do
   end
 
   @doc """
-  Uploads an object to the specified path.
+  Uploads an object to the specified path. Object sizes are limited to 25 MB for
+  standard upload availability and 10 MB for streaming upload availability.
 
-  Object sizes are limited to 25 MB for standard upload availability and 10 MB for
-  streaming upload availability.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediastoredata%20PutObject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:path` (`t:string`) The path (including the file name) where the object is stored in the container.
-         Format: <folder name="">/<folder name="">/<file name=""></file></folder></folder>
+  ## Parameters:
+  * `:path` (`t:string`) The path (including the file name) where the object is
+    stored in the container. Format: //
 
   ## Optional parameters:
-  * `:cache_control` (`t:string`) An optional <code>CacheControl</code> header that allows the caller to control the
-         object&#39;s cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.
+  * `:cache_control` (`t:string`) An optional CacheControl header that allows the
+    caller to control the object's cache behavior. Headers can be passed in as
+    specified in the HTTP at
+    https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
   * `:content_type` (`t:string`) The content type of the object.
-  * `:storage_class` (`t:enum["TEMPORAL"]`) Indicates the storage class of a <code>Put</code> request. Defaults to
-         high-performance temporal storage class, and objects are persisted into durable storage
-         shortly after being received.
-  * `:upload_availability` (`t:enum["STANDARD|STREAMING"]`) Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
-            downloading after some initial buffering but before the object is uploaded completely. If the value is set to <code>standard</code>, the object is
-            available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.
+  * `:storage_class` (`t:enum["TEMPORAL"]`) Indicates the storage class of a Put
+    request. Defaults to high-performance temporal storage class, and objects
+    are persisted into durable storage shortly after being received.
+  * `:upload_availability` (`t:enum["STANDARD|STREAMING"]`) Indicates the
+    availability of an object while it is still uploading. If the value is set
+    to streaming, the object is available for downloading after some initial
+    buffering but before the object is uploaded completely. If the value is set
+    to standard, the object is available for downloading only when it is
+    uploaded completely. The default value for this header is standard.
   """
   @spec put_object(AWS.Client.t(), String.t(), put_object_request(), Keyword.t()) ::
           {:ok, put_object_response(), any()}

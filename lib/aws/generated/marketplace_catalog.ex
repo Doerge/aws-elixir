@@ -4,16 +4,7 @@
 defmodule AWS.MarketplaceCatalog do
   @moduledoc """
   Catalog API actions allow you to manage your entities through list, describe,
-  and
-  update capabilities.
-
-  An entity can be a product or an offer on AWS Marketplace.
-
-  You can automate your entity update process by integrating the AWS Marketplace
-  Catalog
-  API with your AWS Marketplace product build or deployment pipelines. You can
-  also create
-  your own applications on top of the Catalog API to manage your products on AWS
+  and update capabilities. An entity can be a product or an offer on AWS
   Marketplace.
   """
 
@@ -1531,12 +1522,13 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Returns metadata and content for multiple entities.
+  Returns metadata and content for multiple entities. This is the Batch version of
+  the `DescribeEntity` API and uses the same IAM permission action as
+  `DescribeEntity` API.
 
-  This is the Batch version of the `DescribeEntity` API and uses the same IAM
-  permission action as `DescribeEntity` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20BatchDescribeEntities&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1566,20 +1558,20 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Used to cancel an open change request.
+  Used to cancel an open change request. Must be sent before the status of the
+  request changes to `APPLYING`, the final stage of completing your change
+  request. You can describe a change during the 60-day request history retention
+  period for API calls.
 
-  Must be sent before the status of the request
-  changes to `APPLYING`, the final stage of completing your change request. You
-  can describe a change during the 60-day request history retention period for API
-  calls.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20CancelChangeSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
-            <code>AWSMarketplace</code>.
-  * `:change_set_id` (`t:string`) Required. The unique identifier of the <code>StartChangeSet</code> request that you
-            want to cancel.
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace.
+  * `:change_set_id` (`t:string`) Required. The unique identifier of the
+    StartChangeSet request that you want to cancel.
   """
   @spec cancel_change_set(AWS.Client.t(), cancel_change_set_request(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
@@ -1616,11 +1608,13 @@ defmodule AWS.MarketplaceCatalog do
   Deletes a resource-based policy on an entity that is identified by its resource
   ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity resource that is associated with the
-            resource policy.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
+    resource that is associated with the resource policy.
   """
   @spec delete_resource_policy(AWS.Client.t(), delete_resource_policy_request(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -1655,14 +1649,15 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Provides information about a given change set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
-            <code>AWSMarketplace</code>
-         
-  * `:change_set_id` (`t:string`) Required. The unique identifier for the <code>StartChangeSet</code> request that you
-            want to describe the details for.
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace
+  * `:change_set_id` (`t:string`) Required. The unique identifier for the
+    StartChangeSet request that you want to describe the details for.
   """
   @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
@@ -1705,12 +1700,13 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Returns the metadata and content of the entity.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20DescribeEntity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed value:
-            <code>AWSMarketplace</code>
-         
+  * `:catalog` (`t:string`) Required. The catalog related to the request. Fixed
+    value: AWSMarketplace
   * `:entity_id` (`t:string`) Required. The unique ID of the entity to describe.
   """
   @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -1755,11 +1751,13 @@ defmodule AWS.MarketplaceCatalog do
   Gets a resource-based policy of an entity that is identified by its resource
   ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity resource that is associated with the
-            resource policy.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the entity
+    resource that is associated with the resource policy.
   """
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -1792,18 +1790,13 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Returns the list of change sets owned by the account being used to make the
-  call.
-
-  You
-  can filter this list by providing any combination of `entityId`,
+  call. You can filter this list by providing any combination of `entityId`,
   `ChangeSetName`, and status. If you provide more than one filter, the API
   operation applies a logical AND between the filters.
 
-  You can describe a change during the 60-day request history retention period for
-  API
-  calls.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListChangeSets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1835,7 +1828,9 @@ defmodule AWS.MarketplaceCatalog do
   @doc """
   Provides the list of entities of a given type.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListEntities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1866,10 +1861,13 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Lists all tags that have been added to a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1899,12 +1897,12 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Attaches a resource-based policy to an entity.
-
-  Examples of an entity include:
+  Attaches a resource-based policy to an entity. Examples of an entity include:
   `AmiProduct` and `ContainerProduct`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1934,31 +1932,17 @@ defmodule AWS.MarketplaceCatalog do
   end
 
   @doc """
-  Allows you to request changes for your entities.
-
-  Within a single
-  `ChangeSet`, you can't start the same change type against the same entity
-  multiple times. Additionally, when a `ChangeSet` is running, all the entities
-  targeted by the different changes are locked until the change set has completed
-  (either
-  succeeded, cancelled, or failed). If you try to start a change set containing a
-  change
-  against an entity that is already locked, you will receive a
+  Allows you to request changes for your entities. Within a single `ChangeSet`,
+  you can't start the same change type against the same entity multiple times.
+  Additionally, when a `ChangeSet` is running, all the entities targeted by the
+  different changes are locked until the change set has completed (either
+  succeeded, cancelled, or failed). If you try to start a change set containing
+  a change against an entity that is already locked, you will receive a
   `ResourceInUseException` error.
 
-  For example, you can't start the `ChangeSet` described in the
-  [example](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples) later in this topic because it contains two changes to run the same
-  change type (`AddRevisions`) against the same entity
-  (`entity-id@1`).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20StartChangeSet&this_doc_guide=API%2520Reference)
 
-  For more information about working with change sets, see [ Working with change
-  sets](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets).
-  For information about change types for
-  single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
-  Also, for more information about change
-  types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1989,10 +1973,13 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Tags a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2023,10 +2010,13 @@ defmodule AWS.MarketplaceCatalog do
 
   @doc """
   Removes a tag or list of tags from a resource (either an
-  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities) or [change
+  [entity](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities)
+  or [change
   set](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets)).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

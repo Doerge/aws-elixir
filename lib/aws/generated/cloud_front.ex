@@ -4,14 +4,6 @@
 defmodule AWS.CloudFront do
   @moduledoc """
   Amazon CloudFront
-
-  This is the *Amazon CloudFront API Reference*.
-
-  This guide is for developers
-  who need detailed information about CloudFront API actions, data types, and
-  errors. For
-  detailed information about CloudFront features, see the
-  [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html).
   """
 
   alias AWS.Client
@@ -7096,31 +7088,21 @@ defmodule AWS.CloudFront do
 
   @doc """
   Associates an alias (also known as a CNAME or an alternate domain name) with a
-  CloudFront
+  CloudFront distribution. With this operation you can move an alias that's
+  already in use on a CloudFront distribution to a different distribution in one
+  step. This prevents the downtime that could occur if you first remove the
+  alias from one distribution and then separately add the alias to another
   distribution.
 
-  With this operation you can move an alias that's already in use on a CloudFront
-  distribution
-  to a different distribution in one step. This prevents the downtime that could
-  occur if
-  you first remove the alias from one distribution and then separately add the
-  alias to
-  another distribution.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20AssociateAlias&this_doc_guide=API%2520Reference)
 
-  To use this operation to associate an alias with a distribution, you provide the
-  alias
-  and the ID of the target distribution for the alias. For more information,
-  including how
-  to set up the target distribution, prerequisites that you must complete, and
-  other
-  restrictions, see [Moving an alternate domain name to a different distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move)
-  in the *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
-  * `:target_distribution_id` (`t:string`) The ID of the distribution that you&#39;re associating the alias with.
+  ## Parameters:
+  * `:target_distribution_id` (`t:string`) The ID of the distribution that you're
+    associating the alias with.
 
   ## Optional parameters:
-  * `:alias` (`t:string`) The alias (also known as a CNAME) to add to the target distribution.
+  * `:alias` (`t:string`) The alias (also known as a CNAME) to add to the target
+    distribution.
   """
   @spec associate_alias(AWS.Client.t(), String.t(), associate_alias_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7146,41 +7128,27 @@ defmodule AWS.CloudFront do
 
   @doc """
   Creates a staging distribution using the configuration of the provided primary
-  distribution.
+  distribution. A staging distribution is a copy of an existing distribution
+  (called the primary distribution) that you can use in a continuous deployment
+  workflow. After you create a staging distribution, you can use
+  `UpdateDistribution` to modify the staging distribution's configuration. Then
+  you can use `CreateContinuousDeploymentPolicy` to incrementally move traffic
+  to the staging distribution.
 
-  A staging distribution is a copy of an existing distribution (called the
-  primary distribution) that you can use in a continuous deployment workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CopyDistribution&this_doc_guide=API%2520Reference)
 
-  After you create a staging distribution, you can use `UpdateDistribution`
-  to modify the staging distribution's configuration. Then you can use
-  `CreateContinuousDeploymentPolicy` to incrementally move traffic to the
-  staging distribution.
-
-  This API operation requires the following IAM permissions:
-
-    *
-
-  [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html) 
-
-    *
-
-  [CreateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html)
-
-    *
-
-  [CopyDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html)
-
-  ## Required positional parameters:
-  * `:primary_distribution_id` (`t:string`) The identifier of the primary distribution whose configuration you are copying. To get
-  	a distribution ID, use <code>ListDistributions</code>.
+  ## Parameters:
+  * `:primary_distribution_id` (`t:string`) The identifier of the primary
+    distribution whose configuration you are copying. To get a distribution ID,
+    use ListDistributions.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version identifier of the primary distribution whose configuration you are
-  	copying. This is the <code>ETag</code> value returned in the response to
-  		<code>GetDistribution</code> and <code>GetDistributionConfig</code>.
-  * `:staging` (`t:boolean`) The type of distribution that your primary distribution will be copied to. The only
-  	valid value is <code>True</code>, indicating that you are copying to a staging
-  	distribution.
+  * `:if_match` (`t:string`) The version identifier of the primary distribution
+    whose configuration you are copying. This is the ETag value returned in the
+    response to GetDistribution and GetDistributionConfig.
+  * `:staging` (`t:boolean`) The type of distribution that your primary
+    distribution will be copied to. The only valid value is True, indicating
+    that you are copying to a staging distribution.
   """
   @spec copy_distribution(AWS.Client.t(), String.t(), copy_distribution_request(), Keyword.t()) ::
           {:ok, copy_distribution_result(), any()}
@@ -7222,38 +7190,13 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a cache policy.
+  Creates a cache policy. After you create a cache policy, you can attach it to
+  one or more cache behaviors. When it's attached to a cache behavior, the cache
+  policy determines the following:
 
-  After you create a cache policy, you can attach it to one or more cache
-  behaviors.
-  When it's attached to a cache behavior, the cache policy determines the
-  following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateCachePolicy&this_doc_guide=API%2520Reference)
 
-    *
-  The values that CloudFront includes in the *cache key*. These
-  values can include HTTP headers, cookies, and URL query strings. CloudFront uses
-  the
-  cache key to find an object in its cache that it can return to the
-  viewer.
-
-    *
-  The default, minimum, and maximum time to live (TTL) values that you want
-  objects to stay in the CloudFront cache.
-
-  The headers, cookies, and query strings that are included in the cache key are
-  also included
-  in requests that CloudFront sends to the origin. CloudFront sends a request when
-  it can't find an
-  object in its cache that matches the request's cache key. If you want to send
-  values to
-  the origin but *not* include them in the cache key, use
-  `OriginRequestPolicy`.
-
-  For more information about cache policies, see [Controlling the cache key](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7290,18 +7233,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a new origin access identity.
-
-  If you're using Amazon S3 for your origin, you can
-  use an origin access identity to require users to access your content using a
-  CloudFront URL
-  instead of the Amazon S3 URL. For more information about how to use origin
-  access identities,
-  see [Serving Private Content through
+  Creates a new origin access identity. If you're using Amazon S3 for your origin,
+  you can use an origin access identity to require users to access your content
+  using a CloudFront URL instead of the Amazon S3 URL. For more information
+  about how to use origin access identities, see [Serving Private Content
+  through
   CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
   in the *Amazon CloudFront Developer Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7343,21 +7285,14 @@ defmodule AWS.CloudFront do
 
   @doc """
   Creates a continuous deployment policy that distributes traffic for a custom
-  domain
-  name to two different CloudFront distributions.
+  domain name to two different CloudFront distributions. To use a continuous
+  deployment policy, first use `CopyDistribution` to create a staging
+  distribution, then use `UpdateDistribution` to modify the staging
+  distribution's configuration.
 
-  To use a continuous deployment policy, first use `CopyDistribution` to
-  create a staging distribution, then use `UpdateDistribution` to modify the
-  staging distribution's configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
-  After you create and update a staging distribution, you can use a continuous
-  deployment policy to incrementally move traffic to the staging distribution.
-  This
-  workflow enables you to test changes to a distribution's configuration before
-  moving all
-  of your domain's production traffic to the new configuration.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7400,7 +7335,9 @@ defmodule AWS.CloudFront do
   @doc """
   Creates a CloudFront distribution.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7437,20 +7374,12 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Create a new distribution with tags.
+  Create a new distribution with tags. This API operation requires the following
+  IAM permissions:
 
-  This API operation requires the following IAM
-  permissions:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateDistributionWithTags&this_doc_guide=API%2520Reference)
 
-    *
-
-  [CreateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) 
-
-    *
-
-  [TagResource](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TagResource.html)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7493,7 +7422,9 @@ defmodule AWS.CloudFront do
   @doc """
   Create a new field-level encryption configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7536,7 +7467,9 @@ defmodule AWS.CloudFront do
   @doc """
   Create a field-level encryption profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7577,24 +7510,13 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a CloudFront function.
+  Creates a CloudFront function. To create a function, you provide the function
+  code and some configuration information about the function. The response
+  contains an Amazon Resource Name (ARN) that uniquely identifies the function.
 
-  To create a function, you provide the function code and some configuration
-  information
-  about the function. The response contains an Amazon Resource Name (ARN) that
-  uniquely
-  identifies the function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateFunction&this_doc_guide=API%2520Reference)
 
-  When you create a function, it's in the `DEVELOPMENT` stage. In this stage,
-  you can test the function with `TestFunction`, and update it with
-  `UpdateFunction`.
-
-  When you're ready to use your function with a CloudFront distribution, use
-  `PublishFunction` to copy the function from the `DEVELOPMENT`
-  stage to `LIVE`. When it's live, you can attach the function to a
-  distribution's cache behavior, using the function's ARN.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7631,13 +7553,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Create a new invalidation.
-
-  For more information, see [Invalidating files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
+  Create a new invalidation. For more information, see [Invalidating
+  files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
   in the *Amazon CloudFront Developer Guide*.
 
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The distribution&#39;s id.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateInvalidation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The distribution's id.
 
   ## Optional parameters:
   """
@@ -7679,25 +7602,22 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a key group that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
-
+  Creates a key group that you can use with [CloudFront signed URLs and signed
+  cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
   To create a key group, you must specify at least one public key for the key
-  group.
-  After you create a key group, you can reference it from one or more cache
-  behaviors.
-  When you reference a key group in a cache behavior, CloudFront requires signed
-  URLs or signed
-  cookies for all requests that match the cache behavior. The URLs or cookies must
-  be
-  signed with a private key whose corresponding public key is in the key group.
-  The signed
-  URL or cookie contains information about which public key CloudFront should use
-  to verify the
-  signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
+  group. After you create a key group, you can reference it from one or more
+  cache behaviors. When you reference a key group in a cache behavior,
+  CloudFront requires signed URLs or signed cookies for all requests that match
+  the cache behavior. The URLs or cookies must be signed with a private key
+  whose corresponding public key is in the key group. The signed URL or cookie
+  contains information about which public key CloudFront should use to verify
+  the signature. For more information, see [Serving private
+  content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html)
+  in the *Amazon CloudFront Developer Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateKeyGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7734,13 +7654,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the key value store resource to add to your account.
+  Specifies the key value store resource to add to your account. In your account,
+  the key value store names must be unique. You can also import key value store
+  data in JSON format from an S3 bucket by providing a valid `ImportSource` that
+  you own.
 
-  In your account, the key value store names must be unique. You can also import
-  key value store data in JSON format from an S3 bucket by providing a valid
-  `ImportSource` that you own.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateKeyValueStore&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7778,16 +7699,13 @@ defmodule AWS.CloudFront do
 
   @doc """
   Enables additional CloudWatch metrics for the specified CloudFront distribution.
+  The additional metrics incur an additional cost.
 
-  The
-  additional metrics incur an additional cost.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateMonitoringSubscription&this_doc_guide=API%2520Reference)
 
-  For more information, see [Viewing additional CloudFront distribution metrics](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional)
-  in
-  the *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are enabling metrics for.
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are
+    enabling metrics for.
 
   ## Optional parameters:
   """
@@ -7824,23 +7742,15 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a new origin access control in CloudFront.
+  Creates a new origin access control in CloudFront. After you create an origin
+  access control, you can add it to an origin in a CloudFront distribution so
+  that CloudFront sends authenticated (signed) requests to the origin. This
+  makes it possible to block public access to the origin, allowing viewers
+  (users) to access the origin's content only through CloudFront.
 
-  After you create an origin access
-  control, you can add it to an origin in a CloudFront distribution so that
-  CloudFront sends
-  authenticated (signed) requests to the origin.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateOriginAccessControl&this_doc_guide=API%2520Reference)
 
-  This makes it possible to block public access to the origin, allowing viewers
-  (users) to
-  access the origin's content only through CloudFront.
-
-  For more information about using a CloudFront origin access control, see
-  [Restricting access to an Amazon Web Services origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7881,42 +7791,15 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates an origin request policy.
+  Creates an origin request policy. After you create an origin request policy, you
+  can attach it to one or more cache behaviors. When it's attached to a cache
+  behavior, the origin request policy determines the values that CloudFront
+  includes in requests that it sends to the origin. Each request that CloudFront
+  sends to the origin includes the following:
 
-  After you create an origin request policy, you can attach it to one or more
-  cache
-  behaviors. When it's attached to a cache behavior, the origin request policy
-  determines
-  the values that CloudFront includes in requests that it sends to the origin.
-  Each request that
-  CloudFront sends to the origin includes the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
-    *
-  The request body and the URL path (without the domain name) from the viewer
-  request.
-
-    *
-  The headers that CloudFront automatically includes in every origin request,
-  including `Host`, `User-Agent`, and
-  `X-Amz-Cf-Id`.
-
-    *
-  All HTTP headers, cookies, and URL query strings that are specified in the
-  cache policy or the origin request policy. These can include items from the
-  viewer request and, in the case of headers, additional ones that are added by
-  CloudFront.
-
-  CloudFront sends a request when it can't find a valid object in its cache that
-  matches the
-  request. If you want to send values to the origin and also include them in the
-  cache
-  key, use `CachePolicy`.
-
-  For more information about origin request policies, see [Controlling origin requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7957,10 +7840,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Uploads a public key to CloudFront that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html),
-  or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+  Uploads a public key to CloudFront that you can use with [signed URLs and signed
+  cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html),
+  or with [field-level
+  encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreatePublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7997,18 +7884,13 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a real-time log configuration.
+  Creates a real-time log configuration. After you create a real-time log
+  configuration, you can attach it to one or more cache behaviors to send
+  real-time log data to the specified Amazon Kinesis data stream.
 
-  After you create a real-time log configuration, you can attach it to one or more
-  cache
-  behaviors to send real-time log data to the specified Amazon Kinesis data
-  stream.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
-  For more information about real-time log configurations, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8042,28 +7924,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Creates a response headers policy.
+  Creates a response headers policy. A response headers policy contains
+  information about a set of HTTP headers. To create a response headers policy,
+  you provide some metadata about the policy and a set of configurations that
+  specify the headers.
 
-  A response headers policy contains information about a set of HTTP headers. To
-  create a
-  response headers policy, you provide some metadata about the policy and a set of
-  configurations that specify the headers.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
-  After you create a response headers policy, you can use its ID to attach it to
-  one or more
-  cache behaviors in a CloudFront distribution. When it's attached to a cache
-  behavior, the
-  response headers policy affects the HTTP headers that CloudFront includes in
-  HTTP responses to
-  requests that match the cache behavior. CloudFront adds or removes response
-  headers according
-  to the configuration of the response headers policy.
-
-  For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html)
-  in the
-  *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8104,14 +7972,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  This API is deprecated.
+  This API is deprecated. Amazon CloudFront is deprecating real-time messaging
+  protocol (RTMP) distributions on December 31, 2020. For more information,
+  [read the announcement](http://forums.aws.amazon.com/ann.jspa?annID=7356) on
+  the Amazon CloudFront discussion forum.
 
-  Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
-  distributions on December 31, 2020. For more information, [read the announcement](http://forums.aws.amazon.com/ann.jspa?annID=7356) on the Amazon
-  CloudFront discussion
-  forum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateStreamingDistribution&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8152,14 +8020,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  This API is deprecated.
+  This API is deprecated. Amazon CloudFront is deprecating real-time messaging
+  protocol (RTMP) distributions on December 31, 2020. For more information,
+  [read the announcement](http://forums.aws.amazon.com/ann.jspa?annID=7356) on
+  the Amazon CloudFront discussion forum.
 
-  Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
-  distributions on December 31, 2020. For more information, [read the announcement](http://forums.aws.amazon.com/ann.jspa?annID=7356) on the Amazon
-  CloudFront discussion
-  forum.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20CreateStreamingDistributionWithTags&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8200,28 +8068,20 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes a cache policy.
+  Deletes a cache policy. You cannot delete a cache policy if it's attached to a
+  cache behavior. First update your distributions to remove the cache policy
+  from all cache behaviors, then delete the cache policy.
 
-  You cannot delete a cache policy if it's attached to a cache behavior. First
-  update
-  your distributions to remove the cache policy from all cache behaviors, then
-  delete the
-  cache policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteCachePolicy&this_doc_guide=API%2520Reference)
 
-  To delete a cache policy, you must provide the policy's identifier and version.
-  To get
-  these values, you can use `ListCachePolicies` or
-  `GetCachePolicy`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy that you are deleting. To get the
-  	identifier, you can use <code>ListCachePolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the cache policy that you are
+    deleting. To get the identifier, you can use ListCachePolicies.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the cache policy that you are deleting. The version is the cache
-  	policy&#39;s <code>ETag</code> value, which you can get using
-  	<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
-  		<code>GetCachePolicyConfig</code>.
+  * `:if_match` (`t:string`) The version of the cache policy that you are
+    deleting. The version is the cache policy's ETag value, which you can get
+    using ListCachePolicies, GetCachePolicy, or GetCachePolicyConfig.
   """
   @spec delete_cache_policy(
           AWS.Client.t(),
@@ -8262,13 +8122,14 @@ defmodule AWS.CloudFront do
   @doc """
   Delete an origin access identity.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The origin access identity&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The origin access identity's ID.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header you received from a previous
-  		<code>GET</code> or <code>PUT</code> request. For example:
-  		<code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header you received from a
+    previous GET or PUT request. For example: E2QWRUHAPOMQZL.
   """
   @spec delete_cloud_front_origin_access_identity(
           AWS.Client.t(),
@@ -8309,17 +8170,15 @@ defmodule AWS.CloudFront do
   @doc """
   Deletes a continuous deployment policy.
 
-  You cannot delete a continuous deployment policy that's attached to a primary
-  distribution. First update your distribution to remove the continuous deployment
-  policy,
-  then you can delete the policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are deleting.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
+    are deleting.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the continuous deployment policy that
-  	you are deleting.
+  * `:if_match` (`t:string`) The current version (ETag value) of the continuous
+    deployment policy that you are deleting.
   """
   @spec delete_continuous_deployment_policy(
           AWS.Client.t(),
@@ -8360,12 +8219,14 @@ defmodule AWS.CloudFront do
   @doc """
   Delete a distribution.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The distribution ID.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when you disabled the
-  	distribution. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    you disabled the distribution. For example: E2QWRUHAPOMQZL.
   """
   @spec delete_distribution(
           AWS.Client.t(),
@@ -8406,12 +8267,16 @@ defmodule AWS.CloudFront do
   @doc """
   Remove a field-level encryption configuration.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the configuration you want to delete from CloudFront.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the configuration you want to delete from
+    CloudFront.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the configuration identity to delete. For example:
+    E2QWRUHAPOMQZL.
   """
   @spec delete_field_level_encryption_config(
           AWS.Client.t(),
@@ -8452,12 +8317,15 @@ defmodule AWS.CloudFront do
   @doc """
   Remove a field-level encryption profile.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Request the ID of the profile you want to delete from CloudFront.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) Request the ID of the profile you want to delete from
+    CloudFront.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	profile to delete. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the profile to delete. For example: E2QWRUHAPOMQZL.
   """
   @spec delete_field_level_encryption_profile(
           AWS.Client.t(),
@@ -8496,24 +8364,18 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes a CloudFront function.
+  Deletes a CloudFront function. You cannot delete a function if it's associated
+  with a cache behavior. First, update your distributions to remove the function
+  association from all cache behaviors, then delete the function.
 
-  You cannot delete a function if it's associated with a cache behavior. First,
-  update
-  your distributions to remove the function association from all cache behaviors,
-  then
-  delete the function.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteFunction&this_doc_guide=API%2520Reference)
 
-  To delete a function, you must provide the function's name and version
-  (`ETag` value). To get these values, you can use
-  `ListFunctions` and `DescribeFunction`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the function that you are deleting.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are deleting,
-  	which you can get using <code>DescribeFunction</code>.
+  * `:if_match` (`t:string`) The current version (ETag value) of the function that
+    you are deleting, which you can get using DescribeFunction.
   """
   @spec delete_function(AWS.Client.t(), String.t(), delete_function_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8547,27 +8409,20 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes a key group.
+  Deletes a key group. You cannot delete a key group that is referenced in a cache
+  behavior. First update your distributions to remove the key group from all
+  cache behaviors, then delete the key group.
 
-  You cannot delete a key group that is referenced in a cache behavior. First
-  update
-  your distributions to remove the key group from all cache behaviors, then delete
-  the key
-  group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteKeyGroup&this_doc_guide=API%2520Reference)
 
-  To delete a key group, you must provide the key group's identifier and version.
-  To get
-  these values, use `ListKeyGroups` followed by `GetKeyGroup` or
-  `GetKeyGroupConfig`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the key group that you are deleting. To get the identifier, use
-  		<code>ListKeyGroups</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the key group that you are deleting. To
+    get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the key group that you are deleting. The version is the key group&#39;s
-  		<code>ETag</code> value. To get the <code>ETag</code>, use <code>GetKeyGroup</code>
-  	or <code>GetKeyGroupConfig</code>.
+  * `:if_match` (`t:string`) The version of the key group that you are deleting.
+    The version is the key group's ETag value. To get the ETag, use GetKeyGroup
+    or GetKeyGroupConfig.
   """
   @spec delete_key_group(AWS.Client.t(), String.t(), delete_key_group_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8603,7 +8458,9 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store to delete.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteKeyValueStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the key value store.
 
   ## Optional parameters:
@@ -8649,8 +8506,11 @@ defmodule AWS.CloudFront do
   Disables additional CloudWatch metrics for the specified CloudFront
   distribution.
 
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are disabling metrics for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteMonitoringSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are
+    disabling metrics for.
 
   ## Optional parameters:
   """
@@ -8689,17 +8549,15 @@ defmodule AWS.CloudFront do
   @doc """
   Deletes a CloudFront origin access control.
 
-  You cannot delete an origin access control if it's in use. First, update all
-  distributions to remove the origin access control from all origins, then delete
-  the
-  origin access control.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteOriginAccessControl&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control that you are deleting.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier of the origin access control that you
+    are deleting.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the origin access control that you
-  	are deleting.
+  * `:if_match` (`t:string`) The current version (ETag value) of the origin access
+    control that you are deleting.
   """
   @spec delete_origin_access_control(
           AWS.Client.t(),
@@ -8738,27 +8596,23 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes an origin request policy.
+  Deletes an origin request policy. You cannot delete an origin request policy if
+  it's attached to any cache behaviors. First update your distributions to
+  remove the origin request policy from all cache behaviors, then delete the
+  origin request policy.
 
-  You cannot delete an origin request policy if it's attached to any cache
-  behaviors.
-  First update your distributions to remove the origin request policy from all
-  cache
-  behaviors, then delete the origin request policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
-  To delete an origin request policy, you must provide the policy's identifier and
-  version. To get the identifier, you can use `ListOriginRequestPolicies` or
-  `GetOriginRequestPolicy`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy that you are deleting. To get the
-  	identifier, you can use <code>ListOriginRequestPolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the origin request policy that
+    you are deleting. To get the identifier, you can use
+    ListOriginRequestPolicies.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the origin request policy that you are deleting. The version is the
-  	origin request policy&#39;s <code>ETag</code> value, which you can get using
-  		<code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or
-  		<code>GetOriginRequestPolicyConfig</code>.
+  * `:if_match` (`t:string`) The version of the origin request policy that you are
+    deleting. The version is the origin request policy's ETag value, which you
+    can get using ListOriginRequestPolicies, GetOriginRequestPolicy, or
+    GetOriginRequestPolicyConfig.
   """
   @spec delete_origin_request_policy(
           AWS.Client.t(),
@@ -8799,12 +8653,15 @@ defmodule AWS.CloudFront do
   @doc """
   Remove a public key you previously added to CloudFront.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the public key you want to remove from CloudFront.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeletePublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the public key you want to remove from
+    CloudFront.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the public
-  	key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the public key identity to delete. For example: E2QWRUHAPOMQZL.
   """
   @spec delete_public_key(AWS.Client.t(), String.t(), delete_public_key_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8838,21 +8695,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes a real-time log configuration.
-
-  You cannot delete a real-time log configuration if it's attached to a cache
-  behavior.
-  First update your distributions to remove the real-time log configuration from
-  all cache
+  Deletes a real-time log configuration. You cannot delete a real-time log
+  configuration if it's attached to a cache behavior. First update your
+  distributions to remove the real-time log configuration from all cache
   behaviors, then delete the real-time log configuration.
 
-  To delete a real-time log configuration, you can provide the configuration's
-  name or
-  its Amazon Resource Name (ARN). You must provide at least one. If you provide
-  both, CloudFront
-  uses the name to identify the real-time log configuration to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8886,24 +8736,20 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Deletes a response headers policy.
+  Deletes a response headers policy. You cannot delete a response headers policy
+  if it's attached to a cache behavior. First update your distributions to
+  remove the response headers policy from all cache behaviors, then delete the
+  response headers policy.
 
-  You cannot delete a response headers policy if it's attached to a cache
-  behavior.
-  First update your distributions to remove the response headers policy from all
-  cache
-  behaviors, then delete the response headers policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
-  To delete a response headers policy, you must provide the policy's identifier
-  and
-  version. To get these values, you can use `ListResponseHeadersPolicies` or
-  `GetResponseHeadersPolicy`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy that you are deleting.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier for the response headers policy that you are
+    deleting.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the response headers policy that you are deleting.
+  * `:if_match` (`t:string`) The version of the response headers policy that you
+    are deleting.
   """
   @spec delete_response_headers_policy(
           AWS.Client.t(),
@@ -8942,81 +8788,18 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Delete a streaming distribution.
+  Delete a streaming distribution. To delete an RTMP distribution using the
+  CloudFront API, perform the following steps. **To delete an RTMP distribution
+  using the CloudFront API**:
 
-  To delete an RTMP distribution using the CloudFront API,
-  perform the following steps.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DeleteStreamingDistribution&this_doc_guide=API%2520Reference)
 
-  **To delete an RTMP distribution using the CloudFront
-  API**:
-
-    1.
-  Disable the RTMP distribution.
-
-    2.
-  Submit a `GET Streaming Distribution Config` request to get the
-  current configuration and the `Etag` header for the distribution.
-
-    3.
-  Update the XML document that was returned in the response to your
-
-  ```
-  GET
-  Streaming Distribution Config
-  ```
-
-  request to change the value of
-  `Enabled` to `false`.
-
-    4.
-  Submit a `PUT Streaming Distribution Config` request to update the
-  configuration for your distribution. In the request body, include the XML
-  document that you updated in Step 3. Then set the value of the HTTP
-  `If-Match` header to the value of the `ETag` header
-  that CloudFront returned when you submitted the
-
-  ```
-  GET Streaming Distribution
-  Config
-  ```
-
-  request in Step 2.
-
-    5.
-  Review the response to the `PUT Streaming Distribution Config`
-  request to confirm that the distribution was successfully disabled.
-
-    6.
-  Submit a `GET Streaming Distribution Config` request to confirm
-  that your changes have propagated. When propagation is complete, the value of
-  `Status` is `Deployed`.
-
-    7.
-  Submit a `DELETE Streaming Distribution` request. Set the value of
-  the HTTP `If-Match` header to the value of the `ETag`
-  header that CloudFront returned when you submitted the
-
-  ```
-  GET Streaming
-  Distribution Config
-  ```
-
-  request in Step 2.
-
-    8.
-  Review the response to your `DELETE Streaming Distribution` request
-  to confirm that the distribution was successfully deleted.
-
-  For information about deleting a distribution using the CloudFront console, see
-  [Deleting a Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html)
-  in the *Amazon CloudFront Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The distribution ID.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when you disabled the
-  	streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
   """
   @spec delete_streaming_distribution(
           AWS.Client.t(),
@@ -9056,21 +8839,17 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets configuration information and metadata about a CloudFront function, but not
-  the
-  function's code.
+  the function's code. To get a function's code, use `GetFunction`.
 
-  To get a function's code, use `GetFunction`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DescribeFunction&this_doc_guide=API%2520Reference)
 
-  To get configuration information and metadata about a function, you must provide
-  the
-  function's name and stage. To get these values, you can use
-  `ListFunctions`.
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the function that you are getting information about.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the function that you are getting information
+    about.
 
   ## Optional parameters:
-  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function&#39;s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
+    DEVELOPMENT or LIVE.
   """
   @spec describe_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_function_result(), any()}
@@ -9111,7 +8890,9 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store and its configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20DescribeKeyValueStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the key value store.
 
   ## Optional parameters:
@@ -9146,26 +8927,14 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a cache policy, including the following metadata:
 
-    *
-  The policy's identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCachePolicy&this_doc_guide=API%2520Reference)
 
-    *
-  The date and time when the policy was last modified.
-
-  To get a cache policy, you must provide the policy's identifier. If the cache
-  policy
-  is attached to a distribution's cache behavior, you can get the policy's
-  identifier
-  using `ListDistributions` or `GetDistribution`. If the cache
-  policy is not attached to a cache behavior, you can get the identifier using
-  `ListCachePolicies`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache policy is attached to a
-  	distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
-  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
-  	is not attached to a cache behavior, you can get the identifier using
-  		<code>ListCachePolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
+    policy is attached to a distribution's cache behavior, you can get the
+    policy's identifier using ListDistributions or GetDistribution. If the cache
+    policy is not attached to a cache behavior, you can get the identifier using
+    ListCachePolicies.
 
   ## Optional parameters:
   """
@@ -9199,21 +8968,14 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a cache policy configuration.
 
-  To get a cache policy configuration, you must provide the policy's identifier.
-  If the
-  cache policy is attached to a distribution's cache behavior, you can get the
-  policy's
-  identifier using `ListDistributions` or `GetDistribution`. If the
-  cache policy is not attached to a cache behavior, you can get the identifier
-  using
-  `ListCachePolicies`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCachePolicyConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache policy is attached to a
-  	distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
-  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
-  	is not attached to a cache behavior, you can get the identifier using
-  		<code>ListCachePolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the cache policy. If the cache
+    policy is attached to a distribution's cache behavior, you can get the
+    policy's identifier using ListDistributions or GetDistribution. If the cache
+    policy is not attached to a cache behavior, you can get the identifier using
+    ListCachePolicies.
 
   ## Optional parameters:
   """
@@ -9247,8 +9009,10 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about an origin access identity.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identity&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identity's ID.
 
   ## Optional parameters:
   """
@@ -9282,8 +9046,10 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about an origin access identity.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identity&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetCloudFrontOriginAccessIdentityConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identity's ID.
 
   ## Optional parameters:
   """
@@ -9316,11 +9082,13 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a continuous deployment policy, including metadata (the policy's identifier
-  and
-  the date and time when the policy was last modified).
+  and the date and time when the policy was last modified).
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are getting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
+    are getting.
 
   ## Optional parameters:
   """
@@ -9354,9 +9122,11 @@ defmodule AWS.CloudFront do
   @doc """
   Gets configuration information about a continuous deployment policy.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy whose configuration you are
-  	getting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetContinuousDeploymentPolicyConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the continuous deployment policy whose
+    configuration you are getting.
 
   ## Optional parameters:
   """
@@ -9390,9 +9160,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about a distribution.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The distribution&#39;s ID. If the ID is empty, an empty distribution configuration is
-  	returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
+    distribution configuration is returned.
 
   ## Optional parameters:
   """
@@ -9426,9 +9198,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about a distribution.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The distribution&#39;s ID. If the ID is empty, an empty distribution configuration is
-  	returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetDistributionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The distribution's ID. If the ID is empty, an empty
+    distribution configuration is returned.
 
   ## Optional parameters:
   """
@@ -9462,8 +9236,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption configuration information.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Request the ID for the field-level encryption configuration information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryption&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) Request the ID for the field-level encryption configuration
+    information.
 
   ## Optional parameters:
   """
@@ -9497,8 +9274,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption configuration information.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Request the ID for the field-level encryption configuration information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) Request the ID for the field-level encryption configuration
+    information.
 
   ## Optional parameters:
   """
@@ -9532,8 +9312,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption profile information.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Get the ID for the field-level encryption profile information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) Get the ID for the field-level encryption profile
+    information.
 
   ## Optional parameters:
   """
@@ -9567,8 +9350,11 @@ defmodule AWS.CloudFront do
   @doc """
   Get the field-level encryption profile configuration information.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Get the ID for the field-level encryption profile configuration information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFieldLevelEncryptionProfileConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) Get the ID for the field-level encryption profile
+    configuration information.
 
   ## Optional parameters:
   """
@@ -9600,20 +9386,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets the code of a CloudFront function.
+  Gets the code of a CloudFront function. To get configuration information and
+  metadata about a function, use `DescribeFunction`.
 
-  To get configuration information and metadata about
-  a function, use `DescribeFunction`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetFunction&this_doc_guide=API%2520Reference)
 
-  To get a function's code, you must provide the function's name and stage. To get
-  these
-  values, you can use `ListFunctions`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the function whose code you are getting.
 
   ## Optional parameters:
-  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function&#39;s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) The function's stage, either
+    DEVELOPMENT or LIVE.
   """
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_result(), any()}
@@ -9654,10 +9437,12 @@ defmodule AWS.CloudFront do
   @doc """
   Get the information about an invalidation.
 
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The distribution&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetInvalidation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The distribution's ID.
   * `:id` (`t:string`) The identifier for the invalidation request, for example,
-  	<code>IDFDVBD632BHDS5</code>.
+    IDFDVBD632BHDS5.
 
   ## Optional parameters:
   """
@@ -9686,17 +9471,11 @@ defmodule AWS.CloudFront do
   Gets a key group, including the date and time when the key group was last
   modified.
 
-  To get a key group, you must provide the key group's identifier. If the key
-  group is
-  referenced in a distribution's cache behavior, you can get the key group's
-  identifier
-  using `ListDistributions` or `GetDistribution`. If the key group
-  is not referenced in a cache behavior, you can get the identifier using
-  `ListKeyGroups`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetKeyGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the key group that you are getting. To get the identifier, use
-  		<code>ListKeyGroups</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the key group that you are getting. To
+    get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
   """
@@ -9730,18 +9509,11 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a key group configuration.
 
-  To get a key group configuration, you must provide the key group's identifier.
-  If the
-  key group is referenced in a distribution's cache behavior, you can get the key
-  group's
-  identifier using `ListDistributions` or `GetDistribution`. If the
-  key group is not referenced in a cache behavior, you can get the identifier
-  using
-  `ListKeyGroups`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetKeyGroupConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the key group whose configuration you are getting. To get the
-  	identifier, use <code>ListKeyGroups</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the key group whose configuration you are
+    getting. To get the identifier, use ListKeyGroups.
 
   ## Optional parameters:
   """
@@ -9776,8 +9548,11 @@ defmodule AWS.CloudFront do
   Gets information about whether additional CloudWatch metrics are enabled for the
   specified CloudFront distribution.
 
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The ID of the distribution that you are getting metrics information for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetMonitoringSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The ID of the distribution that you are
+    getting metrics information for.
 
   ## Optional parameters:
   """
@@ -9805,7 +9580,9 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a CloudFront origin access control, including its unique identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginAccessControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The unique identifier of the origin access control.
 
   ## Optional parameters:
@@ -9840,7 +9617,9 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a CloudFront origin access control configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginAccessControlConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The unique identifier of the origin access control.
 
   ## Optional parameters:
@@ -9875,27 +9654,14 @@ defmodule AWS.CloudFront do
   @doc """
   Gets an origin request policy, including the following metadata:
 
-    *
-  The policy's identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
-    *
-  The date and time when the policy was last modified.
-
-  To get an origin request policy, you must provide the policy's identifier. If
-  the
-  origin request policy is attached to a distribution's cache behavior, you can
-  get the
-  policy's identifier using `ListDistributions` or
-  `GetDistribution`. If the origin request policy is not attached to a cache
-  behavior, you can get the identifier using
-  `ListOriginRequestPolicies`.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy. If the origin request policy is
-  	attached to a distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
-  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
-  	request policy is not attached to a cache behavior, you can get the identifier using
-  		<code>ListOriginRequestPolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the origin request policy. If the
+    origin request policy is attached to a distribution's cache behavior, you
+    can get the policy's identifier using ListDistributions or GetDistribution.
+    If the origin request policy is not attached to a cache behavior, you can
+    get the identifier using ListOriginRequestPolicies.
 
   ## Optional parameters:
   """
@@ -9929,20 +9695,14 @@ defmodule AWS.CloudFront do
   @doc """
   Gets an origin request policy configuration.
 
-  To get an origin request policy configuration, you must provide the policy's
-  identifier. If the origin request policy is attached to a distribution's cache
-  behavior,
-  you can get the policy's identifier using `ListDistributions` or
-  `GetDistribution`. If the origin request policy is not attached to a
-  cache behavior, you can get the identifier using
-  `ListOriginRequestPolicies`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetOriginRequestPolicyConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy. If the origin request policy is
-  	attached to a distribution&#39;s cache behavior, you can get the policy&#39;s identifier using
-  		<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
-  	request policy is not attached to a cache behavior, you can get the identifier using
-  		<code>ListOriginRequestPolicies</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the origin request policy. If the
+    origin request policy is attached to a distribution's cache behavior, you
+    can get the policy's identifier using ListDistributions or GetDistribution.
+    If the origin request policy is not attached to a cache behavior, you can
+    get the identifier using ListOriginRequestPolicies.
 
   ## Optional parameters:
   """
@@ -9976,7 +9736,9 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a public key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetPublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the public key you are getting.
 
   ## Optional parameters:
@@ -10011,8 +9773,11 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a public key configuration.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the public key whose configuration you are getting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetPublicKeyConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the public key whose configuration you
+    are getting.
 
   ## Optional parameters:
   """
@@ -10046,13 +9811,9 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a real-time log configuration.
 
-  To get a real-time log configuration, you can provide the configuration's name
-  or its
-  Amazon Resource Name (ARN). You must provide at least one. If you provide both,
-  CloudFront
-  uses the name to identify the real-time log configuration to get.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -10083,19 +9844,11 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a response headers policy, including metadata (the policy's identifier and
-  the
-  date and time when the policy was last modified).
+  the date and time when the policy was last modified).
 
-  To get a response headers policy, you must provide the policy's identifier. If
-  the
-  response headers policy is attached to a distribution's cache behavior, you can
-  get the
-  policy's identifier using `ListDistributions` or
-  `GetDistribution`. If the response headers policy is not attached to a cache
-  behavior, you can get the identifier using
-  `ListResponseHeadersPolicies`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier for the response headers policy.
 
   ## Optional parameters:
@@ -10130,14 +9883,9 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a response headers policy configuration.
 
-  To get a response headers policy configuration, you must provide the policy's
-  identifier. If the response headers policy is attached to a distribution's cache
-  behavior, you can get the policy's identifier using `ListDistributions` or
-  `GetDistribution`. If the response headers policy is not attached to a
-  cache behavior, you can get the identifier using
-  `ListResponseHeadersPolicies`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetResponseHeadersPolicyConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier for the response headers policy.
 
   ## Optional parameters:
@@ -10173,8 +9921,10 @@ defmodule AWS.CloudFront do
   Gets information about a specified RTMP distribution, including the distribution
   configuration.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The streaming distribution&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetStreamingDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The streaming distribution's ID.
 
   ## Optional parameters:
   """
@@ -10208,8 +9958,10 @@ defmodule AWS.CloudFront do
   @doc """
   Get the configuration information about a streaming distribution.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The streaming distribution&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20GetStreamingDistributionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The streaming distribution's ID.
 
   ## Optional parameters:
   """
@@ -10241,31 +9993,24 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets a list of cache policies.
+  Gets a list of cache policies. You can optionally apply a filter to return only
+  the managed policies created by Amazon Web Services, or only the custom
+  policies created in your Amazon Web Services account.
 
-  You can optionally apply a filter to return only the managed policies created by
-  Amazon Web Services, or only the custom policies created in your Amazon Web
-  Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListCachePolicies&this_doc_guide=API%2520Reference)
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	cache policies. The response includes cache policies in the list that occur after the
-  	marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of cache policies that you want in the response.
-  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified kinds of cache policies. Valid values
-  	are:
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of cache policies. The response includes cache
+    policies in the list that occur after the marker. To get the next page of
+    the list, set this field's value to the value of NextMarker from the current
+    page's response.
+  * `:max_items` (`t:integer`) The maximum number of cache policies that you want
+    in the response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
+    kinds of cache policies. Valid values are:
   """
   @spec list_cache_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cache_policies_result(), any()}
@@ -10317,15 +10062,18 @@ defmodule AWS.CloudFront do
   @doc """
   Lists origin access identities.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListCloudFrontOriginAccessIdentities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of origin
-  	access identities. The results include identities in the list that occur after the
-  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
-  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
-  	the last identity on that page).
-  * `:max_items` (`t:integer`) The maximum number of origin access identities you want in the response body.
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to
+    begin in your list of origin access identities. The results include
+    identities in the list that occur after the marker. To get the next page of
+    results, set the Marker to the value of the NextMarker from the current
+    page's response (which is also the ID of the last identity on that page).
+  * `:max_items` (`t:integer`) The maximum number of origin access identities you
+    want in the response body.
   """
   @spec list_cloud_front_origin_access_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_front_origin_access_identities_result(), any()}
@@ -10367,54 +10115,36 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of aliases (also called CNAMEs or alternate domain names) that
-  conflict or
-  overlap with the provided alias, and the associated CloudFront distributions and
-  Amazon Web Services
-  accounts for each conflicting alias.
-
-  In the returned list, the distribution and account
-  IDs are partially hidden, which allows you to identify the distributions and
-  accounts
-  that you own, but helps to protect the information of ones that you don't own.
-
-  Use this operation to find aliases that are in use in CloudFront that conflict
-  or overlap
-  with the provided alias. For example, if you provide `www.example.com` as
-  input, the returned list can include `www.example.com` and the overlapping
+  conflict or overlap with the provided alias, and the associated CloudFront
+  distributions and Amazon Web Services accounts for each conflicting alias. In
+  the returned list, the distribution and account IDs are partially hidden,
+  which allows you to identify the distributions and accounts that you own, but
+  helps to protect the information of ones that you don't own. Use this
+  operation to find aliases that are in use in CloudFront that conflict or
+  overlap with the provided alias. For example, if you provide `www.example.com`
+  as input, the returned list can include `www.example.com` and the overlapping
   wildcard alternate domain name (`*.example.com`), if they exist. If you
   provide `*.example.com` as input, the returned list can include
-  `*.example.com` and any alternate domain names covered by that wildcard
-  (for example, `www.example.com`, `test.example.com`,
-  `dev.example.com`, and so on), if they exist.
+  `*.example.com` and any alternate domain names covered by that wildcard (for
+  example, `www.example.com`, `test.example.com`, `dev.example.com`, and so on),
+  if they exist.
 
-  To list conflicting aliases, you provide the alias to search and the ID of a
-  distribution in your account that has an attached SSL/TLS certificate that
-  includes the
-  provided alias. For more information, including how to set up the distribution
-  and
-  certificate, see [Moving an alternate domain name to a different distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move)
-  in the *Amazon CloudFront Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListConflictingAliases&this_doc_guide=API%2520Reference)
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:alias` (`t:string`) The alias (also called a CNAME) to search for conflicting aliases.
-  * `:distribution_id` (`t:string`) The ID of a distribution in your account that has an attached SSL/TLS certificate that
-  	includes the provided alias.
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in the list of
-  	conflicting aliases. The response includes conflicting aliases in the list that occur
-  	after the marker. To get the next page of the list, set this field&#39;s value to the value
-  	of <code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of conflicting aliases that you want in the response.
+  * `:alias` (`t:string`) The alias (also called a CNAME) to search for
+    conflicting aliases.
+  * `:distribution_id` (`t:string`) The ID of a distribution in your account that
+    has an attached SSL/TLS certificate that includes the provided alias.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in the list of conflicting aliases. The response includes
+    conflicting aliases in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of conflicting aliases that you
+    want in the response.
   """
   @spec list_conflicting_aliases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_conflicting_aliases_result(), any()}
@@ -10476,24 +10206,18 @@ defmodule AWS.CloudFront do
   Gets a list of the continuous deployment policies in your Amazon Web Services
   account.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListContinuousDeploymentPolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	continuous deployment policies. The response includes policies in the list that occur
-  	after the marker. To get the next page of the list, set this field&#39;s value to the value
-  	of <code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of continuous deployment policies that you want returned in the
-  	response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of continuous deployment policies. The response
+    includes policies in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of continuous deployment
+    policies that you want returned in the response.
   """
   @spec list_continuous_deployment_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_continuous_deployment_policies_result(), any()}
@@ -10536,15 +10260,18 @@ defmodule AWS.CloudFront do
   @doc """
   List CloudFront distributions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of
-  	distributions. The results include distributions in the list that occur after the
-  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
-  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
-  	the last distribution on that page).
-  * `:max_items` (`t:integer`) The maximum number of distributions you want in the response body.
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to
+    begin in your list of distributions. The results include distributions in
+    the list that occur after the marker. To get the next page of results, set
+    the Marker to the value of the NextMarker from the current page's response
+    (which is also the ID of the last distribution on that page).
+  * `:max_items` (`t:integer`) The maximum number of distributions you want in the
+    response body.
   """
   @spec list_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distributions_result(), any()}
@@ -10586,27 +10313,22 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distribution IDs for distributions that have a cache behavior
-  that's
-  associated with the specified cache policy.
+  that's associated with the specified cache policy.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByCachePolicyId&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:cache_policy_id` (`t:string`) The ID of the cache policy whose associated distribution IDs you want to list.
+  ## Parameters:
+  * `:cache_policy_id` (`t:string`) The ID of the cache policy whose associated
+    distribution IDs you want to list.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	distribution IDs. The response includes distribution IDs in the list that occur after
-  	the marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of distribution IDs. The response includes
+    distribution IDs in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
+    want in the response.
   """
   @spec list_distributions_by_cache_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_cache_policy_id_result(), any()}
@@ -10648,27 +10370,22 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distribution IDs for distributions that have a cache behavior
-  that
-  references the specified key group.
+  that references the specified key group.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByKeyGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:key_group_id` (`t:string`) The ID of the key group whose associated distribution IDs you are listing.
+  ## Parameters:
+  * `:key_group_id` (`t:string`) The ID of the key group whose associated
+    distribution IDs you are listing.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	distribution IDs. The response includes distribution IDs in the list that occur after
-  	the marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of distribution IDs. The response includes
+    distribution IDs in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
+    want in the response.
   """
   @spec list_distributions_by_key_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_key_group_result(), any()}
@@ -10710,28 +10427,22 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distribution IDs for distributions that have a cache behavior
-  that's
-  associated with the specified origin request policy.
+  that's associated with the specified origin request policy.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByOriginRequestPolicyId&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:origin_request_policy_id` (`t:string`) The ID of the origin request policy whose associated distribution IDs you want to
-  	list.
+  ## Parameters:
+  * `:origin_request_policy_id` (`t:string`) The ID of the origin request policy
+    whose associated distribution IDs you want to list.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	distribution IDs. The response includes distribution IDs in the list that occur after
-  	the marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of distribution IDs. The response includes
+    distribution IDs in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
+    want in the response.
   """
   @spec list_distributions_by_origin_request_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_origin_request_policy_id_result(), any()}
@@ -10778,25 +10489,14 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distributions that have a cache behavior that's associated with
-  the
-  specified real-time log configuration.
+  the specified real-time log configuration. You can specify the real-time log
+  configuration by its name or its Amazon Resource Name (ARN). You must provide
+  at least one. If you provide both, CloudFront uses the name to identify the
+  real-time log configuration to list distributions for.
 
-  You can specify the real-time log configuration by its name or its Amazon
-  Resource
-  Name (ARN). You must provide at least one. If you provide both, CloudFront uses
-  the name to
-  identify the real-time log configuration to list distributions for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -10831,28 +10531,22 @@ defmodule AWS.CloudFront do
 
   @doc """
   Gets a list of distribution IDs for distributions that have a cache behavior
-  that's
-  associated with the specified response headers policy.
+  that's associated with the specified response headers policy.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByResponseHeadersPolicyId&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:response_headers_policy_id` (`t:string`) The ID of the response headers policy whose associated distribution IDs you want to
-  	list.
+  ## Parameters:
+  * `:response_headers_policy_id` (`t:string`) The ID of the response headers
+    policy whose associated distribution IDs you want to list.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	distribution IDs. The response includes distribution IDs in the list that occur after
-  	the marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you want to get in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of distribution IDs. The response includes
+    distribution IDs in the list that occur after the marker. To get the next
+    page of the list, set this field's value to the value of NextMarker from the
+    current page's response.
+  * `:max_items` (`t:integer`) The maximum number of distribution IDs that you
+    want to get in the response.
   """
   @spec list_distributions_by_response_headers_policy_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_response_headers_policy_id_result(), any()}
@@ -10900,20 +10594,22 @@ defmodule AWS.CloudFront do
   @doc """
   List the distributions that are associated with a specified WAF web ACL.
 
-  ## Required positional parameters:
-  * `:web_acl_id` (`t:string`) The ID of the WAF web ACL that you want to list the associated distributions. If you
-  	specify &quot;null&quot; for the ID, the request returns a list of the distributions that aren&#39;t
-  	associated with a web ACL. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListDistributionsByWebACLId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:web_acl_id` (`t:string`) The ID of the WAF web ACL that you want to list the
+    associated distributions. If you specify "null" for the ID, the request
+    returns a list of the distributions that aren't associated with a web ACL.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If
-  	you have more than <code>MaxItems</code> distributions that satisfy the request, the
-  	response includes a <code>NextMarker</code> element. To get the next page of results,
-  	submit another request. For the value of <code>Marker</code>, specify the value of
-  		<code>NextMarker</code> from the last response. (For the first request, omit
-  		<code>Marker</code>.)
-  * `:max_items` (`t:integer`) The maximum number of distributions that you want CloudFront to return in the response body.
-  	The maximum and default values are both 100.
+  * `:marker` (`t:string`) Use Marker and MaxItems to control pagination of
+    results. If you have more than MaxItems distributions that satisfy the
+    request, the response includes a NextMarker element. To get the next page of
+    results, submit another request. For the value of Marker, specify the value
+    of NextMarker from the last response. (For the first request, omit Marker.)
+  * `:max_items` (`t:integer`) The maximum number of distributions that you want
+    CloudFront to return in the response body. The maximum and default values
+    are both 100.
   """
   @spec list_distributions_by_web_acl_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_distributions_by_web_acl_id_result(), any()}
@@ -10955,19 +10651,20 @@ defmodule AWS.CloudFront do
 
   @doc """
   List all field-level encryption configurations that have been created in
-  CloudFront for this
-  account.
+  CloudFront for this account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFieldLevelEncryptionConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of
-  	configurations. The results include configurations in the list that occur after the
-  	marker. To get the next page of results, set the <code>Marker</code> to the value of the
-  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
-  	the last configuration on that page).
-  * `:max_items` (`t:integer`) The maximum number of field-level encryption configurations you want in the response
-  	body.
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to
+    begin in your list of configurations. The results include configurations in
+    the list that occur after the marker. To get the next page of results, set
+    the Marker to the value of the NextMarker from the current page's response
+    (which is also the ID of the last configuration on that page).
+  * `:max_items` (`t:integer`) The maximum number of field-level encryption
+    configurations you want in the response body.
   """
   @spec list_field_level_encryption_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_configs_result(), any()}
@@ -11009,19 +10706,20 @@ defmodule AWS.CloudFront do
 
   @doc """
   Request a list of field-level encryption profiles that have been created in
-  CloudFront for
-  this account.
+  CloudFront for this account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFieldLevelEncryptionProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of profiles.
-  	The results include profiles in the list that occur after the marker. To get the next
-  	page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
-  	from the current page&#39;s response (which is also the ID of the last profile on that
-  	page).
-  * `:max_items` (`t:integer`) The maximum number of field-level encryption profiles you want in the response body.
-
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to
+    begin in your list of profiles. The results include profiles in the list
+    that occur after the marker. To get the next page of results, set the Marker
+    to the value of the NextMarker from the current page's response (which is
+    also the ID of the last profile on that page).
+  * `:max_items` (`t:integer`) The maximum number of field-level encryption
+    profiles you want in the response body.
   """
   @spec list_field_level_encryption_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_field_level_encryption_profiles_result(), any()}
@@ -11062,30 +10760,24 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets a list of all CloudFront functions in your Amazon Web Services account.
-
-  You can optionally apply a filter to return only the functions that are in the
+  Gets a list of all CloudFront functions in your Amazon Web Services account. You
+  can optionally apply a filter to return only the functions that are in the
   specified stage, either `DEVELOPMENT` or `LIVE`.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListFunctions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	functions. The response includes functions in the list that occur after the marker. To
-  	get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of functions that you want in the response.
-  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) An optional filter to return only the functions that are in the specified stage,
-  	either <code>DEVELOPMENT</code> or <code>LIVE</code>.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of functions. The response includes functions in
+    the list that occur after the marker. To get the next page of the list, set
+    this field's value to the value of NextMarker from the current page's
+    response.
+  * `:max_items` (`t:integer`) The maximum number of functions that you want in
+    the response.
+  * `:stage` (`t:enum["DEVELOPMENT|LIVE"]`) An optional filter to return only the
+    functions that are in the specified stage, either DEVELOPMENT or LIVE.
   """
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_result(), any()}
@@ -11137,18 +10829,21 @@ defmodule AWS.CloudFront do
   @doc """
   Lists invalidation batches.
 
-  ## Required positional parameters:
-  * `:distribution_id` (`t:string`) The distribution&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListInvalidations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:distribution_id` (`t:string`) The distribution's ID.
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this parameter when paginating results to indicate where to begin in your list of
-  	invalidation batches. Because the results are returned in decreasing order from most
-  	recent to oldest, the most recent results are on the first page, the second page will
-  	contain earlier results, and so on. To get the next page of results, set
-  		<code>Marker</code> to the value of the <code>NextMarker</code> from the current
-  	page&#39;s response. This value is the same as the ID of the last invalidation batch on that
-  	page.
-  * `:max_items` (`t:integer`) The maximum number of invalidation batches that you want in the response body.
+  * `:marker` (`t:string`) Use this parameter when paginating results to indicate
+    where to begin in your list of invalidation batches. Because the results are
+    returned in decreasing order from most recent to oldest, the most recent
+    results are on the first page, the second page will contain earlier results,
+    and so on. To get the next page of results, set Marker to the value of the
+    NextMarker from the current page's response. This value is the same as the
+    ID of the last invalidation batch on that page.
+  * `:max_items` (`t:integer`) The maximum number of invalidation batches that you
+    want in the response body.
   """
   @spec list_invalidations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_invalidations_result(), any()}
@@ -11191,23 +10886,18 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a list of key groups.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListKeyGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of key
-  	groups. The response includes key groups in the list that occur after the marker. To get
-  	the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of key groups that you want in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of key groups. The response includes key groups
+    in the list that occur after the marker. To get the next page of the list,
+    set this field's value to the value of NextMarker from the current page's
+    response.
+  * `:max_items` (`t:integer`) The maximum number of key groups that you want in
+    the response.
   """
   @spec list_key_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_groups_result(), any()}
@@ -11250,12 +10940,16 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value stores to list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListKeyValueStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:marker` (`t:string`) The marker associated with the key value stores list.
-  * `:max_items` (`t:integer`) The maximum number of items in the key value stores list.
-  * `:status` (`t:string`) The status of the request for the key value stores list.
+  * `:max_items` (`t:integer`) The maximum number of items in the key value stores
+    list.
+  * `:status` (`t:string`) The status of the request for the key value stores
+    list.
   """
   @spec list_key_value_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_key_value_stores_result(), any()}
@@ -11308,23 +11002,18 @@ defmodule AWS.CloudFront do
   Gets the list of CloudFront origin access controls in this Amazon Web Services
   account.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  another
-  request that specifies the `NextMarker` value from the current response as
-  the `Marker` value in the next request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListOriginAccessControls&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	origin access controls. The response includes the items in the list that occur after the
-  	marker. To get the next page of the list, set this field&#39;s value to the value of
-  		<code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of origin access controls that you want in the response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of origin access controls. The response includes
+    the items in the list that occur after the marker. To get the next page of
+    the list, set this field's value to the value of NextMarker from the current
+    page's response.
+  * `:max_items` (`t:integer`) The maximum number of origin access controls that
+    you want in the response.
   """
   @spec list_origin_access_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_access_controls_result(), any()}
@@ -11365,31 +11054,24 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets a list of origin request policies.
+  Gets a list of origin request policies. You can optionally apply a filter to
+  return only the managed policies created by Amazon Web Services, or only the
+  custom policies created in your Amazon Web Services account.
 
-  You can optionally apply a filter to return only the managed policies created by
-  Amazon Web Services, or only the custom policies created in your Amazon Web
-  Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListOriginRequestPolicies&this_doc_guide=API%2520Reference)
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	origin request policies. The response includes origin request policies in the list that
-  	occur after the marker. To get the next page of the list, set this field&#39;s value to the
-  	value of <code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of origin request policies that you want in the response.
-  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified kinds of origin request policies. Valid values
-  	are:
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of origin request policies. The response
+    includes origin request policies in the list that occur after the marker. To
+    get the next page of the list, set this field's value to the value of
+    NextMarker from the current page's response.
+  * `:max_items` (`t:integer`) The maximum number of origin request policies that
+    you want in the response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to return only the specified
+    kinds of origin request policies. Valid values are:
   """
   @spec list_origin_request_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_request_policies_result(), any()}
@@ -11441,15 +11123,18 @@ defmodule AWS.CloudFront do
   @doc """
   List all public keys that have been added to CloudFront for this account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListPublicKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this when paginating results to indicate where to begin in your list of public
-  	keys. The results include public keys in the list that occur after the marker. To get
-  	the next page of results, set the <code>Marker</code> to the value of the
-  		<code>NextMarker</code> from the current page&#39;s response (which is also the ID of
-  	the last public key on that page).
-  * `:max_items` (`t:integer`) The maximum number of public keys you want in the response body.
+  * `:marker` (`t:string`) Use this when paginating results to indicate where to
+    begin in your list of public keys. The results include public keys in the
+    list that occur after the marker. To get the next page of results, set the
+    Marker to the value of the NextMarker from the current page's response
+    (which is also the ID of the last public key on that page).
+  * `:max_items` (`t:integer`) The maximum number of public keys you want in the
+    response body.
   """
   @spec list_public_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_public_keys_result(), any()}
@@ -11492,24 +11177,18 @@ defmodule AWS.CloudFront do
   @doc """
   Gets a list of real-time log configurations.
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListRealtimeLogConfigs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	real-time log configurations. The response includes real-time log configurations in the
-  	list that occur after the marker. To get the next page of the list, set this field&#39;s
-  	value to the value of <code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of real-time log configurations that you want in the
-  	response.
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of real-time log configurations. The response
+    includes real-time log configurations in the list that occur after the
+    marker. To get the next page of the list, set this field's value to the
+    value of NextMarker from the current page's response.
+  * `:max_items` (`t:integer`) The maximum number of real-time log configurations
+    that you want in the response.
   """
   @spec list_realtime_log_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_realtime_log_configs_result(), any()}
@@ -11550,32 +11229,24 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets a list of response headers policies.
+  Gets a list of response headers policies. You can optionally apply a filter to
+  get only the managed policies created by Amazon Web Services, or only the
+  custom policies created in your Amazon Web Services account.
 
-  You can optionally apply a filter to get only the managed policies created by
-  Amazon Web Services,
-  or only the custom policies created in your Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListResponseHeadersPolicies&this_doc_guide=API%2520Reference)
 
-  You can optionally specify the maximum number of items to receive in the
-  response. If
-  the total number of items in the list exceeds the maximum that you specify, or
-  the
-  default maximum, the response is paginated. To get the next page of items, send
-  a
-  subsequent request that specifies the `NextMarker` value from the current
-  response as the `Marker` value in the subsequent request.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) Use this field when paginating results to indicate where to begin in your list of
-  	response headers policies. The response includes response headers policies in the list
-  	that occur after the marker. To get the next page of the list, set this field&#39;s value to
-  	the value of <code>NextMarker</code> from the current page&#39;s response.
-  * `:max_items` (`t:integer`) The maximum number of response headers policies that you want to get in the
-  	response.
-  * `:type` (`t:enum["custom|managed"]`) A filter to get only the specified kind of response headers policies. Valid values
-  	are:
+  * `:marker` (`t:string`) Use this field when paginating results to indicate
+    where to begin in your list of response headers policies. The response
+    includes response headers policies in the list that occur after the marker.
+    To get the next page of the list, set this field's value to the value of
+    NextMarker from the current page's response.
+  * `:max_items` (`t:integer`) The maximum number of response headers policies
+    that you want to get in the response.
+  * `:type` (`t:enum["custom|managed"]`) A filter to get only the specified kind
+    of response headers policies. Valid values are:
   """
   @spec list_response_headers_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_response_headers_policies_result(), any()}
@@ -11627,11 +11298,15 @@ defmodule AWS.CloudFront do
   @doc """
   List streaming distributions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListStreamingDistributions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) The value that you provided for the <code>Marker</code> request parameter.
-  * `:max_items` (`t:integer`) The value that you provided for the <code>MaxItems</code> request parameter.
+  * `:marker` (`t:string`) The value that you provided for the Marker request
+    parameter.
+  * `:max_items` (`t:integer`) The value that you provided for the MaxItems
+    request parameter.
   """
   @spec list_streaming_distributions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streaming_distributions_result(), any()}
@@ -11674,7 +11349,9 @@ defmodule AWS.CloudFront do
   @doc """
   List tags for a CloudFront resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource` (`t:string`) An ARN of a CloudFront resource.
@@ -11710,28 +11387,20 @@ defmodule AWS.CloudFront do
 
   @doc """
   Publishes a CloudFront function by copying the function code from the
-  `DEVELOPMENT` stage to `LIVE`.
-
-  This automatically updates all
-  cache behaviors that are using this function to use the newly published copy in
-  the
-  `LIVE` stage.
-
-  When a function is published to the `LIVE` stage, you can attach the
+  `DEVELOPMENT` stage to `LIVE`. This automatically updates all cache behaviors
+  that are using this function to use the newly published copy in the `LIVE`
+  stage. When a function is published to the `LIVE` stage, you can attach the
   function to a distribution's cache behavior, using the function's Amazon
-  Resource Name
-  (ARN).
+  Resource Name (ARN).
 
-  To publish a function, you must provide the function's name and version
-  (`ETag` value). To get these values, you can use
-  `ListFunctions` and `DescribeFunction`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20PublishFunction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the function that you are publishing.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are publishing,
-  	which you can get using <code>DescribeFunction</code>.
+  * `:if_match` (`t:string`) The current version (ETag value) of the function that
+    you are publishing, which you can get using DescribeFunction.
   """
   @spec publish_function(AWS.Client.t(), String.t(), publish_function_request(), Keyword.t()) ::
           {:ok, publish_function_result(), any()}
@@ -11767,7 +11436,9 @@ defmodule AWS.CloudFront do
   @doc """
   Add tags to a CloudFront resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource` (`t:string`) An ARN of a CloudFront resource.
@@ -11803,30 +11474,24 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Tests a CloudFront function.
-
-  To test a function, you provide an *event object* that represents
-  an HTTP request or response that your CloudFront distribution could receive in
-  production.
-  CloudFront runs the function, passing it the event object that you provided, and
-  returns the
-  function's result (the modified event object) in the response. The response also
-  contains function logs and error messages, if any exist. For more information
-  about
-  testing functions, see [Testing functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function)
+  Tests a CloudFront function. To test a function, you provide an *event object*
+  that represents an HTTP request or response that your CloudFront distribution
+  could receive in production. CloudFront runs the function, passing it the
+  event object that you provided, and returns the function's result (the
+  modified event object) in the response. The response also contains function
+  logs and error messages, if any exist. For more information about testing
+  functions, see [Testing
+  functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function)
   in the *Amazon CloudFront Developer Guide*.
 
-  To test a function, you provide the function's name and version (`ETag`
-  value) along with the event object. To get the function's name and version, you
-  can use
-  `ListFunctions` and `DescribeFunction`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20TestFunction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the function that you are testing.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are testing,
-  	which you can get using <code>DescribeFunction</code>.
+  * `:if_match` (`t:string`) The current version (ETag value) of the function that
+    you are testing, which you can get using DescribeFunction.
   """
   @spec test_function(AWS.Client.t(), String.t(), test_function_request(), Keyword.t()) ::
           {:ok, test_function_result(), any()}
@@ -11862,7 +11527,9 @@ defmodule AWS.CloudFront do
   @doc """
   Remove tags from a CloudFront resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource` (`t:string`) An ARN of a CloudFront resource.
@@ -11898,35 +11565,22 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a cache policy configuration.
+  Updates a cache policy configuration. When you update a cache policy
+  configuration, all the fields are updated with the values provided in the
+  request. You cannot update some fields independent of others. To update a
+  cache policy configuration:
 
-  When you update a cache policy configuration, all the fields are updated with
-  the
-  values provided in the request. You cannot update some fields independent of
-  others. To
-  update a cache policy configuration:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateCachePolicy&this_doc_guide=API%2520Reference)
 
-    1.
-  Use `GetCachePolicyConfig` to get the current configuration.
-
-    2.
-  Locally modify the fields in the cache policy configuration that you want to
-  update.
-
-    3.
-  Call `UpdateCachePolicy` by providing the entire cache policy
-  configuration, including the fields that you modified and those that you
-  didn't.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the cache policy that you are updating. The identifier is
-  	returned in a cache behavior&#39;s <code>CachePolicyId</code> field in the response to
-  		<code>GetDistributionConfig</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the cache policy that you are
+    updating. The identifier is returned in a cache behavior's CachePolicyId
+    field in the response to GetDistributionConfig.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the cache policy that you are updating. The version is returned in the
-  	cache policy&#39;s <code>ETag</code> field in the response to
-  		<code>GetCachePolicyConfig</code>.
+  * `:if_match` (`t:string`) The version of the cache policy that you are
+    updating. The version is returned in the cache policy's ETag field in the
+    response to GetCachePolicyConfig.
   """
   @spec update_cache_policy(
           AWS.Client.t(),
@@ -11964,12 +11618,14 @@ defmodule AWS.CloudFront do
   @doc """
   Update an origin access identity.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identity&#39;s id.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateCloudFrontOriginAccessIdentity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identity's id.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	identity&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
   """
   @spec update_cloud_front_origin_access_identity(
           AWS.Client.t(),
@@ -12005,39 +11661,23 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a continuous deployment policy.
+  Updates a continuous deployment policy. You can update a continuous deployment
+  policy to enable or disable it, to change the percentage of traffic that it
+  sends to the staging distribution, or to change the staging distribution that
+  it sends traffic to. When you update a continuous deployment policy
+  configuration, all the fields are updated with the values that are provided in
+  the request. You cannot update some fields independent of others. To update a
+  continuous deployment policy configuration:
 
-  You can update a continuous deployment policy
-  to enable or disable it, to change the percentage of traffic that it sends to
-  the
-  staging distribution, or to change the staging distribution that it sends
-  traffic
-  to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateContinuousDeploymentPolicy&this_doc_guide=API%2520Reference)
 
-  When you update a continuous deployment policy configuration, all the fields are
-  updated with the values that are provided in the request. You cannot update some
-  fields
-  independent of others. To update a continuous deployment policy configuration:
-
-    1.
-  Use `GetContinuousDeploymentPolicyConfig` to get the current
-  configuration.
-
-    2.
-  Locally modify the fields in the continuous deployment policy configuration
-  that you want to update.
-
-    3.
-  Use `UpdateContinuousDeploymentPolicy`, providing the entire
-  continuous deployment policy configuration, including the fields that you
-  modified and those that you didn't.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the continuous deployment policy that you are updating.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the continuous deployment policy that you
+    are updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the continuous deployment policy that
-  	you are updating.
+  * `:if_match` (`t:string`) The current version (ETag value) of the continuous
+    deployment policy that you are updating.
   """
   @spec update_continuous_deployment_policy(
           AWS.Client.t(),
@@ -12073,46 +11713,19 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates the configuration for a CloudFront distribution.
+  Updates the configuration for a CloudFront distribution. The update process
+  includes getting the current distribution configuration, updating it to make
+  your changes, and then submitting an `UpdateDistribution` request to make the
+  updates.
 
-  The update process includes getting the current distribution configuration,
-  updating
-  it to make your changes, and then submitting an `UpdateDistribution` request
-  to make the updates.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateDistribution&this_doc_guide=API%2520Reference)
 
-  ## To update a web distribution using the CloudFront
-  API
-
-    1.
-  Use `GetDistributionConfig` to get the current configuration,
-  including the version identifier (`ETag`).
-
-    2.
-  Update the distribution configuration that was returned in the response. Note
-  the following important requirements and restrictions:
-
-      *
-  You must rename the `ETag` field to `IfMatch`,
-  leaving the value unchanged. (Set the value of `IfMatch` to
-  the value of `ETag`, then remove the `ETag`
-  field.)
-
-      *
-  You can't change the value of `CallerReference`.
-
-    3.
-  Submit an `UpdateDistribution` request, providing the distribution
-  configuration. The new configuration replaces the existing configuration. The
-  values that you specify in an `UpdateDistribution` request are not
-  merged into your existing configuration. Make sure to include all fields: the
-  ones that you modified and also the ones that you didn't.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The distribution&#39;s id.
+  ## Parameters:
+  * `:id` (`t:string`) The distribution's id.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	distribution&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
   """
   @spec update_distribution(
           AWS.Client.t(),
@@ -12149,44 +11762,29 @@ defmodule AWS.CloudFront do
 
   @doc """
   Copies the staging distribution's configuration to its corresponding primary
-  distribution.
-
-  The primary distribution retains its `Aliases` (also known as
+  distribution. The primary distribution retains its `Aliases` (also known as
   alternate domain names or CNAMEs) and `ContinuousDeploymentPolicyId` value,
   but otherwise its configuration is overwritten to match the staging
-  distribution.
+  distribution. You can use this operation in a continuous deployment workflow
+  after you have tested configuration changes on the staging distribution. After
+  using a continuous deployment policy to move a portion of your domain name's
+  traffic to the staging distribution and verifying that it works as intended,
+  you can use this operation to copy the staging distribution's configuration to
+  the primary distribution. This action will disable the continuous deployment
+  policy and move your domain's traffic back to the primary distribution.
 
-  You can use this operation in a continuous deployment workflow after you have
-  tested
-  configuration changes on the staging distribution. After using a continuous
-  deployment
-  policy to move a portion of your domain name's traffic to the staging
-  distribution and
-  verifying that it works as intended, you can use this operation to copy the
-  staging
-  distribution's configuration to the primary distribution. This action will
-  disable the
-  continuous deployment policy and move your domain's traffic back to the primary
-  distribution.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateDistributionWithStagingConfig&this_doc_guide=API%2520Reference)
 
-  This API operation requires the following IAM permissions:
-
-    *
-
-  [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html) 
-
-    *
-
-  [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the primary distribution to which you are copying a staging distribution&#39;s
-  	configuration.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the primary distribution to which you are
+    copying a staging distribution's configuration.
 
   ## Optional parameters:
-  * `:staging_distribution_id` (`t:string`) The identifier of the staging distribution whose configuration you are copying to the primary distribution.
-  * `:if_match` (`t:string`) The current versions (<code>ETag</code> values) of both primary and staging distributions.
-  	Provide these in the following format:
+  * `:staging_distribution_id` (`t:string`) The identifier of the staging
+    distribution whose configuration you are copying to the primary
+    distribution.
+  * `:if_match` (`t:string`) The current versions (ETag values) of both primary
+    and staging distributions. Provide these in the following format:
   """
   @spec update_distribution_with_staging_config(
           AWS.Client.t(),
@@ -12228,12 +11826,15 @@ defmodule AWS.CloudFront do
   @doc """
   Update a field-level encryption configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFieldLevelEncryptionConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the configuration you want to update.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	configuration identity to update. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the configuration identity to update. For example:
+    E2QWRUHAPOMQZL.
   """
   @spec update_field_level_encryption_config(
           AWS.Client.t(),
@@ -12271,12 +11872,14 @@ defmodule AWS.CloudFront do
   @doc """
   Update a field-level encryption profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFieldLevelEncryptionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the field-level encryption profile request.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	profile identity to update. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the profile identity to update. For example: E2QWRUHAPOMQZL.
   """
   @spec update_field_level_encryption_profile(
           AWS.Client.t(),
@@ -12312,22 +11915,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a CloudFront function.
+  Updates a CloudFront function. You can update a function's code or the comment
+  that describes the function. You cannot update a function's name.
 
-  You can update a function's code or the comment that describes the function. You
-  cannot update a function's name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateFunction&this_doc_guide=API%2520Reference)
 
-  To update a function, you provide the function's name and version (`ETag`
-  value) along with the updated function code. To get the name and version, you
-  can use
-  `ListFunctions` and `DescribeFunction`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the function that you are updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the function that you are updating,
-  	which you can get using <code>DescribeFunction</code>.
+  * `:if_match` (`t:string`) The current version (ETag value) of the function that
+    you are updating, which you can get using DescribeFunction.
   """
   @spec update_function(AWS.Client.t(), String.t(), update_function_request(), Keyword.t()) ::
           {:ok, update_function_result(), any()}
@@ -12358,32 +11956,18 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a key group.
+  Updates a key group. When you update a key group, all the fields are updated
+  with the values provided in the request. You cannot update some fields
+  independent of others. To update a key group:
 
-  When you update a key group, all the fields are updated with the values provided
-  in
-  the request. You cannot update some fields independent of others. To update a
-  key
-  group:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateKeyGroup&this_doc_guide=API%2520Reference)
 
-    1.
-  Get the current key group with `GetKeyGroup` or
-  `GetKeyGroupConfig`.
-
-    2.
-  Locally modify the fields in the key group that you want to update. For
-  example, add or remove public key IDs.
-
-    3.
-  Call `UpdateKeyGroup` with the entire key group object, including
-  the fields that you modified and those that you didn't.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the key group that you are updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the key group that you are updating. The version is the key group&#39;s
-  		<code>ETag</code> value.
+  * `:if_match` (`t:string`) The version of the key group that you are updating.
+    The version is the key group's ETag value.
   """
   @spec update_key_group(AWS.Client.t(), String.t(), update_key_group_request(), Keyword.t()) ::
           {:ok, update_key_group_result(), any()}
@@ -12416,7 +12000,9 @@ defmodule AWS.CloudFront do
   @doc """
   Specifies the key value store to update.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateKeyValueStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the key value store to update.
 
   ## Optional parameters:
@@ -12458,12 +12044,15 @@ defmodule AWS.CloudFront do
   @doc """
   Updates a CloudFront origin access control.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier of the origin access control that you are updating.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateOriginAccessControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier of the origin access control that you
+    are updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The current version (<code>ETag</code> value) of the origin access control that you
-  	are updating.
+  * `:if_match` (`t:string`) The current version (ETag value) of the origin access
+    control that you are updating.
   """
   @spec update_origin_access_control(
           AWS.Client.t(),
@@ -12499,36 +12088,22 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates an origin request policy configuration.
+  Updates an origin request policy configuration. When you update an origin
+  request policy configuration, all the fields are updated with the values
+  provided in the request. You cannot update some fields independent of others.
+  To update an origin request policy configuration:
 
-  When you update an origin request policy configuration, all the fields are
-  updated
-  with the values provided in the request. You cannot update some fields
-  independent of
-  others. To update an origin request policy configuration:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateOriginRequestPolicy&this_doc_guide=API%2520Reference)
 
-    1.
-  Use `GetOriginRequestPolicyConfig` to get the current
-  configuration.
-
-    2.
-  Locally modify the fields in the origin request policy configuration that you
-  want to update.
-
-    3.
-  Call `UpdateOriginRequestPolicy` by providing the entire origin
-  request policy configuration, including the fields that you modified and those
-  that you didn't.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the origin request policy that you are updating. The
-  	identifier is returned in a cache behavior&#39;s <code>OriginRequestPolicyId</code> field in
-  	the response to <code>GetDistributionConfig</code>.
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the origin request policy that
+    you are updating. The identifier is returned in a cache behavior's
+    OriginRequestPolicyId field in the response to GetDistributionConfig.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the origin request policy that you are updating. The version is
-  	returned in the origin request policy&#39;s <code>ETag</code> field in the response to
-  		<code>GetOriginRequestPolicyConfig</code>.
+  * `:if_match` (`t:string`) The version of the origin request policy that you are
+    updating. The version is returned in the origin request policy's ETag field
+    in the response to GetOriginRequestPolicyConfig.
   """
   @spec update_origin_request_policy(
           AWS.Client.t(),
@@ -12564,17 +12139,17 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Update public key information.
-
-  Note that the only value you can change is the
+  Update public key information. Note that the only value you can change is the
   comment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdatePublicKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the public key that you are updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the public
-  	key to update. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the public key to update. For example: E2QWRUHAPOMQZL.
   """
   @spec update_public_key(AWS.Client.t(), String.t(), update_public_key_request(), Keyword.t()) ::
           {:ok, update_public_key_result(), any()}
@@ -12605,31 +12180,14 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a real-time log configuration.
+  Updates a real-time log configuration. When you update a real-time log
+  configuration, all the parameters are updated with the values provided in the
+  request. You cannot update some parameters independent of others. To update a
+  real-time log configuration:
 
-  When you update a real-time log configuration, all the parameters are updated
-  with the
-  values provided in the request. You cannot update some parameters independent of
-  others.
-  To update a real-time log configuration:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateRealtimeLogConfig&this_doc_guide=API%2520Reference)
 
-    1.
-  Call `GetRealtimeLogConfig` to get the current real-time log
-  configuration.
-
-    2.
-  Locally modify the parameters in the real-time log configuration that you want
-  to update.
-
-    3.
-  Call this API (`UpdateRealtimeLogConfig`) by providing the entire
-  real-time log configuration, including the parameters that you modified and
-  those that you didn't.
-
-  You cannot update a real-time log configuration's `Name` or
-  `ARN`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12653,32 +12211,19 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Updates a response headers policy.
+  Updates a response headers policy. When you update a response headers policy,
+  the entire policy is replaced. You cannot update some policy fields
+  independent of others. To update a response headers policy configuration:
 
-  When you update a response headers policy, the entire policy is replaced. You
-  cannot
-  update some policy fields independent of others. To update a response headers
-  policy
-  configuration:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateResponseHeadersPolicy&this_doc_guide=API%2520Reference)
 
-    1.
-  Use `GetResponseHeadersPolicyConfig` to get the current policy's
-  configuration.
-
-    2.
-  Modify the fields in the response headers policy configuration that you want
-  to update.
-
-    3.
-  Call `UpdateResponseHeadersPolicy`, providing the entire response
-  headers policy configuration, including the fields that you modified and those
-  that you didn't.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier for the response headers policy that you are updating.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier for the response headers policy that you are
+    updating.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The version of the response headers policy that you are updating.
+  * `:if_match` (`t:string`) The version of the response headers policy that you
+    are updating.
   """
   @spec update_response_headers_policy(
           AWS.Client.t(),
@@ -12716,12 +12261,15 @@ defmodule AWS.CloudFront do
   @doc """
   Update a streaming distribution.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The streaming distribution&#39;s id.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cloudfront%20UpdateStreamingDistribution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The streaming distribution's id.
 
   ## Optional parameters:
-  * `:if_match` (`t:string`) The value of the <code>ETag</code> header that you received when retrieving the
-  	streaming distribution&#39;s configuration. For example: <code>E2QWRUHAPOMQZL</code>.
+  * `:if_match` (`t:string`) The value of the ETag header that you received when
+    retrieving the streaming distribution's configuration. For example:
+    E2QWRUHAPOMQZL.
   """
   @spec update_streaming_distribution(
           AWS.Client.t(),

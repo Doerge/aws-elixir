@@ -3,23 +3,9 @@
 
 defmodule AWS.BackupGateway do
   @moduledoc """
-  Backup gateway
-
-  Backup gateway connects Backup to your hypervisor, so you can
+  Backup gateway Backup gateway connects Backup to your hypervisor, so you can
   create, store, and restore backups of your virtual machines (VMs) anywhere,
-  whether
-  on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
-
-  Add on-premises resources by connecting to a hypervisor through a gateway.
-  Backup will automatically discover the resources in your hypervisor.
-
-  Use Backup to assign virtual or on-premises resources to a backup plan, or run
-  on-demand backups. Once you have backed up your resources, you can view them and
-  restore them
-  like any resource supported by Backup.
-
-  To download the Amazon Web Services software to get started, navigate to the
-  Backup console, choose **Gateways**, then choose **Create gateway**.
+  whether on-premises or in the VMware Cloud (VMC) on Amazon Web Services.
   """
 
   alias AWS.Client
@@ -920,10 +906,8 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Associates a backup gateway with your server.
-
-  After you complete the association process,
-  you can back up and restore your VMs through the gateway.
+  Associates a backup gateway with your server. After you complete the association
+  process, you can back up and restore your VMs through the gateway.
   """
   @spec associate_gateway_to_server(
           AWS.Client.t(),
@@ -941,10 +925,8 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Creates a backup gateway.
-
-  After you create a gateway, you can associate it with a server
-  using the `AssociateGatewayToServer` operation.
+  Creates a backup gateway. After you create a gateway, you can associate it with
+  a server using the `AssociateGatewayToServer` operation.
   """
   @spec create_gateway(AWS.Client.t(), create_gateway_input(), Keyword.t()) ::
           {:ok, create_gateway_output(), any()}
@@ -985,10 +967,9 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Disassociates a backup gateway from the specified server.
-
-  After the disassociation process
-  finishes, the gateway can no longer access the virtual machines on the server.
+  Disassociates a backup gateway from the specified server. After the
+  disassociation process finishes, the gateway can no longer access the virtual
+  machines on the server.
   """
   @spec disassociate_gateway_from_server(
           AWS.Client.t(),
@@ -1006,11 +987,10 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Retrieves the bandwidth rate limit schedule for a specified gateway.
-
-  By default, gateways do not have bandwidth rate limit schedules, which means
-  no bandwidth rate limiting is in effect. Use this to get a gateway's
-  bandwidth rate limit schedule.
+  Retrieves the bandwidth rate limit schedule for a specified gateway. By default,
+  gateways do not have bandwidth rate limit schedules, which means no bandwidth
+  rate limiting is in effect. Use this to get a gateway's bandwidth rate limit
+  schedule.
   """
   @spec get_bandwidth_rate_limit_schedule(
           AWS.Client.t(),
@@ -1028,8 +1008,7 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  By providing the ARN (Amazon Resource Name), this
-  API returns the gateway.
+  By providing the ARN (Amazon Resource Name), this API returns the gateway.
   """
   @spec get_gateway(AWS.Client.t(), get_gateway_input(), Keyword.t()) ::
           {:ok, get_gateway_output(), any()}
@@ -1044,11 +1023,8 @@ defmodule AWS.BackupGateway do
 
   @doc """
   This action requests information about the specified hypervisor to which the
-  gateway will connect.
-
-  A hypervisor is hardware, software, or firmware that creates and manages virtual
-  machines,
-  and allocates resources to them.
+  gateway will connect. A hypervisor is hardware, software, or firmware that
+  creates and manages virtual machines, and allocates resources to them.
   """
   @spec get_hypervisor(AWS.Client.t(), get_hypervisor_input(), Keyword.t()) ::
           {:ok, get_hypervisor_output(), any()}
@@ -1062,11 +1038,10 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  This action retrieves the property mappings for the specified hypervisor.
-
-  A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  This action retrieves the property mappings for the specified hypervisor. A
+  hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in
+  Amazon Web Services.
   """
   @spec get_hypervisor_property_mappings(
           AWS.Client.t(),
@@ -1118,9 +1093,8 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Lists backup gateways owned by an Amazon Web Services account in an Amazon Web
-  Services Region.
-
-  The returned list is ordered by gateway Amazon Resource Name (ARN).
+  Services Region. The returned list is ordered by gateway Amazon Resource Name
+  (ARN).
   """
   @spec list_gateways(AWS.Client.t(), list_gateways_input(), Keyword.t()) ::
           {:ok, list_gateways_output(), any()}
@@ -1174,11 +1148,10 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  This action sets the bandwidth rate limit schedule for a specified gateway.
-
-  By default, gateways do not have a bandwidth rate limit schedule, which means
-  no bandwidth rate limiting is in effect. Use this to initiate a
-  gateway's bandwidth rate limit schedule.
+  This action sets the bandwidth rate limit schedule for a specified gateway. By
+  default, gateways do not have a bandwidth rate limit schedule, which means no
+  bandwidth rate limiting is in effect. Use this to initiate a gateway's
+  bandwidth rate limit schedule.
   """
   @spec put_bandwidth_rate_limit_schedule(
           AWS.Client.t(),
@@ -1196,11 +1169,10 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  This action sets the property mappings for the specified hypervisor.
-
-  A hypervisor property mapping displays the relationship of entity properties
-  available from the on-premises hypervisor to the properties available in Amazon
-  Web Services.
+  This action sets the property mappings for the specified hypervisor. A
+  hypervisor property mapping displays the relationship of entity properties
+  available from the on-premises hypervisor to the properties available in
+  Amazon Web Services.
   """
   @spec put_hypervisor_property_mappings(
           AWS.Client.t(),
@@ -1270,8 +1242,7 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Tests your hypervisor configuration to validate that backup gateway can connect
-  with the
-  hypervisor and its resources.
+  with the hypervisor and its resources.
   """
   @spec test_hypervisor_configuration(
           AWS.Client.t(),
@@ -1303,10 +1274,8 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Updates a gateway's name.
-
-  Specify which gateway to update using the Amazon Resource Name
-  (ARN) of the gateway in your request.
+  Updates a gateway's name. Specify which gateway to update using the Amazon
+  Resource Name (ARN) of the gateway in your request.
   """
   @spec update_gateway_information(
           AWS.Client.t(),
@@ -1324,13 +1293,8 @@ defmodule AWS.BackupGateway do
   end
 
   @doc """
-  Updates the gateway virtual machine (VM) software.
-
-  The request immediately triggers the software update.
-
-  When you make this request, you get a `200 OK`
-  success response immediately. However, it might take some
-  time for the update to complete.
+  Updates the gateway virtual machine (VM) software. The request immediately
+  triggers the software update.
   """
   @spec update_gateway_software_now(
           AWS.Client.t(),
@@ -1349,11 +1313,8 @@ defmodule AWS.BackupGateway do
 
   @doc """
   Updates a hypervisor metadata, including its host, username, and password.
-
-  Specify which
-  hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in
-  your
-  request.
+  Specify which hypervisor to update using the Amazon Resource Name (ARN) of the
+  hypervisor in your request.
   """
   @spec update_hypervisor(AWS.Client.t(), update_hypervisor_input(), Keyword.t()) ::
           {:ok, update_hypervisor_output(), any()}

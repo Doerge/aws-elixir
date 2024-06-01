@@ -898,8 +898,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Changes the packaging group's properities to configure log subscription
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ConfigureLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -921,7 +923,9 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Creates a new MediaPackage VOD Asset resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreateAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -953,7 +957,9 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Creates a new MediaPackage VOD PackagingConfiguration resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreatePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -989,7 +995,9 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Creates a new MediaPackage VOD PackagingGroup resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20CreatePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1021,8 +1029,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Deletes an existing MediaPackage VOD Asset resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeleteAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1054,8 +1064,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Deletes a MediaPackage VOD PackagingConfiguration resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1092,8 +1104,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Deletes a MediaPackage VOD PackagingGroup resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DeletePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1130,8 +1144,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD Asset resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribeAsset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1158,8 +1174,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD PackagingConfiguration resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1186,8 +1204,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a description of a MediaPackage VOD PackagingGroup resource.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20DescribePackagingGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1214,12 +1234,14 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a collection of MediaPackage VOD Asset resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListAssets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:packaging_group_id` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:packaging_group_id` (`t:string`)
   """
   @spec list_assets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_assets_response(), any()}
@@ -1271,12 +1293,14 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a collection of MediaPackage VOD PackagingConfiguration resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:packaging_group_id` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:packaging_group_id` (`t:string`)
   """
   @spec list_packaging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_configurations_response(), any()}
@@ -1328,11 +1352,13 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a collection of MediaPackage VOD PackagingGroup resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_packaging_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_packaging_groups_response(), any()}
@@ -1375,8 +1401,10 @@ defmodule AWS.MediaPackageVod do
   @doc """
   Returns a list of the tags assigned to the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1400,12 +1428,12 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Adds tags to the specified resource.
+  Adds tags to the specified resource. You can specify one or more tags to add.
 
-  You can specify one or more tags to add.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1434,15 +1462,16 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Removes tags from the specified resource.
+  Removes tags from the specified resource. You can specify one or more tags to
+  remove.
 
-  You can specify one or more tags to remove.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]`) 
+  * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]`)
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1474,12 +1503,13 @@ defmodule AWS.MediaPackageVod do
   end
 
   @doc """
-  Updates a specific packaging group.
+  Updates a specific packaging group. You can't change the id attribute or any
+  other system-generated attributes.
 
-  You can't change the id attribute or any other system-generated attributes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20UpdatePackagingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """

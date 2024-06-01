@@ -3,13 +3,11 @@
 
 defmodule AWS.GroundStation do
   @moduledoc """
-  Welcome to the AWS Ground Station API Reference.
-
-  AWS Ground Station is a fully managed service that
-  enables you to control satellite communications, downlink and process satellite
-  data, and
-  scale your satellite operations efficiently and cost-effectively without having
-  to build or manage your own ground station infrastructure.
+  Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully
+  managed service that enables you to control satellite communications, downlink
+  and process satellite data, and scale your satellite operations efficiently
+  and cost-effectively without having to build or manage your own ground station
+  infrastructure.
   """
 
   alias AWS.Client
@@ -1540,7 +1538,9 @@ defmodule AWS.GroundStation do
   @doc """
   Cancels a contact with a specified contact ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CancelContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:contact_id` (`t:string`) UUID of a contact.
 
   ## Optional parameters:
@@ -1573,9 +1573,9 @@ defmodule AWS.GroundStation do
   @doc """
   Creates a `Config` with the specified `configData` parameters.
 
-  Only one type of `configData` can be specified.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1606,16 +1606,13 @@ defmodule AWS.GroundStation do
 
   @doc """
   Creates a `DataflowEndpoint` group containing the specified list of
-  `DataflowEndpoint` objects.
+  `DataflowEndpoint` objects. The `name` field in each endpoint is used in your
+  mission profile `DataflowEndpointConfig` to specify which endpoints to use
+  during a contact.
 
-  The `name` field in each endpoint is used in your mission profile
-  `DataflowEndpointConfig`
-  to specify which endpoints to use during a contact.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateDataflowEndpointGroup&this_doc_guide=API%2520Reference)
 
-  When a contact uses multiple `DataflowEndpointConfig` objects, each `Config`
-  must match a `DataflowEndpoint` in the same group.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1651,7 +1648,9 @@ defmodule AWS.GroundStation do
   @doc """
   Creates an Ephemeris with the specified `EphemerisData`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateEphemeris&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1683,10 +1682,9 @@ defmodule AWS.GroundStation do
   @doc """
   Creates a mission profile.
 
-  `dataflowEdges` is a list of lists of strings. Each lower level list of strings
-  has two elements: a *from* ARN and a *to* ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateMissionProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1718,9 +1716,11 @@ defmodule AWS.GroundStation do
   @doc """
   Deletes a `Config`.
 
-  ## Required positional parameters:
-  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
-  * `:config_type` (`t:string`) Type of a <code>Config</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:config_id` (`t:string`) UUID of a Config.
+  * `:config_type` (`t:string`) Type of a Config.
 
   ## Optional parameters:
   """
@@ -1758,7 +1758,9 @@ defmodule AWS.GroundStation do
   @doc """
   Deletes a dataflow endpoint group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteDataflowEndpointGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
 
   ## Optional parameters:
@@ -1801,7 +1803,9 @@ defmodule AWS.GroundStation do
   @doc """
   Deletes an ephemeris
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteEphemeris&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
@@ -1834,7 +1838,9 @@ defmodule AWS.GroundStation do
   @doc """
   Deletes a mission profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DeleteMissionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:
@@ -1872,7 +1878,9 @@ defmodule AWS.GroundStation do
   @doc """
   Describes an existing contact.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DescribeContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:contact_id` (`t:string`) UUID of a contact.
 
   ## Optional parameters:
@@ -1900,7 +1908,9 @@ defmodule AWS.GroundStation do
   @doc """
   Describes an existing ephemeris.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20DescribeEphemeris&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
@@ -1926,12 +1936,11 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
-  Gets the latest configuration information for a registered agent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetAgentConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:agent_id` (`t:string`) UUID of agent to get configuration information for.
 
   ## Optional parameters:
@@ -1959,11 +1968,11 @@ defmodule AWS.GroundStation do
   @doc """
   Returns `Config` information.
 
-  Only one `Config` response can be returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
-  * `:config_type` (`t:string`) Type of a <code>Config</code>.
+  ## Parameters:
+  * `:config_id` (`t:string`) UUID of a Config.
+  * `:config_type` (`t:string`) Type of a Config.
 
   ## Optional parameters:
   """
@@ -1990,7 +1999,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns the dataflow endpoint group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetDataflowEndpointGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataflow_endpoint_group_id` (`t:string`) UUID of a dataflow endpoint group.
 
   ## Optional parameters:
@@ -2018,7 +2029,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns the number of reserved minutes used by account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetMinuteUsage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2050,7 +2063,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a mission profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetMissionProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:
@@ -2078,7 +2093,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a satellite.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetSatellite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:satellite_id` (`t:string`) UUID of a satellite.
 
   ## Optional parameters:
@@ -2106,11 +2123,14 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of `Config` objects.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListConfigs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of <code>Configs</code> returned.
-  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.
+  * `:max_results` (`t:integer`) Maximum number of Configs returned.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous
+    ListConfigs call. Used to get the next page of results.
   """
   @spec list_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configs_response(), any()}
@@ -2153,10 +2173,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of contacts.
 
-  If `statusList` contains AVAILABLE, the request must include
-  `groundStation`, `missionprofileArn`, and `satelliteArn`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListContacts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2188,11 +2207,15 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of `DataflowEndpoint` groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListDataflowEndpointGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups returned.
-  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.
+  * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups
+    returned.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous
+    ListDataflowEndpointGroups call. Used to get the next page of results.
   """
   @spec list_dataflow_endpoint_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
@@ -2235,7 +2258,9 @@ defmodule AWS.GroundStation do
   @doc """
   List existing ephemerides.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListEphemerides&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of ephemerides to return.
@@ -2275,12 +2300,16 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of ground stations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListGroundStations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of ground stations returned.
-  * `:next_token` (`t:string`) Next token that can be supplied in the next call to get the next page of ground stations.
-  * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground stations.
+  * `:next_token` (`t:string`) Next token that can be supplied in the next call to
+    get the next page of ground stations.
+  * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground
+    stations.
   """
   @spec list_ground_stations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ground_stations_response(), any()}
@@ -2332,11 +2361,14 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of mission profiles.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListMissionProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of mission profiles returned.
-  * `:next_token` (`t:string`) Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.
+  * `:next_token` (`t:string`) Next token returned in the request of a previous
+    ListMissionProfiles call. Used to get the next page of results.
   """
   @spec list_mission_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mission_profiles_response(), any()}
@@ -2379,11 +2411,14 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of satellites.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListSatellites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of satellites returned.
-  * `:next_token` (`t:string`) Next token that can be supplied in the next call to get the next page of satellites.
+  * `:next_token` (`t:string`) Next token that can be supplied in the next call to
+    get the next page of satellites.
   """
   @spec list_satellites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_satellites_response(), any()}
@@ -2426,7 +2461,9 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of tags for a specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) ARN of a resource.
 
   ## Optional parameters:
@@ -2452,12 +2489,11 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
-  Registers a new agent with AWS Ground Station.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20RegisterAgent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2489,7 +2525,9 @@ defmodule AWS.GroundStation do
   @doc """
   Reserves a contact using specified parameters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ReserveContact&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2521,7 +2559,9 @@ defmodule AWS.GroundStation do
   @doc """
   Assigns a tag to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) ARN of a resource tag.
 
   ## Optional parameters:
@@ -2554,11 +2594,14 @@ defmodule AWS.GroundStation do
   @doc """
   Deassigns a resource tag.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) ARN of a resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]`) Keys of a resource tag.
+  * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]`) Keys of a
+    resource tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2591,12 +2634,11 @@ defmodule AWS.GroundStation do
   end
 
   @doc """
-
   For use by AWS Ground Station Agent and shouldn't be called directly.
 
-  Update the status of the agent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateAgentStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:agent_id` (`t:string`) UUID of agent to update.
 
   ## Optional parameters:
@@ -2624,12 +2666,11 @@ defmodule AWS.GroundStation do
   @doc """
   Updates the `Config` used when scheduling contacts.
 
-  Updating a `Config` will not update the execution parameters
-  for existing future contacts scheduled with this `Config`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:config_id` (`t:string`) UUID of a <code>Config</code>.
-  * `:config_type` (`t:string`) Type of a <code>Config</code>.
+  ## Parameters:
+  * `:config_id` (`t:string`) UUID of a Config.
+  * `:config_type` (`t:string`) Type of a Config.
 
   ## Optional parameters:
   """
@@ -2657,7 +2698,9 @@ defmodule AWS.GroundStation do
   @doc """
   Updates an existing ephemeris
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateEphemeris&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ephemeris_id` (`t:string`) The AWS Ground Station ephemeris ID.
 
   ## Optional parameters:
@@ -2680,10 +2723,9 @@ defmodule AWS.GroundStation do
   @doc """
   Updates a mission profile.
 
-  Updating a mission profile will not update the execution parameters
-  for existing future contacts.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20UpdateMissionProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:mission_profile_id` (`t:string`) UUID of a mission profile.
 
   ## Optional parameters:

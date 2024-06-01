@@ -4,33 +4,16 @@
 defmodule AWS.Amp do
   @moduledoc """
   Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible
-  monitoring service for
-  container metrics that makes it easier to securely monitor container
-  environments at
-  scale.
-
-  With Amazon Managed Service for Prometheus, you can use the same open-source
-  Prometheus data
-  model and query language that you use today to monitor the performance of your
-  containerized workloads, and also enjoy improved scalability, availability, and
-  security
-  without having to manage the underlying infrastructure.
-
-  For more information about Amazon Managed Service for Prometheus, see the
-  [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
-  User Guide.
-
-  Amazon Managed Service for Prometheus includes two APIs.
-
-    *
-  Use the Amazon Web Services API described in this guide to manage Amazon Managed
-  Service for Prometheus resources, such as workspaces, rule groups, and alert
-  managers.
-
-    *
-  Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
-  to work within your Prometheus
-  workspace.
+  monitoring service for container metrics that makes it easier to securely
+  monitor container environments at scale. With Amazon Managed Service for
+  Prometheus, you can use the same open-source Prometheus data model and query
+  language that you use today to monitor the performance of your containerized
+  workloads, and also enjoy improved scalability, availability, and security
+  without having to manage the underlying infrastructure. For more information
+  about Amazon Managed Service for Prometheus, see the [Amazon Managed Service
+  for
+  Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
+  User Guide. Amazon Managed Service for Prometheus includes two APIs.
   """
 
   alias AWS.Client
@@ -1109,14 +1092,15 @@ defmodule AWS.Amp do
 
   @doc """
   The `CreateAlertManagerDefinition` operation creates the alert manager
-  definition in a workspace.
-
-  If a workspace already has an alert manager definition, don't
-  use this operation to update it. Instead, use
+  definition in a workspace. If a workspace already has an alert manager
+  definition, don't use this operation to update it. Instead, use
   `PutAlertManagerDefinition`.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to add the alert manager definition to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the alert manager
+    definition to.
 
   ## Optional parameters:
   """
@@ -1151,14 +1135,15 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateLoggingConfiguration` operation creates a logging configuration
-  for the workspace.
+  The `CreateLoggingConfiguration` operation creates a logging configuration for
+  the workspace. Use this operation to set the CloudWatch log group to which the
+  logs will be published to.
 
-  Use this operation to set the CloudWatch log group to which
-  the logs will be published to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateLoggingConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to create the logging configuration for.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to create the logging
+    configuration for.
 
   ## Optional parameters:
   """
@@ -1193,18 +1178,15 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace
-  within a workspace.
+  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace within
+  a workspace. A rule groups namespace is associated with exactly one rules
+  file. A workspace can have multiple rule groups namespaces.
 
-  A rule groups namespace is associated with exactly one rules file. A
-  workspace can have multiple rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateRuleGroupsNamespace&this_doc_guide=API%2520Reference)
 
-  Use this operation only to create new rule groups namespaces. To update an
-  existing
-  rule groups namespace, use `PutRuleGroupsNamespace`.
-
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to add the rule groups namespace.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to add the rule groups
+    namespace.
 
   ## Optional parameters:
   """
@@ -1239,35 +1221,22 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateScraper` operation creates a scraper to collect metrics.
+  The `CreateScraper` operation creates a scraper to collect metrics. A scraper
+  pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster,
+  and sends them to your Amazon Managed Service for Prometheus workspace. You
+  can configure the scraper to control what metrics are collected, and what
+  transformations are applied prior to sending them to your workspace. If
+  needed, an IAM role will be created for you that gives Amazon Managed Service
+  for Prometheus access to the metrics in your cluster. For more information,
+  see [Using roles for scraping metrics from
+  EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
+  in the *Amazon Managed Service for Prometheus User Guide*. You cannot update a
+  scraper. If you want to change the configuration of the scraper, create a new
+  scraper and delete the old one.
 
-  A
-  scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
-  cluster, and sends them to your Amazon Managed Service for Prometheus workspace.
-  You can configure the
-  scraper to control what metrics are collected, and what transformations are
-  applied
-  prior to sending them to your workspace.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateScraper&this_doc_guide=API%2520Reference)
 
-  If needed, an IAM role will be created for you that gives Amazon Managed Service
-  for Prometheus access to the metrics in your cluster. For more information, see
-  [Using roles for scraping metrics from EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
-
-  You cannot update a scraper. If you want to change the configuration of the
-  scraper,
-  create a new scraper and delete the old one.
-
-  The `scrapeConfiguration` parameter contains the base64-encoded version of
-  the YAML configuration file.
-
-  For more information about collectors, including what metrics are collected, and
-  how to configure the scraper, see [Amazon Web Services managed collectors](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1297,14 +1266,13 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Creates a Prometheus workspace.
+  Creates a Prometheus workspace. A workspace is a logical space dedicated to the
+  storage and querying of Prometheus metrics. You can have one or more
+  workspaces in each Region in your account.
 
-  A workspace is a logical space dedicated to the
-  storage and querying of Prometheus metrics. You can have one or more workspaces
-  in each
-  Region in your account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1336,12 +1304,15 @@ defmodule AWS.Amp do
   @doc """
   Deletes the alert manager definition from a workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to delete the alert manager definition from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to delete the alert
+    manager definition from.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
-            Case-sensitive.
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_alert_manager_definition(
           AWS.Client.t(),
@@ -1381,12 +1352,15 @@ defmodule AWS.Amp do
   @doc """
   Deletes the logging configuration for a workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace containing the logging configuration to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the logging
+    configuration to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
-            Case-sensitive.
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_logging_configuration(
           AWS.Client.t(),
@@ -1426,14 +1400,16 @@ defmodule AWS.Amp do
   @doc """
   Deletes one rule groups namespace and its associated rule groups definition.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteRuleGroupsNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the rule groups namespace to delete.
-  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespace and definition to
-            delete.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespace and definition to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
-            Case-sensitive.
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_rule_groups_namespace(
           AWS.Client.t(),
@@ -1477,12 +1453,14 @@ defmodule AWS.Amp do
   The `DeleteScraper` operation deletes one scraper, and stops any metrics
   collection that the scraper performs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteScraper&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:scraper_id` (`t:string`) The ID of the scraper to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier that you can provide to ensure the 
-            idempotency of the request.
+  * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier
+    that you can provide to ensure the idempotency of the request.
   """
   @spec delete_scraper(AWS.Client.t(), String.t(), delete_scraper_request(), Keyword.t()) ::
           {:ok, delete_scraper_response(), any()}
@@ -1517,15 +1495,14 @@ defmodule AWS.Amp do
   @doc """
   Deletes an existing workspace.
 
-  When you delete a workspace, the data that has been ingested into it is not
-  immediately deleted. It will be permanently deleted within one month.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DeleteWorkspace&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique identifier that you can provide to ensure the idempotency of the request.
-            Case-sensitive.
+  * `:client_token` (`t:string`) A unique identifier that you can provide to
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_workspace(AWS.Client.t(), String.t(), delete_workspace_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1561,8 +1538,11 @@ defmodule AWS.Amp do
   Retrieves the full information about the alert manager definition for a
   workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to retrieve the alert manager definition from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeAlertManagerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to retrieve the alert
+    manager definition from.
 
   ## Optional parameters:
   """
@@ -1590,8 +1570,11 @@ defmodule AWS.Amp do
   Returns complete information about the current logging configuration of the
   workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to describe the logging configuration for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to describe the logging
+    configuration for.
 
   ## Optional parameters:
   """
@@ -1616,14 +1599,16 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Returns complete information about one rule groups namespace.
+  Returns complete information about one rule groups namespace. To retrieve a list
+  of rule groups namespaces, use `ListRuleGroupsNamespaces`.
 
-  To retrieve a list of
-  rule groups namespaces, use `ListRuleGroupsNamespaces`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeRuleGroupsNamespace&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the rule groups namespace that you want information for.
-  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespace.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the rule groups namespace that you want
+    information for.
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespace.
 
   ## Optional parameters:
   """
@@ -1649,10 +1634,11 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `DescribeScraper` operation displays information about an existing
-  scraper.
+  The `DescribeScraper` operation displays information about an existing scraper.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeScraper&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:scraper_id` (`t:string`) The ID of the scraper to describe.
 
   ## Optional parameters:
@@ -1680,7 +1666,9 @@ defmodule AWS.Amp do
   @doc """
   Returns information about an existing workspace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20DescribeWorkspace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to describe.
 
   ## Optional parameters:
@@ -1706,10 +1694,12 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `GetDefaultScraperConfiguration` operation returns the default
-  scraper configuration used when Amazon EKS creates a scraper for you.
+  The `GetDefaultScraperConfiguration` operation returns the default scraper
+  configuration used when Amazon EKS creates a scraper for you.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20GetDefaultScraperConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1736,16 +1726,21 @@ defmodule AWS.Amp do
   @doc """
   Returns a list of rule groups namespaces in a workspace.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListRuleGroupsNamespaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace containing the rule
+    groups namespaces.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of results to return. The default is 100.
-  * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces that are returned. Only the
-            namespaces with names that begin with the value that you specify are returned.
-  * `:next_token` (`t:string`) The token for the next set of items to return. You receive this token from a previous
-            call, and use it to get the next page of results. The other parameters must be the same
-            as the initial call.
+  * `:max_results` (`t:`) The maximum number of results to return. The default is
+    100.
+  * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces
+    that are returned. Only the namespaces with names that begin with the value
+    that you specify are returned.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
   @spec list_rule_groups_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
@@ -1795,23 +1790,22 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListScrapers` operation lists all of the scrapers in
-  your account.
+  The `ListScrapers` operation lists all of the scrapers in your account. This
+  includes scrapers being created or deleted. You can optionally filter the
+  returned list.
 
-  This includes scrapers being created or deleted. You can optionally
-  filter the returned list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListScrapers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list of scrapers returned.
-            Keys include <code>status</code>, <code>sourceArn</code>, 
-            <code>destinationArn</code>, and <code>alias</code>.
-  * `:max_results` (`t:`) Optional) The maximum number of
-            scrapers to return in one <code>ListScrapers</code> operation. The range is
-            1-1000.
-  * `:next_token` (`t:string`) (Optional) The token for the next set of
-            items to return. (You received this token from a previous call.)
+  * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list
+    of scrapers returned. Keys include status, sourceArn, destinationArn, and
+    alias.
+  * `:max_results` (`t:`) Optional) The maximum number of scrapers to return in
+    one ListScrapers operation. The range is 1-1000.
+  * `:next_token` (`t:string`) (Optional) The token for the next set of items to
+    return. (You received this token from a previous call.)
   """
   @spec list_scrapers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scrapers_response(), any()}
@@ -1861,15 +1855,15 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with an Amazon Managed Service for Prometheus resource.
+  The `ListTagsForResource` operation returns the tags that are associated with an
+  Amazon Managed Service for Prometheus resource. Currently, the only resources
+  that can be tagged are workspaces and rule groups namespaces.
 
-  Currently, the only resources that can be
-  tagged are workspaces and rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the resource to list tages for. Must be a workspace or rule groups
-            namespace resource.
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the resource to list tages for. Must be a
+    workspace or rule groups namespace resource.
 
   ## Optional parameters:
   """
@@ -1895,20 +1889,20 @@ defmodule AWS.Amp do
 
   @doc """
   Lists all of the Amazon Managed Service for Prometheus workspaces in your
-  account.
+  account. This includes workspaces being created or deleted.
 
-  This includes
-  workspaces being created or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListWorkspaces&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:alias` (`t:string`) If this is included, it filters the results to only the workspaces with names that
-            start with the value that you specify here.
-  * `:max_results` (`t:`) The maximum number of workspaces to return per request. The default is 100.
-  * `:next_token` (`t:string`) The token for the next set of items to return. You receive this token from a previous
-            call, and use it to get the next page of results. The other parameters must be the same
-            as the initial call.
+  * `:alias` (`t:string`) If this is included, it filters the results to only the
+    workspaces with names that start with the value that you specify here.
+  * `:max_results` (`t:`) The maximum number of workspaces to return per request.
+    The default is 100.
+  * `:next_token` (`t:string`) The token for the next set of items to return. You
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -1958,14 +1952,15 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Updates an existing alert manager definition in a workspace.
+  Updates an existing alert manager definition in a workspace. If the workspace
+  does not already have an alert manager definition, don't use this operation to
+  create it. Instead, use `CreateAlertManagerDefinition`.
 
-  If the workspace does not
-  already have an alert manager definition, don't use this operation to create it.
-  Instead, use `CreateAlertManagerDefinition`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20PutAlertManagerDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update the alert manager definition in.
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the alert
+    manager definition in.
 
   ## Optional parameters:
   """
@@ -1990,23 +1985,19 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Updates an existing rule groups namespace within a workspace.
+  Updates an existing rule groups namespace within a workspace. A rule groups
+  namespace is associated with exactly one rules file. A workspace can have
+  multiple rule groups namespaces. Use this operation only to update existing
+  rule groups namespaces. To create a new rule groups namespace, use
+  `CreateRuleGroupsNamespace`.
 
-  A rule groups namespace
-  is associated with exactly one rules file. A workspace can have multiple rule
-  groups
-  namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20PutRuleGroupsNamespace&this_doc_guide=API%2520Reference)
 
-  Use this operation only to update existing rule groups namespaces. To create a
-  new
-  rule groups namespace, use `CreateRuleGroupsNamespace`.
-
-  You can't use this operation to add tags to an existing rule groups namespace.
-  Instead, use `TagResource`.
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the rule groups namespace that you are updating.
-  * `:workspace_id` (`t:string`) The ID of the workspace where you are updating the rule groups namespace.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the rule groups namespace that you are
+    updating.
+  * `:workspace_id` (`t:string`) The ID of the workspace where you are updating
+    the rule groups namespace.
 
   ## Optional parameters:
   """
@@ -2035,22 +2026,14 @@ defmodule AWS.Amp do
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Service for
-  Prometheus
-  resource.
+  Prometheus resource. The only resources that can be tagged are workspaces and
+  rule groups namespaces.
 
-  The only resources that can be tagged are workspaces and rule groups
-  namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20TagResource&this_doc_guide=API%2520Reference)
 
-  If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace to apply tags to.
+  ## Parameters:
+  * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace to
+    apply tags to.
 
   ## Optional parameters:
   """
@@ -2081,16 +2064,17 @@ defmodule AWS.Amp do
 
   @doc """
   Removes the specified tags from an Amazon Managed Service for Prometheus
-  resource.
+  resource. The only resources that can be tagged are workspaces and rule groups
+  namespaces.
 
-  The only resources
-  that can be tagged are workspaces and rule groups namespaces.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:`) The ARN of the workspace or rule groups namespace.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]`) The keys of the tags to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]`) The keys of the tags to
+    remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2126,8 +2110,11 @@ defmodule AWS.Amp do
   Updates the log group ARN or the workspace ID of the current logging
   configuration.
 
-  ## Required positional parameters:
-  * `:workspace_id` (`t:string`) The ID of the workspace to update the logging configuration for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UpdateLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:workspace_id` (`t:string`) The ID of the workspace to update the logging
+    configuration for.
 
   ## Optional parameters:
   """
@@ -2154,7 +2141,9 @@ defmodule AWS.Amp do
   @doc """
   Updates the alias of an existing workspace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20UpdateWorkspaceAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workspace_id` (`t:string`) The ID of the workspace to update.
 
   ## Optional parameters:

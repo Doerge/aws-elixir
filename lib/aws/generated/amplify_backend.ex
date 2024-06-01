@@ -1525,7 +1525,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   This operation clones an existing backend.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CloneBackend&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -1565,11 +1567,12 @@ defmodule AWS.AmplifyBackend do
   end
 
   @doc """
-  This operation creates a backend for an Amplify app.
+  This operation creates a backend for an Amplify app. Backends are automatically
+  created at the time of app creation.
 
-  Backends are automatically created at the time of app creation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackend&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1601,7 +1604,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a new backend API resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendAPI&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -1634,7 +1639,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a new backend authentication resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendAuth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -1672,7 +1679,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a config object for a backend.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -1710,7 +1719,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Creates a backend storage resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateBackendStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -1749,7 +1760,9 @@ defmodule AWS.AmplifyBackend do
   Generates a one-time challenge code to authenticate a user into your Amplify
   Admin UI.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20CreateToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -1782,7 +1795,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes an existing environment from your Amplify project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackend&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -1824,7 +1839,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes an existing backend API resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendAPI&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -1872,7 +1889,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes an existing backend authentication resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendAuth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -1920,7 +1939,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes the specified backend storage resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteBackendStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -1968,7 +1989,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Deletes the challenge token based on the given appId and sessionId.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20DeleteToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:session_id` (`t:string`) The session ID.
 
@@ -2004,7 +2027,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Generates a model schema for an existing backend API resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GenerateBackendAPIModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2052,7 +2077,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Provides project-level details for your Amplify UI project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackend&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -2085,7 +2112,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets the details for a backend API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAPI&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2127,7 +2156,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets a model introspection schema for an existing backend API resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAPIModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2175,7 +2206,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets a backend auth details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendAuth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2217,7 +2250,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Returns information about a specific job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
   * `:job_id` (`t:string`) The ID for the job.
@@ -2248,7 +2283,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets details for a backend storage resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetBackendStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2296,7 +2333,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Gets the challenge token based on the given appId and sessionId.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20GetToken&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:session_id` (`t:string`) The session ID.
 
@@ -2326,7 +2365,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Imports an existing backend authentication resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ImportBackendAuth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2374,7 +2415,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Imports an existing backend storage resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ImportBackendStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2422,7 +2465,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Lists the jobs for the backend of an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ListBackendJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2470,7 +2515,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   The list of S3 buckets in your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20ListS3Buckets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2502,7 +2549,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes all backend environments from your Amplify project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20RemoveAllBackends&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -2540,7 +2589,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Removes the AWS resources required to access the Amplify Admin UI.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20RemoveBackendConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -2578,7 +2629,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates an existing backend API resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendAPI&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2626,7 +2679,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates an existing backend authentication resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendAuth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 
@@ -2674,7 +2729,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates the AWS resources required to access the Amplify Admin UI.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
 
   ## Optional parameters:
@@ -2712,7 +2769,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates a specific job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
   * `:job_id` (`t:string`) The ID for the job.
@@ -2763,7 +2822,9 @@ defmodule AWS.AmplifyBackend do
   @doc """
   Updates an existing backend storage resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifybackend%20UpdateBackendStorage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The app ID.
   * `:backend_environment_name` (`t:string`) The name of the backend environment.
 

@@ -676,7 +676,9 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Update one or more exclusion status for a list of recommendation resources
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20BatchUpdateRecommendationResourceExclusion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -700,13 +702,14 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Get a specific recommendation within an AWS Organizations organization.
+  Get a specific recommendation within an AWS Organizations organization. This API
+  supports only prioritized recommendations.
 
-  This API supports only prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetOrganizationRecommendation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier
 
   ## Optional parameters:
   """
@@ -738,7 +741,9 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   Get a specific Recommendation
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20GetRecommendation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
@@ -766,17 +771,25 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List a filterable set of Checks
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:aws_service` (`t:string`) The aws service associated with the check
-  * `:language` (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`) The ISO 639-1 code for the language that you want your checks to appear in.
+  * `:language`
+    (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`)
+    The ISO 639-1 code for the language that you want your checks to appear in.
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
-  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the check
-  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the check
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the check
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the check
   """
   @spec list_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_checks_response(), any()}
@@ -854,20 +867,21 @@ defmodule AWS.TrustedAdvisor do
 
   @doc """
   Lists the accounts that own the resources for an organization aggregate
-  recommendation.
+  recommendation. This API only supports prioritized recommendations.
 
-  This API only
-  supports prioritized recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier
 
   ## Optional parameters:
-  * `:affected_account_id` (`t:string`) An account affected by this organization recommendation
+  * `:affected_account_id` (`t:string`) An account affected by this organization
+    recommendation
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
   """
   @spec list_organization_recommendation_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
@@ -922,21 +936,24 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  List Resources of a Recommendation within an Organization.
+  List Resources of a Recommendation within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendationResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The AWS Organization organization&#39;s Recommendation identifier
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The AWS Organization
+    organization's Recommendation identifier
 
   ## Optional parameters:
-  * `:affected_account_id` (`t:string`) An account affected by this organization recommendation
-  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of the resource
+  * `:affected_account_id` (`t:string`) An account affected by this organization
+    recommendation
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
+    the resource
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
   * `:region_code` (`t:`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
@@ -1020,12 +1037,12 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  List a filterable set of Recommendations within an Organization.
+  List a filterable set of Recommendations within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
@@ -1033,11 +1050,15 @@ defmodule AWS.TrustedAdvisor do
   * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
   * `:check_identifier` (`t:string`) The check identifier of the Recommendation
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
-  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the Recommendation
-  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the Recommendation
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
@@ -1154,15 +1175,18 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List Resources of a Recommendation
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendationResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recommendation_identifier` (`t:string`) The Recommendation identifier
 
   ## Optional parameters:
-  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of the resource
+  * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
+    the resource
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
   * `:region_code` (`t:`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
@@ -1234,7 +1258,9 @@ defmodule AWS.TrustedAdvisor do
   @doc """
   List a filterable set of Recommendations
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:after_last_updated_at` (`t:`) After the last update of the Recommendation
@@ -1242,11 +1268,15 @@ defmodule AWS.TrustedAdvisor do
   * `:before_last_updated_at` (`t:`) Before the last update of the Recommendation
   * `:check_identifier` (`t:string`) The check identifier of the Recommendation
   * `:max_results` (`t:`) The maximum number of results to return per page.
-  * `:next_token` (`t:`) The token for the next set of results. Use the value returned in the previous response in the next request
-            to retrieve the next set of results.
-        
-  * `:pillar` (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`) The pillar of the Recommendation
-  * `:source` (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`) The source of the Recommendation
+  * `:next_token` (`t:`) The token for the next set of results. Use the value
+    returned in the previous response in the next request to retrieve the next
+    set of results.
+  * `:pillar`
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
+  * `:source`
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
@@ -1361,13 +1391,14 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Update the lifecycle of a Recommendation within an Organization.
+  Update the lifecycle of a Recommendation within an Organization. This API only
+  supports prioritized recommendations.
 
-  This API only supports prioritized
-  recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateOrganizationRecommendationLifecycle&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:organization_recommendation_identifier` (`t:string`) The Recommendation identifier for AWS Trusted Advisor Priority recommendations
+  ## Parameters:
+  * `:organization_recommendation_identifier` (`t:string`) The Recommendation
+    identifier for AWS Trusted Advisor Priority recommendations
 
   ## Optional parameters:
   """
@@ -1399,12 +1430,14 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Update the lifecyle of a Recommendation.
+  Update the lifecyle of a Recommendation. This API only supports prioritized
+  recommendations.
 
-  This API only supports prioritized recommendations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20UpdateRecommendationLifecycle&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:recommendation_identifier` (`t:string`) The Recommendation identifier for AWS Trusted Advisor Priority recommendations
+  ## Parameters:
+  * `:recommendation_identifier` (`t:string`) The Recommendation identifier for
+    AWS Trusted Advisor Priority recommendations
 
   ## Optional parameters:
   """

@@ -3,13 +3,7 @@
 
 defmodule AWS.Polly do
   @moduledoc """
-  Amazon Polly is a web service that makes it easy to synthesize speech from
-  text.
-
-  The Amazon Polly service provides API operations for synthesizing
-  high-quality speech from plain text and Speech Synthesis Markup Language
-  (SSML), along with managing pronunciations lexicons that enable you to get
-  the best results for your application domain.
+  Amazon Polly is a web service that makes it easy to synthesize speech from text.
   """
 
   alias AWS.Client
@@ -614,17 +608,15 @@ defmodule AWS.Polly do
 
   @doc """
   Deletes the specified pronunciation lexicon stored in an Amazon Web Services
-  Region.
+  Region. A lexicon which has been deleted is not available for speech
+  synthesis, nor is it possible to retrieve it using either the `GetLexicon` or
+  `ListLexicon` APIs.
 
-  A lexicon which has been deleted is not available for
-  speech synthesis, nor is it possible to retrieve it using either the
-  `GetLexicon` or `ListLexicon` APIs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DeleteLexicon&this_doc_guide=API%2520Reference)
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) The name of the lexicon to delete. Must be an existing lexicon in
-      the region.
+  ## Parameters:
+  * `:name` (`t:string`) The name of the lexicon to delete. Must be an existing
+    lexicon in the region.
 
   ## Optional parameters:
   """
@@ -654,48 +646,34 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the list of voices that are available for use when
-  requesting speech synthesis.
+  Returns the list of voices that are available for use when requesting speech
+  synthesis. Each voice speaks a specified language, is either male or female,
+  and is identified by an ID, which is the ASCII version of the voice name. When
+  synthesizing speech ( `SynthesizeSpeech` ), you provide the voice ID for the
+  voice you want from the list of voices returned by `DescribeVoices`.
 
-  Each voice speaks a specified language, is
-  either male or female, and is identified by an ID, which is the ASCII
-  version of the voice name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DescribeVoices&this_doc_guide=API%2520Reference)
 
-  When synthesizing speech ( `SynthesizeSpeech` ), you
-  provide the voice ID for the voice you want from the list of voices
-  returned by `DescribeVoices`.
-
-  For example, you want your news reader application to read news in
-  a specific language, but giving a user the option to choose the voice.
-  Using the `DescribeVoices` operation you can provide the user
-  with a list of available voices to select from.
-
-  You can optionally specify a language code to filter the available
-  voices. For example, if you specify `en-US`, the operation
-  returns a list of all available US English voices.
-
-  This operation requires permissions to perform the
-  `polly:DescribeVoices` action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the engine (<code>standard</code>, <code>neural</code>,
-      <code>long-form</code> or <code>generative</code>) used by Amazon Polly when
-      processing input text for speech synthesis. 
-  * `:include_additional_language_codes` (`t:boolean`) Boolean value indicating whether to return any bilingual voices that
-      use the specified language as an additional language. For instance, if you
-      request all languages that use US English (es-US), and there is an Italian
-      voice that speaks both Italian (it-IT) and US English, that voice will be
-      included if you specify <code>yes</code> but not if you specify
-        <code>no</code>.
-  * `:language_code` (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)  The language identification tag (ISO 639 code for the language
-      name-ISO 3166 country code) for filtering the list of voices returned. If
-      you don&#39;t specify this optional parameter, all available voices are
-      returned. 
-  * `:next_token` (`t:string`) An opaque pagination token returned from the previous
-        <code>DescribeVoices</code> operation. If present, this indicates where
-      to continue the listing.
+  * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the
+    engine (standard, neural, long-form or generative) used by Amazon Polly when
+    processing input text for speech synthesis.
+  * `:include_additional_language_codes` (`t:boolean`) Boolean value indicating
+    whether to return any bilingual voices that use the specified language as an
+    additional language. For instance, if you request all languages that use US
+    English (es-US), and there is an Italian voice that speaks both Italian
+    (it-IT) and US English, that voice will be included if you specify yes but
+    not if you specify no.
+  * `:language_code`
+    (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)
+    The language identification tag (ISO 639 code for the language name-ISO 3166
+    country code) for filtering the list of voices returned. If you don't
+    specify this optional parameter, all available voices are returned.
+  * `:next_token` (`t:string`) An opaque pagination token returned from the
+    previous DescribeVoices operation. If present, this indicates where to
+    continue the listing.
   """
   @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_voices_output(), any()}
@@ -755,12 +733,13 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the content of the specified pronunciation lexicon stored
-  in an Amazon Web Services Region.
+  Returns the content of the specified pronunciation lexicon stored in an Amazon
+  Web Services Region. For more information, see [Managing
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetLexicon&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) Name of the lexicon.
 
   ## Optional parameters:
@@ -786,14 +765,16 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Retrieves a specific SpeechSynthesisTask object based on its TaskID.
+  Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
+  contains information about the given speech synthesis task, including the
+  status of the task, and a link to the S3 bucket containing the output of the
+  task.
 
-  This object contains information about the given speech synthesis task,
-  including the status of the task, and a link to the S3 bucket containing
-  the output of the task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20GetSpeechSynthesisTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) The Amazon Polly generated identifier for a speech synthesis task.
+  ## Parameters:
+  * `:task_id` (`t:string`) The Amazon Polly generated identifier for a speech
+    synthesis task.
 
   ## Optional parameters:
   """
@@ -819,16 +800,17 @@ defmodule AWS.Polly do
 
   @doc """
   Returns a list of pronunciation lexicons stored in an Amazon Web Services
-  Region.
+  Region. For more information, see [Managing
+  Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListLexicons&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:next_token` (`t:string`) An opaque pagination token returned from previous
-        <code>ListLexicons</code> operation. If present, indicates where to
-      continue the list of lexicons.
+    ListLexicons operation. If present, indicates where to continue the list of
+    lexicons.
   """
   @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lexicons_output(), any()}
@@ -860,21 +842,21 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns a list of SpeechSynthesisTask objects ordered by their
-  creation date.
+  Returns a list of SpeechSynthesisTask objects ordered by their creation date.
+  This operation can filter the tasks by their status, for example, allowing
+  users to list only tasks that are completed.
 
-  This operation can filter the tasks by their status, for
-  example, allowing users to list only tasks that are completed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListSpeechSynthesisTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned in a List
-      operation.
-  * `:next_token` (`t:string`) The pagination token to use in the next request to continue the
-      listing of speech synthesis tasks. 
-  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the speech synthesis tasks returned in a List
-      operation
+  * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned
+    in a List operation.
+  * `:next_token` (`t:string`) The pagination token to use in the next request to
+    continue the listing of speech synthesis tasks.
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the
+    speech synthesis tasks returned in a List operation
   """
   @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
@@ -924,20 +906,18 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Stores a pronunciation lexicon in an Amazon Web Services Region.
+  Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon
+  with the same name already exists in the region, it is overwritten by the new
+  lexicon. Lexicon operations have eventual consistency, therefore, it might
+  take some time before the lexicon is available to the SynthesizeSpeech
+  operation.
 
-  If
-  a lexicon with the same name already exists in the region, it is
-  overwritten by the new lexicon. Lexicon operations have eventual
-  consistency, therefore, it might take some time before the lexicon is
-  available to the SynthesizeSpeech operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20PutLexicon&this_doc_guide=API%2520Reference)
 
-  For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) Name of the lexicon. The name must follow the regular express
-      format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
-      alphanumeric string up to 20 characters long. 
+  ## Parameters:
+  * `:name` (`t:string`) Name of the lexicon. The name must follow the regular
+    express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive
+    alphanumeric string up to 20 characters long.
 
   ## Optional parameters:
   """
@@ -957,20 +937,19 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Allows the creation of an asynchronous synthesis task, by starting a
-  new `SpeechSynthesisTask`.
+  Allows the creation of an asynchronous synthesis task, by starting a new
+  `SpeechSynthesisTask`. This operation requires all the standard information
+  needed for speech synthesis, plus the name of an Amazon S3 bucket for the
+  service to store the output of the synthesis task and two optional parameters
+  (`OutputS3KeyPrefix` and `SnsTopicArn`). Once the synthesis task is created,
+  this operation will return a `SpeechSynthesisTask` object, which will include
+  an identifier of this task as well as the current status. The
+  `SpeechSynthesisTask` object is available for 72 hours after starting the
+  asynchronous synthesis task.
 
-  This operation requires all the
-  standard information needed for speech synthesis, plus the name of an
-  Amazon S3 bucket for the service to store the output of the synthesis task
-  and two optional parameters (`OutputS3KeyPrefix` and
-  `SnsTopicArn`). Once the synthesis task is created, this
-  operation will return a `SpeechSynthesisTask` object, which
-  will include an identifier of this task as well as the current status. The
-  `SpeechSynthesisTask` object is available for 72 hours after
-  starting the asynchronous synthesis task.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20StartSpeechSynthesisTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1004,14 +983,15 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
+  Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input
+  must be valid, well-formed SSML. Some alphabets might not be available with
+  all the voices (for example, Cyrillic might not be read at all by English
+  voices) unless phoneme mapping is used. For more information, see [How it
+  Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
 
-  SSML input must be valid, well-formed SSML. Some alphabets might not be
-  available with all the voices (for example, Cyrillic might not be read at
-  all by English voices) unless phoneme mapping is used. For more
-  information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20SynthesizeSpeech&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

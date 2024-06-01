@@ -5,9 +5,8 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @moduledoc """
   Amazon Web Services Service Catalog AppRegistry enables organizations to
   understand the application context of their Amazon Web Services resources.
-
-  AppRegistry provides a repository of your applications, their resources, and the
-  application metadata that you use within your enterprise.
+  AppRegistry provides a repository of your applications, their resources, and
+  the application metadata that you use within your enterprise.
   """
 
   alias AWS.Client
@@ -943,24 +942,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Associates an attribute group with an application to augment the application's
-  metadata
-  with the group's attributes.
+  metadata with the group's attributes. This feature enables applications to be
+  described with user-defined details that are machine-readable, such as
+  third-party integrations.
 
-  This feature enables applications to be described with
-  user-defined details that are machine-readable, such as third-party
-  integrations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateAttributeGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
-  * `:attribute_group` (`t:string`) 
-       The name, ID, or ARN 
-       of the attribute group 
-       that holds the attributes 
-       to describe the application.
-     
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
@@ -994,55 +985,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Associates a resource with an application. The resource can be specified by its
+  ARN or name. The application can be specified by ARN, ID, or name. **Minimum
+  permissions**
 
-  Associates a resource with an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20AssociateResource&this_doc_guide=API%2520Reference)
 
-  The resource can be specified by its ARN or name.
-  The application can be specified by ARN, ID, or name.
-
-  ## Minimum permissions
-
-  You must have the following permissions to associate a resource using the
-  `OPTIONS` parameter set to `APPLY_APPLICATION_TAG`.
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `tag:TagResources`
-
-  You must also have these additional permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy.
-  For more information, see
-  [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html) in the AppRegistry Administrator Guide.
-
-    *
-
-  `resource-groups:AssociateResource`
-
-    *
-
-  `cloudformation:UpdateStack`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-  In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource.
-  For more information, see
-  [TagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html)
-  in the *Resource Groups Tagging API Reference*.
-
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
-  * `:resource` (`t:string`) The name or ID of the resource of which the application will be associated.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of resource of which the application will be associated.
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:resource` (`t:string`) The name or ID of the resource of which the
+    application will be associated.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource of which the application will be associated.
 
   ## Optional parameters:
   """
@@ -1081,7 +1035,9 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Creates a new application that is the top-level node in a hierarchy of related
   cloud resource abstractions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1111,16 +1067,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Creates a new attribute group as a container for user-defined attributes.
+  Creates a new attribute group as a container for user-defined attributes. This
+  feature enables users to have full control over their cloud application's
+  metadata in a rich machine-readable format to facilitate integration with
+  automated workflows and third-party tools.
 
-  This feature
-  enables users to have full control over their cloud application's metadata in a
-  rich
-  machine-readable format to facilitate integration with automated workflows and
-  third-party
-  tools.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateAttributeGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1151,16 +1105,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Deletes an application that is specified either by its application ID, name, or
-  ARN.
+  ARN. All associated attribute groups and resources must be disassociated from
+  it before deleting an application.
 
-  All associated attribute groups and resources must be disassociated from it
-  before deleting an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
 
   ## Optional parameters:
   """
@@ -1193,13 +1144,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   Deletes an attribute group, specified either by its attribute group ID, name, or
   ARN.
 
-  ## Required positional parameters:
-  * `:attribute_group` (`t:string`) 
-       The name, ID, or ARN 
-       of the attribute group 
-       that holds the attributes 
-       to describe the application.
-     
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DeleteAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
@@ -1236,20 +1185,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Disassociates an attribute group from an application to remove the extra
   attributes contained in the attribute group from the application's metadata.
-
   This operation reverts `AssociateAttributeGroup`.
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
-  * `:attribute_group` (`t:string`) 
-       The name, ID, or ARN 
-       of the attribute group 
-       that holds the attributes 
-       to describe the application.
-     
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
@@ -1293,53 +1236,16 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Disassociates a resource from application. Both the resource and the application
+  can be specified either by ID or name. **Minimum permissions**
 
-  Disassociates a resource from application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20DisassociateResource&this_doc_guide=API%2520Reference)
 
-  Both the resource and the application can be specified either by ID or name.
-
-  ## Minimum permissions
-
-  You must have the following permissions to remove a resource that's been
-  associated with an application using the `APPLY_APPLICATION_TAG` option for
-  [AssociateResource](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html). 
-
-    *
-
-  `tag:GetResources`
-
-    *
-
-  `tag:UntagResources`
-
-  You must also have the following permissions if you don't use the
-  `AWSServiceCatalogAppRegistryFullAccess` policy.
-  For more information, see
-  [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html)
-  in the AppRegistry Administrator Guide.
-
-    *
-
-  `resource-groups:DisassociateResource`
-
-    *
-
-  `cloudformation:UpdateStack`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-  In addition, you must have the tagging permission defined by the Amazon Web
-  Services service that creates the resource.
-  For more information, see
-  [UntagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntTagResources.html)
-  in the *Resource Groups Tagging API Reference*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:application` (`t:string`) The name or ID of the application.
   * `:resource` (`t:string`) The name or ID of the resource.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of the resource that is being disassociated.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of the
+    resource that is being disassociated.
 
   ## Optional parameters:
   """
@@ -1385,32 +1291,17 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Retrieves metadata information about one of your applications. The application
+  can be specified by its ARN, ID, or name (which is unique within one account
+  in one region at a given point in time). Specify by ARN or ID in automated
+  workflows if you want to make sure that the exact same application is returned
+  or a `ResourceNotFoundException` is thrown, avoiding the ABA addressing
+  problem.
 
-  Retrieves metadata information
-  about one
-  of your applications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetApplication&this_doc_guide=API%2520Reference)
 
-  The application can be specified
-  by its ARN, ID, or name
-  (which is unique
-  within one account
-  in one region
-  at a given point
-  in time).
-  Specify
-  by ARN or ID
-  in automated workflows
-  if you want
-  to make sure
-  that the exact same application is returned or a `ResourceNotFoundException` is
-  thrown,
-  avoiding the ABA addressing problem.
-
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
 
   ## Optional parameters:
   """
@@ -1437,25 +1328,25 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Gets the resource associated with the application.
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
-  * `:resource` (`t:string`) The name or ID of the resource associated with the application.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of resource associated with the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAssociatedResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
+  * `:resource` (`t:string`) The name or ID of the resource associated with the
+    application.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource associated with the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-      The maximum number of results to return. If the parameter is omitted, it defaults to 25. The value is optional.
-    
-  * `:next_token` (`t:string`) 
-      A unique pagination token for each page of results. 
-      Make the call again with the returned token to retrieve the next page of results.
-    
-  * `:resource_tag_status` (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`) 
-      States whether an application tag is applied, not applied, in the process of being applied, or skipped.
-    
+  * `:max_results` (`t:integer`) The maximum number of results to return. If the
+    parameter is omitted, it defaults to 25. The value is optional.
+  * `:next_token` (`t:string`) A unique pagination token for each page of results.
+    Make the call again with the returned token to retrieve the next page of
+    results.
+  * `:resource_tag_status`
+    (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
+    States whether an application tag is applied, not applied, in the process of
+    being applied, or skipped.
   """
   @spec get_associated_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_resource_response(), any()}
@@ -1512,20 +1403,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Retrieves an attribute group by its ARN, ID, or name. The attribute group can be
+  specified by its ARN, ID, or name.
 
-  Retrieves an attribute group
-  by its ARN, ID, or name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetAttributeGroup&this_doc_guide=API%2520Reference)
 
-  The attribute group can be specified
-  by its ARN, ID, or name.
-
-  ## Required positional parameters:
-  * `:attribute_group` (`t:string`) 
-       The name, ID, or ARN 
-       of the attribute group 
-       that holds the attributes 
-       to describe the application.
-     
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
 
   ## Optional parameters:
   """
@@ -1550,11 +1435,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Retrieves a `TagKey` configuration from an account.
 
-  Retrieves a `TagKey` configuration
-  from an account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1579,15 +1464,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Retrieves a list of all of your applications.
+  Retrieves a list of all of your applications. Results are paginated.
 
-  Results are paginated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListApplications&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.
-  * `:next_token` (`t:string`) The token to use to get the next page of results after a previous API call. 
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1629,15 +1517,19 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Lists all attribute groups that are associated with specified application.
-
   Results are paginated.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedAttributeGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application` (`t:string`) The name or ID of the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.
-  * `:next_token` (`t:string`) The token to use to get the next page of results after a previous API call. 
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
   @spec list_associated_attribute_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_attribute_groups_response(), any()}
@@ -1678,34 +1570,20 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-
-  Lists all
-  of the resources
-  that are associated
-  with the specified application.
-
+  Lists all of the resources that are associated with the specified application.
   Results are paginated.
 
-  If you share an application,
-  and a consumer account associates a tag query
-  to the application,
-  all of the users
-  who can access the application
-  can also view the tag values
-  in all accounts
-  that are associated
-  with it
-  using this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAssociatedResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application.
-     
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.
-  * `:next_token` (`t:string`) The token to use to get the next page of results after a previous API call. 
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
   @spec list_associated_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_resources_response(), any()}
@@ -1746,15 +1624,18 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Lists all attribute groups which you have access to.
+  Lists all attribute groups which you have access to. Results are paginated.
 
-  Results are paginated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.
-  * `:next_token` (`t:string`) The token to use to get the next page of results after a previous API call. 
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
+  * `:next_token` (`t:string`) The token to use to get the next page of results
+    after a previous API call.
   """
   @spec list_attribute_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_response(), any()}
@@ -1796,16 +1677,19 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   @doc """
   Lists the details of all attribute groups associated with a specific
-  application.
+  application. The results display in pages.
 
-  The results display in pages.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroupsForApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application` (`t:string`) The name or ID of the application.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional.
-  * `:next_token` (`t:string`) This token retrieves the next page of results after a previous API call.
+  * `:max_results` (`t:integer`) The upper bound of the number of results to
+    return. The value cannot exceed 25. If you omit this parameter, it defaults
+    to 25. This value is optional.
+  * `:next_token` (`t:string`) This token retrieves the next page of results after
+    a previous API call.
   """
   @spec list_attribute_groups_for_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
@@ -1848,8 +1732,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Lists all of the tags on the resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
 
   ## Optional parameters:
   """
@@ -1874,11 +1761,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
+  Associates a `TagKey` configuration to an account.
 
-  Associates a `TagKey` configuration
-  to an account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20PutConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1900,14 +1787,14 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Syncs the resource with current AppRegistry records.
 
-  Specifically, the resource’s AppRegistry system tags sync with its associated
-  application. We remove the resource's AppRegistry system tags if it does not
-  associate with the application. The caller must have permissions to read and
-  update the resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20SyncResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource` (`t:string`) An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.
-  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of resource of which the application will be associated.
+  ## Parameters:
+  * `:resource` (`t:string`) An entity you can work with and specify with a name
+    or ID. Examples include an Amazon EC2 instance, an Amazon Web Services
+    CloudFormation stack, or an Amazon S3 bucket.
+  * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]`) The type of
+    resource of which the application will be associated.
 
   ## Optional parameters:
   """
@@ -1943,15 +1830,15 @@ defmodule AWS.ServiceCatalogAppRegistry do
   end
 
   @doc """
-  Assigns one or more tags (key-value pairs) to the specified resource.
+  Assigns one or more tags (key-value pairs) to the specified resource. Each tag
+  consists of a key and an optional value. If a tag with the same key is already
+  associated with the resource, this action updates its value.
 
-  Each tag consists of a key and an optional value. If a tag with the same key is
-  already associated with the resource, this action updates its value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20TagResource&this_doc_guide=API%2520Reference)
 
-  This operation returns an empty response if the call was successful.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the resource.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
 
   ## Optional parameters:
   """
@@ -1983,13 +1870,15 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Removes tags from a resource.
 
-  This operation returns an empty response if the call was successful.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the resource.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource name (ARN) that specifies the
+    resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`) A list of the tag keys to remove from the specified resource.
+  * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`) A list
+    of the tag keys to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2024,12 +1913,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Updates an existing application with new attributes.
 
-  ## Required positional parameters:
-  * `:application` (`t:string`) 
-       The name, ID, or ARN 
-       of the application 
-       that will be updated.
-     
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application` (`t:string`) The name, ID, or ARN of the application that will
+    be updated.
 
   ## Optional parameters:
   """
@@ -2061,13 +1949,11 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @doc """
   Updates an existing attribute group with new details.
 
-  ## Required positional parameters:
-  * `:attribute_group` (`t:string`) 
-       The name, ID, or ARN 
-       of the attribute group 
-       that holds the attributes 
-       to describe the application.
-     
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20UpdateAttributeGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:attribute_group` (`t:string`) The name, ID, or ARN of the attribute group
+    that holds the attributes to describe the application.
 
   ## Optional parameters:
   """

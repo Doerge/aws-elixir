@@ -4,50 +4,16 @@
 defmodule AWS.SageMakerA2IRuntime do
   @moduledoc """
   Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any
-  machine learning
-  application.
-
-  When an AI application can't evaluate data with a high degree of confidence,
-  human reviewers can take over. This human review is called a human review
-  workflow. To create
-  and start a human review workflow, you need three resources: a *worker task
-  template*, a *flow definition*, and a *human
-  loop*.
-
-  For information about these resources and prerequisites for using Amazon A2I,
-  see [Get Started with Amazon Augmented
-  AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html) in
-  the Amazon SageMaker Developer Guide.
-
-  This API reference includes information about API actions and data types that
-  you can use
-  to interact with Amazon A2I programmatically. Use this guide to:
-
-    *
-  Start a human loop with the `StartHumanLoop` operation when using
-  Amazon A2I with a *custom task type*. To learn more about the
-  difference between custom and built-in task types, see [Use Task Types
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-task-types-general.html).
-  To learn
-  how to start a human loop using this API, see [Create and Start a Human Loop for a Custom Task Type
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-start-human-loop.html#a2i-instructions-starthumanloop)
-  in the
-  Amazon SageMaker Developer Guide.
-
-    *
-  Manage your human loops. You can list all human loops that you have created,
-  describe
-  individual human loops, and stop and delete human loops. To learn more, see
-  [Monitor and Manage Your Human Loop
-  ](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-monitor-humanloop-results.html)
-  in the Amazon SageMaker Developer Guide.
-
-  Amazon A2I integrates APIs from various AWS services to create and start human
-  review
-  workflows for those services. To learn how Amazon A2I uses these APIs, see [Use APIs in
-  Amazon
-  A2I](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html) in
-  the Amazon SageMaker Developer Guide.
+  machine learning application. When an AI application can't evaluate data with
+  a high degree of confidence, human reviewers can take over. This human review
+  is called a human review workflow. To create and start a human review
+  workflow, you need three resources: a *worker task template*, a *flow
+  definition*, and a *human loop*. For information about these resources and
+  prerequisites for using Amazon A2I, see [Get Started with Amazon Augmented
+  AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-getting-started.html)
+  in the Amazon SageMaker Developer Guide. This API reference includes
+  information about API actions and data types that you can use to interact with
+  Amazon A2I programmatically. Use this guide to:
   """
 
   alias AWS.Client
@@ -335,11 +301,11 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Deletes the specified human loop for a flow definition.
 
-  If the human loop was deleted, this operation will return a
-  `ResourceNotFoundException`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DeleteHumanLoop&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:human_loop_name` (`t:string`) The name of the human loop that you want to delete.
+  ## Parameters:
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -369,13 +335,14 @@ defmodule AWS.SageMakerA2IRuntime do
   end
 
   @doc """
-  Returns information about the specified human loop.
+  Returns information about the specified human loop. If the human loop was
+  deleted, this operation will return a `ResourceNotFoundException` error.
 
-  If the human loop was deleted, this
-  operation will return a `ResourceNotFoundException` error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20DescribeHumanLoop&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:human_loop_name` (`t:string`) The name of the human loop that you want information about.
+  ## Parameters:
+  * `:human_loop_name` (`t:string`) The name of the human loop that you want
+    information about.
 
   ## Optional parameters:
   """
@@ -400,22 +367,29 @@ defmodule AWS.SageMakerA2IRuntime do
   end
 
   @doc """
-  Returns information about human loops, given the specified parameters.
+  Returns information about human loops, given the specified parameters. If a
+  human loop was deleted, it will not be included.
 
-  If a human loop was deleted, it will not be included.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20ListHumanLoops&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.
-  * `:creation_time_before` (`t:timestamp[date-time]`) (Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.
-  * `:flow_definition_arn` (`t:string`) The Amazon Resource Name (ARN) of a flow definition.
-  * `:max_results` (`t:integer`) The total number of items to return. If the total number of available items is more than
-      the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in
-      the output. You can use this token to display the next page of results. 
+  * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of
+    the date when you want the human loops to begin in ISO 8601 format. For
+    example, 2020-02-24.
+  * `:creation_time_before` (`t:timestamp[date-time]`) (Optional) The timestamp of
+    the date before which you want the human loops to begin in ISO 8601 format.
+    For example, 2020-02-24.
+  * `:flow_definition_arn` (`t:string`) The Amazon Resource Name (ARN) of a flow
+    definition.
+  * `:max_results` (`t:integer`) The total number of items to return. If the total
+    number of available items is more than the value specified in MaxResults,
+    then a NextToken is returned in the output. You can use this token to
+    display the next page of results.
   * `:next_token` (`t:string`) A token to display the next page of results.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for displaying results. Valid values: <code>Ascending</code> and
-        <code>Descending</code>.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for
+    displaying results. Valid values: Ascending and Descending.
   """
   @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_human_loops_response(), any()}
@@ -494,7 +468,9 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Starts a human loop, provided that at least one activation condition is met.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StartHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -526,7 +502,9 @@ defmodule AWS.SageMakerA2IRuntime do
   @doc """
   Stops the specified human loop.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StopHumanLoop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

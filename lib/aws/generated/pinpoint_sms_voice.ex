@@ -424,12 +424,12 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Create a new configuration set.
+  Create a new configuration set. After you create the configuration set, you can
+  add one or more event destinations to it.
 
-  After you create the configuration set, you can add one or more event
-  destinations to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -461,8 +461,10 @@ defmodule AWS.PinpointSMSVoice do
   @doc """
   Create a new event destination in a configuration set.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20CreateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -506,8 +508,10 @@ defmodule AWS.PinpointSMSVoice do
   @doc """
   Deletes an existing configuration set.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20DeleteConfigurationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -544,9 +548,11 @@ defmodule AWS.PinpointSMSVoice do
   @doc """
   Deletes an event destination in a configuration set.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) 
-  * `:event_destination_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20DeleteConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+  * `:event_destination_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -591,11 +597,13 @@ defmodule AWS.PinpointSMSVoice do
 
   @doc """
   Obtain information about an event destination, including the types of events it
-  reports, the Amazon Resource Name (ARN) of the destination, and the name of the
-  event destination.
+  reports, the Amazon Resource Name (ARN) of the destination, and the name of
+  the event destination.
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20GetConfigurationSetEventDestinations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -628,11 +636,13 @@ defmodule AWS.PinpointSMSVoice do
   List all of the configuration sets associated with your Amazon Pinpoint account
   in the current region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20ListConfigurationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
-  * `:page_size` (`t:string`) 
+  * `:next_token` (`t:string`)
+  * `:page_size` (`t:string`)
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -675,7 +685,9 @@ defmodule AWS.PinpointSMSVoice do
   @doc """
   Create a new voice message and send it to a recipient's phone number.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20SendVoiceMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -705,15 +717,15 @@ defmodule AWS.PinpointSMSVoice do
   end
 
   @doc """
-  Update an event destination in a configuration set.
+  Update an event destination in a configuration set. An event destination is a
+  location that you publish information about your voice calls to. For example,
+  you can log an event to an Amazon CloudWatch destination when a call fails.
 
-  An event destination is a location that you publish information about your voice
-  calls to. For example, you can log an event to an Amazon CloudWatch destination
-  when a call fails.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20UpdateConfigurationSetEventDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configuration_set_name` (`t:string`) 
-  * `:event_destination_name` (`t:string`) 
+  ## Parameters:
+  * `:configuration_set_name` (`t:string`)
+  * `:event_destination_name` (`t:string`)
 
   ## Optional parameters:
   """

@@ -1103,8 +1103,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Changes the Channel's properities to configure log subscription
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ConfigureLogs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1126,7 +1128,9 @@ defmodule AWS.MediaPackage do
   @doc """
   Creates a new Channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1158,7 +1162,9 @@ defmodule AWS.MediaPackage do
   @doc """
   Creates a new HarvestJob record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateHarvestJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1190,7 +1196,9 @@ defmodule AWS.MediaPackage do
   @doc """
   Creates a new OriginEndpoint record.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20CreateOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1222,8 +1230,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Deletes an existing Channel.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1255,8 +1265,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Deletes an existing OriginEndpoint.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DeleteOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1293,8 +1305,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Gets details about a Channel.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1321,8 +1335,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Gets details about an existing HarvestJob.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeHarvestJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1349,8 +1365,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Gets details about an existing OriginEndpoint.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20DescribeOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1377,11 +1395,13 @@ defmodule AWS.MediaPackage do
   @doc """
   Returns a collection of Channels.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -1424,13 +1444,15 @@ defmodule AWS.MediaPackage do
   @doc """
   Returns a collection of HarvestJob records.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListHarvestJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:include_channel_id` (`t:string`) 
-  * `:include_status` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:include_channel_id` (`t:string`)
+  * `:include_status` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_harvest_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_harvest_jobs_response(), any()}
@@ -1491,12 +1513,14 @@ defmodule AWS.MediaPackage do
   @doc """
   Returns a collection of OriginEndpoint records.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListOriginEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:channel_id` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:channel_id` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_origin_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_origin_endpoints_response(), any()}
@@ -1565,13 +1589,13 @@ defmodule AWS.MediaPackage do
   end
 
   @doc """
-  Changes the Channel's first IngestEndpoint's username and password.
+  Changes the Channel's first IngestEndpoint's username and password. WARNING -
+  This API is deprecated. Please use RotateIngestEndpointCredentials instead
 
-  WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials
-  instead
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateChannelCredentials&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1599,9 +1623,11 @@ defmodule AWS.MediaPackage do
   Rotate the IngestEndpoint's username and password, as specified by the
   IngestEndpoint's id.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
-  * `:ingest_endpoint_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20RotateIngestEndpointCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
+  * `:ingest_endpoint_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1690,8 +1716,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Updates an existing Channel.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1713,8 +1741,10 @@ defmodule AWS.MediaPackage do
   @doc """
   Updates an existing OriginEndpoint.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20UpdateOriginEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`)
 
   ## Optional parameters:
   """

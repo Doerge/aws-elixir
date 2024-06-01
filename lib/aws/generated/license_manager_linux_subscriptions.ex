@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManagerLinuxSubscriptions do
   @moduledoc """
   With License Manager, you can discover and track your commercial Linux
-  subscriptions on running
-  Amazon EC2 instances.
+  subscriptions on running Amazon EC2 instances.
   """
 
   alias AWS.Client
@@ -235,7 +234,9 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Lists the Linux subscriptions service settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetServiceSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -266,10 +267,11 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @doc """
   Lists the running Amazon EC2 instances that were discovered with commercial
-  Linux
-  subscriptions.
+  Linux subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptionInstances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -303,14 +305,13 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   end
 
   @doc """
-  Lists the Linux subscriptions that have been discovered.
-
-  If you have linked your
+  Lists the Linux subscriptions that have been discovered. If you have linked your
   organization, the returned results will include data aggregated across your
-  accounts in
-  Organizations.
+  accounts in Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -342,7 +343,9 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Updates the service settings for Linux subscriptions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

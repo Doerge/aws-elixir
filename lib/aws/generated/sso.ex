@@ -4,28 +4,17 @@
 defmodule AWS.SSO do
   @moduledoc """
   AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web
-  service that makes it easy for you to assign user access to
-  IAM Identity Center resources such as the AWS access portal.
-
-  Users can get AWS account applications and roles
-  assigned to them and get federated into the application.
-
-  Although AWS Single Sign-On was renamed, the `sso` and
+  service that makes it easy for you to assign user access to IAM Identity
+  Center resources such as the AWS access portal. Users can get AWS account
+  applications and roles assigned to them and get federated into the
+  application. Although AWS Single Sign-On was renamed, the `sso` and
   `identitystore` API namespaces will continue to retain their original name for
-  backward compatibility purposes. For more information, see [IAM Identity Center rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
-
+  backward compatibility purposes. For more information, see [IAM Identity
+  Center
+  rename](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed).
   This reference guide describes the IAM Identity Center Portal operations that
-  you can call
-  programatically and includes detailed information on data types and errors.
-
-  AWS provides SDKs that consist of libraries and sample code for various
-  programming
-  languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs
-  provide a
-  convenient way to create programmatic access to IAM Identity Center and other
-  AWS services. For more
-  information about the AWS SDKs, including how to download and install them, see
-  [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  you can call programatically and includes detailed information on data types
+  and errors.
   """
 
   alias AWS.Client
@@ -239,16 +228,20 @@ defmodule AWS.SSO do
 
   @doc """
   Returns the STS short-term credentials for a given role name that is assigned to
-  the
-  user.
+  the user.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20GetRoleCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned to the user.
-  * `:role_name` (`t:string`) The friendly name of the role that is assigned to the user.
-  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
-        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
+    to the user.
+  * `:role_name` (`t:string`) The friendly name of the role that is assigned to
+    the user.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
   """
   @spec get_role_credentials(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_role_credentials_response(), any()}
@@ -301,14 +294,20 @@ defmodule AWS.SSO do
   @doc """
   Lists all roles that are assigned to the user for a given AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccountRoles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned to the user.
-  * `:max_results` (`t:integer`) The number of items that clients can request per page.
-  * `:next_token` (`t:string`) The page token from the previous response output when you request subsequent pages.
-  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
-        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
+  * `:account_id` (`t:string`) The identifier for the AWS account that is assigned
+    to the user.
+  * `:max_results` (`t:integer`) The number of items that clients can request per
+    page.
+  * `:next_token` (`t:string`) The page token from the previous response output
+    when you request subsequent pages.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
   """
   @spec list_account_roles(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_account_roles_response(), any()}
@@ -368,21 +367,24 @@ defmodule AWS.SSO do
   end
 
   @doc """
-  Lists all AWS accounts assigned to the user.
+  Lists all AWS accounts assigned to the user. These AWS accounts are assigned by
+  the administrator of the account. For more information, see [Assign User
+  Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers)
+  in the *IAM Identity Center User Guide*. This operation returns a paginated
+  response.
 
-  These AWS accounts are assigned by the
-  administrator of the account. For more information, see [Assign User Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers)
-  in the *IAM Identity Center User Guide*. This operation
-  returns a paginated response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20ListAccounts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) This is the number of items clients can request per page.
-  * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this is the page token from the previous
-      response output.
-  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
-        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
+  * `:max_results` (`t:integer`) This is the number of items clients can request
+    per page.
+  * `:next_token` (`t:string`) (Optional) When requesting subsequent pages, this
+    is the page token from the previous response output.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
   """
   @spec list_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_accounts_response(), any()}
@@ -434,31 +436,17 @@ defmodule AWS.SSO do
 
   @doc """
   Removes the locally stored SSO tokens from the client-side cache and sends an
-  API call to
-  the IAM Identity Center service to invalidate the corresponding server-side IAM
-  Identity Center sign in
-  session.
+  API call to the IAM Identity Center service to invalidate the corresponding
+  server-side IAM Identity Center sign in session.
 
-  If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM
-  Identity Center sign in session is
-  used to obtain an IAM session, as specified in the corresponding IAM Identity
-  Center permission set.
-  More specifically, IAM Identity Center assumes an IAM role in the target account
-  on behalf of the user,
-  and the corresponding temporary AWS credentials are returned to the client.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sso%20Logout&this_doc_guide=API%2520Reference)
 
-  After user logout, any existing IAM role sessions that were created by using IAM
-  Identity Center
-  permission sets continue based on the duration configured in the permission set.
-  For more information, see [User authentications](https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html)
-  in the *IAM Identity Center User
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:access_token` (`t:string`) The token issued by the <code>CreateToken</code> API call. For more information, see
-        <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.
+  * `:access_token` (`t:string`) The token issued by the CreateToken API call. For
+    more information, see CreateToken in the IAM Identity Center OIDC API
+    Reference Guide.
   """
   @spec logout(AWS.Client.t(), logout_request(), Keyword.t()) ::
           {:ok, nil, any()}

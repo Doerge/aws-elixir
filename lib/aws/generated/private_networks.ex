@@ -4,13 +4,10 @@
 defmodule AWS.PrivateNetworks do
   @moduledoc """
   Amazon Web Services Private 5G is a managed service that makes it easy to
-  deploy, operate, and scale
-  your own private mobile network at your on-premises location.
-
-  Private 5G provides the
-  pre-configured hardware and software for mobile networks, helps automate setup,
-  and
-  scales capacity on demand to support additional devices as needed.
+  deploy, operate, and scale your own private mobile network at your on-premises
+  location. Private 5G provides the pre-configured hardware and software for
+  mobile networks, helps automate setup, and scales capacity on demand to
+  support additional devices as needed.
   """
 
   alias AWS.Client
@@ -1040,7 +1037,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Acknowledges that the specified network order was received.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20AcknowledgeOrderReceipt&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1076,7 +1075,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Activates the specified device identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1112,7 +1113,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Activates the specified network site.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1144,15 +1147,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Configures the specified network resource.
 
-  Use this action to specify the geographic position of the hardware. You must
-  provide
-  Certified Professional Installer (CPI) credentials in the request so that we can
-  obtain
-  spectrum grants. For more information, see [Radio units](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html)
-  in the
-  *Amazon Web Services Private 5G User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ConfigureAccessPoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1184,7 +1181,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Creates a network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1216,7 +1215,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Creates a network site.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1248,7 +1249,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Deactivates the specified device identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeactivateDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1282,21 +1285,20 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Deletes the specified network.
-
-  You must delete network sites before you delete the
-  network. For more information, see
+  Deletes the specified network. You must delete network sites before you delete
+  the network. For more information, see
   [DeleteNetworkSite](https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html)
-  in the *API Reference for Amazon Web Services Private
-  5G*.
+  in the *API Reference for Amazon Web Services Private 5G*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-            request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-                idempotency</a>.
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
   @spec delete_network(AWS.Client.t(), String.t(), delete_network_request(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
@@ -1329,21 +1331,22 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Deletes the specified network site.
+  Deletes the specified network site. Return the hardware after you delete the
+  network site. You are responsible for minimum charges. For more information,
+  see [Hardware
+  returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
+  in the *Amazon Web Services Private 5G User Guide*.
 
-  Return the hardware after you delete the network
-  site. You are responsible for minimum charges. For more information, see
-  [Hardware returns](https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html)
-  in the *Amazon Web Services Private 5G User
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeleteNetworkSite&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network site.
+  ## Parameters:
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
+    site.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-            request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-                idempotency</a>.
+  * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
   @spec delete_network_site(
           AWS.Client.t(),
@@ -1383,8 +1386,11 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Gets the specified device identifier.
 
-  ## Required positional parameters:
-  * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the device identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetDeviceIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_identifier_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    device identifier.
 
   ## Optional parameters:
   """
@@ -1411,7 +1417,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Gets the specified network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:network_arn` (`t:string`) The Amazon Resource Name (ARN) of the network.
 
   ## Optional parameters:
@@ -1439,8 +1447,11 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Gets the specified network resource.
 
-  ## Required positional parameters:
-  * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the network resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    network resource.
 
   ## Optional parameters:
   """
@@ -1467,8 +1478,11 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Gets the specified network site.
 
-  ## Required positional parameters:
-  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network site.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:network_site_arn` (`t:string`) The Amazon Resource Name (ARN) of the network
+    site.
 
   ## Optional parameters:
   """
@@ -1495,7 +1509,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Gets the specified order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20GetOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:order_arn` (`t:string`) The Amazon Resource Name (ARN) of the order.
 
   ## Optional parameters:
@@ -1521,17 +1537,13 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists device identifiers.
+  Lists device identifiers. Add filters to your request to return a more specific
+  list of results. Use filters to match the Amazon Resource Name (ARN) of an
+  order, the status of device identifiers, or the ARN of the traffic group.
 
-  Add filters to your request to return a more specific list
-  of results. Use filters to match the Amazon Resource Name (ARN) of an order, the
-  status
-  of device identifiers, or the ARN of the traffic group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListDeviceIdentifiers&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1561,17 +1573,13 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists network resources.
+  Lists network resources. Add filters to your request to return a more specific
+  list of results. Use filters to match the Amazon Resource Name (ARN) of an
+  order or the status of network resources.
 
-  Add filters to your request to return a more specific list of
-  results. Use filters to match the Amazon Resource Name (ARN) of an order or the
-  status
-  of network resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkResources&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1601,12 +1609,12 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists network sites.
+  Lists network sites. Add filters to your request to return a more specific list
+  of results. Use filters to match the status of the network site.
 
-  Add filters to your request to return a more specific list of
-  results. Use filters to match the status of the network site.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkSites&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1636,12 +1644,12 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists networks.
+  Lists networks. Add filters to your request to return a more specific list of
+  results. Use filters to match the status of the network.
 
-  Add filters to your request to return a more specific list of results.
-  Use filters to match the status of the network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1671,17 +1679,13 @@ defmodule AWS.PrivateNetworks do
   end
 
   @doc """
-  Lists orders.
+  Lists orders. Add filters to your request to return a more specific list of
+  results. Use filters to match the Amazon Resource Name (ARN) of the network
+  site or the status of the order.
 
-  Add filters to your request to return a more specific list of results.
-  Use filters to match the Amazon Resource Name (ARN) of the network site or the
-  status of
-  the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListOrders&this_doc_guide=API%2520Reference)
 
-  If you specify multiple filters, filters are joined with an OR, and the request
-  returns results that match all of the specified filters.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1713,7 +1717,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1741,7 +1747,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Checks the health of the service.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20Ping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1768,26 +1776,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Use this action to do the following tasks:
 
-    *
-  Update the duration and renewal status of the commitment period for a radio
-  unit.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20StartNetworkResourceUpdate&this_doc_guide=API%2520Reference)
 
-  The update goes into effect immediately.
-
-    *
-  Request a replacement for a network resource.
-
-    *
-  Request that you return a network resource.
-
-  After you submit a request to replace or return a network resource, the status
-  of the
-  network resource changes to `CREATING_SHIPPING_LABEL`. The shipping label is
-  available when the status of the network resource is `PENDING_RETURN`. After
-  the network resource is successfully returned, its status changes to
-  `DELETED`. For more information, see [Return a radio unit](https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1823,8 +1814,10 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Adds tags to the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`)  The Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -1856,7 +1849,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Removes tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1895,7 +1890,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Updates the specified network site.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1917,7 +1914,9 @@ defmodule AWS.PrivateNetworks do
   @doc """
   Updates the specified network site plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSitePlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

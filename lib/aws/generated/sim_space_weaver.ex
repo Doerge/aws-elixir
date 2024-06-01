@@ -4,24 +4,13 @@
 defmodule AWS.SimSpaceWeaver do
   @moduledoc """
   SimSpace Weaver (SimSpace Weaver) is a service that you can use to build and run
-  large-scale spatial simulations in the Amazon Web Services Cloud.
-
-  For example, you can create
-  crowd simulations, large real-world environments, and immersive and interactive
-  experiences.
-  For more information about SimSpace Weaver, see the *
-  [SimSpace Weaver User Guide](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/)
-  *.
-
-  This API reference describes the API operations and data types that you can use
-  to
+  large-scale spatial simulations in the Amazon Web Services Cloud. For example,
+  you can create crowd simulations, large real-world environments, and immersive
+  and interactive experiences. For more information about SimSpace Weaver, see
+  the * [SimSpace Weaver User
+  Guide](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/) *. This
+  API reference describes the API operations and data types that you can use to
   communicate directly with SimSpace Weaver.
-
-  SimSpace Weaver also provides the SimSpace Weaver app SDK, which you use for app
-  development. The
-  SimSpace Weaver app SDK API reference is included in the SimSpace Weaver app SDK
-  documentation. This
-  documentation is part of the SimSpace Weaver app SDK distributable package.
   """
 
   alias AWS.Client
@@ -752,94 +741,22 @@ defmodule AWS.SimSpaceWeaver do
   end
 
   @doc """
-  Creates a snapshot of the specified simulation.
-
-  A snapshot is a file that contains simulation state data at a specific time.
-  The state data saved in a snapshot includes entity data from the State Fabric,
-  the simulation configuration specified in the schema, and the clock tick number.
-  You can use the snapshot to initialize a new simulation.
-  For more information about snapshots, see
+  Creates a snapshot of the specified simulation. A snapshot is a file that
+  contains simulation state data at a specific time. The state data saved in a
+  snapshot includes entity data from the State Fabric, the simulation
+  configuration specified in the schema, and the clock tick number. You can use
+  the snapshot to initialize a new simulation. For more information about
+  snapshots, see
   [Snapshots](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html)
-  in the *SimSpace Weaver User Guide*.
+  in the *SimSpace Weaver User Guide*. You specify a `Destination` when you
+  create a snapshot. The `Destination` is the name of an Amazon S3 bucket and an
+  optional `ObjectKeyPrefix`. The `ObjectKeyPrefix` is usually the name of a
+  folder in the bucket. SimSpace Weaver creates a `snapshot` folder inside the
+  `Destination` and places the snapshot file there.
 
-  You specify a `Destination` when you create a snapshot.
-  The `Destination` is the name of an Amazon S3 bucket and an optional
-  `ObjectKeyPrefix`. The `ObjectKeyPrefix` is
-  usually the name of a folder in the bucket. SimSpace Weaver creates a
-  `snapshot` folder inside the `Destination` and
-  places the snapshot file there.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20CreateSnapshot&this_doc_guide=API%2520Reference)
 
-  The snapshot file is an Amazon S3 object. It has an object key with the
-  form:
-
-  ```
-
-  *object-key-prefix*/snapshot/*simulation-name*-*YYMMdd*-*HHmm*-*ss*.zip
-  ```
-
-  , where:
-
-    *
-
-  ```
-
-  *YY*
-
-  ```
-
-  is the 2-digit year
-
-    *
-
-  ```
-
-  *MM*
-
-  ```
-
-  is the 2-digit month
-
-    *
-
-  ```
-
-  *dd*
-
-  ```
-
-  is the 2-digit day of the month
-
-    *
-
-  ```
-
-  *HH*
-
-  ```
-
-  is the 2-digit hour (24-hour clock)
-
-    *
-
-  ```
-
-  *mm*
-
-  ```
-
-  is the 2-digit minutes
-
-    *
-
-  ```
-
-  *ss*
-
-  ```
-
-  is the 2-digit seconds
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -871,7 +788,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Deletes the instance of the given custom app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DeleteApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:app` (`t:string`) The name of the app.
@@ -913,11 +832,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Deletes all SimSpace Weaver resources assigned to the given simulation.
 
-  Your simulation uses resources in other Amazon Web Services. This API operation
-  doesn't delete
-  resources in other Amazon Web Services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DeleteSimulation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:simulation` (`t:string`) The name of the simulation.
@@ -955,7 +872,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Returns the state of the given custom app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DescribeApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:app` (`t:string`) The name of the app.
@@ -1012,7 +931,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Returns the current state of the given simulation.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20DescribeSimulation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:simulation` (`t:string`) The name of the simulation.
@@ -1049,17 +970,22 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Lists all custom apps or service apps for the given simulation and domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListApps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:domain` (`t:string`) The name of the domain that you want to list apps for.
   * `:max_results` (`t:integer`) The maximum number of apps to list.
-  * `:next_token` (`t:string`) If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. 
-   The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, 
-   call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, 
-   then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. 
-   If you provide a token that isn&#39;t valid, then you receive an <i>HTTP 400 ValidationException</i> error.
-  * `:simulation` (`t:string`) The name of the simulation that you want to list apps for.
+  * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
+    are more results available. The value of nextToken is a unique pagination
+    token for each page. To retrieve the next page, call the operation again
+    using the returned token. Keep all other arguments unchanged. If no results
+    remain, then nextToken is set to null. Each pagination token expires after
+    24 hours. If you provide a token that isn't valid, then you receive an HTTP
+    400 ValidationException error.
+  * `:simulation` (`t:string`) The name of the simulation that you want to list
+    apps for.
   """
   @spec list_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_apps_output(), any()}
@@ -1121,15 +1047,19 @@ defmodule AWS.SimSpaceWeaver do
   Lists the SimSpace Weaver simulations in the Amazon Web Services account used to
   make the API call.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListSimulations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of simulations to list.
-  * `:next_token` (`t:string`) If SimSpace Weaver returns <code>nextToken</code>, then there are more results available. 
-   The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, 
-   call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, 
-   then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. 
-   If you provide a token that isn&#39;t valid, then you receive an <i>HTTP 400 ValidationException</i> error.
+  * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
+    are more results available. The value of nextToken is a unique pagination
+    token for each page. To retrieve the next page, call the operation again
+    using the returned token. Keep all other arguments unchanged. If no results
+    remain, then nextToken is set to null. Each pagination token expires after
+    24 hours. If you provide a token that isn't valid, then you receive an HTTP
+    400 ValidationException error.
   """
   @spec list_simulations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulations_output(), any()}
@@ -1172,9 +1102,12 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Lists all tags on a SimSpace Weaver resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-   in the <i>Amazon Web Services General Reference</i>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
+    For more information about ARNs, see Amazon Resource Names (ARNs) in the
+    Amazon Web Services General Reference.
 
   ## Optional parameters:
   """
@@ -1201,7 +1134,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Starts a custom app with the configuration specified in the simulation schema.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1233,7 +1168,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Starts the simulation clock.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartClock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1263,17 +1200,17 @@ defmodule AWS.SimSpaceWeaver do
   end
 
   @doc """
-  Starts a simulation with the given name.
-
-  You must choose to start your
-  simulation from a schema or from a snapshot.
-  For more information about the schema, see the [schema reference](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html)
-  in the *SimSpace Weaver User Guide*.
-  For more information about snapshots, see
+  Starts a simulation with the given name. You must choose to start your
+  simulation from a schema or from a snapshot. For more information about the
+  schema, see the [schema
+  reference](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html)
+  in the *SimSpace Weaver User Guide*. For more information about snapshots, see
   [Snapshots](https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html)
   in the *SimSpace Weaver User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartSimulation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1306,7 +1243,9 @@ defmodule AWS.SimSpaceWeaver do
   Stops the given custom app and shuts down all of its allocated compute
   resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1338,7 +1277,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Stops the simulation clock.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopClock&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1370,11 +1311,9 @@ defmodule AWS.SimSpaceWeaver do
   @doc """
   Stops the given simulation.
 
-  You can't restart a simulation after you stop it. If you want to restart a
-  simulation, then
-  you must stop it, delete it, and start a new instance of it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopSimulation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1404,16 +1343,17 @@ defmodule AWS.SimSpaceWeaver do
   end
 
   @doc """
-  Adds tags to a SimSpace Weaver resource.
+  Adds tags to a SimSpace Weaver resource. For more information about tags, see
+  [Tagging Amazon Web Services
+  resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  the *Amazon Web Services General Reference*.
 
-  For more information about tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
-  the
-  *Amazon Web Services General Reference*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to add tags to.
-         For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-   in the <i>Amazon Web Services General Reference</i>.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to add tags to. For more information about ARNs, see Amazon
+    Resource Names (ARNs) in the Amazon Web Services General Reference.
 
   ## Optional parameters:
   """
@@ -1443,19 +1383,21 @@ defmodule AWS.SimSpaceWeaver do
   end
 
   @doc """
-  Removes tags from a SimSpace Weaver resource.
+  Removes tags from a SimSpace Weaver resource. For more information about tags,
+  see [Tagging Amazon Web Services
+  resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  the *Amazon Web Services General Reference*.
 
-  For more information about tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
-  the
-  *Amazon Web Services General Reference*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
-         For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-   in the <i>Amazon Web Services General Reference</i>.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove tags from. For more information about ARNs, see
+    Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]`) A list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]`) A list of tag keys
+    to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

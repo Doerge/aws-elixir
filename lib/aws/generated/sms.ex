@@ -3,32 +3,14 @@
 
 defmodule AWS.SMS do
   @moduledoc """
-
-
-  ## Product update
-
-  We recommend [Amazon Web Services Application Migration Service](http://aws.amazon.com/application-migration-service) (Amazon Web
-  Services
-  MGN) as the primary migration service for lift-and-shift migrations.
-
-  If Amazon Web Services MGN is
-  unavailable in a specific Amazon Web Services Region, you can use the Server
-  Migration Service APIs through March
-  2023.
-
+  **Product update** We recommend [Amazon Web Services Application Migration
+  Service](http://aws.amazon.com/application-migration-service) (Amazon Web
+  Services MGN) as the primary migration service for lift-and-shift migrations.
+  If Amazon Web Services MGN is unavailable in a specific Amazon Web Services
+  Region, you can use the Server Migration Service APIs through March 2023.
   Server Migration Service (Server Migration Service) makes it easier and faster
-  for you to migrate your
-  on-premises workloads to Amazon Web Services. To learn more about Server
-  Migration Service, see the following
-  resources:
-
-    *
-
-  [Server Migration Service product page](http://aws.amazon.com/server-migration-service/)
-
-    *
-
-  [Server Migration Service User Guide](https://docs.aws.amazon.com/server-migration-service/latest/userguide/)
+  for you to migrate your on-premises workloads to Amazon Web Services. To learn
+  more about Server Migration Service, see the following resources:
   """
 
   alias AWS.Client
@@ -1649,10 +1631,8 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Creates an application.
-
-  An application consists of one or more server groups. Each
-  server group contain one or more servers.
+  Creates an application. An application consists of one or more server groups.
+  Each server group contain one or more servers.
   """
   @spec create_app(AWS.Client.t(), create_app_request(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
@@ -1666,12 +1646,9 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Creates a replication job.
-
-  The replication job schedules periodic replication runs
-  to replicate your server to Amazon Web Services. Each replication run creates an
-  Amazon Machine Image
-  (AMI).
+  Creates a replication job. The replication job schedules periodic replication
+  runs to replicate your server to Amazon Web Services. Each replication run
+  creates an Amazon Machine Image (AMI).
   """
   @spec create_replication_job(AWS.Client.t(), create_replication_job_request(), Keyword.t()) ::
           {:ok, create_replication_job_response(), any()}
@@ -1685,11 +1662,9 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Deletes the specified application.
-
-  Optionally deletes the launched stack associated with
-  the application and all Server Migration Service replication jobs for servers in
-  the application.
+  Deletes the specified application. Optionally deletes the launched stack
+  associated with the application and all Server Migration Service replication
+  jobs for servers in the application.
   """
   @spec delete_app(AWS.Client.t(), delete_app_request(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
@@ -1758,12 +1733,6 @@ defmodule AWS.SMS do
 
   @doc """
   Deletes the specified replication job.
-
-  After you delete a replication job, there are no further replication runs.
-  Amazon Web Services
-  deletes the contents of the Amazon S3 bucket used to store Server Migration
-  Service artifacts. The AMIs created
-  by the replication runs are not deleted.
   """
   @spec delete_replication_job(AWS.Client.t(), delete_replication_job_request(), Keyword.t()) ::
           {:ok, delete_replication_job_response(), any()}
@@ -1792,9 +1761,6 @@ defmodule AWS.SMS do
 
   @doc """
   Disassociates the specified connector from Server Migration Service.
-
-  After you disassociate a connector, it is no longer available to support
-  replication jobs.
   """
   @spec disassociate_connector(AWS.Client.t(), disassociate_connector_request(), Keyword.t()) ::
           {:ok, disassociate_connector_response(), any()}
@@ -1809,8 +1775,7 @@ defmodule AWS.SMS do
 
   @doc """
   Generates a target change set for a currently launched stack and writes it to an
-  Amazon S3
-  object in the customer’s Amazon S3 bucket.
+  Amazon S3 object in the customer’s Amazon S3 bucket.
   """
   @spec generate_change_set(AWS.Client.t(), generate_change_set_request(), Keyword.t()) ::
           {:ok, generate_change_set_response(), any()}
@@ -1825,8 +1790,7 @@ defmodule AWS.SMS do
 
   @doc """
   Generates an CloudFormation template based on the current launch configuration
-  and writes it to
-  an Amazon S3 object in the customer’s Amazon S3 bucket.
+  and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
   """
   @spec generate_template(AWS.Client.t(), generate_template_request(), Keyword.t()) ::
           {:ok, generate_template_response(), any()}
@@ -1874,8 +1838,7 @@ defmodule AWS.SMS do
 
   @doc """
   Retrieves the application replication configuration associated with the
-  specified
-  application.
+  specified application.
   """
   @spec get_app_replication_configuration(
           AWS.Client.t(),
@@ -1972,9 +1935,6 @@ defmodule AWS.SMS do
 
   @doc """
   Describes the servers in your server catalog.
-
-  Before you can describe your servers, you must import them using
-  `ImportServerCatalog`.
   """
   @spec get_servers(AWS.Client.t(), get_servers_request(), Keyword.t()) ::
           {:ok, get_servers_response(), any()}
@@ -2002,14 +1962,8 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Gathers a complete list of on-premises servers.
-
-  Connectors must be installed and
+  Gathers a complete list of on-premises servers. Connectors must be installed and
   monitoring all servers to import.
-
-  This call returns immediately, but might take additional time to retrieve all
-  the
-  servers.
   """
   @spec import_server_catalog(AWS.Client.t(), import_server_catalog_request(), Keyword.t()) ::
           {:ok, import_server_catalog_response(), any()}
@@ -2125,8 +2079,7 @@ defmodule AWS.SMS do
 
   @doc """
   Starts replicating the specified application by creating replication jobs for
-  each server in the
-  application.
+  each server in the application.
   """
   @spec start_app_replication(AWS.Client.t(), start_app_replication_request(), Keyword.t()) ::
           {:ok, start_app_replication_response(), any()}
@@ -2158,16 +2111,9 @@ defmodule AWS.SMS do
   end
 
   @doc """
-  Starts an on-demand replication run for the specified replication job.
-
-  This
+  Starts an on-demand replication run for the specified replication job. This
   replication run starts immediately. This replication run is in addition to the
-  ones
-  already scheduled.
-
-  There is a limit on the number of on-demand replications runs that you can
-  request
-  in a 24-hour period.
+  ones already scheduled.
   """
   @spec start_on_demand_replication_run(
           AWS.Client.t(),
@@ -2186,8 +2132,7 @@ defmodule AWS.SMS do
 
   @doc """
   Stops replicating the specified application by deleting the replication job for
-  each server in
-  the application.
+  each server in the application.
   """
   @spec stop_app_replication(AWS.Client.t(), stop_app_replication_request(), Keyword.t()) ::
           {:ok, stop_app_replication_response(), any()}

@@ -3,21 +3,10 @@
 
 defmodule AWS.AmplifyUIBuilder do
   @moduledoc """
-  The Amplify UI Builder API provides a programmatic interface for creating
-  and configuring user interface (UI) component libraries and themes for use in
-  your Amplify applications.
-
-  You can then connect these UI components to an application's
-  backend Amazon Web Services resources.
-
-  You can also use the Amplify Studio visual designer to create UI components
-  and model data for an app. For more information, see
-  [Introduction](https://docs.amplify.aws/console/adminui/intro) in the *Amplify Docs*.
-
-  The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
-  documentation for client app development. For more information, see the [Amplify
-  Framework](https://docs.amplify.aws/). For more information about
-  deploying an Amplify application to Amazon Web Services, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
+  The Amplify UI Builder API provides a programmatic interface for creating and
+  configuring user interface (UI) component libraries and themes for use in your
+  Amplify applications. You can then connect these UI components to an
+  application's backend Amazon Web Services resources.
   """
 
   alias AWS.Client
@@ -1739,10 +1728,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a new component for an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the component.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the
+    component.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:client_token` (`t:`) The unique client token.
@@ -1788,9 +1780,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a new form for an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app to associate with the form.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:client_token` (`t:`) The unique client token.
@@ -1830,10 +1825,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Creates a theme to apply to the components in an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20CreateTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:client_token` (`t:`) The unique client token.
@@ -1873,11 +1870,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Deletes a component from an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the component to
-      delete.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the
+    component to delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
   * `:id` (`t:string`) The unique ID of the component to delete.
 
   ## Optional parameters:
@@ -1919,9 +1918,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Deletes a form from an Amplify app.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the form to delete.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:`) The unique ID of the Amplify app associated with the form to
+    delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
   * `:id` (`t:string`) The unique ID of the form to delete.
 
   ## Optional parameters:
@@ -1963,11 +1966,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Deletes a theme from an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20DeleteTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app associated with the theme to
-      delete.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+    delete.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
   * `:id` (`t:string`) The unique ID of the theme to delete.
 
   ## Optional parameters:
@@ -2007,13 +2012,13 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-
   This is for internal use.
 
-  Amplify uses this action to exchange an access code for a token.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExchangeCodeForToken&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:provider` (`t:string`) The third-party provider for the token. The only valid value is <code>figma</code>.
+  ## Parameters:
+  * `:provider` (`t:string`) The third-party provider for the token. The only
+    valid value is figma.
 
   ## Optional parameters:
   """
@@ -2051,10 +2056,12 @@ defmodule AWS.AmplifyUIBuilder do
   Exports component configurations to code that is ready to integrate into an
   Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app to export components to.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:next_token` (`t:`) The token to request the next page of results.
@@ -2093,9 +2100,12 @@ defmodule AWS.AmplifyUIBuilder do
   Exports form configurations to code that is ready to integrate into an Amplify
   app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportForms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app to export forms to.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:next_token` (`t:`) The token to request the next page of results.
@@ -2134,9 +2144,12 @@ defmodule AWS.AmplifyUIBuilder do
   Exports theme configurations to code that is ready to integrate into an Amplify
   app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ExportThemes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app to export the themes to.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
 
   ## Optional parameters:
   * `:next_token` (`t:`) The token to request the next page of results.
@@ -2174,9 +2187,13 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing code generation job.
 
-  ## Required positional parameters:
-  * `:app_id` (`t:string`) The unique ID of the Amplify app associated with the code generation job.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app associated with the code generation job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetCodegenJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:app_id` (`t:string`) The unique ID of the Amplify app associated with the
+    code generation job.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app associated with the code generation job.
   * `:id` (`t:string`) The unique ID of the code generation job.
 
   ## Optional parameters:
@@ -2205,9 +2222,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing component for an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID of the component.
 
   ## Optional parameters:
@@ -2236,9 +2256,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing form for an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID of the form.
 
   ## Optional parameters:
@@ -2267,9 +2290,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns existing metadata for an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
 
   ## Optional parameters:
   """
@@ -2297,9 +2323,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns an existing theme for an Amplify app.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20GetTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID of the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID for the theme.
 
   ## Optional parameters:
@@ -2329,9 +2358,12 @@ defmodule AWS.AmplifyUIBuilder do
   Retrieves a list of code generation jobs for a specified Amplify app and backend
   environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListCodegenJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of jobs to retrieve.
@@ -2380,10 +2412,12 @@ defmodule AWS.AmplifyUIBuilder do
   Retrieves a list of components for a specified Amplify app and backend
   environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of components to retrieve.
@@ -2431,9 +2465,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Retrieves a list of forms for a specified Amplify app and backend environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListForms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of forms to retrieve.
@@ -2481,7 +2518,9 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to list tags.
 
   ## Optional parameters:
@@ -2507,16 +2546,18 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-  Retrieves a list of themes for a specified Amplify app and backend
-  environment.
+  Retrieves a list of themes for a specified Amplify app and backend environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20ListThemes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify
-      app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of theme results to return in the response.
+  * `:max_results` (`t:integer`) The maximum number of theme results to return in
+    the response.
   * `:next_token` (`t:`) The token to request the next page of results.
   """
   @spec list_themes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2561,9 +2602,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Stores the metadata information about a feature on a form.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20PutMetadataFlag&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:feature_name` (`t:`) The name of the feature associated with the metadata.
 
   ## Optional parameters:
@@ -2600,14 +2644,13 @@ defmodule AWS.AmplifyUIBuilder do
   end
 
   @doc """
-
   This is for internal use.
 
-  Amplify uses this action to refresh a previously issued access token that might
-  have expired.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20RefreshToken&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:provider` (`t:string`) The third-party provider for the token. The only valid value is <code>figma</code>.
+  ## Parameters:
+  * `:provider` (`t:string`) The third-party provider for the token. The only
+    valid value is figma.
 
   ## Optional parameters:
   """
@@ -2640,12 +2683,16 @@ defmodule AWS.AmplifyUIBuilder do
   Starts a code generation job for a specified Amplify app and backend
   environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20StartCodegenJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:string`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is a part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is a part
+    of the Amplify app.
 
   ## Optional parameters:
-  * `:client_token` (`t:`) The idempotency token used to ensure that the code generation job request completes only once.
+  * `:client_token` (`t:`) The idempotency token used to ensure that the code
+    generation job request completes only once.
   """
   @spec start_codegen_job(
           AWS.Client.t(),
@@ -2688,8 +2735,11 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Tags the resource with a tag key and value.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to tag a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to tag a
+    resource.
 
   ## Optional parameters:
   """
@@ -2721,11 +2771,15 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to untag a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) to use to untag a
+    resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.amplifyuibuilder#TagKey]`) The tag keys to use to untag a resource.
+  * `:tag_keys` (`t:list[com.amazonaws.amplifyuibuilder#TagKey]`) The tag keys to
+    use to untag a resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2760,9 +2814,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Updates an existing component.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID for the component.
 
   ## Optional parameters:
@@ -2810,9 +2867,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Updates an existing form.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateForm&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID for the form.
 
   ## Optional parameters:
@@ -2860,9 +2920,12 @@ defmodule AWS.AmplifyUIBuilder do
   @doc """
   Updates an existing theme.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplifyuibuilder%20UpdateTheme&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:app_id` (`t:`) The unique ID for the Amplify app.
-  * `:environment_name` (`t:`) The name of the backend environment that is part of the Amplify app.
+  * `:environment_name` (`t:`) The name of the backend environment that is part of
+    the Amplify app.
   * `:id` (`t:string`) The unique ID for the theme.
 
   ## Optional parameters:

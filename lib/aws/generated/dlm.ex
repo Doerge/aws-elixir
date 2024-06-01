@@ -3,21 +3,9 @@
 
 defmodule AWS.DLM do
   @moduledoc """
-  Amazon Data Lifecycle Manager
-
-  With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon
-  Web Services resources.
-
-  You create
-  lifecycle policies, which are used to automate operations on the specified
-  resources.
-
-  Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots. For
-  information about using Amazon Data Lifecycle Manager
-  with Amazon EBS, see [
-  Amazon Data Lifecycle
-  Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
-  in the *Amazon EC2 User Guide*.
+  Amazon Data Lifecycle Manager With Amazon Data Lifecycle Manager, you can manage
+  the lifecycle of your Amazon Web Services resources. You create lifecycle
+  policies, which are used to automate operations on the specified resources.
   """
 
   alias AWS.Client
@@ -676,33 +664,12 @@ defmodule AWS.DLM do
   end
 
   @doc """
-  Creates an Amazon Data Lifecycle Manager lifecycle policy.
+  Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle
+  Manager supports the following policy types:
 
-  Amazon Data Lifecycle Manager supports the following policy types:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
-    *
-  Custom EBS snapshot policy
-
-    *
-  Custom EBS-backed AMI policy
-
-    *
-  Cross-account copy event policy
-
-    *
-  Default policy for EBS snapshots
-
-    *
-  Default policy for EBS-backed AMIs
-
-  For more information, see [
-  Default policies vs custom
-  policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
-
-  If you create a default policy, you can specify the request parameters either in
-  the request body, or in the PolicyDetails request structure, but not both.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -733,12 +700,11 @@ defmodule AWS.DLM do
 
   @doc """
   Deletes the specified lifecycle policy and halts the automated operations that
-  the
-  policy specified.
+  the policy specified.
 
-  For more information about deleting a policy, see [Delete lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:
@@ -776,19 +742,23 @@ defmodule AWS.DLM do
   @doc """
   Gets summary information about all or the specified data lifecycle policies.
 
-  To get complete information about a policy, use
-  [GetLifecyclePolicy](https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) 
-            <b>[Default policies only]</b> Specifies the type of default policy to get. Specify one of the following:
-  * `:policy_ids` (`t:list[com.amazonaws.dlm#PolicyId]`) The identifiers of the data lifecycle policies.
-  * `:resource_types` (`t:list[com.amazonaws.dlm#ResourceTypeValues]`) The resource type.
+  * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) [Default policies
+    only] Specifies the type of default policy to get. Specify one of the
+    following:
+  * `:policy_ids` (`t:list[com.amazonaws.dlm#PolicyId]`) The identifiers of the
+    data lifecycle policies.
+  * `:resource_types` (`t:list[com.amazonaws.dlm#ResourceTypeValues]`) The
+    resource type.
   * `:state` (`t:enum["DISABLED|ENABLED|ERROR"]`) The activation state.
-  * `:tags_to_add` (`t:list[com.amazonaws.dlm#TagFilter]`) The tags to add to objects created by the policy.
-  * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a policy.
+  * `:tags_to_add` (`t:list[com.amazonaws.dlm#TagFilter]`) The tags to add to
+    objects created by the policy.
+  * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a
+    policy.
   """
   @spec get_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policies_response(), any()}
@@ -867,7 +837,9 @@ defmodule AWS.DLM do
   @doc """
   Gets detailed information about the specified lifecycle policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:
@@ -895,7 +867,9 @@ defmodule AWS.DLM do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -923,7 +897,9 @@ defmodule AWS.DLM do
   @doc """
   Adds the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -956,7 +932,9 @@ defmodule AWS.DLM do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -995,9 +973,9 @@ defmodule AWS.DLM do
   @doc """
   Updates the specified lifecycle policy.
 
-  For more information about updating a policy, see [Modify lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_id` (`t:string`) The identifier of the lifecycle policy.
 
   ## Optional parameters:

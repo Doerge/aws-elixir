@@ -4,11 +4,9 @@
 defmodule AWS.IoTEvents do
   @moduledoc """
   AWS IoT Events monitors your equipment or device fleets for failures or changes
-  in operation, and
-  triggers actions when such events occur.
-
-  You can use AWS IoT Events API operations to create, read,
-  update, and delete inputs and detector models, and to list their versions.
+  in operation, and triggers actions when such events occur. You can use AWS IoT
+  Events API operations to create, read, update, and delete inputs and detector
+  models, and to list their versions.
   """
 
   alias AWS.Client
@@ -1735,15 +1733,15 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Creates an alarm model to monitor an AWS IoT Events input attribute.
-
-  You can use the alarm to get
-  notified when the value is outside a specified range. For more information, see
-  [Create an alarm
+  Creates an alarm model to monitor an AWS IoT Events input attribute. You can use
+  the alarm to get notified when the value is outside a specified range. For
+  more information, see [Create an alarm
   model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html)
   in the *AWS IoT Events Developer Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1775,7 +1773,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Creates a detector model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1807,7 +1807,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Creates an input.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1837,12 +1839,12 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Deletes an alarm model.
+  Deletes an alarm model. Any alarm instances that were created based on this
+  alarm model are also deleted. This action can't be undone.
 
-  Any alarm instances that were created based on this alarm model
-  are also deleted. This action can't be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteAlarmModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
@@ -1873,13 +1875,14 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Deletes a detector model.
-
-  Any active instances of the detector model are also
+  Deletes a detector model. Any active instances of the detector model are also
   deleted.
 
-  ## Required positional parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model to be
+    deleted.
 
   ## Optional parameters:
   """
@@ -1916,7 +1919,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Deletes an input.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DeleteInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:input_name` (`t:string`) The name of the input to delete.
 
   ## Optional parameters:
@@ -1947,12 +1952,12 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Retrieves information about an alarm model.
-
-  If you don't specify a value for the
+  Retrieves information about an alarm model. If you don't specify a value for the
   `alarmModelVersion` parameter, the latest version is returned.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeAlarmModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
@@ -1988,12 +1993,12 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Describes a detector model.
-
-  If the `version` parameter is not specified,
+  Describes a detector model. If the `version` parameter is not specified,
   information about the latest version is returned.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:detector_model_name` (`t:string`) The name of the detector model.
 
   ## Optional parameters:
@@ -2031,11 +2036,11 @@ defmodule AWS.IoTEvents do
   @doc """
   Retrieves runtime information about a detector model analysis.
 
-  After AWS IoT Events starts analyzing your detector model, you have up to 24
-  hours to retrieve the analysis results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeDetectorModelAnalysis&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to retrieve.
+  ## Parameters:
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
+    retrieve.
 
   ## Optional parameters:
   """
@@ -2062,7 +2067,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Describes an input.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:input_name` (`t:string`) The name of the input.
 
   ## Optional parameters:
@@ -2090,7 +2097,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Retrieves the current settings of the AWS IoT Events logging options.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2117,15 +2126,17 @@ defmodule AWS.IoTEvents do
   @doc """
   Retrieves one or more analysis results of the detector model.
 
-  After AWS IoT Events starts analyzing your detector model, you have up to 24
-  hours to retrieve the analysis results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20GetDetectorModelAnalysisResults&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to retrieve.
+  ## Parameters:
+  * `:analysis_id` (`t:string`) The ID of the analysis result that you want to
+    retrieve.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec get_detector_model_analysis_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
@@ -2166,17 +2177,19 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists all the versions of an alarm model.
+  Lists all the versions of an alarm model. The operation returns only the
+  metadata associated with each alarm model version.
 
-  The operation returns only the metadata
-  associated with each alarm model version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModelVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec list_alarm_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarm_model_versions_response(), any()}
@@ -2217,16 +2230,18 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists the alarm models that you created.
-
-  The operation returns only the metadata
+  Lists the alarm models that you created. The operation returns only the metadata
   associated with each alarm model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec list_alarm_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_models_response(), any()}
@@ -2267,17 +2282,20 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists all the versions of a detector model.
+  Lists all the versions of a detector model. Only the metadata associated with
+  each detector model version is returned.
 
-  Only the metadata associated with each
-  detector model version is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModelVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model whose versions are returned.
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model whose
+    versions are returned.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec list_detector_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detector_model_versions_response(), any()}
@@ -2318,16 +2336,18 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Lists the detector models you have created.
+  Lists the detector models you have created. Only the metadata associated with
+  each detector model is returned.
 
-  Only the metadata associated with each
-  detector model is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModels&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec list_detector_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detector_models_response(), any()}
@@ -2368,10 +2388,11 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-
   Lists one or more input routings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputRoutings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2403,11 +2424,15 @@ defmodule AWS.IoTEvents do
   @doc """
   Lists the inputs you have created.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:next_token` (`t:string`) The token that you can use to return the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:next_token` (`t:string`) The token that you can use to return the next set
+    of results.
   """
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
@@ -2450,7 +2475,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
@@ -2487,13 +2514,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Sets or updates the AWS IoT Events logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one
-  minute for the change to take effect. If you change the policy attached to the
-  role you
-  specified in the `roleArn` field (for example, to correct an invalid policy), it
-  takes up to five minutes for that change to take effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2513,13 +2536,14 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Performs an analysis of your detector model.
-
-  For more information,
-  see [Troubleshooting a detector model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
+  Performs an analysis of your detector model. For more information, see
+  [Troubleshooting a detector
+  model](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html)
   in the *AWS IoT Events Developer Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20StartDetectorModelAnalysis&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2553,12 +2577,12 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata that can
+  be used to manage a resource.
 
-  Tags are metadata that can be used to
-  manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
@@ -2596,11 +2620,14 @@ defmodule AWS.IoTEvents do
   @doc """
   Removes the given tags (metadata) from the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
-  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]`) A list of the keys of the tags to be removed from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]`) A list of the keys of
+    the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2634,12 +2661,12 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Updates an alarm model.
+  Updates an alarm model. Any alarms that were created based on the previous
+  version are deleted and then created again as new data arrives.
 
-  Any alarms that were created based on the previous version are
-  deleted and then created again as new data arrives.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateAlarmModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:alarm_model_name` (`t:string`) The name of the alarm model.
 
   ## Optional parameters:
@@ -2670,13 +2697,14 @@ defmodule AWS.IoTEvents do
   end
 
   @doc """
-  Updates a detector model.
+  Updates a detector model. Detectors (instances) spawned by the previous version
+  are deleted and then re-created as new inputs arrive.
 
-  Detectors (instances) spawned by the previous version are
-  deleted and then re-created as new inputs arrive.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateDetectorModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:detector_model_name` (`t:string`) The name of the detector model that is updated.
+  ## Parameters:
+  * `:detector_model_name` (`t:string`) The name of the detector model that is
+    updated.
 
   ## Optional parameters:
   """
@@ -2713,7 +2741,9 @@ defmodule AWS.IoTEvents do
   @doc """
   Updates an input.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20UpdateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:input_name` (`t:string`) The name of the input you want to update.
 
   ## Optional parameters:

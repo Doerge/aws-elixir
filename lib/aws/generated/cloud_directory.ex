@@ -4,17 +4,6 @@
 defmodule AWS.CloudDirectory do
   @moduledoc """
   Amazon Cloud Directory
-
-  Amazon Cloud Directory is a component of the AWS Directory Service that
-  simplifies the
-  development and management of cloud-scale web, mobile, and IoT applications.
-
-  This guide
-  describes the Cloud Directory operations that you can call programmatically and
-  includes
-  detailed information on data types and errors. For information about Cloud
-  Directory features, see [AWS Directory Service](https://aws.amazon.com/directoryservice/) and the [Amazon Cloud Directory Developer
-  Guide](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html).
   """
 
   alias AWS.Client
@@ -3919,15 +3908,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Adds a new `Facet` to an object.
+  Adds a new `Facet` to an object. An object can have more than one facet applied
+  on it.
 
-  An object can have more than one facet applied on it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AddFacetToObject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec add_facet_to_object(AWS.Client.t(), add_facet_to_object_request(), Keyword.t()) ::
           {:ok, add_facet_to_object_response(), any()}
@@ -3952,14 +3943,16 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Copies the input published schema, at the specified version, into the
-  `Directory` with the same
-  name and version as that of the published schema.
+  `Directory` with the same name and version as that of the published schema.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ApplySchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      into which the schema is copied. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory into which the schema is copied. For more
+    information, see arns.
   """
   @spec apply_schema(AWS.Client.t(), apply_schema_request(), Keyword.t()) ::
           {:ok, apply_schema_response(), any()}
@@ -3983,22 +3976,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches an existing object to another object.
-
-  An object can be accessed in two
+  Attaches an existing object to another object. An object can be accessed in two
   ways:
 
-    1.
-  Using the path
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachObject&this_doc_guide=API%2520Reference)
 
-    2.
-  Using `ObjectIdentifier`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where both objects reside. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) Amazon Resource Name (ARN) that is associated
+    with the Directory where both objects reside. For more information, see
+    arns.
   """
   @spec attach_object(AWS.Client.t(), attach_object_request(), Keyword.t()) ::
           {:ok, attach_object_response(), any()}
@@ -4022,16 +4010,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches a policy object to a regular object.
+  Attaches a policy object to a regular object. An object can have a limited
+  number of attached policies.
 
-  An object can have a limited number of attached
-  policies.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where both objects reside. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where both objects reside. For more
+    information, see arns.
   """
   @spec attach_policy(AWS.Client.t(), attach_policy_request(), Keyword.t()) ::
           {:ok, attach_policy_response(), any()}
@@ -4057,11 +4046,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Attaches the specified object to the specified index.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachToIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where the object and index
-      exist.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    where the object and index exist.
   """
   @spec attach_to_index(AWS.Client.t(), attach_to_index_request(), Keyword.t()) ::
           {:ok, attach_to_index_response(), any()}
@@ -4085,15 +4076,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Attaches a typed link to a specified source and target object.
+  Attaches a typed link to a specified source and target object. For more
+  information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20AttachTypedLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to attach the typed
-      link.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    where you want to attach the typed link.
   """
   @spec attach_typed_link(AWS.Client.t(), attach_typed_link_request(), Keyword.t()) ::
           {:ok, attach_typed_link_response(), any()}
@@ -4119,13 +4112,16 @@ defmodule AWS.CloudDirectory do
   @doc """
   Performs all the read operations in a batch.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20BatchRead&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
-      For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory. For more information, see arns.
   """
   @spec batch_read(AWS.Client.t(), batch_read_request(), Keyword.t()) ::
           {:ok, batch_read_response(), any()}
@@ -4160,16 +4156,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Performs all the write operations in a batch.
+  Performs all the write operations in a batch. Either all the operations succeed
+  or none.
 
-  Either all the operations succeed or
-  none.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20BatchWrite&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
-      For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory. For more information, see arns.
   """
   @spec batch_write(AWS.Client.t(), batch_write_request(), Keyword.t()) ::
           {:ok, batch_write_response(), any()}
@@ -4193,20 +4189,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a `Directory` by copying the published schema into the
-  directory.
+  Creates a `Directory` by copying the published schema into the directory. A
+  directory cannot be created without a schema.
 
-  A directory cannot be created without a schema.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateDirectory&this_doc_guide=API%2520Reference)
 
-  You can also quickly create a directory using a managed schema, called the
-  `QuickStartSchema`. For more information, see [Managed Schema](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html)
-  in the *Amazon Cloud Directory Developer Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the published schema that will be copied into the
-      data <a>Directory</a>. For more information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the published
+    schema that will be copied into the data Directory. For more information,
+    see arns.
   """
   @spec create_directory(AWS.Client.t(), create_directory_request(), Keyword.t()) ::
           {:ok, create_directory_response(), any()}
@@ -4230,16 +4223,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a new `Facet` in a schema.
+  Creates a new `Facet` in a schema. Facet creation is allowed only in development
+  or applied schemas.
 
-  Facet creation is allowed only
-  in development or applied schemas.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The schema ARN in which the new <a>Facet</a> will be created. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The schema ARN in which the new Facet will be
+    created. For more information, see arns.
   """
   @spec create_facet(AWS.Client.t(), create_facet_request(), Keyword.t()) ::
           {:ok, create_facet_response(), any()}
@@ -4263,15 +4256,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates an index object.
-
-  See [Indexing and search](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html)
+  Creates an index object. See [Indexing and
+  search](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html)
   for more information.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory where the index should be created.
+  * `:directory_arn` (`t:string`) The ARN of the directory where the index should
+    be created.
   """
   @spec create_index(AWS.Client.t(), create_index_request(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
@@ -4295,19 +4290,20 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates an object in a `Directory`.
+  Creates an object in a `Directory`. Additionally attaches the object to a
+  parent, if a parent reference and `LinkName` is specified. An object is simply
+  a collection of `Facet` attributes. You can also use this API call to create a
+  policy object, if the facet from which you create the object is a policy
+  facet.
 
-  Additionally attaches the object to
-  a parent, if a parent reference and `LinkName` is specified. An object is simply
-  a
-  collection of `Facet` attributes. You can also use this API call to create a
-  policy object, if the facet from which you create the object is a policy facet.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateObject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      in which the object will be created. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory in which the object will be created. For more
+    information, see arns.
   """
   @spec create_object(AWS.Client.t(), create_object_request(), Keyword.t()) ::
           {:ok, create_object_response(), any()}
@@ -4331,30 +4327,11 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a new schema in a development state.
+  Creates a new schema in a development state. A schema can exist in three phases:
 
-  A schema can exist in three
-  phases:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateSchema&this_doc_guide=API%2520Reference)
 
-    *
-
-  *Development:* This is a mutable phase of the schema. All new
-  schemas are in the development phase. Once the schema is finalized, it can be
-  published.
-
-    *
-
-  *Published:* Published schemas are immutable and have a version
-  associated with them.
-
-    *
-
-  *Applied:* Applied schemas are mutable in a way that allows you
-  to add new schema facets. You can also add new, nonrequired attributes to
-  existing schema
-  facets. You can apply only published schemas to directories.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4374,15 +4351,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Creates a `TypedLinkFacet`.
+  Creates a `TypedLinkFacet`. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateTypedLinkFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec create_typed_link_facet(AWS.Client.t(), create_typed_link_facet_request(), Keyword.t()) ::
           {:ok, create_typed_link_facet_response(), any()}
@@ -4406,14 +4384,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a directory.
+  Deletes a directory. Only disabled directories can be deleted. A deleted
+  directory cannot be undone. Exercise extreme caution when deleting
+  directories.
 
-  Only disabled directories can be deleted. A deleted directory cannot be undone.
-  Exercise extreme
-  caution
-  when deleting directories.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteDirectory&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory to delete.
@@ -4440,18 +4417,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a given `Facet`.
+  Deletes a given `Facet`. All attributes and `Rule`s that are associated with the
+  facet will be deleted. Only development schema facets are allowed deletion.
 
-  All attributes and `Rule`s
-  that are associated with the facet will be deleted. Only development schema
-  facets are allowed
-  deletion.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
-      For more information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the Facet. For more information, see arns.
   """
   @spec delete_facet(AWS.Client.t(), delete_facet_request(), Keyword.t()) ::
           {:ok, delete_facet_response(), any()}
@@ -4475,18 +4450,20 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes an object and its associated attributes.
-
-  Only objects with no children and no
-  parents can be deleted. The maximum number of attributes that can be deleted
-  during an object deletion is 30. For more information, see [Amazon Cloud Directory
+  Deletes an object and its associated attributes. Only objects with no children
+  and no parents can be deleted. The maximum number of attributes that can be
+  deleted during an object deletion is 30. For more information, see [Amazon
+  Cloud Directory
   Limits](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec delete_object(AWS.Client.t(), delete_object_request(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
@@ -4510,15 +4487,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a given schema.
+  Deletes a given schema. Schemas in a development and published state can only be
+  deleted.
 
-  Schemas in a development and published state can only be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteSchema&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development schema. For more information, see
-        <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
+    schema. For more information, see arns.
   """
   @spec delete_schema(AWS.Client.t(), delete_schema_request(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
@@ -4542,15 +4520,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Deletes a `TypedLinkFacet`.
+  Deletes a `TypedLinkFacet`. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DeleteTypedLinkFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec delete_typed_link_facet(AWS.Client.t(), delete_typed_link_facet_request(), Keyword.t()) ::
           {:ok, delete_typed_link_facet_response(), any()}
@@ -4576,11 +4555,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Detaches the specified object from the specified index.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachFromIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory the index and object exist
-      in.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    the index and object exist in.
   """
   @spec detach_from_index(AWS.Client.t(), detach_from_index_request(), Keyword.t()) ::
           {:ok, detach_from_index_response(), any()}
@@ -4604,16 +4585,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Detaches a given object from the parent object.
+  Detaches a given object from the parent object. The object that is to be
+  detached from the parent is specified by the link name.
 
-  The object that is to be detached from the
-  parent is specified by the link name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachObject&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where objects reside. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where objects reside. For more information,
+    see arns.
   """
   @spec detach_object(AWS.Client.t(), detach_object_request(), Keyword.t()) ::
           {:ok, detach_object_response(), any()}
@@ -4639,11 +4621,14 @@ defmodule AWS.CloudDirectory do
   @doc """
   Detaches a policy from an object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where both objects reside. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where both objects reside. For more
+    information, see arns.
   """
   @spec detach_policy(AWS.Client.t(), detach_policy_request(), Keyword.t()) ::
           {:ok, detach_policy_response(), any()}
@@ -4667,15 +4652,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Detaches a typed link from a specified source and target object.
+  Detaches a typed link from a specified source and target object. For more
+  information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DetachTypedLink&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to detach the typed
-      link.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    where you want to detach the typed link.
   """
   @spec detach_typed_link(AWS.Client.t(), detach_typed_link_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4699,12 +4686,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Disables the specified directory.
+  Disables the specified directory. Disabled directories cannot be read or written
+  to. Only enabled directories can be disabled. Disabled directories may be
+  reenabled.
 
-  Disabled directories cannot be read or written to.
-  Only enabled directories can be disabled. Disabled directories may be reenabled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20DisableDirectory&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory to disable.
@@ -4731,12 +4719,12 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Enables the specified directory.
-
-  Only disabled directories can be enabled. Once
+  Enables the specified directory. Only disabled directories can be enabled. Once
   enabled, the directory can then be read and written to.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20EnableDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory to enable.
@@ -4765,7 +4753,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   Returns current applied schema version ARN, including the minor version in use.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetAppliedSchemaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4801,7 +4791,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves metadata about a directory.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetDirectory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:directory_arn` (`t:string`) The ARN of the directory.
@@ -4839,16 +4831,16 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Gets details of the `Facet`, such as facet name, attributes, `Rule`s, or
-  `ObjectType`.
+  `ObjectType`. You can call this on all kinds of schema facets -- published,
+  development, or applied.
 
-  You can call this on all kinds of schema
-  facets -- published, development, or applied.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
-      For more information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the Facet. For more information, see arns.
   """
   @spec get_facet(AWS.Client.t(), get_facet_request(), Keyword.t()) ::
           {:ok, get_facet_response(), any()}
@@ -4884,10 +4876,14 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves attributes that are associated with a typed link.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetLinkAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the typed link resides. For more
+    information, see arns or Typed Links.
   """
   @spec get_link_attributes(AWS.Client.t(), get_link_attributes_request(), Keyword.t()) ::
           {:ok, get_link_attributes_response(), any()}
@@ -4923,11 +4919,15 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves attributes within a facet that are associated with an object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetObjectAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level at which to retrieve the attributes on an object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where the object resides.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
+    at which to retrieve the attributes on an object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides.
   """
   @spec get_object_attributes(AWS.Client.t(), get_object_attributes_request(), Keyword.t()) ::
           {:ok, get_object_attributes_response(), any()}
@@ -4964,10 +4964,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves metadata about an object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetObjectInformation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level at which to retrieve the object information.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
+    at which to retrieve the object information.
   * `:directory_arn` (`t:string`) The ARN of the directory being retrieved.
   """
   @spec get_object_information(AWS.Client.t(), get_object_information_request(), Keyword.t()) ::
@@ -5003,12 +5006,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Retrieves a JSON representation of the schema.
-
-  See [JSON Schema Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
+  Retrieves a JSON representation of the schema. See [JSON Schema
+  Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
   for more information.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetSchemaAsJson&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:schema_arn` (`t:string`) The ARN of the schema to retrieve.
@@ -5045,15 +5049,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns the identity attribute order for a specific `TypedLinkFacet`.
+  Returns the identity attribute order for a specific `TypedLinkFacet`. For more
+  information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetTypedLinkFacetInformation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec get_typed_link_facet_information(
           AWS.Client.t(),
@@ -5091,11 +5097,12 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists schema major versions applied to a directory.
+  Lists schema major versions applied to a directory. If `SchemaArn` is provided,
+  lists the minor version.
 
-  If `SchemaArn` is provided, lists the minor version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListAppliedSchemaArns&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5127,10 +5134,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Lists indices attached to the specified object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListAttachedIndices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level to use for this operation.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
+    to use for this operation.
   * `:directory_arn` (`t:string`) The ARN of the directory.
   """
   @spec list_attached_indices(AWS.Client.t(), list_attached_indices_request(), Keyword.t()) ::
@@ -5166,10 +5176,11 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Retrieves each Amazon Resource Name (ARN) of schemas in the development
-  state.
+  Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDevelopmentSchemaArns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5205,7 +5216,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   Lists directories created within an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDirectories&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5237,7 +5250,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves attributes attached to the facet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListFacetAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:schema_arn` (`t:string`) The ARN of the schema where the facet resides.
@@ -5276,10 +5291,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Retrieves the names of facets that exist in a schema.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListFacetNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) to retrieve facet names from.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) to retrieve facet
+    names from.
   """
   @spec list_facet_names(AWS.Client.t(), list_facet_names_request(), Keyword.t()) ::
           {:ok, list_facet_names_response(), any()}
@@ -5313,17 +5331,18 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of all the incoming `TypedLinkSpecifier`
-  information for an object.
+  Returns a paginated list of all the incoming `TypedLinkSpecifier` information
+  for an object. It also supports filtering by typed link facet and identity
+  attributes. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  It also supports filtering by typed link facet and identity
-  attributes. For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListIncomingTypedLinks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to list the typed
-      links.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    where you want to list the typed links.
   """
   @spec list_incoming_typed_links(
           AWS.Client.t(),
@@ -5363,11 +5382,15 @@ defmodule AWS.CloudDirectory do
   @doc """
   Lists objects attached to the specified index.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level to execute the request at.
-  * `:directory_arn` (`t:string`) The ARN of the directory that the index exists in.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
+    to execute the request at.
+  * `:directory_arn` (`t:string`) The ARN of the directory that the index exists
+    in.
   """
   @spec list_index(AWS.Client.t(), list_index_request(), Keyword.t()) ::
           {:ok, list_index_response(), any()}
@@ -5402,12 +5425,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists the major version families of each managed schema.
+  Lists the major version families of each managed schema. If a major version ARN
+  is provided as SchemaArn, the minor version revisions in that family are
+  listed instead.
 
-  If a major version ARN is provided as SchemaArn, the minor version revisions in
-  that family are listed instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListManagedSchemaArns&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5439,13 +5463,17 @@ defmodule AWS.CloudDirectory do
   @doc """
   Lists all attributes that are associated with an object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec list_object_attributes(AWS.Client.t(), list_object_attributes_request(), Keyword.t()) ::
           {:ok, list_object_attributes_response(), any()}
@@ -5483,13 +5511,17 @@ defmodule AWS.CloudDirectory do
   Returns a paginated list of child objects that are associated with a given
   object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectChildren&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec list_object_children(AWS.Client.t(), list_object_children_request(), Keyword.t()) ::
           {:ok, list_object_children_response(), any()}
@@ -5525,27 +5557,17 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Retrieves all available parent paths for any object type such as node, leaf
-  node,
-  policy node, and index node objects.
+  node, policy node, and index node objects. For more information about objects,
+  see [Directory
+  Structure](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
 
-  For more information about objects, see [Directory Structure](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectParentPaths&this_doc_guide=API%2520Reference)
 
-  Use this API to evaluate all parents for an object. The call returns all objects
-  from
-  the root of the directory up to the requested object. The API returns the number
-  of paths
-  based on user-defined `MaxResults`, in case there are multiple paths to the
-  parent.
-  The order of the paths and nodes returned is consistent among multiple API calls
-  unless the
-  objects are deleted or moved. Paths not leading to the directory root are
-  ignored from the
-  target object.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory to which the parent path applies.
+  * `:directory_arn` (`t:string`) The ARN of the directory to which the parent
+    path applies.
   """
   @spec list_object_parent_paths(AWS.Client.t(), list_object_parent_paths_request(), Keyword.t()) ::
           {:ok, list_object_parent_paths_response(), any()}
@@ -5582,13 +5604,17 @@ defmodule AWS.CloudDirectory do
   Lists parent objects that are associated with a given object in pagination
   fashion.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectParents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec list_object_parents(AWS.Client.t(), list_object_parents_request(), Keyword.t()) ::
           {:ok, list_object_parents_response(), any()}
@@ -5625,13 +5651,17 @@ defmodule AWS.CloudDirectory do
   @doc """
   Returns policies attached to an object in pagination fashion.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListObjectPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where objects reside. For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where objects reside. For more information,
+    see arns.
   """
   @spec list_object_policies(AWS.Client.t(), list_object_policies_request(), Keyword.t()) ::
           {:ok, list_object_policies_response(), any()}
@@ -5666,17 +5696,18 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of all the outgoing `TypedLinkSpecifier`
-  information for an object.
+  Returns a paginated list of all the outgoing `TypedLinkSpecifier` information
+  for an object. It also supports filtering by typed link facet and identity
+  attributes. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  It also supports filtering by typed link facet and identity
-  attributes. For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListOutgoingTypedLinks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory where you want to list the typed
-      links.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) of the directory
+    where you want to list the typed links.
   """
   @spec list_outgoing_typed_links(
           AWS.Client.t(),
@@ -5716,13 +5747,17 @@ defmodule AWS.CloudDirectory do
   @doc """
   Returns all of the `ObjectIdentifiers` to which a given policy is attached.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListPolicyAttachments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner and timing in which the successful write or update of an object
-      is reflected in a subsequent read operation of that same object.
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where objects reside. For more information, see <a>arns</a>.
+  * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where objects reside. For more information,
+    see arns.
   """
   @spec list_policy_attachments(AWS.Client.t(), list_policy_attachments_request(), Keyword.t()) ::
           {:ok, list_policy_attachments_response(), any()}
@@ -5757,12 +5792,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists the major version families of each published schema.
+  Lists the major version families of each published schema. If a major version
+  ARN is provided as `SchemaArn`, the minor version revisions in that family are
+  listed instead.
 
-  If a major version ARN is provided as `SchemaArn`, the minor version revisions
-  in that family are listed instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListPublishedSchemaArns&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5796,14 +5832,13 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns tags for a resource.
+  Returns tags for a resource. Tagging is currently supported only for directories
+  with a limit of 50 tags per directory. All 50 tags are returned for a given
+  directory with this API call.
 
-  Tagging is currently supported only for directories with a
-  limit of 50 tags per directory. All 50 tags are returned for a given directory
-  with this API
-  call.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5834,15 +5869,16 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Returns a paginated list of all attribute definitions for a particular
-  `TypedLinkFacet`.
+  `TypedLinkFacet`. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTypedLinkFacetAttributes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec list_typed_link_facet_attributes(
           AWS.Client.t(),
@@ -5880,15 +5916,17 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Returns a paginated list of `TypedLink` facet names for a particular schema.
+  Returns a paginated list of `TypedLink` facet names for a particular schema. For
+  more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTypedLinkFacetNames&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec list_typed_link_facet_names(
           AWS.Client.t(),
@@ -5926,24 +5964,21 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Lists all policies from the root of the `Directory` to the object
-  specified.
-
-  If there are no policies present, an empty list is returned. If policies are
+  Lists all policies from the root of the `Directory` to the object specified. If
+  there are no policies present, an empty list is returned. If policies are
   present, and if some objects don't have the policies attached, it returns the
-  `ObjectIdentifier`
-  for such objects. If policies are present, it returns `ObjectIdentifier`,
-  `policyId`, and
-  `policyType`. Paths that don't lead to the root from the target object are
-  ignored. For more
-  information, see
+  `ObjectIdentifier` for such objects. If policies are present, it returns
+  `ObjectIdentifier`, `policyId`, and `policyType`. Paths that don't lead to the
+  root from the target object are ignored. For more information, see
   [Policies](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20LookupPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
-      For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory. For more information, see arns.
   """
   @spec lookup_policy(AWS.Client.t(), lookup_policy_request(), Keyword.t()) ::
           {:ok, lookup_policy_response(), any()}
@@ -5980,11 +6015,13 @@ defmodule AWS.CloudDirectory do
   Publishes a development schema with a major version and a recommended minor
   version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20PublishSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:development_schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the development schema. For
-      more information, see <a>arns</a>.
+  * `:development_schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the development schema. For more information, see arns.
   """
   @spec publish_schema(AWS.Client.t(), publish_schema_request(), Keyword.t()) ::
           {:ok, publish_schema_response(), any()}
@@ -6008,12 +6045,14 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Allows a schema to be updated using JSON upload.
-
-  Only available for development schemas. See [JSON Schema Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
+  Allows a schema to be updated using JSON upload. Only available for development
+  schemas. See [JSON Schema
+  Format](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json)
   for more information.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20PutSchemaFromJson&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:schema_arn` (`t:string`) The ARN of the schema to update.
@@ -6042,10 +6081,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Removes the specified facet from the specified object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20RemoveFacetFromObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The ARN of the directory in which the object resides.
+  * `:directory_arn` (`t:string`) The ARN of the directory in which the object
+    resides.
   """
   @spec remove_facet_from_object(AWS.Client.t(), remove_facet_from_object_request(), Keyword.t()) ::
           {:ok, remove_facet_from_object_response(), any()}
@@ -6071,7 +6113,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   An API operation for adding tags to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6093,7 +6137,9 @@ defmodule AWS.CloudDirectory do
   @doc """
   An API operation for removing tags from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6115,21 +6161,13 @@ defmodule AWS.CloudDirectory do
   @doc """
   Does the following:
 
-    1.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateFacet&this_doc_guide=API%2520Reference)
 
-  Adds new `Attributes`, `Rules`, or `ObjectTypes`.
-
-    2.
-  Updates existing `Attributes`, `Rules`, or `ObjectTypes`.
-
-    3.
-  Deletes existing `Attributes`, `Rules`, or `ObjectTypes`.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
-      For more information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the Facet. For more information, see arns.
   """
   @spec update_facet(AWS.Client.t(), update_facet_request(), Keyword.t()) ::
           {:ok, update_facet_response(), any()}
@@ -6153,15 +6191,18 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates a given typed link’s attributes.
+  Updates a given typed link’s attributes. Attributes to be updated must not
+  contribute to the typed link’s identity, as defined by its
+  `IdentityAttributeOrder`.
 
-  Attributes to be updated must not contribute to the typed link’s identity, as
-  defined by its `IdentityAttributeOrder`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateLinkAttributes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the updated typed link resides. For more
+    information, see arns or Typed Links.
   """
   @spec update_link_attributes(AWS.Client.t(), update_link_attributes_request(), Keyword.t()) ::
           {:ok, update_link_attributes_response(), any()}
@@ -6197,11 +6238,14 @@ defmodule AWS.CloudDirectory do
   @doc """
   Updates a given object's attributes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateObjectAttributes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.
+  * `:directory_arn` (`t:string`) The Amazon Resource Name (ARN) that is
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec update_object_attributes(AWS.Client.t(), update_object_attributes_request(), Keyword.t()) ::
           {:ok, update_object_attributes_response(), any()}
@@ -6225,16 +6269,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates the schema name with a new name.
-
-  Only development schema names can be
+  Updates the schema name with a new name. Only development schema names can be
   updated.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development schema. For more information, see
-        <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) of the development
+    schema. For more information, see arns.
   """
   @spec update_schema(AWS.Client.t(), update_schema_request(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
@@ -6258,15 +6302,16 @@ defmodule AWS.CloudDirectory do
   end
 
   @doc """
-  Updates a `TypedLinkFacet`.
+  Updates a `TypedLinkFacet`. For more information, see [Typed
+  Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
 
-  For more information, see [Typed Links](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpdateTypedLinkFacet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated with the schema. For more
-      information, see <a>arns</a>.
+  * `:schema_arn` (`t:string`) The Amazon Resource Name (ARN) that is associated
+    with the schema. For more information, see arns.
   """
   @spec update_typed_link_facet(AWS.Client.t(), update_typed_link_facet_request(), Keyword.t()) ::
           {:ok, update_typed_link_facet_response(), any()}
@@ -6291,14 +6336,15 @@ defmodule AWS.CloudDirectory do
 
   @doc """
   Upgrades a single directory in-place using the `PublishedSchemaArn` with schema
-  updates found in `MinorVersion`.
+  updates found in `MinorVersion`. Backwards-compatible minor version upgrades
+  are instantaneously available for readers on all objects in the directory.
+  Note: This is a synchronous API call and upgrades only one schema on a given
+  directory per call. To upgrade multiple directories from one schema, you would
+  need to call this API on each directory.
 
-  Backwards-compatible minor version upgrades are instantaneously available for
-  readers on all objects in the directory. Note: This is a synchronous API call
-  and upgrades only one schema on a given directory per call. To upgrade multiple
-  directories from one schema, you would need to call this API on each directory.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradeAppliedSchema&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6321,7 +6367,9 @@ defmodule AWS.CloudDirectory do
   Upgrades a published schema under a new minor version revision using the current
   contents of `DevelopmentSchemaArn`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradePublishedSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

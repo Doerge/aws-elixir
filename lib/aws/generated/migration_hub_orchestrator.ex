@@ -4,15 +4,10 @@
 defmodule AWS.MigrationHubOrchestrator do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for AWS Migration Hub Orchestrator.
-
-  The topic for each action shows the API
-  request parameters and responses. Alternatively, you can use one of the AWS SDKs
-  to
-  access an API that is tailored to the programming language or platform that
-  you're
-  using.
+  of the actions and data types for AWS Migration Hub Orchestrator. The topic
+  for each action shows the API request parameters and responses. Alternatively,
+  you can use one of the AWS SDKs to access an API that is tailored to the
+  programming language or platform that you're using.
   """
 
   alias AWS.Client
@@ -1378,7 +1373,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Creates a migration workflow template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1410,7 +1407,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Create a workflow to orchestrate your migrations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1442,7 +1441,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Create a step in the migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1474,7 +1475,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Create a step group in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1510,8 +1513,11 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Deletes a migration workflow template.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the request to delete a migration workflow template.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the request to delete a migration workflow
+    template.
 
   ## Optional parameters:
   """
@@ -1541,12 +1547,12 @@ defmodule AWS.MigrationHubOrchestrator do
   end
 
   @doc """
-  Delete a migration workflow.
+  Delete a migration workflow. You must pause a running workflow in Migration Hub
+  Orchestrator console to delete it.
 
-  You must pause a running workflow in Migration Hub Orchestrator console to
-  delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the migration workflow you want to delete.
 
   ## Optional parameters:
@@ -1582,16 +1588,17 @@ defmodule AWS.MigrationHubOrchestrator do
   end
 
   @doc """
-  Delete a step in a migration workflow.
-
-  Pause the workflow to delete a running
+  Delete a step in a migration workflow. Pause the workflow to delete a running
   step.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step you want to delete.
 
   ## Optional parameters:
-  * `:step_group_id` (`t:string`) The ID of the step group that contains the step you want to delete.
+  * `:step_group_id` (`t:string`) The ID of the step group that contains the step
+    you want to delete.
   * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
   @spec delete_workflow_step(
@@ -1633,7 +1640,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Delete a step group in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20DeleteWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step group you want to delete.
 
   ## Optional parameters:
@@ -1677,7 +1686,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get the template you want to use for creating a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the template.
 
   ## Optional parameters:
@@ -1705,7 +1716,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a specific step in a template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
@@ -1753,7 +1766,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a step group in a template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetTemplateStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step group.
   * `:template_id` (`t:string`) The ID of the template.
 
@@ -1783,7 +1798,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
@@ -1811,7 +1828,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get a step in the migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
@@ -1859,7 +1878,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Get the step group of a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20GetWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step group.
 
   ## Optional parameters:
@@ -1897,10 +1918,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List AWS Migration Hub Orchestrator plugins.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListPlugins&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of plugins that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of plugins that can be
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
@@ -1944,7 +1968,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the tags added to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1972,11 +1998,14 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the step groups in a template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateStepGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:template_id` (`t:string`) The ID of the template.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2020,10 +2049,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the steps in a template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplateSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   * `:step_group_id` (`t:string`) The ID of the step group.
   * `:template_id` (`t:string`) The ID of the template.
@@ -2088,10 +2120,13 @@ defmodule AWS.MigrationHubOrchestrator do
   List the templates available in Migration Hub Orchestrator to create a migration
   workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:name` (`t:string`) The name of the template.
   * `:next_token` (`t:string`) The pagination token.
   """
@@ -2145,10 +2180,13 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the step groups in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowStepGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   * `:workflow_id` (`t:string`) The ID of the migration workflow.
   """
@@ -2202,12 +2240,15 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the steps in a workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflowSteps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:step_group_id` (`t:string`) The ID of the step group.
   * `:workflow_id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2252,11 +2293,15 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   List the migration workflows.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ads_application_configuration_name` (`t:string`) The name of the application configured in Application Discovery Service.
-  * `:max_results` (`t:integer`) The maximum number of results that can be returned.
+  * `:ads_application_configuration_name` (`t:string`) The name of the application
+    configured in Application Discovery Service.
+  * `:max_results` (`t:integer`) The maximum number of results that can be
+    returned.
   * `:name` (`t:`) The name of the migration workflow.
   * `:next_token` (`t:string`) The pagination token.
   * `:status` (`t:string`) The status of the migration workflow.
@@ -2340,7 +2385,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Retry a failed step in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20RetryWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
@@ -2386,7 +2433,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Start a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StartWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
@@ -2424,7 +2473,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Stop an ongoing migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20StopWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
@@ -2457,8 +2508,11 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Tag a resource by specifying its Amazon Resource Name (ARN).
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to which you want to add tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    which you want to add tags.
 
   ## Optional parameters:
   """
@@ -2490,12 +2544,15 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Deletes the tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which you want to remove
-            tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which you want to remove tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or more tag keys. Specify only the tag keys, not the tag values.
+  * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]`) One or
+    more tag keys. Specify only the tag keys, not the tag values.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2530,8 +2587,11 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Updates a migration workflow template.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the request to update a migration workflow template.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the request to update a migration workflow
+    template.
 
   ## Optional parameters:
   """
@@ -2563,7 +2623,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Update a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the migration workflow.
 
   ## Optional parameters:
@@ -2601,7 +2663,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Update a step in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStep&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step.
 
   ## Optional parameters:
@@ -2639,7 +2703,9 @@ defmodule AWS.MigrationHubOrchestrator do
   @doc """
   Update the step group in a migration workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20UpdateWorkflowStepGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the step group.
 
   ## Optional parameters:

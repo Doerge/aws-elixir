@@ -4,12 +4,10 @@
 defmodule AWS.OpenSearch do
   @moduledoc """
   Use the Amazon OpenSearch Service configuration API to create, configure, and
-  manage
-  OpenSearch Service domains.
-
-  The endpoint for configuration service requests is Region specific:
-  es.*region*.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a
-  current list of supported Regions and endpoints, see [Amazon Web Services service
+  manage OpenSearch Service domains. The endpoint for configuration service
+  requests is Region specific: es.*region*.amazonaws.com. For example,
+  es.us-east-1.amazonaws.com. For a current list of supported Regions and
+  endpoints, see [Amazon Web Services service
   endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions).
   """
 
@@ -3488,13 +3486,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the destination Amazon OpenSearch Service domain owner to accept an
-  inbound
-  cross-cluster search connection request.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  inbound cross-cluster search connection request. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AcceptInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:connection_id` (`t:string`) The ID of the inbound connection to accept.
 
   ## Optional parameters:
@@ -3522,12 +3520,14 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a new direct-query data source to the specified domain.
+  Creates a new direct-query data source to the specified domain. For more
+  information, see [Creating Amazon OpenSearch Service data source integrations
+  with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
-  For more information, see
-  [Creating Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddDataSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain to add the data source to.
 
   ## Optional parameters:
@@ -3558,14 +3558,14 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Attaches tags to an existing Amazon OpenSearch Service domain.
-
-  Tags are a set of
+  Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
   case-sensitive key-value pairs. A domain can have up to 10 tags. For more
-  information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  information, see [Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3595,16 +3595,16 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Associates a package with an Amazon OpenSearch Service domain.
-
-  For more information, see
-  [Custom packages for Amazon OpenSearch
+  Associates a package with an Amazon OpenSearch Service domain. For more
+  information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the domain to associate the package with.
-  * `:package_id` (`t:string`) Internal ID of the package to associate with a domain. Use <code>DescribePackages</code> to find this value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AssociatePackage&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain to associate the package with.
+  * `:package_id` (`t:string`) Internal ID of the package to associate with a
+    domain. Use DescribePackages to find this value.
 
   ## Optional parameters:
   """
@@ -3643,11 +3643,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Provides access to an Amazon OpenSearch Service domain through the use of an
-  interface VPC
-  endpoint.
+  interface VPC endpoint.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to provide access to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AuthorizeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    provide access to.
 
   ## Optional parameters:
   """
@@ -3686,8 +3688,10 @@ defmodule AWS.OpenSearch do
   @doc """
   Cancels a pending configuration change on an Amazon OpenSearch Service domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelDomainConfigChange&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3723,15 +3727,14 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Cancels a scheduled service software update for an Amazon OpenSearch Service
-  domain.
-
-  You can
-  only perform this operation before the `AutomatedUpdateDate` and when the
-  domain's
-  `UpdateStatus` is `PENDING_UPDATE`. For more information, see [Service software updates in Amazon OpenSearch
+  domain. You can only perform this operation before the `AutomatedUpdateDate`
+  and when the domain's `UpdateStatus` is `PENDING_UPDATE`. For more
+  information, see [Service software updates in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3765,11 +3768,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates an Amazon OpenSearch Service domain.
+  Creates an Amazon OpenSearch Service domain. For more information, see [Creating
+  and managing Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
 
-  For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3800,13 +3805,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Creates a new cross-cluster search connection from a source Amazon OpenSearch
-  Service domain
-  to a destination domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  Service domain to a destination domain. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateOutboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3840,12 +3845,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates a package for use with Amazon OpenSearch Service domains.
+  Creates a package for use with Amazon OpenSearch Service domains. For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreatePackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3877,7 +3883,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Creates an Amazon OpenSearch Service-managed VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3907,12 +3915,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes a direct-query data source.
-
-  For more information, see [Deleting an Amazon OpenSearch Service data source with Amazon
+  Deletes a direct-query data source. For more information, see [Deleting an
+  Amazon OpenSearch Service data source with Amazon
   S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-delete.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
   * `:name` (`t:string`) The name of the data source to delete.
 
@@ -3952,13 +3961,14 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes an Amazon OpenSearch Service domain and all of its data.
+  Deletes an Amazon OpenSearch Service domain and all of its data. You can't
+  recover a domain after you delete it.
 
-  You can't recover a domain
-  after you delete it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain you want to permanently delete.
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain you want to permanently
+    delete.
 
   ## Optional parameters:
   """
@@ -3989,14 +3999,15 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the destination Amazon OpenSearch Service domain owner to delete an
-  existing inbound
-  cross-cluster search connection.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  existing inbound cross-cluster search connection. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
-  * `:connection_id` (`t:string`) The ID of the inbound connection to permanently delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the inbound connection to permanently
+    delete.
 
   ## Optional parameters:
   """
@@ -4032,14 +4043,15 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the source Amazon OpenSearch Service domain owner to delete an existing
-  outbound
-  cross-cluster search connection.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  outbound cross-cluster search connection. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
-  * `:connection_id` (`t:string`) The ID of the outbound connection you want to permanently delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteOutboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the outbound connection you want to
+    permanently delete.
 
   ## Optional parameters:
   """
@@ -4076,13 +4088,15 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes an Amazon OpenSearch Service package.
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  Deletes an Amazon OpenSearch Service package. For more information, see [Custom
+  packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) The internal ID of the package you want to delete. Use <code>DescribePackages</code> to find this value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeletePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The internal ID of the package you want to delete.
+    Use DescribePackages to find this value.
 
   ## Optional parameters:
   """
@@ -4114,7 +4128,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DeleteVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:vpc_endpoint_id` (`t:string`) The unique identifier of the endpoint.
 
   ## Optional parameters:
@@ -4151,11 +4167,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the domain configuration for the specified Amazon OpenSearch Service
-  domain,
-  including the domain ID, domain service endpoint, and domain ARN.
+  domain, including the domain ID, domain service endpoint, and domain ARN.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain that you want information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain that you want information
+    about.
 
   ## Optional parameters:
   """
@@ -4181,13 +4199,15 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the list of optimizations that Auto-Tune has made to an Amazon
-  OpenSearch Service
-  domain.
+  OpenSearch Service domain. For more information, see [Auto-Tune for Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
 
-  For more information, see [Auto-Tune for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainAutoTunes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the domain that you want Auto-Tune details about.
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the domain that you want Auto-Tune details
+    about.
 
   ## Optional parameters:
   """
@@ -4213,17 +4233,20 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns information about the current blue/green deployment happening on an
-  Amazon
-  OpenSearch Service domain.
+  Amazon OpenSearch Service domain. For more information, see [Making
+  configuration changes in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
 
-  For more information, see [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainChangeProgress&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain to get progress information for.
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to get progress information
+    for.
 
   ## Optional parameters:
-  * `:change_id` (`t:string`) The specific change ID for which you want to get progress information. If omitted, the
-   request returns information about the most recent configuration change.
+  * `:change_id` (`t:string`) The specific change ID for which you want to get
+    progress information. If omitted, the request returns information about the
+    most recent configuration change.
   """
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
@@ -4257,8 +4280,11 @@ defmodule AWS.OpenSearch do
   @doc """
   Returns the configuration of an Amazon OpenSearch Service domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain configuration that you want to describe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) Name of the OpenSearch Service domain
+    configuration that you want to describe.
 
   ## Optional parameters:
   """
@@ -4286,7 +4312,9 @@ defmodule AWS.OpenSearch do
   Returns information about domain and node health, the standby Availability Zone,
   number of nodes per Availability Zone, and shard count per node.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainHealth&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
@@ -4313,11 +4341,12 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns information about domain and nodes, including data nodes, master nodes,
-  ultrawarm
-  nodes, Availability Zone(s), standby nodes, node configurations, and node
-  states.
+  ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and
+  node states.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomainNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
@@ -4344,10 +4373,11 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns domain configuration information about the specified Amazon OpenSearch
-  Service
-  domains.
+  Service domains.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4378,17 +4408,20 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
-  Service domain.
+  Service domain. For more information, see [Determining whether a change will
+  cause a blue/green
+  deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
 
-  For more information, see [Determining whether a change will cause a blue/green deployment](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDryRunProgress&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
   * `:dry_run_id` (`t:string`) The unique identifier of the dry run.
-  * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of the dry run in the response. The configuration
-   specifies the updates that you&#39;re planning to make on the domain.
+  * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of
+    the dry run in the response. The configuration specifies the updates that
+    you're planning to make on the domain.
   """
   @spec describe_dry_run_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dry_run_progress_response(), any()}
@@ -4430,13 +4463,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all the inbound cross-cluster search connections for a destination
-  (remote) Amazon
-  OpenSearch Service domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  (remote) Amazon OpenSearch Service domain. For more information, see
+  [Cross-cluster search for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInboundConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4471,16 +4504,21 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the instance count, storage, and master node limits for a given
-  OpenSearch or
-  Elasticsearch version and instance type.
+  OpenSearch or Elasticsearch version and instance type.
 
-  ## Required positional parameters:
-  * `:engine_version` (`t:string`) Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
-   Defaults to the latest version of OpenSearch.
-  * `:instance_type` (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`) The OpenSearch Service instance type for which you need limit information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInstanceTypeLimits&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:engine_version` (`t:string`) Version of OpenSearch or Elasticsearch, in the
+    format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version
+    of OpenSearch.
+  * `:instance_type`
+    (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`)
+    The OpenSearch Service instance type for which you need limit information.
 
   ## Optional parameters:
-  * `:domain_name` (`t:string`) The name of the domain. Only specify if you need the limits for an existing domain.
+  * `:domain_name` (`t:string`) The name of the domain. Only specify if you need
+    the limits for an existing domain.
   """
   @spec describe_instance_type_limits(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_type_limits_response(), any()}
@@ -4519,13 +4557,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all the outbound cross-cluster connections for a local (source) Amazon
-  OpenSearch
-  Service domain.
-
-  For more information, see [Cross-cluster search for Amazon OpenSearch
+  OpenSearch Service domain. For more information, see [Cross-cluster search for
+  Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeOutboundConnections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4559,12 +4597,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Describes all packages available to OpenSearch Service.
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  Describes all packages available to OpenSearch Service. For more information,
+  see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribePackages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4595,22 +4634,25 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the available Amazon OpenSearch Service Reserved Instance offerings
-  for a given
-  Region.
+  for a given Region. For more information, see [Reserved Instances in Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstanceOfferings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>DescribeReservedInstanceOfferings</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>DescribeReservedInstanceOfferings</code> operations, which returns results in the next
-   page.
-  * `:reserved_instance_offering_id` (`t:string`) The Reserved Instance identifier filter value. Use this parameter to show only the available
-   instance types that match the specified reservation identifier.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial DescribeReservedInstanceOfferings
+    operation returns a nextToken, you can include the returned nextToken in
+    subsequent DescribeReservedInstanceOfferings operations, which returns
+    results in the next page.
+  * `:reserved_instance_offering_id` (`t:string`) The Reserved Instance identifier
+    filter value. Use this parameter to show only the available instance types
+    that match the specified reservation identifier.
   """
   @spec describe_reserved_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
@@ -4662,21 +4704,25 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Describes the Amazon OpenSearch Service instances that you have reserved in a
-  given Region.
+  given Region. For more information, see [Reserved Instances in Amazon
+  OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
 
-  For more information, see [Reserved Instances in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstances&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>DescribeReservedInstances</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>DescribeReservedInstances</code> operations, which returns results in the next
-   page.
-  * `:reserved_instance_id` (`t:string`) The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the
-   specified reserved OpenSearch instance ID.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial DescribeReservedInstances operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    DescribeReservedInstances operations, which returns results in the next
+    page.
+  * `:reserved_instance_id` (`t:string`) The reserved instance identifier filter
+    value. Use this parameter to show only the reservation that matches the
+    specified reserved OpenSearch instance ID.
   """
   @spec describe_reserved_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instances_response(), any()}
@@ -4728,7 +4774,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4758,18 +4806,18 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Removes a package from the specified Amazon OpenSearch Service domain.
-
-  The package can't be
-  in use with any OpenSearch index for the dissociation to succeed. The package is
-  still available
-  in OpenSearch Service for association later. For more information, see [Custom packages for Amazon OpenSearch
+  Removes a package from the specified Amazon OpenSearch Service domain. The
+  package can't be in use with any OpenSearch index for the dissociation to
+  succeed. The package is still available in OpenSearch Service for association
+  later. For more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DissociatePackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) Name of the domain to dissociate the package from.
-  * `:package_id` (`t:string`) Internal ID of the package to dissociate from the domain. Use
-    <code>ListPackagesForDomain</code> to find this value.
+  * `:package_id` (`t:string`) Internal ID of the package to dissociate from the
+    domain. Use ListPackagesForDomain to find this value.
 
   ## Optional parameters:
   """
@@ -4808,14 +4856,15 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a map of OpenSearch or Elasticsearch versions and the versions you can
-  upgrade them
-  to.
+  upgrade them to.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetCompatibleVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:domain_name` (`t:string`) The name of an existing domain. Provide this parameter to limit the results to a single
-   domain.
+  * `:domain_name` (`t:string`) The name of an existing domain. Provide this
+    parameter to limit the results to a single domain.
   """
   @spec get_compatible_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_versions_response(), any()}
@@ -4849,7 +4898,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Retrieves information about a direct query data source.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
   * `:name` (`t:string`) The name of the data source to get information about.
 
@@ -4879,7 +4930,9 @@ defmodule AWS.OpenSearch do
   @doc """
   The status of the maintenance action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetDomainMaintenanceStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
@@ -4922,22 +4975,23 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
-  creation time, commit message, and plugin properties (if the
-  package is a zip plugin package).
-
-  For more information, see [Custom packages for Amazon OpenSearch
+  creation time, commit message, and plugin properties (if the package is a zip
+  plugin package). For more information, see [Custom packages for Amazon
+  OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetPackageVersionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:package_id` (`t:string`) The unique identifier of the package.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>GetPackageVersionHistory</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>GetPackageVersionHistory</code> operations, which returns results in the next page.
-
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial GetPackageVersionHistory operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    GetPackageVersionHistory operations, which returns results in the next page.
   """
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
@@ -4979,18 +5033,20 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves the complete history of the last 10 upgrades performed on an Amazon
-  OpenSearch
-  Service domain.
+  OpenSearch Service domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of an existing domain.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>GetUpgradeHistory</code> operation returns a <code>nextToken</code>,
-   you can include the returned <code>nextToken</code> in subsequent <code>GetUpgradeHistory</code>
-   operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial GetUpgradeHistory operation returns
+    a nextToken, you can include the returned nextToken in subsequent
+    GetUpgradeHistory operations, which returns results in the next page.
   """
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
@@ -5032,11 +5088,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the most recent status of the last upgrade or upgrade eligibility check
-  performed on
-  an Amazon OpenSearch Service domain.
+  performed on an Amazon OpenSearch Service domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The domain of the domain to get upgrade status information for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetUpgradeStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The domain of the domain to get upgrade status
+    information for.
 
   ## Optional parameters:
   """
@@ -5061,13 +5119,14 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists direct-query data sources for a specific domain.
+  Lists direct-query data sources for a specific domain. For more information, see
+  For more information, see [Working with Amazon OpenSearch Service direct
+  queries with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
 
-  For more information, see
-  For more information, see
-  [Working with Amazon OpenSearch Service direct queries with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDataSources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
@@ -5095,17 +5154,22 @@ defmodule AWS.OpenSearch do
   @doc """
   A list of maintenance actions for the domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainMaintenances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-  * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`) The name of the action.
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-   <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListDomainMaintenances</code> operation returns a
-   <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
-   <code>ListDomainMaintenances</code> operations, which returns results in the next page.
-  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The status of the action.
+  * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`)
+    The name of the action.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListDomainMaintenances operation
+    returns a nextToken, include the returned nextToken in subsequent
+    ListDomainMaintenances operations, which returns results in the next page.
+  * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The
+    status of the action.
   """
   @spec list_domain_maintenances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_maintenances_response(), any()}
@@ -5166,13 +5230,15 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Returns the names of all Amazon OpenSearch Service domains owned by the current
-  user in the
-  active Region.
+  user in the active Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by domain engine type.
+  * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by
+    domain engine type.
   """
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
@@ -5204,21 +5270,23 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all Amazon OpenSearch Service domains associated with a given package.
-
-  For more
-  information, see [Custom packages for Amazon OpenSearch
+  Lists all Amazon OpenSearch Service domains associated with a given package. For
+  more information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
-  * `:package_id` (`t:string`) The unique identifier of the package for which to list associated domains.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainsForPackage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:package_id` (`t:string`) The unique identifier of the package for which to
+    list associated domains.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListDomainsForPackage</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>ListDomainsForPackage</code> operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListDomainsForPackage operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListDomainsForPackage operations, which returns results in the next page.
   """
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
@@ -5260,22 +5328,27 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all instance types and available features for a given OpenSearch or
-  Elasticsearch
-  version.
+  Elasticsearch version.
 
-  ## Required positional parameters:
-  * `:engine_version` (`t:string`) The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
-   Defaults to the latest version of OpenSearch.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListInstanceTypeDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:engine_version` (`t:string`) The version of OpenSearch or Elasticsearch, in
+    the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest
+    version of OpenSearch.
 
   ## Optional parameters:
   * `:domain_name` (`t:string`) The name of the domain.
-  * `:instance_type` (`t:string`) An optional parameter that lists information for a given instance type.
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListInstanceTypeDetails</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.
-  * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the Availability Zones for the domain.
+  * `:instance_type` (`t:string`) An optional parameter that lists information for
+    a given instance type.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListInstanceTypeDetails operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListInstanceTypeDetails operations, which returns results in the next page.
+  * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the
+    Availability Zones for the domain.
   """
   @spec list_instance_type_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_type_details_response(), any()}
@@ -5343,21 +5416,23 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Lists all packages associated with an Amazon OpenSearch Service domain.
-
-  For more
+  Lists all packages associated with an Amazon OpenSearch Service domain. For more
   information, see [Custom packages for Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain for which you want to list associated packages.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListPackagesForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain for which you want to list
+    associated packages.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListPackagesForDomain</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>ListPackagesForDomain</code> operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListPackagesForDomain operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListPackagesForDomain operations, which returns results in the next page.
   """
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
@@ -5398,22 +5473,24 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Retrieves a list of configuration changes that are scheduled for a domain.
-
-  These changes can
-  be [service software updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  Retrieves a list of configuration changes that are scheduled for a domain. These
+  changes can be [service software
+  updates](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
   or [blue/green Auto-Tune
   enhancements](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListScheduledActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-   <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListScheduledActions</code> operation returns a <code>nextToken</code>, you
-   can include the returned <code>nextToken</code> in subsequent <code>ListScheduledActions</code>
-   operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListScheduledActions operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListScheduledActions operations, which returns results in the next page.
   """
   @spec list_scheduled_actions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
@@ -5455,15 +5532,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns all resource tags for an Amazon OpenSearch Service domain.
+  Returns all resource tags for an Amazon OpenSearch Service domain. For more
+  information, see [Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
 
-  For more information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListTags&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`) Amazon Resource Name (ARN) for the domain to view tags for.
+  * `:arn` (`t:string`) Amazon Resource Name (ARN) for the domain to view tags
+    for.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -5496,17 +5575,19 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch
-  Service
-  supports.
+  Service supports.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-    <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>, you
-   can include the returned <code>nextToken</code> in subsequent <code>ListVersions</code>
-   operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListVersions operation returns a
+    nextToken, you can include the returned nextToken in subsequent ListVersions
+    operations, which returns results in the next page.
   """
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
@@ -5548,17 +5629,19 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves information about each Amazon Web Services principal that is allowed
-  to access a
-  given Amazon OpenSearch Service domain through the use of an interface VPC
-  endpoint.
+  to access a given Amazon OpenSearch Service domain through the use of an
+  interface VPC endpoint.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to retrieve access information for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the OpenSearch Service domain to
+    retrieve access information for.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) If your initial <code>ListVpcEndpointAccess</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>ListVpcEndpointAccess</code> operations, which returns results in the next page.
+  * `:next_token` (`t:string`) If your initial ListVpcEndpointAccess operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpointAccess operations, which returns results in the next page.
   """
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
@@ -5594,12 +5677,14 @@ defmodule AWS.OpenSearch do
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current
   Amazon Web Services account and Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>,
-   you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code>
-   operations, which returns results in the next page.
+  * `:next_token` (`t:string`) If your initial ListVpcEndpoints operation returns
+    a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpoints operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
@@ -5632,16 +5717,18 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a
-  particular
-  domain.
+  particular domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain to list associated VPC endpoints for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpointsForDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to list associated VPC
+    endpoints for.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) If your initial <code>ListEndpointsForDomain</code> operation returns a
-    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-    <code>ListEndpointsForDomain</code> operations, which returns results in the next page.
+  * `:next_token` (`t:string`) If your initial ListEndpointsForDomain operation
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListEndpointsForDomain operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
@@ -5675,7 +5762,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Allows you to purchase Amazon OpenSearch Service Reserved Instances.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20PurchaseReservedInstanceOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5710,11 +5799,13 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
-  cross-cluster
-  connection request.
+  cross-cluster connection request.
 
-  ## Required positional parameters:
-  * `:connection_id` (`t:string`) The unique identifier of the inbound connection to reject.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RejectInboundConnection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connection_id` (`t:string`) The unique identifier of the inbound connection
+    to reject.
 
   ## Optional parameters:
   """
@@ -5741,12 +5832,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Removes the specified set of tags from an Amazon OpenSearch Service domain.
+  Removes the specified set of tags from an Amazon OpenSearch Service domain. For
+  more information, see [ Tagging Amazon OpenSearch Service
+  domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
 
-  For more
-  information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RemoveTags&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5777,10 +5869,11 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Revokes access to an Amazon OpenSearch Service domain that was provided through
-  an interface
-  VPC endpoint.
+  an interface VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RevokeVpcEndpointAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the OpenSearch Service domain.
 
   ## Optional parameters:
@@ -5818,13 +5911,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Starts the node maintenance process on the data node.
+  Starts the node maintenance process on the data node. These processes can
+  include a node reboot, an Opensearch or Elasticsearch process restart, or a
+  Dashboard or Kibana restart.
 
-  These processes can include a node reboot, an Opensearch or Elasticsearch
-  process restart,
-  or a Dashboard or Kibana restart.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartDomainMaintenance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
 
   ## Optional parameters:
@@ -5862,13 +5955,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Schedules a service software update for an Amazon OpenSearch Service domain.
-
-  For more
-  information, see [Service software updates in Amazon OpenSearch
+  Schedules a service software update for an Amazon OpenSearch Service domain. For
+  more information, see [Service software updates in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5902,12 +5995,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Updates a direct-query data source.
+  Updates a direct-query data source. For more information, see [Working with
+  Amazon OpenSearch Service data source integrations with Amazon
+  S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
 
-  For more information, see
-  [Working with Amazon OpenSearch Service data source integrations with Amazon S3](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:domain_name` (`t:string`) The name of the domain.
   * `:name` (`t:string`) The name of the data source to modify.
 
@@ -5940,8 +6034,10 @@ defmodule AWS.OpenSearch do
   Modifies the cluster configuration of the specified Amazon OpenSearch Service
   domain.
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain that you&#39;re updating.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateDomainConfig&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain that you're updating.
 
   ## Optional parameters:
   """
@@ -5976,12 +6072,13 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Updates a package for use with Amazon OpenSearch Service domains.
+  Updates a package for use with Amazon OpenSearch Service domains. For more
+  information, see [Custom packages for Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
 
-  For more information, see
-  [Custom packages for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdatePackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6011,15 +6108,17 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Reschedules a planned domain configuration change for a later time.
-
-  This change can be a
-  scheduled [service software update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
+  Reschedules a planned domain configuration change for a later time. This change
+  can be a scheduled [service software
+  update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html)
   or a [blue/green Auto-Tune
   enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
 
-  ## Required positional parameters:
-  * `:domain_name` (`t:string`) The name of the domain to reschedule an action for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateScheduledAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:domain_name` (`t:string`) The name of the domain to reschedule an action
+    for.
 
   ## Optional parameters:
   """
@@ -6048,7 +6147,9 @@ defmodule AWS.OpenSearch do
   @doc """
   Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6079,10 +6180,12 @@ defmodule AWS.OpenSearch do
 
   @doc """
   Allows you to either upgrade your Amazon OpenSearch Service domain or perform an
-  upgrade
-  eligibility check to a compatible version of OpenSearch or Elasticsearch.
+  upgrade eligibility check to a compatible version of OpenSearch or
+  Elasticsearch.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpgradeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

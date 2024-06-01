@@ -4,26 +4,12 @@
 defmodule AWS.AppMesh do
   @moduledoc """
   App Mesh is a service mesh based on the Envoy proxy that makes it easy to
-  monitor and control microservices.
-
-  App Mesh standardizes how your microservices
-  communicate, giving you end-to-end visibility and helping to ensure high
-  availability for
-  your applications.
-
-  App Mesh gives you consistent visibility and network traffic controls for
-  every microservice in an application. You can use App Mesh with Amazon Web
-  Services Fargate, Amazon ECS, Amazon EKS, Kubernetes on Amazon Web Services, and
-  Amazon EC2.
-
-  App Mesh supports microservice applications that use service discovery
-  naming for their components. For more information about service discovery on
-  Amazon ECS, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html)
-  in the *Amazon Elastic Container Service Developer Guide*. Kubernetes
-  `kube-dns` and `coredns` are supported. For more information,
-  see [DNS for Services and
-  Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
-  in the Kubernetes documentation.
+  monitor and control microservices. App Mesh standardizes how your
+  microservices communicate, giving you end-to-end visibility and helping to
+  ensure high availability for your applications. App Mesh gives you consistent
+  visibility and network traffic controls for every microservice in an
+  application. You can use App Mesh with Amazon Web Services Fargate, Amazon
+  ECS, Amazon EKS, Kubernetes on Amazon Web Services, and Amazon EC2.
   """
 
   alias AWS.Client
@@ -2943,26 +2929,25 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a gateway route.
+  Creates a gateway route. A gateway route is attached to a virtual gateway and
+  routes traffic to an existing virtual service. If a route matches a request,
+  it can distribute traffic to a target virtual service.
 
-  A gateway route is attached to a virtual gateway and routes traffic to an
-  existing
-  virtual service. If a route matches a request, it can distribute traffic to a
-  target
-  virtual service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateGatewayRoute&this_doc_guide=API%2520Reference)
 
-  For more information about gateway routes, see [Gateway routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html).
-
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the gateway route in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to associate the gateway route with. If the virtual
-         gateway is in a shared mesh, then you must be the owner of the virtual gateway
-         resource.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to create the gateway
+    route in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
+    associate the gateway route with. If the virtual gateway is in a shared
+    mesh, then you must be the owner of the virtual gateway resource.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_gateway_route(
           AWS.Client.t(),
@@ -2999,19 +2984,15 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a service mesh.
+  Creates a service mesh. A service mesh is a logical boundary for network traffic
+  between services that are represented by resources within the mesh. After you
+  create your service mesh, you can create virtual services, virtual nodes,
+  virtual routers, and routes to distribute traffic between the applications in
+  your mesh.
 
-  A service mesh is a logical boundary for network traffic between services that
-  are
-  represented by resources within the mesh. After you create your service mesh,
-  you can
-  create virtual services, virtual nodes, virtual routers, and routes to
-  distribute traffic
-  between the applications in your mesh.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateMesh&this_doc_guide=API%2520Reference)
 
-  For more information about service meshes, see [Service meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3031,23 +3012,24 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a route that is associated with a virtual router.
+  Creates a route that is associated with a virtual router. You can route several
+  different protocols and define a retry policy for a route. Traffic can be
+  routed to one or more virtual nodes.
 
-  You can route several different protocols and define a retry policy for a route.
-  Traffic can be routed to one or more virtual nodes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateRoute&this_doc_guide=API%2520Reference)
 
-  For more information about routes, see
-  [Routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to create the route in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router in which to create the route. If the virtual router is in
-         a shared mesh, then you must be the owner of the virtual router resource.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router in which to
+    create the route. If the virtual router is in a shared mesh, then you must
+    be the owner of the virtual router resource.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_route(AWS.Client.t(), String.t(), String.t(), create_route_input(), Keyword.t()) ::
           {:ok, create_route_output(), any()}
@@ -3072,26 +3054,25 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a virtual gateway.
+  Creates a virtual gateway. A virtual gateway allows resources outside your mesh
+  to communicate to resources that are inside your mesh. The virtual gateway
+  represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes
+  service, or on an Amazon EC2 instance. Unlike a virtual node, which represents
+  an Envoy running with an application, a virtual gateway represents Envoy
+  deployed by itself.
 
-  A virtual gateway allows resources outside your mesh to communicate to resources
-  that
-  are inside your mesh. The virtual gateway represents an Envoy proxy running in
-  an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance.
-  Unlike a
-  virtual node, which represents an Envoy running with an application, a virtual
-  gateway
-  represents Envoy deployed by itself.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualGateway&this_doc_guide=API%2520Reference)
 
-  For more information about virtual gateways, see [Virtual gateways](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html).
-
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual gateway in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
+    gateway in.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_virtual_gateway(
           AWS.Client.t(),
@@ -3119,47 +3100,25 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a virtual node within a service mesh.
-
-  A virtual node acts as a logical pointer to a particular task group, such as an
-  Amazon ECS service or a Kubernetes deployment. When you create a virtual node,
-  you can
-  specify the service discovery information for your task group, and whether the
-  proxy
+  Creates a virtual node within a service mesh. A virtual node acts as a logical
+  pointer to a particular task group, such as an Amazon ECS service or a
+  Kubernetes deployment. When you create a virtual node, you can specify the
+  service discovery information for your task group, and whether the proxy
   running in a task group will communicate with other proxies using Transport
-  Layer Security
-  (TLS).
+  Layer Security (TLS).
 
-  You define a `listener` for any inbound traffic that your virtual node
-  expects. Any virtual service that your virtual node expects to communicate to is
-  specified
-  as a `backend`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualNode&this_doc_guide=API%2520Reference)
 
-  The response metadata for your new virtual node contains the `arn` that is
-  associated with the virtual node. Set this value to the full ARN; for example,
-  `arn:aws:appmesh:us-west-2:123456789012:myMesh/default/virtualNode/myApp`)
-  as the `APPMESH_RESOURCE_ARN` environment variable for your task group's Envoy
-  proxy container in your task definition or pod spec. This is then mapped to the
-  `node.id` and `node.cluster` Envoy parameters.
-
-  By default, App Mesh uses the name of the resource you specified in
-  `APPMESH_RESOURCE_ARN` when Envoy is referring to itself in metrics and
-  traces. You can override this behavior by setting the
-  `APPMESH_RESOURCE_CLUSTER` environment variable with your own name.
-
-  For more information about virtual nodes, see [Virtual nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html).
-  You must be using `1.15.0` or later of the Envoy image when
-  setting these variables. For more information aboutApp Mesh Envoy variables, see
-  [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the
-  App Mesh User Guide.
-
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual node in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
+    node in.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_virtual_node(AWS.Client.t(), String.t(), create_virtual_node_input(), Keyword.t()) ::
           {:ok, create_virtual_node_output(), any()}
@@ -3182,26 +3141,25 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a virtual router within a service mesh.
+  Creates a virtual router within a service mesh. Specify a `listener` for any
+  inbound traffic that your virtual router receives. Create a virtual router for
+  each protocol and port that you need to route. Virtual routers handle traffic
+  for one or more virtual services within your mesh. After you create your
+  virtual router, create and associate routes for your virtual router that
+  direct incoming requests to different virtual nodes.
 
-  Specify a `listener` for any inbound traffic that your virtual router
-  receives. Create a virtual router for each protocol and port that you need to
-  route.
-  Virtual routers handle traffic for one or more virtual services within your
-  mesh. After you
-  create your virtual router, create and associate routes for your virtual router
-  that direct
-  incoming requests to different virtual nodes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualRouter&this_doc_guide=API%2520Reference)
 
-  For more information about virtual routers, see [Virtual routers](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html).
-
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual router in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
+    router in.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_virtual_router(
           AWS.Client.t(),
@@ -3229,25 +3187,25 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Creates a virtual service within a service mesh.
-
-  A virtual service is an abstraction of a real service that is provided by a
-  virtual node
-  directly or indirectly by means of a virtual router. Dependent services call
-  your virtual
+  Creates a virtual service within a service mesh. A virtual service is an
+  abstraction of a real service that is provided by a virtual node directly or
+  indirectly by means of a virtual router. Dependent services call your virtual
   service by its `virtualServiceName`, and those requests are routed to the
-  virtual node or virtual router that is specified as the provider for the virtual
-  service.
+  virtual node or virtual router that is specified as the provider for the
+  virtual service.
 
-  For more information about virtual services, see [Virtual services](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20CreateVirtualService&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual service in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to create the virtual
+    service in.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
-               the account that you specify must share the mesh with your account before you can create 
-             the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then the account that
+    you specify must share the mesh with your account before you can create the
+    resource in the service mesh. For more information about mesh sharing, see
+    Working with shared meshes.
   """
   @spec create_virtual_service(
           AWS.Client.t(),
@@ -3277,14 +3235,20 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing gateway route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteGatewayRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_route_name` (`t:string`) The name of the gateway route to delete.
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the gateway route from.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to delete the route from.
+  * `:mesh_name` (`t:string`) The name of the service mesh to delete the gateway
+    route from.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to delete
+    the route from.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_gateway_route(
           AWS.Client.t(),
@@ -3335,11 +3299,9 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing service mesh.
 
-  You must delete all resources (virtual services, routes, virtual routers, and
-  virtual
-  nodes) in the service mesh before you can delete the mesh itself.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteMesh&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to delete.
 
   ## Optional parameters:
@@ -3372,14 +3334,19 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to delete the route in.
   * `:route_name` (`t:string`) The name of the route to delete.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to delete the route in.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router to delete
+    the route in.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_route(
           AWS.Client.t(),
@@ -3428,18 +3395,22 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Deletes an existing virtual gateway.
+  Deletes an existing virtual gateway. You cannot delete a virtual gateway if any
+  gateway routes are associated to it.
 
-  You cannot delete a virtual gateway if any gateway
-  routes are associated to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualGateway&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual gateway from.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to delete.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
+    gateway from.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
+    delete.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_virtual_gateway(
           AWS.Client.t(),
@@ -3488,17 +3459,18 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing virtual node.
 
-  You must delete any virtual services that list a virtual node as a service
-  provider
-  before you can delete the virtual node itself.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualNode&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual node in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
+    node in.
   * `:virtual_node_name` (`t:string`) The name of the virtual node to delete.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_virtual_node(
           AWS.Client.t(),
@@ -3541,17 +3513,18 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing virtual router.
 
-  You must delete any routes associated with the virtual router before you can
-  delete the
-  router itself.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualRouter&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual router in.
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
+    router in.
   * `:virtual_router_name` (`t:string`) The name of the virtual router to delete.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_virtual_router(
           AWS.Client.t(),
@@ -3600,13 +3573,19 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes an existing virtual service.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual service in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DeleteVirtualService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to delete the virtual
+    service in.
+  * `:virtual_service_name` (`t:string`) The name of the virtual service to
+    delete.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec delete_virtual_service(
           AWS.Client.t(),
@@ -3655,14 +3634,20 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing gateway route.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeGatewayRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_route_name` (`t:string`) The name of the gateway route to describe.
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the gateway route is associated with.
+  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
+    resides in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the
+    gateway route is associated with.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_gateway_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_route_output(), any()}
@@ -3703,12 +3688,16 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing service mesh.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeMesh&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to describe.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_mesh(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mesh_output(), any()}
@@ -3742,14 +3731,20 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing route.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides
+    in.
   * `:route_name` (`t:string`) The name of the route to describe.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router that the route is associated with.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router that the
+    route is associated with.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_route(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_route_output(), any()}
@@ -3790,13 +3785,19 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing virtual gateway.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to describe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
+    resides in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
+    describe.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_virtual_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_gateway_output(), any()}
@@ -3831,13 +3832,18 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing virtual node.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node resides in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node
+    resides in.
   * `:virtual_node_name` (`t:string`) The name of the virtual node to describe.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_virtual_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_node_output(), any()}
@@ -3872,13 +3878,19 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing virtual router.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router resides in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to describe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualRouter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router
+    resides in.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router to
+    describe.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_virtual_router(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_router_output(), any()}
@@ -3913,13 +3925,19 @@ defmodule AWS.AppMesh do
   @doc """
   Describes an existing virtual service.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual service resides in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to describe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20DescribeVirtualService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
+    service resides in.
+  * `:virtual_service_name` (`t:string`) The name of the virtual service to
+    describe.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec describe_virtual_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_service_output(), any()}
@@ -3955,25 +3973,31 @@ defmodule AWS.AppMesh do
   Returns a list of existing gateway routes that are associated to a virtual
   gateway.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list gateway routes in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to list gateway routes in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListGatewayRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to list gateway routes
+    in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to list
+    gateway routes in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListGatewayRoutes</code> in paginated
-         output. When you use this parameter, <code>ListGatewayRoutes</code> returns only
-            <code>limit</code> results in a single page along with a <code>nextToken</code> response
-         element. You can see the remaining results of the initial request by sending another
-            <code>ListGatewayRoutes</code> request with the returned <code>nextToken</code> value.
-         This value can be between 1 and 100. If you don&#39;t use this
-         parameter, <code>ListGatewayRoutes</code> returns up to 100 results and a
-            <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListGatewayRoutes</code> request where <code>limit</code> was used and the results
-         exceeded the value of that parameter. Pagination continues from the end of the previous
-         results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by
+    ListGatewayRoutes in paginated output. When you use this parameter,
+    ListGatewayRoutes returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListGatewayRoutes request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListGatewayRoutes returns up to 100 results and a nextToken value
+    if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListGatewayRoutes request where limit was used and the results exceeded the
+    value of that parameter. Pagination continues from the end of the previous
+    results that returned the nextToken value.
   """
   @spec list_gateway_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_gateway_routes_output(), any()}
@@ -4026,21 +4050,22 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing service meshes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListMeshes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListMeshes</code> in paginated output.
-         When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code>
-         results in a single page along with a <code>nextToken</code> response element. You can see
-         the remaining results of the initial request by sending another <code>ListMeshes</code>
-         request with the returned <code>nextToken</code> value. This value can be between
-         1 and 100. If you don&#39;t use this parameter,
-            <code>ListMeshes</code> returns up to 100 results and a
-            <code>nextToken</code> value if applicable.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListMeshes</code> request where <code>limit</code> was used and the results
-         exceeded the value of that parameter. Pagination continues from the end of the previous
-         results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by ListMeshes in
+    paginated output. When you use this parameter, ListMeshes returns only limit
+    results in a single page along with a nextToken response element. You can
+    see the remaining results of the initial request by sending another
+    ListMeshes request with the returned nextToken value. This value can be
+    between 1 and 100. If you don't use this parameter, ListMeshes returns up to
+    100 results and a nextToken value if applicable.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListMeshes request where limit was used and the results exceeded the value
+    of that parameter. Pagination continues from the end of the previous results
+    that returned the nextToken value.
   """
   @spec list_meshes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meshes_output(), any()}
@@ -4083,25 +4108,29 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing routes in a service mesh.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListRoutes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to list routes in.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router to list routes in.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router to list
+    routes in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListRoutes</code> in paginated output.
-         When you use this parameter, <code>ListRoutes</code> returns only <code>limit</code>
-         results in a single page along with a <code>nextToken</code> response element. You can see
-         the remaining results of the initial request by sending another <code>ListRoutes</code>
-         request with the returned <code>nextToken</code> value. This value can be between
-         1 and 100. If you don&#39;t use this parameter,
-            <code>ListRoutes</code> returns up to 100 results and a
-            <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListRoutes</code> request where <code>limit</code> was used and the results
-         exceeded the value of that parameter. Pagination continues from the end of the previous
-         results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by ListRoutes in
+    paginated output. When you use this parameter, ListRoutes returns only limit
+    results in a single page along with a nextToken response element. You can
+    see the remaining results of the initial request by sending another
+    ListRoutes request with the returned nextToken value. This value can be
+    between 1 and 100. If you don't use this parameter, ListRoutes returns up to
+    100 results and a nextToken value if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListRoutes request where limit was used and the results exceeded the value
+    of that parameter. Pagination continues from the end of the previous results
+    that returned the nextToken value.
   """
   @spec list_routes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_routes_output(), any()}
@@ -4154,22 +4183,25 @@ defmodule AWS.AppMesh do
   @doc """
   List the tags for an App Mesh resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of tag results returned by <code>ListTagsForResource</code> in
-         paginated output. When this parameter is used, <code>ListTagsForResource</code> returns
-         only <code>limit</code> results in a single page along with a <code>nextToken</code>
-         response element. You can see the remaining results of the initial request by sending
-         another <code>ListTagsForResource</code> request with the returned <code>nextToken</code>
-         value. This value can be between 1 and 100. If you don&#39;t use
-         this parameter, <code>ListTagsForResource</code> returns up to 100
-         results and a <code>nextToken</code> value if applicable.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListTagsForResource</code> request where <code>limit</code> was used and the
-         results exceeded the value of that parameter. Pagination continues from the end of the
-         previous results that returned the <code>nextToken</code> value.
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+  * `:limit` (`t:integer`) The maximum number of tag results returned by
+    ListTagsForResource in paginated output. When this parameter is used,
+    ListTagsForResource returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListTagsForResource request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListTagsForResource returns up to 100 results and a nextToken
+    value if applicable.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListTagsForResource request where limit was used and the results exceeded
+    the value of that parameter. Pagination continues from the end of the
+    previous results that returned the nextToken value.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -4221,24 +4253,29 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing virtual gateways in a service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual gateways in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualGateways&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual
+    gateways in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListVirtualGateways</code> in paginated
-         output. When you use this parameter, <code>ListVirtualGateways</code> returns only
-            <code>limit</code> results in a single page along with a <code>nextToken</code> response
-         element. You can see the remaining results of the initial request by sending another
-            <code>ListVirtualGateways</code> request with the returned <code>nextToken</code> value.
-         This value can be between 1 and 100. If you don&#39;t use this
-         parameter, <code>ListVirtualGateways</code> returns up to 100 results and
-         a <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListVirtualGateways</code> request where <code>limit</code> was used and the
-         results exceeded the value of that parameter. Pagination continues from the end of the
-         previous results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by
+    ListVirtualGateways in paginated output. When you use this parameter,
+    ListVirtualGateways returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListVirtualGateways request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListVirtualGateways returns up to 100 results and a nextToken
+    value if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListVirtualGateways request where limit was used and the results exceeded
+    the value of that parameter. Pagination continues from the end of the
+    previous results that returned the nextToken value.
   """
   @spec list_virtual_gateways(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_gateways_output(), any()}
@@ -4290,24 +4327,29 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing virtual nodes.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual nodes in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualNodes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual nodes
+    in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListVirtualNodes</code> in paginated
-         output. When you use this parameter, <code>ListVirtualNodes</code> returns only
-            <code>limit</code> results in a single page along with a <code>nextToken</code> response
-         element. You can see the remaining results of the initial request by sending another
-            <code>ListVirtualNodes</code> request with the returned <code>nextToken</code> value.
-         This value can be between 1 and 100. If you don&#39;t use this
-         parameter, <code>ListVirtualNodes</code> returns up to 100 results and a
-            <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListVirtualNodes</code> request where <code>limit</code> was used and the results
-         exceeded the value of that parameter. Pagination continues from the end of the previous
-         results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by
+    ListVirtualNodes in paginated output. When you use this parameter,
+    ListVirtualNodes returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListVirtualNodes request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListVirtualNodes returns up to 100 results and a nextToken value
+    if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListVirtualNodes request where limit was used and the results exceeded the
+    value of that parameter. Pagination continues from the end of the previous
+    results that returned the nextToken value.
   """
   @spec list_virtual_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_nodes_output(), any()}
@@ -4359,24 +4401,29 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing virtual routers in a service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual routers in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualRouters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual routers
+    in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListVirtualRouters</code> in paginated
-         output. When you use this parameter, <code>ListVirtualRouters</code> returns only
-            <code>limit</code> results in a single page along with a <code>nextToken</code> response
-         element. You can see the remaining results of the initial request by sending another
-            <code>ListVirtualRouters</code> request with the returned <code>nextToken</code> value.
-         This value can be between 1 and 100. If you don&#39;t use this
-         parameter, <code>ListVirtualRouters</code> returns up to 100 results and
-         a <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListVirtualRouters</code> request where <code>limit</code> was used and the
-         results exceeded the value of that parameter. Pagination continues from the end of the
-         previous results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by
+    ListVirtualRouters in paginated output. When you use this parameter,
+    ListVirtualRouters returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListVirtualRouters request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListVirtualRouters returns up to 100 results and a nextToken
+    value if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListVirtualRouters request where limit was used and the results exceeded the
+    value of that parameter. Pagination continues from the end of the previous
+    results that returned the nextToken value.
   """
   @spec list_virtual_routers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_routers_output(), any()}
@@ -4428,24 +4475,29 @@ defmodule AWS.AppMesh do
   @doc """
   Returns a list of existing virtual services in a service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual services in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20ListVirtualServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh to list virtual
+    services in.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) The maximum number of results returned by <code>ListVirtualServices</code> in paginated
-         output. When you use this parameter, <code>ListVirtualServices</code> returns only
-            <code>limit</code> results in a single page along with a <code>nextToken</code> response
-         element. You can see the remaining results of the initial request by sending another
-            <code>ListVirtualServices</code> request with the returned <code>nextToken</code> value.
-         This value can be between 1 and 100. If you don&#39;t use this
-         parameter, <code>ListVirtualServices</code> returns up to 100 results and
-         a <code>nextToken</code> value if applicable.
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
-  * `:next_token` (`t:`) The <code>nextToken</code> value returned from a previous paginated
-            <code>ListVirtualServices</code> request where <code>limit</code> was used and the
-         results exceeded the value of that parameter. Pagination continues from the end of the
-         previous results that returned the <code>nextToken</code> value.
+  * `:limit` (`t:integer`) The maximum number of results returned by
+    ListVirtualServices in paginated output. When you use this parameter,
+    ListVirtualServices returns only limit results in a single page along with a
+    nextToken response element. You can see the remaining results of the initial
+    request by sending another ListVirtualServices request with the returned
+    nextToken value. This value can be between 1 and 100. If you don't use this
+    parameter, ListVirtualServices returns up to 100 results and a nextToken
+    value if applicable.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
+  * `:next_token` (`t:`) The nextToken value returned from a previous paginated
+    ListVirtualServices request where limit was used and the results exceeded
+    the value of that parameter. Pagination continues from the end of the
+    previous results that returned the nextToken value.
   """
   @spec list_virtual_services(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_virtual_services_output(), any()}
@@ -4495,18 +4547,18 @@ defmodule AWS.AppMesh do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified `resourceArn`.
+  Associates the specified tags to a resource with the specified `resourceArn`. If
+  existing tags on a resource aren't specified in the request parameters, they
+  aren't changed. When a resource is deleted, the tags associated with that
+  resource are also deleted.
 
-  If existing tags on a resource aren't specified in the request parameters, they
-  aren't
-  changed. When a resource is deleted, the tags associated with that resource are
-  also
-  deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to add tags to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    add tags to.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -4531,10 +4583,13 @@ defmodule AWS.AppMesh do
   @doc """
   Deletes specified tags from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to delete tags from.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    delete tags from.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -4558,17 +4613,22 @@ defmodule AWS.AppMesh do
 
   @doc """
   Updates an existing gateway route that is associated to a specified virtual
-  gateway in a
-  service mesh.
+  gateway in a service mesh.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateGatewayRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:gateway_route_name` (`t:string`) The name of the gateway route to update.
-  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the gateway route is associated with.
+  * `:mesh_name` (`t:string`) The name of the service mesh that the gateway route
+    resides in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway that the
+    gateway route is associated with.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_gateway_route(
           AWS.Client.t(),
@@ -4609,7 +4669,9 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing service mesh.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateMesh&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:mesh_name` (`t:string`) The name of the service mesh to update.
 
   ## Optional parameters:
@@ -4632,14 +4694,20 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing route for a specified service mesh and virtual router.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateRoute&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the route resides
+    in.
   * `:route_name` (`t:string`) The name of the route to update.
-  * `:virtual_router_name` (`t:string`) The name of the virtual router that the route is associated with.
+  * `:virtual_router_name` (`t:string`) The name of the virtual router that the
+    route is associated with.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_route(
           AWS.Client.t(),
@@ -4680,13 +4748,19 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing virtual gateway in a specified service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual gateway resides in.
-  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualGateway&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
+    gateway resides in.
+  * `:virtual_gateway_name` (`t:string`) The name of the virtual gateway to
+    update.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_virtual_gateway(
           AWS.Client.t(),
@@ -4725,13 +4799,18 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing virtual node in a specified service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node resides in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualNode&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual node
+    resides in.
   * `:virtual_node_name` (`t:string`) The name of the virtual node to update.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_virtual_node(
           AWS.Client.t(),
@@ -4764,13 +4843,18 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing virtual router in a specified service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router resides in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualRouter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual router
+    resides in.
   * `:virtual_router_name` (`t:string`) The name of the virtual router to update.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_virtual_router(
           AWS.Client.t(),
@@ -4809,13 +4893,19 @@ defmodule AWS.AppMesh do
   @doc """
   Updates an existing virtual service in a specified service mesh.
 
-  ## Required positional parameters:
-  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual service resides in.
-  * `:virtual_service_name` (`t:string`) The name of the virtual service to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appmesh%20UpdateVirtualService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:mesh_name` (`t:string`) The name of the service mesh that the virtual
+    service resides in.
+  * `:virtual_service_name` (`t:string`) The name of the virtual service to
+    update.
 
   ## Optional parameters:
-  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it&#39;s
-               the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.
+  * `:mesh_owner` (`t:string`) The Amazon Web Services IAM account ID of the
+    service mesh owner. If the account ID is not your own, then it's the ID of
+    the account that shared the mesh with your account. For more information
+    about mesh sharing, see Working with shared meshes.
   """
   @spec update_virtual_service(
           AWS.Client.t(),

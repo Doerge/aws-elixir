@@ -211,7 +211,9 @@ defmodule AWS.SagemakerEdge do
   @doc """
   Use to get the active deployments from a device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -243,7 +245,9 @@ defmodule AWS.SagemakerEdge do
   @doc """
   Use to check if a device is registered with SageMaker Edge Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeviceRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -275,7 +279,9 @@ defmodule AWS.SagemakerEdge do
   @doc """
   Use to get the current status of devices registered on SageMaker Edge Manager.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20SendHeartbeat&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

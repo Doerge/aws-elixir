@@ -4,14 +4,12 @@
 defmodule AWS.VPCLattice do
   @moduledoc """
   Amazon VPC Lattice is a fully managed application networking service that you
-  use to connect, secure,
-  and monitor all of your services across multiple accounts and virtual private
-  clouds (VPCs).
-
-  Amazon VPC Lattice interconnects your microservices and legacy services within a
-  logical boundary, so that
-  you can discover and manage them more efficiently. For more information, see the
-  [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
+  use to connect, secure, and monitor all of your services across multiple
+  accounts and virtual private clouds (VPCs). Amazon VPC Lattice interconnects
+  your microservices and legacy services within a logical boundary, so that you
+  can discover and manage them more efficiently. For more information, see the
+  [Amazon VPC Lattice User
+  Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/)
   """
 
   alias AWS.Client
@@ -2194,20 +2192,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates the listener rules in a batch.
+  Updates the listener rules in a batch. You can use this operation to change the
+  priority of listener rules. This can be useful when bulk updating or swapping
+  rule priority. **Required permissions:** `vpc-lattice:UpdateRule`
 
-  You can use this operation to change the priority of
-  listener rules. This can be useful when bulk updating or swapping rule priority.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20BatchUpdateRule&this_doc_guide=API%2520Reference)
 
-  ## Required permissions:
-  `vpc-lattice:UpdateRule`
-
-  For more information, see [How Amazon VPC Lattice works with IAM](https://docs.aws.amazon.com/vpc-lattice/latest/ug/security_iam_service-with-iam.html)
-  in the *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2252,20 +2247,17 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon
-  Kinesis Data Firehose.
+  Kinesis Data Firehose. The service network owner can use the access logs to
+  audit the services in the network. The service network owner can only see
+  access logs from clients and services that are associated with their service
+  network. Access log entries represent traffic originated from VPCs associated
+  with that network. For more information, see [Access
+  logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html)
+  in the *Amazon VPC Lattice User Guide*.
 
-  The service network owner
-  can use the access logs to audit the services in the network. The service
-  network owner can only
-  see access logs from clients and services that are associated with their service
-  network. Access
-  log entries represent traffic originated from VPCs associated with that network.
-  For more
-  information, see [Access logs](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-access-logs.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateAccessLogSubscription&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2299,18 +2291,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a listener for a service.
+  Creates a listener for a service. Before you start using your Amazon VPC Lattice
+  service, you must add one or more listeners. A listener is a process that
+  checks for connection requests to your services. For more information, see
+  [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html)
+  in the *Amazon VPC Lattice User Guide*.
 
-  Before you start using your Amazon VPC Lattice service, you must
-  add one or more listeners. A listener is a process that checks for connection
-  requests to your
-  services. For more information, see
-  [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateListener&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2340,18 +2331,20 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a listener rule.
+  Creates a listener rule. Each listener has a default rule for checking
+  connection requests, but you can define additional rules. Each rule consists
+  of a priority, one or more actions, and one or more conditions. For more
+  information, see [Listener
+  rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2389,18 +2382,13 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a service.
+  Creates a service. A service is any software application that can run on
+  instances containers, or serverless functions within an account or virtual
+  private cloud (VPC).
 
-  A service is any software application that can run on instances
-  containers, or serverless functions within an account or virtual private cloud
-  (VPC).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateService&this_doc_guide=API%2520Reference)
 
-  For more information, see
-  [Services](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2430,16 +2418,13 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a service network.
+  Creates a service network. A service network is a logical boundary for a
+  collection of services. You can associate services and VPCs with a service
+  network.
 
-  A service network is a logical boundary for a collection of
-  services. You can associate services and VPCs with a service network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetwork&this_doc_guide=API%2520Reference)
 
-  For more information, see [Service networks](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html)
-  in the
-  *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2469,26 +2454,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Associates a service with a service network.
+  Associates a service with a service network. For more information, see [Manage
+  service
+  associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
+  in the *Amazon VPC Lattice User Guide*. You can't use this operation if the
+  service and service network are already associated or if there is a
+  disassociation or deletion in progress. If the association fails, you can
+  retry the operation by deleting the association and recreating it.
 
-  For more information, see [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
-  in the *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
-  You can't use this operation if the service and service network are already
-  associated or if
-  there is a disassociation or deletion in progress. If the association fails, you
-  can retry the
-  operation by deleting the association and recreating it.
-
-  You cannot associate a service and service network that are shared with a
-  caller. The caller
-  must own either the service or the service network.
-
-  As a result of this operation, the association is created in the service network
-  account and
-  the association owner account.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2522,31 +2498,18 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Associates a VPC with a service network.
+  Associates a VPC with a service network. When you associate a VPC with the
+  service network, it enables all the resources within that VPC to be clients
+  and communicate with other services in the service network. For more
+  information, see [Manage VPC
+  associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
+  in the *Amazon VPC Lattice User Guide*. You can't use this operation if there
+  is a disassociation in progress. If the association fails, retry by deleting
+  the association and recreating it.
 
-  When you associate a VPC with the service network,
-  it enables all the resources within that VPC to be clients and communicate with
-  other services in
-  the service network. For more information, see [Manage VPC associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations)
-  in the *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
-  You can't use this operation if there is a disassociation in progress. If the
-  association
-  fails, retry by deleting the association and recreating it.
-
-  As a result of this operation, the association gets created in the service
-  network account
-  and the VPC owner account.
-
-  If you add a security group to the service network and VPC association, the
-  association must
-  continue to always have at least one security group. You can add or edit
-  security groups at any
-  time. However, to remove all security groups, you must first delete the
-  association and recreate
-  it without security groups.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2580,17 +2543,13 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates a target group.
+  Creates a target group. A target group is a collection of targets, or compute
+  resources, that run your application or service. A target group can only be
+  used by a single service.
 
-  A target group is a collection of targets, or compute resources,
-  that run your application or service. A target group can only be used by a
-  single service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateTargetGroup&this_doc_guide=API%2520Reference)
 
-  For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in
-  the
-  *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2622,8 +2581,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified access log subscription.
 
-  ## Required positional parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the access log subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
@@ -2665,16 +2627,16 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes the specified auth policy.
+  Deletes the specified auth policy. If an auth is set to `AWS_IAM` and the auth
+  policy is deleted, all requests are denied. If you are trying to remove the
+  auth policy completely, you must set the auth type to `NONE`. If auth is
+  enabled on the resource, but no auth policy is set, all requests are denied.
 
-  If an auth is set to `AWS_IAM` and the auth
-  policy is deleted, all requests are denied. If you are trying to remove the auth
-  policy completely, you must set the auth type to `NONE`. If auth is enabled on
-  the
-  resource, but no auth policy is set, all requests are denied.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteAuthPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the resource.
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the resource.
 
   ## Optional parameters:
   """
@@ -2706,9 +2668,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified listener.
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2754,7 +2720,9 @@ defmodule AWS.VPCLattice do
   @doc """
   Deletes the specified resource policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2790,23 +2758,20 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a listener rule.
+  Deletes a listener rule. Each listener has a default rule for checking
+  connection requests, but you can define additional rules. Each rule consists
+  of a priority, one or more actions, and one or more conditions. You can delete
+  additional listener rules, but you cannot delete the default rule.
 
-  Each listener has a default rule for checking connection requests,
-  but you can define additional rules. Each rule consists of a priority, one or
-  more actions, and
-  one or more conditions. You can delete additional listener rules, but you cannot
-  delete the
-  default rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteRule&this_doc_guide=API%2520Reference)
 
-  For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2852,19 +2817,18 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a service.
+  Deletes a service. A service can't be deleted if it's associated with a service
+  network. If you delete a service, all resources related to the service, such
+  as the resource policy, auth policy, listeners, listener rules, and access log
+  subscriptions, are also deleted. For more information, see [Delete a
+  service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
+  in the *Amazon VPC Lattice User Guide*.
 
-  A service can't be deleted if it's associated with a service network. If
-  you delete a service, all resources related to the service, such as the resource
-  policy, auth
-  policy, listeners, listener rules, and access log subscriptions, are also
-  deleted. For more
-  information, see [Delete a service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html#delete-service)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteService&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -2894,18 +2858,19 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a service network.
-
-  You can only delete the service network if there is no service or
-  VPC associated with it. If you delete a service network, all resources related
-  to the service
-  network, such as the resource policy, auth policy, and access log subscriptions,
-  are also
-  deleted. For more information, see [Delete a service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
+  Deletes a service network. You can only delete the service network if there is
+  no service or VPC associated with it. If you delete a service network, all
+  resources related to the service network, such as the resource policy, auth
+  policy, and access log subscriptions, are also deleted. For more information,
+  see [Delete a service
+  network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#delete-service-network)
   in the *Amazon VPC Lattice User Guide*.
 
-  ## Required positional parameters:
-  * `:service_network_identifier` (`t:string`) The Amazon Resource Name (ARN) or ID of the service network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The Amazon Resource Name (ARN) or
+    ID of the service network.
 
   ## Optional parameters:
   """
@@ -2941,13 +2906,13 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Deletes the association between a specified service and the specific service
-  network.
+  network. This operation fails if an association is still in progress.
 
-  This
-  operation fails if an association is still in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:service_network_service_association_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the association.
+  ## Parameters:
+  * `:service_network_service_association_identifier` (`t:string`) The ID or
+    Amazon Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
@@ -2989,13 +2954,14 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Disassociates the VPC from the service network.
+  Disassociates the VPC from the service network. You can't disassociate the VPC
+  if there is a create or update association in progress.
 
-  You can't disassociate the VPC if there is a
-  create or update association in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the association.
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
@@ -3037,13 +3003,14 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes a target group.
+  Deletes a target group. You can't delete a target group if it is used in a
+  listener rule or if the target group creation is in progress.
 
-  You can't delete a target group if it is used in a listener rule or
-  if the target group creation is in progress.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeleteTargetGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   """
@@ -3080,8 +3047,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Deregisters the specified targets from the specified target group.
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20DeregisterTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   """
@@ -3113,8 +3083,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified access log subscription.
 
-  ## Required positional parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the access log subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
@@ -3147,8 +3120,11 @@ defmodule AWS.VPCLattice do
   Retrieves information about the auth policy for the specified service or service
   network.
 
-  ## Required positional parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network or service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetAuthPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service.
 
   ## Optional parameters:
   """
@@ -3175,9 +3151,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified listener for the specified service.
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -3203,13 +3183,14 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Retrieves information about the resource policy.
+  Retrieves information about the resource policy. The resource policy is an IAM
+  policy created on behalf of the resource owner when they share a resource.
 
-  The resource policy is an IAM policy
-  created on behalf of the resource owner when they share a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetResourcePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the service network or service.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the service
+    network or service.
 
   ## Optional parameters:
   """
@@ -3234,17 +3215,20 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Retrieves information about listener rules.
+  Retrieves information about listener rules. You can also retrieve information
+  about the default listener rule. For more information, see [Listener
+  rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
+  in the *Amazon VPC Lattice User Guide*.
 
-  You can also retrieve information about the
-  default listener rule. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
-  in the
-  *Amazon VPC Lattice User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    listener rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -3278,8 +3262,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified service.
 
-  ## Required positional parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -3306,8 +3293,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified service network.
 
-  ## Required positional parameters:
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
 
   ## Optional parameters:
   """
@@ -3333,11 +3323,13 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Retrieves information about the specified association between a service network
-  and a
-  service.
+  and a service.
 
-  ## Required positional parameters:
-  * `:service_network_service_association_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_service_association_identifier` (`t:string`) The ID or
+    Amazon Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
@@ -3369,8 +3361,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the association between a service network and a VPC.
 
-  ## Required positional parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
@@ -3402,8 +3397,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Retrieves information about the specified target group.
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20GetTargetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   """
@@ -3430,12 +3428,15 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists all access log subscriptions for the specified service network or service.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListAccessLogSubscriptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network or service.
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service.
   """
   @spec list_access_log_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_log_subscriptions_response(), any()}
@@ -3487,8 +3488,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the listeners for the specified service.
 
-  ## Required positional parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListListeners&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -3535,9 +3539,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the rules for the listener.
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -3583,30 +3591,21 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the associations between the service network and the service.
+  Lists the associations between the service network and the service. You can
+  filter the list either by service or service network. You must provide either
+  the service network identifier or the service identifier.
 
-  You can filter the list
-  either by service or service network. You must provide either the service
-  network identifier or
-  the service identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkServiceAssociations&this_doc_guide=API%2520Reference)
 
-  Every association in Amazon VPC Lattice is given a unique Amazon Resource Name
-  (ARN), such as when a
-  service network is associated with a VPC or when a service is associated with a
-  service network.
-  If the association is for a resource that is shared with another account, the
-  association
-  includes the local account ID as the prefix in the ARN for each account the
-  resource is shared
-  with.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
   """
   @spec list_service_network_service_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_service_associations_response(), any()}
@@ -3665,20 +3664,21 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the service network and VPC associations.
+  Lists the service network and VPC associations. You can filter the list either
+  by VPC or service network. You must provide either the service network
+  identifier or the VPC identifier.
 
-  You can filter the list either by VPC or
-  service network. You must provide either the service network identifier or the
-  VPC
-  identifier.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkVpcAssociations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network.
-  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the VPC.
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
+  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    VPC.
   """
   @spec list_service_network_vpc_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
@@ -3738,12 +3738,12 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Lists the service networks owned by the caller account or shared with the caller
-  account.
+  account. Also includes the account ID in the ARN to show which account owns
+  the service network.
 
-  Also includes the account ID in the ARN to show which account owns the service
-  network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -3791,7 +3791,9 @@ defmodule AWS.VPCLattice do
   Lists the services owned by the caller account or shared with the caller
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -3838,7 +3840,9 @@ defmodule AWS.VPCLattice do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -3864,18 +3868,19 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists your target groups.
+  Lists your target groups. You can narrow your search by using the filters below
+  in your request.
 
-  You can narrow your search by using the filters below in your
-  request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargetGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:target_group_type` (`t:string`) The target group type.
-  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the VPC.
+  * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    VPC.
   """
   @spec list_target_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_groups_response(), any()}
@@ -3934,14 +3939,15 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the targets for the target group.
+  Lists the targets for the target group. By default, all targets are included.
+  You can use this API to check the health status of targets. You can also ﬁlter
+  the results by target.
 
-  By default, all targets are included. You can use
-  this API to check the health status of targets. You can also ﬁlter the results
-  by target.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
@@ -3979,17 +3985,14 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Creates or updates the auth policy.
+  Creates or updates the auth policy. The policy string in JSON must not contain
+  newlines or blank lines.
 
-  The policy string in JSON must not contain newlines or
-  blank lines.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutAuthPolicy&this_doc_guide=API%2520Reference)
 
-  For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html)
-  in the *Amazon VPC Lattice User Guide*.
-
-  ## Required positional parameters:
-  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network or service for which the policy
-   is created.
+  ## Parameters:
+  * `:resource_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the service network or service for which the policy is created.
 
   ## Optional parameters:
   """
@@ -4009,16 +4012,16 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Attaches a resource-based permission policy to a service or service network.
+  Attaches a resource-based permission policy to a service or service network. The
+  policy must contain the same actions and condition statements as the Amazon
+  Web Services Resource Access Manager permission for sharing services and
+  service networks.
 
-  The policy must
-  contain the same actions and condition statements as the Amazon Web Services
-  Resource Access
-  Manager permission for sharing services and service networks.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network or service for which the policy
-   is created.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service network or service for which the policy is created.
 
   ## Optional parameters:
   """
@@ -4043,13 +4046,14 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Registers the targets with the target group.
+  Registers the targets with the target group. If it's a Lambda target, you can
+  only have one target in a target group.
 
-  If it's a Lambda target, you can only have one
-  target in a target group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20RegisterTargets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   """
@@ -4081,7 +4085,9 @@ defmodule AWS.VPCLattice do
   @doc """
   Adds the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -4114,11 +4120,14 @@ defmodule AWS.VPCLattice do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]`) The tag keys of the tags to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]`) The tag keys of the
+    tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4153,8 +4162,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified access log subscription.
 
-  ## Required positional parameters:
-  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the access log subscription.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateAccessLogSubscription&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:access_log_subscription_identifier` (`t:string`) The ID or Amazon Resource
+    Name (ARN) of the access log subscription.
 
   ## Optional parameters:
   """
@@ -4198,9 +4210,13 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified listener for the specified service.
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateListener&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -4244,15 +4260,18 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates a rule for the listener.
+  Updates a rule for the listener. You can't modify a default listener rule. To
+  modify a default listener rule, use `UpdateListener`.
 
-  You can't modify a default listener rule. To modify a
-  default listener rule, use `UpdateListener`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the listener.
-  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the rule.
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  ## Parameters:
+  * `:listener_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of
+    the listener.
+  * `:rule_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    rule.
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -4300,8 +4319,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified service.
 
-  ## Required positional parameters:
-  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
+    service.
 
   ## Optional parameters:
   """
@@ -4333,8 +4355,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified service network.
 
-  ## Required positional parameters:
-  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the service network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetwork&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
+    (ARN) of the service network.
 
   ## Optional parameters:
   """
@@ -4369,17 +4394,17 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates the service network and VPC association.
+  Updates the service network and VPC association. If you add a security group to
+  the service network and VPC association, the association must continue to
+  always have at least one security group. You can add or edit security groups
+  at any time. However, to remove all security groups, you must first delete the
+  association and recreate it without security groups.
 
-  If you add a security group to the service
-  network and VPC association, the association must continue to always have at
-  least one security
-  group. You can add or edit security groups at any time. However, to remove all
-  security groups,
-  you must first delete the association and recreate it without security groups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the association.
+  ## Parameters:
+  * `:service_network_vpc_association_identifier` (`t:string`) The ID or Amazon
+    Resource Name (ARN) of the association.
 
   ## Optional parameters:
   """
@@ -4423,8 +4448,11 @@ defmodule AWS.VPCLattice do
   @doc """
   Updates the specified target group.
 
-  ## Required positional parameters:
-  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the target group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20UpdateTargetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:target_group_identifier` (`t:string`) The ID or Amazon Resource Name (ARN)
+    of the target group.
 
   ## Optional parameters:
   """

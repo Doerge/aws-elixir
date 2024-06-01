@@ -7133,12 +7133,13 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Accept an incoming input device transfer.
+  Accept an incoming input device transfer. The ownership of the device will
+  transfer to your AWS account.
 
-  The ownership of the device will transfer to your AWS account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20AcceptInputDeviceTransfer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7175,7 +7176,9 @@ defmodule AWS.MediaLive do
   @doc """
   Starts delete of resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchDelete&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7207,7 +7210,9 @@ defmodule AWS.MediaLive do
   @doc """
   Starts existing resources
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchStart&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7239,7 +7244,9 @@ defmodule AWS.MediaLive do
   @doc """
   Stops running resources
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchStop&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7271,8 +7278,10 @@ defmodule AWS.MediaLive do
   @doc """
   Update a channel schedule
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20BatchUpdateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7299,8 +7308,10 @@ defmodule AWS.MediaLive do
   @doc """
   Cancel an input device transfer that you have requested.
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CancelInputDeviceTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7336,11 +7347,11 @@ defmodule AWS.MediaLive do
 
   @doc """
   Send a request to claim an AWS Elemental device that you have purchased from a
-  third-party vendor.
+  third-party vendor. After the request succeeds, you will own the device.
 
-  After the request succeeds, you will own the device.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ClaimDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7372,7 +7383,9 @@ defmodule AWS.MediaLive do
   @doc """
   Creates a new channel
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7405,7 +7418,9 @@ defmodule AWS.MediaLive do
   Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
   alarms on targeted resource types.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7442,7 +7457,9 @@ defmodule AWS.MediaLive do
   Creates a cloudwatch alarm template group to group your cloudwatch alarm
   templates and to attach to signal maps for dynamically creating alarms.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7479,7 +7496,9 @@ defmodule AWS.MediaLive do
   Creates an eventbridge rule template to monitor events and send notifications to
   your targeted resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7517,7 +7536,9 @@ defmodule AWS.MediaLive do
   templates and to attach to signal maps for dynamically creating notification
   rules.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7553,7 +7574,9 @@ defmodule AWS.MediaLive do
   @doc """
   Create an input
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7585,7 +7608,9 @@ defmodule AWS.MediaLive do
   @doc """
   Creates a Input Security Group
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7621,7 +7646,9 @@ defmodule AWS.MediaLive do
   @doc """
   Create a new multiplex.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7653,8 +7680,10 @@ defmodule AWS.MediaLive do
   @doc """
   Create a new program in the multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7691,8 +7720,10 @@ defmodule AWS.MediaLive do
   @doc """
   Create a partner input
 
-  ## Required positional parameters:
-  * `:input_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreatePartnerInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7727,12 +7758,12 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Initiates the creation of a new signal map.
+  Initiates the creation of a new signal map. Will discover a new mediaResourceMap
+  based on the provided discoveryEntryPointArn.
 
-  Will discover a new mediaResourceMap based on the provided
-  discoveryEntryPointArn.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateSignalMap&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7764,8 +7795,10 @@ defmodule AWS.MediaLive do
   @doc """
   Create tags for a resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20CreateTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7795,12 +7828,12 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Starts deletion of channel.
+  Starts deletion of channel. The associated outputs are also deleted.
 
-  The associated outputs are also deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteChannel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7832,8 +7865,10 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes a cloudwatch alarm template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7868,13 +7903,14 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Deletes a cloudwatch alarm template group.
+  Deletes a cloudwatch alarm template group. You must detach this group from all
+  signal maps and ensure its existing templates are moved to another group or
+  deleted.
 
-  You must detach this group from all signal maps and ensure its existing
-  templates are moved to another group or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7916,8 +7952,10 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes an eventbridge rule template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -7952,13 +7990,14 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Deletes an eventbridge rule template group.
+  Deletes an eventbridge rule template group. You must detach this group from all
+  signal maps and ensure its existing templates are moved to another group or
+  deleted.
 
-  You must detach this group from all signal maps and ensure its existing
-  templates are moved to another group or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8000,8 +8039,10 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes the input end point
 
-  ## Required positional parameters:
-  * `:input_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8033,8 +8074,10 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes an Input Security Group
 
-  ## Required positional parameters:
-  * `:input_security_group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8074,12 +8117,12 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Delete a multiplex.
+  Delete a multiplex. The multiplex must be idle.
 
-  The multiplex must be idle.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8111,9 +8154,11 @@ defmodule AWS.MediaLive do
   @doc """
   Delete a program from a multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
-  * `:program_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8159,8 +8204,10 @@ defmodule AWS.MediaLive do
   @doc """
   Delete an expired reservation.
 
-  ## Required positional parameters:
-  * `:reservation_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8192,8 +8239,10 @@ defmodule AWS.MediaLive do
   @doc """
   Delete all schedule actions on a channel.
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8225,8 +8274,10 @@ defmodule AWS.MediaLive do
   @doc """
   Deletes the specified signal map.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8258,11 +8309,13 @@ defmodule AWS.MediaLive do
   @doc """
   Removes tags for a resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DeleteTags&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]`) 
+  * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]`)
   """
   @spec delete_tags(AWS.Client.t(), String.t(), delete_tags_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8297,7 +8350,9 @@ defmodule AWS.MediaLive do
   @doc """
   Describe account configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -8324,8 +8379,10 @@ defmodule AWS.MediaLive do
   @doc """
   Gets details about a channel
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8352,8 +8409,10 @@ defmodule AWS.MediaLive do
   @doc """
   Produces details about an input
 
-  ## Required positional parameters:
-  * `:input_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8380,8 +8439,10 @@ defmodule AWS.MediaLive do
   @doc """
   Gets the details for the input device
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8408,11 +8469,13 @@ defmodule AWS.MediaLive do
   @doc """
   Get the latest thumbnail data for the input device.
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputDeviceThumbnail&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
-  * `:accept` (`t:enum["image_jpeg"]`) 
+  * `:accept` (`t:enum["image_jpeg"]`)
   """
   @spec describe_input_device_thumbnail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
@@ -8459,8 +8522,10 @@ defmodule AWS.MediaLive do
   @doc """
   Produces a summary of an Input Security Group
 
-  ## Required positional parameters:
-  * `:input_security_group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8487,8 +8552,10 @@ defmodule AWS.MediaLive do
   @doc """
   Gets details about a multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8515,9 +8582,11 @@ defmodule AWS.MediaLive do
   @doc """
   Get the details for a program in a multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
-  * `:program_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8545,8 +8614,10 @@ defmodule AWS.MediaLive do
   @doc """
   Get details for an offering.
 
-  ## Required positional parameters:
-  * `:offering_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8573,8 +8644,10 @@ defmodule AWS.MediaLive do
   @doc """
   Get details for a reservation.
 
-  ## Required positional parameters:
-  * `:reservation_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8601,12 +8674,14 @@ defmodule AWS.MediaLive do
   @doc """
   Get a channel schedule
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
@@ -8649,12 +8724,14 @@ defmodule AWS.MediaLive do
   @doc """
   Describe the latest thumbnails data.
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeThumbnails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
-  * `:pipeline_id` (`t:string`) 
-  * `:thumbnail_type` (`t:string`) 
+  * `:pipeline_id` (`t:string`)
+  * `:thumbnail_type` (`t:string`)
   """
   @spec describe_thumbnails(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thumbnails_response(), any()}
@@ -8703,8 +8780,10 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified cloudwatch alarm template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8731,8 +8810,10 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified cloudwatch alarm template group.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8759,8 +8840,10 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified eventbridge rule template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8787,8 +8870,10 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified eventbridge rule template group.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8815,8 +8900,10 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieves the specified signal map.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20GetSignalMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -8843,11 +8930,13 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of channels that have been created
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -8890,13 +8979,15 @@ defmodule AWS.MediaLive do
   @doc """
   Lists cloudwatch alarm template groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplateGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:scope` (`t:string`) 
-  * `:signal_map_identifier` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:scope` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
   @spec list_cloud_watch_alarm_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
@@ -8957,14 +9048,16 @@ defmodule AWS.MediaLive do
   @doc """
   Lists cloudwatch alarm templates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:group_identifier` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:scope` (`t:string`) 
-  * `:signal_map_identifier` (`t:string`) 
+  * `:group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:scope` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
   @spec list_cloud_watch_alarm_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
@@ -9034,12 +9127,14 @@ defmodule AWS.MediaLive do
   @doc """
   Lists eventbridge rule template groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplateGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:signal_map_identifier` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
   @spec list_event_bridge_rule_template_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
@@ -9091,13 +9186,15 @@ defmodule AWS.MediaLive do
   @doc """
   Lists eventbridge rule templates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:group_identifier` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:signal_map_identifier` (`t:string`) 
+  * `:group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:signal_map_identifier` (`t:string`)
   """
   @spec list_event_bridge_rule_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
@@ -9156,17 +9253,18 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  List input devices that are currently being transferred.
+  List input devices that are currently being transferred. List input devices that
+  you are transferring from your AWS account or input devices that another AWS
+  account is transferring to you.
 
-  List input devices that you are transferring from your AWS account or input
-  devices that another AWS account is transferring to you.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDeviceTransfers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:transfer_type` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:transfer_type` (`t:string`)
   """
   @spec list_input_device_transfers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_input_device_transfers_response(), any()}
@@ -9218,11 +9316,13 @@ defmodule AWS.MediaLive do
   @doc """
   List input devices
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_input_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_devices_response(), any()}
@@ -9265,11 +9365,13 @@ defmodule AWS.MediaLive do
   @doc """
   Produces a list of Input Security Groups for an account
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputSecurityGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_input_security_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_security_groups_response(), any()}
@@ -9312,11 +9414,13 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of inputs that have been created
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
@@ -9359,12 +9463,14 @@ defmodule AWS.MediaLive do
   @doc """
   List the programs that currently exist for a specific multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexPrograms&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_multiplex_programs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multiplex_programs_response(), any()}
@@ -9407,11 +9513,13 @@ defmodule AWS.MediaLive do
   @doc """
   Retrieve a list of the existing multiplexes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_multiplexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multiplexes_response(), any()}
@@ -9454,21 +9562,23 @@ defmodule AWS.MediaLive do
   @doc """
   List offerings available for purchase.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:channel_class` (`t:string`) 
-  * `:channel_configuration` (`t:string`) 
-  * `:codec` (`t:string`) 
-  * `:duration` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:maximum_bitrate` (`t:string`) 
-  * `:maximum_framerate` (`t:string`) 
-  * `:next_token` (`t:string`) 
-  * `:resolution` (`t:string`) 
-  * `:resource_type` (`t:string`) 
-  * `:special_feature` (`t:string`) 
-  * `:video_quality` (`t:string`) 
+  * `:channel_class` (`t:string`)
+  * `:channel_configuration` (`t:string`)
+  * `:codec` (`t:string`)
+  * `:duration` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:maximum_bitrate` (`t:string`)
+  * `:maximum_framerate` (`t:string`)
+  * `:next_token` (`t:string`)
+  * `:resolution` (`t:string`)
+  * `:resource_type` (`t:string`)
+  * `:special_feature` (`t:string`)
+  * `:video_quality` (`t:string`)
   """
   @spec list_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_offerings_response(), any()}
@@ -9601,19 +9711,21 @@ defmodule AWS.MediaLive do
   @doc """
   List purchased reservations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListReservations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:channel_class` (`t:string`) 
-  * `:codec` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:maximum_bitrate` (`t:string`) 
-  * `:maximum_framerate` (`t:string`) 
-  * `:next_token` (`t:string`) 
-  * `:resolution` (`t:string`) 
-  * `:resource_type` (`t:string`) 
-  * `:special_feature` (`t:string`) 
-  * `:video_quality` (`t:string`) 
+  * `:channel_class` (`t:string`)
+  * `:codec` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:maximum_bitrate` (`t:string`)
+  * `:maximum_framerate` (`t:string`)
+  * `:next_token` (`t:string`)
+  * `:resolution` (`t:string`)
+  * `:resource_type` (`t:string`)
+  * `:special_feature` (`t:string`)
+  * `:video_quality` (`t:string`)
   """
   @spec list_reservations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reservations_response(), any()}
@@ -9728,13 +9840,15 @@ defmodule AWS.MediaLive do
   @doc """
   Lists signal maps.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListSignalMaps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:cloud_watch_alarm_template_group_identifier` (`t:string`) 
-  * `:event_bridge_rule_template_group_identifier` (`t:string`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:cloud_watch_alarm_template_group_identifier` (`t:string`)
+  * `:event_bridge_rule_template_group_identifier` (`t:string`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_signal_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signal_maps_response(), any()}
@@ -9803,8 +9917,10 @@ defmodule AWS.MediaLive do
   @doc """
   Produces list of tags that have been created for a resource
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -9831,8 +9947,10 @@ defmodule AWS.MediaLive do
   @doc """
   Purchase an offering and create a reservation.
 
-  ## Required positional parameters:
-  * `:offering_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20PurchaseOffering&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:offering_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -9862,14 +9980,14 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Send a reboot command to the specified input device.
+  Send a reboot command to the specified input device. The device will begin
+  rebooting within a few seconds of sending the command. When the reboot is
+  complete, the device’s connection status will change to connected.
 
-  The device will begin rebooting within a few seconds of sending the command.
-  When the reboot is complete, the device’s connection status will change to
-  connected.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RebootInputDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -9906,8 +10024,10 @@ defmodule AWS.MediaLive do
   @doc """
   Reject the transfer of the specified input device to your AWS account.
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RejectInputDeviceTransfer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -9944,8 +10064,10 @@ defmodule AWS.MediaLive do
   @doc """
   Restart pipelines in one channel that is currently running.
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20RestartChannelPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -9982,8 +10104,10 @@ defmodule AWS.MediaLive do
   @doc """
   Starts an existing channel
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10015,8 +10139,10 @@ defmodule AWS.MediaLive do
   @doc """
   Initiates a deployment to delete the monitor of the specified signal map.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartDeleteMonitorDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10051,13 +10177,14 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start an input device that is attached to a MediaConnect flow.
+  Start an input device that is attached to a MediaConnect flow. (There is no need
+  to start a device that is attached to a MediaLive input; MediaLive starts the
+  device when the channel starts.)
 
-  (There is no need to start a device that is attached to a MediaLive input;
-  MediaLive starts the device when the channel starts.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10087,18 +10214,19 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start a maintenance window for the specified input device.
-
-  Starting a maintenance window will give the device up to two hours to install
-  software. If the device was streaming prior to the maintenance, it will resume
-  streaming when the software is fully installed. Devices automatically install
-  updates while they are powered on and their MediaLive channels are stopped. A
+  Start a maintenance window for the specified input device. Starting a
+  maintenance window will give the device up to two hours to install software.
+  If the device was streaming prior to the maintenance, it will resume streaming
+  when the software is fully installed. Devices automatically install updates
+  while they are powered on and their MediaLive channels are stopped. A
   maintenance window allows you to update a device without having to stop
   MediaLive channels that use the device. The device must remain powered on and
   connected to the internet for the duration of the maintenance.
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartInputDeviceMaintenanceWindow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10142,8 +10270,10 @@ defmodule AWS.MediaLive do
   @doc """
   Initiates a deployment to deploy the latest monitor of the specified signal map.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMonitorDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10178,13 +10308,13 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start (run) the multiplex.
+  Start (run) the multiplex. Starting the multiplex does not start the channels.
+  You must explicitly start each channel.
 
-  Starting the multiplex does not start the channels. You must explicitly start
-  each channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartMultiplex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10214,12 +10344,13 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Initiates an update for the specified signal map.
+  Initiates an update for the specified signal map. Will discover a new signal map
+  if a changed discoveryEntryPointArn is provided.
 
-  Will discover a new signal map if a changed discoveryEntryPointArn is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StartUpdateSignalMap&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10256,8 +10387,10 @@ defmodule AWS.MediaLive do
   @doc """
   Stops a running channel
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10287,13 +10420,14 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Stop an input device that is attached to a MediaConnect flow.
+  Stop an input device that is attached to a MediaConnect flow. (There is no need
+  to stop a device that is attached to a MediaLive input; MediaLive
+  automatically stops the device when the channel stops.)
 
-  (There is no need to stop a device that is attached to a MediaLive input;
-  MediaLive automatically stops the device when the channel stops.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopInputDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10323,12 +10457,13 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Stops a running multiplex.
+  Stops a running multiplex. If the multiplex isn't running, this action has no
+  effect.
 
-  If the multiplex isn't running, this action has no effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20StopMultiplex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10358,13 +10493,13 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
-  Start an input device transfer to another AWS account.
+  Start an input device transfer to another AWS account. After you make the
+  request, the other account must accept or reject the transfer.
 
-  After you make the request, the other account must accept or reject the
-  transfer.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20TransferInputDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10401,7 +10536,9 @@ defmodule AWS.MediaLive do
   @doc """
   Update account configuration
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -10427,8 +10564,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates a channel.
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10450,8 +10589,10 @@ defmodule AWS.MediaLive do
   @doc """
   Changes the class of the channel.
 
-  ## Required positional parameters:
-  * `:channel_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateChannelClass&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10478,8 +10619,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the specified cloudwatch alarm template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10516,8 +10659,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the specified cloudwatch alarm template group.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateCloudWatchAlarmTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10559,8 +10704,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the specified eventbridge rule template.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10597,8 +10744,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the specified eventbridge rule template group.
 
-  ## Required positional parameters:
-  * `:identifier` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateEventBridgeRuleTemplateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:identifier` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10640,8 +10789,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates an input.
 
-  ## Required positional parameters:
-  * `:input_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10663,8 +10814,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates the parameters for the input device.
 
-  ## Required positional parameters:
-  * `:input_device_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_device_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10691,8 +10844,10 @@ defmodule AWS.MediaLive do
   @doc """
   Update an Input Security Group's Whilelists.
 
-  ## Required positional parameters:
-  * `:input_security_group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateInputSecurityGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input_security_group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10724,8 +10879,10 @@ defmodule AWS.MediaLive do
   @doc """
   Updates a multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10747,9 +10904,11 @@ defmodule AWS.MediaLive do
   @doc """
   Update a program in a multiplex.
 
-  ## Required positional parameters:
-  * `:multiplex_id` (`t:string`) 
-  * `:program_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateMultiplexProgram&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:multiplex_id` (`t:string`)
+  * `:program_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -10785,8 +10944,10 @@ defmodule AWS.MediaLive do
   @doc """
   Update reservation.
 
-  ## Required positional parameters:
-  * `:reservation_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20UpdateReservation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reservation_id` (`t:string`)
 
   ## Optional parameters:
   """

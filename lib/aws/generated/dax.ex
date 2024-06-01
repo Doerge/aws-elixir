@@ -3,18 +3,13 @@
 
 defmodule AWS.DAX do
   @moduledoc """
-  DAX is a managed caching service engineered for Amazon DynamoDB.
-
-  DAX
+  DAX is a managed caching service engineered for Amazon DynamoDB. DAX
   dramatically speeds up database reads by caching frequently-accessed data from
-  DynamoDB, so
-  applications can access that data with sub-millisecond latency. You can create a
-  DAX
-  cluster easily, using the AWS Management Console. With a few simple
-  modifications to
-  your code, your application can begin taking advantage of the DAX cluster and
-  realize
-  significant improvements in read performance.
+  DynamoDB, so applications can access that data with sub-millisecond latency.
+  You can create a DAX cluster easily, using the AWS Management Console. With a
+  few simple modifications to your code, your application can begin taking
+  advantage of the DAX cluster and realize significant improvements in read
+  performance.
   """
 
   alias AWS.Client
@@ -1233,9 +1228,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Creates a DAX cluster.
-
-  All nodes in the cluster run the same DAX caching software.
+  Creates a DAX cluster. All nodes in the cluster run the same DAX caching
+  software.
   """
   @spec create_cluster(AWS.Client.t(), create_cluster_request(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
@@ -1249,10 +1243,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Creates a new parameter group.
-
-  A parameter group is a collection of parameters that
-  you apply to all of the nodes in a DAX cluster.
+  Creates a new parameter group. A parameter group is a collection of parameters
+  that you apply to all of the nodes in a DAX cluster.
   """
   @spec create_parameter_group(AWS.Client.t(), create_parameter_group_request(), Keyword.t()) ::
           {:ok, create_parameter_group_response(), any()}
@@ -1281,9 +1273,6 @@ defmodule AWS.DAX do
 
   @doc """
   Removes one or more nodes from a DAX cluster.
-
-  You cannot use `DecreaseReplicationFactor` to remove the last node in a DAX
-  cluster. If you need to do this, use `DeleteCluster` instead.
   """
   @spec decrease_replication_factor(
           AWS.Client.t(),
@@ -1301,13 +1290,10 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Deletes a previously provisioned DAX cluster.
-
-  *DeleteCluster* deletes all associated nodes, node endpoints
-  and the DAX cluster itself. When you receive a successful response from this
-  action,
-  DAX immediately begins deleting the cluster; you cannot cancel or revert this
-  action.
+  Deletes a previously provisioned DAX cluster. *DeleteCluster* deletes all
+  associated nodes, node endpoints and the DAX cluster itself. When you receive
+  a successful response from this action, DAX immediately begins deleting the
+  cluster; you cannot cancel or revert this action.
   """
   @spec delete_cluster(AWS.Client.t(), delete_cluster_request(), Keyword.t()) ::
           {:ok, delete_cluster_response(), any()}
@@ -1321,10 +1307,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Deletes the specified parameter group.
-
-  You cannot delete a parameter group if it is
-  associated with any DAX clusters.
+  Deletes the specified parameter group. You cannot delete a parameter group if it
+  is associated with any DAX clusters.
   """
   @spec delete_parameter_group(AWS.Client.t(), delete_parameter_group_request(), Keyword.t()) ::
           {:ok, delete_parameter_group_response(), any()}
@@ -1339,9 +1323,6 @@ defmodule AWS.DAX do
 
   @doc """
   Deletes a subnet group.
-
-  You cannot delete a subnet group if it is associated with any DAX
-  clusters.
   """
   @spec delete_subnet_group(AWS.Client.t(), delete_subnet_group_request(), Keyword.t()) ::
           {:ok, delete_subnet_group_response(), any()}
@@ -1357,21 +1338,9 @@ defmodule AWS.DAX do
   @doc """
   Returns information about all provisioned DAX clusters if no cluster identifier
   is specified, or about a specific DAX cluster if a cluster identifier is
-  supplied.
-
-  If the cluster is in the CREATING state, only cluster level information will be
-  displayed until all of the nodes are successfully provisioned.
-
-  If the cluster is in the DELETING state, only cluster level information will be
-  displayed.
-
-  If nodes are currently being added to the DAX cluster, node endpoint information
-  and creation time for the additional nodes will not be displayed until they are
-  completely provisioned. When the DAX cluster state is *available*,
-  the cluster is ready for use.
-
-  If nodes are currently being removed from the DAX cluster, no endpoint
-  information for the removed nodes is displayed.
+  supplied. If the cluster is in the CREATING state, only cluster level
+  information will be displayed until all of the nodes are successfully
+  provisioned.
   """
   @spec describe_clusters(AWS.Client.t(), describe_clusters_request(), Keyword.t()) ::
           {:ok, describe_clusters_response(), any()}
@@ -1385,8 +1354,7 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Returns the default system parameter information for the DAX caching
-  software.
+  Returns the default system parameter information for the DAX caching software.
   """
   @spec describe_default_parameters(
           AWS.Client.t(),
@@ -1404,16 +1372,9 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Returns events related to DAX clusters and parameter groups.
-
-  You can obtain
-  events specific to a particular DAX cluster or parameter group by providing the
-  name
-  as a parameter.
-
-  By default, only the events occurring within the last 24 hours are returned;
-  however,
-  you can retrieve up to 14 days' worth of events if necessary.
+  Returns events related to DAX clusters and parameter groups. You can obtain
+  events specific to a particular DAX cluster or parameter group by providing
+  the name as a parameter.
   """
   @spec describe_events(AWS.Client.t(), describe_events_request(), Keyword.t()) ::
           {:ok, describe_events_response(), any()}
@@ -1427,9 +1388,7 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Returns a list of parameter group descriptions.
-
-  If a parameter group name is
+  Returns a list of parameter group descriptions. If a parameter group name is
   specified, the list will contain only the descriptions for that group.
   """
   @spec describe_parameter_groups(
@@ -1462,10 +1421,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Returns a list of subnet group descriptions.
-
-  If a subnet group name is specified,
-  the list will contain only the description of that group.
+  Returns a list of subnet group descriptions. If a subnet group name is
+  specified, the list will contain only the description of that group.
   """
   @spec describe_subnet_groups(AWS.Client.t(), describe_subnet_groups_request(), Keyword.t()) ::
           {:ok, describe_subnet_groups_response(), any()}
@@ -1497,10 +1454,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  List all of the tags for a DAX cluster.
-
-  You can call `ListTags` up to
-  10 times per second, per account.
+  List all of the tags for a DAX cluster. You can call `ListTags` up to 10 times
+  per second, per account.
   """
   @spec list_tags(AWS.Client.t(), list_tags_request(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -1514,14 +1469,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Reboots a single node of a DAX cluster.
-
-  The reboot action takes place
-  as soon as possible. During the
-  reboot, the node status is set to REBOOTING.
-
-  `RebootNode` restarts the DAX engine process and does not remove the contents of
-  the cache.
+  Reboots a single node of a DAX cluster. The reboot action takes place as soon as
+  possible. During the reboot, the node status is set to REBOOTING.
   """
   @spec reboot_node(AWS.Client.t(), reboot_node_request(), Keyword.t()) ::
           {:ok, reboot_node_response(), any()}
@@ -1535,10 +1484,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Associates a set of tags with a DAX resource.
-
-  You can call `TagResource` up to 5 times per second, per
-  account.
+  Associates a set of tags with a DAX resource. You can call `TagResource` up to 5
+  times per second, per account.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1552,9 +1499,7 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Removes the association of tags from a DAX resource.
-
-  You can call
+  Removes the association of tags from a DAX resource. You can call
   `UntagResource` up to 5 times per second, per account.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
@@ -1569,11 +1514,9 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Modifies the settings for a DAX cluster.
-
-  You can use this action to change one or
-  more cluster configuration parameters by specifying the parameters and the new
-  values.
+  Modifies the settings for a DAX cluster. You can use this action to change one
+  or more cluster configuration parameters by specifying the parameters and the
+  new values.
   """
   @spec update_cluster(AWS.Client.t(), update_cluster_request(), Keyword.t()) ::
           {:ok, update_cluster_response(), any()}
@@ -1587,11 +1530,8 @@ defmodule AWS.DAX do
   end
 
   @doc """
-  Modifies the parameters of a parameter group.
-
-  You can modify up to 20
-  parameters in a single request by submitting a list parameter name and value
-  pairs.
+  Modifies the parameters of a parameter group. You can modify up to 20 parameters
+  in a single request by submitting a list parameter name and value pairs.
   """
   @spec update_parameter_group(AWS.Client.t(), update_parameter_group_request(), Keyword.t()) ::
           {:ok, update_parameter_group_response(), any()}

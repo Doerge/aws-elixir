@@ -118,11 +118,12 @@ defmodule AWS.InspectorScan do
 
   @doc """
   Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities
-  discovered in that SBOM.
+  discovered in that SBOM. You can generate compatible SBOMs for your resources
+  using the [Amazon Inspector SBOM generator]().
 
-  You can generate compatible SBOMs for your resources using the [Amazon Inspector SBOM generator]().
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspectorscan%20ScanSbom&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

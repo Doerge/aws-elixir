@@ -4,8 +4,8 @@
 defmodule AWS.LookoutEquipment do
   @moduledoc """
   Amazon Lookout for Equipment is a machine learning service that uses advanced
-  analytics to identify
-  anomalies in machines from sensor data for use in predictive maintenance.
+  analytics to identify anomalies in machines from sensor data for use in
+  predictive maintenance.
   """
 
   alias AWS.Client
@@ -2284,14 +2284,11 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Creates a container for a collection of data being ingested for analysis.
-
-  The dataset
-  contains the metadata describing where the data is and what the data actually
-  looks like.
-  For example, it contains the location of the data source, the data schema, and
-  other
-  information. A dataset also contains any tags associated with the ingested data.
+  Creates a container for a collection of data being ingested for analysis. The
+  dataset contains the metadata describing where the data is and what the data
+  actually looks like. For example, it contains the location of the data source,
+  the data schema, and other information. A dataset also contains any tags
+  associated with the ingested data.
   """
   @spec create_dataset(AWS.Client.t(), create_dataset_request(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
@@ -2305,16 +2302,12 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Creates a scheduled inference.
-
-  Scheduling an inference is setting up a continuous
-  real-time inference plan to analyze new measurement data. When setting up the
-  schedule, you
-  provide an S3 bucket location for the input data, assign it a delimiter between
-  separate
-  entries in the data, set an offset delay if desired, and set the frequency of
-  inferencing.
-  You must also provide an S3 bucket location for the output data.
+  Creates a scheduled inference. Scheduling an inference is setting up a
+  continuous real-time inference plan to analyze new measurement data. When
+  setting up the schedule, you provide an S3 bucket location for the input data,
+  assign it a delimiter between separate entries in the data, set an offset
+  delay if desired, and set the frequency of inferencing. You must also provide
+  an S3 bucket location for the output data.
   """
   @spec create_inference_scheduler(
           AWS.Client.t(),
@@ -2360,23 +2353,12 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Creates a machine learning model for data inference.
-
-  A machine-learning (ML) model is a mathematical model that finds patterns in
-  your data.
-  In Amazon Lookout for Equipment, the model learns the patterns of normal
-  behavior and detects abnormal
-  behavior that could be potential equipment failure (or maintenance events). The
-  models are
-  made by analyzing normal data and abnormalities in machine behavior that have
-  already
-  occurred.
-
-  Your model is trained using a portion of the data from your dataset and uses
-  that data
-  to learn patterns of normal behavior and abnormal patterns that lead to
-  equipment failure.
-  Another portion of the data is used to evaluate the model's accuracy.
+  Creates a machine learning model for data inference. A machine-learning (ML)
+  model is a mathematical model that finds patterns in your data. In Amazon
+  Lookout for Equipment, the model learns the patterns of normal behavior and
+  detects abnormal behavior that could be potential equipment failure (or
+  maintenance events). The models are made by analyzing normal data and
+  abnormalities in machine behavior that have already occurred.
   """
   @spec create_model(AWS.Client.t(), create_model_request(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
@@ -2408,16 +2390,12 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Deletes a dataset and associated artifacts.
-
-  The operation will check to see if any
-  inference scheduler or data ingestion job is currently using the dataset, and if
-  there
-  isn't, the dataset, its metadata, and any associated data stored in S3 will be
-  deleted.
-  This does not affect any models that used this dataset for training and
-  evaluation, but
-  does prevent it from being used in the future.
+  Deletes a dataset and associated artifacts. The operation will check to see if
+  any inference scheduler or data ingestion job is currently using the dataset,
+  and if there isn't, the dataset, its metadata, and any associated data stored
+  in S3 will be deleted. This does not affect any models that used this dataset
+  for training and evaluation, but does prevent it from being used in the
+  future.
   """
   @spec delete_dataset(AWS.Client.t(), delete_dataset_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2431,10 +2409,8 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Deletes an inference scheduler that has been set up.
-
-  Prior inference results will not be
-  deleted.
+  Deletes an inference scheduler that has been set up. Prior inference results
+  will not be deleted.
   """
   @spec delete_inference_scheduler(
           AWS.Client.t(),
@@ -2481,10 +2457,8 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Deletes a machine learning model currently available for Amazon Lookout for
-  Equipment.
-
-  This will prevent it
-  from being used with an inference scheduler, even one that is already set up.
+  Equipment. This will prevent it from being used with an inference scheduler,
+  even one that is already set up.
   """
   @spec delete_model(AWS.Client.t(), delete_model_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2512,10 +2486,8 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Deletes a retraining scheduler from a model.
-
-  The retraining scheduler must be in the
-  `STOPPED` status.
+  Deletes a retraining scheduler from a model. The retraining scheduler must be in
+  the `STOPPED` status.
   """
   @spec delete_retraining_scheduler(
           AWS.Client.t(),
@@ -2534,8 +2506,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides information on a specific data ingestion job such as creation time,
-  dataset
-  ARN, and status.
+  dataset ARN, and status.
   """
   @spec describe_data_ingestion_job(
           AWS.Client.t(),
@@ -2554,8 +2525,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides a JSON description of the data in each time series dataset, including
-  names,
-  column names, and data types.
+  names, column names, and data types.
   """
   @spec describe_dataset(AWS.Client.t(), describe_dataset_request(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
@@ -2570,8 +2540,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Specifies information about the inference scheduler being used, including name,
-  model,
-  status, and associated metadata
+  model, status, and associated metadata
   """
   @spec describe_inference_scheduler(
           AWS.Client.t(),
@@ -2618,10 +2587,8 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides a JSON containing the overall information about a specific machine
-  learning
-  model, including model name and ARN, dataset, training and evaluation
-  information, status,
-  and so on.
+  learning model, including model name and ARN, dataset, training and evaluation
+  information, status, and so on.
   """
   @spec describe_model(AWS.Client.t(), describe_model_request(), Keyword.t()) ::
           {:ok, describe_model_response(), any()}
@@ -2664,8 +2631,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides a description of the retraining scheduler, including information such
-  as the
-  model name and retraining parameters.
+  as the model name and retraining parameters.
   """
   @spec describe_retraining_scheduler(
           AWS.Client.t(),
@@ -2712,8 +2678,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Provides a list of all data ingestion jobs, including dataset name and ARN, S3
-  location
-  of the input data, status, and so on.
+  location of the input data, status, and so on.
   """
   @spec list_data_ingestion_jobs(AWS.Client.t(), list_data_ingestion_jobs_request(), Keyword.t()) ::
           {:ok, list_data_ingestion_jobs_response(), any()}
@@ -2758,8 +2723,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Lists all inference executions that have been performed by the specified
-  inference
-  scheduler.
+  inference scheduler.
   """
   @spec list_inference_executions(
           AWS.Client.t(),
@@ -2825,10 +2789,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Generates a list of all model versions for a given model, including the model
-  version,
-  model version ARN, and status.
-
-  To list a subset of versions, use the
+  version, model version ARN, and status. To list a subset of versions, use the
   `MaxModelVersion` and `MinModelVersion` fields.
   """
   @spec list_model_versions(AWS.Client.t(), list_model_versions_request(), Keyword.t()) ::
@@ -2844,8 +2805,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Generates a list of all models in the account, including model name and ARN,
-  dataset,
-  and status.
+  dataset, and status.
   """
   @spec list_models(AWS.Client.t(), list_models_request(), Keyword.t()) ::
           {:ok, list_models_response(), any()}
@@ -2860,8 +2820,7 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Lists all retraining schedulers in your account, filtering by model name prefix
-  and
-  status.
+  and status.
   """
   @spec list_retraining_schedulers(
           AWS.Client.t(),
@@ -2880,10 +2839,8 @@ defmodule AWS.LookoutEquipment do
 
   @doc """
   Lists statistics about the data collected for each of the sensors that have been
-  successfully ingested in the particular dataset.
-
-  Can also be used to retreive Sensor
-  Statistics for a previous ingestion job.
+  successfully ingested in the particular dataset. Can also be used to retreive
+  Sensor Statistics for a previous ingestion job.
   """
   @spec list_sensor_statistics(AWS.Client.t(), list_sensor_statistics_request(), Keyword.t()) ::
           {:ok, list_sensor_statistics_response(), any()}
@@ -2925,9 +2882,8 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Starts a data ingestion job.
-
-  Amazon Lookout for Equipment returns the job status.
+  Starts a data ingestion job. Amazon Lookout for Equipment returns the job
+  status.
   """
   @spec start_data_ingestion_job(AWS.Client.t(), start_data_ingestion_job_request(), Keyword.t()) ::
           {:ok, start_data_ingestion_job_response(), any()}
@@ -3009,15 +2965,11 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Associates a given tag to a resource in your account.
-
-  A tag is a key-value pair which
-  can be added to an Amazon Lookout for Equipment resource as metadata. Tags can
-  be used for organizing your
-  resources as well as helping you to search and filter by tag. Multiple tags can
-  be added to
-  a resource, either when you create it, or later. Up to 50 tags can be associated
-  with each
+  Associates a given tag to a resource in your account. A tag is a key-value pair
+  which can be added to an Amazon Lookout for Equipment resource as metadata.
+  Tags can be used for organizing your resources as well as helping you to
+  search and filter by tag. Multiple tags can be added to a resource, either
+  when you create it, or later. Up to 50 tags can be associated with each
   resource.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
@@ -3032,9 +2984,7 @@ defmodule AWS.LookoutEquipment do
   end
 
   @doc """
-  Removes a specific tag from a given resource.
-
-  The tag is specified by its key.
+  Removes a specific tag from a given resource. The tag is specified by its key.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

@@ -4,12 +4,11 @@
 defmodule AWS.PcaConnectorAd do
   @moduledoc """
   Amazon Web Services Private CA Connector for Active Directory creates a
-  connector between Amazon Web Services Private CA and Active Directory (AD) that
-  enables you to
-  provision security certificates for AD signed by a private CA that you own.
-
-  For more
-  information, see [Amazon Web Services Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html).
+  connector between Amazon Web Services Private CA and Active Directory (AD)
+  that enables you to provision security certificates for AD signed by a private
+  CA that you own. For more information, see [Amazon Web Services Private CA
+  Connector for Active
+  Directory](https://docs.aws.amazon.com/privateca/latest/userguide/ad-connector.html).
   """
 
   alias AWS.Client
@@ -1344,12 +1343,11 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Creates a connector between Amazon Web Services Private CA and an Active
-  Directory.
+  Directory. You must specify the private CA, directory ID, and security groups.
 
-  You must specify the private CA,
-  directory ID, and security groups.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateConnector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1380,10 +1378,11 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Creates a directory registration that authorizes communication between Amazon
-  Web Services Private CA and an
-  Active Directory
+  Web Services Private CA and an Active Directory
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateDirectoryRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1418,15 +1417,16 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Creates a service principal name (SPN) for the service account in Active
-  Directory.
+  Directory. Kerberos authentication uses SPNs to associate a service instance
+  with a service sign-in account.
 
-  Kerberos
-  authentication uses SPNs to associate a service instance with a service sign-in
-  account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateServicePrincipalName&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
@@ -1470,13 +1470,13 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Creates an Active Directory compatible certificate template.
+  Creates an Active Directory compatible certificate template. The connectors
+  issues certificates using these templates based on the requester’s Active
+  Directory group membership.
 
-  The connectors issues certificates
-  using these templates based on the requester’s Active Directory group
-  membership.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1506,13 +1506,15 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Create a group access control entry.
+  Create a group access control entry. Allow or deny Active Directory groups from
+  enrolling and/or autoenrolling with the template based on the group security
+  identifiers (SIDs).
 
-  Allow or deny Active Directory groups from enrolling and/or
-  autoenrolling with the template based on the group security identifiers (SIDs).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20CreateTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  ## Parameters:
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -1552,18 +1554,20 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Deletes a connector for Active Directory.
-
-  You must provide the Amazon Resource Name (ARN) of the
-  connector that you want to delete. You can find the ARN by calling the
-  [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors) action. Deleting a connector does not deregister your directory with Amazon Web
-  Services Private CA. You can
-  deregister your directory by calling the
+  Deletes a connector for Active Directory. You must provide the Amazon Resource
+  Name (ARN) of the connector that you want to delete. You can find the ARN by
+  calling the
+  [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors)
+  action. Deleting a connector does not deregister your directory with Amazon
+  Web Services Private CA. You can deregister your directory by calling the
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration)
   action.
 
-  ## Required positional parameters:
-  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteConnector&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
 
   ## Optional parameters:
   """
@@ -1593,13 +1597,14 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Deletes a directory registration.
-
-  Deleting a directory registration deauthorizes
+  Deletes a directory registration. Deleting a directory registration deauthorizes
   Amazon Web Services Private CA with the directory.
 
-  ## Required positional parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteDirectoryRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
@@ -1640,12 +1645,15 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Deletes the service principal name (SPN) used by a connector to authenticate
-  with your
-  Active Directory.
+  with your Active Directory.
 
-  ## Required positional parameters:
-  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteServicePrincipalName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
@@ -1689,13 +1697,14 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Deletes a template.
+  Deletes a template. Certificates issued using the template are still valid until
+  they are revoked or expired.
 
-  Certificates issued using the template are still valid until they
-  are revoked or expired.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  ## Parameters:
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -1727,10 +1736,13 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Deletes a group access control entry.
 
-  ## Required positional parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
-         &quot;S-&quot;.
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20DeleteTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
+    group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -1774,13 +1786,14 @@ defmodule AWS.PcaConnectorAd do
   end
 
   @doc """
-  Lists information about your connector.
+  Lists information about your connector. You specify the connector on input by
+  its ARN (Amazon Resource Name).
 
-  You specify the connector on input by its ARN
-  (Amazon Resource Name).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetConnector&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:connector_arn` (`t:string`)  The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
 
   ## Optional parameters:
   """
@@ -1807,8 +1820,11 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   A structure that contains information about your directory registration.
 
-  ## Required positional parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetDirectoryRegistration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
@@ -1836,9 +1852,13 @@ defmodule AWS.PcaConnectorAd do
   Lists the service principal name that the connector uses to authenticate with
   Active Directory.
 
-  ## Required positional parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetServicePrincipalName&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
   """
@@ -1870,11 +1890,13 @@ defmodule AWS.PcaConnectorAd do
 
   @doc """
   Retrieves a certificate template that the connector uses to issue certificates
-  from a
-  private CA.
+  from a private CA.
 
-  ## Required positional parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -1901,10 +1923,13 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Retrieves the group access control entries for a template.
 
-  ## Required positional parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
-         &quot;S-&quot;.
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20GetTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
+    group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -1944,17 +1969,20 @@ defmodule AWS.PcaConnectorAd do
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector)
   action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListConnectors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
-         return in the response on each page. If additional items exist beyond the number you
-         specify, the <code>NextToken</code> element is sent in the response. Use this
-            <code>NextToken</code> value in a subsequent request to retrieve additional
-         items.
-  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
-         response with truncated results. Set it to the value of the <code>NextToken</code>
-         parameter from the response you just received.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to
+    specify the maximum number of items to return in the response on each page.
+    If additional items exist beyond the number you specify, the NextToken
+    element is sent in the response. Use this NextToken value in a subsequent
+    request to retrieve additional items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a
+    subsequent request after you receive a response with truncated results. Set
+    it to the value of the NextToken parameter from the response you just
+    received.
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -1999,17 +2027,20 @@ defmodule AWS.PcaConnectorAd do
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration)
   action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListDirectoryRegistrations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
-         return in the response on each page. If additional items exist beyond the number you
-         specify, the <code>NextToken</code> element is sent in the response. Use this
-            <code>NextToken</code> value in a subsequent request to retrieve additional
-         items.
-  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
-         response with truncated results. Set it to the value of the <code>NextToken</code>
-         parameter from the response you just received.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to
+    specify the maximum number of items to return in the response on each page.
+    If additional items exist beyond the number you specify, the NextToken
+    element is sent in the response. Use this NextToken value in a subsequent
+    request to retrieve additional items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a
+    subsequent request after you receive a response with truncated results. Set
+    it to the value of the NextToken parameter from the response you just
+    received.
   """
   @spec list_directory_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directory_registrations_response(), any()}
@@ -2053,18 +2084,22 @@ defmodule AWS.PcaConnectorAd do
   Lists the service principal names that the connector uses to authenticate with
   Active Directory.
 
-  ## Required positional parameters:
-  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListServicePrincipalNames&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:directory_registration_arn` (`t:string`) The Amazon Resource Name (ARN) that
+    was returned when you called CreateDirectoryRegistration.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
-         return in the response on each page. If additional items exist beyond the number you
-         specify, the <code>NextToken</code> element is sent in the response. Use this
-            <code>NextToken</code> value in a subsequent request to retrieve additional
-         items.
-  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
-         response with truncated results. Set it to the value of the <code>NextToken</code>
-         parameter from the response you just received.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to
+    specify the maximum number of items to return in the response on each page.
+    If additional items exist beyond the number you specify, the NextToken
+    element is sent in the response. Use this NextToken value in a subsequent
+    request to retrieve additional items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a
+    subsequent request after you receive a response with truncated results. Set
+    it to the value of the NextToken parameter from the response you just
+    received.
   """
   @spec list_service_principal_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_principal_names_response(), any()}
@@ -2108,8 +2143,11 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Lists the tags, if any, that are associated with your resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
+    you created the resource.
 
   ## Optional parameters:
   """
@@ -2136,18 +2174,22 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Lists group access control entries you created.
 
-  ## Required positional parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTemplateGroupAccessControlEntries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
-         return in the response on each page. If additional items exist beyond the number you
-         specify, the <code>NextToken</code> element is sent in the response. Use this
-            <code>NextToken</code> value in a subsequent request to retrieve additional
-         items.
-  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
-         response with truncated results. Set it to the value of the <code>NextToken</code>
-         parameter from the response you just received.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to
+    specify the maximum number of items to return in the response on each page.
+    If additional items exist beyond the number you specify, the NextToken
+    element is sent in the response. Use this NextToken value in a subsequent
+    request to retrieve additional items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a
+    subsequent request after you receive a response with truncated results. Set
+    it to the value of the NextToken parameter from the response you just
+    received.
   """
   @spec list_template_group_access_control_entries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_group_access_control_entries_response(), any()}
@@ -2190,18 +2232,22 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Lists the templates, if any, that are associated with a connector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20ListTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.
-  * `:max_results` (`t:integer`) Use this parameter when paginating results to specify the maximum number of items to
-         return in the response on each page. If additional items exist beyond the number you
-         specify, the <code>NextToken</code> element is sent in the response. Use this
-            <code>NextToken</code> value in a subsequent request to retrieve additional
-         items.
-  * `:next_token` (`t:string`) Use this parameter when paginating results in a subsequent request after you receive a
-         response with truncated results. Set it to the value of the <code>NextToken</code>
-         parameter from the response you just received.
+  * `:connector_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateConnector.
+  * `:max_results` (`t:integer`) Use this parameter when paginating results to
+    specify the maximum number of items to return in the response on each page.
+    If additional items exist beyond the number you specify, the NextToken
+    element is sent in the response. Use this NextToken value in a subsequent
+    request to retrieve additional items.
+  * `:next_token` (`t:string`) Use this parameter when paginating results in a
+    subsequent request after you receive a response with truncated results. Set
+    it to the value of the NextToken parameter from the response you just
+    received.
   """
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -2253,8 +2299,11 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Adds one or more tags to your resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
+    you created the resource.
 
   ## Optional parameters:
   """
@@ -2286,12 +2335,15 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Removes one or more tags from your resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when you created the resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) that was returned when
+    you created the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that you want to remove from the specified
-         resources.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specifies a list of tag keys that
+    you want to remove from the specified resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2327,8 +2379,11 @@ defmodule AWS.PcaConnectorAd do
   Update template configuration to define the information included in
   certificates.
 
-  ## Required positional parameters:
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UpdateTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """
@@ -2361,10 +2416,13 @@ defmodule AWS.PcaConnectorAd do
   Update a group access control entry you created using
   [CreateTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html).
 
-  ## Required positional parameters:
-  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the group object from Active Directory. The SID starts with
-         &quot;S-&quot;.
-  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorad%20UpdateTemplateGroupAccessControlEntry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_security_identifier` (`t:string`) Security identifier (SID) of the
+    group object from Active Directory. The SID starts with "S-".
+  * `:template_arn` (`t:string`) The Amazon Resource Name (ARN) that was returned
+    when you called CreateTemplate.
 
   ## Optional parameters:
   """

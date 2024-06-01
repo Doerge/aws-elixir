@@ -4,8 +4,6 @@
 defmodule AWS.ElasticTranscoder do
   @moduledoc """
   AWS Elastic Transcoder Service
-
-  The AWS Elastic Transcoder Service.
   """
 
   alias AWS.Client
@@ -1131,12 +1129,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The CancelJob operation cancels an unfinished job.
 
-  You can only cancel a job that has a status of `Submitted`. To prevent a
-  pipeline from starting to process a job while you're getting the job identifier,
-  use
-  `UpdatePipelineStatus` to temporarily pause the pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CancelJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the job that you want to cancel.
 
   ## Optional parameters:
@@ -1168,16 +1163,11 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   When you create a job, Elastic Transcoder returns JSON data that includes the
-  values that you specified
-  plus information about the job that is created.
+  values that you specified plus information about the job that is created.
 
-  If you have specified more than one output for your jobs (for example, one
-  output for the
-  Kindle Fire and another output for the Apple iPhone 4s), you currently must use
-  the Elastic Transcoder API to
-  list the jobs (as opposed to the AWS Console).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreateJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1209,7 +1199,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The CreatePipeline operation creates a pipeline with settings that you specify.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1240,30 +1232,20 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The CreatePreset operation creates a preset with settings that you specify.
-
   Elastic Transcoder checks the CreatePreset settings to ensure that they meet
-  Elastic Transcoder requirements
-  and to determine whether they comply with H.264 standards. If your settings are
-  not
-  valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response
-  (`ValidationException`) and
-  does not create the preset. If the settings are valid for Elastic Transcoder but
-  aren't strictly
-  compliant with the H.264 standard, Elastic Transcoder creates the preset and
-  returns a warning message
-  in the response. This helps you determine whether your settings comply with the
-  H.264
-  standard while giving you greater flexibility with respect to the video that
-  Elastic Transcoder
-  produces.
+  Elastic Transcoder requirements and to determine whether they comply with
+  H.264 standards. If your settings are not valid for Elastic Transcoder,
+  Elastic Transcoder returns an HTTP 400 response (`ValidationException`) and
+  does not create the preset. If the settings are valid for Elastic Transcoder
+  but aren't strictly compliant with the H.264 standard, Elastic Transcoder
+  creates the preset and returns a warning message in the response. This helps
+  you determine whether your settings comply with the H.264 standard while
+  giving you greater flexibility with respect to the video that Elastic
+  Transcoder produces.
 
-  Elastic Transcoder uses the H.264 video-compression format. For more
-  information, see the International
-  Telecommunication Union publication *Recommendation ITU-T H.264: Advanced video
-  coding
-  for generic audiovisual services*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePreset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1295,12 +1277,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The DeletePipeline operation removes a pipeline.
 
-  You can only delete a pipeline that has never been used or that is not currently
-  in use
-  (doesn't contain any active jobs). If the pipeline is currently in use,
-  `DeletePipeline` returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the pipeline that you want to delete.
 
   ## Optional parameters:
@@ -1333,10 +1312,11 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The DeletePreset operation removes a preset that you've added in an AWS region.
 
-  You can't delete the default presets that are included with Elastic Transcoder.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20DeletePreset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the preset for which you want to get detailed information.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the preset for which you want to get
+    detailed information.
 
   ## Optional parameters:
   """
@@ -1369,19 +1349,19 @@ defmodule AWS.ElasticTranscoder do
   The ListJobsByPipeline operation gets a list of the jobs currently in a
   pipeline.
 
-  Elastic Transcoder returns all of the jobs currently in the specified pipeline.
-  The response body contains
-  one element for each job that satisfies the search criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByPipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get job information.
+  ## Parameters:
+  * `:pipeline_id` (`t:string`) The ID of the pipeline for which you want to get
+    job information.
 
   ## Optional parameters:
-  * `:ascending` (`t:string`)  To list jobs in chronological order by the date and time that they were submitted, enter
-                <code>true</code>. To list jobs in reverse chronological order, enter
-                <code>false</code>. 
-  * `:page_token` (`t:string`)  When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
-            subsequent <code>GET</code> requests to get each successive page of results. 
+  * `:ascending` (`t:string`) To list jobs in chronological order by the date and
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
@@ -1423,22 +1403,23 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The ListJobsByStatus operation gets a list of jobs that have a specified status.
+  The response body contains one element for each job that satisfies the search
+  criteria.
 
-  The response
-  body contains one element for each job that satisfies the search criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListJobsByStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:status` (`t:string`) To get information about all of the jobs associated with the current AWS account that
-            have a given status, specify the following status: <code>Submitted</code>,
-                <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or
-                <code>Error</code>.
+  ## Parameters:
+  * `:status` (`t:string`) To get information about all of the jobs associated
+    with the current AWS account that have a given status, specify the following
+    status: Submitted, Progressing, Complete, Canceled, or Error.
 
   ## Optional parameters:
-  * `:ascending` (`t:string`)  To list jobs in chronological order by the date and time that they were submitted, enter
-                <code>true</code>. To list jobs in reverse chronological order, enter
-                <code>false</code>. 
-  * `:page_token` (`t:string`)  When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
-            subsequent <code>GET</code> requests to get each successive page of results. 
+  * `:ascending` (`t:string`) To list jobs in chronological order by the date and
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
@@ -1482,14 +1463,17 @@ defmodule AWS.ElasticTranscoder do
   The ListPipelines operation gets a list of the pipelines associated with the
   current AWS account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending` (`t:string`) To list pipelines in chronological order by the date and time that they were created, enter
-            <code>true</code>. To list pipelines in reverse chronological order, enter
-            <code>false</code>.
-  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
-            subsequent <code>GET</code> requests to get each successive page of results. 
+  * `:ascending` (`t:string`) To list pipelines in chronological order by the date
+    and time that they were created, enter true. To list pipelines in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1531,17 +1515,19 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The ListPresets operation gets a list of the default presets included with
-  Elastic Transcoder and the presets that
-  you've added in an AWS region.
+  Elastic Transcoder and the presets that you've added in an AWS region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPresets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending` (`t:string`) To list presets in chronological order by the date and time that they were created, enter
-            <code>true</code>. To list presets in reverse chronological order, enter
-            <code>false</code>.
-  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in
-            subsequent <code>GET</code> requests to get each successive page of results. 
+  * `:ascending` (`t:string`) To list presets in chronological order by the date
+    and time that they were created, enter true. To list presets in reverse
+    chronological order, enter false.
+  * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
@@ -1584,8 +1570,11 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadJob operation returns detailed information about a job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the job for which you want to get detailed information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the job for which you want to get
+    detailed information.
 
   ## Optional parameters:
   """
@@ -1612,7 +1601,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadPipeline operation gets detailed information about a pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the pipeline to read.
 
   ## Optional parameters:
@@ -1640,8 +1631,11 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadPreset operation gets detailed information about a preset.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the preset for which you want to get detailed information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ReadPreset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the preset for which you want to get
+    detailed information.
 
   ## Optional parameters:
   """
@@ -1668,16 +1662,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The TestRole operation tests the IAM role used to create the pipeline.
 
-  The `TestRole` action lets you determine whether the IAM role you are using
-  has sufficient permissions to let Elastic Transcoder perform tasks associated
-  with the transcoding
-  process. The action attempts to assume the specified IAM role, checks read
-  access to the
-  input and output buckets, and tries to send a test notification to Amazon SNS
-  topics
-  that you specify.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20TestRole&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1709,12 +1696,9 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   Use the `UpdatePipeline` operation to update settings for a pipeline.
 
-  When you change pipeline settings, your changes take effect immediately.
-  Jobs that you have already submitted and that Elastic Transcoder has not started
-  to process are
-  affected in addition to jobs that you submit after you change settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the pipeline that you want to update.
 
   ## Optional parameters:
@@ -1738,11 +1722,11 @@ defmodule AWS.ElasticTranscoder do
   With the UpdatePipelineNotifications operation, you can update Amazon Simple
   Notification Service (Amazon SNS) notifications for a pipeline.
 
-  When you update notifications for a pipeline, Elastic Transcoder returns the
-  values that you specified in the request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineNotifications&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The identifier of the pipeline for which you want to change notification settings.
+  ## Parameters:
+  * `:id` (`t:string`) The identifier of the pipeline for which you want to change
+    notification settings.
 
   ## Optional parameters:
   """
@@ -1778,18 +1762,11 @@ defmodule AWS.ElasticTranscoder do
 
   @doc """
   The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the
-  pipeline
-  stops or restarts the processing of jobs.
+  pipeline stops or restarts the processing of jobs.
 
-  Changing the pipeline status is useful if you want to cancel one or more jobs.
-  You can't
-  cancel jobs after Elastic Transcoder has started processing them; if you pause
-  the pipeline to which
-  you submitted the jobs, you have more time to get the job IDs for the jobs that
-  you want
-  to cancel, and to send a `CancelJob` request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20UpdatePipelineStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The identifier of the pipeline to update.
 
   ## Optional parameters:

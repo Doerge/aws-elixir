@@ -3,223 +3,9 @@
 
 defmodule AWS.IVSRealTime do
   @moduledoc """
-
-  ## Introduction
-
-  The Amazon Interactive Video Service (IVS) real-time API is REST compatible,
-  using a standard HTTP
-  API and an AWS EventBridge event stream for responses.
-
-  JSON is used for both requests and responses,
-  including errors.
-
-  Terminology:
-
-    *
-  A *stage* is a virtual space where participants can exchange video in real time.
-
-    *
-  A *participant token* is a token that authenticates a participant when they join
-  a stage.
-
-    *
-  A *participant object* represents participants (people) in the stage and
-  contains information about them. When a token is created, it includes a
-  participant ID;
-  when a participant uses that token to join a stage, the participant is
-  associated with
-  that participant ID. There is a 1:1 mapping between participant tokens and
-  participants.
-
-    *
-  Server-side composition: The *composition* process composites participants
-  of a stage into a single video and forwards it to a set of outputs (e.g., IVS
-  channels).
-  Composition endpoints support this process.
-
-    *
-  Server-side composition: A *composition* controls the look of the outputs,
-  including how participants are positioned in the video.
-
-  ## Resources
-
-  The following resources contain information about your IVS live stream (see
-  [Getting Started with Amazon IVS Real-Time Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html)):
-
-    *
-
-  **Stage** — A stage is a virtual space where participants can exchange video in
-  real time.
-
-  ## Tagging
-
-  A *tag* is a metadata label that you assign to an AWS resource. A tag
-  comprises a *key* and a *value*, both set by you. For
-  example, you might set a tag as `topic:nature` to label a particular video
-  category. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
-  more information, including restrictions that apply to
-  tags and "Tag naming limits and requirements"; Amazon IVS stages has no
-  service-specific
-  constraints beyond what is documented there.
-
-  Tags can help you identify and organize your AWS resources. For example, you can
-  use the
-  same tag for different resources to indicate that they are related. You can also
-  use tags to
-  manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
-
-  The Amazon IVS real-time API has these tag-related endpoints: `TagResource`,
-  `UntagResource`, and
-  `ListTagsForResource`. The following resource supports tagging: Stage.
-
-  At most 50 tags can be applied to a resource.
-
-  ## Stages Endpoints
-
-    *
-
-  `CreateParticipantToken` — Creates an additional token for a specified stage.
-  This can be done after stage creation or when tokens expire.
-
-    *
-
-  `CreateStage` — Creates a new stage (and optionally participant tokens).
-
-    *
-
-  `DeleteStage` — Shuts down and deletes the specified stage (disconnecting all
-  participants).
-
-    *
-
-  `DisconnectParticipant` — Disconnects a specified participant and revokes the
-  participant permanently from a specified stage.
-
-    *
-
-  `GetParticipant` — Gets information about the specified
-  participant token.
-
-    *
-
-  `GetStage` — Gets information for the specified stage.
-
-    *
-
-  `GetStageSession` — Gets information for the specified stage
-  session.
-
-    *
-
-  `ListParticipantEvents` — Lists events for a specified
-  participant that occurred during a specified stage session.
-
-    *
-
-  `ListParticipants` — Lists all participants in a specified stage
-  session.
-
-    *
-
-  `ListStages` — Gets summary information about all stages in your account, in the
-  AWS region where the API request is processed.
-
-    *
-
-  `ListStageSessions` — Gets all sessions for a specified stage.
-
-    *
-
-  `UpdateStage` — Updates a stage’s configuration.
-
-  ## Composition Endpoints
-
-    *
-
-  `GetComposition` — Gets information about the specified
-  Composition resource.
-
-    *
-
-  `ListCompositions` — Gets summary information about all
-  Compositions in your account, in the AWS region where the API request is
-  processed.
-
-    *
-
-  `StartComposition` — Starts a Composition from a stage based on
-  the configuration provided in the request.
-
-    *
-
-  `StopComposition` — Stops and deletes a Composition resource.
-  Any broadcast from the Composition resource is stopped.
-
-  ## EncoderConfiguration Endpoints
-
-    *
-
-  `CreateEncoderConfiguration` — Creates an EncoderConfiguration object.
-
-    *
-
-  `DeleteEncoderConfiguration` — Deletes an EncoderConfiguration
-  resource. Ensures that no Compositions are using this template; otherwise,
-  returns an
-  error.
-
-    *
-
-  `GetEncoderConfiguration` — Gets information about the specified
-  EncoderConfiguration resource.
-
-    *
-
-  `ListEncoderConfigurations` — Gets summary information about all
-  EncoderConfigurations in your account, in the AWS region where the API request
-  is
-  processed.
-
-  ## StorageConfiguration Endpoints
-
-    *
-
-  `CreateStorageConfiguration` — Creates a new storage configuration, used to
-  enable
-  recording to Amazon S3.
-
-    *
-
-  `DeleteStorageConfiguration` — Deletes the storage configuration for the
-  specified ARN.
-
-    *
-
-  `GetStorageConfiguration` — Gets the storage configuration for the specified
-  ARN.
-
-    *
-
-  `ListStorageConfigurations` — Gets summary information about all storage
-  configurations in your
-  account, in the AWS region where the API request is processed.
-
-  ## Tags Endpoints
-
-    *
-
-  `ListTagsForResource` — Gets information about AWS tags for the
-  specified ARN.
-
-    *
-
-  `TagResource` — Adds or updates tags for the AWS resource with
-  the specified ARN.
-
-    *
-
-  `UntagResource` — Removes tags from the resource with the
-  specified ARN.
+  **Introduction** The Amazon Interactive Video Service (IVS) real-time API is
+  REST compatible, using a standard HTTP API and an AWS EventBridge event stream
+  for responses. JSON is used for both requests and responses, including errors.
   """
 
   alias AWS.Client
@@ -1502,7 +1288,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Creates an EncoderConfiguration object.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateEncoderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1536,16 +1324,13 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Creates an additional token for a specified stage.
+  Creates an additional token for a specified stage. This can be done after stage
+  creation or when tokens expire. Tokens always are scoped to the stage for
+  which they are created.
 
-  This can be done after stage creation
-  or when tokens expire. Tokens always are scoped to the stage for which they are
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateParticipantToken&this_doc_guide=API%2520Reference)
 
-  Encryption keys are owned by Amazon IVS and never used directly by your
-  application.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1577,7 +1362,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Creates a new stage (and optionally participant tokens).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1607,14 +1394,14 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Creates a new storage configuration, used to enable recording to Amazon S3.
+  Creates a new storage configuration, used to enable recording to Amazon S3. When
+  a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the
+  provided bucket. This will ensure that IVS has sufficient permissions to write
+  content to the provided bucket.
 
-  When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of
-  the provided bucket.
-  This will ensure that IVS has sufficient permissions to write content to the
-  provided bucket.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStorageConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1648,12 +1435,12 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Deletes an EncoderConfiguration resource.
+  Deletes an EncoderConfiguration resource. Ensures that no Compositions are using
+  this template; otherwise, returns an error.
 
-  Ensures that no Compositions are using this
-  template; otherwise, returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteEncoderConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1689,7 +1476,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1721,13 +1510,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Deletes the storage configuration for the specified ARN.
 
-  If you try to delete a storage configuration that is used by a Composition, you
-  will get an error (409 ConflictException).
-  To avoid this, for all Compositions that reference the storage configuration,
-  first use `StopComposition` and wait for it to complete,
-  then use DeleteStorageConfiguration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStorageConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1762,10 +1547,11 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Disconnects a specified participant and revokes the participant permanently from
-  a
-  specified stage.
+  a specified stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DisconnectParticipant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1797,7 +1583,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Get information about the specified Composition resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetComposition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1829,7 +1617,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information about the specified EncoderConfiguration resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetEncoderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1865,7 +1655,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information about the specified participant token.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetParticipant&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1897,7 +1689,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information for the specified stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1929,7 +1723,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information for the specified stage session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStageSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1961,7 +1757,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets the storage configuration for the specified ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStorageConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1996,10 +1794,11 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all Compositions in your account, in the AWS
-  region
-  where the API request is processed.
+  region where the API request is processed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListCompositions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2030,10 +1829,11 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all EncoderConfigurations in your account, in the
-  AWS
-  region where the API request is processed.
+  AWS region where the API request is processed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListEncoderConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2070,7 +1870,9 @@ defmodule AWS.IVSRealTime do
   Lists events for a specified participant that occurred during a specified stage
   session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipantEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2102,7 +1904,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Lists all participants in a specified stage session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipants&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2134,7 +1938,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets all sessions for a specified stage.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStageSessions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2165,10 +1971,11 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Gets summary information about all stages in your account, in the AWS region
-  where the
-  API request is processed.
+  where the API request is processed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStages&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2198,10 +2005,12 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Gets summary information about all storage configurations in your account,
-  in the AWS region where the API request is processed.
+  Gets summary information about all storage configurations in your account, in
+  the AWS region where the API request is processed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStorageConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2237,8 +2046,11 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information about AWS tags for the specified ARN.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN must be URL-encoded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be retrieved. The ARN
+    must be URL-encoded.
 
   ## Optional parameters:
   """
@@ -2264,30 +2076,12 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Starts a Composition from a stage based on the configuration provided in the
-  request.
+  request. A Composition is an ephemeral resource that exists after this
+  endpoint returns successfully. Composition stops and the resource is deleted:
 
-  A Composition is an ephemeral resource that exists after this endpoint returns
-  successfully. Composition stops and the resource is deleted:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StartComposition&this_doc_guide=API%2520Reference)
 
-    *
-  When `StopComposition` is called.
-
-    *
-  After a 1-minute timeout, when all participants are disconnected from the
-  stage.
-
-    *
-  After a 1-minute timeout, if there are no participants in the stage when
-  StartComposition is called.
-
-    *
-  When broadcasting to the IVS channel fails and all retries are exhausted.
-
-    *
-  When broadcasting is disconnected and all attempts to reconnect are
-  exhausted.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2317,12 +2111,12 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Stops and deletes a Composition resource.
+  Stops and deletes a Composition resource. Any broadcast from the Composition
+  resource is stopped.
 
-  Any broadcast from the Composition resource
-  is stopped.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StopComposition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2354,8 +2148,11 @@ defmodule AWS.IVSRealTime do
   @doc """
   Adds or updates tags for the AWS resource with the specified ARN.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged. The ARN must be URL-encoded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be tagged. The ARN
+    must be URL-encoded.
 
   ## Optional parameters:
   """
@@ -2387,15 +2184,18 @@ defmodule AWS.IVSRealTime do
   @doc """
   Removes tags from the resource with the specified ARN.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource to be untagged. The ARN must be URL-encoded.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource to be untagged. The ARN
+    must be URL-encoded.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.ivsrealtime#TagKey]`) Array of tags to be removed. Array of maps, each of the form <code>string:string
-            (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-            Resources</a> for details, including restrictions that apply to tags and &quot;Tag naming
-         limits and requirements&quot;; Amazon IVS has no constraints beyond what is documented
-         there.
+  * `:tag_keys` (`t:list[com.amazonaws.ivsrealtime#TagKey]`) Array of tags to be
+    removed. Array of maps, each of the form string:string (key:value). See
+    Tagging AWS Resources for details, including restrictions that apply to tags
+    and "Tag naming limits and requirements"; Amazon IVS has no constraints
+    beyond what is documented there.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2430,7 +2230,9 @@ defmodule AWS.IVSRealTime do
   @doc """
   Updates a stage’s configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20UpdateStage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

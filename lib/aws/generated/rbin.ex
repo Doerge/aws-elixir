@@ -3,32 +3,12 @@
 
 defmodule AWS.Rbin do
   @moduledoc """
-  This is the *Recycle Bin API Reference*.
-
-  This documentation provides
+  This is the *Recycle Bin API Reference*. This documentation provides
   descriptions and syntax for each of the actions and data types in Recycle Bin.
-
   Recycle Bin is a resource recovery feature that enables you to restore
-  accidentally
-  deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources
-  are
-  deleted, they are retained in the Recycle Bin for a time period that you
-  specify.
-
-  You can restore a resource from the Recycle Bin at any time before its retention
-  period
-  expires. After you restore a resource from the Recycle Bin, the resource is
-  removed from the
-  Recycle Bin, and you can then use it in the same way you use any other resource
-  of that type
-  in your account. If the retention period expires and the resource is not
-  restored, the resource
-  is permanently deleted from the Recycle Bin and is no longer available for
-  recovery. For more
-  information about Recycle Bin, see [
-  Recycle
-  Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  accidentally deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if
+  your resources are deleted, they are retained in the Recycle Bin for a time
+  period that you specify.
   """
 
   alias AWS.Client
@@ -493,14 +473,14 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Creates a Recycle Bin retention rule.
-
-  For more information, see [
-  Create Recycle Bin retention
+  Creates a Recycle Bin retention rule. For more information, see [ Create Recycle
+  Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20CreateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -530,14 +510,14 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Deletes a Recycle Bin retention rule.
-
-  For more information, see [
-  Delete Recycle Bin retention
+  Deletes a Recycle Bin retention rule. For more information, see [ Delete Recycle
+  Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20DeleteRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
@@ -570,7 +550,9 @@ defmodule AWS.Rbin do
   @doc """
   Gets information about a Recycle Bin retention rule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20GetRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
@@ -598,7 +580,9 @@ defmodule AWS.Rbin do
   @doc """
   Lists the Recycle Bin retention rules in the Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -630,8 +614,11 @@ defmodule AWS.Rbin do
   @doc """
   Lists the tags assigned to a retention rule.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
 
   ## Optional parameters:
   """
@@ -656,11 +643,11 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Locks a retention rule.
+  Locks a retention rule. A locked retention rule can't be modified or deleted.
 
-  A locked retention rule can't be modified or deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20LockRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
@@ -693,8 +680,11 @@ defmodule AWS.Rbin do
   @doc """
   Assigns tags to the specified retention rule.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
 
   ## Optional parameters:
   """
@@ -724,12 +714,12 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Unlocks a retention rule.
+  Unlocks a retention rule. After a retention rule is unlocked, it can be modified
+  or deleted only after the unlock delay period expires.
 
-  After a retention rule is unlocked, it can be modified or deleted
-  only after the unlock delay period expires.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UnlockRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:
@@ -762,11 +752,15 @@ defmodule AWS.Rbin do
   @doc """
   Unassigns a tag from a retention rule.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the retention
+    rule.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]`) The tag keys of the tags to unassign. All tags that have the specified tag key are unassigned.
+  * `:tag_keys` (`t:list[com.amazonaws.rbin#TagKey]`) The tag keys of the tags to
+    unassign. All tags that have the specified tag key are unassigned.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -799,17 +793,16 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Updates an existing Recycle Bin retention rule.
-
-  You can update a retention rule's description,
-  resource tags, and retention period at any time after creation. You can't update
-  a retention rule's
-  resource type after creation. For more information, see [
-  Update Recycle Bin retention
+  Updates an existing Recycle Bin retention rule. You can update a retention
+  rule's description, resource tags, and retention period at any time after
+  creation. You can't update a retention rule's resource type after creation.
+  For more information, see [ Update Recycle Bin retention
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rbin%20UpdateRule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identifier` (`t:string`) The unique ID of the retention rule.
 
   ## Optional parameters:

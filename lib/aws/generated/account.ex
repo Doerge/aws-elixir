@@ -375,17 +375,9 @@ defmodule AWS.Account do
   @doc """
   Deletes the specified alternate contact from an Amazon Web Services account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DeleteAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -417,7 +409,9 @@ defmodule AWS.Account do
   @doc """
   Disables (opts-out) a particular Region for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DisableRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -449,7 +443,9 @@ defmodule AWS.Account do
   @doc """
   Enables (opts-in) a particular Region for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20EnableRegion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -482,17 +478,9 @@ defmodule AWS.Account do
   Retrieves the specified alternate contact attached to an Amazon Web Services
   account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -524,11 +512,9 @@ defmodule AWS.Account do
   @doc """
   Retrieves the primary contact information of an Amazon Web Services account.
 
-  For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetContactInformation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -560,7 +546,9 @@ defmodule AWS.Account do
   @doc """
   Retrieves the opt-in status of a particular Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetRegionOptStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -591,11 +579,12 @@ defmodule AWS.Account do
 
   @doc """
   Lists all the Regions for a given account and their respective opt-in statuses.
-
   Optionally, this list can be filtered by the `region-opt-status-contains`
   parameter.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20ListRegions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -628,17 +617,9 @@ defmodule AWS.Account do
   Modifies the specified alternate contact attached to an Amazon Web Services
   account.
 
-  For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutAlternateContact&this_doc_guide=API%2520Reference)
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
-  Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -670,11 +651,9 @@ defmodule AWS.Account do
   @doc """
   Updates the primary contact information of an Amazon Web Services account.
 
-  For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutContactInformation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

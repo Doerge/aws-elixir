@@ -1151,7 +1151,9 @@ defmodule AWS.Schemas do
   @doc """
   Creates a discoverer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1183,7 +1185,9 @@ defmodule AWS.Schemas do
   @doc """
   Creates a registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
@@ -1216,9 +1220,9 @@ defmodule AWS.Schemas do
   @doc """
   Creates a schema definition.
 
-  Inactive schemas will be deleted after two years.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20CreateSchema&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
@@ -1260,7 +1264,9 @@ defmodule AWS.Schemas do
   @doc """
   Deletes a discoverer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:discoverer_id` (`t:string`) The ID of the discoverer.
 
   ## Optional parameters:
@@ -1293,7 +1299,9 @@ defmodule AWS.Schemas do
   @doc """
   Deletes a Registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
@@ -1326,7 +1334,9 @@ defmodule AWS.Schemas do
   @doc """
   Delete the resource-based policy attached to the specified registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
@@ -1364,7 +1374,9 @@ defmodule AWS.Schemas do
   @doc """
   Delete a schema definition.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
@@ -1406,10 +1418,12 @@ defmodule AWS.Schemas do
   @doc """
   Delete the schema version definition
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DeleteSchemaVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
-  * `:schema_version` (`t:string`) 
+  * `:schema_version` (`t:string`)
 
   ## Optional parameters:
   """
@@ -1457,13 +1471,16 @@ defmodule AWS.Schemas do
   @doc """
   Describe the code binding URI.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeCodeBinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:language` (`t:string`) The language of the code binding.
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
   ## Optional parameters:
-  * `:schema_version` (`t:string`) Specifying this limits the results to only this schema version.
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
   @spec describe_code_binding(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_binding_response(), any()}
@@ -1504,7 +1521,9 @@ defmodule AWS.Schemas do
   @doc """
   Describes the discoverer.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:discoverer_id` (`t:string`) The ID of the discoverer.
 
   ## Optional parameters:
@@ -1532,7 +1551,9 @@ defmodule AWS.Schemas do
   @doc """
   Describes the registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
@@ -1560,12 +1581,15 @@ defmodule AWS.Schemas do
   @doc """
   Retrieve the schema definition.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20DescribeSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
   ## Optional parameters:
-  * `:schema_version` (`t:string`) Specifying this limits the results to only this schema version.
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
   @spec describe_schema(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schema_response(), any()}
@@ -1639,13 +1663,16 @@ defmodule AWS.Schemas do
   @doc """
   Get the code binding source URI.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetCodeBindingSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:language` (`t:string`) The language of the code binding.
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
   ## Optional parameters:
-  * `:schema_version` (`t:string`) Specifying this limits the results to only this schema version.
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
   @spec get_code_binding_source(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_binding_source_response(), any()}
@@ -1686,7 +1713,9 @@ defmodule AWS.Schemas do
   @doc """
   Get the discovered schema that was generated based on sampled events.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetDiscoveredSchema&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1718,7 +1747,9 @@ defmodule AWS.Schemas do
   @doc """
   Retrieves the resource-based policy attached to a given registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20GetResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
@@ -1755,13 +1786,19 @@ defmodule AWS.Schemas do
   @doc """
   List the discoverers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListDiscoverers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:discoverer_id_prefix` (`t:string`) Specifying this limits the results to only those discoverer IDs that start with the specified prefix.
-  * `:limit` (`t:integer`) 
-  * `:next_token` (`t:string`) The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.
-  * `:source_arn_prefix` (`t:string`) Specifying this limits the results to only those ARNs that start with the specified prefix.
+  * `:discoverer_id_prefix` (`t:string`) Specifying this limits the results to
+    only those discoverer IDs that start with the specified prefix.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:source_arn_prefix` (`t:string`) Specifying this limits the results to only
+    those ARNs that start with the specified prefix.
   """
   @spec list_discoverers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_discoverers_response(), any()}
@@ -1822,13 +1859,19 @@ defmodule AWS.Schemas do
   @doc """
   List the registries.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListRegistries&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) 
-  * `:next_token` (`t:string`) The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.
-  * `:registry_name_prefix` (`t:string`) Specifying this limits the results to only those registry names that start with the specified prefix.
-  * `:scope` (`t:string`) Can be set to Local or AWS to limit responses to your custom registries, or the ones provided by AWS.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:registry_name_prefix` (`t:string`) Specifying this limits the results to
+    only those registry names that start with the specified prefix.
+  * `:scope` (`t:string`) Can be set to Local or AWS to limit responses to your
+    custom registries, or the ones provided by AWS.
   """
   @spec list_registries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
@@ -1889,13 +1932,17 @@ defmodule AWS.Schemas do
   @doc """
   Provides a list of the schema versions and related information.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemaVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) 
-  * `:next_token` (`t:string`) The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
   """
   @spec list_schema_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
@@ -1939,13 +1986,18 @@ defmodule AWS.Schemas do
   @doc """
   List the schemas.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
-  * `:limit` (`t:integer`) 
-  * `:next_token` (`t:string`) The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.
-  * `:schema_name_prefix` (`t:string`) Specifying this limits the results to only those schema names that start with the specified prefix.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
+  * `:schema_name_prefix` (`t:string`) Specifying this limits the results to only
+    those schema names that start with the specified prefix.
   """
   @spec list_schemas(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
@@ -1997,7 +2049,9 @@ defmodule AWS.Schemas do
   @doc """
   Get tags for resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -2025,13 +2079,16 @@ defmodule AWS.Schemas do
   @doc """
   Put code binding URI
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutCodeBinding&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:language` (`t:string`) The language of the code binding.
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 
   ## Optional parameters:
-  * `:schema_version` (`t:string`) Specifying this limits the results to only this schema version.
+  * `:schema_version` (`t:string`) Specifying this limits the results to only this
+    schema version.
   """
   @spec put_code_binding(
           AWS.Client.t(),
@@ -2082,7 +2139,9 @@ defmodule AWS.Schemas do
   @doc """
   The name of the policy.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20PutResourcePolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:registry_name` (`t:string`) The name of the registry.
@@ -2110,13 +2169,18 @@ defmodule AWS.Schemas do
   @doc """
   Search the schemas
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20SearchSchemas&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
-  * `:keywords` (`t:string`) Specifying this limits the results to only schemas that include the provided keywords.
-  * `:limit` (`t:integer`) 
-  * `:next_token` (`t:string`) The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.
+  * `:keywords` (`t:string`) Specifying this limits the results to only schemas
+    that include the provided keywords.
+  * `:limit` (`t:integer`)
+  * `:next_token` (`t:string`) The token that specifies the next page of results
+    to return. To request the first page, leave NextToken empty. The token will
+    expire in 24 hours, and cannot be shared with other accounts.
   """
   @spec search_schemas(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_schemas_response(), any()}
@@ -2168,7 +2232,9 @@ defmodule AWS.Schemas do
   @doc """
   Starts the discoverer
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StartDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:discoverer_id` (`t:string`) The ID of the discoverer.
 
   ## Optional parameters:
@@ -2201,7 +2267,9 @@ defmodule AWS.Schemas do
   @doc """
   Stops the discoverer
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20StopDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:discoverer_id` (`t:string`) The ID of the discoverer.
 
   ## Optional parameters:
@@ -2234,7 +2302,9 @@ defmodule AWS.Schemas do
   @doc """
   Add tags to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -2267,11 +2337,14 @@ defmodule AWS.Schemas do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]`) Keys of key-value pairs.
+  * `:tag_keys` (`t:list[com.amazonaws.schemas#__string]`) Keys of key-value
+    pairs.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2306,7 +2379,9 @@ defmodule AWS.Schemas do
   @doc """
   Updates the discoverer
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateDiscoverer&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:discoverer_id` (`t:string`) The ID of the discoverer.
 
   ## Optional parameters:
@@ -2329,7 +2404,9 @@ defmodule AWS.Schemas do
   @doc """
   Updates a registry.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateRegistry&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
 
   ## Optional parameters:
@@ -2352,9 +2429,9 @@ defmodule AWS.Schemas do
   @doc """
   Updates the schema definition
 
-  Inactive schemas will be deleted after two years.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=schemas%20UpdateSchema&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:registry_name` (`t:string`) The name of the registry.
   * `:schema_name` (`t:string`) The name of the schema.
 

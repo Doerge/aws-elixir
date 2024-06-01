@@ -4,12 +4,10 @@
 defmodule AWS.OSIS do
   @moduledoc """
   Use the Amazon OpenSearch Ingestion API to create and manage ingestion
-  pipelines.
-
-  OpenSearch Ingestion is a
-  fully managed data collector that delivers real-time log and trace data to
-  OpenSearch Service domains. For more information, see
-  [Getting data into your cluster using OpenSearch Ingestion](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html).
+  pipelines. OpenSearch Ingestion is a fully managed data collector that
+  delivers real-time log and trace data to OpenSearch Service domains. For more
+  information, see [Getting data into your cluster using OpenSearch
+  Ingestion](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html).
   """
 
   alias AWS.Client
@@ -791,11 +789,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Creates an OpenSearch Ingestion pipeline.
+  Creates an OpenSearch Ingestion pipeline. For more information, see [Creating
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
 
-  For more information, see [Creating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20CreatePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -825,11 +825,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Deletes an OpenSearch Ingestion pipeline.
+  Deletes an OpenSearch Ingestion pipeline. For more information, see [Deleting
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
 
-  For more information, see [Deleting Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20DeletePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
 
   ## Optional parameters:
@@ -862,7 +864,9 @@ defmodule AWS.OSIS do
   @doc """
   Retrieves information about an OpenSearch Ingestion pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline.
 
   ## Optional parameters:
@@ -889,13 +893,13 @@ defmodule AWS.OSIS do
 
   @doc """
   Retrieves information about a specific blueprint for OpenSearch Ingestion.
-
-  Blueprints are
-  templates for the configuration needed for a `CreatePipeline` request. For more
-  information, see [Using blueprints to create a
+  Blueprints are templates for the configuration needed for a `CreatePipeline`
+  request. For more information, see [Using blueprints to create a
   pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineBlueprint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:blueprint_name` (`t:string`) The name of the blueprint to retrieve.
 
   ## Optional parameters:
@@ -932,15 +936,12 @@ defmodule AWS.OSIS do
 
   @doc """
   Returns progress information for the current change happening on an OpenSearch
-  Ingestion
-  pipeline.
+  Ingestion pipeline. Currently, this operation only returns information when a
+  pipeline is being created.
 
-  Currently, this operation only returns information when a pipeline is being
-  created.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20GetPipelineChangeProgress&this_doc_guide=API%2520Reference)
 
-  For more information, see [Tracking the status of pipeline creation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline.
 
   ## Optional parameters:
@@ -966,12 +967,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Retrieves a list of all available blueprints for Data Prepper.
+  Retrieves a list of all available blueprints for Data Prepper. For more
+  information, see [Using blueprints to create a
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
 
-  For more information, see
-  [Using blueprints to create a pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelineBlueprints&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1002,19 +1004,21 @@ defmodule AWS.OSIS do
 
   @doc """
   Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services
-  account and Region.
+  account and Region. For more information, see [Viewing Amazon OpenSearch
+  Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
 
-  For
-  more information, see [Viewing Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelines&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum number of results to return. You can use
-   <code>nextToken</code> to get the next page of results.
-  * `:next_token` (`t:string`) If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you
-   can include the returned <code>nextToken</code> in subsequent <code>ListPipelines</code>
-   operations, which returns results in the next page.
+  * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
+    number of results to return. You can use nextToken to get the next page of
+    results.
+  * `:next_token` (`t:string`) If your initial ListPipelines operation returns a
+    nextToken, you can include the returned nextToken in subsequent
+    ListPipelines operations, which returns results in the next page.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1055,15 +1059,17 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Lists all resource tags associated with an OpenSearch Ingestion pipeline.
+  Lists all resource tags associated with an OpenSearch Ingestion pipeline. For
+  more information, see [Tagging Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
 
-  For more information,
-  see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to retrieve
+    tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1095,11 +1101,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Starts an OpenSearch Ingestion pipeline.
+  Starts an OpenSearch Ingestion pipeline. For more information, see [Starting an
+  OpenSearch Ingestion
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
 
-  For more information, see [Starting an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StartPipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to start.
 
   ## Optional parameters:
@@ -1120,11 +1128,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Stops an OpenSearch Ingestion pipeline.
+  Stops an OpenSearch Ingestion pipeline. For more information, see [Stopping an
+  OpenSearch Ingestion
+  pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
 
-  For more information, see [Stopping an OpenSearch Ingestion pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20StopPipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to stop.
 
   ## Optional parameters:
@@ -1145,11 +1155,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Tags an OpenSearch Ingestion pipeline.
+  Tags an OpenSearch Ingestion pipeline. For more information, see [Tagging Amazon
+  OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
 
-  For more information, see [Tagging Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to tag.
@@ -1185,15 +1197,17 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Removes one or more tags from an OpenSearch Ingestion pipeline.
-
-  For more information, see [Tagging Amazon OpenSearch Ingestion
+  Removes one or more tags from an OpenSearch Ingestion pipeline. For more
+  information, see [Tagging Amazon OpenSearch Ingestion
   pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to remove tags from.
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the pipeline to remove
+    tags from.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1226,11 +1240,13 @@ defmodule AWS.OSIS do
   end
 
   @doc """
-  Updates an OpenSearch Ingestion pipeline.
+  Updates an OpenSearch Ingestion pipeline. For more information, see [Updating
+  Amazon OpenSearch Ingestion
+  pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
 
-  For more information, see [Updating Amazon OpenSearch Ingestion pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to update.
 
   ## Optional parameters:
@@ -1252,13 +1268,12 @@ defmodule AWS.OSIS do
 
   @doc """
   Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to
-  creation.
-
-  For
-  more information, see [Creating Amazon OpenSearch Ingestion
+  creation. For more information, see [Creating Amazon OpenSearch Ingestion
   pipelines](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ValidatePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

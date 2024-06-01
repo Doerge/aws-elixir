@@ -4,52 +4,20 @@
 defmodule AWS.ResourceGroups do
   @moduledoc """
   Resource Groups lets you organize Amazon Web Services resources such as Amazon
-  Elastic Compute Cloud instances, Amazon Relational Database Service
-  databases, and Amazon Simple Storage Service buckets into groups using criteria
-  that you define as tags.
-
-  A
-  resource group is a collection of resources that match the resource types
-  specified in a
-  query, and share one or more tags or portions of tags. You can create a group of
-  resources based on their roles in your cloud infrastructure, lifecycle stages,
-  regions,
-  application layers, or virtually any criteria. Resource Groups enable you to
-  automate management
-  tasks, such as those in Amazon Web Services Systems Manager Automation
-  documents, on tag-related resources in
-  Amazon Web Services Systems Manager. Groups of tagged resources also let you
-  quickly view a custom console in
-  Amazon Web Services Systems Manager that shows Config compliance and other
-  monitoring data about member
-  resources.
-
-  To create a resource group, build a resource query, and specify tags that
-  identify the
-  criteria that members of the group have in common. Tags are key-value pairs.
-
-  For more information about Resource Groups, see the [Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html).
-
-  Resource Groups uses a REST-compliant API that you can use to perform the
-  following types of
-  operations.
-
-    *
-  Create, Read, Update, and Delete (CRUD) operations on resource groups and
-  resource query entities
-
-    *
-  Applying, editing, and removing tags from resource groups
-
-    *
-  Resolving resource group member ARNs so they can be returned as search
-  results
-
-    *
-  Getting data about resources that are members of a group
-
-    *
-  Searching Amazon Web Services resources based on a resource query
+  Elastic Compute Cloud instances, Amazon Relational Database Service databases,
+  and Amazon Simple Storage Service buckets into groups using criteria that you
+  define as tags. A resource group is a collection of resources that match the
+  resource types specified in a query, and share one or more tags or portions of
+  tags. You can create a group of resources based on their roles in your cloud
+  infrastructure, lifecycle stages, regions, application layers, or virtually
+  any criteria. Resource Groups enable you to automate management tasks, such as
+  those in Amazon Web Services Systems Manager Automation documents, on
+  tag-related resources in Amazon Web Services Systems Manager. Groups of tagged
+  resources also let you quickly view a custom console in Amazon Web Services
+  Systems Manager that shows Config compliance and other monitoring data about
+  member resources. To create a resource group, build a resource query, and
+  specify tags that identify the criteria that members of the group have in
+  common. Tags are key-value pairs.
   """
 
   alias AWS.Client
@@ -905,26 +873,19 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Creates a resource group with the specified name and description.
-
-  You can optionally
-  include either a resource query or a service configuration. For more information
-  about
-  constructing a resource query, see [Build queries and groups in Resource
+  Creates a resource group with the specified name and description. You can
+  optionally include either a resource query or a service configuration. For
+  more information about constructing a resource query, see [Build queries and
+  groups in Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html)
-  in the *Resource Groups User Guide*. For more information
-  about service-linked groups and service configurations, see [Service configurations for Resource
+  in the *Resource Groups User Guide*. For more information about service-linked
+  groups and service configurations, see [Service configurations for Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+  **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20CreateGroup&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:CreateGroup`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -954,20 +915,13 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Deletes the specified resource group.
+  Deletes the specified resource group. Deleting a resource group does not delete
+  any resources that are members of the group; it only deletes the group
+  structure. **Minimum permissions**
 
-  Deleting a resource group does not delete any
-  resources that are members of the group; it only deletes the group structure.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20DeleteGroup&this_doc_guide=API%2520Reference)
 
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:DeleteGroup`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -999,7 +953,9 @@ defmodule AWS.ResourceGroups do
   @doc """
   Retrieves the current status of optional features in Resource Groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1029,17 +985,11 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns information about a specified resource group.
+  Returns information about a specified resource group. **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroup&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:GetGroup`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1070,21 +1020,14 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Retrieves the service configuration associated with the specified resource
-  group.
-
-  For
-  details about the service configuration syntax, see [Service configurations for Resource
+  group. For details about the service configuration syntax, see [Service
+  configurations for Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html).
+  **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupConfiguration&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:GetGroupConfiguration`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1114,21 +1057,15 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Retrieves the resource query associated with the specified resource group.
-
-  For more
-  information about resource queries, see [Create a tag-based group in Resource
+  Retrieves the resource query associated with the specified resource group. For
+  more information about resource queries, see [Create a tag-based group in
+  Resource
   Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+  **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupQuery&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:GetGroupQuery`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1159,19 +1096,13 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Returns a list of tags that are associated with a resource group, specified by
-  an
-  ARN.
+  an ARN. **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetTags&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:GetTags`
-
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The ARN of the resource group whose tags you want to retrieve.
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the resource group whose tags you want to
+    retrieve.
 
   ## Optional parameters:
   """
@@ -1196,32 +1127,14 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Adds the specified resources to the specified group.
+  Adds the specified resources to the specified group. You can use this operation
+  with only resource groups that are configured with the following types:
+  `AWS::EC2::HostManagement` `AWS::EC2::CapacityReservationPool` Other resource
+  group type and resource types aren't currently supported by this operation.
 
-  You can use this operation with only resource groups that are configured with
-  the
-  following types:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GroupResources&this_doc_guide=API%2520Reference)
 
-    
-
-  `AWS::EC2::HostManagement`
-
-    
-
-  `AWS::EC2::CapacityReservationPool`
-
-  Other resource group type and resource types aren't currently supported by this
-  operation.
-
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:GroupResources`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1252,29 +1165,11 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Returns a list of ARNs of the resources that are members of a specified resource
-  group.
+  group. **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroupResources&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:ListGroupResources`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-    *
-
-  `cloudformation:ListStackResources`
-
-    *
-
-  `tag:GetResources`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1304,31 +1199,29 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns a list of existing Resource Groups in your account.
+  Returns a list of existing Resource Groups in your account. **Minimum
+  permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroups&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:ListGroups`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The total number of results that you want included on each page of the 
-  response. If you do not include this parameter, it defaults to a value that is specific to the 
-  operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code> 
-  response element is present and has a value (is not null). Include that value as the 
-  <code>NextToken</code> request parameter in the next call to the operation to get the next part 
-  of the results. Note that the service might return fewer results than the maximum even when there 
-  are more results available. You should check <code>NextToken</code> after every operation to 
-  ensure that you receive all of the results.
-  * `:next_token` (`t:string`) The parameter for receiving additional results if you receive a
-  <code>NextToken</code> response in a previous request. A <code>NextToken</code> response 
-  indicates that more output is available. Set this parameter to the value provided by a previous 
-  call&#39;s <code>NextToken</code> response to indicate where the output should continue from.
+  * `:max_results` (`t:integer`) The total number of results that you want
+    included on each page of the response. If you do not include this parameter,
+    it defaults to a value that is specific to the operation. If additional
+    items exist beyond the maximum you specify, the NextToken response element
+    is present and has a value (is not null). Include that value as the
+    NextToken request parameter in the next call to the operation to get the
+    next part of the results. Note that the service might return fewer results
+    than the maximum even when there are more results available. You should
+    check NextToken after every operation to ensure that you receive all of the
+    results.
+  * `:next_token` (`t:string`) The parameter for receiving additional results if
+    you receive a NextToken response in a previous request. A NextToken response
+    indicates that more output is available. Set this parameter to the value
+    provided by a previous call's NextToken response to indicate where the
+    output should continue from.
   """
   @spec list_groups(AWS.Client.t(), list_groups_input(), Keyword.t()) ::
           {:ok, list_groups_output(), any()}
@@ -1362,21 +1255,14 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Attaches a service configuration to the specified group.
+  Attaches a service configuration to the specified group. This occurs
+  asynchronously, and can take time to complete. You can use
+  `GetGroupConfiguration` to check the status of the update. **Minimum
+  permissions**
 
-  This occurs asynchronously,
-  and can take time to complete. You can use `GetGroupConfiguration` to
-  check the status of the update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20PutGroupConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:PutGroupConfiguration`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1407,33 +1293,12 @@ defmodule AWS.ResourceGroups do
 
   @doc """
   Returns a list of Amazon Web Services resource identifiers that matches the
-  specified query.
+  specified query. The query uses the same format as a resource query in a
+  `CreateGroup` or `UpdateGroupQuery` operation. **Minimum permissions**
 
-  The
-  query uses the same format as a resource query in a `CreateGroup` or
-  `UpdateGroupQuery` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20SearchResources&this_doc_guide=API%2520Reference)
 
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:SearchResources`
-
-    *
-
-  `cloudformation:DescribeStacks`
-
-    *
-
-  `cloudformation:ListStackResources`
-
-    *
-
-  `tag:GetResources`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1463,26 +1328,16 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Adds tags to a resource group with the specified ARN.
+  Adds tags to a resource group with the specified ARN. Existing tags on a
+  resource group are not changed if they are not specified in the request
+  parameters. Do not store personally identifiable information (PII) or other
+  confidential or sensitive information in tags. We use tags to provide you with
+  billing and administration services. Tags are not intended to be used for
+  private or sensitive data.
 
-  Existing tags on a resource
-  group are not changed if they are not specified in the request parameters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20Tag&this_doc_guide=API%2520Reference)
 
-  Do not store personally identifiable information (PII) or other confidential or
-  sensitive information in tags. We use tags to provide you with billing and
-  administration services. Tags are not intended to be used for private or
-  sensitive
-  data.
-
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:Tag`
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The ARN of the resource group to which to add tags.
 
   ## Optional parameters:
@@ -1503,23 +1358,15 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Removes the specified resources from the specified group.
-
-  This operation works only
-  with static groups that you populated using the `GroupResources`
+  Removes the specified resources from the specified group. This operation works
+  only with static groups that you populated using the `GroupResources`
   operation. It doesn't work with any resource groups that are automatically
-  populated by
-  tag-based or CloudFormation stack-based queries.
+  populated by tag-based or CloudFormation stack-based queries. **Minimum
+  permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UngroupResources&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:UngroupResources`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1549,19 +1396,14 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Deletes tags from a specified resource group.
+  Deletes tags from a specified resource group. **Minimum permissions**
 
-  ## Minimum permissions
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20Untag&this_doc_guide=API%2520Reference)
 
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:Untag`
-
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The ARN of the resource group from which to remove tags. The command removed both the
-            specified keys and any values associated with those keys.
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the resource group from which to remove tags.
+    The command removed both the specified keys and any values associated with
+    those keys.
 
   ## Optional parameters:
   """
@@ -1593,13 +1435,9 @@ defmodule AWS.ResourceGroups do
   @doc """
   Turns on or turns off optional features in Resource Groups.
 
-  The preceding example shows that the request to turn on group lifecycle events
-  is
-  `IN_PROGRESS`. You can call the `GetAccountSettings`
-  operation to check for completion by looking for `GroupLifecycleEventsStatus`
-  to change to `ACTIVE`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1629,20 +1467,12 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Updates the description for an existing group.
+  Updates the description for an existing group. You cannot update the name of a
+  resource group. **Minimum permissions**
 
-  You cannot update the name of a
-  resource group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroup&this_doc_guide=API%2520Reference)
 
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:UpdateGroup`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1672,20 +1502,14 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Updates the resource query of a group.
+  Updates the resource query of a group. For more information about resource
+  queries, see [Create a tag-based group in Resource
+  Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+  **Minimum permissions**
 
-  For more information about resource queries,
-  see [Create a tag-based group in Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroupQuery&this_doc_guide=API%2520Reference)
 
-  ## Minimum permissions
-
-  To run this command, you must have the following permissions:
-
-    *
-
-  `resource-groups:UpdateGroupQuery`
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

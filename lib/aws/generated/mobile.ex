@@ -3,12 +3,10 @@
 
 defmodule AWS.Mobile do
   @moduledoc """
-
   AWS Mobile Service provides mobile app and website developers with capabilities
   required to configure AWS resources and bootstrap their developer desktop
-  projects
-  with the necessary SDKs, constants, tools and samples to make use of those
-  resources.
+  projects with the necessary SDKs, constants, tools and samples to make use of
+  those resources.
   """
 
   alias AWS.Client
@@ -460,22 +458,19 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Creates an AWS Mobile Hub project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:name` (`t:string`) 
-            Name of the project.
-        
-  * `:region` (`t:string`) 
-            Default region where project resources should be created.
-        
-  * `:snapshot_id` (`t:string`) 
-            Unique identifier for an exported snapshot of project configuration. This
-            snapshot identifier is included in the share URL when a project is exported.
-        
+  * `:name` (`t:string`) Name of the project.
+  * `:region` (`t:string`) Default region where project resources should be
+    created.
+  * `:snapshot_id` (`t:string`) Unique identifier for an exported snapshot of
+    project configuration. This snapshot identifier is included in the share URL
+    when a project is exported.
   """
   @spec create_project(AWS.Client.t(), create_project_request(), Keyword.t()) ::
           {:ok, create_project_result(), any()}
@@ -510,13 +505,12 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Delets a project in AWS Mobile Hub.
 
-  ## Required positional parameters:
-  * `:project_id` (`t:string`) 
-            Unique project identifier.
-        
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
 
   ## Optional parameters:
   """
@@ -546,13 +540,12 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Get the bundle details for the requested bundle id.
 
-  ## Required positional parameters:
-  * `:bundle_id` (`t:string`) 
-            Unique bundle identifier.
-        
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DescribeBundle&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bundle_id` (`t:string`) Unique bundle identifier.
 
   ## Optional parameters:
   """
@@ -577,18 +570,17 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Gets details about a project in AWS Mobile Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:project_id` (`t:string`) 
-            Unique project identifier.
-        
-  * `:sync_from_resources` (`t:boolean`) 
-            If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
-        
+  * `:project_id` (`t:string`) Unique project identifier.
+  * `:sync_from_resources` (`t:boolean`) If set to true, causes AWS Mobile Hub to
+    synchronize information from other services, e.g., update state of AWS
+    CloudFormation stacks in the AWS Mobile Hub project.
   """
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_result(), any()}
@@ -629,22 +621,18 @@ defmodule AWS.Mobile do
   end
 
   @doc """
+  Generates customized software development kit (SDK) and or tool packages used to
+  integrate mobile web or mobile app clients with backend AWS resources.
 
-  Generates customized software development kit (SDK) and or tool packages
-  used to integrate mobile web or mobile app clients with backend AWS resources.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ExportBundle&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:bundle_id` (`t:string`) 
-            Unique bundle identifier.
-        
+  ## Parameters:
+  * `:bundle_id` (`t:string`) Unique bundle identifier.
 
   ## Optional parameters:
-  * `:platform` (`t:enum["ANDROID|JAVASCRIPT|LINUX|OBJC|OSX|SWIFT|WINDOWS"]`) 
-            Developer desktop or target application platform.
-        
-  * `:project_id` (`t:string`) 
-            Unique project identifier.
-        
+  * `:platform` (`t:enum["ANDROID|JAVASCRIPT|LINUX|OBJC|OSX|SWIFT|WINDOWS"]`)
+    Developer desktop or target application platform.
+  * `:project_id` (`t:string`) Unique project identifier.
   """
   @spec export_bundle(AWS.Client.t(), String.t(), export_bundle_request(), Keyword.t()) ::
           {:ok, export_bundle_result(), any()}
@@ -678,17 +666,14 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Exports project configuration to a snapshot which can be downloaded and shared.
-
   Note that mobile app push credentials are encrypted in exported projects, so
-  they
-  can only be shared successfully within the same AWS account.
+  they can only be shared successfully within the same AWS account.
 
-  ## Required positional parameters:
-  * `:project_id` (`t:string`) 
-            Unique project identifier.
-        
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ExportProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:project_id` (`t:string`) Unique project identifier.
 
   ## Optional parameters:
   """
@@ -718,20 +703,18 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   List all available bundles.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ListBundles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-            Maximum number of records to list in a single response.
-        
-  * `:next_token` (`t:string`) 
-            Pagination token. Set to null to start listing bundles from start.
-            If non-null pagination token is returned in a result, then pass its
-            value in here in another request to list more bundles.
-        
+  * `:max_results` (`t:integer`) Maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) Pagination token. Set to null to start listing
+    bundles from start. If non-null pagination token is returned in a result,
+    then pass its value in here in another request to list more bundles.
   """
   @spec list_bundles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bundles_result(), any()}
@@ -772,20 +755,18 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Lists projects in AWS Mobile Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-            Maximum number of records to list in a single response.
-        
-  * `:next_token` (`t:string`) 
-            Pagination token. Set to null to start listing projects from start.
-            If non-null pagination token is returned in a result, then pass its
-            value in here in another request to list more projects.
-        
+  * `:max_results` (`t:integer`) Maximum number of records to list in a single
+    response.
+  * `:next_token` (`t:string`) Pagination token. Set to null to start listing
+    projects from start. If non-null pagination token is returned in a result,
+    then pass its value in here in another request to list more projects.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_result(), any()}
@@ -826,15 +807,14 @@ defmodule AWS.Mobile do
   end
 
   @doc """
-
   Update an existing project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mobile%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:project_id` (`t:string`) 
-            Unique project identifier.
-        
+  * `:project_id` (`t:string`) Unique project identifier.
   """
   @spec update_project(AWS.Client.t(), update_project_request(), Keyword.t()) ::
           {:ok, update_project_result(), any()}

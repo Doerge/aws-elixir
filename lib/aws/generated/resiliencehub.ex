@@ -4,14 +4,10 @@
 defmodule AWS.Resiliencehub do
   @moduledoc """
   Resilience Hub helps you proactively prepare and protect your Amazon Web
-  Services applications from
-  disruptions.
-
-  It offers continual resiliency assessment and validation that integrates
-  into your software development lifecycle. This enables you to uncover resiliency
-  weaknesses,
-  ensure recovery time objective (RTO) and recovery point objective (RPO) targets
-  for your
+  Services applications from disruptions. It offers continual resiliency
+  assessment and validation that integrates into your software development
+  lifecycle. This enables you to uncover resiliency weaknesses, ensure recovery
+  time objective (RTO) and recovery point objective (RPO) targets for your
   applications are met, and resolve issues before they are released into
   production.
   """
@@ -2656,15 +2652,17 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Adds the source of resource-maps to the draft version of an application.
-
-  During assessment, Resilience Hub will use these resource-maps to resolve the
-  latest physical ID for each resource in the application template. For more
+  Adds the source of resource-maps to the draft version of an application. During
+  assessment, Resilience Hub will use these resource-maps to resolve the latest
+  physical ID for each resource in the application template. For more
   information about different types of resources suported by Resilience Hub and
-  how to add them in your application, see [Step 2: How is your application managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
+  how to add them in your application, see [Step 2: How is your application
+  managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
   in the Resilience Hub User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AddDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2700,7 +2698,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Enables you to include or exclude one or more operational recommendations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20BatchUpdateRecommendationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2734,31 +2734,20 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Creates an Resilience Hub application.
-
-  An Resilience Hub application is a
+  Creates an Resilience Hub application. An Resilience Hub application is a
   collection of Amazon Web Services resources structured to prevent and recover
   Amazon Web Services application disruptions. To describe a Resilience Hub
-  application,
-  you provide an application name, resources from one or more CloudFormation
-  stacks, Resource Groups, Terraform state files, AppRegistry applications, and an
-  appropriate
-  resiliency policy. In addition, you can also add resources that are located on
-  Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
-  For more information about the number of resources supported per application,
-  see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
+  application, you provide an application name, resources from one or more
+  CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry
+  applications, and an appropriate resiliency policy. In addition, you can also
+  add resources that are located on Amazon Elastic Kubernetes Service (Amazon
+  EKS) clusters as optional resources. For more information about the number of
+  resources supported per application, see [Service
+  quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
 
-  After you create an Resilience Hub application, you publish it so that you can
-  run a resiliency
-  assessment on it. You can then use recommendations from the assessment to
-  improve resiliency
-  by running another assessment, comparing results, and then iterating the process
-  until you
-  achieve your goals for recovery time objective (RTO) and recovery point
-  objective
-  (RPO).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateApp&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2790,11 +2779,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new Application Component in the Resilience Hub application.
 
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2829,27 +2816,12 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Adds a resource to the Resilience Hub application and assigns it to the
-  specified
-  Application Components.
+  specified Application Components. If you specify a new Application Component,
+  Resilience Hub will automatically create the Application Component.
 
-  If you specify a new Application Component, Resilience Hub will automatically
-  create the Application Component.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This action has no effect outside Resilience Hub.
-
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using
-  the `PublishAppVersion` API.
-
-    
-  To update application version with new `physicalResourceID`, you must
-  call `ResolveAppVersionResources` API.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2885,7 +2857,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new recommendation template for the Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateRecommendationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2921,15 +2895,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a resiliency policy for an application.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
-  the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated
-  workload RPO result will be near zero and the **Compliance
-  status** for your application will be set to **Policy
-  breached**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2959,12 +2927,12 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an Resilience Hub application.
+  Deletes an Resilience Hub application. This is a destructive action that can't
+  be undone.
 
-  This is a destructive action that can't be
-  undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteApp&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2994,12 +2962,12 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes an Resilience Hub application assessment.
+  Deletes an Resilience Hub application assessment. This is a destructive action
+  that can't be undone.
 
-  This is a destructive action that can't
-  be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppAssessment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3032,7 +3000,9 @@ defmodule AWS.Resiliencehub do
   Deletes the input source and all of its imported resources from the Resilience
   Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppInputSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3064,16 +3034,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes an Application Component from the Resilience Hub application.
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
-    
-  You will not be able to delete an Application Component if it has resources
-  associated with it.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3109,19 +3072,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes a resource from the Resilience Hub application.
 
-    
-  You can only delete a manually added resource. To exclude non-manually added
-  resources, use the `UpdateAppVersionResource` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This action has no effect outside Resilience Hub.
-
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource for running resiliency assessments, you must publish the Resilience Hub
-  application using the `PublishAppVersion` API.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3155,12 +3108,12 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes a recommendation template.
-
-  This is a destructive action that can't be
+  Deletes a recommendation template. This is a destructive action that can't be
   undone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteRecommendationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3194,11 +3147,11 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Deletes a resiliency policy.
+  Deletes a resiliency policy. This is a destructive action that can't be undone.
 
-  This is a destructive action that can't be undone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteResiliencyPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3230,7 +3183,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3262,7 +3217,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an assessment for an Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3294,7 +3251,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes the Resilience Hub application version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3326,7 +3285,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes an Application Component in the Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionAppComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3362,22 +3323,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes a resource of the Resilience Hub application.
 
-  This API accepts only one of the following parameters to descibe the resource:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-
-  `resourceName`
-
-    
-
-  `logicalResourceId`
-
-    
-
-  `physicalResourceId` (Along with `physicalResourceId`, you can also
-  provide `awsAccountId`, and `awsRegion`)
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3412,13 +3360,12 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Returns the resolution status for the specified resolution identifier for an
-  application
-  version.
+  application version. If `resolutionId` is not specified, the current
+  resolution status is returned.
 
-  If `resolutionId` is not specified, the current resolution status is
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResourcesResolutionStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3454,7 +3401,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes details about an Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3490,13 +3439,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes the status of importing resources to an application version.
 
-  If you get a 404 error with
-  `ResourceImportStatusNotFoundAppMetadataException`, you must call
-  `importResourcesToDraftAppVersion` after creating the application and before
-  calling `describeDraftAppVersionResourcesImportStatus` to obtain the
-  status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeDraftAppVersionResourcesImportStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3530,14 +3475,13 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Describes a specified resiliency policy for an Resilience Hub application.
-
-  The
+  Describes a specified resiliency policy for an Resilience Hub application. The
   returned policy object includes creation time, data location constraints, the
-  Amazon Resource
-  Name (ARN) for the policy, tags, tier, and more.
+  Amazon Resource Name (ARN) for the policy, tags, tier, and more.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResiliencyPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3572,13 +3516,13 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Imports resources to Resilience Hub application draft version from different
-  input sources.
-
-  For more information about the input sources supported by Resilience Hub, see
-  [Discover the structure and describe your Resilience Hub
+  input sources. For more information about the input sources supported by
+  Resilience Hub, see [Discover the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ImportResourcesToDraftAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3614,7 +3558,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the alarm recommendations for an Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAlarmRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3650,7 +3596,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   List of compliance drifts that were detected while running an assessment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentComplianceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3687,7 +3635,9 @@ defmodule AWS.Resiliencehub do
   Indicates the list of resource drifts that were detected while running an
   assessment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentResourceDrifts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3721,29 +3671,33 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the assessments for an Resilience Hub application.
+  Lists the assessments for an Resilience Hub application. You can use request
+  parameters to refine the results for the response object.
 
-  You can use request parameters to
-  refine the results for the response object.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessments&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: 
-  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, 
-  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-                    Amazon Resource Names (ARNs)</a> in the 
-                    <i>Amazon Web Services General Reference</i> guide.
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
   * `:assessment_name` (`t:string`) The name for the assessment.
-  * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`) The current status of the assessment for the resiliency policy.
-  * `:compliance_status` (`t:string`) The current status of compliance for the resiliency policy.
-  * `:invoker` (`t:string`) Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
-        <code>System</code>.
-  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
-  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
-  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
-  * `:reverse_order` (`t:boolean`) The default is to sort by ascending <b>startTime</b>.
-  To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.
+  * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`)
+    The current status of the assessment for the resiliency policy.
+  * `:compliance_status` (`t:string`) The current status of compliance for the
+    resiliency policy.
+  * `:invoker` (`t:string`) Specifies the entity that invoked a specific
+    assessment, either a User or the System.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
+    To sort by descending startTime, set reverseOrder to true.
   """
   @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
@@ -3840,7 +3794,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the compliances for an Resilience Hub Application Component.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentCompliances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3876,7 +3832,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the recommendations for an Resilience Hub Application Component.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3910,13 +3868,14 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists all the input sources of the Resilience Hub application.
-
-  For more information about the
-  input sources supported by Resilience Hub, see [Discover the structure and describe your Resilience Hub
+  Lists all the input sources of the Resilience Hub application. For more
+  information about the input sources supported by Resilience Hub, see [Discover
+  the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppInputSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3948,7 +3907,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists all the Application Components in the Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionAppComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3983,13 +3944,12 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists how the resources in an application version are mapped/sourced from.
+  Mappings can be physical resource identifiers, CloudFormation stacks,
+  resource-groups, or an application registry app.
 
-  Mappings can be
-  physical resource identifiers, CloudFormation stacks, resource-groups, or an
-  application registry
-  app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4025,7 +3985,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists all the resources in an Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4061,7 +4023,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the different versions for the Resilience Hub applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4093,33 +4057,32 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists your Resilience Hub applications.
 
-  You can filter applications using only one filter at a time or without using any
-  filter.
-  If you try to filter applications using multiple filters, you will get the
-  following
-  error:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListApps&this_doc_guide=API%2520Reference)
 
-  ```
-  An error occurred (ValidationException) when calling the ListApps operation:
-  Only
-  one filter is supported for this operation.
-  ```
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: 
-  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, 
-  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-                    Amazon Resource Names (ARNs)</a> in the 
-                    <i>Amazon Web Services General Reference</i> guide.
-  * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the range that is used to filter applications based on their last assessment times.
-  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
-  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
+  * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the
+    range that is used to filter applications based on their last assessment
+    times.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for the one of the listed applications.
-  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
-  * `:reverse_order` (`t:boolean`) The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.
-  * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:reverse_order` (`t:boolean`) The application list is sorted based on the
+    values of lastAppComplianceEvaluationTime field. By default, application
+    list is sorted in ascending order. To sort the appliation list in descending
+    order, set this field to True.
+  * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the
+    range that is used to filter the applications based on their last assessment
+    times.
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
@@ -4207,22 +4170,28 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the recommendation templates for the Resilience Hub applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListRecommendationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment. The format for this ARN is: 
-  arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, 
-  see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-                    Amazon Resource Names (ARNs)</a> in the 
-                    <i>Amazon Web Services General Reference</i> guide.
-  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
-  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
+  * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment.
+    The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
+    information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
+    Services General Reference guide.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for one of the listed recommendation templates.
-  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
-  * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for a recommendation template.
-  * `:reverse_order` (`t:boolean`) The default is to sort by ascending <b>startTime</b>.
-  To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.
-  * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`) Status of the action.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
+  * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for
+    a recommendation template.
+  * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
+    To sort by descending startTime, set reverseOrder to true.
+  * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`)
+    Status of the action.
   """
   @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
@@ -4311,12 +4280,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the resiliency policies for the Resilience Hub applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResiliencyPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
-  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
-  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
   * `:policy_name` (`t:string`) The name of the policy
   """
   @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
@@ -4368,10 +4341,11 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Lists the standard operating procedure (SOP) recommendations for the Resilience
-  Hub
-  applications.
+  Hub applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSopRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4403,12 +4377,16 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the suggested resiliency policies for the Resilience Hub applications.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSuggestedResiliencyPolicies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of results to include in the response. If more results exist than the specified 
-  <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.
-  * `:next_token` (`t:string`) Null, or the token from a previous call to get the next set of results.
+  * `:max_results` (`t:integer`) Maximum number of results to include in the
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+    next set of results.
   """
   @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
@@ -4451,9 +4429,11 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the tags for your resources in your Resilience Hub applications.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
-      application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a specific
+    resource in your Resilience Hub application.
 
   ## Optional parameters:
   """
@@ -4480,7 +4460,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the test recommendations for the Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTestRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4514,14 +4496,13 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the resources that are not currently supported in Resilience Hub.
+  Lists the resources that are not currently supported in Resilience Hub. An
+  unsupported resource is a resource that exists in the object that was used to
+  create an app, but is not supported by Resilience Hub.
 
-  An unsupported
-  resource is a resource that exists in the object that was used to create an app,
-  but is not
-  supported by Resilience Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListUnsupportedAppVersionResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4557,7 +4538,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Publishes a new version of a specific Resilience Hub application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PublishAppVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4590,7 +4573,9 @@ defmodule AWS.Resiliencehub do
   Adds or updates the app template for an Resilience Hub application draft
   version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PutDraftAppVersionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4626,7 +4611,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Removes resource mappings from a draft application version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RemoveDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4662,7 +4649,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Resolves the resources for an application version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ResolveAppVersionResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4698,7 +4687,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a new application assessment for an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartAppAssessment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4730,8 +4721,10 @@ defmodule AWS.Resiliencehub do
   @doc """
   Applies one or more tags to a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
   """
@@ -4763,11 +4756,14 @@ defmodule AWS.Resiliencehub do
   @doc """
   Removes one or more tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the tags you want to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]`) The keys of the
+    tags you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4802,7 +4798,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateApp&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4834,13 +4832,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates the Resilience Hub application version.
 
-  This API updates the Resilience Hub application draft version. To use this
-  information
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using the
-  `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4872,11 +4866,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates an existing Application Component in the Resilience Hub application.
 
-  This API updates the Resilience Hub application draft version. To use this
-  Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4912,19 +4904,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates the resource details in the Resilience Hub application.
 
-    
-  This action has no effect outside Resilience Hub.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionResource&this_doc_guide=API%2520Reference)
 
-    
-  This API updates the Resilience Hub application draft version. To use this
-  resource for running resiliency assessments, you must publish the Resilience Hub
-  application using the `PublishAppVersion` API.
-
-    
-  To update application version with new `physicalResourceID`, you must call
-  `ResolveAppVersionResources` API.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4960,15 +4942,9 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates a resiliency policy.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
-  the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and
-  estimated workload RPO result will be near zero and the **Compliance
-  status** for your application will be set to **Policy
-  breached**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

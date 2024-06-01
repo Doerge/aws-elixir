@@ -680,17 +680,14 @@ defmodule AWS.SnowDeviceManagement do
   end
 
   @doc """
-  Sends a cancel request for a specified task.
+  Sends a cancel request for a specified task. You can cancel a task only if it's
+  still in a `QUEUED` state. Tasks that are already running can't be cancelled.
 
-  You can cancel a task only if it's still in a
-  `QUEUED` state. Tasks that are already running can't be cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CancelTask&this_doc_guide=API%2520Reference)
 
-  A task might still run if it's processed from the queue before the
-  `CancelTask` operation changes the task's state.
-
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) The ID of the task that you are attempting to cancel. You can retrieve a task ID by using
-      the <code>ListTasks</code> operation.
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the task that you are attempting to cancel.
+    You can retrieve a task ID by using the ListTasks operation.
 
   ## Optional parameters:
   """
@@ -722,7 +719,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Instructs one or more devices to start a task, such as unlocking or rebooting.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20CreateTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -753,11 +752,13 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Checks device-specific information, such as the device type, software version,
-  IP
-  addresses, and lock status.
+  IP addresses, and lock status.
 
-  ## Required positional parameters:
-  * `:managed_device_id` (`t:string`) The ID of the device that you are checking the information of.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the device that you are checking
+    the information of.
 
   ## Optional parameters:
   """
@@ -787,13 +788,13 @@ defmodule AWS.SnowDeviceManagement do
   end
 
   @doc """
-  Checks the current state of the Amazon EC2 instances.
-
-  The output is similar to
+  Checks the current state of the Amazon EC2 instances. The output is similar to
   `describeDevice`, but the results are sourced from the device cache in the
   Amazon Web Services Cloud and include a subset of the available fields.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeDeviceEc2Instances&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:managed_device_id` (`t:string`) The ID of the managed device.
 
   ## Optional parameters:
@@ -831,7 +832,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Checks the status of a remote task running on one or more target devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeExecution&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:managed_device_id` (`t:string`) The ID of the managed device.
   * `:task_id` (`t:string`) The ID of the task that the action is describing.
 
@@ -873,7 +876,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Checks the metadata for a given task on a device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20DescribeTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:task_id` (`t:string`) The ID of the task to be described.
 
   ## Optional parameters:
@@ -905,15 +910,18 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Returns a list of the Amazon Web Services resources available for a device.
-
   Currently, Amazon EC2 instances are the only supported resource type.
 
-  ## Required positional parameters:
-  * `:managed_device_id` (`t:string`) The ID of the managed device that you are listing the resources of.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDeviceResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:managed_device_id` (`t:string`) The ID of the managed device that you are
+    listing the resources of.
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of resources per page.
-  * `:next_token` (`t:string`) A pagination token to continue to the next page of results.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    results.
   * `:type` (`t:`) A structure used to filter the results by type of resource.
   """
   @spec list_device_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -965,15 +973,18 @@ defmodule AWS.SnowDeviceManagement do
 
   @doc """
   Returns a list of all devices on your Amazon Web Services account that have
-  Amazon Web Services Snow Device Management
-  enabled in the Amazon Web Services Region where the command is run.
+  Amazon Web Services Snow Device Management enabled in the Amazon Web Services
+  Region where the command is run.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:job_id` (`t:string`) The ID of the job used to order the device.
   * `:max_results` (`t:integer`) The maximum number of devices to list per page.
-  * `:next_token` (`t:string`) A pagination token to continue to the next page of results.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    results.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_output(), any()}
@@ -1025,12 +1036,16 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Returns the status of tasks for one or more target devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListExecutions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of tasks to list per page.
-  * `:next_token` (`t:string`) A pagination token to continue to the next page of tasks.
-  * `:state` (`t:string`) A structure used to filter the tasks by their current state.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    tasks.
+  * `:state` (`t:string`) A structure used to filter the tasks by their current
+    state.
   * `:task_id` (`t:string`) The ID of the task.
   """
   @spec list_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -1092,7 +1107,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Returns a list of tags for a managed device or task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
 
   ## Optional parameters:
@@ -1120,11 +1137,14 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Returns a list of tasks that can be filtered by state.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20ListTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of tasks per page.
-  * `:next_token` (`t:string`) A pagination token to continue to the next page of tasks.
+  * `:next_token` (`t:string`) A pagination token to continue to the next page of
+    tasks.
   * `:state` (`t:string`) A structure used to filter the list of tasks.
   """
   @spec list_tasks(AWS.Client.t(), Keyword.t()) ::
@@ -1177,7 +1197,9 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Adds or replaces tags on a device or task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
 
   ## Optional parameters:
@@ -1210,12 +1232,15 @@ defmodule AWS.SnowDeviceManagement do
   @doc """
   Removes a tag from a device or task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=snowdevicemanagement%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the device or task.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) Optional metadata that you assign to a resource. You can use tags to categorize a resource
-      in different ways, such as by purpose, owner, or environment.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Optional metadata that you assign to
+    a resource. You can use tags to categorize a resource in different ways,
+    such as by purpose, owner, or environment.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, nil, any()}

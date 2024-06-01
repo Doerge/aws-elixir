@@ -4,23 +4,16 @@
 defmodule AWS.IotDeviceAdvisor do
   @moduledoc """
   Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test
-  capability for validating IoT
-  devices during device software development.
-
-  Device Advisor provides pre-built tests that you
-  can use to validate IoT devices for reliable and secure connectivity with Amazon
-  Web Services IoT Core
-  before deploying devices to production. By using Device Advisor, you can confirm
-  that your
-  devices can connect to Amazon Web Services IoT Core, follow security best
-  practices and, if applicable,
-  receive software updates from IoT Device Management. You can also download
-  signed
-  qualification reports to submit to the Amazon Web Services Partner Network to
-  get your device
-  qualified for the Amazon Web Services Partner Device Catalog without the need to
-  send your device in
-  and wait for it to be tested.
+  capability for validating IoT devices during device software development.
+  Device Advisor provides pre-built tests that you can use to validate IoT
+  devices for reliable and secure connectivity with Amazon Web Services IoT Core
+  before deploying devices to production. By using Device Advisor, you can
+  confirm that your devices can connect to Amazon Web Services IoT Core, follow
+  security best practices and, if applicable, receive software updates from IoT
+  Device Management. You can also download signed qualification reports to
+  submit to the Amazon Web Services Partner Network to get your device qualified
+  for the Amazon Web Services Partner Device Catalog without the need to send
+  your device in and wait for it to be tested.
   """
 
   alias AWS.Client
@@ -595,11 +588,9 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Creates a Device Advisor test suite.
 
-  Requires permission to access the
-  [CreateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20CreateSuiteDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -631,12 +622,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Deletes a Device Advisor test suite.
 
-  Requires permission to access the
-  [DeleteSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20DeleteSuiteDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to be deleted.
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    be deleted.
 
   ## Optional parameters:
   """
@@ -673,13 +663,19 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about an Device Advisor endpoint.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`) The authentication method used during the device connection.
-  * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an optional parameter.
-  * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an optional parameter.
-  * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional parameter.
+  * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`)
+    The authentication method used during the device connection.
+  * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an
+    optional parameter.
+  * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an
+    optional parameter.
+  * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional
+    parameter.
   """
   @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
@@ -740,15 +736,15 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about a Device Advisor test suite.
 
-  Requires permission to access the
-  [GetSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to get.
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    get.
 
   ## Optional parameters:
-  * `:suite_definition_version` (`t:string`) Suite definition version of the test suite to get.
+  * `:suite_definition_version` (`t:string`) Suite definition version of the test
+    suite to get.
   """
   @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
@@ -782,12 +778,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Gets information about a Device Advisor test suite run.
 
-  Requires permission to access the
-  [GetSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite run.
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID for the test suite
+    run.
   * `:suite_run_id` (`t:string`) Suite run ID for the test suite run.
 
   ## Optional parameters:
@@ -817,11 +812,9 @@ defmodule AWS.IotDeviceAdvisor do
   Gets a report download link for a successful Device Advisor qualifying test
   suite run.
 
-  Requires permission to access the
-  [GetSuiteRunReport](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetSuiteRunReport&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
   * `:suite_run_id` (`t:string`) Suite run ID of the test suite run.
 
@@ -851,11 +844,9 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Lists the Device Advisor test suites you have created.
 
-  Requires permission to access the
-  [ListSuiteDefinitions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteDefinitions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
@@ -900,24 +891,21 @@ defmodule AWS.IotDeviceAdvisor do
   end
 
   @doc """
-  Lists runs of the specified Device Advisor test suite.
+  Lists runs of the specified Device Advisor test suite. You can list all runs of
+  the test suite, or the runs of a specific version of the test suite.
 
-  You can list all runs of the test
-  suite, or the runs of a specific version of the test suite.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteRuns&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListSuiteRuns](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
-  * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified test suite based on suite definition
-            ID.
-  * `:suite_definition_version` (`t:string`) Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs of
-            the specified test suite based on suite definition version.
+  * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified
+    test suite based on suite definition ID.
+  * `:suite_definition_version` (`t:string`) Must be passed along with
+    suiteDefinitionId. Lists the test suite runs of the specified test suite
+    based on suite definition version.
   """
   @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
@@ -978,13 +966,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Lists the tags attached to an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN or
-            SuiteRun ARN.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of the IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
 
   ## Optional parameters:
   """
@@ -1011,11 +997,9 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Starts a Device Advisor test suite run.
 
-  Requires permission to access the
-  [StartSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StartSuiteRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite.
 
   ## Optional parameters:
@@ -1048,12 +1032,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Stops a Device Advisor test suite run that is currently running.
 
-  Requires permission to access the
-  [StopSuiteRun](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20StopSuiteRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run to be stopped.
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite run
+    to be stopped.
   * `:suite_run_id` (`t:string`) Suite run ID of the test suite run to be stopped.
 
   ## Optional parameters:
@@ -1094,13 +1077,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Adds to and modifies existing tags of an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
-            SuiteRun ARN.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
 
   ## Optional parameters:
   """
@@ -1132,16 +1113,15 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Removes tags from an IoT Device Advisor resource.
 
-  Requires permission to access the
-  [UntagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
-            SuiteRun ARN.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource ARN of an IoT Device Advisor
+    resource. This can be SuiteDefinition ARN or SuiteRun ARN.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag keys to remove from the IoT Device Advisor resource.
+  * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]`) List of tag
+    keys to remove from the IoT Device Advisor resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1176,12 +1156,11 @@ defmodule AWS.IotDeviceAdvisor do
   @doc """
   Updates a Device Advisor test suite.
 
-  Requires permission to access the
-  [UpdateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20UpdateSuiteDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to be updated.
+  ## Parameters:
+  * `:suite_definition_id` (`t:string`) Suite definition ID of the test suite to
+    be updated.
 
   ## Optional parameters:
   """

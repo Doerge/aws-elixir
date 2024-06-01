@@ -4,8 +4,7 @@
 defmodule AWS.LicenseManager do
   @moduledoc """
   License Manager makes it easier to manage licenses from software vendors across
-  multiple
-  Amazon Web Services accounts and on-premises servers.
+  multiple Amazon Web Services accounts and on-premises servers.
   """
 
   alias AWS.Client
@@ -2495,9 +2494,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Checks in the specified license.
-
-  Check in a license when it is no longer in use.
+  Checks in the specified license. Check in a license when it is no longer in use.
   """
   @spec check_in_license(AWS.Client.t(), check_in_license_request(), Keyword.t()) ::
           {:ok, check_in_license_response(), any()}
@@ -2526,10 +2523,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Checks out the specified license.
-
-  If the account that created the license is the same that is performing the check
-  out, you must
-  specify the account as the beneficiary.
   """
   @spec checkout_license(AWS.Client.t(), checkout_license_request(), Keyword.t()) ::
           {:ok, checkout_license_response(), any()}
@@ -2543,11 +2536,11 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Creates a grant for the specified license.
-
-  A grant shares the use of license
-  entitlements with a specific Amazon Web Services account, an organization, or an
-  organizational unit (OU). For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  Creates a grant for the specified license. A grant shares the use of license
+  entitlements with a specific Amazon Web Services account, an organization, or
+  an organizational unit (OU). For more information, see [Granted licenses in
+  License
+  Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
   @spec create_grant(AWS.Client.t(), create_grant_request(), Keyword.t()) ::
@@ -2562,10 +2555,9 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Creates a new version of the specified grant.
-
-  For more information, see
-  [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
+  Creates a new version of the specified grant. For more information, see [Granted
+  licenses in License
+  Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
   """
   @spec create_grant_version(AWS.Client.t(), create_grant_version_request(), Keyword.t()) ::
@@ -2595,17 +2587,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Creates a license configuration.
-
-  A license configuration is an abstraction of a customer license agreement that
-  can be
-  consumed and enforced by License Manager. Components include specifications for
-  the license
-  type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-  tenancy,
-  Dedicated Instance, Dedicated Host, or all of these), license affinity to host
-  (how long a
-  license must be associated with a host), and the number of licenses purchased
-  and used.
   """
   @spec create_license_configuration(
           AWS.Client.t(),
@@ -2674,12 +2655,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Creates a long-lived token.
-
-  A refresh token is a JWT token used to get an access token. With an access
-  token,
-  you can call AssumeRoleWithWebIdentity to get role credentials that you can use
-  to
-  call License Manager to manage the specified license.
   """
   @spec create_token(AWS.Client.t(), create_token_request(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
@@ -2722,8 +2697,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Deletes the specified license configuration.
-
-  You cannot delete a license configuration that is in use.
   """
   @spec delete_license_configuration(
           AWS.Client.t(),
@@ -2742,11 +2715,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Deletes the specified report generator.
-
-  This action deletes the report generator, which stops it from generating future
-  reports.
-  The action cannot be reversed. It has no effect on the previous reports from
-  this generator.
   """
   @spec delete_license_manager_report_generator(
           AWS.Client.t(),
@@ -2764,9 +2732,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Deletes the specified token.
-
-  Must be called in the license home Region.
+  Deletes the specified token. Must be called in the license home Region.
   """
   @spec delete_token(AWS.Client.t(), delete_token_request(), Keyword.t()) ::
           {:ok, delete_token_response(), any()}
@@ -2798,10 +2764,8 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Gets a temporary access token to use with AssumeRoleWithWebIdentity.
-
-  Access tokens
-  are valid for one hour.
+  Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access
+  tokens are valid for one hour.
   """
   @spec get_access_token(AWS.Client.t(), get_access_token_request(), Keyword.t()) ::
           {:ok, get_access_token_response(), any()}
@@ -2926,11 +2890,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Lists the resource associations for the specified license configuration.
-
-  Resource associations need not consume licenses from a license configuration.
-  For example, an AMI or a stopped instance might not consume a license (depending
-  on
-  the license rules).
   """
   @spec list_associations_for_license_configuration(
           AWS.Client.t(),
@@ -3086,12 +3045,10 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Lists grants that are received.
-
-  Received grants are grants created while specifying the
-  recipient as this Amazon Web Services account, your organization, or an
-  organizational unit
-  (OU) to which this member account belongs.
+  Lists grants that are received. Received grants are grants created while
+  specifying the recipient as this Amazon Web Services account, your
+  organization, or an organizational unit (OU) to which this member account
+  belongs.
   """
   @spec list_received_grants(AWS.Client.t(), list_received_grants_request(), Keyword.t()) ::
           {:ok, list_received_grants_response(), any()}
@@ -3198,10 +3155,9 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Lists all license usage records for a license configuration, displaying license
-  consumption details by resource at a selected point in time.
-
-  Use this action to audit the
-  current license consumption for any license inventory and configuration.
+  consumption details by resource at a selected point in time. Use this action
+  to audit the current license consumption for any license inventory and
+  configuration.
   """
   @spec list_usage_for_license_configuration(
           AWS.Client.t(),
@@ -3280,9 +3236,6 @@ defmodule AWS.LicenseManager do
 
   @doc """
   Updates a report generator.
-
-  After you make changes to a report generator, it starts generating new reports
-  within 60 minutes of being updated.
   """
   @spec update_license_manager_report_generator(
           AWS.Client.t(),
@@ -3302,11 +3255,6 @@ defmodule AWS.LicenseManager do
   @doc """
   Adds or removes the specified license configurations for the specified Amazon
   Web Services resource.
-
-  You can update the license specifications of AMIs, instances, and hosts.
-  You cannot update the license specifications for launch templates and
-  CloudFormation templates,
-  as they send license configurations to the operation that creates the resource.
   """
   @spec update_license_specifications_for_resource(
           AWS.Client.t(),

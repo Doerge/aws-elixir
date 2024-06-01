@@ -3,30 +3,14 @@
 
 defmodule AWS.EMRServerless do
   @moduledoc """
-  Amazon EMR Serverless is a new deployment option for Amazon EMR.
-
-  Amazon EMR Serverless provides a serverless runtime environment that simplifies
-  running
+  Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR
+  Serverless provides a serverless runtime environment that simplifies running
   analytics applications using the latest open source frameworks such as Apache
-  Spark and
-  Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,
-  secure, or operate clusters to run applications with these frameworks.
-
-  The API reference to Amazon EMR Serverless is `emr-serverless`. The
-  `emr-serverless` prefix is used in the following scenarios:
-
-    *
-  It is the prefix in the CLI commands for Amazon EMR Serverless. For
-  example, `aws emr-serverless start-job-run`.
-
-    *
-  It is the prefix before IAM policy actions for Amazon EMR Serverless. For
-  example, `"Action": ["emr-serverless:StartJobRun"]`. For more information, see [Policy actions for Amazon EMR
-  Serverless](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions).
-
-    *
-  It is the prefix used in Amazon EMR Serverless service endpoints. For
-  example, `emr-serverless.us-east-2.amazonaws.com`.
+  Spark and Apache Hive. With Amazon EMR Serverless, you don’t have to
+  configure, optimize, secure, or operate clusters to run applications with
+  these frameworks. The API reference to Amazon EMR Serverless is
+  `emr-serverless`. The `emr-serverless` prefix is used in the following
+  scenarios:
   """
 
   alias AWS.Client
@@ -882,8 +866,11 @@ defmodule AWS.EMRServerless do
   @doc """
   Cancels a job run.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application on which the job run will be canceled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CancelJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which the job run
+    will be canceled.
   * `:job_run_id` (`t:string`) The ID of the job run to cancel.
 
   ## Optional parameters:
@@ -924,7 +911,9 @@ defmodule AWS.EMRServerless do
   @doc """
   Creates an application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -954,12 +943,12 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Deletes an application.
+  Deletes an application. An application has to be in a stopped or created state
+  in order to be deleted.
 
-  An application has to be in a stopped or created state in order
-  to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20DeleteApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application that will be deleted.
 
   ## Optional parameters:
@@ -992,8 +981,11 @@ defmodule AWS.EMRServerless do
   @doc """
   Displays detailed information about a specified application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application that will be described.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application that will be
+    described.
 
   ## Optional parameters:
   """
@@ -1019,20 +1011,14 @@ defmodule AWS.EMRServerless do
 
   @doc """
   Creates and returns a URL that you can use to access the application UIs for a
-  job
-  run.
+  job run. For jobs in a running state, the application UI is a live user
+  interface such as the Spark or Tez web UI. For completed jobs, the application
+  UI is a persistent application user interface such as the Spark History Server
+  or persistent Tez UI.
 
-  For jobs in a running state, the application UI is a live user interface such as
-  the
-  Spark or Tez web UI. For completed jobs, the application UI is a persistent
-  application
-  user interface such as the Spark History Server or persistent Tez UI.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetDashboardForJobRun&this_doc_guide=API%2520Reference)
 
-  The URL is valid for one hour after you generate it. To access the application
-  UI
-  after that hour elapses, you must invoke the API again to generate a new URL.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application.
   * `:job_run_id` (`t:string`) The ID of the job run.
 
@@ -1062,8 +1048,11 @@ defmodule AWS.EMRServerless do
   @doc """
   Displays detailed information about a job run.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application on which the job run is submitted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20GetJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which the job run
+    is submitted.
   * `:job_run_id` (`t:string`) The ID of the job run.
 
   ## Optional parameters:
@@ -1092,13 +1081,16 @@ defmodule AWS.EMRServerless do
   @doc """
   Lists applications based on a set of parameters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of applications that can be listed.
   * `:next_token` (`t:string`) The token for the next set of application results.
-  * `:states` (`t:list[com.amazonaws.emrserverless#ApplicationState]`) An optional filter for application states. Note that if this filter contains multiple
-         states, the resulting list will be grouped by the state.
+  * `:states` (`t:list[com.amazonaws.emrserverless#ApplicationState]`) An optional
+    filter for application states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1150,16 +1142,22 @@ defmodule AWS.EMRServerless do
   @doc """
   Lists job runs based on a set of parameters.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application for which to list the job run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListJobRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application for which to list the
+    job run.
 
   ## Optional parameters:
-  * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by creation date and time.
-  * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter by creation date and time.
+  * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by
+    creation date and time.
+  * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter
+    by creation date and time.
   * `:max_results` (`t:`) The maximum number of job runs that can be listed.
   * `:next_token` (`t:string`) The token for the next set of job run results.
-  * `:states` (`t:list[com.amazonaws.emrserverless#JobRunState]`) An optional filter for job run states. Note that if this filter contains multiple
-         states, the resulting list will be grouped by the state.
+  * `:states` (`t:list[com.amazonaws.emrserverless#JobRunState]`) An optional
+    filter for job run states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -1229,10 +1227,12 @@ defmodule AWS.EMRServerless do
   @doc """
   Lists the tags assigned to the resources.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-         Currently, the supported resources are Amazon EMR Serverless applications and job
-         runs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
 
   ## Optional parameters:
   """
@@ -1259,7 +1259,9 @@ defmodule AWS.EMRServerless do
   @doc """
   Starts a specified application and initializes initial capacity if configured.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application to start.
 
   ## Optional parameters:
@@ -1292,8 +1294,11 @@ defmodule AWS.EMRServerless do
   @doc """
   Starts a job run.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The ID of the application on which to run the job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StartJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The ID of the application on which to run the
+    job.
 
   ## Optional parameters:
   """
@@ -1323,12 +1328,13 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Stops a specified application and releases initial capacity if configured.
+  Stops a specified application and releases initial capacity if configured. All
+  scheduled and running jobs must be completed or cancelled before stopping an
+  application.
 
-  All scheduled
-  and running jobs must be completed or cancelled before stopping an application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20StopApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application to stop.
 
   ## Optional parameters:
@@ -1359,21 +1365,19 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Assigns tags to resources.
+  Assigns tags to resources. A tag is a label that you assign to an Amazon Web
+  Services resource. Each tag consists of a key and an optional value, both of
+  which you define. Tags enable you to categorize your Amazon Web Services
+  resources by attributes such as purpose, owner, or environment. When you have
+  many resources of the same type, you can quickly identify a specific resource
+  based on the tags you've assigned to it.
 
-  A tag is a label that you assign to an Amazon Web Services
-  resource. Each tag consists of a key and an optional value, both of which you
-  define. Tags
-  enable you to categorize your Amazon Web Services resources by attributes such
-  as purpose,
-  owner, or environment. When you have many resources of the same type, you can
-  quickly
-  identify a specific resource based on the tags you've assigned to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-         Currently, the supported resources are Amazon EMR Serverless applications and job
-         runs.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
 
   ## Optional parameters:
   """
@@ -1405,13 +1409,16 @@ defmodule AWS.EMRServerless do
   @doc """
   Removes tags from resources.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-         Currently, the supported resources are Amazon EMR Serverless applications and job
-         runs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) that identifies
+    the resource to list the tags for. Currently, the supported resources are
+    Amazon EMR Serverless applications and job runs.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]`) The keys of the tags to be removed.
+  * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]`) The keys of the
+    tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1444,12 +1451,12 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
-  Updates a specified application.
+  Updates a specified application. An application has to be in a stopped or
+  created state in order to be updated.
 
-  An application has to be in a stopped or created state
-  in order to be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20UpdateApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:application_id` (`t:string`) The ID of the application to update.
 
   ## Optional parameters:

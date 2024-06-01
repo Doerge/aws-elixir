@@ -4,12 +4,10 @@
 defmodule AWS.ServiceQuotas do
   @moduledoc """
   With Service Quotas, you can view and manage your quotas easily as your Amazon
-  Web Services workloads grow.
-
-  Quotas, also referred to as limits, are the maximum number of resources that you
-  can
-  create in your Amazon Web Services account. For more information, see the
-  [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
+  Web Services workloads grow. Quotas, also referred to as limits, are the
+  maximum number of resources that you can create in your Amazon Web Services
+  account. For more information, see the [Service Quotas User
+  Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
   """
 
   alias AWS.Client
@@ -972,14 +970,10 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Associates your quota request template with your organization.
-
-  When a new
-  Amazon Web Services account is created in your organization, the quota increase
-  requests in the
-  template are automatically applied to the account. You can add a quota increase
-  request
-  for any adjustable quota to your template.
+  Associates your quota request template with your organization. When a new Amazon
+  Web Services account is created in your organization, the quota increase
+  requests in the template are automatically applied to the account. You can add
+  a quota increase request for any adjustable quota to your template.
   """
   @spec associate_service_quota_template(
           AWS.Client.t(),
@@ -998,8 +992,7 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Deletes the quota increase request for the specified quota from your quota
-  request
-  template.
+  request template.
   """
   @spec delete_service_quota_increase_request_from_template(
           AWS.Client.t(),
@@ -1027,12 +1020,10 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Disables your quota request template.
-
-  After a template is disabled, the quota increase
-  requests in the template are not applied to new Amazon Web Services accounts in
-  your organization.
-  Disabling a quota request template does not apply its quota increase requests.
+  Disables your quota request template. After a template is disabled, the quota
+  increase requests in the template are not applied to new Amazon Web Services
+  accounts in your organization. Disabling a quota request template does not
+  apply its quota increase requests.
   """
   @spec disassociate_service_quota_template(
           AWS.Client.t(),
@@ -1068,9 +1059,7 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the default value for the specified quota.
-
-  The default value does not
+  Retrieves the default value for the specified quota. The default value does not
   reflect any quota increases.
   """
   @spec get_aws_default_service_quota(
@@ -1107,12 +1096,9 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the applied quota value for the specified quota.
-
-  For some quotas, only the
-  default values are available. If the applied quota value is not available for a
-  quota,
-  the quota is not retrieved.
+  Retrieves the applied quota value for the specified quota. For some quotas, only
+  the default values are available. If the applied quota value is not available
+  for a quota, the quota is not retrieved.
   """
   @spec get_service_quota(AWS.Client.t(), get_service_quota_request(), Keyword.t()) ::
           {:ok, get_service_quota_response(), any()}
@@ -1127,8 +1113,7 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves information about the specified quota increase request in your quota
-  request
-  template.
+  request template.
   """
   @spec get_service_quota_increase_request_from_template(
           AWS.Client.t(),
@@ -1152,10 +1137,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the default values for the quotas for the specified Amazon Web Service.
-
-  A default
-  value does not reflect any quota increases.
+  Lists the default values for the quotas for the specified Amazon Web Service. A
+  default value does not reflect any quota increases.
   """
   @spec list_aws_default_service_quotas(
           AWS.Client.t(),
@@ -1243,12 +1226,9 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the applied quota values for the specified Amazon Web Service.
-
-  For some quotas, only
-  the default values are available. If the applied quota value is not available
-  for a
-  quota, the quota is not retrieved.
+  Lists the applied quota values for the specified Amazon Web Service. For some
+  quotas, only the default values are available. If the applied quota value is
+  not available for a quota, the quota is not retrieved.
   """
   @spec list_service_quotas(AWS.Client.t(), list_service_quotas_request(), Keyword.t()) ::
           {:ok, list_service_quotas_response(), any()}
@@ -1333,10 +1313,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Adds tags to the specified applied quota.
-
-  You can include one or more tags to add to
-  the quota.
+  Adds tags to the specified applied quota. You can include one or more tags to
+  add to the quota.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1350,10 +1328,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Removes tags from the specified applied quota.
-
-  You can specify one or more tags to
-  remove.
+  Removes tags from the specified applied quota. You can specify one or more tags
+  to remove.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

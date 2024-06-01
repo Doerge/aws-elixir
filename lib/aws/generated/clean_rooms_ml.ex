@@ -3,23 +3,14 @@
 
 defmodule AWS.CleanRoomsML do
   @moduledoc """
-  Welcome to the *Amazon Web Services Clean Rooms ML API Reference*.
-
-  Amazon Web Services Clean Rooms ML provides a privacy-enhancing method for two
-  parties to identify similar users in their data without the need to share their
-  data with each other. The first party brings the training data to Clean Rooms so
-  that they can create and configure an audience model (lookalike model) and
-  associate it with a collaboration. The second party then brings their seed data
-  to Clean Rooms and generates an audience (lookalike segment) that resembles the
-  training data.
-
-  To learn more about Amazon Web Services Clean Rooms ML concepts, procedures, and
-  best practices, see the
-  [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
-
-  To learn more about SQL commands, functions, and conditions supported in Clean
-  Rooms, see the
-  [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+  Welcome to the *Amazon Web Services Clean Rooms ML API Reference*. Amazon Web
+  Services Clean Rooms ML provides a privacy-enhancing method for two parties to
+  identify similar users in their data without the need to share their data with
+  each other. The first party brings the training data to Clean Rooms so that
+  they can create and configure an audience model (lookalike model) and
+  associate it with a collaboration. The second party then brings their seed
+  data to Clean Rooms and generates an audience (lookalike segment) that
+  resembles the training data.
   """
 
   alias AWS.Client
@@ -1007,14 +998,15 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create an audience model.
-
-  An audience model is a machine learning model that Clean Rooms ML trains to
-  measure similarity between users. Clean Rooms ML manages training and storing
-  the audience model. The audience model can be used in multiple calls to the
+  Defines the information necessary to create an audience model. An audience model
+  is a machine learning model that Clean Rooms ML trains to measure similarity
+  between users. Clean Rooms ML manages training and storing the audience model.
+  The audience model can be used in multiple calls to the
   `StartAudienceGenerationJob` API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1046,7 +1038,9 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Defines the information necessary to create a configured audience model.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1080,12 +1074,13 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create a training dataset.
+  Defines the information necessary to create a training dataset. In Clean Rooms
+  ML, the `TrainingDataset` is metadata that points to a Glue table, which is
+  read only during `AudienceModel` creation.
 
-  In Clean Rooms ML, the `TrainingDataset` is metadata that points to a Glue
-  table, which is read only during `AudienceModel` creation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateTrainingDataset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1118,8 +1113,11 @@ defmodule AWS.CleanRoomsML do
   Deletes the specified audience generation job, and removes all data associated
   with the job.
 
-  ## Required positional parameters:
-  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you want to delete.
 
   ## Optional parameters:
   """
@@ -1159,13 +1157,15 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Specifies an audience model that you want to delete.
+  Specifies an audience model that you want to delete. You can't delete an
+  audience model if there are any configured audience models that depend on the
+  audience model.
 
-  You can't delete an audience model if there are any configured audience models
-  that depend on the audience model.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteAudienceModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience model that you want to delete.
+  ## Parameters:
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    audience model that you want to delete.
 
   ## Optional parameters:
   """
@@ -1200,14 +1200,16 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Deletes the specified configured audience model.
+  Deletes the specified configured audience model. You can't delete a configured
+  audience model if there are any lookalike models that use the configured
+  audience model. If you delete a configured audience model, it will be removed
+  from any collaborations that it is associated to.
 
-  You can't delete a configured audience model if there are any lookalike models
-  that use the configured audience model. If you delete a configured audience
-  model, it will be removed from any collaborations that it is associated to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you want to delete.
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you want to delete.
 
   ## Optional parameters:
   """
@@ -1249,8 +1251,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Deletes the specified configured audience model policy.
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model policy that you want to delete.
 
   ## Optional parameters:
   """
@@ -1292,15 +1297,17 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Specifies a training dataset that you want to delete.
+  Specifies a training dataset that you want to delete. You can't delete a
+  training dataset if there are any audience models that depend on the training
+  dataset. In Clean Rooms ML, the `TrainingDataset` is metadata that points to a
+  Glue table, which is read only during `AudienceModel` creation. This action
+  deletes the metadata.
 
-  You can't delete a training dataset if there are any audience models that depend
-  on the training dataset. In Clean Rooms ML, the `TrainingDataset` is metadata
-  that points to a Glue table, which is read only during `AudienceModel` creation.
-  This action deletes the metadata.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20DeleteTrainingDataset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the training dataset that you want to delete.
+  ## Parameters:
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    training dataset that you want to delete.
 
   ## Optional parameters:
   """
@@ -1337,8 +1344,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about an audience generation job.
 
-  ## Required positional parameters:
-  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you are interested in.
 
   ## Optional parameters:
   """
@@ -1365,8 +1375,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about an audience model
 
-  ## Required positional parameters:
-  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience model that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1393,8 +1406,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a specified configured audience model.
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1425,8 +1441,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a configured audience model policy.
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you are interested in.
 
   ## Optional parameters:
   """
@@ -1458,8 +1477,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a training dataset.
 
-  ## Required positional parameters:
-  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the training dataset that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20GetTrainingDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:training_dataset_arn` (`t:string`) The Amazon Resource Name (ARN) of the
+    training dataset that you are interested in.
 
   ## Optional parameters:
   """
@@ -1486,12 +1508,17 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of the audience export jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
-  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
+    the audience generation job that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
@@ -1544,13 +1571,20 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of audience generation jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceGenerationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:collaboration_id` (`t:string`) The identifier of the collaboration that contains the audience generation jobs that you are interested in.
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.
-  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:collaboration_id` (`t:string`) The identifier of the collaboration that
+    contains the audience generation jobs that you are interested in.
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that was used for the audience generation
+    jobs that you are interested in.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
@@ -1612,11 +1646,15 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of audience models.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
@@ -1659,11 +1697,15 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of the configured audience models.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListConfiguredAudienceModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
@@ -1706,8 +1748,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of tags for a provided resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you are interested in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you are interested in.
 
   ## Optional parameters:
   """
@@ -1734,11 +1779,15 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of training datasets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTrainingDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum size of the results that is returned per call.
-  * `:next_token` (`t:string`) The token value retrieved from a previous call to access the next page of results.
+  * `:max_results` (`t:integer`) The maximum size of the results that is returned
+    per call.
+  * `:next_token` (`t:string`) The token value retrieved from a previous call to
+    access the next page of results.
   """
   @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
@@ -1781,8 +1830,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Create or update the resource policy for a configured audience model.
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that the resource policy will govern.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20PutConfiguredAudienceModelPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that the resource policy will govern.
 
   ## Optional parameters:
   """
@@ -1816,7 +1868,9 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Export an audience of a specified size after you have generated an audience.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1852,7 +1906,9 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Information necessary to start the audience generation job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceGenerationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1888,8 +1944,11 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Adds metadata tags to a specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to assign tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to assign tags.
 
   ## Optional parameters:
   """
@@ -1921,11 +1980,15 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Removes metadata tags from a specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    that you want to remove tags from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of tags that you want to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]`) The key values of
+    tags that you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1959,12 +2022,14 @@ defmodule AWS.CleanRoomsML do
 
   @doc """
   Provides the information necessary to update a configured audience model.
+  Updates that impact audience generation jobs take effect when a new job
+  starts, but do not impact currently running jobs.
 
-  Updates that impact audience generation jobs take effect when a new job starts,
-  but do not impact currently running jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20UpdateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN) of the configured audience model that you want to update.
+  ## Parameters:
+  * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
+    of the configured audience model that you want to update.
 
   ## Optional parameters:
   """

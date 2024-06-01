@@ -4,24 +4,7 @@
 defmodule AWS.Route53 do
   @moduledoc """
   Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
-  service.
-
-  You can use Route 53 to:
-
-    *
-  Register domain names.
-
-  For more information, see [How domain registration works](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-domain-registration.html).
-
-    *
-  Route internet traffic to the resources for your domain
-
-  For more information, see [How internet traffic is routed to your website or web application](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html).
-
-    *
-  Check the health of your resources.
-
-  For more information, see [How Route 53 checks the health of your resources](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html).
+  service. You can use Route 53 to:
   """
 
   alias AWS.Client
@@ -3325,15 +3308,15 @@ defmodule AWS.Route53 do
 
   @doc """
   Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC.
+  This operation changes the KSK status to `ACTIVE`.
 
-  This
-  operation changes the KSK status to `ACTIVE`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ActivateKeySigningKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
-  * `:name` (`t:string`) A string used to identify a key-signing key (KSK). <code>Name</code> can include
-  	numbers, letters, and underscores (_). <code>Name</code> must be unique for each
-  	key-signing key in the same hosted zone.
+  * `:name` (`t:string`) A string used to identify a key-signing key (KSK). Name
+    can include numbers, letters, and underscores (_). Name must be unique for
+    each key-signing key in the same hosted zone.
 
   ## Optional parameters:
   """
@@ -3371,43 +3354,15 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Associates an Amazon VPC with a private hosted zone.
+  Associates an Amazon VPC with a private hosted zone. To perform the association,
+  the VPC and the private hosted zone must already exist. You can't convert a
+  public hosted zone into a private hosted zone.
 
-  To perform the association, the VPC and the private hosted zone must already
-  exist. You can't convert a public hosted zone into a private hosted zone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20AssociateVPCWithHostedZone&this_doc_guide=API%2520Reference)
 
-  If you want to associate a VPC that was created by using one Amazon Web Services
-  account with a private hosted zone that was created by using a
-  different account, the Amazon Web Services account that created the private
-  hosted
-  zone must first submit a `CreateVPCAssociationAuthorization` request.
-  Then the account that created the VPC must submit an
-  `AssociateVPCWithHostedZone` request.
-
-  When granting access, the hosted zone and the Amazon VPC must belong to
-  the same partition. A partition is a group of Amazon Web Services Regions. Each
-  Amazon Web Services account is scoped to one partition.
-
-  The following are the supported partitions:
-
-    
-
-  `aws` - Amazon Web Services Regions
-
-    
-
-  `aws-cn` - China Regions
-
-    
-
-  `aws-us-gov` - Amazon Web Services GovCloud (US) Region
-
-  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
-  in the *Amazon Web Services General Reference*.
-
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want to associate an Amazon VPC
-  	with.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
+    to associate an Amazon VPC with.
 
   ## Optional parameters:
   """
@@ -3442,37 +3397,15 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates, changes, or deletes CIDR blocks within a collection.
+  Creates, changes, or deletes CIDR blocks within a collection. Contains
+  authoritative IP information mapping blocks to one or multiple locations. A
+  change request can update multiple locations in a collection at a time, which
+  is helpful if you want to move one or more CIDR blocks from one location to
+  another in one transaction, without downtime.
 
-  Contains authoritative
-  IP information mapping blocks to one or multiple locations.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeCidrCollection&this_doc_guide=API%2520Reference)
 
-  A change request can update multiple locations in a collection at a time, which
-  is
-  helpful if you want to move one or more CIDR blocks from one location to another
-  in one
-  transaction, without downtime.
-
-  ## Limits
-
-  The max number of CIDR blocks included in the request is 1000. As a result, big
-  updates
-  require multiple API calls.
-
-  ##  PUT and DELETE_IF_EXISTS
-
-  Use `ChangeCidrCollection` to perform the following actions:
-
-    *
-
-  `PUT`: Create a CIDR block within the specified collection.
-
-    *
-
-  ` DELETE_IF_EXISTS`: Delete an existing CIDR block from the
-  collection.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The UUID of the CIDR collection to update.
 
   ## Optional parameters:
@@ -3509,120 +3442,16 @@ defmodule AWS.Route53 do
 
   @doc """
   Creates, changes, or deletes a resource record set, which contains authoritative
-  DNS
-  information for a specified domain name or subdomain name.
+  DNS information for a specified domain name or subdomain name. For example,
+  you can use `ChangeResourceRecordSets` to create a resource record set that
+  routes traffic for test.example.com to a web server that has an IP address of
+  192.0.2.44. **Deleting Resource Record Sets**
 
-  For example, you can use
-  `ChangeResourceRecordSets` to create a resource record set that routes
-  traffic for test.example.com to a web server that has an IP address of
-  192.0.2.44.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeResourceRecordSets&this_doc_guide=API%2520Reference)
 
-  ## Deleting Resource Record Sets
-
-  To delete a resource record set, you must specify all the same values that you
-  specified when you created it.
-
-  ## Change Batches and Transactional Changes
-
-  The request body must include a document with a
-  `ChangeResourceRecordSetsRequest` element. The request body contains a
-  list of change items, known as a change batch. Change batches are considered
-  transactional changes. Route 53 validates the changes in the request and then
-  either
-  makes all or none of the changes in the change batch request. This ensures that
-  DNS
-  routing isn't adversely affected by partial changes to the resource record sets
-  in a
-  hosted zone.
-
-  For example, suppose a change batch request contains two changes: it deletes the
-  `CNAME` resource record set for www.example.com and creates an alias
-  resource record set for www.example.com. If validation for both records
-  succeeds, Route
-  53 deletes the first resource record set and creates the second resource record
-  set in a
-  single operation. If validation for either the `DELETE` or the
-  `CREATE` action fails, then the request is canceled, and the original
-  `CNAME` record continues to exist.
-
-  If you try to delete the same resource record set more than once in a single
-  change batch, Route 53 returns an `InvalidChangeBatch` error.
-
-  ## Traffic Flow
-
-  To create resource record sets for complex routing configurations, use either
-  the
-  traffic flow visual editor in the Route 53 console or the API actions for
-  traffic
-  policies and traffic policy instances. Save the configuration as a traffic
-  policy, then
-  associate the traffic policy with one or more domain names (such as example.com)
-  or
-  subdomain names (such as www.example.com), in the same hosted zone or in
-  multiple hosted
-  zones. You can roll back the updates if the new configuration isn't performing
-  as
-  expected. For more information, see [Using Traffic Flow to Route DNS
-  Traffic](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html)
-  in the *Amazon Route 53 Developer
-  Guide*.
-
-  ## Create, Delete, and Upsert
-
-  Use `ChangeResourceRecordsSetsRequest` to perform the following
-  actions:
-
-    *
-
-  `CREATE`: Creates a resource record set that has the specified
-  values.
-
-    *
-
-  `DELETE`: Deletes an existing resource record set that has the
-  specified values.
-
-    *
-
-  `UPSERT`: If a resource set doesn't exist, Route 53 creates it. If a resource
-  set exists Route 53 updates it with the values in the request.
-
-  ## Syntaxes for Creating, Updating, and Deleting Resource Record
-  Sets
-
-  The syntax for a request depends on the type of resource record set that you
-  want to
-  create, delete, or update, such as weighted, alias, or failover. The XML
-  elements in
-  your request must appear in the order listed in the syntax.
-
-  For an example for each type of resource record set, see "Examples."
-
-  Don't refer to the syntax in the "Parameter Syntax" section, which includes
-  all of the elements for every kind of resource record set that you can create,
-  delete,
-  or update by using `ChangeResourceRecordSets`.
-
-  ## Change Propagation to Route 53 DNS Servers
-
-  When you submit a `ChangeResourceRecordSets` request, Route 53 propagates your
-  changes to all of the Route 53 authoritative DNS servers managing the hosted
-  zone. While
-  your changes are propagating, `GetChange` returns a status of
-  `PENDING`. When propagation is complete, `GetChange` returns a
-  status of `INSYNC`. Changes generally propagate to all Route 53 name servers
-  managing the hosted zone within 60 seconds. For more information, see
-  [GetChange](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html). 
-  ## Limits on ChangeResourceRecordSets Requests
-
-  For information about the limits on a `ChangeResourceRecordSets` request,
-  see
-  [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html)
-  in the *Amazon Route 53 Developer Guide*.
-
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the resource record sets that you want to
-  	change.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the
+    resource record sets that you want to change.
 
   ## Optional parameters:
   """
@@ -3659,12 +3488,13 @@ defmodule AWS.Route53 do
   @doc """
   Adds, edits, or deletes tags for a health check or a hosted zone.
 
-  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *Billing and Cost Management User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ChangeTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_id` (`t:string`) The ID of the resource for which you want to add, change, or delete tags.
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the resource.
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource for which you want to add,
+    change, or delete tags.
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+    resource.
 
   ## Optional parameters:
   """
@@ -3710,7 +3540,9 @@ defmodule AWS.Route53 do
   @doc """
   Creates a CIDR collection in the current Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateCidrCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3747,47 +3579,16 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates a new health check.
-
-  For information about adding health checks to resource record sets, see
-  [HealthCheckId](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId) in
+  Creates a new health check. For information about adding health checks to
+  resource record sets, see
+  [HealthCheckId](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId)
+  in
   [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
+  **ELB Load Balancers**
 
-  ## ELB Load Balancers
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateHealthCheck&this_doc_guide=API%2520Reference)
 
-  If you're registering EC2 instances with an Elastic Load Balancing (ELB) load
-  balancer, do not create Amazon Route 53 health checks for the EC2 instances.
-  When you
-  register an EC2 instance with a load balancer, you configure settings for an ELB
-  health
-  check, which performs a similar function to a Route 53 health check.
-
-  ## Private Hosted Zones
-
-  You can associate health checks with failover resource record sets in a private
-  hosted
-  zone. Note the following:
-
-    *
-  Route 53 health checkers are outside the VPC. To check the health of an
-  endpoint within a VPC by IP address, you must assign a public IP address to the
-  instance in the VPC.
-
-    *
-  You can configure a health checker to check the health of an external resource
-  that the instance relies on, such as a database server.
-
-    *
-  You can create a CloudWatch metric, associate an alarm with the metric, and
-  then create a health check that is based on the state of the alarm. For example,
-  you might create a CloudWatch metric that checks the status of the Amazon EC2
-  `StatusCheckFailed` metric, add an alarm to the metric, and then
-  create a health check that is based on the state of the alarm. For information
-  about creating CloudWatch metrics and alarms by using the CloudWatch console,
-  see the [Amazon CloudWatch User
-  Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3824,80 +3625,18 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates a new public or private hosted zone.
+  Creates a new public or private hosted zone. You create records in a public
+  hosted zone to define how you want to route traffic on the internet for a
+  domain, such as example.com, and its subdomains (apex.example.com,
+  acme.example.com). You create records in a private hosted zone to define how
+  you want to route traffic for a domain and its subdomains within one or more
+  Amazon Virtual Private Clouds (Amazon VPCs). You can't convert a public hosted
+  zone to a private hosted zone or vice versa. Instead, you must create a new
+  hosted zone with the same name and create new resource record sets.
 
-  You create records in a public hosted
-  zone to define how you want to route traffic on the internet for a domain, such
-  as
-  example.com, and its subdomains (apex.example.com, acme.example.com). You create
-  records
-  in a private hosted zone to define how you want to route traffic for a domain
-  and its
-  subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateHostedZone&this_doc_guide=API%2520Reference)
 
-  You can't convert a public hosted zone to a private hosted zone or vice versa.
-  Instead, you must create a new hosted zone with the same name and create new
-  resource record sets.
-
-  For more information about charges for hosted zones, see [Amazon Route 53 Pricing](http://aws.amazon.com/route53/pricing/).
-
-  Note the following:
-
-    *
-  You can't create a hosted zone for a top-level domain (TLD) such as
-  .com.
-
-    *
-  For public hosted zones, Route 53 automatically creates a default SOA record
-  and four NS records for the zone. For more information about SOA and NS records,
-  see [NS and SOA Records that Route 53 Creates for a Hosted
-  Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
-  in the
-  *Amazon Route 53 Developer Guide*.
-
-  If you want to use the same name servers for multiple public hosted zones, you
-  can optionally associate a reusable delegation set with the hosted zone. See the
-  `DelegationSetId` element.
-
-    *
-  If your domain is registered with a registrar other than Route 53,
-  you must update the name servers with your registrar to make Route 53 the DNS
-  service for the domain. For more information, see [Migrating DNS Service for an Existing Domain to Amazon
-  Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html)
-  in the
-  *Amazon Route 53 Developer Guide*.
-
-  When you submit a `CreateHostedZone` request, the initial status of the
-  hosted zone is `PENDING`. For public hosted zones, this means that the NS and
-  SOA records are not yet available on all Route 53 DNS servers. When the NS and
-  SOA records are available, the status of the zone changes to `INSYNC`.
-
-  The `CreateHostedZone` request requires the caller to have an
-  `ec2:DescribeVpcs` permission.
-
-  When creating private hosted zones, the Amazon VPC must belong to the same
-  partition where the hosted zone is created. A partition is a group of Amazon Web
-  Services Regions. Each Amazon Web Services account is scoped to one
-  partition.
-
-  The following are the supported partitions:
-
-    
-
-  `aws` - Amazon Web Services Regions
-
-    
-
-  `aws-cn` - China Regions
-
-    
-
-  `aws-us-gov` - Amazon Web Services GovCloud (US) Region
-
-  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
-  in the *Amazon Web Services General Reference*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3934,12 +3673,12 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates a new key-signing key (KSK) associated with a hosted zone.
+  Creates a new key-signing key (KSK) associated with a hosted zone. You can only
+  have two KSKs per hosted zone.
 
-  You can only have
-  two KSKs per hosted zone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateKeySigningKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3976,183 +3715,15 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates a configuration for DNS query logging.
-
-  After you create a query logging
+  Creates a configuration for DNS query logging. After you create a query logging
   configuration, Amazon Route 53 begins to publish log data to an Amazon
-  CloudWatch Logs
-  log group.
+  CloudWatch Logs log group. DNS query logs contain information about the
+  queries that Route 53 receives for a specified public hosted zone, such as the
+  following:
 
-  DNS query logs contain information about the queries that Route 53 receives for
-  a
-  specified public hosted zone, such as the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
-    *
-  Route 53 edge location that responded to the DNS query
-
-    *
-  Domain or subdomain that was requested
-
-    *
-  DNS record type, such as A or AAAA
-
-    *
-  DNS response code, such as `NoError` or
-  `ServFail`
-
-  ## Definitions
-
-  ### Log Group and Resource Policy
-
-  Before you create a query logging configuration, perform the following
-  operations.
-
-  If you create a query logging configuration using the Route 53
-  console, Route 53 performs these operations automatically.
-
-    
-  Create a CloudWatch Logs log group, and make note of the ARN,
-  which you specify when you create a query logging configuration.
-  Note the following:
-
-      
-  You must create the log group in the us-east-1
-  region.
-
-      
-  You must use the same Amazon Web Services account to create
-  the log group and the hosted zone that you want to configure
-  query logging for.
-
-      
-  When you create log groups for query logging, we recommend
-  that you use a consistent prefix, for example:
-
-  ```
-  /aws/route53/*hosted zone
-  name*
-
-  ```
-
-  In the next step, you'll create a resource policy, which
-  controls access to one or more log groups and the associated
-  Amazon Web Services resources, such as Route 53 hosted
-  zones. There's a limit on the number of resource policies
-  that you can create, so we recommend that you use a
-  consistent prefix so you can use the same resource policy
-  for all the log groups that you create for query
-  logging.
-
-    
-  Create a CloudWatch Logs resource policy, and give it the
-  permissions that Route 53 needs to create log streams and to send
-  query logs to log streams. For the value of `Resource`,
-  specify the ARN for the log group that you created in the previous
-  step. To use the same resource policy for all the CloudWatch Logs
-  log groups that you created for query logging configurations,
-  replace the hosted zone name with `*`, for
-  example:
-
-  `arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*`
-
-  To avoid the confused deputy problem, a security issue where an
-  entity without a permission for an action can coerce a
-  more-privileged entity to perform it, you can optionally limit the
-  permissions that a service has to a resource in a resource-based
-  policy by supplying the following values:
-
-      
-  For `aws:SourceArn`, supply the hosted zone ARN
-  used in creating the query logging configuration. For
-  example,
-
-  ```
-  aws:SourceArn:
-  arn:aws:route53:::hostedzone/hosted zone
-  ID
-  ```
-
-  .
-
-      
-  For `aws:SourceAccount`, supply the account ID
-  for the account that creates the query logging
-  configuration. For example,
-  `aws:SourceAccount:111111111111`.
-
-  For more information, see [The confused deputy
-  problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html)
-  in the *Amazon Web Services
-  IAM User Guide*.
-
-  You can't use the CloudWatch console to create or edit a
-  resource policy. You must use the CloudWatch API, one of the
-  Amazon Web Services SDKs, or the CLI.
-
-  ### Log Streams and Edge Locations
-
-  When Route 53 finishes creating the configuration for DNS query logging,
-  it does the following:
-
-    
-  Creates a log stream for an edge location the first time that the
-  edge location responds to DNS queries for the specified hosted zone.
-  That log stream is used to log all queries that Route 53 responds to
-  for that edge location.
-
-    
-  Begins to send query logs to the applicable log stream.
-
-  The name of each log stream is in the following format:
-
-  ```
-
-  *hosted zone ID*/*edge location
-  code*
-
-  ```
-
-  The edge location code is a three-letter code and an arbitrarily assigned
-  number, for example, DFW3. The three-letter code typically corresponds with
-  the International Air Transport Association airport code for an airport near
-  the edge location. (These abbreviations might change in the future.) For a
-  list of edge locations, see "The Route 53 Global Network" on the [Route 53 Product Details](http://aws.amazon.com/route53/details/)
-  page.
-
-  ### Queries That Are Logged
-
-  Query logs contain only the queries that DNS resolvers forward to Route
-  53. If a DNS resolver has already cached the response to a query (such as
-  the IP address for a load balancer for example.com), the resolver will
-  continue to return the cached response. It doesn't forward another query to
-  Route 53 until the TTL for the corresponding resource record set expires.
-  Depending on how many DNS queries are submitted for a resource record set,
-  and depending on the TTL for that resource record set, query logs might
-  contain information about only one query out of every several thousand
-  queries that are submitted to DNS. For more information about how DNS works,
-  see [Routing Internet Traffic to Your Website or Web
-  Application](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html)
-  in the
-  *Amazon Route 53 Developer Guide*.
-
-  ### Log File Format
-
-  For a list of the values in each query log and the format of each value,
-  see [Logging DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html)
-  in the *Amazon Route 53 Developer
-  Guide*.
-
-  ### Pricing
-
-  For information about charges for query logs, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/).
-
-  ### How to Stop Logging
-
-  If you want Route 53 to stop sending query logs to CloudWatch Logs, delete
-  the query logging configuration. For more information, see
-  [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4194,71 +3765,14 @@ defmodule AWS.Route53 do
 
   @doc """
   Creates a delegation set (a group of four name servers) that can be reused by
-  multiple
-  hosted zones that were created by the same Amazon Web Services account.
+  multiple hosted zones that were created by the same Amazon Web Services
+  account. You can also create a reusable delegation set that uses the four name
+  servers that are associated with an existing hosted zone. Specify the hosted
+  zone ID in the `CreateReusableDelegationSet` request.
 
-  You can also create a reusable delegation set that uses the four name servers
-  that are
-  associated with an existing hosted zone. Specify the hosted zone ID in the
-  `CreateReusableDelegationSet` request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateReusableDelegationSet&this_doc_guide=API%2520Reference)
 
-  You can't associate a reusable delegation set with a private hosted zone.
-
-  For information about using a reusable delegation set to configure white label
-  name
-  servers, see [Configuring White Label Name
-  Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html).
-
-  The process for migrating existing hosted zones to use a reusable delegation set
-  is
-  comparable to the process for configuring white label name servers. You need to
-  perform
-  the following steps:
-
-    1.
-  Create a reusable delegation set.
-
-    2.
-  Recreate hosted zones, and reduce the TTL to 60 seconds or less.
-
-    3.
-  Recreate resource record sets in the new hosted zones.
-
-    4.
-  Change the registrar's name servers to use the name servers for the new hosted
-  zones.
-
-    5.
-  Monitor traffic for the website or application.
-
-    6.
-  Change TTLs back to their original values.
-
-  If you want to migrate existing hosted zones to use a reusable delegation set,
-  the
-  existing hosted zones can't use any of the name servers that are assigned to the
-  reusable delegation set. If one or more hosted zones do use one or more name
-  servers
-  that are assigned to the reusable delegation set, you can do one of the
-  following:
-
-    *
-  For small numbers of hosted zones—up to a few hundred—it's
-  relatively easy to create reusable delegation sets until you get one that has
-  four name servers that don't overlap with any of the name servers in your hosted
-  zones.
-
-    *
-  For larger numbers of hosted zones, the easiest solution is to use more than
-  one reusable delegation set.
-
-    *
-  For larger numbers of hosted zones, you can also migrate hosted zones that
-  have overlapping name servers to hosted zones that don't have overlapping name
-  servers, then migrate the hosted zones again to use the reusable delegation
-  set.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4300,11 +3814,12 @@ defmodule AWS.Route53 do
 
   @doc """
   Creates a traffic policy, which you use to create multiple DNS resource record
-  sets
-  for one domain name (such as example.com) or one subdomain name (such as
+  sets for one domain name (such as example.com) or one subdomain name (such as
   www.example.com).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4342,26 +3857,15 @@ defmodule AWS.Route53 do
 
   @doc """
   Creates resource record sets in a specified hosted zone based on the settings in
-  a
-  specified traffic policy version.
-
-  In addition, `CreateTrafficPolicyInstance`
+  a specified traffic policy version. In addition, `CreateTrafficPolicyInstance`
   associates the resource record sets with a specified domain name (such as
-  example.com)
-  or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS
-  queries for
-  the domain or subdomain name by using the resource record sets that
-  `CreateTrafficPolicyInstance` created.
+  example.com) or subdomain name (such as www.example.com). Amazon Route 53
+  responds to DNS queries for the domain or subdomain name by using the resource
+  record sets that `CreateTrafficPolicyInstance` created.
 
-  After you submit an `CreateTrafficPolicyInstance` request, there's a
-  brief delay while Amazon Route 53 creates the resource record sets that are
-  specified in the traffic policy definition.
-  Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
-  confirm that the `CreateTrafficPolicyInstance`
-  request completed successfully. For more information, see the
-  `State` response element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4402,23 +3906,20 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Creates a new version of an existing traffic policy.
+  Creates a new version of an existing traffic policy. When you create a new
+  version of a traffic policy, you specify the ID of the traffic policy that you
+  want to update and a JSON-formatted document that describes the new version.
+  You use traffic policies to create multiple DNS resource record sets for one
+  domain name (such as example.com) or one subdomain name (such as
+  www.example.com). You can create a maximum of 1000 versions of a traffic
+  policy. If you reach the limit and need to create another version, you'll need
+  to start a new traffic policy.
 
-  When you create a new version of
-  a traffic policy, you specify the ID of the traffic policy that you want to
-  update and a
-  JSON-formatted document that describes the new version. You use traffic policies
-  to
-  create multiple DNS resource record sets for one domain name (such as
-  example.com) or
-  one subdomain name (such as www.example.com). You can create a maximum of 1000
-  versions
-  of a traffic policy. If you reach the limit and need to create another version,
-  you'll
-  need to start a new traffic policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateTrafficPolicyVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the traffic policy for which you want to create a new version.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the traffic policy for which you want to create a
+    new version.
 
   ## Optional parameters:
   """
@@ -4461,24 +3962,17 @@ defmodule AWS.Route53 do
 
   @doc """
   Authorizes the Amazon Web Services account that created a specified VPC to
-  submit an
-  `AssociateVPCWithHostedZone` request to associate the VPC with a
-  specified hosted zone that was created by a different account.
+  submit an `AssociateVPCWithHostedZone` request to associate the VPC with a
+  specified hosted zone that was created by a different account. To submit a
+  `CreateVPCAssociationAuthorization` request, you must use the account that
+  created the hosted zone. After you authorize the association, use the account
+  that created the VPC to submit an `AssociateVPCWithHostedZone` request.
 
-  To submit a
-  `CreateVPCAssociationAuthorization` request, you must use the account
-  that created the hosted zone. After you authorize the association, use the
-  account that
-  created the VPC to submit an `AssociateVPCWithHostedZone` request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20CreateVPCAssociationAuthorization&this_doc_guide=API%2520Reference)
 
-  If you want to associate multiple VPCs that you created by using one account
-  with
-  a hosted zone that you created by using a different account, you must submit one
-  authorization request for each VPC.
-
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want to authorize associating a VPC
-  	with.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
+    to authorize associating a VPC with.
 
   ## Optional parameters:
   """
@@ -4521,11 +4015,11 @@ defmodule AWS.Route53 do
 
   @doc """
   Deactivates a key-signing key (KSK) so that it will not be used for signing by
-  DNSSEC.
+  DNSSEC. This operation changes the KSK status to `INACTIVE`.
 
-  This operation changes the KSK status to `INACTIVE`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeactivateKeySigningKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
   * `:name` (`t:string`) A string used to identify a key-signing key (KSK).
 
@@ -4565,12 +4059,12 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a CIDR collection in the current Amazon Web Services account.
+  Deletes a CIDR collection in the current Amazon Web Services account. The
+  collection must be empty before it can be deleted.
 
-  The collection
-  must be empty before it can be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteCidrCollection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The UUID of the collection to delete.
 
   ## Optional parameters:
@@ -4606,30 +4100,21 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a health check.
+  Deletes a health check. Amazon Route 53 does not prevent you from deleting a
+  health check even if the health check is associated with one or more resource
+  record sets. If you delete a health check and you don't update the associated
+  resource record sets, the future status of the health check can't be predicted
+  and may change. This will affect the routing of DNS queries for your DNS
+  failover configuration. For more information, see [Replacing and Deleting
+  Health
+  Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html)
+  in the *Amazon Route 53 Developer Guide*.
 
-  Amazon Route 53 does not prevent you from deleting a health check even if the
-  health check is associated with one or more resource record sets. If you delete
-  a
-  health check and you don't update the associated resource record sets, the
-  future
-  status of the health check can't be predicted and may change. This will affect
-  the
-  routing of DNS queries for your DNS failover configuration. For more
-  information,
-  see [Replacing and Deleting Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html)
-  in the *Amazon Route 53
-  Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteHealthCheck&this_doc_guide=API%2520Reference)
 
-  If you're using Cloud Map and you configured Cloud Map to create a Route 53
-  health check when you register an instance, you can't use the Route 53
-  `DeleteHealthCheck` command to delete the health check. The health check
-  is deleted automatically when you deregister the instance; there can be a delay
-  of
-  several hours before the health check is deleted from Route 53.
-
-  ## Required positional parameters:
-  * `:health_check_id` (`t:string`) The ID of the health check that you want to delete.
+  ## Parameters:
+  * `:health_check_id` (`t:string`) The ID of the health check that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -4664,71 +4149,19 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a hosted zone.
+  Deletes a hosted zone. If the hosted zone was created by another service, such
+  as Cloud Map, see [Deleting Public Hosted Zones That Were Created by Another
+  Service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service)
+  in the *Amazon Route 53 Developer Guide* for information about how to delete
+  it. (The process is the same for public and private hosted zones that were
+  created by another service.) If you want to keep your domain registration but
+  you want to stop routing internet traffic to your website or web application,
+  we recommend that you delete resource record sets in the hosted zone instead
+  of deleting the hosted zone.
 
-  If the hosted zone was created by another service, such as Cloud Map, see
-  [Deleting Public Hosted Zones That Were Created by Another Service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service)
-  in the
-  *Amazon Route 53 Developer Guide* for information
-  about how to delete it. (The process is the same for public and private hosted
-  zones
-  that were created by another service.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteHostedZone&this_doc_guide=API%2520Reference)
 
-  If you want to keep your domain registration but you want to stop routing
-  internet
-  traffic to your website or web application, we recommend that you delete
-  resource record
-  sets in the hosted zone instead of deleting the hosted zone.
-
-  If you delete a hosted zone, you can't undelete it. You must create a new hosted
-  zone and update the name servers for your domain registration, which can require
-  up
-  to 48 hours to take effect. (If you delegated responsibility for a subdomain to
-  a
-  hosted zone and you delete the child hosted zone, you must update the name
-  servers
-  in the parent hosted zone.) In addition, if you delete a hosted zone, someone
-  could
-  hijack the domain and route traffic to their own resources using your domain
-  name.
-
-  If you want to avoid the monthly charge for the hosted zone, you can transfer
-  DNS
-  service for the domain to a free DNS service. When you transfer DNS service, you
-  have to
-  update the name servers for the domain registration. If the domain is registered
-  with
-  Route 53, see
-  [UpdateDomainNameservers](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_UpdateDomainNameservers.html) for information about how to replace Route 53 name servers with name servers for
-  the new DNS service. If the domain is
-  registered with another registrar, use the method provided by the registrar to
-  update
-  name servers for the domain registration. For more information, perform an
-  internet
-  search on "free DNS service."
-
-  You can delete a hosted zone only if it contains only the default SOA record and
-  NS
-  resource record sets. If the hosted zone contains other resource record sets,
-  you must
-  delete them before you can delete the hosted zone. If you try to delete a hosted
-  zone
-  that contains other resource record sets, the request fails, and Route 53
-  returns a `HostedZoneNotEmpty` error. For information about deleting records
-  from your hosted zone, see
-  [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
-
-  To verify that the hosted zone has been deleted, do one of the following:
-
-    *
-  Use the `GetHostedZone` action to request information about the
-  hosted zone.
-
-    *
-  Use the `ListHostedZones` action to get a list of the hosted zones
-  associated with the current Amazon Web Services account.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the hosted zone you want to delete.
 
   ## Optional parameters:
@@ -4759,22 +4192,13 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a key-signing key (KSK).
+  Deletes a key-signing key (KSK). Before you can delete a KSK, you must
+  deactivate it. The KSK must be deactivated before you can delete it regardless
+  of whether the hosted zone is enabled for DNSSEC signing.
 
-  Before you can delete a KSK, you must deactivate it.
-  The KSK must be deactivated before you can delete it regardless of whether the
-  hosted
-  zone is enabled for DNSSEC signing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteKeySigningKey&this_doc_guide=API%2520Reference)
 
-  You can use
-  [DeactivateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html) to deactivate the key before you delete it.
-
-  Use
-  [GetDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html)
-  to verify that the KSK is in an `INACTIVE`
-  status.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
   * `:name` (`t:string`) A string used to identify a key-signing key (KSK).
 
@@ -4814,18 +4238,14 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a configuration for DNS query logging.
+  Deletes a configuration for DNS query logging. If you delete a configuration,
+  Amazon Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't
+  delete any logs that are already in CloudWatch Logs.
 
-  If you delete a configuration, Amazon
-  Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete
-  any logs
-  that are already in CloudWatch Logs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
-  For more information about DNS query logs, see
-  [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html).
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the configuration that you want to delete. 
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the configuration that you want to delete.
 
   ## Optional parameters:
   """
@@ -4860,20 +4280,14 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a reusable delegation set.
+  Deletes a reusable delegation set. You can delete a reusable delegation set only
+  if it isn't associated with any hosted zones.
 
-  You can delete a reusable delegation set only if it isn't associated with any
-  hosted zones.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteReusableDelegationSet&this_doc_guide=API%2520Reference)
 
-  To verify that the reusable delegation set is not associated with any hosted
-  zones,
-  submit a
-  [GetReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html)
-  request and specify the ID of the reusable
-  delegation set that you want to delete.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the reusable delegation set that you want to delete.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the reusable delegation set that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -4908,29 +4322,16 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Deletes a traffic policy.
+  Deletes a traffic policy. When you delete a traffic policy, Route 53 sets a flag
+  on the policy to indicate that it has been deleted. However, Route 53 never
+  fully deletes the traffic policy. Note the following:
 
-  When you delete a traffic policy, Route 53 sets a flag on the policy to indicate
-  that
-  it has been deleted. However, Route 53 never fully deletes the traffic policy.
-  Note the
-  following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteTrafficPolicy&this_doc_guide=API%2520Reference)
 
-    *
-  Deleted traffic policies aren't listed if you run
-  [ListTrafficPolicies](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html). 
-
-    *
-  There's no way to get a list of deleted policies.
-
-    *
-  If you retain the ID of the policy, you can get information about the policy,
-  including the traffic policy document, by running
-  [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the traffic policy that you want to delete.
-  * `:version` (`t:integer`) The version number of the traffic policy that you want to delete.
+  * `:version` (`t:integer`) The version number of the traffic policy that you
+    want to delete.
 
   ## Optional parameters:
   """
@@ -4969,14 +4370,13 @@ defmodule AWS.Route53 do
 
   @doc """
   Deletes a traffic policy instance and all of the resource record sets that
-  Amazon
-  Route 53 created when you created the instance.
+  Amazon Route 53 created when you created the instance.
 
-  In the Route 53 console, traffic policy instances are known as policy
-  records.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to delete. 
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the traffic policy instance that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -5013,22 +4413,16 @@ defmodule AWS.Route53 do
   @doc """
   Removes authorization to submit an `AssociateVPCWithHostedZone` request to
   associate a specified VPC with a hosted zone that was created by a different
-  account.
-
-  You must use the account that created the hosted zone to submit a
+  account. You must use the account that created the hosted zone to submit a
   `DeleteVPCAssociationAuthorization` request.
 
-  Sending this request only prevents the Amazon Web Services account that created
-  the
-  VPC from associating the VPC with the Amazon Route 53 hosted zone in the future.
-  If
-  the VPC is already associated with the hosted zone,
-  `DeleteVPCAssociationAuthorization` won't disassociate the VPC from
-  the hosted zone. If you want to delete an existing association, use
-  `DisassociateVPCFromHostedZone`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DeleteVPCAssociationAuthorization&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone that was created with a different Amazon Web Services account, the ID of the hosted zone.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) When removing authorization to associate a VPC
+    that was created by one Amazon Web Services account with a hosted zone that
+    was created with a different Amazon Web Services account, the ID of the
+    hosted zone.
 
   ## Optional parameters:
   """
@@ -5070,12 +4464,12 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Disables DNSSEC signing in a specific hosted zone.
+  Disables DNSSEC signing in a specific hosted zone. This action does not
+  deactivate any key-signing keys (KSKs) that are active in the hosted zone.
 
-  This action does not deactivate any
-  key-signing keys (KSKs) that are active in the hosted zone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DisableHostedZoneDNSSEC&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
 
   ## Optional parameters:
@@ -5112,60 +4506,13 @@ defmodule AWS.Route53 do
 
   @doc """
   Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route
-  53
-  private hosted zone.
+  53 private hosted zone. Note the following:
 
-  Note the following:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20DisassociateVPCFromHostedZone&this_doc_guide=API%2520Reference)
 
-    *
-  You can't disassociate the last Amazon VPC from a private hosted zone.
-
-    *
-  You can't convert a private hosted zone into a public hosted zone.
-
-    *
-  You can submit a `DisassociateVPCFromHostedZone` request using
-  either the account that created the hosted zone or the account that created the
-  Amazon VPC.
-
-    *
-  Some services, such as Cloud Map and Amazon Elastic File System
-  (Amazon EFS) automatically create hosted zones and associate VPCs with the
-  hosted zones. A service can create a hosted zone using your account or using its
-  own account. You can disassociate a VPC from a hosted zone only if the service
-  created the hosted zone using your account.
-
-  When you run
-  [DisassociateVPCFromHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html), if the hosted zone has a value for
-  `OwningAccount`, you can use
-  `DisassociateVPCFromHostedZone`. If the hosted zone has a value
-  for `OwningService`, you can't use
-  `DisassociateVPCFromHostedZone`.
-
-  When revoking access, the hosted zone and the Amazon VPC must belong to
-  the same partition. A partition is a group of Amazon Web Services Regions. Each
-  Amazon Web Services account is scoped to one partition.
-
-  The following are the supported partitions:
-
-    
-
-  `aws` - Amazon Web Services Regions
-
-    
-
-  `aws-cn` - China Regions
-
-    
-
-  `aws-us-gov` - Amazon Web Services GovCloud (US) Region
-
-  For more information, see [Access
-  Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
-  in the *Amazon Web Services General Reference*.
-
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want to disassociate a VPC from.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the private hosted zone that you want
+    to disassociate a VPC from.
 
   ## Optional parameters:
   """
@@ -5202,7 +4549,9 @@ defmodule AWS.Route53 do
   @doc """
   Enables DNSSEC signing in a specific hosted zone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20EnableHostedZoneDNSSEC&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
 
   ## Optional parameters:
@@ -5239,24 +4588,14 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets the specified limit for the current account, for example, the maximum
-  number of
-  health checks that you can create using the account.
+  number of health checks that you can create using the account.
 
-  For the default limit, see
-  [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the
-  *Amazon Route 53 Developer Guide*. To request a higher limit,
-  [open a
-  case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetAccountLimit&this_doc_guide=API%2520Reference)
 
-  You can also view account limits in Amazon Web Services Trusted Advisor. Sign in
-  to
-  the Amazon Web Services Management Console and open the Trusted Advisor console
-  at
-  [https://console.aws.amazon.com/trustedadvisor/](https://console.aws.amazon.com/trustedadvisor).
-  Then choose **Service limits** in the navigation pane.
-
-  ## Required positional parameters:
-  * `:type` (`t:enum["MAX_HEALTH_CHECKS_BY_OWNER|MAX_HOSTED_ZONES_BY_OWNER|MAX_REUSABLE_DELEGATION_SETS_BY_OWNER|MAX_TRAFFIC_POLICIES_BY_OWNER|MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"]`) The limit that you want to get. Valid values include the following:
+  ## Parameters:
+  * `:type`
+    (`t:enum["MAX_HEALTH_CHECKS_BY_OWNER|MAX_HOSTED_ZONES_BY_OWNER|MAX_REUSABLE_DELEGATION_SETS_BY_OWNER|MAX_TRAFFIC_POLICIES_BY_OWNER|MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"]`)
+    The limit that you want to get. Valid values include the following:
 
   ## Optional parameters:
   """
@@ -5281,27 +4620,15 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Returns the current status of a change batch request.
-
-  The status is one of the
+  Returns the current status of a change batch request. The status is one of the
   following values:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetChange&this_doc_guide=API%2520Reference)
 
-  `PENDING` indicates that the changes in this request have not
-  propagated to all Amazon Route 53 DNS servers managing the hosted zone. This is
-  the initial status of all
-  change batch requests.
-
-    *
-
-  `INSYNC` indicates that the changes have propagated to all Route 53
-  DNS servers managing the hosted zone.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the change batch request. The value that you specify here is the value that
-  		<code>ChangeResourceRecordSets</code> returned in the <code>Id</code> element when
-  	you submitted the request.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the change batch request. The value that you
+    specify here is the value that ChangeResourceRecordSets returned in the Id
+    element when you submitted the request.
 
   ## Optional parameters:
   """
@@ -5327,17 +4654,11 @@ defmodule AWS.Route53 do
 
   @doc """
   Route 53 does not perform authorization for this API because it retrieves
-  information
-  that is already available to the public.
+  information that is already available to the public.
 
-  `GetCheckerIpRanges` still works, but we recommend that you download
-  ip-ranges.json, which includes IP address ranges for all Amazon Web Services
-  services. For more information, see [IP Address Ranges of Amazon Route 53
-  Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html)
-  in the *Amazon Route 53 Developer
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetCheckerIpRanges&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5362,10 +4683,11 @@ defmodule AWS.Route53 do
 
   @doc """
   Returns information about DNSSEC for a specific hosted zone, including the
-  key-signing
-  keys (KSKs) in the hosted zone.
+  key-signing keys (KSKs) in the hosted zone.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetDNSSEC&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:hosted_zone_id` (`t:string`) A unique string used to identify a hosted zone.
 
   ## Optional parameters:
@@ -5392,54 +4714,25 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about whether a specified geographic location is supported for
-  Amazon
-  Route 53 geolocation resource record sets.
+  Amazon Route 53 geolocation resource record sets. Route 53 does not perform
+  authorization for this API because it retrieves information that is already
+  available to the public.
 
-  Route 53 does not perform authorization for this API because it retrieves
-  information
-  that is already available to the public.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetGeoLocation&this_doc_guide=API%2520Reference)
 
-  Use the following syntax to determine whether a continent is supported for
-  geolocation:
-
-  ```
-  GET /2013-04-01/geolocation?continentcode=*two-letter abbreviation for
-  a continent*
-
-  ```
-
-  Use the following syntax to determine whether a country is supported for
-  geolocation:
-
-  ```
-  GET /2013-04-01/geolocation?countrycode=*two-character country
-  code*
-
-  ```
-
-  Use the following syntax to determine whether a subdivision of a country is
-  supported
-  for geolocation:
-
-  ```
-  GET /2013-04-01/geolocation?countrycode=*two-character country
-  code*&subdivisioncode=*subdivision
-  code*
-
-  ```
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:continent_code` (`t:string`) For geolocation resource record sets, a two-letter abbreviation that identifies a
-  	continent. Amazon Route 53 supports the following continent codes:
-  * `:country_code` (`t:string`) Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
-  		alpha-2</a>.
-  * `:subdivision_code` (`t:string`) The code for the subdivision, such as a particular state within the United States. For
-  	a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and
-  		Possession Abbreviations</a> on the United States Postal Service website. For a
-  	list of all supported subdivision codes, use the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html">ListGeoLocations</a>
-  	API.
+  * `:continent_code` (`t:string`) For geolocation resource record sets, a
+    two-letter abbreviation that identifies a continent. Amazon Route 53
+    supports the following continent codes:
+  * `:country_code` (`t:string`) Amazon Route 53 uses the two-letter country codes
+    that are specified in ISO standard 3166-1 alpha-2.
+  * `:subdivision_code` (`t:string`) The code for the subdivision, such as a
+    particular state within the United States. For a list of US state
+    abbreviations, see Appendix B: Two–Letter State and Possession Abbreviations
+    on the United States Postal Service website. For a list of all supported
+    subdivision codes, use the ListGeoLocations API.
   """
   @spec get_geo_location(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_geo_location_response(), any()}
@@ -5491,10 +4784,13 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified health check.
 
-  ## Required positional parameters:
-  * `:health_check_id` (`t:string`) The identifier that Amazon Route 53 assigned to the health check when you created it.
-  	When you add or update a resource record set, you use this value to specify which health
-  	check to use. The value can be up to 64 characters long.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:health_check_id` (`t:string`) The identifier that Amazon Route 53 assigned
+    to the health check when you created it. When you add or update a resource
+    record set, you use this value to specify which health check to use. The
+    value can be up to 64 characters long.
 
   ## Optional parameters:
   """
@@ -5522,7 +4818,9 @@ defmodule AWS.Route53 do
   Retrieves the number of health checks that are associated with the current
   Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5548,10 +4846,13 @@ defmodule AWS.Route53 do
   @doc """
   Gets the reason that a specified health check failed most recently.
 
-  ## Required positional parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check for which you want the last failure reason. When you
-  	created the health check, <code>CreateHealthCheck</code> returned the ID in the
-  	response, in the <code>HealthCheckId</code> element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckLastFailureReason&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:health_check_id` (`t:string`) The ID for the health check for which you want
+    the last failure reason. When you created the health check,
+    CreateHealthCheck returned the ID in the response, in the HealthCheckId
+    element.
 
   ## Optional parameters:
   """
@@ -5578,14 +4879,12 @@ defmodule AWS.Route53 do
   @doc """
   Gets status of a specified health check.
 
-  This API is intended for use during development to diagnose behavior. It doesn’t
-  support production use-cases with high query rates that require immediate and
-  actionable responses.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHealthCheckStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check that you want the current status for. When you created the
-  	health check, <code>CreateHealthCheck</code> returned the ID in the response, in the
-  		<code>HealthCheckId</code> element.
+  ## Parameters:
+  * `:health_check_id` (`t:string`) The ID for the health check that you want the
+    current status for. When you created the health check, CreateHealthCheck
+    returned the ID in the response, in the HealthCheckId element.
 
   ## Optional parameters:
   """
@@ -5613,8 +4912,11 @@ defmodule AWS.Route53 do
   Gets information about a specified hosted zone including the four name servers
   assigned to the hosted zone.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the hosted zone that you want to get information about.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZone&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the hosted zone that you want to get information
+    about.
 
   ## Optional parameters:
   """
@@ -5642,7 +4944,9 @@ defmodule AWS.Route53 do
   Retrieves the number of hosted zones that are associated with the current Amazon
   Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZoneCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5668,18 +4972,15 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets the specified limit for a specified hosted zone, for example, the maximum
-  number
-  of records that you can create in the hosted zone.
+  number of records that you can create in the hosted zone.
 
-  For the default limit, see
-  [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the
-  *Amazon Route 53 Developer Guide*. To request a higher limit,
-  [open a
-  case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetHostedZoneLimit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to get a limit for.
-  * `:type` (`t:enum["MAX_RRSETS_BY_ZONE|MAX_VPCS_ASSOCIATED_BY_ZONE"]`) The limit that you want to get. Valid values include the following:
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to get
+    a limit for.
+  * `:type` (`t:enum["MAX_RRSETS_BY_ZONE|MAX_VPCS_ASSOCIATED_BY_ZONE"]`) The limit
+    that you want to get. Valid values include the following:
 
   ## Optional parameters:
   """
@@ -5707,13 +5008,11 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified configuration for DNS query logging.
 
-  For more information about DNS query logs, see
-  [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html) and [Logging DNS
-  Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetQueryLoggingConfig&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the configuration for DNS query logging that you want to get information
-  	about.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the configuration for DNS query logging that you
+    want to get information about.
 
   ## Optional parameters:
   """
@@ -5739,12 +5038,13 @@ defmodule AWS.Route53 do
 
   @doc """
   Retrieves information about a specified reusable delegation set, including the
-  four
-  name servers that are assigned to the delegation set.
+  four name servers that are assigned to the delegation set.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the reusable delegation set that you want to get a list of name servers
-  	for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetReusableDelegationSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the reusable delegation set that you want to get
+    a list of name servers for.
 
   ## Optional parameters:
   """
@@ -5770,19 +5070,16 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets the maximum number of hosted zones that you can associate with the
-  specified
-  reusable delegation set.
+  specified reusable delegation set.
 
-  For the default limit, see
-  [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the
-  *Amazon Route 53 Developer Guide*. To request a higher limit,
-  [open a
-  case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetReusableDelegationSetLimit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:delegation_set_id` (`t:string`) The ID of the delegation set that you want to get the limit for.
-  * `:type` (`t:enum["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]`) Specify <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code> to get the maximum number of
-  	hosted zones that you can associate with the specified reusable delegation set.
+  ## Parameters:
+  * `:delegation_set_id` (`t:string`) The ID of the delegation set that you want
+    to get the limit for.
+  * `:type` (`t:enum["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"]`) Specify
+    MAX_ZONES_BY_REUSABLE_DELEGATION_SET to get the maximum number of hosted
+    zones that you can associate with the specified reusable delegation set.
 
   ## Optional parameters:
   """
@@ -5815,14 +5112,13 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specific traffic policy version.
 
-  For information about how of deleting a traffic policy affects the response from
-  `GetTrafficPolicy`, see
-  [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the traffic policy that you want to get information about.
-  * `:version` (`t:integer`) The version number of the traffic policy that you want to get information
-  	about.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the traffic policy that you want to get
+    information about.
+  * `:version` (`t:integer`) The version number of the traffic policy that you
+    want to get information about.
 
   ## Optional parameters:
   """
@@ -5848,20 +5144,17 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Gets information about a specified traffic policy instance.
+  Gets information about a specified traffic policy instance. Use
+  `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
+  confirm that the `CreateTrafficPolicyInstance` or an
+  `UpdateTrafficPolicyInstance` request completed successfully. For more
+  information, see the `State` response element.
 
-  Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to
-  confirm that the
-  `CreateTrafficPolicyInstance` or an `UpdateTrafficPolicyInstance` request
-  completed successfully.
-  For more information, see the `State` response
-  element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
-  In the Route 53 console, traffic policy instances are known as policy
-  records.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to get information about.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the traffic policy instance that you want to get
+    information about.
 
   ## Optional parameters:
   """
@@ -5889,7 +5182,9 @@ defmodule AWS.Route53 do
   Gets the number of traffic policy instances that are associated with the current
   Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20GetTrafficPolicyInstanceCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5915,14 +5210,16 @@ defmodule AWS.Route53 do
   @doc """
   Returns a paginated list of location objects and their CIDR blocks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrBlocks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:collection_id` (`t:string`) The UUID of the CIDR collection.
 
   ## Optional parameters:
   * `:location_name` (`t:string`) The name of the CIDR collection location.
   * `:max_results` (`t:`) Maximum number of results you want returned.
-  * `:next_token` (`t:string`) An opaque pagination token to indicate where the service is to begin enumerating
-  	results.
+  * `:next_token` (`t:string`) An opaque pagination token to indicate where the
+    service is to begin enumerating results.
   """
   @spec list_cidr_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cidr_blocks_response(), any()}
@@ -5975,12 +5272,15 @@ defmodule AWS.Route53 do
   Returns a paginated list of CIDR collections in the Amazon Web Services account
   (metadata only).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrCollections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of CIDR collections to return in the response.
-  * `:next_token` (`t:string`) An opaque pagination token to indicate where the service is to begin enumerating
-  	results.
+  * `:max_results` (`t:`) The maximum number of CIDR collections to return in the
+    response.
+  * `:next_token` (`t:string`) An opaque pagination token to indicate where the
+    service is to begin enumerating results.
   """
   @spec list_cidr_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cidr_collections_response(), any()}
@@ -6022,16 +5322,18 @@ defmodule AWS.Route53 do
 
   @doc """
   Returns a paginated list of CIDR locations for the given collection (metadata
-  only,
-  does not include CIDR blocks).
+  only, does not include CIDR blocks).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListCidrLocations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:collection_id` (`t:string`) The CIDR collection ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of CIDR collection locations to return in the response.
-  * `:next_token` (`t:string`) An opaque pagination token to indicate where the service is to begin enumerating
-  	results.
+  * `:max_results` (`t:`) The maximum number of CIDR collection locations to
+    return in the response.
+  * `:next_token` (`t:string`) An opaque pagination token to indicate where the
+    service is to begin enumerating results.
   """
   @spec list_cidr_locations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cidr_locations_response(), any()}
@@ -6072,47 +5374,38 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Retrieves a list of supported geographic locations.
+  Retrieves a list of supported geographic locations. Countries are listed first,
+  and continents are listed last. If Amazon Route 53 supports subdivisions for a
+  country (for example, states or provinces), the subdivisions for that country
+  are listed in alphabetical order immediately after the corresponding country.
 
-  Countries are listed first, and continents are listed last. If Amazon Route 53
-  supports subdivisions for a country (for example, states or provinces), the
-  subdivisions
-  for that country are listed in alphabetical order immediately after the
-  corresponding
-  country.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListGeoLocations&this_doc_guide=API%2520Reference)
 
-  Route 53 does not perform authorization for this API because it retrieves
-  information
-  that is already available to the public.
-
-  For a list of supported geolocation codes, see the
-  [GeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html)
-  data
-  type.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_items` (`t:`) (Optional) The maximum number of geolocations to be included in the response body for this
-  	request. If more than <code>maxitems</code> geolocations remain to be listed, then the
-  	value of the <code>IsTruncated</code> element in the response is
-  	<code>true</code>.
-  * `:start_continent_code` (`t:string`) The code for the continent with which you want to start listing locations that Amazon
-  	Route 53 supports for geolocation. If Route 53 has already returned a page or more of
-  	results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code> from
-  	the previous response has a value, enter that value in <code>startcontinentcode</code>
-  	to return the next page of results.
-  * `:start_country_code` (`t:string`) The code for the country with which you want to start listing locations that Amazon
-  	Route 53 supports for geolocation. If Route 53 has already returned a page or more of
-  	results, if <code>IsTruncated</code> is <code>true</code>, and if
-  		<code>NextCountryCode</code> from the previous response has a value, enter that
-  	value in <code>startcountrycode</code> to return the next page of results.
-  * `:start_subdivision_code` (`t:string`) The code for the state of the United States with which you want to start listing
-  	locations that Amazon Route 53 supports for geolocation. If Route 53 has already
-  	returned a page or more of results, if <code>IsTruncated</code> is <code>true</code>,
-  	and if <code>NextSubdivisionCode</code> from the previous response has a value, enter
-  	that value in <code>startsubdivisioncode</code> to return the next page of
-  	results.
+  * `:max_items` (`t:`) (Optional) The maximum number of geolocations to be
+    included in the response body for this request. If more than maxitems
+    geolocations remain to be listed, then the value of the IsTruncated element
+    in the response is true.
+  * `:start_continent_code` (`t:string`) The code for the continent with which you
+    want to start listing locations that Amazon Route 53 supports for
+    geolocation. If Route 53 has already returned a page or more of results, if
+    IsTruncated is true, and if NextContinentCode from the previous response has
+    a value, enter that value in startcontinentcode to return the next page of
+    results.
+  * `:start_country_code` (`t:string`) The code for the country with which you
+    want to start listing locations that Amazon Route 53 supports for
+    geolocation. If Route 53 has already returned a page or more of results, if
+    IsTruncated is true, and if NextCountryCode from the previous response has a
+    value, enter that value in startcountrycode to return the next page of
+    results.
+  * `:start_subdivision_code` (`t:string`) The code for the state of the United
+    States with which you want to start listing locations that Amazon Route 53
+    supports for geolocation. If Route 53 has already returned a page or more of
+    results, if IsTruncated is true, and if NextSubdivisionCode from the
+    previous response has a value, enter that value in startsubdivisioncode to
+    return the next page of results.
   """
   @spec list_geo_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_geo_locations_response(), any()}
@@ -6174,16 +5467,18 @@ defmodule AWS.Route53 do
   Retrieve a list of the health checks that are associated with the current Amazon
   Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHealthChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more health checks. To get another group, submit another
-  		<code>ListHealthChecks</code> request. 
-  * `:max_items` (`t:`) The maximum number of health checks that you want <code>ListHealthChecks</code> to
-  	return in response to the current request. Amazon Route 53 returns a maximum of 1000
-  	items. If you set <code>MaxItems</code> to a value greater than 1000, Route 53 returns
-  	only the first 1000 health checks. 
+  * `:marker` (`t:string`) If the value of IsTruncated in the previous response
+    was true, you have more health checks. To get another group, submit another
+    ListHealthChecks request.
+  * `:max_items` (`t:`) The maximum number of health checks that you want
+    ListHealthChecks to return in response to the current request. Amazon Route
+    53 returns a maximum of 1000 items. If you set MaxItems to a value greater
+    than 1000, Route 53 returns only the first 1000 health checks.
   """
   @spec list_health_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_health_checks_response(), any()}
@@ -6225,34 +5520,27 @@ defmodule AWS.Route53 do
 
   @doc """
   Retrieves a list of the public and private hosted zones that are associated with
-  the
-  current Amazon Web Services account.
-
-  The response includes a `HostedZones`
+  the current Amazon Web Services account. The response includes a `HostedZones`
   child element for each hosted zone.
 
-  Amazon Route 53 returns a maximum of 100 items in each response. If you have a
-  lot of
-  hosted zones, you can use the `maxitems` parameter to list them in groups of
-  up to 100.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZones&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:delegation_set_id` (`t:string`) If you&#39;re using reusable delegation sets and you want to list all of the hosted zones
-  	that are associated with a reusable delegation set, specify the ID of that reusable
-  	delegation set. 
-  * `:hosted_zone_type` (`t:enum["PRIVATE_HOSTED_ZONE"]`) 
-  	(Optional) Specifies if the hosted zone is private.
-
-  * `:marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more hosted zones. To get more hosted zones, submit
-  	another <code>ListHostedZones</code> request. 
-  * `:max_items` (`t:`) (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
-  	If you have more than <code>maxitems</code> hosted zones, the value of
-  		<code>IsTruncated</code> in the response is <code>true</code>, and the value of
-  		<code>NextMarker</code> is the hosted zone ID of the first hosted zone that Route 53
-  	will return if you submit another request.
+  * `:delegation_set_id` (`t:string`) If you're using reusable delegation sets and
+    you want to list all of the hosted zones that are associated with a reusable
+    delegation set, specify the ID of that reusable delegation set.
+  * `:hosted_zone_type` (`t:enum["PRIVATE_HOSTED_ZONE"]`) (Optional) Specifies if
+    the hosted zone is private.
+  * `:marker` (`t:string`) If the value of IsTruncated in the previous response
+    was true, you have more hosted zones. To get more hosted zones, submit
+    another ListHostedZones request.
+  * `:max_items` (`t:`) (Optional) The maximum number of hosted zones that you
+    want Amazon Route 53 to return. If you have more than maxitems hosted zones,
+    the value of IsTruncated in the response is true, and the value of
+    NextMarker is the hosted zone ID of the first hosted zone that Route 53 will
+    return if you submit another request.
   """
   @spec list_hosted_zones(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_response(), any()}
@@ -6311,88 +5599,31 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Retrieves a list of your hosted zones in lexicographic order.
+  Retrieves a list of your hosted zones in lexicographic order. The response
+  includes a `HostedZones` child element for each hosted zone created by the
+  current Amazon Web Services account. `ListHostedZonesByName` sorts hosted
+  zones by name with the labels reversed. For example:
 
-  The response includes a
-  `HostedZones` child element for each hosted zone created by the current
-  Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZonesByName&this_doc_guide=API%2520Reference)
 
-  `ListHostedZonesByName` sorts hosted zones by name with the labels
-  reversed. For example:
-
-  `com.example.www.`
-
-  Note the trailing dot, which can change the sort order in some circumstances.
-
-  If the domain name includes escape characters or Punycode,
-  `ListHostedZonesByName` alphabetizes the domain name using the escaped or
-  Punycoded value, which is the format that Amazon Route 53 saves in its database.
-  For
-  example, to create a hosted zone for exämple.com, you specify ex\344mple.com for
-  the domain name. `ListHostedZonesByName` alphabetizes it as:
-
-  `com.ex\344mple.`
-
-  The labels are reversed and alphabetized using the escaped value. For more
-  information
-  about valid domain name formats, including internationalized domain names, see
-  [DNS Domain Name
-  Format](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html)
-  in the *Amazon Route 53 Developer
-  Guide*.
-
-  Route 53 returns up to 100 items in each response. If you have a lot of hosted
-  zones,
-  use the `MaxItems` parameter to list them in groups of up to 100. The
-  response includes values that help navigate from one group of `MaxItems`
-  hosted zones to the next:
-
-    *
-  The `DNSName` and `HostedZoneId` elements in the
-  response contain the values, if any, specified for the `dnsname` and
-  `hostedzoneid` parameters in the request that produced the
-  current response.
-
-    *
-  The `MaxItems` element in the response contains the value, if any,
-  that you specified for the `maxitems` parameter in the request that
-  produced the current response.
-
-    *
-  If the value of `IsTruncated` in the response is true, there are
-  more hosted zones associated with the current Amazon Web Services account.
-
-  If `IsTruncated` is false, this response includes the last hosted
-  zone that is associated with the current account. The `NextDNSName`
-  element and `NextHostedZoneId` elements are omitted from the
-  response.
-
-    *
-  The `NextDNSName` and `NextHostedZoneId` elements in the
-  response contain the domain name and the hosted zone ID of the next hosted zone
-  that is associated with the current Amazon Web Services account. If you want to
-  list more hosted zones, make another call to `ListHostedZonesByName`,
-  and specify the value of `NextDNSName` and
-  `NextHostedZoneId` in the `dnsname` and
-  `hostedzoneid` parameters, respectively.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:dns_name` (`t:string`) (Optional) For your first request to <code>ListHostedZonesByName</code>, include the
-  		<code>dnsname</code> parameter only if you want to specify the name of the first
-  	hosted zone in the response. If you don&#39;t include the <code>dnsname</code> parameter,
-  	Amazon Route 53 returns all of the hosted zones that were created by the current Amazon Web Services account, in ASCII order. For subsequent requests, include both
-  		<code>dnsname</code> and <code>hostedzoneid</code> parameters. For
-  		<code>dnsname</code>, specify the value of <code>NextDNSName</code> from the
-  	previous response.
-  * `:hosted_zone_id` (`t:string`) (Optional) For your first request to <code>ListHostedZonesByName</code>, do not
-  	include the <code>hostedzoneid</code> parameter.
-  * `:max_items` (`t:`) The maximum number of hosted zones to be included in the response body for this
-  	request. If you have more than <code>maxitems</code> hosted zones, then the value of the
-  		<code>IsTruncated</code> element in the response is true, and the values of
-  		<code>NextDNSName</code> and <code>NextHostedZoneId</code> specify the first hosted
-  	zone in the next group of <code>maxitems</code> hosted zones. 
+  * `:dns_name` (`t:string`) (Optional) For your first request to
+    ListHostedZonesByName, include the dnsname parameter only if you want to
+    specify the name of the first hosted zone in the response. If you don't
+    include the dnsname parameter, Amazon Route 53 returns all of the hosted
+    zones that were created by the current Amazon Web Services account, in ASCII
+    order. For subsequent requests, include both dnsname and hostedzoneid
+    parameters. For dnsname, specify the value of NextDNSName from the previous
+    response.
+  * `:hosted_zone_id` (`t:string`) (Optional) For your first request to
+    ListHostedZonesByName, do not include the hostedzoneid parameter.
+  * `:max_items` (`t:`) The maximum number of hosted zones to be included in the
+    response body for this request. If you have more than maxitems hosted zones,
+    then the value of the IsTruncated element in the response is true, and the
+    values of NextDNSName and NextHostedZoneId specify the first hosted zone in
+    the next group of maxitems hosted zones.
   """
   @spec list_hosted_zones_by_name(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_by_name_response(), any()}
@@ -6443,63 +5674,29 @@ defmodule AWS.Route53 do
 
   @doc """
   Lists all the private hosted zones that a specified VPC is associated with,
-  regardless
-  of which Amazon Web Services account or Amazon Web Services service owns the
-  hosted zones.
+  regardless of which Amazon Web Services account or Amazon Web Services service
+  owns the hosted zones. The `HostedZoneOwner` structure in the response
+  contains one of the following values:
 
-  The `HostedZoneOwner` structure in the response contains one of the following
-  values:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListHostedZonesByVPC&this_doc_guide=API%2520Reference)
 
-    *
-  An `OwningAccount` element, which contains the account number of
-  either the current Amazon Web Services account or another Amazon Web Services
-  account. Some services, such as Cloud Map, create
-  hosted zones using the current account.
-
-    *
-  An `OwningService` element, which identifies the Amazon Web Services
-  service that created and owns the hosted zone. For example, if a hosted zone was
-  created by Amazon Elastic File System (Amazon EFS), the value of
-  `Owner` is `efs.amazonaws.com`.
-
-  When listing private hosted zones, the hosted zone and the Amazon VPC must
-  belong to the same partition where the hosted zones were created. A partition is
-  a
-  group of Amazon Web Services Regions. Each Amazon Web Services account is scoped
-  to
-  one partition.
-
-  The following are the supported partitions:
-
-    
-
-  `aws` - Amazon Web Services Regions
-
-    
-
-  `aws-cn` - China Regions
-
-    
-
-  `aws-us-gov` - Amazon Web Services GovCloud (US) Region
-
-  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
-  in the *Amazon Web Services General Reference*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_items` (`t:`) (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
-  	If the specified VPC is associated with more than <code>MaxItems</code> hosted zones,
-  	the response includes a <code>NextToken</code> element. <code>NextToken</code> contains
-  	an encrypted token that identifies the first hosted zone that Route 53 will return if
-  	you submit another request.
-  * `:next_token` (`t:string`) If the previous response included a <code>NextToken</code> element, the specified VPC
-  	is associated with more hosted zones. To get more hosted zones, submit another
-  		<code>ListHostedZonesByVPC</code> request. 
-  * `:vpc_id` (`t:string`) The ID of the Amazon VPC that you want to list hosted zones for.
-  * `:vpc_region` (`t:enum["eu_central_2|eu_north_1|il_central_1|us_iso_east_1|us_gov_west_1|ca_central_1|ap_southeast_1|ap_east_1|eu_west_3|ap_northeast_1|us_iso_west_1|us_isob_east_1|us_gov_east_1|eu_south_1|me_central_1|us_west_1|sa_east_1|ap_south_2|eu_central_1|ap_northeast_2|eu_south_2|us_west_2|us_east_2|ca_west_1|eu_west_1|ap_northeast_3|ap_southeast_4|eu_west_2|ap_southeast_2|ap_southeast_3|af_south_1|cn_north_1|me_south_1|us_east_1|ap_south_1"]`) For the Amazon VPC that you specified for <code>VPCId</code>, the Amazon Web Services
-  	Region that you created the VPC in. 
+  * `:max_items` (`t:`) (Optional) The maximum number of hosted zones that you
+    want Amazon Route 53 to return. If the specified VPC is associated with more
+    than MaxItems hosted zones, the response includes a NextToken element.
+    NextToken contains an encrypted token that identifies the first hosted zone
+    that Route 53 will return if you submit another request.
+  * `:next_token` (`t:string`) If the previous response included a NextToken
+    element, the specified VPC is associated with more hosted zones. To get more
+    hosted zones, submit another ListHostedZonesByVPC request.
+  * `:vpc_id` (`t:string`) The ID of the Amazon VPC that you want to list hosted
+    zones for.
+  * `:vpc_region`
+    (`t:enum["eu_central_2|eu_north_1|il_central_1|us_iso_east_1|us_gov_west_1|ca_central_1|ap_southeast_1|ap_east_1|eu_west_3|ap_northeast_1|us_iso_west_1|us_isob_east_1|us_gov_east_1|eu_south_1|me_central_1|us_west_1|sa_east_1|ap_south_2|eu_central_1|ap_northeast_2|eu_south_2|us_west_2|us_east_2|ca_west_1|eu_west_1|ap_northeast_3|ap_southeast_4|eu_west_2|ap_southeast_2|ap_southeast_3|af_south_1|cn_north_1|me_south_1|us_east_1|ap_south_1"]`)
+    For the Amazon VPC that you specified for VPCId, the Amazon Web Services
+    Region that you created the VPC in.
   """
   @spec list_hosted_zones_by_vpc(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_hosted_zones_by_vpc_response(), any()}
@@ -6559,29 +5756,25 @@ defmodule AWS.Route53 do
 
   @doc """
   Lists the configurations for DNS query logging that are associated with the
-  current
-  Amazon Web Services account or the configuration that is associated with a
-  specified
-  hosted zone.
+  current Amazon Web Services account or the configuration that is associated
+  with a specified hosted zone.
 
-  For more information about DNS query logs, see
-  [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html). Additional information, including the format of
-  DNS query logs, appears in [Logging DNS
-  Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html)
-  in
-  the *Amazon Route 53 Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListQueryLoggingConfigs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:hosted_zone_id` (`t:string`) (Optional) If you want to list the query logging configuration that is associated with
-  	a hosted zone, specify the ID in <code>HostedZoneId</code>. 
-  * `:max_results` (`t:`) (Optional) The maximum number of query logging configurations that you want Amazon
-  	Route 53 to return in response to the current request. If the current Amazon Web Services account has more than <code>MaxResults</code> configurations, use the
-  	value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a> in the response to get the next page of results.
-  * `:next_token` (`t:string`) (Optional) If the current Amazon Web Services account has more than
-  		<code>MaxResults</code> query logging configurations, use <code>NextToken</code> to
-  	get the second and subsequent pages of results.
+  * `:hosted_zone_id` (`t:string`) (Optional) If you want to list the query
+    logging configuration that is associated with a hosted zone, specify the ID
+    in HostedZoneId.
+  * `:max_results` (`t:`) (Optional) The maximum number of query logging
+    configurations that you want Amazon Route 53 to return in response to the
+    current request. If the current Amazon Web Services account has more than
+    MaxResults configurations, use the value of NextToken in the response to get
+    the next page of results.
+  * `:next_token` (`t:string`) (Optional) If the current Amazon Web Services
+    account has more than MaxResults query logging configurations, use NextToken
+    to get the second and subsequent pages of results.
   """
   @spec list_query_logging_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_query_logging_configs_response(), any()}
@@ -6632,101 +5825,35 @@ defmodule AWS.Route53 do
 
   @doc """
   Lists the resource record sets in a specified hosted zone.
+  `ListResourceRecordSets` returns up to 300 resource record sets at a time in
+  ASCII order, beginning at a position specified by the `name` and `type`
+  elements.
 
-  `ListResourceRecordSets` returns up to 300 resource record sets at a time
-  in ASCII order, beginning at a position specified by the `name` and
-  `type` elements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListResourceRecordSets&this_doc_guide=API%2520Reference)
 
-  ## Sort order
-
-  `ListResourceRecordSets` sorts results first by DNS name with the labels
-  reversed, for example:
-
-  `com.example.www.`
-
-  Note the trailing dot, which can change the sort order when the record name
-  contains
-  characters that appear before `.` (decimal 46) in the ASCII table. These
-  characters include the following: `! " # $ % & ' ( ) * + , -`
-
-  When multiple records have the same DNS name, `ListResourceRecordSets`
-  sorts results by the record type.
-
-  ## Specifying where to start listing records
-
-  You can use the name and type elements to specify the resource record set that
-  the
-  list begins with:
-
-  ## Definitions
-
-  ### If you do not specify Name or Type
-
-  The results begin with the first resource record set that the hosted zone
-  contains.
-
-  ### If you specify Name but not Type
-
-  The results begin with the first resource record set in the list whose
-  name is greater than or equal to `Name`.
-
-  ### If you specify Type but not Name
-
-  Amazon Route 53 returns the `InvalidInput` error.
-
-  ### If you specify both Name and Type
-
-  The results begin with the first resource record set in the list whose
-  name is greater than or equal to `Name`, and whose type is
-  greater than or equal to `Type`.
-
-  ## Resource record sets that are PENDING
-
-  This action returns the most current version of the records. This includes
-  records
-  that are `PENDING`, and that are not yet available on all Route 53 DNS
-  servers.
-
-  ## Changing resource record sets
-
-  To ensure that you get an accurate listing of the resource record sets for a
-  hosted
-  zone at a point in time, do not submit a `ChangeResourceRecordSets` request
-  while you're paging through the results of a `ListResourceRecordSets`
-  request. If you do, some pages may display results without the latest changes
-  while
-  other pages display results with the latest changes.
-
-  ## Displaying the next page of results
-
-  If a `ListResourceRecordSets` command returns more than one page of
-  results, the value of `IsTruncated` is `true`. To display the next
-  page of results, get the values of `NextRecordName`,
-  `NextRecordType`, and `NextRecordIdentifier` (if any) from the
-  response. Then submit another `ListResourceRecordSets` request, and specify
-  those values for `StartRecordName`, `StartRecordType`, and
-  `StartRecordIdentifier`.
-
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the resource record sets that you want to
-  	list.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that contains the
+    resource record sets that you want to list.
 
   ## Optional parameters:
-  * `:max_items` (`t:`) (Optional) The maximum number of resource records sets to include in the response body
-  	for this request. If the response includes more than <code>maxitems</code> resource
-  	record sets, the value of the <code>IsTruncated</code> element in the response is
-  		<code>true</code>, and the values of the <code>NextRecordName</code> and
-  		<code>NextRecordType</code> elements in the response identify the first resource
-  	record set in the next group of <code>maxitems</code> resource record sets.
-  * `:start_record_identifier` (`t:string`) 
-            <i>Resource record sets that have a routing policy other than
-  		simple:</i> If results were truncated for a given DNS name and type, specify
-  	the value of <code>NextRecordIdentifier</code> from the previous response to get the
-  	next resource record set that has the current DNS name and type.
-  * `:start_record_name` (`t:string`) The first name in the lexicographic ordering of resource record sets that you want to
-  	list. If the specified record name doesn&#39;t exist, the results begin with the first
-  	resource record set that has a name greater than the value of <code>name</code>.
-  * `:start_record_type` (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type of resource record set to begin the record listing from.
+  * `:max_items` (`t:`) (Optional) The maximum number of resource records sets to
+    include in the response body for this request. If the response includes more
+    than maxitems resource record sets, the value of the IsTruncated element in
+    the response is true, and the values of the NextRecordName and
+    NextRecordType elements in the response identify the first resource record
+    set in the next group of maxitems resource record sets.
+  * `:start_record_identifier` (`t:string`) Resource record sets that have a
+    routing policy other than simple: If results were truncated for a given DNS
+    name and type, specify the value of NextRecordIdentifier from the previous
+    response to get the next resource record set that has the current DNS name
+    and type.
+  * `:start_record_name` (`t:string`) The first name in the lexicographic ordering
+    of resource record sets that you want to list. If the specified record name
+    doesn't exist, the results begin with the first resource record set that has
+    a name greater than the value of name.
+  * `:start_record_type`
+    (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type
+    of resource record set to begin the record listing from.
   """
   @spec list_resource_record_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_record_sets_response(), any()}
@@ -6786,18 +5913,20 @@ defmodule AWS.Route53 do
 
   @doc """
   Retrieves a list of the reusable delegation sets that are associated with the
-  current
-  Amazon Web Services account.
+  current Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListReusableDelegationSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more reusable delegation sets. To get another group,
-  	submit another <code>ListReusableDelegationSets</code> request. 
-  * `:max_items` (`t:`) The number of reusable delegation sets that you want Amazon Route 53 to return in the
-  	response to this request. If you specify a value greater than 100, Route 53 returns only
-  	the first 100 reusable delegation sets.
+  * `:marker` (`t:string`) If the value of IsTruncated in the previous response
+    was true, you have more reusable delegation sets. To get another group,
+    submit another ListReusableDelegationSets request.
+  * `:max_items` (`t:`) The number of reusable delegation sets that you want
+    Amazon Route 53 to return in the response to this request. If you specify a
+    value greater than 100, Route 53 returns only the first 100 reusable
+    delegation sets.
   """
   @spec list_reusable_delegation_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reusable_delegation_sets_response(), any()}
@@ -6840,12 +5969,13 @@ defmodule AWS.Route53 do
   @doc """
   Lists tags for one health check or hosted zone.
 
-  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *Billing and Cost Management User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_id` (`t:string`) The ID of the resource for which you want to retrieve tags.
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the resource.
+  ## Parameters:
+  * `:resource_id` (`t:string`) The ID of the resource for which you want to
+    retrieve tags.
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+    resource.
 
   ## Optional parameters:
   """
@@ -6873,11 +6003,11 @@ defmodule AWS.Route53 do
   @doc """
   Lists tags for up to 10 health checks or hosted zones.
 
-  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
-  in the *Billing and Cost Management User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTagsForResources&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the resources.
+  ## Parameters:
+  * `:resource_type` (`t:enum["healthcheck|hostedzone"]`) The type of the
+    resources.
 
   ## Optional parameters:
   """
@@ -6913,26 +6043,21 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the latest version for every traffic policy that is
-  associated
-  with the current Amazon Web Services account.
+  associated with the current Amazon Web Services account. Policies are listed
+  in the order that they were created in.
 
-  Policies are listed in the order that they
-  were created in.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicies&this_doc_guide=API%2520Reference)
 
-  For information about how of deleting a traffic policy affects the response from
-  `ListTrafficPolicies`, see
-  [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_items` (`t:`) (Optional) The maximum number of traffic policies that you want Amazon Route 53 to
-  	return in response to this request. If you have more than <code>MaxItems</code> traffic
-  	policies, the value of <code>IsTruncated</code> in the response is <code>true</code>,
-  	and the value of <code>TrafficPolicyIdMarker</code> is the ID of the first traffic
-  	policy that Route 53 will return if you submit another request.
-  * `:traffic_policy_id_marker` (`t:string`) (Conditional) For your first request to <code>ListTrafficPolicies</code>, don&#39;t
-  	include the <code>TrafficPolicyIdMarker</code> parameter.
+  * `:max_items` (`t:`) (Optional) The maximum number of traffic policies that you
+    want Amazon Route 53 to return in response to this request. If you have more
+    than MaxItems traffic policies, the value of IsTruncated in the response is
+    true, and the value of TrafficPolicyIdMarker is the ID of the first traffic
+    policy that Route 53 will return if you submit another request.
+  * `:traffic_policy_id_marker` (`t:string`) (Conditional) For your first request
+    to ListTrafficPolicies, don't include the TrafficPolicyIdMarker parameter.
   """
   @spec list_traffic_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_policies_response(), any()}
@@ -6974,50 +6099,47 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the traffic policy instances that you created by using
-  the
-  current Amazon Web Services account.
+  the current Amazon Web Services account. After you submit an
+  `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon
+  Route 53 creates the resource record sets that are specified in the traffic
+  policy definition. For more information, see the `State` response element.
 
-  After you submit an `UpdateTrafficPolicyInstance` request, there's a
-  brief delay while Amazon Route 53 creates the resource record sets that are
-  specified in the traffic policy definition. For more information, see the
-  `State` response element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstances&this_doc_guide=API%2520Reference)
 
-  Route 53 returns a maximum of 100 items in each response. If you have a lot of
-  traffic
-  policy instances, you can use the `MaxItems` parameter to list them in groups
-  of up to 100.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:hosted_zone_id_marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
-  	the value of <code>HostedZoneId</code>, specify the value of
-  		<code>HostedZoneIdMarker</code> from the previous response, which is the hosted zone
-  	ID of the first traffic policy instance in the next group of traffic policy
-  	instances.
-  * `:max_items` (`t:`) The maximum number of traffic policy instances that you want Amazon Route 53 to return
-  	in response to a <code>ListTrafficPolicyInstances</code> request. If you have more than
-  		<code>MaxItems</code> traffic policy instances, the value of the
-  		<code>IsTruncated</code> element in the response is <code>true</code>, and the
-  	values of <code>HostedZoneIdMarker</code>, <code>TrafficPolicyInstanceNameMarker</code>,
-  	and <code>TrafficPolicyInstanceTypeMarker</code> represent the first traffic policy
-  	instance in the next group of <code>MaxItems</code> traffic policy instances.
-  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
-  	the value of <code>trafficpolicyinstancename</code>, specify the value of
-  		<code>TrafficPolicyInstanceNameMarker</code> from the previous response, which is
-  	the name of the first traffic policy instance in the next group of traffic policy
-  	instances.
-  * `:traffic_policy_instance_type_marker` (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
-  	the value of <code>trafficpolicyinstancetype</code>, specify the value of
-  		<code>TrafficPolicyInstanceTypeMarker</code> from the previous response, which is
-  	the type of the first traffic policy instance in the next group of traffic policy
-  	instances.
+  * `:hosted_zone_id_marker` (`t:string`) If the value of IsTruncated in the
+    previous response was true, you have more traffic policy instances. To get
+    more traffic policy instances, submit another ListTrafficPolicyInstances
+    request. For the value of HostedZoneId, specify the value of
+    HostedZoneIdMarker from the previous response, which is the hosted zone ID
+    of the first traffic policy instance in the next group of traffic policy
+    instances.
+  * `:max_items` (`t:`) The maximum number of traffic policy instances that you
+    want Amazon Route 53 to return in response to a ListTrafficPolicyInstances
+    request. If you have more than MaxItems traffic policy instances, the value
+    of the IsTruncated element in the response is true, and the values of
+    HostedZoneIdMarker, TrafficPolicyInstanceNameMarker, and
+    TrafficPolicyInstanceTypeMarker represent the first traffic policy instance
+    in the next group of MaxItems traffic policy instances.
+  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of
+    IsTruncated in the previous response was true, you have more traffic policy
+    instances. To get more traffic policy instances, submit another
+    ListTrafficPolicyInstances request. For the value of
+    trafficpolicyinstancename, specify the value of
+    TrafficPolicyInstanceNameMarker from the previous response, which is the
+    name of the first traffic policy instance in the next group of traffic
+    policy instances.
+  * `:traffic_policy_instance_type_marker`
+    (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the
+    value of IsTruncated in the previous response was true, you have more
+    traffic policy instances. To get more traffic policy instances, submit
+    another ListTrafficPolicyInstances request. For the value of
+    trafficpolicyinstancetype, specify the value of
+    TrafficPolicyInstanceTypeMarker from the previous response, which is the
+    type of the first traffic policy instance in the next group of traffic
+    policy instances.
   """
   @spec list_traffic_policy_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_instances_response(), any()}
@@ -7079,46 +6201,42 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the traffic policy instances that you created in a
-  specified
-  hosted zone.
+  specified hosted zone. After you submit a `CreateTrafficPolicyInstance` or an
+  `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon
+  Route 53 creates the resource record sets that are specified in the traffic
+  policy definition. For more information, see the `State` response element.
 
-  After you submit a `CreateTrafficPolicyInstance` or an
-  `UpdateTrafficPolicyInstance` request, there's a brief delay while
-  Amazon Route 53 creates the resource record sets that are specified in the
-  traffic
-  policy definition. For more information, see the `State` response
-  element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstancesByHostedZone&this_doc_guide=API%2520Reference)
 
-  Route 53 returns a maximum of 100 items in each response. If you have a lot of
-  traffic
-  policy instances, you can use the `MaxItems` parameter to list them in groups
-  of up to 100.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to list traffic policy instances for.
-  * `:max_items` (`t:`) The maximum number of traffic policy instances to be included in the response body for
-  	this request. If you have more than <code>MaxItems</code> traffic policy instances, the
-  	value of the <code>IsTruncated</code> element in the response is <code>true</code>, and
-  	the values of <code>HostedZoneIdMarker</code>,
-  		<code>TrafficPolicyInstanceNameMarker</code>, and
-  		<code>TrafficPolicyInstanceTypeMarker</code> represent the first traffic policy
-  	instance that Amazon Route 53 will return if you submit another request.
-  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response is true, you have
-  	more traffic policy instances. To get more traffic policy instances, submit another
-  		<code>ListTrafficPolicyInstances</code> request. For the value of
-  		<code>trafficpolicyinstancename</code>, specify the value of
-  		<code>TrafficPolicyInstanceNameMarker</code> from the previous response, which is
-  	the name of the first traffic policy instance in the next group of traffic policy
-  	instances.
-  * `:traffic_policy_instance_type_marker` (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the value of <code>IsTruncated</code> in the previous response is true, you have
-  	more traffic policy instances. To get more traffic policy instances, submit another
-  		<code>ListTrafficPolicyInstances</code> request. For the value of
-  		<code>trafficpolicyinstancetype</code>, specify the value of
-  		<code>TrafficPolicyInstanceTypeMarker</code> from the previous response, which is
-  	the type of the first traffic policy instance in the next group of traffic policy
-  	instances.
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want to list
+    traffic policy instances for.
+  * `:max_items` (`t:`) The maximum number of traffic policy instances to be
+    included in the response body for this request. If you have more than
+    MaxItems traffic policy instances, the value of the IsTruncated element in
+    the response is true, and the values of HostedZoneIdMarker,
+    TrafficPolicyInstanceNameMarker, and TrafficPolicyInstanceTypeMarker
+    represent the first traffic policy instance that Amazon Route 53 will return
+    if you submit another request.
+  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of
+    IsTruncated in the previous response is true, you have more traffic policy
+    instances. To get more traffic policy instances, submit another
+    ListTrafficPolicyInstances request. For the value of
+    trafficpolicyinstancename, specify the value of
+    TrafficPolicyInstanceNameMarker from the previous response, which is the
+    name of the first traffic policy instance in the next group of traffic
+    policy instances.
+  * `:traffic_policy_instance_type_marker`
+    (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the
+    value of IsTruncated in the previous response is true, you have more traffic
+    policy instances. To get more traffic policy instances, submit another
+    ListTrafficPolicyInstances request. For the value of
+    trafficpolicyinstancetype, specify the value of
+    TrafficPolicyInstanceTypeMarker from the previous response, which is the
+    type of the first traffic policy instance in the next group of traffic
+    policy instances.
   """
   @spec list_traffic_policy_instances_by_hosted_zone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_instances_by_hosted_zone_response(), any()}
@@ -7184,47 +6302,42 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets information about the traffic policy instances that you created by using a
-  specify traffic policy version.
+  specify traffic policy version. After you submit a
+  `CreateTrafficPolicyInstance` or an `UpdateTrafficPolicyInstance` request,
+  there's a brief delay while Amazon Route 53 creates the resource record sets
+  that are specified in the traffic policy definition. For more information, see
+  the `State` response element.
 
-  After you submit a `CreateTrafficPolicyInstance` or an
-  `UpdateTrafficPolicyInstance` request, there's a brief delay while
-  Amazon Route 53 creates the resource record sets that are specified in the
-  traffic
-  policy definition. For more information, see the `State` response
-  element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyInstancesByPolicy&this_doc_guide=API%2520Reference)
 
-  Route 53 returns a maximum of 100 items in each response. If you have a lot of
-  traffic
-  policy instances, you can use the `MaxItems` parameter to list them in groups
-  of up to 100.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:hosted_zone_id_marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
-  	request. 
-  * `:max_items` (`t:`) The maximum number of traffic policy instances to be included in the response body for
-  	this request. If you have more than <code>MaxItems</code> traffic policy instances, the
-  	value of the <code>IsTruncated</code> element in the response is <code>true</code>, and
-  	the values of <code>HostedZoneIdMarker</code>,
-  		<code>TrafficPolicyInstanceNameMarker</code>, and
-  		<code>TrafficPolicyInstanceTypeMarker</code> represent the first traffic policy
-  	instance that Amazon Route 53 will return if you submit another request.
-  * `:traffic_policy_id` (`t:string`) The ID of the traffic policy for which you want to list traffic policy
-  	instances.
-  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
-  	request.
-  * `:traffic_policy_instance_type_marker` (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the value of <code>IsTruncated</code> in the previous response was
-  		<code>true</code>, you have more traffic policy instances. To get more traffic
-  	policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
-  	request.
-  * `:traffic_policy_version` (`t:integer`) The version of the traffic policy for which you want to list traffic policy instances.
-  	The version must be associated with the traffic policy that is specified by
-  		<code>TrafficPolicyId</code>.
+  * `:hosted_zone_id_marker` (`t:string`) If the value of IsTruncated in the
+    previous response was true, you have more traffic policy instances. To get
+    more traffic policy instances, submit another
+    ListTrafficPolicyInstancesByPolicy request.
+  * `:max_items` (`t:`) The maximum number of traffic policy instances to be
+    included in the response body for this request. If you have more than
+    MaxItems traffic policy instances, the value of the IsTruncated element in
+    the response is true, and the values of HostedZoneIdMarker,
+    TrafficPolicyInstanceNameMarker, and TrafficPolicyInstanceTypeMarker
+    represent the first traffic policy instance that Amazon Route 53 will return
+    if you submit another request.
+  * `:traffic_policy_id` (`t:string`) The ID of the traffic policy for which you
+    want to list traffic policy instances.
+  * `:traffic_policy_instance_name_marker` (`t:string`) If the value of
+    IsTruncated in the previous response was true, you have more traffic policy
+    instances. To get more traffic policy instances, submit another
+    ListTrafficPolicyInstancesByPolicy request.
+  * `:traffic_policy_instance_type_marker`
+    (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) If the
+    value of IsTruncated in the previous response was true, you have more
+    traffic policy instances. To get more traffic policy instances, submit
+    another ListTrafficPolicyInstancesByPolicy request.
+  * `:traffic_policy_version` (`t:integer`) The version of the traffic policy for
+    which you want to list traffic policy instances. The version must be
+    associated with the traffic policy that is specified by TrafficPolicyId.
   """
   @spec list_traffic_policy_instances_by_policy(
           AWS.Client.t(),
@@ -7315,22 +6428,22 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about all of the versions for a specified traffic policy.
 
-  Traffic policy versions are listed in numerical order by
-  `VersionNumber`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListTrafficPolicyVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) Specify the value of <code>Id</code> of the traffic policy for which you want to list
-  	all versions.
+  ## Parameters:
+  * `:id` (`t:string`) Specify the value of Id of the traffic policy for which you
+    want to list all versions.
 
   ## Optional parameters:
-  * `:max_items` (`t:`) The maximum number of traffic policy versions that you want Amazon Route 53 to include
-  	in the response body for this request. If the specified traffic policy has more than
-  		<code>MaxItems</code> versions, the value of <code>IsTruncated</code> in the
-  	response is <code>true</code>, and the value of the
-  		<code>TrafficPolicyVersionMarker</code> element is the ID of the first version that
-  	Route 53 will return if you submit another request.
-  * `:traffic_policy_version_marker` (`t:string`) For your first request to <code>ListTrafficPolicyVersions</code>, don&#39;t include the
-  		<code>TrafficPolicyVersionMarker</code> parameter.
+  * `:max_items` (`t:`) The maximum number of traffic policy versions that you
+    want Amazon Route 53 to include in the response body for this request. If
+    the specified traffic policy has more than MaxItems versions, the value of
+    IsTruncated in the response is true, and the value of the
+    TrafficPolicyVersionMarker element is the ID of the first version that Route
+    53 will return if you submit another request.
+  * `:traffic_policy_version_marker` (`t:string`) For your first request to
+    ListTrafficPolicyVersions, don't include the TrafficPolicyVersionMarker
+    parameter.
   """
   @spec list_traffic_policy_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_traffic_policy_versions_response(), any()}
@@ -7373,28 +6486,24 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets a list of the VPCs that were created by other accounts and that can be
-  associated
-  with a specified hosted zone because you've submitted one or more
+  associated with a specified hosted zone because you've submitted one or more
   `CreateVPCAssociationAuthorization` requests.
 
-  The response includes a `VPCs` element with a `VPC` child
-  element for each VPC that can be associated with the hosted zone.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20ListVPCAssociationAuthorizations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone for which you want a list of VPCs that can be associated
-  	with the hosted zone.
+  ## Parameters:
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone for which you want a
+    list of VPCs that can be associated with the hosted zone.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) 
-            <i>Optional</i>: An integer that specifies the maximum number of VPCs
-  	that you want Amazon Route 53 to return. If you don&#39;t specify a value for
-  		<code>MaxResults</code>, Route 53 returns up to 50 VPCs per page.
-  * `:next_token` (`t:string`) 
-            <i>Optional</i>: If a response includes a <code>NextToken</code>
-  	element, there are more VPCs that can be associated with the specified hosted zone. To
-  	get the next page of results, submit another request, and include the value of
-  		<code>NextToken</code> from the response in the <code>nexttoken</code> parameter in
-  	another <code>ListVPCAssociationAuthorizations</code> request.
+  * `:max_results` (`t:`) Optional: An integer that specifies the maximum number
+    of VPCs that you want Amazon Route 53 to return. If you don't specify a
+    value for MaxResults, Route 53 returns up to 50 VPCs per page.
+  * `:next_token` (`t:string`) Optional: If a response includes a NextToken
+    element, there are more VPCs that can be associated with the specified
+    hosted zone. To get the next page of results, submit another request, and
+    include the value of NextToken from the response in the nexttoken parameter
+    in another ListVPCAssociationAuthorizations request.
   """
   @spec list_vpc_association_authorizations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_association_authorizations_response(), any()}
@@ -7437,41 +6546,37 @@ defmodule AWS.Route53 do
 
   @doc """
   Gets the value that Amazon Route 53 returns in response to a DNS request for a
-  specified record name and type.
+  specified record name and type. You can optionally specify the IP address of a
+  DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. This call
+  only supports querying public hosted zones.
 
-  You can optionally specify the IP address of a DNS
-  resolver, an EDNS0 client subnet IP address, and a subnet mask.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20TestDNSAnswer&this_doc_guide=API%2520Reference)
 
-  This call only supports querying public hosted zones.
-
-  The `TestDnsAnswer ` returns information similar to what you would expect from
-  the answer
-  section of the `dig` command. Therefore, if you query for the name
-  servers of a subdomain that point to the parent name servers, those will not be
-  returned.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:e_dns0_client_subnet_ip` (`t:string`) If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or
-  	IPv6 address of a client in the applicable location, for example,
-  		<code>192.0.2.44</code> or <code>2001:db8:85a3::8a2e:370:7334</code>.
-  * `:e_dns0_client_subnet_mask` (`t:string`) If you specify an IP address for <code>edns0clientsubnetip</code>, you can optionally
-  	specify the number of bits of the IP address that you want the checking tool to include
-  	in the DNS query. For example, if you specify <code>192.0.2.44</code> for
-  		<code>edns0clientsubnetip</code> and <code>24</code> for
-  		<code>edns0clientsubnetmask</code>, the checking tool will simulate a request from
-  	192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6
-  	addresses.
-  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want Amazon Route 53 to simulate a query
-  	for.
-  * `:record_name` (`t:string`) The name of the resource record set that you want Amazon Route 53 to simulate a query
-  	for.
-  * `:record_type` (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type of the resource record set.
-  * `:resolver_ip` (`t:string`) If you want to simulate a request from a specific DNS resolver, specify the IP address
-  	for that resolver. If you omit this value, <code>TestDnsAnswer</code> uses the IP
-  	address of a DNS resolver in the Amazon Web Services US East (N. Virginia) Region
-  		(<code>us-east-1</code>).
+  * `:e_dns0_client_subnet_ip` (`t:string`) If the resolver that you specified for
+    resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in
+    the applicable location, for example, 192.0.2.44 or
+    2001:db8:85a3::8a2e:370:7334.
+  * `:e_dns0_client_subnet_mask` (`t:string`) If you specify an IP address for
+    edns0clientsubnetip, you can optionally specify the number of bits of the IP
+    address that you want the checking tool to include in the DNS query. For
+    example, if you specify 192.0.2.44 for edns0clientsubnetip and 24 for
+    edns0clientsubnetmask, the checking tool will simulate a request from
+    192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits
+    for IPv6 addresses.
+  * `:hosted_zone_id` (`t:string`) The ID of the hosted zone that you want Amazon
+    Route 53 to simulate a query for.
+  * `:record_name` (`t:string`) The name of the resource record set that you want
+    Amazon Route 53 to simulate a query for.
+  * `:record_type`
+    (`t:enum["A|AAAA|CAA|CNAME|DS|MX|NAPTR|NS|PTR|SOA|SPF|SRV|TXT"]`) The type
+    of the resource record set.
+  * `:resolver_ip` (`t:string`) If you want to simulate a request from a specific
+    DNS resolver, specify the IP address for that resolver. If you omit this
+    value, TestDnsAnswer uses the IP address of a DNS resolver in the Amazon Web
+    Services US East (N. Virginia) Region (us-east-1).
   """
   @spec test_dns_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_dns_answer_response(), any()}
@@ -7548,19 +6653,14 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Updates an existing health check.
+  Updates an existing health check. Note that some values can't be updated.
 
-  Note that some values can't be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateHealthCheck&this_doc_guide=API%2520Reference)
 
-  For more information about updating health checks, see [Creating, Updating, and Deleting Health
-  Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html)
-  in the *Amazon Route 53
-  Developer Guide*.
-
-  ## Required positional parameters:
-  * `:health_check_id` (`t:string`) The ID for the health check for which you want detailed information. When you created
-  	the health check, <code>CreateHealthCheck</code> returned the ID in the response, in the
-  		<code>HealthCheckId</code> element.
+  ## Parameters:
+  * `:health_check_id` (`t:string`) The ID for the health check for which you want
+    detailed information. When you created the health check, CreateHealthCheck
+    returned the ID in the response, in the HealthCheckId element.
 
   ## Optional parameters:
   """
@@ -7597,8 +6697,11 @@ defmodule AWS.Route53 do
   @doc """
   Updates the comment for a specified hosted zone.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID for the hosted zone that you want to update the comment for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateHostedZoneComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The ID for the hosted zone that you want to update the
+    comment for.
 
   ## Optional parameters:
   """
@@ -7635,11 +6738,13 @@ defmodule AWS.Route53 do
   @doc """
   Updates the comment for a specified traffic policy version.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The value of <code>Id</code> for the traffic policy that you want to update the
-  	comment for.
-  * `:version` (`t:integer`) The value of <code>Version</code> for the traffic policy that you want to update the
-  	comment for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateTrafficPolicyComment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The value of Id for the traffic policy that you want to
+    update the comment for.
+  * `:version` (`t:integer`) The value of Version for the traffic policy that you
+    want to update the comment for.
 
   ## Optional parameters:
   """
@@ -7677,44 +6782,19 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-
   After you submit a `UpdateTrafficPolicyInstance` request, there's a brief delay
-  while Route 53 creates the resource record sets
-  that are specified in the traffic policy definition.
+  while Route 53 creates the resource record sets that are specified in the
+  traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of
+  updated traffic policy instance confirm that the `UpdateTrafficPolicyInstance`
+  request completed successfully. For more information, see the `State` response
+  element. Updates the resource record sets in a specified hosted zone that were
+  created based on the settings in a specified traffic policy version.
 
-  Use `GetTrafficPolicyInstance` with the `id` of updated traffic policy instance
-  confirm
-  that the
-  `UpdateTrafficPolicyInstance` request completed successfully. For more
-  information, see the `State` response element.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53%20UpdateTrafficPolicyInstance&this_doc_guide=API%2520Reference)
 
-  Updates the resource record sets in a specified hosted zone that were created
-  based on
-  the settings in a specified traffic policy version.
-
-  When you update a traffic policy instance, Amazon Route 53 continues to respond
-  to DNS
-  queries for the root resource record set name (such as example.com) while it
-  replaces
-  one group of resource record sets with another. Route 53 performs the following
-  operations:
-
-    1.
-  Route 53 creates a new group of resource record sets based on the specified
-  traffic policy. This is true regardless of how significant the differences are
-  between the existing resource record sets and the new resource record sets.
-
-    2.
-  When all of the new resource record sets have been created, Route 53 starts to
-  respond to DNS queries for the root resource record set name (such as
-  example.com) by using the new resource record sets.
-
-    3.
-  Route 53 deletes the old group of resource record sets that are associated
-  with the root resource record set name.
-
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the traffic policy instance that you want to update.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the traffic policy instance that you want to
+    update.
 
   ## Optional parameters:
   """

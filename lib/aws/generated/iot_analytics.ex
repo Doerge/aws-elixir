@@ -4,39 +4,16 @@
 defmodule AWS.IoTAnalytics do
   @moduledoc """
   IoT Analytics allows you to collect large amounts of device data, process
-  messages, and store them.
-
-  You can then query the data and run sophisticated analytics on it. IoT Analytics
-  enables advanced
-  data exploration through integration with Jupyter Notebooks and data
-  visualization through integration
-  with Amazon QuickSight.
-
-  Traditional analytics and business intelligence tools are designed to process
-  structured data. IoT data
-  often comes from devices that record noisy processes (such as temperature,
-  motion, or sound). As a result
-  the data from these devices can have significant gaps, corrupted messages, and
-  false readings that must be
-  cleaned up before analysis can occur. Also, IoT data is often only meaningful in
-  the context of other data
+  messages, and store them. You can then query the data and run sophisticated
+  analytics on it. IoT Analytics enables advanced data exploration through
+  integration with Jupyter Notebooks and data visualization through integration
+  with Amazon QuickSight. Traditional analytics and business intelligence tools
+  are designed to process structured data. IoT data often comes from devices
+  that record noisy processes (such as temperature, motion, or sound). As a
+  result the data from these devices can have significant gaps, corrupted
+  messages, and false readings that must be cleaned up before analysis can
+  occur. Also, IoT data is often only meaningful in the context of other data
   from external sources.
-
-  IoT Analytics automates the steps required to analyze data from IoT devices. IoT
-  Analytics
-  filters, transforms, and enriches IoT data before storing it in a time-series
-  data store for analysis. You
-  can set up the service to collect only the data you need from your devices,
-  apply mathematical transforms
-  to process the data, and enrich the data with device-specific metadata such as
-  device type and location
-  before storing it. Then, you can analyze your data by running queries using the
-  built-in SQL query engine,
-  or perform more complex analytics and machine learning inference. IoT Analytics
-  includes pre-built models
-  for common IoT use cases so you can answer questions like which devices are
-  about to fail or which customers
-  are at risk of abandoning their wearable devices.
   """
 
   alias AWS.Client
@@ -2044,7 +2021,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Sends messages to a channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20BatchPutMessage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2076,10 +2055,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Cancels the reprocessing of data through the pipeline.
 
-  ## Required positional parameters:
-  * `:pipeline_name` (`t:string`) The name of pipeline for which data reprocessing is canceled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CancelPipelineReprocessing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of pipeline for which data reprocessing
+    is canceled.
   * `:reprocessing_id` (`t:string`) The ID of the reprocessing task (returned by
-      <code>StartPipelineReprocessing</code>).
+    StartPipelineReprocessing).
 
   ## Optional parameters:
   """
@@ -2123,12 +2105,13 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Used to create a channel.
+  Used to create a channel. A channel collects data from an MQTT topic and
+  archives the raw, unprocessed messages before publishing the data to a
+  pipeline.
 
-  A channel collects data from an MQTT topic and archives the raw,
-  unprocessed messages before publishing the data to a pipeline.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateChannel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2158,17 +2141,15 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Used to create a dataset.
-
-  A dataset stores data retrieved from a data store by applying a
-  `queryAction` (a SQL query) or a `containerAction` (executing a
+  Used to create a dataset. A dataset stores data retrieved from a data store by
+  applying a `queryAction` (a SQL query) or a `containerAction` (executing a
   containerized application). This operation creates the skeleton of a dataset.
-  The dataset can
-  be populated manually by calling `CreateDatasetContent` or automatically
-  according
-  to a trigger you specify.
+  The dataset can be populated manually by calling `CreateDatasetContent` or
+  automatically according to a trigger you specify.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2201,7 +2182,9 @@ defmodule AWS.IoTAnalytics do
   Creates the content of a dataset by applying a `queryAction` (a SQL query) or a
   `containerAction` (executing a containerized application).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_name` (`t:string`) The name of the dataset.
 
   ## Optional parameters:
@@ -2239,7 +2222,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Creates a data store, which is a repository for messages.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2269,16 +2254,14 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Creates a pipeline.
+  Creates a pipeline. A pipeline consumes messages from a channel and allows you
+  to process the messages before storing them in a data store. You must specify
+  both a `channel` and a `datastore` activity and, optionally, as many as 23
+  additional activities in the `pipelineActivities` array.
 
-  A pipeline consumes messages from a channel and allows you to process
-  the messages before storing them in a data store. You must specify both a
-  `channel`
-  and a `datastore` activity and, optionally, as many as 23 additional activities
-  in
-  the `pipelineActivities` array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreatePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2310,7 +2293,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel to delete.
 
   ## Optional parameters:
@@ -2343,10 +2328,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified dataset.
 
-  You do not have to delete the content of the dataset before you perform this
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDataset&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:dataset_name` (`t:string`) The name of the dataset to delete.
 
   ## Optional parameters:
@@ -2379,13 +2363,16 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the content of the specified dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_name` (`t:string`) The name of the dataset whose content is deleted.
 
   ## Optional parameters:
-  * `:version_id` (`t:string`) The version of the dataset whose content is deleted. You can also use the strings
-      &quot;$LATEST&quot; or &quot;$LATEST_SUCCEEDED&quot; to delete the latest or latest successfully completed data
-      set. If not specified, &quot;$LATEST_SUCCEEDED&quot; is the default.
+  * `:version_id` (`t:string`) The version of the dataset whose content is
+    deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    delete the latest or latest successfully completed data set. If not
+    specified, "$LATEST_SUCCEEDED" is the default.
   """
   @spec delete_dataset_content(
           AWS.Client.t(),
@@ -2425,7 +2412,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified data store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeleteDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:datastore_name` (`t:string`) The name of the data store to delete.
 
   ## Optional parameters:
@@ -2458,7 +2447,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified pipeline.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DeletePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to delete.
 
   ## Optional parameters:
@@ -2491,12 +2482,16 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a channel.
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel whose information is retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel whose information is
+    retrieved.
 
   ## Optional parameters:
-  * `:include_statistics` (`t:boolean`) If true, additional statistical information about the channel is included in the response.
-      This feature can&#39;t be used with a channel whose S3 storage is customer-managed.
+  * `:include_statistics` (`t:boolean`) If true, additional statistical
+    information about the channel is included in the response. This feature
+    can't be used with a channel whose S3 storage is customer-managed.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -2530,8 +2525,11 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a dataset.
 
-  ## Required positional parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose information is retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose information is
+    retrieved.
 
   ## Optional parameters:
   """
@@ -2558,13 +2556,15 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a data store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:datastore_name` (`t:string`) The name of the data store
 
   ## Optional parameters:
-  * `:include_statistics` (`t:boolean`) If true, additional statistical information about the data store is included in the
-      response. This feature can&#39;t be used with a data store whose S3 storage is
-      customer-managed.
+  * `:include_statistics` (`t:boolean`) If true, additional statistical
+    information about the data store is included in the response. This feature
+    can't be used with a data store whose S3 storage is customer-managed.
   """
   @spec describe_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_datastore_response(), any()}
@@ -2598,7 +2598,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves the current settings of the IoT Analytics logging options.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2625,8 +2627,11 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a pipeline.
 
-  ## Required positional parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline whose information is retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribePipeline&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline whose information is
+    retrieved.
 
   ## Optional parameters:
   """
@@ -2653,13 +2658,17 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves the contents of a dataset as presigned URIs.
 
-  ## Required positional parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose contents are retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20GetDatasetContent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents are
+    retrieved.
 
   ## Optional parameters:
-  * `:version_id` (`t:string`) The version of the dataset whose contents are retrieved. You can also use the strings
-      &quot;$LATEST&quot; or &quot;$LATEST_SUCCEEDED&quot; to retrieve the contents of the latest or latest successfully
-      completed dataset. If not specified, &quot;$LATEST_SUCCEEDED&quot; is the default.
+  * `:version_id` (`t:string`) The version of the dataset whose contents are
+    retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    retrieve the contents of the latest or latest successfully completed
+    dataset. If not specified, "$LATEST_SUCCEEDED" is the default.
   """
   @spec get_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_content_response(), any()}
@@ -2693,10 +2702,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of channels.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
@@ -2740,18 +2752,22 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Lists information about dataset contents that have been created.
 
-  ## Required positional parameters:
-  * `:dataset_name` (`t:string`) The name of the dataset whose contents information you want to list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasetContents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:dataset_name` (`t:string`) The name of the dataset whose contents
+    information you want to list.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:scheduled_before` (`t:timestamp`) A filter to limit results to those dataset contents whose creation is scheduled before the
-      given time. See the field <code>triggers.schedule</code> in the <code>CreateDataset</code>
-      request. (timestamp)
-  * `:scheduled_on_or_after` (`t:timestamp`) A filter to limit results to those dataset contents whose creation is scheduled on or
-      after the given time. See the field <code>triggers.schedule</code> in the
-        <code>CreateDataset</code> request. (timestamp)
+  * `:scheduled_before` (`t:timestamp`) A filter to limit results to those dataset
+    contents whose creation is scheduled before the given time. See the field
+    triggers.schedule in the CreateDataset request. (timestamp)
+  * `:scheduled_on_or_after` (`t:timestamp`) A filter to limit results to those
+    dataset contents whose creation is scheduled on or after the given time. See
+    the field triggers.schedule in the CreateDataset request. (timestamp)
   """
   @spec list_dataset_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_contents_response(), any()}
@@ -2812,10 +2828,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about datasets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
@@ -2859,10 +2878,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of data stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatastores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
@@ -2906,10 +2928,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of pipelines.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListPipelines&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
@@ -2953,10 +2978,13 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Lists the tags (metadata) that you have assigned to the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to list.
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    list.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2990,13 +3018,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Sets or updates the IoT Analytics logging options.
 
-  If you update the value of any `loggingOptions` field, it takes up to one
-  minute for the change to take effect. Also, if you change the policy attached to
-  the role you
-  specified in the `roleArn` field (for example, to correct an invalid policy), it
-  takes up to five minutes for that change to take effect.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3018,7 +3042,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Simulates the results of running a pipeline activity on a message payload.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20RunPipelineActivity&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3049,19 +3075,21 @@ defmodule AWS.IoTAnalytics do
 
   @doc """
   Retrieves a sample of messages from the specified channel ingested during the
-  specified
-  timeframe.
+  specified timeframe. Up to 10 messages can be retrieved.
 
-  Up to 10 messages can be retrieved.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20SampleChannelData&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_name` (`t:string`) The name of the channel whose message samples are retrieved.
+  ## Parameters:
+  * `:channel_name` (`t:string`) The name of the channel whose message samples are
+    retrieved.
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp`) The end of the time window from which sample messages are retrieved.
-  * `:max_messages` (`t:integer`) The number of sample messages to be retrieved. The limit is 10. The default is also
-      10.
-  * `:start_time` (`t:timestamp`) The start of the time window from which sample messages are retrieved.
+  * `:end_time` (`t:timestamp`) The end of the time window from which sample
+    messages are retrieved.
+  * `:max_messages` (`t:integer`) The number of sample messages to be retrieved.
+    The limit is 10. The default is also 10.
+  * `:start_time` (`t:timestamp`) The start of the time window from which sample
+    messages are retrieved.
   """
   @spec sample_channel_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sample_channel_data_response(), any()}
@@ -3113,8 +3141,11 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Starts the reprocessing of raw message data through the pipeline.
 
-  ## Required positional parameters:
-  * `:pipeline_name` (`t:string`) The name of the pipeline on which to start reprocessing.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20StartPipelineReprocessing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:pipeline_name` (`t:string`) The name of the pipeline on which to start
+    reprocessing.
 
   ## Optional parameters:
   """
@@ -3149,15 +3180,16 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata that can
+  be used to manage a resource.
 
-  Tags are metadata that can be used to
-  manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to modify.
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    modify.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3192,11 +3224,15 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Removes the given tags (metadata) from the resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to remove.
-  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]`) The keys of those tags which you want to remove.
+  * `:resource_arn` (`t:string`) The ARN of the resource whose tags you want to
+    remove.
+  * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]`) The keys of those
+    tags which you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3232,7 +3268,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Used to update the settings of a channel.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateChannel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_name` (`t:string`) The name of the channel to be updated.
 
   ## Optional parameters:
@@ -3255,7 +3293,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Updates the settings of a dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:dataset_name` (`t:string`) The name of the dataset to update.
 
   ## Optional parameters:
@@ -3278,7 +3318,9 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Used to update the settings of a data store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdateDatastore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:datastore_name` (`t:string`) The name of the data store to be updated.
 
   ## Optional parameters:
@@ -3299,13 +3341,13 @@ defmodule AWS.IoTAnalytics do
   end
 
   @doc """
-  Updates the settings of a pipeline.
+  Updates the settings of a pipeline. You must specify both a `channel` and a
+  `datastore` activity and, optionally, as many as 23 additional activities in
+  the `pipelineActivities` array.
 
-  You must specify both a `channel` and a
-  `datastore` activity and, optionally, as many as 23 additional activities in the
-  `pipelineActivities` array.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20UpdatePipeline&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:pipeline_name` (`t:string`) The name of the pipeline to update.
 
   ## Optional parameters:

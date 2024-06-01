@@ -4,12 +4,9 @@
 defmodule AWS.LaunchWizard do
   @moduledoc """
   Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon
-  Web Services resources for
-  third party applications, such as Microsoft SQL Server Always On and HANA based
-  SAP
-  systems, without the need to manually identify and provision individual Amazon
-  Web Services
-  resources.
+  Web Services resources for third party applications, such as Microsoft SQL
+  Server Always On and HANA based SAP systems, without the need to manually
+  identify and provision individual Amazon Web Services resources.
   """
 
   alias AWS.Client
@@ -401,13 +398,13 @@ defmodule AWS.LaunchWizard do
   end
 
   @doc """
-  Creates a deployment for the given workload.
+  Creates a deployment for the given workload. Deployments created by this
+  operation are not available in the Launch Wizard console to use the `Clone
+  deployment` action on.
 
-  Deployments created by this operation are
-  not available in the Launch Wizard console to use the `Clone deployment` action
-  on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20CreateDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -439,7 +436,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Deletes a deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20DeleteDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -471,7 +470,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Returns information about the deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetDeployment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -503,7 +504,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Returns information about a workload.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -535,7 +538,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Lists the events of a deployment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeploymentEvents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -567,7 +572,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Lists the deployments that have been created.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -599,7 +606,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Lists the workload deployment patterns.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloadDeploymentPatterns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -635,7 +644,9 @@ defmodule AWS.LaunchWizard do
   @doc """
   Lists the workloads.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloads&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

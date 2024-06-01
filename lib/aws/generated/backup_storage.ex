@@ -474,9 +474,11 @@ defmodule AWS.BackupStorage do
   @doc """
   Delete Object from the incremental base Backup.
 
-  ## Required positional parameters:
-  * `:backup_job_id` (`t:string`) 
-  * `:object_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20DeleteObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`)
+  * `:object_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -510,9 +512,11 @@ defmodule AWS.BackupStorage do
   @doc """
   Gets the specified object's chunk.
 
-  ## Required positional parameters:
-  * `:chunk_token` (`t:string`) 
-  * `:storage_job_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20GetChunk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:chunk_token` (`t:string`)
+  * `:storage_job_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -551,9 +555,11 @@ defmodule AWS.BackupStorage do
   @doc """
   Get metadata associated with an Object.
 
-  ## Required positional parameters:
-  * `:object_token` (`t:string`) 
-  * `:storage_job_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20GetObjectMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:object_token` (`t:string`)
+  * `:storage_job_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -593,13 +599,15 @@ defmodule AWS.BackupStorage do
   @doc """
   List chunks in a given Object
 
-  ## Required positional parameters:
-  * `:object_token` (`t:string`) 
-  * `:storage_job_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20ListChunks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:object_token` (`t:string`)
+  * `:storage_job_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_chunks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_chunks_output(), any()}
@@ -643,16 +651,18 @@ defmodule AWS.BackupStorage do
   @doc """
   List all Objects in a given Backup.
 
-  ## Required positional parameters:
-  * `:storage_job_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20ListObjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:storage_job_id` (`t:string`)
 
   ## Optional parameters:
-  * `:created_after` (`t:timestamp`) 
-  * `:created_before` (`t:timestamp`) 
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:starting_object_name` (`t:string`) 
-  * `:starting_object_prefix` (`t:string`) 
+  * `:created_after` (`t:timestamp`)
+  * `:created_before` (`t:timestamp`)
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:starting_object_name` (`t:string`)
+  * `:starting_object_prefix` (`t:string`)
   """
   @spec list_objects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_objects_output(), any()}
@@ -731,17 +741,19 @@ defmodule AWS.BackupStorage do
   @doc """
   Complete upload
 
-  ## Required positional parameters:
-  * `:backup_job_id` (`t:string`) 
-  * `:upload_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20NotifyObjectComplete&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`)
+  * `:upload_id` (`t:string`)
 
   ## Optional parameters:
-  * `:metadata_blob_checksum` (`t:string`) 
-  * `:metadata_blob_checksum_algorithm` (`t:enum["SHA256"]`) 
-  * `:metadata_blob_length` (`t:long`) 
-  * `:metadata_string` (`t:string`) 
-  * `:object_checksum` (`t:string`) 
-  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`) 
+  * `:metadata_blob_checksum` (`t:string`)
+  * `:metadata_blob_checksum_algorithm` (`t:enum["SHA256"]`)
+  * `:metadata_blob_length` (`t:long`)
+  * `:metadata_string` (`t:string`)
+  * `:object_checksum` (`t:string`)
+  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`)
   """
   @spec notify_object_complete(
           AWS.Client.t(),
@@ -779,15 +791,17 @@ defmodule AWS.BackupStorage do
   @doc """
   Upload chunk.
 
-  ## Required positional parameters:
-  * `:backup_job_id` (`t:string`) 
-  * `:chunk_index` (`t:long`) 
-  * `:upload_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20PutChunk&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`)
+  * `:chunk_index` (`t:long`)
+  * `:upload_id` (`t:string`)
 
   ## Optional parameters:
-  * `:checksum` (`t:string`) 
-  * `:checksum_algorithm` (`t:enum["SHA256"]`) 
-  * `:length` (`t:long`) 
+  * `:checksum` (`t:string`)
+  * `:checksum_algorithm` (`t:enum["SHA256"]`)
+  * `:length` (`t:long`)
   """
   @spec put_chunk(
           AWS.Client.t(),
@@ -824,18 +838,20 @@ defmodule AWS.BackupStorage do
   Upload object that can store object metadata String and data blob in single API
   call using inline chunk field.
 
-  ## Required positional parameters:
-  * `:backup_job_id` (`t:string`) 
-  * `:object_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20PutObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`)
+  * `:object_name` (`t:string`)
 
   ## Optional parameters:
-  * `:inline_chunk_checksum` (`t:string`) 
-  * `:inline_chunk_checksum_algorithm` (`t:string`) 
-  * `:inline_chunk_length` (`t:long`) 
-  * `:metadata_string` (`t:string`) 
-  * `:object_checksum` (`t:string`) 
-  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`) 
-  * `:throw_on_duplicate` (`t:boolean`) 
+  * `:inline_chunk_checksum` (`t:string`)
+  * `:inline_chunk_checksum_algorithm` (`t:string`)
+  * `:inline_chunk_length` (`t:long`)
+  * `:metadata_string` (`t:string`)
+  * `:object_checksum` (`t:string`)
+  * `:object_checksum_algorithm` (`t:enum["SUMMARY"]`)
+  * `:throw_on_duplicate` (`t:boolean`)
   """
   @spec put_object(AWS.Client.t(), String.t(), String.t(), put_object_input(), Keyword.t()) ::
           {:ok, put_object_output(), any()}
@@ -868,9 +884,11 @@ defmodule AWS.BackupStorage do
   @doc """
   Start upload containing one or many chunks.
 
-  ## Required positional parameters:
-  * `:backup_job_id` (`t:string`) 
-  * `:object_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=backupstorage%20StartObject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:backup_job_id` (`t:string`)
+  * `:object_name` (`t:string`)
 
   ## Optional parameters:
   """

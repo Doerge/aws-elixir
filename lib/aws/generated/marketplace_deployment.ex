@@ -4,13 +4,12 @@
 defmodule AWS.MarketplaceDeployment do
   @moduledoc """
   The AWS Marketplace Deployment Service supports the Quick Launch experience,
-  which is a deployment option for software as a service (SaaS) products.
-
-  Quick Launch simplifies and reduces the time, resources, and steps required to
-  configure, deploy, and launch a products. The AWS Marketplace Deployment Service
-  provides sellers with a secure method for passing deployment parameters (for
-  example, API keys and external IDs) to buyers during the Quick Launch
-  experience.
+  which is a deployment option for software as a service (SaaS) products. Quick
+  Launch simplifies and reduces the time, resources, and steps required to
+  configure, deploy, and launch a products. The AWS Marketplace Deployment
+  Service provides sellers with a secure method for passing deployment
+  parameters (for example, API keys and external IDs) to buyers during the Quick
+  Launch experience.
   """
 
   alias AWS.Client
@@ -247,8 +246,11 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Lists all tags that have been added to a deployment parameter resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to list tags on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    deployment parameter resource you want to list tags on.
 
   ## Optional parameters:
   """
@@ -276,10 +278,13 @@ defmodule AWS.MarketplaceDeployment do
   Creates or updates a deployment parameter and is targeted by `catalog` and
   `agreementId`.
 
-  ## Required positional parameters:
-  * `:catalog` (`t:string`) The catalog related to the request. Fixed value: <code>AWS Marketplace</code>
-         
-  * `:product_id` (`t:string`) The product for which AWS Marketplace will save secrets for the buyer’s account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20PutDeploymentParameter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:catalog` (`t:string`) The catalog related to the request. Fixed value: AWS
+    Marketplace
+  * `:product_id` (`t:string`) The product for which AWS Marketplace will save
+    secrets for the buyer’s account.
 
   ## Optional parameters:
   """
@@ -319,8 +324,11 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Tags a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the resource you want to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    resource you want to tag.
 
   ## Optional parameters:
   """
@@ -352,11 +360,15 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Removes a tag or list of tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacedeployment%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) associated with the
+    resource you want to remove the tag from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) A list of key names of tags to be removed.
+  * `:tag_keys` (`t:list[smithy.api#String]`) A list of key names of tags to be
+    removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

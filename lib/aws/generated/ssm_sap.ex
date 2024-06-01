@@ -4,11 +4,8 @@
 defmodule AWS.SsmSap do
   @moduledoc """
   This API reference provides descriptions, syntax, and other details about each
-  of the
-  actions and data types for AWS Systems Manager for SAP.
-
-  The topic for each action shows
-  the API request parameters and responses.
+  of the actions and data types for AWS Systems Manager for SAP. The topic for
+  each action shows the API request parameters and responses.
   """
 
   alias AWS.Client
@@ -940,7 +937,9 @@ defmodule AWS.SsmSap do
   @doc """
   Removes permissions associated with the target database.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeleteResourcePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -974,12 +973,12 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
-  Deregister an SAP application with AWS Systems Manager for SAP.
+  Deregister an SAP application with AWS Systems Manager for SAP. This action does
+  not aﬀect the existing setup of your SAP workloads on Amazon EC2.
 
-  This action does not
-  aﬀect the existing setup of your SAP workloads on Amazon EC2.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeregisterApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1009,12 +1008,12 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
-  Gets an application registered with AWS Systems Manager for SAP.
+  Gets an application registered with AWS Systems Manager for SAP. It also returns
+  the components of the application.
 
-  It also returns the
-  components of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1047,7 +1046,9 @@ defmodule AWS.SsmSap do
   Gets the component of an application registered with AWS Systems Manager for
   SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetComponent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1078,10 +1079,11 @@ defmodule AWS.SsmSap do
 
   @doc """
   Gets the SAP HANA database of an application registered with AWS Systems Manager
-  for
-  SAP.
+  for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetDatabase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1113,7 +1115,9 @@ defmodule AWS.SsmSap do
   @doc """
   Gets the details of an operation by specifying the operation ID.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetOperation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1145,7 +1149,9 @@ defmodule AWS.SsmSap do
   @doc """
   Gets permissions associated with the target database.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetResourcePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1177,7 +1183,9 @@ defmodule AWS.SsmSap do
   @doc """
   Lists all the applications registered with AWS Systems Manager for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1209,7 +1217,9 @@ defmodule AWS.SsmSap do
   @doc """
   Lists all the components registered with AWS Systems Manager for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListComponents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1240,10 +1250,11 @@ defmodule AWS.SsmSap do
 
   @doc """
   Lists the SAP HANA databases of an application registered with AWS Systems
-  Manager for
-  SAP.
+  Manager for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListDatabases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1275,11 +1286,9 @@ defmodule AWS.SsmSap do
   @doc """
   Returns a list of operations events.
 
-  Available parameters include `OperationID`, as well as optional parameters
-  `MaxResults`, `NextToken`, and
-  `Filters`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperationEvents&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1311,7 +1320,9 @@ defmodule AWS.SsmSap do
   @doc """
   Lists the operations performed by AWS Systems Manager for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1342,10 +1353,11 @@ defmodule AWS.SsmSap do
 
   @doc """
   Lists all tags on an SAP HANA application and/or database registered with AWS
-  Systems
-  Manager for SAP.
+  Systems Manager for SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1373,7 +1385,9 @@ defmodule AWS.SsmSap do
   @doc """
   Adds permissions to the target database.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20PutResourcePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1403,24 +1417,13 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
-  Register an SAP application with AWS Systems Manager for SAP.
+  Register an SAP application with AWS Systems Manager for SAP. You must meet the
+  following requirements before registering. The SAP application you want to
+  register with AWS Systems Manager for SAP is running on Amazon EC2.
 
-  You must meet the
-  following requirements before registering.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20RegisterApplication&this_doc_guide=API%2520Reference)
 
-  The SAP application you want to register with AWS Systems Manager for SAP is
-  running
-  on Amazon EC2.
-
-  AWS Systems Manager Agent must be setup on an Amazon EC2 instance along with the
-  required
-  IAM permissions.
-
-  Amazon EC2 instance(s) must have access to the secrets created in AWS Secrets
-  Manager to
-  manage SAP applications and components.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1452,9 +1455,9 @@ defmodule AWS.SsmSap do
   @doc """
   Request is an operation which starts an application.
 
-  Parameter `ApplicationId` is required.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1486,7 +1489,9 @@ defmodule AWS.SsmSap do
   @doc """
   Refreshes a registered application.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplicationRefresh&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1518,11 +1523,9 @@ defmodule AWS.SsmSap do
   @doc """
   Request is an operation to stop an application.
 
-  Parameter `ApplicationId` is required.
-  Parameters `StopConnectedEntity` and
-  `IncludeEc2InstanceShutdown` are optional.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StopApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1554,7 +1557,9 @@ defmodule AWS.SsmSap do
   @doc """
   Creates tag for a resource by specifying the ARN.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -1587,12 +1592,14 @@ defmodule AWS.SsmSap do
   @doc """
   Delete the tags for a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]`) Adds/updates or removes credentials for applications registered with AWS Systems
-         Manager for SAP.
+  * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]`) Adds/updates or removes
+    credentials for applications registered with AWS Systems Manager for SAP.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1628,7 +1635,9 @@ defmodule AWS.SsmSap do
   Updates the settings of an application registered with AWS Systems Manager for
   SAP.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20UpdateApplicationSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

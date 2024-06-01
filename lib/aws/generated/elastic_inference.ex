@@ -3,17 +3,7 @@
 
 defmodule AWS.ElasticInference do
   @moduledoc """
-
   Elastic Inference public APIs.
-
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
   """
 
   alias AWS.Client
@@ -302,20 +292,12 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Describes the locations in which a given accelerator type or set of types is
   present in a given region.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorOfferings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -349,20 +331,12 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Describes the accelerator types available in a given region, as well as their
   characteristics, such as memory and throughput.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorTypes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -387,20 +361,12 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Describes information over a provided set of accelerators belonging to an
   account.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAccelerators&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -430,22 +396,13 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Returns all tags of an Elastic Inference Accelerator.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-            The ARN of the Elastic Inference Accelerator to list the tags for.
-        
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
+    list the tags for.
 
   ## Optional parameters:
   """
@@ -470,22 +427,13 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Adds the specified tags to an Elastic Inference Accelerator.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-            The ARN of the Elastic Inference Accelerator to tag.
-        
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
+    tag.
 
   ## Optional parameters:
   """
@@ -515,27 +463,17 @@ defmodule AWS.ElasticInference do
   end
 
   @doc """
-
   Removes the specified tags from an Elastic Inference Accelerator.
 
-  February 15, 2023: Starting April 15, 2023, AWS will not onboard new customers
-  to Amazon Elastic Inference (EI), and will help current customers migrate their
-  workloads to options that offer better price and performance.
-  After April 15, 2023, new customers will not be able to launch instances with
-  Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
-  However, customers who have used Amazon EI at least once during the past 30-day
-  period are considered current customers and will be able to continue using the
-  service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-            The ARN of the Elastic Inference Accelerator to untag.
-        
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the Elastic Inference Accelerator to
+    untag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]`) 
-            The list of tags to remove from the Elastic Inference Accelerator.
-        
+  * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]`) The list of tags
+    to remove from the Elastic Inference Accelerator.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}

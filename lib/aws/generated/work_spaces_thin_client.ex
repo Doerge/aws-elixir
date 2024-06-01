@@ -4,27 +4,13 @@
 defmodule AWS.WorkSpacesThinClient do
   @moduledoc """
   Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon
-  Web Services End User
-  Computing (EUC) virtual desktops to provide users with a complete cloud desktop
-  solution.
-
-  WorkSpaces Thin Client is a compact device designed to connect up to two
-  monitors and USB
-  devices like a keyboard, mouse, headset, and webcam. To maximize endpoint
-  security, WorkSpaces Thin Client
+  Web Services End User Computing (EUC) virtual desktops to provide users with a
+  complete cloud desktop solution. WorkSpaces Thin Client is a compact device
+  designed to connect up to two monitors and USB devices like a keyboard, mouse,
+  headset, and webcam. To maximize endpoint security, WorkSpaces Thin Client
   devices do not allow local data storage or installation of unapproved
-  applications. The
-  WorkSpaces Thin Client device ships preloaded with device management software.
-
-  You can use these APIs to complete WorkSpaces Thin Client tasks, such as
-  creating environments or
-  viewing devices. For more information about WorkSpaces Thin Client, including
-  the required permissions to
-  use the service, see the [Amazon WorkSpaces Thin Client Administrator Guide](https://docs.aws.amazon.com/workspaces-thin-client/latest/ag/). For
-  more information about using the Command Line Interface (CLI) to manage
-  your WorkSpaces Thin Client resources, see the [WorkSpaces Thin Client section of the
-  CLI
-  Reference](https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html).
+  applications. The WorkSpaces Thin Client device ships preloaded with device
+  management software.
   """
 
   alias AWS.Client
@@ -796,7 +782,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Creates an environment for your thin client devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20CreateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -828,16 +816,18 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Deletes a thin client device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the device to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-         of the request. This lets you safely retry the request without accidentally performing the
-         same operation a second time. Passing the same value to a later call to an operation
-         requires that you also pass the same value for all other parameters. We recommend that you
-         use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-            value</a>.
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
   @spec delete_device(AWS.Client.t(), String.t(), delete_device_request(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
@@ -872,16 +862,18 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Deletes an environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeleteEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the environment to delete.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
-         of the request. This lets you safely retry the request without accidentally performing the
-         same operation a second time. Passing the same value to a later call to an operation
-         requires that you also pass the same value for all other parameters. We recommend that you
-         use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of
-            value</a>.
+  * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), delete_environment_request(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
@@ -916,7 +908,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Deregisters a thin client device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20DeregisterDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the device to deregister.
 
   ## Optional parameters:
@@ -949,7 +943,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns information for a thin client device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the device for which to return information.
 
   ## Optional parameters:
@@ -977,7 +973,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns information for an environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the environment for which to return information.
 
   ## Optional parameters:
@@ -1005,7 +1003,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns information for a software set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20GetSoftwareSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the software set for which to return information.
 
   ## Optional parameters:
@@ -1033,16 +1033,19 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns a list of thin client devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
-                <code>nextToken</code> to obtain further pages of results.
-  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
-            <code>nextToken</code> is a unique pagination token for each page. Make the call again
-         using the returned token to retrieve the next page. Keep all other arguments unchanged.
-         Each pagination token expires after 24 hours. Using an expired pagination token will return
-         an <i>HTTP 400 InvalidToken error</i>.
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -1085,16 +1088,19 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns a list of environments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListEnvironments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
-                <code>nextToken</code> to obtain further pages of results.
-  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
-            <code>nextToken</code> is a unique pagination token for each page. Make the call again
-         using the returned token to retrieve the next page. Keep all other arguments unchanged.
-         Each pagination token expires after 24 hours. Using an expired pagination token will return
-         an <i>HTTP 400 InvalidToken error</i>.
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -1137,16 +1143,19 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns a list of software sets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListSoftwareSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results that are returned per call. You can use
-                <code>nextToken</code> to obtain further pages of results.
-  * `:next_token` (`t:string`) If <code>nextToken</code> is returned, there are more results available. The value of
-            <code>nextToken</code> is a unique pagination token for each page. Make the call again
-         using the returned token to retrieve the next page. Keep all other arguments unchanged.
-         Each pagination token expires after 24 hours. Using an expired pagination token will return
-         an <i>HTTP 400 InvalidToken error</i>.
+  * `:max_results` (`t:integer`) The maximum number of results that are returned
+    per call. You can use nextToken to obtain further pages of results.
+  * `:next_token` (`t:string`) If nextToken is returned, there are more results
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_software_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_software_sets_response(), any()}
@@ -1189,9 +1198,11 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Returns a list of tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource for which you want to retrieve
-            tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource for
+    which you want to retrieve tags.
 
   ## Optional parameters:
   """
@@ -1218,8 +1229,11 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Assigns one or more tags (key-value pairs) to the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you want to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you
+    want to tag.
 
   ## Optional parameters:
   """
@@ -1251,12 +1265,15 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Removes a tag or tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you want to untag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) The Amazon Resource Name (ARN) of the resource that you
+    want to untag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the key-value pairs for the tag or tags you want to remove from the
-            specified resource.
+  * `:tag_keys` (`t:list[smithy.api#String]`) The keys of the key-value pairs for
+    the tag or tags you want to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1291,7 +1308,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Updates a thin client device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the device to update.
 
   ## Optional parameters:
@@ -1324,7 +1343,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Updates an environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateEnvironment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the environment to update.
 
   ## Optional parameters:
@@ -1357,7 +1378,9 @@ defmodule AWS.WorkSpacesThinClient do
   @doc """
   Updates a software set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20UpdateSoftwareSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the software set to update.
 
   ## Optional parameters:

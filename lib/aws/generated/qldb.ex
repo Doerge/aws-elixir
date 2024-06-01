@@ -740,21 +740,15 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Ends a given Amazon QLDB journal stream.
+  Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its
+  current status must be `ACTIVE`.
 
-  Before a stream can be canceled, its current
-  status must be `ACTIVE`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CancelJournalKinesisStream&this_doc_guide=API%2520Reference)
 
-  You can't restart a stream after you cancel it. Canceled QLDB stream resources
-  are
-  subject to a 7-day retention period, so they are automatically deleted after
-  this limit
-  expires.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:ledger_name` (`t:string`) The name of the ledger.
-  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the QLDB journal stream to be
-         canceled.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    QLDB journal stream to be canceled.
 
   ## Optional parameters:
   """
@@ -800,7 +794,9 @@ defmodule AWS.QLDB do
   @doc """
   Creates a new ledger in your Amazon Web Services account in the current Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CreateLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -830,16 +826,11 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Deletes a ledger and all of its contents.
+  Deletes a ledger and all of its contents. This action is irreversible.
 
-  This action is irreversible.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DeleteLedger&this_doc_guide=API%2520Reference)
 
-  If deletion protection is enabled, you must first disable it before you can
-  delete the
-  ledger. You can disable it by calling the `UpdateLedger` operation to set this
-  parameter to `false`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger that you want to delete.
 
   ## Optional parameters:
@@ -870,23 +861,16 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns detailed information about a given Amazon QLDB journal stream.
+  Returns detailed information about a given Amazon QLDB journal stream. The
+  output includes the Amazon Resource Name (ARN), stream name, current status,
+  creation time, and the parameters of the original stream creation request.
 
-  The output
-  includes the Amazon Resource Name (ARN), stream name, current status, creation
-  time, and
-  the parameters of the original stream creation request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalKinesisStream&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired journal streams. For more information,
-  see
-  [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:ledger_name` (`t:string`) The name of the ledger.
-  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the QLDB journal stream to
-         describe.
+  * `:stream_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    QLDB journal stream to describe.
 
   ## Optional parameters:
   """
@@ -913,25 +897,17 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns information about a journal export job, including the ledger name,
-  export ID,
-  creation time, current status, and the parameters of the original export
-  creation
-  request.
+  export ID, creation time, current status, and the parameters of the original
+  export creation request. This action does not return any expired export jobs.
+  For more information, see [Export job
+  expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
+  in the *Amazon QLDB Developer Guide*.
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeJournalS3Export&this_doc_guide=API%2520Reference)
 
-  If the export job with the given `ExportId` doesn't exist, then throws
-  `ResourceNotFoundException`.
-
-  If the ledger with the given `Name` doesn't exist, then throws
-  `ResourceNotFoundException`.
-
-  ## Required positional parameters:
-  * `:export_id` (`t:string`) The UUID (represented in Base62-encoded text) of the journal export job to
-         describe.
+  ## Parameters:
+  * `:export_id` (`t:string`) The UUID (represented in Base62-encoded text) of the
+    journal export job to describe.
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -959,10 +935,11 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns information about a ledger, including its state, permissions mode,
-  encryption at
-  rest settings, and when it was created.
+  encryption at rest settings, and when it was created.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20DescribeLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger that you want to describe.
 
   ## Optional parameters:
@@ -989,24 +966,14 @@ defmodule AWS.QLDB do
 
   @doc """
   Exports journal contents within a date and time range from a ledger into a
-  specified
-  Amazon Simple Storage Service (Amazon S3) bucket.
+  specified Amazon Simple Storage Service (Amazon S3) bucket. A journal export
+  job can write the data objects in either the text or binary representation of
+  Amazon Ion format, or in *JSON Lines* text format. If the ledger with the
+  given `Name` doesn't exist, then throws `ResourceNotFoundException`.
 
-  A journal export job can write the data objects in either the text
-  or binary representation of Amazon Ion format, or in *JSON Lines* text
-  format.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ExportJournalToS3&this_doc_guide=API%2520Reference)
 
-  If the ledger with the given `Name` doesn't exist, then throws
-  `ResourceNotFoundException`.
-
-  If the ledger with the given `Name` is in `CREATING` status, then
-  throws `ResourcePreconditionNotMetException`.
-
-  You can initiate up to two concurrent journal export requests for each ledger.
-  Beyond
-  this limit, journal export requests throw `LimitExceededException`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1042,25 +1009,15 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns a block object at a specified address in a journal.
+  Returns a block object at a specified address in a journal. Also returns a proof
+  of the specified block for verification if `DigestTipAddress` is provided. For
+  information about the data contents in a block, see [Journal
+  contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
+  in the *Amazon QLDB Developer Guide*.
 
-  Also returns a proof of the
-  specified block for verification if `DigestTipAddress` is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetBlock&this_doc_guide=API%2520Reference)
 
-  For information about the data contents in a block, see [Journal contents](https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html)
-  in the
-  *Amazon QLDB Developer Guide*.
-
-  If the specified ledger doesn't exist or is in `DELETING` status, then throws
-  `ResourceNotFoundException`.
-
-  If the specified ledger is in `CREATING` status, then throws
-  `ResourcePreconditionNotMetException`.
-
-  If no block exists with the specified address, then throws
-  `InvalidParameterException`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1091,12 +1048,12 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns the digest of a ledger at the latest committed block in the journal.
-
-  The
+  Returns the digest of a ledger at the latest committed block in the journal. The
   response includes a 256-bit hash value and a block address.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetDigest&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1128,12 +1085,12 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns a revision data object for a specified document ID and block address.
+  Also returns a proof of the specified revision for verification if
+  `DigestTipAddress` is provided.
 
-  Also
-  returns a proof of the specified revision for verification if `DigestTipAddress`
-  is provided.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20GetRevision&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1164,29 +1121,25 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns all Amazon QLDB journal streams for a given ledger.
+  Returns all Amazon QLDB journal streams for a given ledger. This action does not
+  return any expired journal streams. For more information, see [Expiration for
+  terminal
+  streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
+  in the *Amazon QLDB Developer Guide*.
 
-  This action does not return any expired journal streams. For more information,
-  see
-  [Expiration for terminal streams](https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalKinesisStreamsForLedger&this_doc_guide=API%2520Reference)
 
-  This action returns a maximum of `MaxResults` items. It is paginated so that
-  you can retrieve all the items by calling `ListJournalKinesisStreamsForLedger`
-  multiple times.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:ledger_name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single
-            <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results
-         returned might be fewer.)
-  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
-         you received a value for <code>NextToken</code> in the response from a previous
-            <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as input
-         here.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalKinesisStreamsForLedger request. (The actual number of
+    results returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalKinesisStreamsForLedger call, you
+    should use that value as input here.
   """
   @spec list_journal_kinesis_streams_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
@@ -1228,27 +1181,22 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns all journal export jobs for all ledgers that are associated with the
-  current
-  Amazon Web Services account and Region.
+  current Amazon Web Services account and Region. This action returns a maximum
+  of `MaxResults` items, and is paginated so that you can retrieve all the items
+  by calling `ListJournalS3Exports` multiple times.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so that
-  you can retrieve all the items by calling `ListJournalS3Exports` multiple
-  times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3Exports&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single <code>ListJournalS3Exports</code>
-         request. (The actual number of results returned might be fewer.)
-  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
-         you received a value for <code>NextToken</code> in the response from a previous
-            <code>ListJournalS3Exports</code> call, then you should use that value as input
-         here.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalS3Exports request. (The actual number of results returned
+    might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3Exports call, then you should use
+    that value as input here.
   """
   @spec list_journal_s3_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_response(), any()}
@@ -1288,28 +1236,23 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Returns all journal export jobs for a specified ledger.
+  Returns all journal export jobs for a specified ledger. This action returns a
+  maximum of `MaxResults` items, and is paginated so that you can retrieve all
+  the items by calling `ListJournalS3ExportsForLedger` multiple times.
 
-  This action returns a maximum of `MaxResults` items, and is paginated so that
-  you can retrieve all the items by calling `ListJournalS3ExportsForLedger`
-  multiple times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3ExportsForLedger&this_doc_guide=API%2520Reference)
 
-  This action does not return any expired export jobs. For more information, see
-  [Export job expiration](https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration)
-  in the *Amazon QLDB Developer
-  Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single
-            <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results
-         returned might be fewer.)
-  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
-         you received a value for <code>NextToken</code> in the response from a previous
-            <code>ListJournalS3ExportsForLedger</code> call, then you should use that value as input
-         here.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListJournalS3ExportsForLedger request. (The actual number of results
+    returned might be fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3ExportsForLedger call, then you
+    should use that value as input here.
   """
   @spec list_journal_s3_exports_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
@@ -1350,20 +1293,20 @@ defmodule AWS.QLDB do
 
   @doc """
   Returns all ledgers that are associated with the current Amazon Web Services
-  account and
-  Region.
+  account and Region.
 
-  This action returns a maximum of `MaxResults` items and is paginated so that
-  you can retrieve all the items by calling `ListLedgers` multiple times.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListLedgers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in a single <code>ListLedgers</code> request.
-         (The actual number of results returned might be fewer.)
-  * `:next_token` (`t:string`) A pagination token, indicating that you want to retrieve the next page of results. If
-         you received a value for <code>NextToken</code> in the response from a previous
-            <code>ListLedgers</code> call, then you should use that value as input here.
+  * `:max_results` (`t:integer`) The maximum number of results to return in a
+    single ListLedgers request. (The actual number of results returned might be
+    fewer.)
+  * `:next_token` (`t:string`) A pagination token, indicating that you want to
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListLedgers call, then you should use that
+    value as input here.
   """
   @spec list_ledgers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ledgers_response(), any()}
@@ -1405,8 +1348,11 @@ defmodule AWS.QLDB do
   @doc """
   Returns all tags for a specified Amazon QLDB resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for which to list the tags. For example:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for which to list
+    the tags. For example:
 
   ## Optional parameters:
   """
@@ -1431,14 +1377,13 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Creates a journal stream for a given Amazon QLDB ledger.
+  Creates a journal stream for a given Amazon QLDB ledger. The stream captures
+  every document revision that is committed to the ledger's journal and delivers
+  the data to a specified Amazon Kinesis Data Streams resource.
 
-  The stream captures every
-  document revision that is committed to the ledger's journal and delivers the
-  data to a
-  specified Amazon Kinesis Data Streams resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20StreamJournalToKinesis&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:ledger_name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1476,11 +1421,11 @@ defmodule AWS.QLDB do
   @doc """
   Adds one or more tags to a specified Amazon QLDB resource.
 
-  A resource can have up to 50 tags. If you try to create more than 50 tags for a
-  resource, your request fails and returns an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to which you want to add the tags. For example:
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) to which you want
+    to add the tags. For example:
 
   ## Optional parameters:
   """
@@ -1510,16 +1455,18 @@ defmodule AWS.QLDB do
   end
 
   @doc """
-  Removes one or more tags from a specified Amazon QLDB resource.
+  Removes one or more tags from a specified Amazon QLDB resource. You can specify
+  up to 50 tag keys to remove.
 
-  You can specify up to 50
-  tag keys to remove.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) from which to remove the tags. For example:
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) from which to
+    remove the tags. For example:
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]`) The list of tag keys to remove.
+  * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]`) The list of tag keys to
+    remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1554,7 +1501,9 @@ defmodule AWS.QLDB do
   @doc """
   Updates properties on a ledger.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedger&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:
@@ -1587,14 +1536,9 @@ defmodule AWS.QLDB do
   @doc """
   Updates the permissions mode of a ledger.
 
-  Before you switch to the `STANDARD` permissions mode, you must first
-  create all required IAM policies and table tags to avoid disruption to your
-  users. To
-  learn more, see [Migrating to the standard permissions mode](https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating)
-  in the *Amazon QLDB
-  Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20UpdateLedgerPermissionsMode&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the ledger.
 
   ## Optional parameters:

@@ -3,33 +3,15 @@
 
 defmodule AWS.EMRcontainers do
   @moduledoc """
-  Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
-  you to run open-source big data frameworks on Amazon Elastic Kubernetes Service
-  (Amazon EKS).
-
-  With this deployment option, you can focus on running analytics workloads while
-  Amazon EMR on EKS builds, configures, and manages containers for open-source
-  applications.
-  For more information about Amazon EMR on EKS concepts and tasks, see [What is Amazon EMR on
+  Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to
+  run open-source big data frameworks on Amazon Elastic Kubernetes Service
+  (Amazon EKS). With this deployment option, you can focus on running analytics
+  workloads while Amazon EMR on EKS builds, configures, and manages containers
+  for open-source applications. For more information about Amazon EMR on EKS
+  concepts and tasks, see [What is Amazon EMR on
   EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html).
-
   *Amazon EMR containers* is the API name for Amazon EMR on EKS. The
-  `emr-containers` prefix is used in the following
-  scenarios:
-
-    *
-  It is the prefix in the CLI commands for Amazon EMR on EKS. For example,
-  `aws emr-containers start-job-run`.
-
-    *
-  It is the prefix before IAM policy actions for Amazon EMR on EKS. For
-  example, `"Action": [ "emr-containers:StartJobRun"]`. For more information, see [Policy actions for Amazon EMR on
-  EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions).
-
-    *
-  It is the prefix used in Amazon EMR on EKS service endpoints. For example,
-  `emr-containers.us-east-2.amazonaws.com`. For more information, see
-  [Amazon EMR on EKSService Endpoints](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints).
+  `emr-containers` prefix is used in the following scenarios:
   """
 
   alias AWS.Client
@@ -1170,14 +1152,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Cancels a job run.
+  Cancels a job run. A job run is a unit of work, such as a Spark jar, PySpark
+  script, or SparkSQL query, that you submit to Amazon EMR on EKS.
 
-  A job run is a unit of work, such as a Spark jar, PySpark script, or
-  SparkSQL query, that you submit to Amazon EMR on EKS.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CancelJobRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the job run to cancel.
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the job run will be canceled.
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
+    job run will be canceled.
 
   ## Optional parameters:
   """
@@ -1215,16 +1198,14 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Creates a job template.
+  Creates a job template. Job template stores values of StartJobRun API request in
+  a template and can be used to start a job run. Job template allows two use
+  cases: avoid repeating recurring StartJobRun API request values, enforcing
+  certain values in StartJobRun API request.
 
-  Job template stores values of StartJobRun API request in a
-  template and can be used to start a job run. Job template allows two use cases:
-  avoid
-  repeating recurring StartJobRun API request values, enforcing certain values in
-  StartJobRun
-  API request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateJobTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1254,14 +1235,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Creates a managed endpoint.
+  Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon
+  EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
+  your virtual cluster.
 
-  A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
-  EKS so that Amazon EMR Studio can
-  communicate with your virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateManagedEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which a managed endpoint is created.
+  ## Parameters:
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which a
+    managed endpoint is created.
 
   ## Optional parameters:
   """
@@ -1296,16 +1278,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Creates a security configuration.
+  Creates a security configuration. Security configurations in Amazon EMR on EKS
+  are templates for different security setups. You can use security
+  configurations to configure the Lake Formation integration setup. You can also
+  create a security configuration to re-use a security setup each time you
+  create a virtual cluster.
 
-  Security configurations in Amazon EMR on EKS are
-  templates for different security setups. You can use security configurations to
-  configure
-  the Lake Formation integration setup. You can also create a security
-  configuration
-  to re-use a security setup each time you create a virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateSecurityConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1339,17 +1320,16 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Creates a virtual cluster.
+  Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on
+  EKS. You can create, describe, list and delete virtual clusters. They do not
+  consume any additional resource in your system. A single virtual cluster maps
+  to a single Kubernetes namespace. Given this relationship, you can model
+  virtual clusters the same way you model Kubernetes namespaces to meet your
+  requirements.
 
-  Virtual cluster is a managed entity on Amazon EMR on EKS. You can create,
-  describe, list and delete virtual clusters. They do not consume any
-  additional resource in your system. A single virtual cluster maps to a single
-  Kubernetes
-  namespace. Given this relationship, you can model virtual clusters the same way
-  you model
-  Kubernetes namespaces to meet your requirements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateVirtualCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1379,16 +1359,14 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Deletes a job template.
+  Deletes a job template. Job template stores values of StartJobRun API request in
+  a template and can be used to start a job run. Job template allows two use
+  cases: avoid repeating recurring StartJobRun API request values, enforcing
+  certain values in StartJobRun API request.
 
-  Job template stores values of StartJobRun API request in a
-  template and can be used to start a job run. Job template allows two use cases:
-  avoid
-  repeating recurring StartJobRun API request values, enforcing certain values in
-  StartJobRun
-  API request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the job template that will be deleted.
 
   ## Optional parameters:
@@ -1424,15 +1402,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Deletes a managed endpoint.
+  Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon
+  EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with
+  your virtual cluster.
 
-  A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
-  EKS so that Amazon EMR Studio can
-  communicate with your virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteManagedEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the managed endpoint.
-  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint&#39;s virtual cluster.
+  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint's virtual cluster.
 
   ## Optional parameters:
   """
@@ -1470,17 +1448,16 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Deletes a virtual cluster.
+  Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on
+  EKS. You can create, describe, list and delete virtual clusters. They do not
+  consume any additional resource in your system. A single virtual cluster maps
+  to a single Kubernetes namespace. Given this relationship, you can model
+  virtual clusters the same way you model Kubernetes namespaces to meet your
+  requirements.
 
-  Virtual cluster is a managed entity on Amazon EMR on EKS. You can create,
-  describe, list and delete virtual clusters. They do not consume any
-  additional resource in your system. A single virtual cluster maps to a single
-  Kubernetes
-  namespace. Given this relationship, you can model virtual clusters the same way
-  you model
-  Kubernetes namespaces to meet your requirements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DeleteVirtualCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the virtual cluster that will be deleted.
 
   ## Optional parameters:
@@ -1516,15 +1493,16 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Displays detailed information about a job run.
+  Displays detailed information about a job run. A job run is a unit of work, such
+  as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon
+  EMR on EKS.
 
-  A job run is a unit of work, such as a
-  Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on
-  EKS.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeJobRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The ID of the job run request. 
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the job run is submitted.
+  ## Parameters:
+  * `:id` (`t:string`) The ID of the job run request.
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which the
+    job run is submitted.
 
   ## Optional parameters:
   """
@@ -1550,16 +1528,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Displays detailed information about a specified job template.
+  Displays detailed information about a specified job template. Job template
+  stores values of StartJobRun API request in a template and can be used to
+  start a job run. Job template allows two use cases: avoid repeating recurring
+  StartJobRun API request values, enforcing certain values in StartJobRun API
+  request.
 
-  Job template stores values
-  of StartJobRun API request in a template and can be used to start a job run. Job
-  template
-  allows two use cases: avoid repeating recurring StartJobRun API request values,
-  enforcing
-  certain values in StartJobRun API request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeJobTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the job template that will be described.
 
   ## Optional parameters:
@@ -1585,15 +1562,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Displays detailed information about a managed endpoint.
+  Displays detailed information about a managed endpoint. A managed endpoint is a
+  gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon
+  EMR Studio can communicate with your virtual cluster.
 
-  A managed endpoint is a gateway
-  that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio
-  can communicate with your virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeManagedEndpoint&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) This output displays ID of the managed endpoint.
-  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint&#39;s virtual cluster.
+  * `:virtual_cluster_id` (`t:string`) The ID of the endpoint's virtual cluster.
 
   ## Optional parameters:
   """
@@ -1619,18 +1596,15 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Displays detailed information about a specified security configuration.
+  Displays detailed information about a specified security configuration. Security
+  configurations in Amazon EMR on EKS are templates for different security
+  setups. You can use security configurations to configure the Lake Formation
+  integration setup. You can also create a security configuration to re-use a
+  security setup each time you create a virtual cluster.
 
-  Security
-  configurations in Amazon EMR on EKS are templates for different security setups.
-  You
-  can use security configurations to configure the Lake Formation integration
-  setup.
-  You can also create a security configuration to re-use a security setup each
-  time you
-  create a virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeSecurityConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the security configuration.
 
   ## Optional parameters:
@@ -1656,19 +1630,16 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Displays detailed information about a specified virtual cluster.
+  Displays detailed information about a specified virtual cluster. Virtual cluster
+  is a managed entity on Amazon EMR on EKS. You can create, describe, list and
+  delete virtual clusters. They do not consume any additional resource in your
+  system. A single virtual cluster maps to a single Kubernetes namespace. Given
+  this relationship, you can model virtual clusters the same way you model
+  Kubernetes namespaces to meet your requirements.
 
-  Virtual cluster is a
-  managed entity on Amazon EMR on EKS. You can create, describe, list and delete
-  virtual
-  clusters. They do not consume any additional resource in your system. A single
-  virtual
-  cluster maps to a single Kubernetes namespace. Given this relationship, you can
-  model
-  virtual clusters the same way you model Kubernetes namespaces to meet your
-  requirements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20DescribeVirtualCluster&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:id` (`t:string`) The ID of the virtual cluster that will be described.
 
   ## Optional parameters:
@@ -1696,9 +1667,13 @@ defmodule AWS.EMRcontainers do
   @doc """
   Generate a session token to connect to a managed endpoint.
 
-  ## Required positional parameters:
-  * `:endpoint_identifier` (`t:string`) The ARN of the managed endpoint for which the request is submitted. 
-  * `:virtual_cluster_identifier` (`t:string`) The ARN of the Virtual Cluster which the Managed Endpoint belongs to. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20GetManagedEndpointSessionCredentials&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:endpoint_identifier` (`t:string`) The ARN of the managed endpoint for which
+    the request is submitted.
+  * `:virtual_cluster_identifier` (`t:string`) The ARN of the Virtual Cluster
+    which the Managed Endpoint belongs to.
 
   ## Optional parameters:
   """
@@ -1742,22 +1717,27 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Lists job runs based on a set of parameters.
+  Lists job runs based on a set of parameters. A job run is a unit of work, such
+  as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon
+  EMR on EKS.
 
-  A job run is a unit of work, such as a
-  Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on
-  EKS.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListJobRuns&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which to list the job run. 
+  ## Parameters:
+  * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster for which to
+    list the job run.
 
   ## Optional parameters:
-  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the job runs were submitted.
-  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the job runs were submitted.
-  * `:max_results` (`t:integer`) The maximum number of job runs that can be listed.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
+    job runs were submitted.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which
+    the job runs were submitted.
+  * `:max_results` (`t:integer`) The maximum number of job runs that can be
+    listed.
   * `:name` (`t:string`) The name of the job run.
   * `:next_token` (`t:string`) The token for the next set of job runs to return.
-  * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of the job run.
+  * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of
+    the job run.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -1834,22 +1814,24 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Lists job templates based on a set of parameters.
-
-  Job template stores values of
+  Lists job templates based on a set of parameters. Job template stores values of
   StartJobRun API request in a template and can be used to start a job run. Job
-  template
-  allows two use cases: avoid repeating recurring StartJobRun API request values,
-  enforcing
-  certain values in StartJobRun API request.
+  template allows two use cases: avoid repeating recurring StartJobRun API
+  request values, enforcing certain values in StartJobRun API request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListJobTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the job templates were created.
-  * `:created_before` (`t:timestamp[date-time]`)  The date and time before which the job templates were created.
-  * `:max_results` (`t:integer`)  The maximum number of job templates that can be listed.
-  * `:next_token` (`t:string`)  The token for the next set of job templates to return.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
+    job templates were created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which
+    the job templates were created.
+  * `:max_results` (`t:integer`) The maximum number of job templates that can be
+    listed.
+  * `:next_token` (`t:string`) The token for the next set of job templates to
+    return.
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -1908,22 +1890,28 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Lists managed endpoints based on a set of parameters.
+  Lists managed endpoints based on a set of parameters. A managed endpoint is a
+  gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon
+  EMR Studio can communicate with your virtual cluster.
 
-  A managed endpoint is a gateway
-  that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio
-  can communicate with your virtual cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListManagedEndpoints&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:virtual_cluster_id` (`t:string`) The ID of the virtual cluster.
 
   ## Optional parameters:
-  * `:created_after` (`t:timestamp[date-time]`)  The date and time after which the endpoints are created.
-  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the endpoints are created.
-  * `:max_results` (`t:integer`) The maximum number of managed endpoints that can be listed.
-  * `:next_token` (`t:string`)  The token for the next set of managed endpoints to return. 
-  * `:states` (`t:list[com.amazonaws.emrcontainers#EndpointState]`) The states of the managed endpoints.
-  * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the managed endpoints.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
+    endpoints are created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which
+    the endpoints are created.
+  * `:max_results` (`t:integer`) The maximum number of managed endpoints that can
+    be listed.
+  * `:next_token` (`t:string`) The token for the next set of managed endpoints to
+    return.
+  * `:states` (`t:list[com.amazonaws.emrcontainers#EndpointState]`) The states of
+    the managed endpoints.
+  * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the
+    managed endpoints.
   """
   @spec list_managed_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_managed_endpoints_response(), any()}
@@ -2000,23 +1988,25 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Lists security configurations based on a set of parameters.
+  Lists security configurations based on a set of parameters. Security
+  configurations in Amazon EMR on EKS are templates for different security
+  setups. You can use security configurations to configure the Lake Formation
+  integration setup. You can also create a security configuration to re-use a
+  security setup each time you create a virtual cluster.
 
-  Security configurations in
-  Amazon EMR on EKS are templates for different security setups. You can use
-  security
-  configurations to configure the Lake Formation integration setup. You can also
-  create a security configuration to re-use a security setup each time you create
-  a virtual
-  cluster.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListSecurityConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the security configuration was created.
-  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the security configuration was created.
-  * `:max_results` (`t:integer`) The maximum number of security configurations the operation can list.
-  * `:next_token` (`t:string`) The token for the next set of security configurations to return.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
+    security configuration was created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which
+    the security configuration was created.
+  * `:max_results` (`t:integer`) The maximum number of security configurations the
+    operation can list.
+  * `:next_token` (`t:string`) The token for the next set of security
+    configurations to return.
   """
   @spec list_security_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_configurations_response(), any()}
@@ -2077,7 +2067,9 @@ defmodule AWS.EMRcontainers do
   @doc """
   Lists the tags assigned to the resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of tagged resources.
 
   ## Optional parameters:
@@ -2103,31 +2095,36 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Lists information about the specified virtual cluster.
+  Lists information about the specified virtual cluster. Virtual cluster is a
+  managed entity on Amazon EMR on EKS. You can create, describe, list and delete
+  virtual clusters. They do not consume any additional resource in your system.
+  A single virtual cluster maps to a single Kubernetes namespace. Given this
+  relationship, you can model virtual clusters the same way you model Kubernetes
+  namespaces to meet your requirements.
 
-  Virtual cluster is a managed
-  entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
-  clusters. They do not consume any additional resource in your system. A single
-  virtual
-  cluster maps to a single Kubernetes namespace. Given this relationship, you can
-  model
-  virtual clusters the same way you model Kubernetes namespaces to meet your
-  requirements.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListVirtualClusters&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:container_provider_id` (`t:string`) The container provider ID of the virtual cluster.
-  * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of the virtual cluster. Amazon EKS is the only
-         supported type as of now.
-  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the virtual clusters are created.
-  * `:created_before` (`t:timestamp[date-time]`) The date and time before which the virtual clusters are created.
-  * `:eks_access_entry_integrated` (`t:boolean`) Optional Boolean that specifies whether the operation should return the 
-         virtual clusters that have the access entry integration enabled or disabled. If not specified,
-      the operation returns all applicable virtual clusters.
-  * `:max_results` (`t:integer`) The maximum number of virtual clusters that can be listed.
-  * `:next_token` (`t:string`) The token for the next set of virtual clusters to return. 
-  * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The states of the requested virtual clusters.
+  * `:container_provider_id` (`t:string`) The container provider ID of the virtual
+    cluster.
+  * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of
+    the virtual cluster. Amazon EKS is the only supported type as of now.
+  * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
+    virtual clusters are created.
+  * `:created_before` (`t:timestamp[date-time]`) The date and time before which
+    the virtual clusters are created.
+  * `:eks_access_entry_integrated` (`t:boolean`) Optional Boolean that specifies
+    whether the operation should return the virtual clusters that have the
+    access entry integration enabled or disabled. If not specified, the
+    operation returns all applicable virtual clusters.
+  * `:max_results` (`t:integer`) The maximum number of virtual clusters that can
+    be listed.
+  * `:next_token` (`t:string`) The token for the next set of virtual clusters to
+    return.
+  * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The
+    states of the requested virtual clusters.
   """
   @spec list_virtual_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_virtual_clusters_response(), any()}
@@ -2223,13 +2220,14 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Starts a job run.
+  Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark
+  script, or SparkSQL query, that you submit to Amazon EMR on EKS.
 
-  A job run is a unit of work, such as a Spark jar, PySpark script, or
-  SparkSQL query, that you submit to Amazon EMR on EKS.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20StartJobRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:virtual_cluster_id` (`t:string`) The virtual cluster ID for which the job run request is submitted.
+  ## Parameters:
+  * `:virtual_cluster_id` (`t:string`) The virtual cluster ID for which the job
+    run request is submitted.
 
   ## Optional parameters:
   """
@@ -2259,25 +2257,20 @@ defmodule AWS.EMRcontainers do
   end
 
   @doc """
-  Assigns tags to resources.
+  Assigns tags to resources. A tag is a label that you assign to an Amazon Web
+  Services resource. Each tag consists of a key and an optional value, both of
+  which you define. Tags enable you to categorize your Amazon Web Services
+  resources by attributes such as purpose, owner, or environment. When you have
+  many resources of the same type, you can quickly identify a specific resource
+  based on the tags you've assigned to it. For example, you can define a set of
+  tags for your Amazon EMR on EKS clusters to help you track each cluster's
+  owner and stack level. We recommend that you devise a consistent set of tag
+  keys for each resource type. You can then search and filter the resources
+  based on the tags that you add.
 
-  A tag is a label that you assign to an Amazon Web Services
-  resource. Each tag consists of a key and an optional value, both of which you
-  define. Tags
-  enable you to categorize your Amazon Web Services resources by attributes such
-  as purpose,
-  owner, or environment. When you have many resources of the same type, you can
-  quickly
-  identify a specific resource based on the tags you've assigned to it. For
-  example, you can
-  define a set of tags for your Amazon EMR on EKS clusters to help you track each
-  cluster's owner and stack level. We recommend that you devise a consistent set
-  of tag keys
-  for each resource type. You can then search and filter the resources based on
-  the tags that
-  you add.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of resources.
 
   ## Optional parameters:
@@ -2310,11 +2303,14 @@ defmodule AWS.EMRcontainers do
   @doc """
   Removes tags from resources.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of resources.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]`) The tag keys of the resources.
+  * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]`) The tag keys of
+    the resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

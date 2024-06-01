@@ -385,7 +385,9 @@ defmodule AWS.Artifact do
   @doc """
   Get the account settings for Artifact.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -412,12 +414,15 @@ defmodule AWS.Artifact do
   @doc """
   Get the content for a single report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:report_id` (`t:string`) Unique resource ID for the report resource.
   * `:report_version` (`t:long`) Version for the report resource.
-  * `:term_token` (`t:string`) Unique download token provided by GetTermForReport API.
+  * `:term_token` (`t:string`) Unique download token provided by GetTermForReport
+    API.
   """
   @spec get_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_response(), any()}
@@ -469,7 +474,9 @@ defmodule AWS.Artifact do
   @doc """
   Get the metadata for a single report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetReportMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:report_id` (`t:string`) Unique resource ID for the report resource.
@@ -516,7 +523,9 @@ defmodule AWS.Artifact do
   @doc """
   Get the Term content associated with a single report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetTermForReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:report_id` (`t:string`) Unique resource ID for the report resource.
@@ -563,11 +572,15 @@ defmodule AWS.Artifact do
   @doc """
   List available reports.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20ListReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) Maximum number of resources to return in the paginated response.
-  * `:next_token` (`t:string`) Pagination token to request the next page of resources.
+  * `:max_results` (`t:integer`) Maximum number of resources to return in the
+    paginated response.
+  * `:next_token` (`t:string`) Pagination token to request the next page of
+    resources.
   """
   @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}
@@ -610,7 +623,9 @@ defmodule AWS.Artifact do
   @doc """
   Put the account settings for Artifact.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20PutAccountSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

@@ -5,12 +5,10 @@ defmodule AWS.Greengrass do
   @moduledoc """
   AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act
   locally on the data they generate, while still using the cloud for management,
-  analytics, and durable storage.
-
-  AWS IoT Greengrass ensures your devices can respond quickly to local events and
-  operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of
-  transmitting data to the cloud by allowing you to author AWS Lambda functions
-  that execute locally.
+  analytics, and durable storage. AWS IoT Greengrass ensures your devices can
+  respond quickly to local events and operate with intermittent connectivity.
+  AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by
+  allowing you to author AWS Lambda functions that execute locally.
   """
 
   alias AWS.Client
@@ -2984,14 +2982,14 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Associates a role with a group.
+  Associates a role with a group. Your Greengrass core will use the role to access
+  AWS cloud services. The role's permissions should allow Greengrass core Lambda
+  functions to perform actions against the cloud.
 
-  Your Greengrass core will use the role to access AWS cloud services. The role's
-  permissions should allow Greengrass core Lambda functions to perform actions
-  against the cloud.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateRoleToGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3016,14 +3014,14 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Associates a role with your account.
+  Associates a role with your account. AWS IoT Greengrass will use the role to
+  access your Lambda functions and AWS IoT resources. This is necessary for
+  deployments to succeed. The role must have at least minimum permissions in the
+  policy ''AWSGreengrassResourceAccessRolePolicy''.
 
-  AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT
-  resources. This is necessary for deployments to succeed. The role must have at
-  least minimum permissions in the policy
-  ''AWSGreengrassResourceAccessRolePolicy''.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateServiceRoleToAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3047,15 +3045,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a connector definition.
+  Creates a connector definition. You may provide the initial version of the
+  connector definition now or use ''CreateConnectorDefinitionVersion'' at a
+  later time.
 
-  You may provide the initial version of the connector definition now or use
-  ''CreateConnectorDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_connector_definition(
           AWS.Client.t(),
@@ -3095,11 +3094,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a connector definition which has already been defined.
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_connector_definition_version(
           AWS.Client.t(),
@@ -3144,16 +3145,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a core definition.
+  Creates a core definition. You may provide the initial version of the core
+  definition now or use ''CreateCoreDefinitionVersion'' at a later time.
+  Greengrass groups must each contain exactly one Greengrass core.
 
-  You may provide the initial version of the core definition now or use
-  ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each
-  contain exactly one Greengrass core.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_core_definition(AWS.Client.t(), create_core_definition_request(), Keyword.t()) ::
           {:ok, create_core_definition_response(), any()}
@@ -3187,15 +3188,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a version of a core definition that has already been defined.
+  Creates a version of a core definition that has already been defined. Greengrass
+  groups must each contain exactly one Greengrass core.
 
-  Greengrass groups must each contain exactly one Greengrass core.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinitionVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_core_definition_version(
           AWS.Client.t(),
@@ -3234,16 +3236,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a deployment.
+  Creates a deployment. ''CreateDeployment'' requests are idempotent with respect
+  to the ''X-Amzn-Client-Token'' token and the request parameters.
 
-  ''CreateDeployment'' requests are idempotent with respect to the
-  ''X-Amzn-Client-Token'' token and the request parameters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_deployment(AWS.Client.t(), String.t(), create_deployment_request(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
@@ -3277,15 +3279,15 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a device definition.
+  Creates a device definition. You may provide the initial version of the device
+  definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
 
-  You may provide the initial version of the device definition now or use
-  ''CreateDeviceDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_device_definition(AWS.Client.t(), create_device_definition_request(), Keyword.t()) ::
           {:ok, create_device_definition_response(), any()}
@@ -3321,11 +3323,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a device definition that has already been defined.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_device_definition_version(
           AWS.Client.t(),
@@ -3371,16 +3375,16 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a Lambda function definition which contains a list of Lambda functions
-  and their configurations to be used in a group.
+  and their configurations to be used in a group. You can create an initial
+  version of the definition by providing a list of Lambda functions and their
+  configurations now, or use ''CreateFunctionDefinitionVersion'' later.
 
-  You can create an initial version of the definition by providing a list of
-  Lambda functions and their configurations now, or use
-  ''CreateFunctionDefinitionVersion'' later.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_function_definition(
           AWS.Client.t(),
@@ -3420,11 +3424,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a Lambda function definition that has already been defined.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_function_definition_version(
           AWS.Client.t(),
@@ -3469,17 +3475,18 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a group.
-
-  You may provide the initial version of the group or use ''CreateGroupVersion''
-  at a later time. Tip: You can use the ''gg_group_setup'' package
+  Creates a group. You may provide the initial version of the group or use
+  ''CreateGroupVersion'' at a later time. Tip: You can use the
+  ''gg_group_setup'' package
   (https://github.com/awslabs/aws-greengrass-group-setup) as a library or
   command-line application to create and deploy Greengrass groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_group(AWS.Client.t(), create_group_request(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
@@ -3513,15 +3520,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a CA for the group.
+  Creates a CA for the group. If a CA already exists, it will rotate the existing
+  CA.
 
-  If a CA already exists, it will rotate the existing CA.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupCertificateAuthority&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_group_certificate_authority(
           AWS.Client.t(),
@@ -3562,11 +3570,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a group which has already been defined.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroupVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_group_version(
           AWS.Client.t(),
@@ -3605,15 +3615,15 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a logger definition.
+  Creates a logger definition. You may provide the initial version of the logger
+  definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
 
-  You may provide the initial version of the logger definition now or use
-  ''CreateLoggerDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_logger_definition(AWS.Client.t(), create_logger_definition_request(), Keyword.t()) ::
           {:ok, create_logger_definition_response(), any()}
@@ -3649,11 +3659,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a logger definition that has already been defined.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_logger_definition_version(
           AWS.Client.t(),
@@ -3699,15 +3711,15 @@ defmodule AWS.Greengrass do
 
   @doc """
   Creates a resource definition which contains a list of resources to be used in a
-  group.
+  group. You can create an initial version of the definition by providing a list
+  of resources now, or use ''CreateResourceDefinitionVersion'' later.
 
-  You can create an initial version of the definition by providing a list of
-  resources now, or use ''CreateResourceDefinitionVersion'' later.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_resource_definition(
           AWS.Client.t(),
@@ -3747,11 +3759,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a resource definition that has already been defined.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_resource_definition_version(
           AWS.Client.t(),
@@ -3798,15 +3812,15 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a software update for a core or group of cores (specified as an IoT
   thing group.) Use this to update the OTA Agent as well as the Greengrass core
-  software.
+  software. It makes use of the IoT Jobs feature which provides additional
+  commands to manage a Greengrass core software update job.
 
-  It makes use of the IoT Jobs feature which provides additional commands to
-  manage a Greengrass core software update job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSoftwareUpdateJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_software_update_job(
           AWS.Client.t(),
@@ -3844,15 +3858,16 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Creates a subscription definition.
+  Creates a subscription definition. You may provide the initial version of the
+  subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at
+  a later time.
 
-  You may provide the initial version of the subscription definition now or use
-  ''CreateSubscriptionDefinitionVersion'' at a later time.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_subscription_definition(
           AWS.Client.t(),
@@ -3892,11 +3907,13 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a subscription definition which has already been defined.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec create_subscription_definition_version(
           AWS.Client.t(),
@@ -3943,8 +3960,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a connector definition.
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -3986,8 +4005,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a core definition.
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4024,8 +4045,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a device definition.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4062,8 +4085,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a Lambda function definition.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4100,8 +4125,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4133,8 +4160,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a logger definition.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4171,8 +4200,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a resource definition.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4209,8 +4240,10 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a subscription definition.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DeleteSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4254,8 +4287,10 @@ defmodule AWS.Greengrass do
   @doc """
   Disassociates the role from a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateRoleFromGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4290,11 +4325,12 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Disassociates the service role from your account.
+  Disassociates the service role from your account. Without a service role,
+  deployments will not work.
 
-  Without a service role, deployments will not work.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4330,8 +4366,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the role associated with a particular group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetAssociatedRole&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4358,8 +4396,10 @@ defmodule AWS.Greengrass do
   @doc """
   Returns the status of a bulk deployment.
 
-  ## Required positional parameters:
-  * `:bulk_deployment_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetBulkDeploymentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4386,8 +4426,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the connectivity information for a core.
 
-  ## Required positional parameters:
-  * `:thing_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectivityInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4414,8 +4456,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a connector definition.
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4441,17 +4485,18 @@ defmodule AWS.Greengrass do
 
   @doc """
   Retrieves information about a connector definition version, including the
-  connectors that the version contains.
+  connectors that the version contains. Connectors are prebuilt modules that
+  interact with local infrastructure, device protocols, AWS, and other cloud
+  services.
 
-  Connectors are prebuilt modules that interact with local infrastructure, device
-  protocols, AWS, and other cloud services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetConnectorDefinitionVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
-  * `:connector_definition_version_id` (`t:string`) 
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
+  * `:connector_definition_version_id` (`t:string`)
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
+  * `:next_token` (`t:string`)
   """
   @spec get_connector_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_version_response(), any()}
@@ -4491,8 +4536,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a core definition version.
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4519,9 +4566,11 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a core definition version.
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
-  * `:core_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetCoreDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
+  * `:core_definition_version_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4554,9 +4603,11 @@ defmodule AWS.Greengrass do
   @doc """
   Returns the status of a deployment.
 
-  ## Required positional parameters:
-  * `:deployment_id` (`t:string`) 
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeploymentStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:deployment_id` (`t:string`)
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4584,8 +4635,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a device definition.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4612,12 +4665,14 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a device definition version.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
-  * `:device_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetDeviceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
+  * `:device_definition_version_id` (`t:string`)
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
+  * `:next_token` (`t:string`)
   """
   @spec get_device_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_version_response(), any()}
@@ -4658,8 +4713,10 @@ defmodule AWS.Greengrass do
   Retrieves information about a Lambda function definition, including its creation
   time and latest version.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4687,12 +4744,14 @@ defmodule AWS.Greengrass do
   Retrieves information about a Lambda function definition version, including
   which Lambda functions are included in the version and their configurations.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
-  * `:function_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetFunctionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
+  * `:function_definition_version_id` (`t:string`)
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
+  * `:next_token` (`t:string`)
   """
   @spec get_function_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_version_response(), any()}
@@ -4732,8 +4791,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4758,13 +4819,13 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Retreives the CA associated with a group.
+  Retreives the CA associated with a group. Returns the public key of the CA.
 
-  Returns the public key of the CA.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateAuthority&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_authority_id` (`t:string`) 
-  * `:group_id` (`t:string`) 
+  ## Parameters:
+  * `:certificate_authority_id` (`t:string`)
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4797,8 +4858,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the current configuration for the CA used by the group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4826,9 +4889,11 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a group version.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
-  * `:group_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetGroupVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
+  * `:group_version_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4856,8 +4921,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a logger definition.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4884,12 +4951,14 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a logger definition version.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
-  * `:logger_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetLoggerDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
+  * `:logger_definition_version_id` (`t:string`)
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
+  * `:next_token` (`t:string`)
   """
   @spec get_logger_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_version_response(), any()}
@@ -4930,8 +4999,10 @@ defmodule AWS.Greengrass do
   Retrieves information about a resource definition, including its creation time
   and latest version.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4959,9 +5030,11 @@ defmodule AWS.Greengrass do
   Retrieves information about a resource definition version, including which
   resources are included in the version.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
-  * `:resource_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetResourceDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
+  * `:resource_definition_version_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -4994,7 +5067,9 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the service role that is attached to your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5021,8 +5096,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a subscription definition.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -5050,12 +5127,14 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a subscription definition version.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
-  * `:subscription_definition_version_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetSubscriptionDefinitionVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
+  * `:subscription_definition_version_id` (`t:string`)
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) 
+  * `:next_token` (`t:string`)
   """
   @spec get_subscription_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_version_response(), any()}
@@ -5095,8 +5174,10 @@ defmodule AWS.Greengrass do
   @doc """
   Get the runtime configuration of a thing.
 
-  ## Required positional parameters:
-  * `:thing_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -5124,12 +5205,14 @@ defmodule AWS.Greengrass do
   Gets a paginated list of the deployments that have been started in a bulk
   deployment operation, and their current deployment status.
 
-  ## Required positional parameters:
-  * `:bulk_deployment_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeploymentDetailedReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_bulk_deployment_detailed_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
@@ -5173,11 +5256,13 @@ defmodule AWS.Greengrass do
   @doc """
   Returns a list of bulk deployments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_bulk_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_bulk_deployments_response(), any()}
@@ -5219,17 +5304,18 @@ defmodule AWS.Greengrass do
 
   @doc """
   Lists the versions of a connector definition, which are containers for
-  connectors.
+  connectors. Connectors run on the Greengrass core and contain built-in
+  integration with local infrastructure, device protocols, AWS, and other cloud
+  services.
 
-  Connectors run on the Greengrass core and contain built-in integration with
-  local infrastructure, device protocols, AWS, and other cloud services.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitionVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_connector_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_connector_definition_versions_response(), any()}
@@ -5277,11 +5363,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of connector definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_connector_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_definitions_response(), any()}
@@ -5323,12 +5411,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a core definition.
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_core_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_core_definition_versions_response(), any()}
@@ -5371,11 +5461,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of core definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_core_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_definitions_response(), any()}
@@ -5417,12 +5509,14 @@ defmodule AWS.Greengrass do
   @doc """
   Returns a history of deployments for the group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -5465,12 +5559,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a device definition.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_device_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_definition_versions_response(), any()}
@@ -5514,11 +5610,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of device definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_device_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_definitions_response(), any()}
@@ -5560,12 +5658,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a Lambda function definition.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_function_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_definition_versions_response(), any()}
@@ -5609,11 +5709,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of Lambda function definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_function_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_function_definitions_response(), any()}
@@ -5655,8 +5757,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the current CAs for a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupCertificateAuthorities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -5683,12 +5787,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroupVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_group_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_versions_response(), any()}
@@ -5731,11 +5837,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -5777,12 +5885,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a logger definition.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_logger_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_logger_definition_versions_response(), any()}
@@ -5826,11 +5936,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of logger definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_logger_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logger_definitions_response(), any()}
@@ -5872,12 +5984,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a resource definition.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_resource_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_definition_versions_response(), any()}
@@ -5921,11 +6035,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of resource definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_resource_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_definitions_response(), any()}
@@ -5967,12 +6083,14 @@ defmodule AWS.Greengrass do
   @doc """
   Lists the versions of a subscription definition.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitionVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_subscription_definition_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_definition_versions_response(), any()}
@@ -6020,11 +6138,13 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of subscription definitions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:string`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:string`)
+  * `:next_token` (`t:string`)
   """
   @spec list_subscription_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscription_definitions_response(), any()}
@@ -6066,8 +6186,10 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of resource tags for a resource arn.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6094,11 +6216,13 @@ defmodule AWS.Greengrass do
   @doc """
   Resets a group's deployments.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ResetDeployments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec reset_deployments(AWS.Client.t(), String.t(), reset_deployments_request(), Keyword.t()) ::
           {:ok, reset_deployments_response(), any()}
@@ -6132,18 +6256,19 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Deploys multiple groups in one operation.
+  Deploys multiple groups in one operation. This action starts the bulk deployment
+  of a specified set of group versions. Each group version deployment will be
+  triggered with an adaptive rate that has a fixed upper limit. We recommend
+  that you include an ''X-Amzn-Client-Token'' token in every
+  ''StartBulkDeployment'' request. These requests are idempotent with respect to
+  the token and the request parameters.
 
-  This action starts the bulk deployment of a specified set of group versions.
-  Each group version deployment will be triggered with an adaptive rate that has a
-  fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token''
-  token in every ''StartBulkDeployment'' request. These requests are idempotent
-  with respect to the token and the request parameters.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StartBulkDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:amzn_client_token` (`t:string`) 
+  * `:amzn_client_token` (`t:string`)
   """
   @spec start_bulk_deployment(AWS.Client.t(), start_bulk_deployment_request(), Keyword.t()) ::
           {:ok, start_bulk_deployment_response(), any()}
@@ -6177,15 +6302,15 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Stops the execution of a bulk deployment.
+  Stops the execution of a bulk deployment. This action returns a status of
+  ''Stopping'' until the deployment is stopped. You cannot start a new bulk
+  deployment while a previous deployment is in the ''Stopping'' state. This
+  action doesn't rollback completed deployments or cancel pending deployments.
 
-  This action returns a status of ''Stopping'' until the deployment is stopped.
-  You cannot start a new bulk deployment while a previous deployment is in the
-  ''Stopping'' state. This action doesn't rollback completed deployments or cancel
-  pending deployments.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StopBulkDeployment&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:bulk_deployment_id` (`t:string`) 
+  ## Parameters:
+  * `:bulk_deployment_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6210,14 +6335,15 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Adds tags to a Greengrass resource.
+  Adds tags to a Greengrass resource. Valid resources are 'Group',
+  'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition',
+  'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition',
+  'ResourceDefinition', and 'BulkDeployment'.
 
-  Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition',
-  'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition',
-  'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6249,11 +6375,13 @@ defmodule AWS.Greengrass do
   @doc """
   Remove resource tags from a Greengrass Resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`)
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]`) 
+  * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]`)
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6286,13 +6414,14 @@ defmodule AWS.Greengrass do
   end
 
   @doc """
-  Updates the connectivity information for the core.
+  Updates the connectivity information for the core. Any devices that belong to
+  the group which has this core will receive this information in order to find
+  the location of the core and connect to it.
 
-  Any devices that belong to the group which has this core will receive this
-  information in order to find the location of the core and connect to it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectivityInfo&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:thing_name` (`t:string`) 
+  ## Parameters:
+  * `:thing_name` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6319,8 +6448,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a connector definition.
 
-  ## Required positional parameters:
-  * `:connector_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateConnectorDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:connector_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6352,8 +6483,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a core definition.
 
-  ## Required positional parameters:
-  * `:core_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateCoreDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:core_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6380,8 +6513,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a device definition.
 
-  ## Required positional parameters:
-  * `:device_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateDeviceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:device_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6408,8 +6543,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a Lambda function definition.
 
-  ## Required positional parameters:
-  * `:function_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateFunctionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:function_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6436,8 +6573,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6459,8 +6598,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates the Certificate expiry time for a group.
 
-  ## Required positional parameters:
-  * `:group_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateGroupCertificateConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:group_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6489,8 +6630,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a logger definition.
 
-  ## Required positional parameters:
-  * `:logger_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateLoggerDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:logger_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6517,8 +6660,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a resource definition.
 
-  ## Required positional parameters:
-  * `:resource_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateResourceDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6545,8 +6690,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a subscription definition.
 
-  ## Required positional parameters:
-  * `:subscription_definition_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateSubscriptionDefinition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:subscription_definition_id` (`t:string`)
 
   ## Optional parameters:
   """
@@ -6580,8 +6727,10 @@ defmodule AWS.Greengrass do
   @doc """
   Updates the runtime configuration of a thing.
 
-  ## Required positional parameters:
-  * `:thing_name` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20UpdateThingRuntimeConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:thing_name` (`t:string`)
 
   ## Optional parameters:
   """

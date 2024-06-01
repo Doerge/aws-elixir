@@ -4,16 +4,15 @@
 defmodule AWS.Repostspace do
   @moduledoc """
   AWS re:Post Private is a private version of AWS re:Post for enterprises with
-  Enterprise Support or Enterprise On-Ramp Support plans.
-
-  It provides access to knowledge and experts to accelerate cloud adoption and
-  increase developer productivity. With your organization-specific private
-  re:Post, you can build an organization-specific developer community that drives
-  efficiencies at scale and provides access to valuable knowledge resources.
-  Additionally, re:Post Private centralizes trusted AWS technical content and
-  offers private discussion forums to improve how your teams collaborate
-  internally and with AWS to remove technical obstacles, accelerate innovation,
-  and scale more efficiently in the cloud.
+  Enterprise Support or Enterprise On-Ramp Support plans. It provides access to
+  knowledge and experts to accelerate cloud adoption and increase developer
+  productivity. With your organization-specific private re:Post, you can build
+  an organization-specific developer community that drives efficiencies at scale
+  and provides access to valuable knowledge resources. Additionally, re:Post
+  Private centralizes trusted AWS technical content and offers private
+  discussion forums to improve how your teams collaborate internally and with
+  AWS to remove technical obstacles, accelerate innovation, and scale more
+  efficiently in the cloud.
   """
 
   alias AWS.Client
@@ -450,7 +449,9 @@ defmodule AWS.Repostspace do
   @doc """
   Creates an AWS re:Post Private private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20CreateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -482,7 +483,9 @@ defmodule AWS.Repostspace do
   @doc """
   Deletes an AWS re:Post Private private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeleteSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_id` (`t:string`) The unique ID of the private re:Post.
 
   ## Optional parameters:
@@ -516,9 +519,12 @@ defmodule AWS.Repostspace do
   Removes the user or group from the list of administrators of the private
   re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20DeregisterAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:admin_id` (`t:string`) The ID of the admin to remove.
-  * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin from.
+  * `:space_id` (`t:string`) The ID of the private re:Post to remove the admin
+    from.
 
   ## Optional parameters:
   """
@@ -556,7 +562,9 @@ defmodule AWS.Repostspace do
   @doc """
   Displays information about the AWS re:Post Private private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20GetSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_id` (`t:string`) The ID of the private re:Post.
 
   ## Optional parameters:
@@ -585,11 +593,15 @@ defmodule AWS.Repostspace do
   Returns a list of AWS re:Post Private private re:Posts in the account with some
   information about each private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListSpaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of private re:Posts to include in the results.
-  * `:next_token` (`t:`) The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.
+  * `:max_results` (`t:integer`) The maximum number of private re:Posts to include
+    in the results.
+  * `:next_token` (`t:`) The token for the next set of private re:Posts to return.
+    You receive this token from a previous ListSpaces operation.
   """
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
@@ -631,12 +643,14 @@ defmodule AWS.Repostspace do
 
   @doc """
   Returns the tags that are associated with the AWS re:Post Private resource
-  specified by the resourceArn.
+  specified by the resourceArn. The only resource that can be tagged is a
+  private re:Post.
 
-  The only resource that can be tagged is a private re:Post.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that the tags are associated with.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tags are
+    associated with.
 
   ## Optional parameters:
   """
@@ -663,7 +677,9 @@ defmodule AWS.Repostspace do
   @doc """
   Adds a user or group to the list of administrators of the private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20RegisterAdmin&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:admin_id` (`t:string`) The ID of the administrator.
   * `:space_id` (`t:string`) The ID of the private re:Post.
 
@@ -703,7 +719,9 @@ defmodule AWS.Repostspace do
   @doc """
   Sends an invitation email to selected users and groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20SendInvites&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_id` (`t:string`) The ID of the private re:Post.
 
   ## Optional parameters:
@@ -734,16 +752,18 @@ defmodule AWS.Repostspace do
   end
 
   @doc """
-  Associates tags with an AWS re:Post Private resource.
-
-  Currently, the only resource that can be tagged is the private re:Post. If you
-  specify a new tag key for the resource, the tag is appended to the list of tags
-  that are associated with the resource. If you specify a tag key that’s already
+  Associates tags with an AWS re:Post Private resource. Currently, the only
+  resource that can be tagged is the private re:Post. If you specify a new tag
+  key for the resource, the tag is appended to the list of tags that are
+  associated with the resource. If you specify a tag key that’s already
   associated with the resource, the new tag value that you specify replaces the
   previous value for that tag.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource that the tag is associated with.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource that the tag is
+    associated with.
 
   ## Optional parameters:
   """
@@ -775,11 +795,14 @@ defmodule AWS.Repostspace do
   @doc """
   Removes the association of the tag with the AWS re:Post Private resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the tag.
+  * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]`) The key values of the
+    tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -814,7 +837,9 @@ defmodule AWS.Repostspace do
   @doc """
   Modifies an existing AWS re:Post Private private re:Post.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20UpdateSpace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:space_id` (`t:string`) The unique ID of this private re:Post.
 
   ## Optional parameters:

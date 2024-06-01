@@ -1732,12 +1732,13 @@ defmodule AWS.Bedrock do
 
   @doc """
   API operation for creating and managing Amazon Bedrock automatic model
-  evaluation jobs and model evaluation jobs that use human workers.
+  evaluation jobs and model evaluation jobs that use human workers. To learn
+  more about the requirements for creating a model evaluation job see, [Model
+  evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
 
-  To learn more about the requirements for creating a model evaluation job see,
-  [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateEvaluationJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1769,52 +1770,9 @@ defmodule AWS.Bedrock do
   @doc """
   Creates a guardrail to block topics and to filter out harmful content.
 
-    *
-  Specify a `name` and optional `description`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrail&this_doc_guide=API%2520Reference)
 
-    *
-  Specify messages for when the guardrail successfully blocks a prompt or a model
-  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
-
-    *
-  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
-  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
-
-      *
-  Give a `name` and `description` so that the guardrail can properly identify the
-  topic.
-
-      *
-  Specify `DENY` in the `type` field.
-
-      *
-  (Optional) Provide up to five prompts that you would categorize as belonging to
-  the topic in the `examples` list.
-
-    *
-  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
-  the `contentPolicyConfig` object. Each
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
-  object in the `filtersConfig` list pertains to a harmful category. For more
-  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
-  For more information about the fields in a content filter, see
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
-      *
-  Specify the category in the `type` field.
-
-      *
-  Specify the strength of the filter for prompts in the `inputStrength` field and
-  for model responses in the `strength` field of the
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
-
-    *
-  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
-
-    *
-  (Optional) Attach any tags to the guardrail in the `tags` object. For more
-  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1844,13 +1802,13 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a version of the guardrail.
-
-  Use this API to create a snapshot of the
+  Creates a version of the guardrail. Use this API to create a snapshot of the
   guardrail when you are satisfied with a configuration, or to compare the
   configuration with another version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrailVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
 
   ## Optional parameters:
@@ -1886,24 +1844,15 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a fine-tuning job to customize a base model.
+  Creates a fine-tuning job to customize a base model. You specify the base
+  foundation model and the location of the training data. After the
+  model-customization job completes successfully, your custom model resource
+  will be ready to use. Amazon Bedrock returns validation loss metrics and
+  output generations after the job completes.
 
-  You specify the base foundation model and the location of the training data.
-  After the model-customization job completes successfully, your custom model
-  resource will be ready to use. Amazon Bedrock returns validation loss metrics
-  and output generations after the job completes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCustomizationJob&this_doc_guide=API%2520Reference)
 
-  For information on the format of training and validation data, see [Prepare the datasets](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html).
-
-  Model-customization jobs are asynchronous and the completion time depends on the
-  base model and the training/validation data size.
-  To monitor a job, use the `GetModelCustomizationJob` operation to retrieve the
-  job status.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1938,13 +1887,15 @@ defmodule AWS.Bedrock do
 
   @doc """
   Creates dedicated throughput for a base or custom model with the model units and
-  for the duration that you specify.
-
-  For pricing details, see [Amazon Bedrock Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
-  [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  for the duration that you specify. For pricing details, see [Amazon Bedrock
+  Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1978,12 +1929,14 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Deletes a custom model that you created earlier.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  Deletes a custom model that you created earlier. For more information, see
+  [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteCustomModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:model_identifier` (`t:string`) Name of the model to delete.
 
   ## Optional parameters:
@@ -2021,16 +1974,9 @@ defmodule AWS.Bedrock do
   @doc """
   Deletes a guardrail.
 
-    *
-  To delete a guardrail, only specify the ARN of the guardrail in the
-  `guardrailIdentifier` field. If you delete a guardrail, all of its versions will
-  be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteGuardrail&this_doc_guide=API%2520Reference)
 
-    *
-  To delete a version of a guardrail, specify the ARN of the guardrail in the
-  `guardrailIdentifier` field and the version in the `guardrailVersion` field.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
 
   ## Optional parameters:
@@ -2069,7 +2015,9 @@ defmodule AWS.Bedrock do
   @doc """
   Delete the invocation logging.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2103,14 +2051,16 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Deletes a Provisioned Throughput.
-
-  You can't delete a Provisioned Throughput before the commitment term is over.
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput
+  before the commitment term is over. For more information, see [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput.
 
   ## Optional parameters:
   """
@@ -2151,11 +2101,15 @@ defmodule AWS.Bedrock do
 
   @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
-  created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  created.For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
-  * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the custom model.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetCustomModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:model_identifier` (`t:string`) Name or Amazon Resource Name (ARN) of the
+    custom model.
 
   ## Optional parameters:
   """
@@ -2181,12 +2135,14 @@ defmodule AWS.Bedrock do
 
   @doc """
   Retrieves the properties associated with a model evaluation job, including the
-  status of the job.
+  status of the job. For more information, see [Model
+  evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
 
-  For more information, see [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetEvaluationJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model evaluation job.
+  ## Parameters:
+  * `:job_identifier` (`t:string`) The Amazon Resource Name (ARN) of the model
+    evaluation job.
 
   ## Optional parameters:
   """
@@ -2213,8 +2169,10 @@ defmodule AWS.Bedrock do
   @doc """
   Get details about a Amazon Bedrock foundation model.
 
-  ## Required positional parameters:
-  * `:model_identifier` (`t:string`) The model identifier. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetFoundationModel&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:model_identifier` (`t:string`) The model identifier.
 
   ## Optional parameters:
   """
@@ -2239,16 +2197,19 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Gets details about a guardrail.
+  Gets details about a guardrail. If you don't specify a version, the response
+  returns details for the `DRAFT` version.
 
-  If you don't specify a version, the response returns details for the `DRAFT`
-  version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetGuardrail&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail for which to get details.
+  ## Parameters:
+  * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
+    for which to get details.
 
   ## Optional parameters:
-  * `:guardrail_version` (`t:string`) The version of the guardrail for which to get details. If you don&#39;t specify a version, the response returns details for the <code>DRAFT</code> version.
+  * `:guardrail_version` (`t:string`) The version of the guardrail for which to
+    get details. If you don't specify a version, the response returns details
+    for the DRAFT version.
   """
   @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
@@ -2281,12 +2242,13 @@ defmodule AWS.Bedrock do
 
   @doc """
   Retrieves the properties associated with a model-customization job, including
-  the status of the job.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  the status of the job. For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelCustomizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_identifier` (`t:string`) Identifier for the customization job.
 
   ## Optional parameters:
@@ -2314,7 +2276,9 @@ defmodule AWS.Bedrock do
   @doc """
   Get the current configuration values for model invocation logging.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2339,13 +2303,16 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Returns details for a Provisioned Throughput.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Returns details for a Provisioned Throughput. For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput.
 
   ## Optional parameters:
   """
@@ -2373,21 +2340,29 @@ defmodule AWS.Bedrock do
   Returns a list of the custom models that you have created with the
   `CreateModelCustomizationJob` operation.
 
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListCustomModels&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:base_model_arn_equals` (`t:string`) Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.
-  * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created after the specified time. 
-  * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models created before the specified time. 
-  * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.
-  * `:max_results` (`t:integer`) Maximum number of results to return in the response.
-  * `:name_contains` (`t:string`) Return custom models only if the job name contains these characters.
-  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
-  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned list of models.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
+  * `:base_model_arn_equals` (`t:string`) Return custom models only if the base
+    model Amazon Resource Name (ARN) matches this parameter.
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created
+    after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models
+    created before the specified time.
+  * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the
+    foundation model Amazon Resource Name (ARN) matches this parameter.
+  * `:max_results` (`t:integer`) Maximum number of results to return in the
+    response.
+  * `:name_contains` (`t:string`) Return custom models only if the job name
+    contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
+    list of models.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
   """
   @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
@@ -2494,17 +2469,26 @@ defmodule AWS.Bedrock do
   @doc """
   Lists model evaluation jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListEvaluationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model evaluation jobs created after the time specified.
-  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes model evaluation jobs created prior to the time specified.
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model
+    evaluation jobs created after the time specified.
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes
+    model evaluation jobs created prior to the time specified.
   * `:max_results` (`t:integer`) The maximum number of results to return.
-  * `:name_contains` (`t:string`) Query parameter string for model evaluation job names.
-  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
-  * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation jobs by when they were created.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of jobs sorted.
-  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`) Only return jobs where the status condition is met.
+  * `:name_contains` (`t:string`) Query parameter string for model evaluation job
+    names.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation
+    jobs by when they were created.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of
+    jobs sorted.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
+    Only return jobs where the status condition is met.
   """
   @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
@@ -2599,19 +2583,26 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Lists Amazon Bedrock foundation models that you can use.
-
-  You can filter the results with the request parameters. For more information,
-  see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
+  Lists Amazon Bedrock foundation models that you can use. You can filter the
+  results with the request parameters. For more information, see [Foundation
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListFoundationModels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`) Return models that support the customization type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.
-  * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that support the inference type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.
-  * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that support the output modality that you specify.
-  * `:by_provider` (`t:string`) Return models belonging to the model provider that you specify.
+  * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`)
+    Return models that support the customization type that you specify. For more
+    information, see Custom models in the Amazon Bedrock User Guide.
+  * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that
+    support the inference type that you specify. For more information, see
+    Provisioned Throughput in the Amazon Bedrock User Guide.
+  * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that
+    support the output modality that you specify.
+  * `:by_provider` (`t:string`) Return models belonging to the model provider that
+    you specify.
   """
   @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
@@ -2670,23 +2661,22 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Lists details about all the guardrails in an account.
+  Lists details about all the guardrails in an account. To list the `DRAFT`
+  version of all your guardrails, don't specify the `guardrailIdentifier` field.
+  To list all versions of a guardrail, specify the ARN of the guardrail in the
+  `guardrailIdentifier` field.
 
-  To list the `DRAFT` version of all your guardrails, don't specify the
-  `guardrailIdentifier` field. To list all versions of a guardrail, specify the
-  ARN of the guardrail in the `guardrailIdentifier` field.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListGuardrails&this_doc_guide=API%2520Reference)
 
-  You can set the maximum number of results to return in a response in the
-  `maxResults` field. If there are more results than the number you set, the
-  response returns a `nextToken` that you can send in another `ListGuardrails`
-  request to see the next batch of results.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-  * `:max_results` (`t:integer`) The maximum number of results to return in the response.
-  * `:next_token` (`t:string`) If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    response.
+  * `:next_token` (`t:string`) If there are more results than were returned in the
+    response, the response returns a nextToken that you can send in another
+    ListGuardrails request to see the next batch of results.
   """
   @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
@@ -2736,25 +2726,30 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Returns a list of model customization jobs that you have submitted.
+  Returns a list of model customization jobs that you have submitted. You can
+  filter the jobs to return based on one or more criteria.
 
-  You can filter the jobs to return based on
-  one or more criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCustomizationJobs&this_doc_guide=API%2520Reference)
 
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs created after the specified time. 
-  * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs created before the specified time. 
-  * `:max_results` (`t:integer`) Maximum number of results to return in the response.
-  * `:name_contains` (`t:string`) Return customization jobs only if the job name contains these characters.
-  * `:next_token` (`t:string`) Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
-  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned list of jobs.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
-  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`) Return customization jobs with the specified status. 
+  * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs
+    created after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs
+    created before the specified time.
+  * `:max_results` (`t:integer`) Maximum number of results to return in the
+    response.
+  * `:name_contains` (`t:string`) Return customization jobs only if the job name
+    contains these characters.
+  * `:next_token` (`t:string`) Continuation token from the previous response, for
+    Amazon Bedrock to list the next set of results.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
+    list of jobs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
+  * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
+    Return customization jobs with the specified status.
   """
   @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
@@ -2849,25 +2844,39 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Lists the Provisioned Throughputs in the account.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Lists the Provisioned Throughputs in the account. For more information, see
+  [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListProvisionedModelThroughputs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns Provisioned Throughputs created after the specified time. 
-  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns Provisioned Throughputs created before the specified time. 
-  * `:max_results` (`t:integer`) THe maximum number of results to return in the response. If there are more results than the number you specified, the response returns a <code>nextToken</code>
-         value. To see the next batch of results, send the <code>nextToken</code> value in another list request.
-  * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs whose model Amazon Resource Name (ARN) is equal to the value that you specify.
-  * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if their name contains the expression that you specify.
-  * `:next_token` (`t:string`) If there are more results than the number you specified in the <code>maxResults</code> field, the response returns a <code>nextToken</code>
-         value. To see the next batch of results, specify the <code>nextToken</code> value in this field.
-  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned list of Provisioned Throughputs.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the results.
-  * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter that returns Provisioned Throughputs if their statuses matches the value that you specify.
+  * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns
+    Provisioned Throughputs created after the specified time.
+  * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns
+    Provisioned Throughputs created before the specified time.
+  * `:max_results` (`t:integer`) THe maximum number of results to return in the
+    response. If there are more results than the number you specified, the
+    response returns a nextToken value. To see the next batch of results, send
+    the nextToken value in another list request.
+  * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs
+    whose model Amazon Resource Name (ARN) is equal to the value that you
+    specify.
+  * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if
+    their name contains the expression that you specify.
+  * `:next_token` (`t:string`) If there are more results than the number you
+    specified in the maxResults field, the response returns a nextToken value.
+    To see the next batch of results, specify the nextToken value in this field.
+  * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned
+    list of Provisioned Throughputs.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
+    results.
+  * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter
+    that returns Provisioned Throughputs if their statuses matches the value
+    that you specify.
   """
   @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
@@ -2973,10 +2982,9 @@ defmodule AWS.Bedrock do
   @doc """
   List the tags associated with the specified resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3008,7 +3016,9 @@ defmodule AWS.Bedrock do
   @doc """
   Set the configuration values for model invocation logging.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20PutModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3034,8 +3044,11 @@ defmodule AWS.Bedrock do
   @doc """
   Stops an in progress model evaluation job.
 
-  ## Required positional parameters:
-  * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to stop.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopEvaluationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_identifier` (`t:string`) The ARN of the model evaluation job you want to
+    stop.
 
   ## Optional parameters:
   """
@@ -3070,12 +3083,13 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Stops an active model customization job.
-
-  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  Stops an active model customization job. For more information, see [Custom
+  models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20StopModelCustomizationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_identifier` (`t:string`) Job identifier of the job to stop.
 
   ## Optional parameters:
@@ -3111,12 +3125,13 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Associate tags with a resource.
+  Associate tags with a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html)
+  in the Amazon Bedrock User Guide.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3146,12 +3161,13 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Remove one or more tags from a resource.
+  Remove one or more tags from a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html)
+  in the Amazon Bedrock User Guide.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3183,52 +3199,9 @@ defmodule AWS.Bedrock do
   @doc """
   Updates a guardrail with the values you specify.
 
-    *
-  Specify a `name` and optional `description`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateGuardrail&this_doc_guide=API%2520Reference)
 
-    *
-  Specify messages for when the guardrail successfully blocks a prompt or a model
-  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
-
-    *
-  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
-  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
-
-      *
-  Give a `name` and `description` so that the guardrail can properly identify the
-  topic.
-
-      *
-  Specify `DENY` in the `type` field.
-
-      *
-  (Optional) Provide up to five prompts that you would categorize as belonging to
-  the topic in the `examples` list.
-
-    *
-  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
-  the `contentPolicyConfig` object. Each
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
-  object in the `filtersConfig` list pertains to a harmful category. For more
-  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
-  For more information about the fields in a content filter, see
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
-      *
-  Specify the category in the `type` field.
-
-      *
-  Specify the strength of the filter for prompts in the `inputStrength` field and
-  for model responses in the `strength` field of the
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
-
-    *
-  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
-
-    *
-  (Optional) Attach any tags to the guardrail in the `tags` object. For more
-  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
 
   ## Optional parameters:
@@ -3249,13 +3222,16 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Updates the name or associated model for a Provisioned Throughput.
-
-  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  Updates the name or associated model for a Provisioned Throughput. For more
+  information, see [Provisioned
+  Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
-  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of the Provisioned Throughput to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UpdateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provisioned_model_id` (`t:string`) The Amazon Resource Name (ARN) or name of
+    the Provisioned Throughput to update.
 
   ## Optional parameters:
   """

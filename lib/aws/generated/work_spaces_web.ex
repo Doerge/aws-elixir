@@ -4,17 +4,12 @@
 defmodule AWS.WorkSpacesWeb do
   @moduledoc """
   WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to
-  facilitate
-  secure, web-based workloads.
-
-  WorkSpaces Web makes it easy for customers to safely provide
-  their employees with access to internal websites and SaaS web applications
-  without the
-  administrative burden of appliances or specialized client software. WorkSpaces
-  Web provides
-  simple policy tools tailored for user interactions, while offloading common
-  tasks like
-  capacity management, scaling, and maintaining browser images.
+  facilitate secure, web-based workloads. WorkSpaces Web makes it easy for
+  customers to safely provide their employees with access to internal websites
+  and SaaS web applications without the administrative burden of appliances or
+  specialized client software. WorkSpaces Web provides simple policy tools
+  tailored for user interactions, while offloading common tasks like capacity
+  management, scaling, and maintaining browser images.
   """
 
   alias AWS.Client
@@ -2197,7 +2192,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a browser settings resource with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2231,7 +2228,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates an IP access settings resource with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2265,7 +2264,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a network settings resource with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2299,7 +2300,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a trust store with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateTrustStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2333,11 +2336,14 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a user access logging settings resource with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
+    logging settings.
   """
   @spec associate_user_access_logging_settings(
           AWS.Client.t(),
@@ -2369,7 +2375,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Associates a user settings resource with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20AssociateUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2402,13 +2410,12 @@ defmodule AWS.WorkSpacesWeb do
 
   @doc """
   Creates a browser settings resource that can be associated with a web portal.
+  Once associated with a web portal, browser settings control how the browser
+  will behave once a user starts a streaming session for the web portal.
 
-  Once
-  associated with a web portal, browser settings control how the browser will
-  behave once a
-  user starts a streaming session for the web portal.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateBrowserSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2440,7 +2447,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates an identity provider resource that is then associated with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2472,7 +2481,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates an IP access settings resource that can be associated with a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2507,13 +2518,12 @@ defmodule AWS.WorkSpacesWeb do
 
   @doc """
   Creates a network settings resource that can be associated with a web portal.
+  Once associated with a web portal, network settings define how streaming
+  instances will connect with your specified VPC.
 
-  Once
-  associated with a web portal, network settings define how streaming instances
-  will connect
-  with your specified VPC.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateNetworkSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2545,7 +2555,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Creates a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreatePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2575,18 +2587,16 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
-  Creates a trust store that can be associated with a web portal.
+  Creates a trust store that can be associated with a web portal. A trust store
+  contains certificate authority (CA) certificates. Once associated with a web
+  portal, the browser in a streaming session will recognize certificates that
+  have been issued using any of the CAs in the trust store. If your organization
+  has internal websites that use certificates issued by private CAs, you should
+  add the private CA certificate to the trust store.
 
-  A trust store contains
-  certificate authority (CA) certificates. Once associated with a web portal, the
-  browser in
-  a streaming session will recognize certificates that have been issued using any
-  of the CAs
-  in the trust store. If your organization has internal websites that use
-  certificates issued
-  by private CAs, you should add the private CA certificate to the trust store.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateTrustStore&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2619,7 +2629,9 @@ defmodule AWS.WorkSpacesWeb do
   Creates a user access logging settings resource that can be associated with a
   web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2653,14 +2665,13 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
-  Creates a user settings resource that can be associated with a web portal.
+  Creates a user settings resource that can be associated with a web portal. Once
+  associated with a web portal, user settings control how users can transfer
+  data between a streaming session and the their local devices.
 
-  Once
-  associated with a web portal, user settings control how users can transfer data
-  between a
-  streaming session and the their local devices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserSettings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2692,7 +2703,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes browser settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
@@ -2730,7 +2743,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
@@ -2768,7 +2783,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes IP access settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
@@ -2806,7 +2823,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes network settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
@@ -2844,7 +2863,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeletePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -2877,7 +2898,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes the trust store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteTrustStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
@@ -2910,8 +2933,11 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes user access logging settings.
 
-  ## Required positional parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
+    logging settings.
 
   ## Optional parameters:
   """
@@ -2955,7 +2981,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Deletes user settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DeleteUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:
@@ -2993,7 +3021,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates browser settings from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3031,7 +3061,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates IP access settings from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3069,7 +3101,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates network settings from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3107,7 +3141,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates a trust store from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateTrustStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3145,7 +3181,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates user access logging settings from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3190,7 +3228,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Disassociates user settings from a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20DisassociateUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3228,7 +3268,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets browser settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
@@ -3256,7 +3298,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
@@ -3284,7 +3328,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the IP access settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
@@ -3312,7 +3358,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the network settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
@@ -3340,7 +3388,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetPortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3368,7 +3418,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the service provider metadata.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetPortalServiceProviderMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -3396,7 +3448,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetTrustStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
@@ -3424,7 +3478,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets the trust store certificate.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetTrustStoreCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:trust_store_arn` (`t:string`) The ARN of the trust store certificate.
 
   ## Optional parameters:
@@ -3462,8 +3518,11 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user access logging settings.
 
-  ## Required positional parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
+    logging settings.
 
   ## Optional parameters:
   """
@@ -3495,7 +3554,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Gets user settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20GetUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:
@@ -3523,11 +3584,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of browser settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_browser_settings_response(), any()}
@@ -3570,12 +3635,16 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of identity providers for a specific web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListIdentityProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_identity_providers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
@@ -3618,11 +3687,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of IP access settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ip_access_settings_response(), any()}
@@ -3665,11 +3738,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of network settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_settings_response(), any()}
@@ -3712,11 +3789,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list or web portals.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListPortals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation. 
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
@@ -3759,7 +3840,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of tags for a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -3787,12 +3870,16 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of trust store certificates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTrustStoreCertificates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:trust_store_arn` (`t:string`) The ARN of the trust store
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_trust_store_certificates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_trust_store_certificates_response(), any()}
@@ -3835,11 +3922,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of trust stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTrustStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_trust_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_stores_response(), any()}
@@ -3882,11 +3973,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user access logging settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation.
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_access_logging_settings_response(), any()}
@@ -3929,11 +4024,15 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Retrieves a list of user settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be included in the next page.
-  * `:next_token` (`t:string`) The pagination token used to retrieve the next page of results for this operation. 
+  * `:max_results` (`t:integer`) The maximum number of results to be included in
+    the next page.
+  * `:next_token` (`t:string`) The pagination token used to retrieve the next page
+    of results for this operation.
   """
   @spec list_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_settings_response(), any()}
@@ -3976,7 +4075,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Adds or overwrites one or more tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
@@ -4009,11 +4110,14 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Removes one or more tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]`) The list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]`) The list of tag
+    keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4048,7 +4152,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates browser settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateBrowserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:browser_settings_arn` (`t:string`) The ARN of the browser settings.
 
   ## Optional parameters:
@@ -4086,7 +4192,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the identity provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateIdentityProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:identity_provider_arn` (`t:string`) The ARN of the identity provider.
 
   ## Optional parameters:
@@ -4124,7 +4232,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates IP access settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateIpAccessSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:ip_access_settings_arn` (`t:string`) The ARN of the IP access settings.
 
   ## Optional parameters:
@@ -4162,7 +4272,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates network settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateNetworkSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:network_settings_arn` (`t:string`) The ARN of the network settings.
 
   ## Optional parameters:
@@ -4200,7 +4312,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates a web portal.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdatePortal&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:portal_arn` (`t:string`) The ARN of the web portal.
 
   ## Optional parameters:
@@ -4223,7 +4337,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the trust store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateTrustStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:trust_store_arn` (`t:string`) The ARN of the trust store.
 
   ## Optional parameters:
@@ -4256,8 +4372,11 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the user access logging settings.
 
-  ## Required positional parameters:
-  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access logging settings.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:user_access_logging_settings_arn` (`t:string`) The ARN of the user access
+    logging settings.
 
   ## Optional parameters:
   """
@@ -4301,7 +4420,9 @@ defmodule AWS.WorkSpacesWeb do
   @doc """
   Updates the user settings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20UpdateUserSettings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:user_settings_arn` (`t:string`) The ARN of the user settings.
 
   ## Optional parameters:

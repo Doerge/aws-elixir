@@ -2076,15 +2076,17 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Associates a knowledge base with an agent.
+  Associates a knowledge base with an agent. If a knowledge base is associated and
+  its `indexState` is set to `Enabled`, the agent queries the knowledge base for
+  information to augment its response to the user.
 
-  If a knowledge base is associated and its `indexState` is set to `Enabled`, the
-  agent queries the knowledge base for information to augment its response to the
-  user.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20AssociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent with which you want to associate the knowledge base.
-  * `:agent_version` (`t:string`) The version of the agent with which you want to associate the knowledge base.
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which you
+    want to associate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent with which you want to
+    associate the knowledge base.
 
   ## Optional parameters:
   """
@@ -2119,37 +2121,12 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Creates an agent that orchestrates interactions between foundation models, data
-  sources, software applications, user conversations, and APIs to carry out tasks
-  to help customers.
+  sources, software applications, user conversations, and APIs to carry out
+  tasks to help customers.
 
-    *
-  Specify the following fields for security purposes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgent&this_doc_guide=API%2520Reference)
 
-      *
-
-  `agentResourceRoleArn` – The Amazon Resource Name (ARN) of the role with
-  permissions to invoke API operations on an agent.
-
-      *
-  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
-  key to encrypt the creation of the agent.
-
-      *
-  (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
-  the agent should maintain session information. After this time expires, the
-  subsequent `InvokeAgent` request begins a new session.
-
-    *
-  To override the default prompt behavior for agent orchestration and to use
-  advanced prompts, include a `promptOverrideConfiguration` object. For more
-  information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
-
-    *
-  If you agent fails to be created, the response returns a list of
-  `failureReasons` alongside a list of `recommendedActions` for you to
-  troubleshoot.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2169,25 +2146,17 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates an action group for an agent.
+  Creates an action group for an agent. An action group represents the actions
+  that an agent can carry out for the customer by defining the APIs that an
+  agent can call and the logic for calling them.
 
-  An action group represents the actions that an agent can carry out for the
-  customer by defining the APIs that an agent can call and the logic for calling
-  them.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentActionGroup&this_doc_guide=API%2520Reference)
 
-  To allow your agent to request the user for additional information when trying
-  to complete a task, add an action group with the `parentActionGroupSignature`
-  field set to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`,
-  and `actionGroupExecutor` fields blank for this action group. During
-  orchestration, if your agent determines that it needs to invoke an API in an
-  action group, but doesn't have enough information to complete the API request,
-  it will invoke this action group instead and return an
-  [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html)
-  reprompting the user for more information.
-
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to create the action group.
-  * `:agent_version` (`t:string`) The version of the agent for which to create the action group.
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    create the action group.
+  * `:agent_version` (`t:string`) The version of the agent for which to create the
+    action group.
 
   ## Optional parameters:
   """
@@ -2217,7 +2186,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Creates an alias of an agent that can be used to deploy the agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
@@ -2240,10 +2211,11 @@ defmodule AWS.BedrockAgent do
   @doc """
   Sets up a data source to be added to a knowledge base.
 
-  You can't change the `chunkingConfiguration` after you create the data source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateDataSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which to add the data source.
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to which to add the data source.
 
   ## Optional parameters:
   """
@@ -2264,50 +2236,18 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Creates a knowledge base that contains data sources from which information can
-  be queried and used by LLMs.
-
-  To create a knowledge base, you must first set up your data sources and
-  configure a supported vector store. For more information, see [Set up your data for
+  be queried and used by LLMs. To create a knowledge base, you must first set up
+  your data sources and configure a supported vector store. For more
+  information, see [Set up your data for
   ingestion](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html).
-
-  If you prefer to let Amazon Bedrock create and manage a vector store for you in
-  Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
+  If you prefer to let Amazon Bedrock create and manage a vector store for you
+  in Amazon OpenSearch Service, use the console. For more information, see
+  [Create a knowledge
   base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create).
 
-    *
-  Provide the `name` and an optional `description`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
-    *
-  Provide the Amazon Resource Name (ARN) with permissions to create a knowledge
-  base in the `roleArn` field.
-
-    *
-  Provide the embedding model to use in the `embeddingModelArn` field in the
-  `knowledgeBaseConfiguration` object.
-
-    *
-  Provide the configuration for your vector store in the `storageConfiguration`
-  object.
-
-      *
-  For an Amazon OpenSearch Service database, use the
-  `opensearchServerlessConfiguration` object. For more information, see [Create a vector store in Amazon OpenSearch
-  Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html).
-
-      *
-  For an Amazon Aurora database, use the `RdsConfiguration` object. For more
-  information, see [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
-
-      *
-  For a Pinecone database, use the `pineconeConfiguration` object. For more
-  information, see [Create a vector store in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html).
-
-      *
-  For a Redis Enterprise Cloud database, use the
-  `redisEnterpriseCloudConfiguration` object. For more information, see [Create a vector store in Redis Enterprise
-  Cloud](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2329,11 +2269,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent to delete.
 
   ## Optional parameters:
-  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent(AWS.Client.t(), String.t(), delete_agent_request(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
@@ -2368,13 +2312,20 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an action group in an agent.
 
-  ## Required positional parameters:
-  * `:action_group_id` (`t:string`) The unique identifier of the action group to delete.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the action group belongs to.
-  * `:agent_version` (`t:string`) The version of the agent that the action group belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_group_id` (`t:string`) The unique identifier of the action group to
+    delete.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
+    group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group
+    belongs to.
 
   ## Optional parameters:
-  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_action_group(
           AWS.Client.t(),
@@ -2425,9 +2376,12 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an alias of an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_alias_id` (`t:string`) The unique identifier of the alias to delete.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the alias belongs to.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the alias
+    belongs to.
 
   ## Optional parameters:
   """
@@ -2467,12 +2421,17 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes a version of an agent.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the version belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteAgentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the version
+    belongs to.
   * `:agent_version` (`t:string`) The version of the agent to delete.
 
   ## Optional parameters:
-  * `:skip_resource_in_use_check` (`t:`) By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.
+  * `:skip_resource_in_use_check` (`t:`) By default, this value is false and
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_version(
           AWS.Client.t(),
@@ -2515,9 +2474,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes a data source from a knowledge base.
 
-  ## Required positional parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source to delete.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base from which to delete the data source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to
+    delete.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    from which to delete the data source.
 
   ## Optional parameters:
   """
@@ -2561,15 +2524,17 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Deletes a knowledge base.
-
-  Before deleting a knowledge base, you should disassociate the knowledge base
-  from any agents that it is associated with by making a
+  Deletes a knowledge base. Before deleting a knowledge base, you should
+  disassociate the knowledge base from any agents that it is associated with by
+  making a
   [DisassociateAgentKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentKnowledgeBase.html)
   request.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DeleteKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to delete.
 
   ## Optional parameters:
   """
@@ -2606,10 +2571,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Disassociates a knowledge base from an agent.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent from which to disassociate the knowledge base.
-  * `:agent_version` (`t:string`) The version of the agent from which to disassociate the knowledge base.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to disassociate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20DisassociateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent from which to
+    disassociate the knowledge base.
+  * `:agent_version` (`t:string`) The version of the agent from which to
+    disassociate the knowledge base.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to disassociate.
 
   ## Optional parameters:
   """
@@ -2657,7 +2627,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
@@ -2685,10 +2657,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an action group for an agent.
 
-  ## Required positional parameters:
-  * `:action_group_id` (`t:string`) The unique identifier of the action group for which to get information.
-  * `:agent_id` (`t:string`) The unique identifier of the agent that the action group belongs to.
-  * `:agent_version` (`t:string`) The version of the agent that the action group belongs to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_group_id` (`t:string`) The unique identifier of the action group for
+    which to get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent that the action
+    group belongs to.
+  * `:agent_version` (`t:string`) The version of the agent that the action group
+    belongs to.
 
   ## Optional parameters:
   """
@@ -2722,9 +2699,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an alias of an agent.
 
-  ## Required positional parameters:
-  * `:agent_alias_id` (`t:string`) The unique identifier of the alias for which to get information.
-  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias to get information belongs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_alias_id` (`t:string`) The unique identifier of the alias for which to
+    get information.
+  * `:agent_id` (`t:string`) The unique identifier of the agent to which the alias
+    to get information belongs.
 
   ## Optional parameters:
   """
@@ -2752,10 +2733,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a knowledge base associated with an agent.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent with which the knowledge base is associated.
-  * `:agent_version` (`t:string`) The version of the agent with which the knowledge base is associated.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base associated with the agent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent with which the
+    knowledge base is associated.
+  * `:agent_version` (`t:string`) The version of the agent with which the
+    knowledge base is associated.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    associated with the agent.
 
   ## Optional parameters:
   """
@@ -2789,7 +2775,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets details about a version of an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetAgentVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
   * `:agent_version` (`t:string`) The version of the agent.
 
@@ -2819,9 +2807,12 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a data source.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetDataSource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:data_source_id` (`t:string`) The unique identifier of the data source.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base that the data source was added to.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    that the data source was added to.
 
   ## Optional parameters:
   """
@@ -2850,10 +2841,14 @@ defmodule AWS.BedrockAgent do
   Gets information about a ingestion job, in which a data source is added to a
   knowledge base.
 
-  ## Required positional parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source in the ingestion job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source in the
+    ingestion job.
   * `:ingestion_job_id` (`t:string`) The unique identifier of the ingestion job.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which the ingestion job applies.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which the ingestion job applies.
 
   ## Optional parameters:
   """
@@ -2887,8 +2882,11 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a knoweldge base.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to get information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20GetKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to get information.
 
   ## Optional parameters:
   """
@@ -2915,7 +2913,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the action groups for an agent and information about each one.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentActionGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
   * `:agent_version` (`t:string`) The version of the agent.
 
@@ -2957,7 +2957,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the aliases of an agent and information about each one.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentAliases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
@@ -2990,9 +2992,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists knowledge bases associated with an agent and information about each one.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to return information about knowledge bases associated with it.
-  * `:agent_version` (`t:string`) The version of the agent for which to return information about knowledge bases associated with it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentKnowledgeBases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    return information about knowledge bases associated with it.
+  * `:agent_version` (`t:string`) The version of the agent for which to return
+    information about knowledge bases associated with it.
 
   ## Optional parameters:
   """
@@ -3038,7 +3044,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the versions of an agent and information about each version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgentVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
@@ -3076,7 +3084,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the agents belonging to an account and information about each agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgents&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3108,8 +3118,11 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the data sources in a knowledge base and information about each one.
 
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to return a list of information.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListDataSources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to return a list of information.
 
   ## Optional parameters:
   """
@@ -3141,9 +3154,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the ingestion jobs for a data source and information about each of them.
 
-  ## Required positional parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source for which to return ingestion jobs.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base for which to return ingestion jobs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListIngestionJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source for
+    which to return ingestion jobs.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    for which to return ingestion jobs.
 
   ## Optional parameters:
   """
@@ -3189,7 +3206,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the knowledge bases in an account and information about each of them.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3221,8 +3240,11 @@ defmodule AWS.BedrockAgent do
   @doc """
   List all the tags for the resource you specify.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which to list tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    for which to list tags.
 
   ## Optional parameters:
   """
@@ -3249,8 +3271,11 @@ defmodule AWS.BedrockAgent do
   @doc """
   Creates a `DRAFT` version of the agent that can be used for internal testing.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to create a <code>DRAFT</code> version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20PrepareAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    create a DRAFT version.
 
   ## Optional parameters:
   """
@@ -3282,9 +3307,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Begins an ingestion job, in which a data source is added to a knowledge base.
 
-  ## Required positional parameters:
-  * `:data_source_id` (`t:string`) The unique identifier of the data source to ingest.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which to add the data source.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20StartIngestionJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:data_source_id` (`t:string`) The unique identifier of the data source to
+    ingest.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to which to add the data source.
 
   ## Optional parameters:
   """
@@ -3318,13 +3347,15 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Associate tags with a resource.
-
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  Associate tags with a resource. For more information, see [Tagging
+  resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
   in the Amazon Bedrock User Guide.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    tag.
 
   ## Optional parameters:
   """
@@ -3356,11 +3387,15 @@ defmodule AWS.BedrockAgent do
   @doc """
   Remove tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which to remove tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which to remove tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]`) A list of keys of the tags to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]`) A list of keys of
+    the tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3395,7 +3430,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates the configuration of an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgent&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
   ## Optional parameters:
@@ -3418,10 +3455,14 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates the configuration for an action group for an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentActionGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:action_group_id` (`t:string`) The unique identifier of the action group.
-  * `:agent_id` (`t:string`) The unique identifier of the agent for which to update the action group.
-  * `:agent_version` (`t:string`) The unique identifier of the agent version for which to update the action group.
+  * `:agent_id` (`t:string`) The unique identifier of the agent for which to
+    update the action group.
+  * `:agent_version` (`t:string`) The unique identifier of the agent version for
+    which to update the action group.
 
   ## Optional parameters:
   """
@@ -3459,7 +3500,9 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates configurations for an alias of an agent.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentAlias&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:agent_alias_id` (`t:string`) The unique identifier of the alias.
   * `:agent_id` (`t:string`) The unique identifier of the agent.
 
@@ -3492,10 +3535,15 @@ defmodule AWS.BedrockAgent do
   Updates the configuration for a knowledge base that has been associated with an
   agent.
 
-  ## Required positional parameters:
-  * `:agent_id` (`t:string`) The unique identifier of the agent associated with the knowledge base that you want to update.
-  * `:agent_version` (`t:string`) The version of the agent associated with the knowledge base that you want to update.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base that has been associated with an agent.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateAgentKnowledgeBase&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:agent_id` (`t:string`) The unique identifier of the agent associated with
+    the knowledge base that you want to update.
+  * `:agent_version` (`t:string`) The version of the agent associated with the
+    knowledge base that you want to update.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    that has been associated with an agent.
 
   ## Optional parameters:
   """
@@ -3533,12 +3581,12 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates configurations for a data source.
 
-  You can't change the `chunkingConfiguration` after you create the data source.
-  Specify the existing `chunkingConfiguration`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateDataSource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:data_source_id` (`t:string`) The unique identifier of the data source.
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to which the data source belongs.
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to which the data source belongs.
 
   ## Optional parameters:
   """
@@ -3573,32 +3621,14 @@ defmodule AWS.BedrockAgent do
 
   @doc """
   Updates the configuration of a knowledge base with the fields that you specify.
-
   Because all fields will be overwritten, you must include the same values for
-  fields that you want to keep the same.
+  fields that you want to keep the same. You can change the following fields:
 
-  You can change the following fields:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20UpdateKnowledgeBase&this_doc_guide=API%2520Reference)
 
-    *
-
-  `name`
-
-    *
-
-  `description`
-
-    *
-
-  `roleArn`
-
-  You can't change the `knowledgeBaseConfiguration` or `storageConfiguration`
-  fields, so you must specify the same configurations as when you created the
-  knowledge base. You can send a
-  [GetKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html)
-  request and copy the same configurations.
-
-  ## Required positional parameters:
-  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base to update.
+  ## Parameters:
+  * `:knowledge_base_id` (`t:string`) The unique identifier of the knowledge base
+    to update.
 
   ## Optional parameters:
   """

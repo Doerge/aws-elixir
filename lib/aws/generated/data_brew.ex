@@ -3,14 +3,11 @@
 
 defmodule AWS.DataBrew do
   @moduledoc """
-  Glue DataBrew is a visual, cloud-scale data-preparation service.
-
-  DataBrew
+  Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew
   simplifies data preparation tasks, targeting data issues that are hard to spot
-  and
-  time-consuming to fix. DataBrew empowers users of all technical levels to
-  visualize the
-  data and perform one-click data transformations, with no coding required.
+  and time-consuming to fix. DataBrew empowers users of all technical levels to
+  visualize the data and perform one-click data transformations, with no coding
+  required.
   """
 
   alias AWS.Client
@@ -2041,46 +2038,12 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Deletes one or more versions of a recipe at a time.
+  Deletes one or more versions of a recipe at a time. The entire request will be
+  rejected if:
 
-  The entire request will be rejected if:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20BatchDeleteRecipeVersion&this_doc_guide=API%2520Reference)
 
-    *
-  The recipe does not exist.
-
-    *
-  There is an invalid version identifier in the list of versions.
-
-    *
-  The version list is empty.
-
-    *
-  The version list size exceeds 50.
-
-    *
-  The version list contains duplicate entries.
-
-  The request will complete successfully, but with partial failures, if:
-
-    *
-  A version does not exist.
-
-    *
-  A version is being used by a job.
-
-    *
-  You specify `LATEST_WORKING`, but it's being used by a
-  project.
-
-    *
-  The version fails to be deleted.
-
-  The `LATEST_WORKING` version will only be deleted if the recipe has no
-  other versions. If you try to delete `LATEST_WORKING` while other versions
-  exist (or if they can't be deleted), then `LATEST_WORKING` will be listed as
-  partial failure in the response.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The name of the recipe whose versions are to be deleted.
 
   ## Optional parameters:
@@ -2118,7 +2081,9 @@ defmodule AWS.DataBrew do
   @doc """
   Creates a new DataBrew dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2150,7 +2115,9 @@ defmodule AWS.DataBrew do
   @doc """
   Creates a new job to analyze a dataset and create its data profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProfileJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2182,7 +2149,9 @@ defmodule AWS.DataBrew do
   @doc """
   Creates a new DataBrew project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2214,7 +2183,9 @@ defmodule AWS.DataBrew do
   @doc """
   Creates a new DataBrew recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2247,7 +2218,9 @@ defmodule AWS.DataBrew do
   Creates a new job to transform input data, using steps defined in an existing
   Glue DataBrew recipe
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2277,10 +2250,12 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new ruleset that can be used in a profile job to validate
-  the data quality of a dataset.
+  Creates a new ruleset that can be used in a profile job to validate the data
+  quality of a dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2310,12 +2285,12 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Creates a new schedule for one or more DataBrew jobs.
+  Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a
+  specific date and time, or at regular intervals.
 
-  Jobs can be run at a specific
-  date and time, or at regular intervals.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateSchedule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2347,7 +2322,9 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes a dataset from DataBrew.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the dataset to be deleted.
 
   ## Optional parameters:
@@ -2380,7 +2357,9 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes the specified DataBrew job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to be deleted.
 
   ## Optional parameters:
@@ -2413,7 +2392,9 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes an existing DataBrew project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project to be deleted.
 
   ## Optional parameters:
@@ -2446,11 +2427,13 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes a single version of a DataBrew recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRecipeVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the recipe.
-  * `:recipe_version` (`t:string`) The version of the recipe to be deleted. You can specify a numeric versions
-                (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is
-            not supported.
+  * `:recipe_version` (`t:string`) The version of the recipe to be deleted. You
+    can specify a numeric versions (X.Y) or LATEST_WORKING. LATEST_PUBLISHED is
+    not supported.
 
   ## Optional parameters:
   """
@@ -2490,7 +2473,9 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes a ruleset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ruleset to be deleted.
 
   ## Optional parameters:
@@ -2523,7 +2508,9 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes the specified DataBrew schedule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DeleteSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the schedule to be deleted.
 
   ## Optional parameters:
@@ -2556,7 +2543,9 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the dataset to be described.
 
   ## Optional parameters:
@@ -2584,7 +2573,9 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to be described.
 
   ## Optional parameters:
@@ -2612,7 +2603,9 @@ defmodule AWS.DataBrew do
   @doc """
   Represents one run of a DataBrew job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job being processed during this run.
   * `:run_id` (`t:string`) The unique identifier of the job run.
 
@@ -2641,7 +2634,9 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project to be described.
 
   ## Optional parameters:
@@ -2668,15 +2663,16 @@ defmodule AWS.DataBrew do
 
   @doc """
   Returns the definition of a specific DataBrew recipe corresponding to a
-  particular
-  version.
+  particular version.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the recipe to be described.
 
   ## Optional parameters:
-  * `:recipe_version` (`t:string`) The recipe version identifier. If this parameter isn&#39;t specified, then the latest
-            published version is returned.
+  * `:recipe_version` (`t:string`) The recipe version identifier. If this
+    parameter isn't specified, then the latest published version is returned.
   """
   @spec describe_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
@@ -2710,7 +2706,9 @@ defmodule AWS.DataBrew do
   @doc """
   Retrieves detailed information about the ruleset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ruleset to be described.
 
   ## Optional parameters:
@@ -2738,7 +2736,9 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew schedule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20DescribeSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the schedule to be described.
 
   ## Optional parameters:
@@ -2766,11 +2766,15 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew datasets.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListDatasets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2813,12 +2817,16 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the previous runs of a particular DataBrew job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -2861,17 +2869,22 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew jobs that are defined.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter indicates to return only those jobs that
-            act on the specified dataset.
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where to continue pagination if a
-            previous request was truncated. To get the next set of pages, pass in the NextToken
-            value from the response object of the previous page call. 
-  * `:project_name` (`t:string`) The name of a project. Using this parameter indicates to return only those jobs that
-            are associated with the specified project.
+  * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter
+    indicates to return only those jobs that act on the specified dataset.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
+  * `:project_name` (`t:string`) The name of a project. Using this parameter
+    indicates to return only those jobs that are associated with the specified
+    project.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -2932,11 +2945,15 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew projects that are defined.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListProjects&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -2977,15 +2994,19 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Lists the versions of a particular DataBrew recipe, except for
-  `LATEST_WORKING`.
+  Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipeVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:name` (`t:string`) The name of the recipe for which to return version information.
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:name` (`t:string`) The name of the recipe for which to return version
+    information.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
   @spec list_recipe_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recipe_versions_response(), any()}
@@ -3037,15 +3058,18 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew recipes that are defined.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
-  * `:recipe_version` (`t:string`) Return only those recipes with a version identifier of <code>LATEST_WORKING</code> or
-                <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted,
-                <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe
-            versions.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
+  * `:recipe_version` (`t:string`) Return only those recipes with a version
+    identifier of LATEST_WORKING or LATEST_PUBLISHED. If RecipeVersion is
+    omitted, ListRecipes returns all of the LATEST_PUBLISHED recipe versions.
   """
   @spec list_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
@@ -3095,18 +3119,23 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  List all rulesets available in the current account or rulesets associated
-  with a specific resource (dataset).
+  List all rulesets available in the current account or rulesets associated with a
+  specific resource (dataset).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRulesets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request.
-  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where to continue pagination 
-            if a previous request was truncated. To get the next set of pages, pass in 
-            the NextToken value from the response object of the previous page call.
-  * `:target_arn` (`t:string`) The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter 
-            indicates to return only those rulesets that are associated with the specified resource.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
+  * `:target_arn` (`t:string`) The Amazon Resource Name (ARN) of a resource
+    (dataset). Using this parameter indicates to return only those rulesets that
+    are associated with the specified resource.
   """
   @spec list_rulesets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rulesets_response(), any()}
@@ -3158,12 +3187,16 @@ defmodule AWS.DataBrew do
   @doc """
   Lists the DataBrew schedules that are defined.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListSchedules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:job_name` (`t:string`) The name of the job that these schedules apply to.
-  * `:max_results` (`t:integer`) The maximum number of results to return in this request. 
-  * `:next_token` (`t:string`) The token returned by a previous call to retrieve the next set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    request.
+  * `:next_token` (`t:string`) The token returned by a previous call to retrieve
+    the next set of results.
   """
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_response(), any()}
@@ -3215,9 +3248,11 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all the tags for a DataBrew resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
-        
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) string that
+    uniquely identifies the DataBrew resource.
 
   ## Optional parameters:
   """
@@ -3244,7 +3279,9 @@ defmodule AWS.DataBrew do
   @doc """
   Publishes a new version of a DataBrew recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20PublishRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the recipe to be published.
 
   ## Optional parameters:
@@ -3278,7 +3315,9 @@ defmodule AWS.DataBrew do
   Performs a recipe step within an interactive DataBrew session that's currently
   open.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20SendProjectSessionAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project to apply the action to.
 
   ## Optional parameters:
@@ -3306,7 +3345,9 @@ defmodule AWS.DataBrew do
   @doc """
   Runs a DataBrew job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to be run.
 
   ## Optional parameters:
@@ -3340,7 +3381,9 @@ defmodule AWS.DataBrew do
   Creates an interactive session, enabling you to manipulate data in a DataBrew
   project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StartProjectSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project to act upon.
 
   ## Optional parameters:
@@ -3368,7 +3411,9 @@ defmodule AWS.DataBrew do
   @doc """
   Stops a particular run of a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20StopJobRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to be stopped.
   * `:run_id` (`t:string`) The ID of the job run to be stopped.
 
@@ -3403,13 +3448,14 @@ defmodule AWS.DataBrew do
 
   @doc """
   Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe,
-  job, or
-  schedule.
+  job, or schedule.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The DataBrew resource to which tags should be added. The value for this parameter is
-            an Amazon Resource Name (ARN). For DataBrew, you can tag a dataset, a job, a project, or
-            a recipe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The DataBrew resource to which tags should be
+    added. The value for this parameter is an Amazon Resource Name (ARN). For
+    DataBrew, you can tag a dataset, a job, a project, or a recipe.
 
   ## Optional parameters:
   """
@@ -3441,12 +3487,16 @@ defmodule AWS.DataBrew do
   @doc """
   Removes metadata tags from a DataBrew resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) A DataBrew resource from which you want to remove a tag or tags. The value for this
-            parameter is an Amazon Resource Name (ARN). 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) A DataBrew resource from which you want to remove
+    a tag or tags. The value for this parameter is an Amazon Resource Name
+    (ARN).
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]`) The tag keys (names) of one or more tags to be removed.
+  * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]`) The tag keys (names) of
+    one or more tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3481,7 +3531,9 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew dataset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateDataset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the dataset to be updated.
 
   ## Optional parameters:
@@ -3504,7 +3556,9 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing profile job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProfileJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to be updated.
 
   ## Optional parameters:
@@ -3527,7 +3581,9 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew project.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateProject&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the project to be updated.
 
   ## Optional parameters:
@@ -3548,10 +3604,11 @@ defmodule AWS.DataBrew do
   end
 
   @doc """
-  Modifies the definition of the `LATEST_WORKING` version of a DataBrew
-  recipe.
+  Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipe&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the recipe to be updated.
 
   ## Optional parameters:
@@ -3574,7 +3631,9 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew recipe job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRecipeJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the job to update.
 
   ## Optional parameters:
@@ -3597,7 +3656,9 @@ defmodule AWS.DataBrew do
   @doc """
   Updates specified ruleset.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateRuleset&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the ruleset to be updated.
 
   ## Optional parameters:
@@ -3620,7 +3681,9 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew schedule.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20UpdateSchedule&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:string`) The name of the schedule to update.
 
   ## Optional parameters:

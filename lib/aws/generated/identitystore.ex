@@ -4,15 +4,12 @@
 defmodule AWS.Identitystore do
   @moduledoc """
   The Identity Store service used by IAM Identity Center provides a single place
-  to retrieve all of
-  your identities (users and groups).
-
-  For more information, see the [IAM Identity Center User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
-
+  to retrieve all of your identities (users and groups). For more information,
+  see the [IAM Identity Center User
+  Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
   This reference guide describes the identity store operations that you can call
-  programmatically and includes detailed information about data types and errors.
-
-  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
+  programmatically and includes detailed information about data types and
+  errors.
   """
 
   alias AWS.Client
@@ -863,10 +860,8 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Creates a relationship between a member and a group.
-
-  The following identifiers must be specified: `GroupId`, `IdentityStoreId`, and
-  `MemberId`.
+  Creates a relationship between a member and a group. The following identifiers
+  must be specified: `GroupId`, `IdentityStoreId`, and `MemberId`.
   """
   @spec create_group_membership(AWS.Client.t(), create_group_membership_request(), Keyword.t()) ::
           {:ok, create_group_membership_response(), any()}
@@ -936,14 +931,7 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Retrieves the group metadata and attributes from `GroupId` in an identity
-  store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Retrieves the group metadata and attributes from `GroupId` in an identity store.
   """
   @spec describe_group(AWS.Client.t(), describe_group_request(), Keyword.t()) ::
           {:ok, describe_group_response(), any()}
@@ -959,12 +947,6 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves membership metadata and attributes from `MembershipId` in an identity
   store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec describe_group_membership(
           AWS.Client.t(),
@@ -984,12 +966,6 @@ defmodule AWS.Identitystore do
   @doc """
   Retrieves the user metadata and attributes from the `UserId` in an identity
   store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec describe_user(AWS.Client.t(), describe_user_request(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
@@ -1004,12 +980,6 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves `GroupId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec get_group_id(AWS.Client.t(), get_group_id_request(), Keyword.t()) ::
           {:ok, get_group_id_response(), any()}
@@ -1024,12 +994,6 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves the `MembershipId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec get_group_membership_id(AWS.Client.t(), get_group_membership_id_request(), Keyword.t()) ::
           {:ok, get_group_membership_id_response(), any()}
@@ -1044,12 +1008,6 @@ defmodule AWS.Identitystore do
 
   @doc """
   Retrieves the `UserId` in an identity store.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec get_user_id(AWS.Client.t(), get_user_id_request(), Keyword.t()) ::
           {:ok, get_user_id_response(), any()}
@@ -1065,12 +1023,6 @@ defmodule AWS.Identitystore do
   @doc """
   Checks the user's membership in all requested groups and returns if the member
   exists in all queried groups.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec is_member_in_groups(AWS.Client.t(), is_member_in_groups_request(), Keyword.t()) ::
           {:ok, is_member_in_groups_response(), any()}
@@ -1086,12 +1038,6 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified group in the specified identity store, returns the list of all
   `GroupMembership` objects and returns results in paginated form.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec list_group_memberships(AWS.Client.t(), list_group_memberships_request(), Keyword.t()) ::
           {:ok, list_group_memberships_response(), any()}
@@ -1107,12 +1053,6 @@ defmodule AWS.Identitystore do
   @doc """
   For the specified member in the specified identity store, returns the list of
   all `GroupMembership` objects and returns results in paginated form.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
   """
   @spec list_group_memberships_for_member(
           AWS.Client.t(),
@@ -1130,17 +1070,9 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Lists all groups in the identity store.
-
-  Returns a paginated list of complete `Group` objects.
-  Filtering for a `Group` by the `DisplayName` attribute is deprecated. Instead,
-  use the `GetGroupId` API action.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Lists all groups in the identity store. Returns a paginated list of complete
+  `Group` objects. Filtering for a `Group` by the `DisplayName` attribute is
+  deprecated. Instead, use the `GetGroupId` API action.
   """
   @spec list_groups(AWS.Client.t(), list_groups_request(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -1154,17 +1086,9 @@ defmodule AWS.Identitystore do
   end
 
   @doc """
-  Lists all users in the identity store.
-
-  Returns a paginated list of complete `User` objects.
-  Filtering for a `User` by the `UserName` attribute is deprecated. Instead, use
-  the `GetUserId` API action.
-
-  If you have administrator access to a member account, you can use this API from
-  the member account.
-  Read about [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html)
-  in the
-  *Organizations User Guide*.
+  Lists all users in the identity store. Returns a paginated list of complete
+  `User` objects. Filtering for a `User` by the `UserName` attribute is
+  deprecated. Instead, use the `GetUserId` API action.
   """
   @spec list_users(AWS.Client.t(), list_users_request(), Keyword.t()) ::
           {:ok, list_users_response(), any()}

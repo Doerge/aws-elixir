@@ -3,7 +3,6 @@
 
 defmodule AWS.Route53Profiles do
   @moduledoc """
-
   With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs
   and AWS accounts
   """
@@ -704,15 +703,14 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
-  Associates a Route 53 Profiles profile with a VPC.
-
-  A VPC can have only one Profile associated with it, but a Profile can be
-  associated with 1000 of VPCs (and you can request a higher quota).
-  For more information, see
+  Associates a Route 53 Profiles profile with a VPC. A VPC can have only one
+  Profile associated with it, but a Profile can be associated with 1000 of VPCs
+  (and you can request a higher quota). For more information, see
   [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -742,10 +740,11 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Associates a DNS reource configuration to a Route 53 Profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateResourceToProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -779,10 +778,11 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Creates an empty Route 53 Profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20CreateProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -812,15 +812,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
+  Deletes the specified Route 53 Profile. Before you can delete a profile, you
+  must first disassociate it from all VPCs.
 
-  Deletes the specified Route 53 Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DeleteProfile&this_doc_guide=API%2520Reference)
 
-  Before you can delete a profile, you must first disassociate it from all VPCs.
-
-  ## Required positional parameters:
-  * `:profile_id` (`t:string`) 
-  The ID of the Profile that you want to delete.
-
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile that you want to delete.
 
   ## Optional parameters:
   """
@@ -850,16 +848,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissociates a specified Route 53 Profile from the specified VPC.
 
-  ## Required positional parameters:
-  * `:profile_id` (`t:string`) 
-  ID of the Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateProfile&this_doc_guide=API%2520Reference)
 
-  * `:resource_id` (`t:string`) 
-  The ID of the VPC.
-
+  ## Parameters:
+  * `:profile_id` (`t:string`) ID of the Profile.
+  * `:resource_id` (`t:string`) The ID of the VPC.
 
   ## Optional parameters:
   """
@@ -897,15 +892,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissoaciated a specified resource, from the Route 53 Profile.
 
-  ## Required positional parameters:
-  * `:profile_id` (`t:string`) 
-  The ID of the Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20DisassociateResourceFromProfile&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile.
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
-
 
   ## Optional parameters:
   """
@@ -949,14 +942,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile, such as whether whether
   the Profile is shared, and the current status of the Profile.
 
-  ## Required positional parameters:
-  * `:profile_id` (`t:string`) 
-  ID of the Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfile&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:profile_id` (`t:string`) ID of the Profile.
 
   ## Optional parameters:
   """
@@ -981,16 +973,14 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
+  Retrieves a Route 53 Profile association for a VPC. A VPC can have only one
+  Profile association, but a Profile can be associated with up to 5000 VPCs.
 
-  Retrieves a Route 53 Profile association for a VPC.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileAssociation&this_doc_guide=API%2520Reference)
 
-  A VPC can have only one Profile association, but a Profile can be associated
-  with up to 5000 VPCs.
-
-  ## Required positional parameters:
-  * `:profile_association_id` (`t:string`) 
-  The identifier of the association you want to get information about.
-
+  ## Parameters:
+  * `:profile_association_id` (`t:string`) The identifier of the association you
+    want to get information about.
 
   ## Optional parameters:
   """
@@ -1015,14 +1005,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile resource association.
 
-  ## Required positional parameters:
-  * `:profile_resource_association_id` (`t:string`) 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20GetProfileResourceAssociation&this_doc_guide=API%2520Reference)
 
-  The ID of the profile resource association that you want to get information about.
-
+  ## Parameters:
+  * `:profile_resource_association_id` (`t:string`) The ID of the profile resource
+    association that you want to get information about.
 
   ## Optional parameters:
   """
@@ -1052,24 +1041,21 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the VPCs that the specified Route 53 Profile is associated with.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileAssociations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
-  a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
-  * `:next_token` (`t:string`) 
-  For the first call to this list request, omit this value.
-
-  * `:profile_id` (`t:string`) 
-  ID of the Profile.
-
-  * `:resource_id` (`t:string`) 
-  ID of the VPC.
-
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
+  * `:profile_id` (`t:string`) ID of the Profile.
+  * `:resource_id` (`t:string`) ID of the VPC.
   """
   @spec list_profile_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profile_associations_response(), any()}
@@ -1128,24 +1114,22 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the resource associations for the specified Route 53 Profile.
 
-  ## Required positional parameters:
-  * `:profile_id` (`t:string`) 
-  The ID of the Profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileResourceAssociations&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:profile_id` (`t:string`) The ID of the Profile.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-    The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
-    a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
-  * `:next_token` (`t:string`) 
-    For the first call to this list request, omit this value.
-
-  * `:resource_type` (`t:string`) 
-  ID of a resource if you want information on only one type.
-
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
+  * `:resource_type` (`t:string`) ID of a resource if you want information on only
+    one type.
   """
   @spec list_profile_resource_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_resource_associations_response(), any()}
@@ -1195,19 +1179,20 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the Route 53 Profiles associated with your Amazon Web Services
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfiles&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-    The maximum number of objects that you want to return for this request. If more objects are available, in the response, 
-    a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.
-  * `:next_token` (`t:string`) 
-    For the first call to this list request, omit this value.
-
+  * `:max_results` (`t:integer`) The maximum number of objects that you want to
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
+  * `:next_token` (`t:string`) For the first call to this list request, omit this
+    value.
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1248,13 +1233,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists the tags that you associated with the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-  The Amazon Resource Name (ARN) for the resource that you want to list the tags for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to list the tags for.
 
   ## Optional parameters:
   """
@@ -1279,13 +1264,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Adds one or more tags to a specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-  The Amazon Resource Name (ARN) for the resource that you want to add tags to. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20TagResource&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to add tags to.
 
   ## Optional parameters:
   """
@@ -1315,18 +1300,17 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Removes one or more tags from a specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) 
-  The Amazon Resource Name (ARN) for the resource that you want to remove tags from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UntagResource&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    that you want to remove tags from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]`) 
-  The tags that you want to remove to the specified resource.
-
+  * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]`) The tags that you
+    want to remove to the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1359,13 +1343,13 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Updates the specified Route 53 Profile resourse association.
 
-  ## Required positional parameters:
-  * `:profile_resource_association_id` (`t:string`) 
-  ID of the resource association.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20UpdateProfileResourceAssociation&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:profile_resource_association_id` (`t:string`) ID of the resource
+    association.
 
   ## Optional parameters:
   """

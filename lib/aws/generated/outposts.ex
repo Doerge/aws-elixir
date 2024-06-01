@@ -4,16 +4,12 @@
 defmodule AWS.Outposts do
   @moduledoc """
   Amazon Web Services Outposts is a fully managed service that extends Amazon Web
-  Services infrastructure, APIs, and tools to
-  customer premises.
-
-  By providing local access to Amazon Web Services managed infrastructure, Amazon
-  Web Services Outposts enables
-  customers to build and run applications on premises using the same programming
-  interfaces as
-  in Amazon Web Services Regions, while using local compute and storage resources
-  for lower latency and local
-  data processing needs.
+  Services infrastructure, APIs, and tools to customer premises. By providing
+  local access to Amazon Web Services managed infrastructure, Amazon Web
+  Services Outposts enables customers to build and run applications on premises
+  using the same programming interfaces as in Amazon Web Services Regions, while
+  using local compute and storage resources for lower latency and local data
+  processing needs.
   """
 
   alias AWS.Client
@@ -1329,9 +1325,13 @@ defmodule AWS.Outposts do
   @doc """
   Cancels the capacity task.
 
-  ## Required positional parameters:
-  * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to cancel.
-  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with the capacity task that you want to cancel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelCapacityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:capacity_task_id` (`t:string`) ID of the capacity task that you want to
+    cancel.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
+    the capacity task that you want to cancel.
 
   ## Optional parameters:
   """
@@ -1377,8 +1377,10 @@ defmodule AWS.Outposts do
   @doc """
   Cancels the specified order for an Outpost.
 
-  ## Required positional parameters:
-  * `:order_id` (`t:string`)  The ID of the order. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CancelOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:order_id` (`t:string`) The ID of the order.
 
   ## Optional parameters:
   """
@@ -1410,7 +1412,9 @@ defmodule AWS.Outposts do
   @doc """
   Creates an order for an Outpost.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1442,9 +1446,9 @@ defmodule AWS.Outposts do
   @doc """
   Creates an Outpost.
 
-  You can specify either an Availability one or an AZ ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateOutpost&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1476,7 +1480,9 @@ defmodule AWS.Outposts do
   @doc """
   Creates a site for an Outpost.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20CreateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1508,8 +1514,10 @@ defmodule AWS.Outposts do
   @doc """
   Deletes the specified Outpost.
 
-  ## Required positional parameters:
-  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
   """
@@ -1541,8 +1549,10 @@ defmodule AWS.Outposts do
   @doc """
   Deletes the specified site.
 
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20DeleteSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
   """
@@ -1574,9 +1584,12 @@ defmodule AWS.Outposts do
   @doc """
   Gets details of the specified capacity task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCapacityTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:capacity_task_id` (`t:string`) ID of the capacity task.
-  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with the specified capacity task.
+  * `:outpost_identifier` (`t:string`) ID or ARN of the Outpost associated with
+    the specified capacity task.
 
   ## Optional parameters:
   """
@@ -1604,7 +1617,9 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified catalog item.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetCatalogItem&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:catalog_item_id` (`t:string`) The ID of the catalog item.
 
   ## Optional parameters:
@@ -1630,24 +1645,13 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Amazon Web Services uses this action to install Outpost servers. Gets
+  information about the specified connection.
 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetConnection&this_doc_guide=API%2520Reference)
 
-  Amazon Web Services uses this action to install Outpost servers.
-
-  Gets information about the specified connection.
-
-  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For
-  more information, see [
-  Amazon Web Services managed policies for Amazon Web Services
-  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [
-  Logging Amazon Web Services Outposts API calls with Amazon Web Services
-  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
-  in the *Amazon Web Services Outposts User Guide*.
-
-  ## Required positional parameters:
-  * `:connection_id` (`t:string`)  The ID of the connection. 
+  ## Parameters:
+  * `:connection_id` (`t:string`) The ID of the connection.
 
   ## Optional parameters:
   """
@@ -1674,7 +1678,9 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified order.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOrder&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:order_id` (`t:string`) The ID of the order.
 
   ## Optional parameters:
@@ -1702,8 +1708,10 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified Outpost.
 
-  ## Required positional parameters:
-  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
   """
@@ -1730,12 +1738,14 @@ defmodule AWS.Outposts do
   @doc """
   Gets the instance types for the specified Outpost.
 
-  ## Required positional parameters:
-  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostInstanceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec get_outpost_instance_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_outpost_instance_types_output(), any()}
@@ -1776,20 +1786,19 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Gets the instance types that an
-  Outpost can support in `InstanceTypeCapacity`.
+  Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
+  This will generally include instance types that are not currently configured
+  and therefore cannot be launched with the current Outpost capacity
+  configuration.
 
-  This will generally include instance types that
-  are not currently configured and therefore cannot be launched with the current
-  Outpost
-  capacity configuration.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetOutpostSupportedInstanceTypes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:outpost_identifier` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   * `:order_id` (`t:string`) The ID for the Amazon Web Services Outposts order.
   """
   @spec get_outpost_supported_instance_types(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -1847,8 +1856,10 @@ defmodule AWS.Outposts do
   @doc """
   Gets information about the specified Outpost site.
 
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
   """
@@ -1875,11 +1886,14 @@ defmodule AWS.Outposts do
   @doc """
   Gets the site address of the specified site.
 
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20GetSiteAddress&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
-  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of the address you request. 
+  * `:address_type` (`t:enum["OPERATING_ADDRESS|SHIPPING_ADDRESS"]`) The type of
+    the address you request.
   """
   @spec get_site_address(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_address_output(), any()}
@@ -1913,20 +1927,19 @@ defmodule AWS.Outposts do
   @doc """
   Lists the hardware assets for the specified Outpost.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListAssets&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:outpost_identifier` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the Outpost. 
+  ## Parameters:
+  * `:outpost_identifier` (`t:string`) The ID or the Amazon Resource Name (ARN) of
+    the Outpost.
 
   ## Optional parameters:
-  * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the results by the host ID of a Dedicated Host.
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the results by state.
+  * `:host_id_filter` (`t:list[com.amazonaws.outposts#HostId]`) Filters the
+    results by the host ID of a Dedicated Host.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:status_filter` (`t:list[com.amazonaws.outposts#AssetState]`) Filters the
+    results by state.
   """
   @spec list_assets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_assets_output(), any()}
@@ -1987,20 +2000,18 @@ defmodule AWS.Outposts do
   @doc """
   Lists the capacity tasks for your Amazon Web Services account.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCapacityTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:capacity_task_status_filter` (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses. For example,
-        <code>REQUESTED</code> or <code>WAITING_FOR_EVACUATION</code>.
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID or an Outpost ARN.
+  * `:capacity_task_status_filter`
+    (`t:list[com.amazonaws.outposts#CapacityTaskStatus]`) A list of statuses.
+    For example, REQUESTED or WAITING_FOR_EVACUATION.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:outpost_identifier_filter` (`t:string`) Filters the results by an Outpost ID
+    or an Outpost ARN.
   """
   @spec list_capacity_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_capacity_tasks_output(), any()}
@@ -2062,20 +2073,20 @@ defmodule AWS.Outposts do
   @doc """
   Lists the items in the catalog.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListCatalogItems&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the results by EC2 family (for example, M5).
-  * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`) Filters the results by item class.
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:supported_storage_filter` (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results by storage option.
+  * `:ec2_family_filter` (`t:list[com.amazonaws.outposts#Family]`) Filters the
+    results by EC2 family (for example, M5).
+  * `:item_class_filter` (`t:list[com.amazonaws.outposts#CatalogItemClass]`)
+    Filters the results by item class.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:supported_storage_filter`
+    (`t:list[com.amazonaws.outposts#SupportedStorageEnum]`) Filters the results
+    by storage option.
   """
   @spec list_catalog_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_catalog_items_output(), any()}
@@ -2145,12 +2156,15 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outpost orders for your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOrders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:outpost_identifier_filter` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the Outpost. 
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:outpost_identifier_filter` (`t:string`) The ID or the Amazon Resource Name
+    (ARN) of the Outpost.
   """
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_output(), any()}
@@ -2202,20 +2216,21 @@ defmodule AWS.Outposts do
   @doc """
   Lists the Outposts for your Amazon Web Services account.
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListOutposts&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:availability_zone_filter` (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by Availability Zone (for example, <code>us-east-1a</code>).
-  * `:availability_zone_id_filter` (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by AZ ID (for example, <code>use1-az1</code>).
-  * `:life_cycle_status_filter` (`t:list[com.amazonaws.outposts#LifeCycleStatus]`) Filters the results by the lifecycle status.
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
+  * `:availability_zone_filter`
+    (`t:list[com.amazonaws.outposts#AvailabilityZone]`) Filters the results by
+    Availability Zone (for example, us-east-1a).
+  * `:availability_zone_id_filter`
+    (`t:list[com.amazonaws.outposts#AvailabilityZoneId]`) Filters the results by
+    AZ ID (for example, use1-az1).
+  * `:life_cycle_status_filter` (`t:list[com.amazonaws.outposts#LifeCycleStatus]`)
+    Filters the results by the lifecycle status.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
   """
   @spec list_outposts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_output(), any()}
@@ -2284,25 +2299,24 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Lists the Outpost sites for your Amazon Web Services account.
+  Lists the Outpost sites for your Amazon Web Services account. Use filters to
+  return specific results.
 
-  Use filters to return specific
-  results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListSites&this_doc_guide=API%2520Reference)
 
-  Use filters to return specific results. If you specify multiple filters, the
-  results include only the resources that match
-  all of the specified filters. For a filter where you can specify multiple
-  values, the results include
-  items that match any of the values that you specify for the filter.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-  * `:next_token` (`t:string`) 
-  * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`) Filters the results by city.
-  * `:operating_address_country_code_filter` (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by country code.
-  * `:operating_address_state_or_region_filter` (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by state or region.
+  * `:max_results` (`t:integer`)
+  * `:next_token` (`t:string`)
+  * `:operating_address_city_filter` (`t:list[com.amazonaws.outposts#City]`)
+    Filters the results by city.
+  * `:operating_address_country_code_filter`
+    (`t:list[com.amazonaws.outposts#CountryCode]`) Filters the results by
+    country code.
+  * `:operating_address_state_or_region_filter`
+    (`t:list[com.amazonaws.outposts#StateOrRegion]`) Filters the results by
+    state or region.
   """
   @spec list_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sites_output(), any()}
@@ -2381,7 +2395,9 @@ defmodule AWS.Outposts do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2407,12 +2423,14 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Starts the specified capacity task.
+  Starts the specified capacity task. You can have one active capacity task for an
+  order.
 
-  You can have one active capacity task for an order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartCapacityTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated with the specified capacity task.
+  ## Parameters:
+  * `:outpost_identifier` (`t:string`) The ID or ARN of the Outposts associated
+    with the specified capacity task.
 
   ## Optional parameters:
   """
@@ -2442,23 +2460,12 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Amazon Web Services uses this action to install Outpost servers. Starts the
+  connection required for Outpost server installation.
 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20StartConnection&this_doc_guide=API%2520Reference)
 
-  Amazon Web Services uses this action to install Outpost servers.
-
-  Starts the connection required for Outpost server installation.
-
-  Use CloudTrail to monitor this action or Amazon Web Services managed policy for
-  Amazon Web Services Outposts to secure it. For
-  more information, see [
-  Amazon Web Services managed policies for Amazon Web Services
-  Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html)
-  and [
-  Logging Amazon Web Services Outposts API calls with Amazon Web Services
-  CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html)
-  in the *Amazon Web Services Outposts User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2490,7 +2497,9 @@ defmodule AWS.Outposts do
   @doc """
   Adds tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2523,7 +2532,9 @@ defmodule AWS.Outposts do
   @doc """
   Removes tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2562,8 +2573,10 @@ defmodule AWS.Outposts do
   @doc """
   Updates an Outpost.
 
-  ## Required positional parameters:
-  * `:outpost_id` (`t:string`)  The ID or ARN of the Outpost. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateOutpost&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:outpost_id` (`t:string`) The ID or ARN of the Outpost.
 
   ## Optional parameters:
   """
@@ -2595,8 +2608,10 @@ defmodule AWS.Outposts do
   @doc """
   Updates the specified site.
 
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSite&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
   """
@@ -2626,18 +2641,14 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Updates the address of the specified site.
+  Updates the address of the specified site. You can't update a site address if
+  there is an order in progress. You must wait for the order to complete or
+  cancel the order.
 
-  You can't update a site address if there is an order in progress. You must wait
-  for the
-  order to complete or cancel the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteAddress&this_doc_guide=API%2520Reference)
 
-  You can update the operating address before you place an order at the site, or
-  after all
-  Outposts that belong to the site have been deactivated.
-
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
   """
@@ -2657,18 +2668,15 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Update the physical and logistical details for a rack at a site.
-
-  For more information
-  about hardware requirements for racks, see [Network readiness
+  Update the physical and logistical details for a rack at a site. For more
+  information about hardware requirements for racks, see [Network readiness
   checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist)
   in the Amazon Web Services Outposts User Guide.
 
-  To update a rack at a site with an order of `IN_PROGRESS`, you must wait for
-  the order to complete or cancel the order.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=outposts%20UpdateSiteRackPhysicalProperties&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:site_id` (`t:string`)  The ID or the Amazon Resource Name (ARN) of the site. 
+  ## Parameters:
+  * `:site_id` (`t:string`) The ID or the Amazon Resource Name (ARN) of the site.
 
   ## Optional parameters:
   """

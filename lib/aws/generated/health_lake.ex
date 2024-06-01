@@ -4,8 +4,8 @@
 defmodule AWS.HealthLake do
   @moduledoc """
   AWS HealthLake is a HIPAA eligibile service that allows customers to store,
-  transform, query, and analyze their FHIR-formatted data in a consistent fashion
-  in the cloud.
+  transform, query, and analyze their FHIR-formatted data in a consistent
+  fashion in the cloud.
   """
 
   alias AWS.Client
@@ -697,9 +697,8 @@ defmodule AWS.HealthLake do
 
   @doc """
   Gets the properties associated with the FHIR data store, including the data
-  store ID,
-  data store ARN, data store name, data store status, when the data store was
-  created, data store type version, and the data store's endpoint.
+  store ID, data store ARN, data store name, data store status, when the data
+  store was created, data store type version, and the data store's endpoint.
   """
   @spec describe_fhir_datastore(AWS.Client.t(), describe_fhir_datastore_request(), Keyword.t()) ::
           {:ok, describe_fhir_datastore_response(), any()}
@@ -758,7 +757,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Lists all FHIR export jobs associated with an account and their statuses.
   """
   @spec list_fhir_export_jobs(AWS.Client.t(), list_fhir_export_jobs_request(), Keyword.t()) ::
@@ -773,7 +771,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Lists all FHIR import jobs associated with an account and their statuses.
   """
   @spec list_fhir_import_jobs(AWS.Client.t(), list_fhir_import_jobs_request(), Keyword.t()) ::
@@ -788,7 +785,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Returns a list of all existing tags associated with a data store.
   """
   @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
@@ -831,7 +827,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Adds a user specified key and value tag to a data store.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
@@ -846,7 +841,6 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-
   Removes tags from a data store.
   """
   @spec untag_resource(AWS.Client.t(), untag_resource_request(), Keyword.t()) ::

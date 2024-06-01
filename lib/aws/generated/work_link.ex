@@ -3,19 +3,14 @@
 
 defmodule AWS.WorkLink do
   @moduledoc """
-  Amazon WorkLink is a cloud-based service that provides secure access
-  to internal websites and web apps from iOS and Android phones.
-
-  In a single step, your users, such as
-  employees, can access internal websites as efficiently as they access any other
-  public website.
-  They enter a URL in their web browser, or choose a link to an internal website
-  in an email. Amazon WorkLink
+  Amazon WorkLink is a cloud-based service that provides secure access to internal
+  websites and web apps from iOS and Android phones. In a single step, your
+  users, such as employees, can access internal websites as efficiently as they
+  access any other public website. They enter a URL in their web browser, or
+  choose a link to an internal website in an email. Amazon WorkLink
   authenticates the user's access and securely renders authorized internal web
-  content in a secure
-  rendering service in the AWS cloud. Amazon WorkLink doesn't download or store
-  any internal web content on
-  mobile devices.
+  content in a secure rendering service in the AWS cloud. Amazon WorkLink
+  doesn't download or store any internal web content on mobile devices.
   """
 
   alias AWS.Client
@@ -1157,7 +1152,9 @@ defmodule AWS.WorkLink do
   @doc """
   Specifies a domain to be associated to Amazon WorkLink.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1187,12 +1184,12 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Associates a website authorization provider with a specified fleet.
+  Associates a website authorization provider with a specified fleet. This is used
+  to authorize users against associated websites in the company network.
 
-  This is used to authorize users against associated websites in the company
-  network.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1229,7 +1226,9 @@ defmodule AWS.WorkLink do
   Imports the root certificate of a certificate authority (CA) used to obtain TLS
   certificates used by associated websites within the company network.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1263,13 +1262,13 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Creates a fleet.
+  Creates a fleet. A fleet consists of resources and the configuration that
+  delivers associated websites to authorized users who download and set up the
+  Amazon WorkLink app.
 
-  A fleet consists of resources and the configuration that delivers
-  associated websites to authorized users who download and set up the Amazon
-  WorkLink app.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20CreateFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1299,11 +1298,11 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Deletes a fleet.
+  Deletes a fleet. Prevents users from accessing previously associated websites.
 
-  Prevents users from accessing previously associated websites.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DeleteFleet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1336,7 +1335,9 @@ defmodule AWS.WorkLink do
   Describes the configuration for delivering audit streams to the customer
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeAuditStreamConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1371,10 +1372,11 @@ defmodule AWS.WorkLink do
 
   @doc """
   Describes the networking configuration to access the internal websites
-  associated with
-  the specified fleet.
+  associated with the specified fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1410,7 +1412,9 @@ defmodule AWS.WorkLink do
   @doc """
   Provides information about a user's device.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevice&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1442,7 +1446,9 @@ defmodule AWS.WorkLink do
   @doc """
   Describes the device policy configuration for the specified fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1478,7 +1484,9 @@ defmodule AWS.WorkLink do
   @doc """
   Provides information about the domain.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDomain&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1511,7 +1519,9 @@ defmodule AWS.WorkLink do
   Provides basic information for the specified fleet, excluding identity provider,
   networking, and device configuration details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeFleetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1543,7 +1553,9 @@ defmodule AWS.WorkLink do
   @doc """
   Describes the identity provider configuration of the specified fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1579,7 +1591,9 @@ defmodule AWS.WorkLink do
   @doc """
   Provides information about the certificate authority.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1613,11 +1627,12 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Disassociates a domain from Amazon WorkLink.
+  Disassociates a domain from Amazon WorkLink. End users lose the ability to
+  access the domain with Amazon WorkLink.
 
-  End users lose the ability to access the domain with Amazon WorkLink.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateDomain&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1647,14 +1662,13 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Disassociates a website authorization provider from a specified fleet.
-
-  After the
+  Disassociates a website authorization provider from a specified fleet. After the
   disassociation, users can't load any associated websites that require this
-  authorization
-  provider.
+  authorization provider.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1690,7 +1704,9 @@ defmodule AWS.WorkLink do
   @doc """
   Removes a certificate authority (CA).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1726,7 +1742,9 @@ defmodule AWS.WorkLink do
   @doc """
   Retrieves a list of devices registered with the specified fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1758,7 +1776,9 @@ defmodule AWS.WorkLink do
   @doc """
   Retrieves a list of domains associated to a specified fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDomains&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1790,7 +1810,9 @@ defmodule AWS.WorkLink do
   @doc """
   Retrieves a list of fleets for the current account and Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListFleets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1822,7 +1844,9 @@ defmodule AWS.WorkLink do
   @doc """
   Retrieves a list of tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
 
   ## Optional parameters:
@@ -1851,7 +1875,9 @@ defmodule AWS.WorkLink do
   Retrieves a list of website authorization providers associated with a specified
   fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteAuthorizationProviders&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1888,7 +1914,9 @@ defmodule AWS.WorkLink do
   Retrieves a list of certificate authorities added for the current account and
   Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteCertificateAuthorities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1924,7 +1952,9 @@ defmodule AWS.WorkLink do
   @doc """
   Moves a domain to ACTIVE status if it was in the INACTIVE status.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RestoreDomainAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1956,7 +1986,9 @@ defmodule AWS.WorkLink do
   @doc """
   Moves a domain to INACTIVE status if it was in the ACTIVE status.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RevokeDomainAccess&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1986,12 +2018,12 @@ defmodule AWS.WorkLink do
   end
 
   @doc """
-  Signs the user out from all of their devices.
+  Signs the user out from all of their devices. The user can sign in again if they
+  have valid credentials.
 
-  The user can sign in again if they have
-  valid credentials.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20SignOutUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2022,11 +2054,12 @@ defmodule AWS.WorkLink do
 
   @doc """
   Adds or overwrites one or more tags for the specified resource, such as a fleet.
-
   Each tag consists of a key and an optional value. If a resource already has a
   tag with the same key, this operation updates its value.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
 
   ## Optional parameters:
@@ -2059,11 +2092,14 @@ defmodule AWS.WorkLink do
   @doc """
   Removes one or more tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the fleet.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]`) The list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]`) The list of tag keys to
+    remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2098,7 +2134,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates the audit stream configuration for the fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateAuditStreamConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2134,7 +2172,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates the company network configuration for the fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2170,7 +2210,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates the device policy configuration for the fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2206,7 +2248,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates domain metadata, such as DisplayName.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDomainMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2238,7 +2282,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates fleet metadata, such as DisplayName.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateFleetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2270,7 +2316,9 @@ defmodule AWS.WorkLink do
   @doc """
   Updates the identity provider configuration for the fleet.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

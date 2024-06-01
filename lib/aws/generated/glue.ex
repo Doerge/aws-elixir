@@ -4,8 +4,6 @@
 defmodule AWS.Glue do
   @moduledoc """
   Glue
-
-  Defines the public endpoint for the Glue service.
   """
 
   alias AWS.Client
@@ -11802,18 +11800,6 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes multiple tables at once.
-
-  After completing this operation, you no longer have access to the table versions
-  and
-  partitions that belong to the deleted table. Glue deletes these "orphaned"
-  resources
-  asynchronously in a timely manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `BatchDeleteTable`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, and `DeletePartition` or
-  `BatchDeletePartition`, to delete any resources that belong to the
-  table.
   """
   @spec batch_delete_table(AWS.Client.t(), batch_delete_table_request(), Keyword.t()) ::
           {:ok, batch_delete_table_response(), any()}
@@ -11859,11 +11845,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of crawler names.
-
-  After calling the `ListCrawlers` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of crawler names. After
+  calling the `ListCrawlers` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
   @spec batch_get_crawlers(AWS.Client.t(), batch_get_crawlers_request(), Keyword.t()) ::
           {:ok, batch_get_crawlers_response(), any()}
@@ -11914,14 +11899,10 @@ defmodule AWS.Glue do
 
   @doc """
   Returns a list of resource metadata for a given list of development endpoint
-  names.
-
-  After
-  calling the `ListDevEndpoints` operation, you can call this operation to access
-  the
-  data to which you have been granted permissions. This operation supports all IAM
-  permissions,
-  including permission conditions that uses tags.
+  names. After calling the `ListDevEndpoints` operation, you can call this
+  operation to access the data to which you have been granted permissions. This
+  operation supports all IAM permissions, including permission conditions that
+  uses tags.
   """
   @spec batch_get_dev_endpoints(AWS.Client.t(), batch_get_dev_endpoints_request(), Keyword.t()) ::
           {:ok, batch_get_dev_endpoints_response(), any()}
@@ -11935,11 +11916,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of job names.
-
-  After calling the `ListJobs` operation, you can call this operation to access
-  the data to which you have been granted permissions. This operation supports all
-  IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of job names. After calling
+  the `ListJobs` operation, you can call this operation to access the data to
+  which you have been granted permissions. This operation supports all IAM
+  permissions, including permission conditions that uses tags.
   """
   @spec batch_get_jobs(AWS.Client.t(), batch_get_jobs_request(), Keyword.t()) ::
           {:ok, batch_get_jobs_response(), any()}
@@ -11985,11 +11965,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of trigger names.
-
-  After calling the `ListTriggers` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of trigger names. After
+  calling the `ListTriggers` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
   @spec batch_get_triggers(AWS.Client.t(), batch_get_triggers_request(), Keyword.t()) ::
           {:ok, batch_get_triggers_response(), any()}
@@ -12003,11 +11982,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns a list of resource metadata for a given list of workflow names.
-
-  After calling the `ListWorkflows` operation, you can call this operation to
-  access the data to which you have been granted permissions. This operation
-  supports all IAM permissions, including permission conditions that uses tags.
+  Returns a list of resource metadata for a given list of workflow names. After
+  calling the `ListWorkflows` operation, you can call this operation to access
+  the data to which you have been granted permissions. This operation supports
+  all IAM permissions, including permission conditions that uses tags.
   """
   @spec batch_get_workflows(AWS.Client.t(), batch_get_workflows_request(), Keyword.t()) ::
           {:ok, batch_get_workflows_response(), any()}
@@ -12085,12 +12063,11 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Cancels (stops) a task run.
-
-  Machine learning task runs are asynchronous tasks that Glue runs on your behalf
-  as part of various machine learning workflows. You can cancel a
-  machine learning task run at any time by calling `CancelMLTaskRun` with a task
-  run's parent transform's `TransformID` and the task run's `TaskRunId`.
+  Cancels (stops) a task run. Machine learning task runs are asynchronous tasks
+  that Glue runs on your behalf as part of various machine learning workflows.
+  You can cancel a machine learning task run at any time by calling
+  `CancelMLTaskRun` with a task run's parent transform's `TransformID` and the
+  task run's `TaskRunId`.
   """
   @spec cancel_ml_task_run(AWS.Client.t(), cancel_ml_task_run_request(), Keyword.t()) ::
           {:ok, cancel_ml_task_run_response(), any()}
@@ -12118,11 +12095,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Validates the supplied schema.
-
-  This call has no side effects, it simply validates using the supplied schema
-  using `DataFormat` as the format. Since it does not take a schema set name, no
-  compatibility checks are performed.
+  Validates the supplied schema. This call has no side effects, it simply
+  validates using the supplied schema using `DataFormat` as the format. Since it
+  does not take a schema set name, no compatibility checks are performed.
   """
   @spec check_schema_version_validity(
           AWS.Client.t(),
@@ -12154,11 +12129,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates a classifier in the user's account.
-
-  This can be a `GrokClassifier`, an
-  `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
-  depending on which field of the request is present.
+  Creates a classifier in the user's account. This can be a `GrokClassifier`, an
+  `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which
+  field of the request is present.
   """
   @spec create_classifier(AWS.Client.t(), create_classifier_request(), Keyword.t()) ::
           {:ok, create_classifier_response(), any()}
@@ -12173,9 +12146,6 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a connection definition in the Data Catalog.
-
-  Connections used for creating federated resources require the IAM
-  `glue:PassConnection` permission.
   """
   @spec create_connection(AWS.Client.t(), create_connection_request(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
@@ -12190,10 +12160,8 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new crawler with specified targets, role, configuration, and optional
-  schedule.
-
-  At least one crawl target must be specified, in the `s3Targets` field, the
-  `jdbcTargets` field, or the `DynamoDBTargets` field.
+  schedule. At least one crawl target must be specified, in the `s3Targets`
+  field, the `jdbcTargets` field, or the `DynamoDBTargets` field.
   """
   @spec create_crawler(AWS.Client.t(), create_crawler_request(), Keyword.t()) ::
           {:ok, create_crawler_response(), any()}
@@ -12209,10 +12177,6 @@ defmodule AWS.Glue do
   @doc """
   Creates a custom pattern that is used to detect sensitive data across the
   columns and rows of your structured data.
-
-  Each custom pattern you create specifies a regular expression and an optional
-  list of context words. If no context words are passed only a regular expression
-  is checked.
   """
   @spec create_custom_entity_type(
           AWS.Client.t(),
@@ -12232,9 +12196,6 @@ defmodule AWS.Glue do
   @doc """
   Creates a data quality ruleset with DQDL rules applied to a specified Glue
   table.
-
-  You create the ruleset using the Data Quality Definition Language (DQDL). For
-  more information, see the Glue developer guide.
   """
   @spec create_data_quality_ruleset(
           AWS.Client.t(),
@@ -12294,25 +12255,12 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates an Glue machine learning transform.
-
-  This operation creates the transform and
-  all the necessary parameters to train it.
-
-  Call this operation as the first step in the process of using a machine learning
-  transform
-  (such as the `FindMatches` transform) for deduplicating data. You can provide an
-  optional `Description`, in addition to the parameters that you want to use for
-  your
+  Creates an Glue machine learning transform. This operation creates the transform
+  and all the necessary parameters to train it. Call this operation as the first
+  step in the process of using a machine learning transform (such as the
+  `FindMatches` transform) for deduplicating data. You can provide an optional
+  `Description`, in addition to the parameters that you want to use for your
   algorithm.
-
-  You must also specify certain parameters for the tasks that Glue runs on your
-  behalf as part of learning from your data and creating a high-quality machine
-  learning
-  transform. These parameters include `Role`, and optionally,
-  `AllocatedCapacity`, `Timeout`, and `MaxRetries`. For more
-  information, see
-  [Jobs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
   """
   @spec create_ml_transform(AWS.Client.t(), create_ml_transform_request(), Keyword.t()) ::
           {:ok, create_ml_transform_response(), any()}
@@ -12368,20 +12316,13 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates a new schema set and registers the schema definition.
-
-  Returns an error if the schema set already exists without actually registering
-  the version.
-
+  Creates a new schema set and registers the schema definition. Returns an error
+  if the schema set already exists without actually registering the version.
   When the schema set is created, a version checkpoint will be set to the first
-  version. Compatibility mode "DISABLED" restricts any additional schema versions
-  from being added after the first schema version. For all other compatibility
-  modes, validation of compatibility settings will be applied only from the second
-  version onwards when the `RegisterSchemaVersion` API is used.
-
-  When this API is called without a `RegistryId`, this will create an entry for a
-  "default-registry" in the registry database tables, if it is not already
-  present.
+  version. Compatibility mode "DISABLED" restricts any additional schema
+  versions from being added after the first schema version. For all other
+  compatibility modes, validation of compatibility settings will be applied only
+  from the second version onwards when the `RegisterSchemaVersion` API is used.
   """
   @spec create_schema(AWS.Client.t(), create_schema_input(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
@@ -12409,11 +12350,11 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates a new security configuration.
-
-  A security configuration is a set of security properties that can be used by
-  Glue. You can use a security configuration to encrypt data at rest. For
-  information about using security configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and Development
+  Creates a new security configuration. A security configuration is a set of
+  security properties that can be used by Glue. You can use a security
+  configuration to encrypt data at rest. For information about using security
+  configurations in Glue, see [Encrypting Data Written by Crawlers, Jobs, and
+  Development
   Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html).
   """
   @spec create_security_configuration(
@@ -12460,9 +12401,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates a new table optimizer for a specific function.
-
-  `compaction` is the only currently supported optimizer type.
+  Creates a new table optimizer for a specific function. `compaction` is the only
+  currently supported optimizer type.
   """
   @spec create_table_optimizer(AWS.Client.t(), create_table_optimizer_request(), Keyword.t()) ::
           {:ok, create_table_optimizer_response(), any()}
@@ -12551,9 +12491,6 @@ defmodule AWS.Glue do
 
   @doc """
   Delete the partition column statistics of a column.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `DeletePartition`.
   """
   @spec delete_column_statistics_for_partition(
           AWS.Client.t(),
@@ -12572,9 +12509,6 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `DeleteTable`.
   """
   @spec delete_column_statistics_for_table(
           AWS.Client.t(),
@@ -12607,8 +12541,7 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a specified crawler from the Glue Data Catalog, unless the crawler state
-  is
-  `RUNNING`.
+  is `RUNNING`.
   """
   @spec delete_crawler(AWS.Client.t(), delete_crawler_request(), Keyword.t()) ::
           {:ok, delete_crawler_response(), any()}
@@ -12659,21 +12592,6 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a specified database from a Data Catalog.
-
-  After completing this operation, you no longer have access to the tables (and
-  all table
-  versions and partitions that might belong to the tables) and the user-defined
-  functions in
-  the deleted database. Glue deletes these "orphaned" resources asynchronously in
-  a timely
-  manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `DeleteDatabase`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, `DeletePartition` or
-  `BatchDeletePartition`, `DeleteUserDefinedFunction`, and
-  `DeleteTable` or `BatchDeleteTable`, to delete any resources that
-  belong to the database.
   """
   @spec delete_database(AWS.Client.t(), delete_database_request(), Keyword.t()) ::
           {:ok, delete_database_response(), any()}
@@ -12701,10 +12619,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Deletes a specified job definition.
-
-  If the job definition
-  is not found, no exception is thrown.
+  Deletes a specified job definition. If the job definition is not found, no
+  exception is thrown.
   """
   @spec delete_job(AWS.Client.t(), delete_job_request(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
@@ -12718,16 +12634,12 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Deletes an Glue machine learning transform.
-
-  Machine learning transforms are a special
-  type of transform that use machine learning to learn the details of the
-  transformation to be
-  performed by learning from examples provided by humans. These transformations
-  are then saved
-  by Glue. If you no longer need a transform, you can delete it by calling
-  `DeleteMLTransforms`. However, any Glue jobs that still reference the deleted
-  transform will no longer succeed.
+  Deletes an Glue machine learning transform. Machine learning transforms are a
+  special type of transform that use machine learning to learn the details of
+  the transformation to be performed by learning from examples provided by
+  humans. These transformations are then saved by Glue. If you no longer need a
+  transform, you can delete it by calling `DeleteMLTransforms`. However, any
+  Glue jobs that still reference the deleted transform will no longer succeed.
   """
   @spec delete_ml_transform(AWS.Client.t(), delete_ml_transform_request(), Keyword.t()) ::
           {:ok, delete_ml_transform_response(), any()}
@@ -12769,12 +12681,11 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Delete the entire registry including schema and all of its versions.
-
-  To get the status of the delete operation, you can call the `GetRegistry` API
-  after the asynchronous call. Deleting a registry will deactivate all online
-  operations for the registry such as the `UpdateRegistry`, `CreateSchema`,
-  `UpdateSchema`, and `RegisterSchemaVersion` APIs.
+  Delete the entire registry including schema and all of its versions. To get the
+  status of the delete operation, you can call the `GetRegistry` API after the
+  asynchronous call. Deleting a registry will deactivate all online operations
+  for the registry such as the `UpdateRegistry`, `CreateSchema`, `UpdateSchema`,
+  and `RegisterSchemaVersion` APIs.
   """
   @spec delete_registry(AWS.Client.t(), delete_registry_input(), Keyword.t()) ::
           {:ok, delete_registry_response(), any()}
@@ -12803,11 +12714,10 @@ defmodule AWS.Glue do
 
   @doc """
   Deletes the entire schema set, including the schema set and all of its versions.
-
   To get the status of the delete operation, you can call `GetSchema` API after
-  the asynchronous call. Deleting a registry will deactivate all online operations
-  for the schema, such as the `GetSchemaByDefinition`, and `RegisterSchemaVersion`
-  APIs.
+  the asynchronous call. Deleting a registry will deactivate all online
+  operations for the schema, such as the `GetSchemaByDefinition`, and
+  `RegisterSchemaVersion` APIs.
   """
   @spec delete_schema(AWS.Client.t(), delete_schema_input(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
@@ -12821,26 +12731,14 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Remove versions from the specified schema.
-
-  A version number or range may be supplied. If the compatibility mode forbids
-  deleting of a version that is necessary, such as BACKWARDS_FULL, an error is
-  returned. Calling the `GetSchemaVersions` API after this call will list the
-  status of the deleted versions.
-
-  When the range of version numbers contain check pointed version, the API will
-  return a 409 conflict and will not proceed with the deletion. You have to remove
-  the checkpoint first using the `DeleteSchemaCheckpoint` API before using this
-  API.
-
-  You cannot use the `DeleteSchemaVersions` API to delete the first schema version
-  in the schema set. The first schema version can only be deleted by the
-  `DeleteSchema` API. This operation will also delete the attached
-  `SchemaVersionMetadata` under the schema versions. Hard deletes will be enforced
-  on the database.
-
-  If the compatibility mode forbids deleting of a version that is necessary, such
-  as BACKWARDS_FULL, an error is returned.
+  Remove versions from the specified schema. A version number or range may be
+  supplied. If the compatibility mode forbids deleting of a version that is
+  necessary, such as BACKWARDS_FULL, an error is returned. Calling the
+  `GetSchemaVersions` API after this call will list the status of the deleted
+  versions. When the range of version numbers contain check pointed version, the
+  API will return a 409 conflict and will not proceed with the deletion. You
+  have to remove the checkpoint first using the `DeleteSchemaCheckpoint` API
+  before using this API.
   """
   @spec delete_schema_versions(AWS.Client.t(), delete_schema_versions_input(), Keyword.t()) ::
           {:ok, delete_schema_versions_response(), any()}
@@ -12887,18 +12785,6 @@ defmodule AWS.Glue do
 
   @doc """
   Removes a table definition from the Data Catalog.
-
-  After completing this operation, you no longer have access to the table versions
-  and
-  partitions that belong to the deleted table. Glue deletes these "orphaned"
-  resources
-  asynchronously in a timely manner, at the discretion of the service.
-
-  To ensure the immediate deletion of all related resources, before calling
-  `DeleteTable`, use `DeleteTableVersion` or
-  `BatchDeleteTableVersion`, and `DeletePartition` or
-  `BatchDeletePartition`, to delete any resources that belong to the
-  table.
   """
   @spec delete_table(AWS.Client.t(), delete_table_request(), Keyword.t()) ::
           {:ok, delete_table_response(), any()}
@@ -12912,9 +12798,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Deletes an optimizer and all associated metadata for a table.
-
-  The optimization will no longer be performed on the table.
+  Deletes an optimizer and all associated metadata for a table. The optimization
+  will no longer be performed on the table.
   """
   @spec delete_table_optimizer(AWS.Client.t(), delete_table_optimizer_request(), Keyword.t()) ::
           {:ok, delete_table_optimizer_response(), any()}
@@ -12942,10 +12827,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Deletes a specified trigger.
-
-  If the trigger is not found, no
-  exception is thrown.
+  Deletes a specified trigger. If the trigger is not found, no exception is
+  thrown.
   """
   @spec delete_trigger(AWS.Client.t(), delete_trigger_request(), Keyword.t()) ::
           {:ok, delete_trigger_response(), any()}
@@ -13080,9 +12963,6 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves partition statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `GetPartition`.
   """
   @spec get_column_statistics_for_partition(
           AWS.Client.t(),
@@ -13101,9 +12981,6 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `GetTable`.
   """
   @spec get_column_statistics_for_table(
           AWS.Client.t(),
@@ -13213,8 +13090,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves metadata for all crawlers defined in the customer
-  account.
+  Retrieves metadata for all crawlers defined in the customer account.
   """
   @spec get_crawlers(AWS.Client.t(), get_crawlers_request(), Keyword.t()) ::
           {:ok, get_crawlers_response(), any()}
@@ -13367,12 +13243,6 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves information about a specified development endpoint.
-
-  When you create a development endpoint in a virtual private cloud (VPC), Glue
-  returns only
-  a private IP address, and the public IP address field is not populated. When you
-  create a
-  non-VPC development endpoint, Glue returns only a public IP address.
   """
   @spec get_dev_endpoint(AWS.Client.t(), get_dev_endpoint_request(), Keyword.t()) ::
           {:ok, get_dev_endpoint_response(), any()}
@@ -13387,12 +13257,6 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves all the development endpoints in this Amazon Web Services account.
-
-  When you create a development endpoint in a virtual private cloud (VPC), Glue
-  returns only a private IP address
-  and the public IP address field is not populated. When you create a non-VPC
-  development
-  endpoint, Glue returns only a public IP address.
   """
   @spec get_dev_endpoints(AWS.Client.t(), get_dev_endpoints_request(), Keyword.t()) ::
           {:ok, get_dev_endpoints_response(), any()}
@@ -13420,21 +13284,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns information on a job bookmark entry.
-
-  For more information about enabling and using job bookmarks, see:
-
-    *
-
-  [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
-
-    *
-
-  [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
-
-    *
-
-  [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
+  Returns information on a job bookmark entry. For more information about enabling
+  and using job bookmarks, see:
   """
   @spec get_job_bookmark(AWS.Client.t(), get_job_bookmark_request(), Keyword.t()) ::
           {:ok, get_job_bookmark_response(), any()}
@@ -13504,14 +13355,11 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Gets details for a specific task run on a machine learning transform.
-
-  Machine learning
-  task runs are asynchronous tasks that Glue runs on your behalf as part of
-  various machine
-  learning workflows. You can check the stats of any task run by calling
-  `GetMLTaskRun` with the `TaskRunID` and its parent transform's
-  `TransformID`.
+  Gets details for a specific task run on a machine learning transform. Machine
+  learning task runs are asynchronous tasks that Glue runs on your behalf as
+  part of various machine learning workflows. You can check the stats of any
+  task run by calling `GetMLTaskRun` with the `TaskRunID` and its parent
+  transform's `TransformID`.
   """
   @spec get_ml_task_run(AWS.Client.t(), get_ml_task_run_request(), Keyword.t()) ::
           {:ok, get_ml_task_run_response(), any()}
@@ -13525,17 +13373,11 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Gets a list of runs for a machine learning transform.
-
-  Machine learning task runs are
-  asynchronous tasks that Glue runs on your behalf as part of various machine
-  learning
-  workflows. You can get a sortable, filterable list of machine learning task runs
-  by calling
-  `GetMLTaskRuns` with their parent transform's `TransformID` and other
-  optional parameters as documented in this section.
-
-  This operation returns a list of historic runs and must be paginated.
+  Gets a list of runs for a machine learning transform. Machine learning task runs
+  are asynchronous tasks that Glue runs on your behalf as part of various
+  machine learning workflows. You can get a sortable, filterable list of machine
+  learning task runs by calling `GetMLTaskRuns` with their parent transform's
+  `TransformID` and other optional parameters as documented in this section.
   """
   @spec get_ml_task_runs(AWS.Client.t(), get_ml_task_runs_request(), Keyword.t()) ::
           {:ok, get_ml_task_runs_response(), any()}
@@ -13550,15 +13392,10 @@ defmodule AWS.Glue do
 
   @doc """
   Gets an Glue machine learning transform artifact and all its corresponding
-  metadata.
-
-  Machine learning transforms are a special type of transform that use machine
-  learning to learn
-  the details of the transformation to be performed by learning from examples
-  provided by
-  humans. These transformations are then saved by Glue. You can retrieve their
-  metadata by
-  calling `GetMLTransform`.
+  metadata. Machine learning transforms are a special type of transform that use
+  machine learning to learn the details of the transformation to be performed by
+  learning from examples provided by humans. These transformations are then
+  saved by Glue. You can retrieve their metadata by calling `GetMLTransform`.
   """
   @spec get_ml_transform(AWS.Client.t(), get_ml_transform_request(), Keyword.t()) ::
           {:ok, get_ml_transform_response(), any()}
@@ -13573,15 +13410,11 @@ defmodule AWS.Glue do
 
   @doc """
   Gets a sortable, filterable list of existing Glue machine learning transforms.
-
-  Machine
-  learning transforms are a special type of transform that use machine learning to
-  learn the
-  details of the transformation to be performed by learning from examples provided
-  by humans.
-  These transformations are then saved by Glue, and you can retrieve their
-  metadata by
-  calling `GetMLTransforms`.
+  Machine learning transforms are a special type of transform that use machine
+  learning to learn the details of the transformation to be performed by
+  learning from examples provided by humans. These transformations are then
+  saved by Glue, and you can retrieve their metadata by calling
+  `GetMLTransforms`.
   """
   @spec get_ml_transforms(AWS.Client.t(), get_ml_transforms_request(), Keyword.t()) ::
           {:ok, get_ml_transforms_response(), any()}
@@ -13666,15 +13499,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the resource policies set on individual resources by Resource Access
-  Manager
-  during cross-account permission grants.
-
-  Also retrieves the Data Catalog resource
-  policy.
-
-  If you enabled metadata encryption in Data Catalog settings, and you do not have
-  permission on the KMS key, the operation can't return the Data Catalog resource
-  policy.
+  Manager during cross-account permission grants. Also retrieves the Data
+  Catalog resource policy.
   """
   @spec get_resource_policies(AWS.Client.t(), get_resource_policies_request(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
@@ -13716,13 +13542,12 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves a schema by the `SchemaDefinition`.
-
-  The schema definition is sent to the Schema Registry, canonicalized, and hashed.
-  If the hash is matched within the scope of the `SchemaName` or ARN (or the
-  default registry, if none is supplied), that schema’s metadata is returned.
-  Otherwise, a 404 or NotFound error is returned. Schema versions in `Deleted`
-  statuses will not be included in the results.
+  Retrieves a schema by the `SchemaDefinition`. The schema definition is sent to
+  the Schema Registry, canonicalized, and hashed. If the hash is matched within
+  the scope of the `SchemaName` or ARN (or the default registry, if none is
+  supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound
+  error is returned. Schema versions in `Deleted` statuses will not be included
+  in the results.
   """
   @spec get_schema_by_definition(AWS.Client.t(), get_schema_by_definition_input(), Keyword.t()) ::
           {:ok, get_schema_by_definition_response(), any()}
@@ -13737,9 +13562,8 @@ defmodule AWS.Glue do
 
   @doc """
   Get the specified schema by its unique ID assigned when a version of the schema
-  is created or registered.
-
-  Schema versions in Deleted status will not be included in the results.
+  is created or registered. Schema versions in Deleted status will not be
+  included in the results.
   """
   @spec get_schema_version(AWS.Client.t(), get_schema_version_input(), Keyword.t()) ::
           {:ok, get_schema_version_response(), any()}
@@ -13755,9 +13579,6 @@ defmodule AWS.Glue do
   @doc """
   Fetches the schema version difference in the specified difference type between
   two stored schema versions in the Schema Registry.
-
-  This API allows you to compare two schema versions between two schema
-  definitions under the same schema.
   """
   @spec get_schema_versions_diff(AWS.Client.t(), get_schema_versions_diff_input(), Keyword.t()) ::
           {:ok, get_schema_versions_diff_response(), any()}
@@ -13835,8 +13656,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves the `Table` definition in a Data Catalog for
-  a specified table.
+  Retrieves the `Table` definition in a Data Catalog for a specified table.
   """
   @spec get_table(AWS.Client.t(), get_table_request(), Keyword.t()) ::
           {:ok, get_table_response(), any()}
@@ -13878,8 +13698,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves a list of strings that identify available versions of
-  a specified table.
+  Retrieves a list of strings that identify available versions of a specified
+  table.
   """
   @spec get_table_versions(AWS.Client.t(), get_table_versions_request(), Keyword.t()) ::
           {:ok, get_table_versions_response(), any()}
@@ -13893,8 +13713,7 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves the definitions of some or all of the tables in a given
-  `Database`.
+  Retrieves the definitions of some or all of the tables in a given `Database`.
   """
   @spec get_tables(AWS.Client.t(), get_tables_request(), Keyword.t()) ::
           {:ok, get_tables_response(), any()}
@@ -13952,9 +13771,6 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetPartition`.
   """
   @spec get_unfiltered_partition_metadata(
           AWS.Client.t(),
@@ -13974,9 +13790,6 @@ defmodule AWS.Glue do
   @doc """
   Retrieves partition metadata from the Data Catalog that contains unfiltered
   metadata.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetPartitions`.
   """
   @spec get_unfiltered_partitions_metadata(
           AWS.Client.t(),
@@ -13996,9 +13809,6 @@ defmodule AWS.Glue do
   @doc """
   Allows a third-party analytical engine to retrieve unfiltered table metadata
   from the Data Catalog.
-
-  For IAM authorization, the public IAM action associated with this API is
-  `glue:GetTable`.
   """
   @spec get_unfiltered_table_metadata(
           AWS.Client.t(),
@@ -14159,16 +13969,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the names of all crawler resources in this Amazon Web Services
-  account, or the
-  resources with the specified tag.
-
-  This operation allows you to see which
-  resources are available in your account, and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
   @spec list_crawlers(AWS.Client.t(), list_crawlers_request(), Keyword.t()) ::
           {:ok, list_crawlers_response(), any()}
@@ -14182,26 +13984,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns all the crawls of a specified crawler.
-
-  Returns only the crawls that have occurred since the launch date of the crawler
-  history feature, and only retains up to 12 months of crawls. Older crawls will
-  not be returned.
-
-  You may use this API to:
-
-    *
-  Retrive all the crawls of a specified crawler.
-
-    *
-  Retrieve all the crawls of a specified crawler within a limited count.
-
-    *
-  Retrieve all the crawls of a specified crawler in a specific time range.
-
-    *
-  Retrieve all the crawls of a specified crawler with a particular state, crawl
-  ID, or DPU hour value.
+  Returns all the crawls of a specified crawler. Returns only the crawls that have
+  occurred since the launch date of the crawler history feature, and only
+  retains up to 12 months of crawls. Older crawls will not be returned. You may
+  use this API to:
   """
   @spec list_crawls(AWS.Client.t(), list_crawls_request(), Keyword.t()) ::
           {:ok, list_crawls_response(), any()}
@@ -14303,16 +14089,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
-  account, or the
-  resources with the specified tag.
-
-  This operation allows you to see which resources are
-  available in your account, and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
   @spec list_dev_endpoints(AWS.Client.t(), list_dev_endpoints_request(), Keyword.t()) ::
           {:ok, list_dev_endpoints_response(), any()}
@@ -14327,15 +14105,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the names of all job resources in this Amazon Web Services account, or
-  the resources with the specified tag.
-
-  This operation allows you to see which resources are available in your account,
-  and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  the resources with the specified tag. This operation allows you to see which
+  resources are available in your account, and their names.
   """
   @spec list_jobs(AWS.Client.t(), list_jobs_request(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -14350,13 +14121,11 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves a sortable, filterable list of existing Glue machine learning
-  transforms in this Amazon Web Services account,
-  or the resources with the specified tag.
-
-  This operation takes the optional `Tags` field, which you can use as
-  a filter of the responses so that tagged resources can be retrieved as a group.
-  If you choose to use tag
-  filtering, only resources with the tags are retrieved.
+  transforms in this Amazon Web Services account, or the resources with the
+  specified tag. This operation takes the optional `Tags` field, which you can
+  use as a filter of the responses so that tagged resources can be retrieved as
+  a group. If you choose to use tag filtering, only resources with the tags are
+  retrieved.
   """
   @spec list_ml_transforms(AWS.Client.t(), list_ml_transforms_request(), Keyword.t()) ::
           {:ok, list_ml_transforms_response(), any()}
@@ -14371,10 +14140,8 @@ defmodule AWS.Glue do
 
   @doc """
   Returns a list of registries that you have created, with minimal registry
-  information.
-
-  Registries in the `Deleting` status will not be included in the results. Empty
-  results will be returned if there are no registries available.
+  information. Registries in the `Deleting` status will not be included in the
+  results. Empty results will be returned if there are no registries available.
   """
   @spec list_registries(AWS.Client.t(), list_registries_input(), Keyword.t()) ::
           {:ok, list_registries_response(), any()}
@@ -14389,10 +14156,9 @@ defmodule AWS.Glue do
 
   @doc """
   Returns a list of schema versions that you have created, with minimal
-  information.
-
-  Schema versions in Deleted status will not be included in the results. Empty
-  results will be returned if there are no schema versions available.
+  information. Schema versions in Deleted status will not be included in the
+  results. Empty results will be returned if there are no schema versions
+  available.
   """
   @spec list_schema_versions(AWS.Client.t(), list_schema_versions_input(), Keyword.t()) ::
           {:ok, list_schema_versions_response(), any()}
@@ -14406,13 +14172,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Returns a list of schemas with minimal details.
-
-  Schemas in Deleting status will not be included in the results. Empty results
-  will be returned if there are no schemas available.
-
-  When the `RegistryId` is not provided, all the schemas across registries will be
-  part of the API response.
+  Returns a list of schemas with minimal details. Schemas in Deleting status will
+  not be included in the results. Empty results will be returned if there are no
+  schemas available.
   """
   @spec list_schemas(AWS.Client.t(), list_schemas_input(), Keyword.t()) ::
           {:ok, list_schemas_response(), any()}
@@ -14473,15 +14235,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the names of all trigger resources in this Amazon Web Services
-  account, or the resources with the specified tag.
-
-  This operation allows you to see which resources are available in your account,
-  and their names.
-
-  This operation takes the optional `Tags` field, which you can use as a filter on
-  the response so that tagged resources can be retrieved as a group. If you choose
-  to use tags
-  filtering, only resources with the tag are retrieved.
+  account, or the resources with the specified tag. This operation allows you to
+  see which resources are available in your account, and their names.
   """
   @spec list_triggers(AWS.Client.t(), list_triggers_request(), Keyword.t()) ::
           {:ok, list_triggers_response(), any()}
@@ -14509,10 +14264,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Sets the security configuration for a specified catalog.
-
-  After the configuration has been
-  set, the specified encryption is applied to every catalog write thereafter.
+  Sets the security configuration for a specified catalog. After the configuration
+  has been set, the specified encryption is applied to every catalog write
+  thereafter.
   """
   @spec put_data_catalog_encryption_settings(
           AWS.Client.t(),
@@ -14544,10 +14298,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Puts the metadata key value pair for a specified schema version ID.
-
-  A maximum of 10 key value pairs will be allowed per schema version. They can be
-  added over one or more calls.
+  Puts the metadata key value pair for a specified schema version ID. A maximum of
+  10 key value pairs will be allowed per schema version. They can be added over
+  one or more calls.
   """
   @spec put_schema_version_metadata(
           AWS.Client.t(),
@@ -14565,9 +14318,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Puts the specified workflow run properties for the given workflow run.
-
-  If a property already exists for the specified run, then it overrides the value
+  Puts the specified workflow run properties for the given workflow run. If a
+  property already exists for the specified run, then it overrides the value
   otherwise adds the property to existing properties.
   """
   @spec put_workflow_run_properties(
@@ -14604,21 +14356,15 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Adds a new version to the existing schema.
-
-  Returns an error if new version of schema does not meet the compatibility
-  requirements of the schema set. This API will not create a new schema set and
-  will return a 404 error if the schema set is not already present in the Schema
-  Registry.
-
-  If this is the first schema definition to be registered in the Schema Registry,
-  this API will store the schema version and return immediately. Otherwise, this
-  call has the potential to run longer than other operations due to compatibility
-  modes. You can call the `GetSchemaVersion` API with the `SchemaVersionId` to
-  check compatibility modes.
-
-  If the same schema definition is already stored in Schema Registry as a version,
-  the schema ID of the existing schema is returned to the caller.
+  Adds a new version to the existing schema. Returns an error if new version of
+  schema does not meet the compatibility requirements of the schema set. This
+  API will not create a new schema set and will return a 404 error if the schema
+  set is not already present in the Schema Registry. If this is the first schema
+  definition to be registered in the Schema Registry, this API will store the
+  schema version and return immediately. Otherwise, this call has the potential
+  to run longer than other operations due to compatibility modes. You can call
+  the `GetSchemaVersion` API with the `SchemaVersionId` to check compatibility
+  modes.
   """
   @spec register_schema_version(AWS.Client.t(), register_schema_version_input(), Keyword.t()) ::
           {:ok, register_schema_version_response(), any()}
@@ -14651,21 +14397,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Resets a bookmark entry.
-
-  For more information about enabling and using job bookmarks, see:
-
-    *
-
-  [Tracking processed data using job bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html)
-
-    *
-
-  [Job parameters used by Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
-
-    *
-
-  [Job structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job)
+  Resets a bookmark entry. For more information about enabling and using job
+  bookmarks, see:
   """
   @spec reset_job_bookmark(AWS.Client.t(), reset_job_bookmark_request(), Keyword.t()) ::
           {:ok, reset_job_bookmark_response(), any()}
@@ -14680,10 +14413,8 @@ defmodule AWS.Glue do
 
   @doc """
   Restarts selected nodes of a previous partially completed workflow run and
-  resumes the workflow run.
-
-  The selected nodes and all nodes that are downstream from the selected nodes are
-  run.
+  resumes the workflow run. The selected nodes and all nodes that are downstream
+  from the selected nodes are run.
   """
   @spec resume_workflow_run(AWS.Client.t(), resume_workflow_run_request(), Keyword.t()) ::
           {:ok, resume_workflow_run_response(), any()}
@@ -14712,17 +14443,7 @@ defmodule AWS.Glue do
 
   @doc """
   Searches a set of tables based on properties in the table metadata as well as on
-  the parent database.
-
-  You can search against text or filter conditions.
-
-  You can only get tables that you have access to based on the security policies
-  defined in Lake Formation. You need at least a read-only access to the table for
-  it to be returned. If you do not have access to all the columns in the table,
-  these columns will not be searched against when returning the list of tables
-  back to you. If you have access to the columns but not the data in the columns,
-  those columns and the associated metadata for those columns will be included in
-  the search.
+  the parent database. You can search against text or filter conditions.
   """
   @spec search_tables(AWS.Client.t(), search_tables_request(), Keyword.t()) ::
           {:ok, search_tables_response(), any()}
@@ -14768,10 +14489,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Starts a crawl using the specified crawler, regardless
-  of what is scheduled.
-
-  If the crawler is already running, returns a
+  Starts a crawl using the specified crawler, regardless of what is scheduled. If
+  the crawler is already running, returns a
   [CrawlerRunningException](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException).
   """
   @spec start_crawler(AWS.Client.t(), start_crawler_request(), Keyword.t()) ::
@@ -14786,9 +14505,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Changes the schedule state of the specified crawler to
-  `SCHEDULED`, unless the crawler is already running or the
-  schedule state is already `SCHEDULED`.
+  Changes the schedule state of the specified crawler to `SCHEDULED`, unless the
+  crawler is already running or the schedule state is already `SCHEDULED`.
   """
   @spec start_crawler_schedule(AWS.Client.t(), start_crawler_schedule_request(), Keyword.t()) ::
           {:ok, start_crawler_schedule_response(), any()}
@@ -14803,13 +14521,9 @@ defmodule AWS.Glue do
 
   @doc """
   Starts a recommendation run that is used to generate rules when you don't know
-  what rules to write.
-
-  Glue Data Quality analyzes the data and comes up with recommendations for a
-  potential ruleset. You can then triage the ruleset and modify the generated
-  ruleset to your liking.
-
-  Recommendation runs are automatically deleted after 90 days.
+  what rules to write. Glue Data Quality analyzes the data and comes up with
+  recommendations for a potential ruleset. You can then triage the ruleset and
+  modify the generated ruleset to your liking.
   """
   @spec start_data_quality_rule_recommendation_run(
           AWS.Client.t(),
@@ -14828,9 +14542,8 @@ defmodule AWS.Glue do
 
   @doc """
   Once you have a ruleset definition (either recommended or your own), you call
-  this operation to evaluate the ruleset against a data source (Glue table).
-
-  The evaluation computes results which you can retrieve with the
+  this operation to evaluate the ruleset against a data source (Glue table). The
+  evaluation computes results which you can retrieve with the
   `GetDataQualityResult` API.
   """
   @spec start_data_quality_ruleset_evaluation_run(
@@ -14850,16 +14563,11 @@ defmodule AWS.Glue do
 
   @doc """
   Begins an asynchronous task to export all labeled data for a particular
-  transform.
-
-  This
-  task is the only label-related API call that is not part of the typical active
-  learning
-  workflow. You typically use `StartExportLabelsTaskRun` when you want to work
-  with
-  all of your existing labels at the same time, such as when you want to remove or
-  change labels
-  that were previously submitted as truth. This API operation accepts the
+  transform. This task is the only label-related API call that is not part of
+  the typical active learning workflow. You typically use
+  `StartExportLabelsTaskRun` when you want to work with all of your existing
+  labels at the same time, such as when you want to remove or change labels that
+  were previously submitted as truth. This API operation accepts the
   `TransformId` whose labels you want to export and an Amazon Simple Storage
   Service (Amazon S3) path to export the labels to. The operation returns a
   `TaskRunId`. You can check on the status of your task run by calling the
@@ -14882,38 +14590,20 @@ defmodule AWS.Glue do
 
   @doc """
   Enables you to provide additional labels (examples of truth) to be used to teach
-  the
-  machine learning transform and improve its quality.
-
-  This API operation is generally used as
-  part of the active learning workflow that starts with the
+  the machine learning transform and improve its quality. This API operation is
+  generally used as part of the active learning workflow that starts with the
   `StartMLLabelingSetGenerationTaskRun` call and that ultimately results in
-  improving the quality of your machine learning transform.
-
-  After the `StartMLLabelingSetGenerationTaskRun` finishes, Glue machine learning
-  will have generated a series of questions for humans to answer. (Answering these
-  questions is
-  often called 'labeling' in the machine learning workflows). In the case of the
-  `FindMatches` transform, these questions are of the form, “What is the correct
-  way to group these rows together into groups composed entirely of matching
-  records?” After the
-  labeling process is finished, users upload their answers/labels with a call to
-  `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes,
-  all future runs of the machine learning transform use the new and improved
-  labels and perform
-  a higher-quality transformation.
-
-  By default, `StartMLLabelingSetGenerationTaskRun` continually learns from and
-  combines all labels that you upload unless you set `Replace` to true. If you set
-  `Replace` to true, `StartImportLabelsTaskRun` deletes and forgets all
-  previously uploaded labels and learns only from the exact set that you upload.
-  Replacing
-  labels can be helpful if you realize that you previously uploaded incorrect
-  labels, and you
-  believe that they are having a negative effect on your transform quality.
-
-  You can check on the status of your task run by calling the `GetMLTaskRun`
-  operation.
+  improving the quality of your machine learning transform. After the
+  `StartMLLabelingSetGenerationTaskRun` finishes, Glue machine learning will
+  have generated a series of questions for humans to answer. (Answering these
+  questions is often called 'labeling' in the machine learning workflows). In
+  the case of the `FindMatches` transform, these questions are of the form,
+  “What is the correct way to group these rows together into groups composed
+  entirely of matching records?” After the labeling process is finished, users
+  upload their answers/labels with a call to `StartImportLabelsTaskRun`. After
+  `StartImportLabelsTaskRun` finishes, all future runs of the machine learning
+  transform use the new and improved labels and perform a higher-quality
+  transformation.
   """
   @spec start_import_labels_task_run(
           AWS.Client.t(),
@@ -14945,16 +14635,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Starts a task to estimate the quality of the transform.
-
-  When you provide label sets as examples of truth, Glue machine learning uses
-  some of
-  those examples to learn from them. The rest of the labels are used as a test to
-  estimate
+  Starts a task to estimate the quality of the transform. When you provide label
+  sets as examples of truth, Glue machine learning uses some of those examples
+  to learn from them. The rest of the labels are used as a test to estimate
   quality.
-
-  Returns a unique identifier for the run. You can call `GetMLTaskRun` to get more
-  information about the stats of the `EvaluationTaskRun`.
   """
   @spec start_ml_evaluation_task_run(
           AWS.Client.t(),
@@ -14973,23 +14657,9 @@ defmodule AWS.Glue do
 
   @doc """
   Starts the active learning workflow for your machine learning transform to
-  improve the
-  transform's quality by generating label sets and adding labels.
-
+  improve the transform's quality by generating label sets and adding labels.
   When the `StartMLLabelingSetGenerationTaskRun` finishes, Glue will have
   generated a "labeling set" or a set of questions for humans to answer.
-
-  In the case of the `FindMatches` transform, these questions are of the form,
-  “What is the correct way to group these rows together into groups composed
-  entirely of
-  matching records?”
-
-  After the labeling process is finished, you can upload your labels with a call
-  to
-  `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes,
-  all future runs of the machine learning transform will use the new and improved
-  labels and
-  perform a higher-quality transformation.
   """
   @spec start_ml_labeling_set_generation_task_run(
           AWS.Client.t(),
@@ -15007,11 +14677,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Starts an existing trigger.
-
-  See [Triggering Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
-  information about how different types of trigger are
-  started.
+  Starts an existing trigger. See [Triggering
+  Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for
+  information about how different types of trigger are started.
   """
   @spec start_trigger(AWS.Client.t(), start_trigger_request(), Keyword.t()) ::
           {:ok, start_trigger_response(), any()}
@@ -15071,9 +14739,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Sets the schedule state of the specified crawler to
-  `NOT_SCHEDULED`, but does not stop the crawler if it is
-  already running.
+  Sets the schedule state of the specified crawler to `NOT_SCHEDULED`, but does
+  not stop the crawler if it is already running.
   """
   @spec stop_crawler_schedule(AWS.Client.t(), stop_crawler_schedule_request(), Keyword.t()) ::
           {:ok, stop_crawler_schedule_response(), any()}
@@ -15129,11 +14796,10 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Adds tags to a resource.
-
-  A tag is a label you can assign to an Amazon Web Services resource.
-  In Glue, you can tag only certain resources. For information about what
-  resources you can tag, see [Amazon Web Services Tags in Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
+  Adds tags to a resource. A tag is a label you can assign to an Amazon Web
+  Services resource. In Glue, you can tag only certain resources. For
+  information about what resources you can tag, see [Amazon Web Services Tags in
+  Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_request(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -15175,9 +14841,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Modifies an existing classifier (a `GrokClassifier`,
-  an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on
-  which field is present).
+  Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a
+  `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
   """
   @spec update_classifier(AWS.Client.t(), update_classifier_request(), Keyword.t()) ::
           {:ok, update_classifier_response(), any()}
@@ -15192,9 +14857,6 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates partition statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `UpdatePartition`.
   """
   @spec update_column_statistics_for_partition(
           AWS.Client.t(),
@@ -15213,9 +14875,6 @@ defmodule AWS.Glue do
 
   @doc """
   Creates or updates table statistics of columns.
-
-  The Identity and Access Management (IAM) permission required for this operation
-  is `UpdateTable`.
   """
   @spec update_column_statistics_for_table(
           AWS.Client.t(),
@@ -15247,11 +14906,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Updates a crawler.
-
-  If a crawler is
-  running, you must stop it using `StopCrawler` before updating
-  it.
+  Updates a crawler. If a crawler is running, you must stop it using `StopCrawler`
+  before updating it.
   """
   @spec update_crawler(AWS.Client.t(), update_crawler_request(), Keyword.t()) ::
           {:ok, update_crawler_response(), any()}
@@ -15325,9 +14981,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Updates an existing job definition.
-
-  The previous job definition is completely overwritten by this information.
+  Updates an existing job definition. The previous job definition is completely
+  overwritten by this information.
   """
   @spec update_job(AWS.Client.t(), update_job_request(), Keyword.t()) ::
           {:ok, update_job_response(), any()}
@@ -15341,12 +14996,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Synchronizes a job from the source control repository.
-
-  This operation takes the job artifacts that are located in the remote repository
-  and updates the Glue internal stores with these artifacts.
-
-  This API supports optional parameters which take in the repository information.
+  Synchronizes a job from the source control repository. This operation takes the
+  job artifacts that are located in the remote repository and updates the Glue
+  internal stores with these artifacts.
   """
   @spec update_job_from_source_control(
           AWS.Client.t(),
@@ -15364,14 +15016,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Updates an existing machine learning transform.
-
-  Call this operation to tune the algorithm parameters to achieve better results.
-
-  After calling this operation, you can call the `StartMLEvaluationTaskRun`
-  operation to assess how well your new parameters achieved your goals (such as
-  improving the
-  quality of your machine learning transform, or making it more cost-effective).
+  Updates an existing machine learning transform. Call this operation to tune the
+  algorithm parameters to achieve better results.
   """
   @spec update_ml_transform(AWS.Client.t(), update_ml_transform_request(), Keyword.t()) ::
           {:ok, update_ml_transform_response(), any()}
@@ -15399,9 +15045,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Updates an existing registry which is used to hold a collection of schemas.
-
-  The updated properties relate to the registry, and do not modify any of the
+  Updates an existing registry which is used to hold a collection of schemas. The
+  updated properties relate to the registry, and do not modify any of the
   schemas within the registry.
   """
   @spec update_registry(AWS.Client.t(), update_registry_input(), Keyword.t()) ::
@@ -15417,18 +15062,11 @@ defmodule AWS.Glue do
 
   @doc """
   Updates the description, compatibility setting, or version checkpoint for a
-  schema set.
-
-  For updating the compatibility setting, the call will not validate compatibility
-  for the entire set of schema versions with the new compatibility setting. If the
-  value for `Compatibility` is provided, the `VersionNumber` (a checkpoint) is
-  also required. The API will validate the checkpoint version number for
-  consistency.
-
-  If the value for the `VersionNumber` (checkpoint) is provided, `Compatibility`
-  is optional and this can be used to set/reset a checkpoint for the schema.
-
-  This update will happen only if the schema is in the AVAILABLE state.
+  schema set. For updating the compatibility setting, the call will not validate
+  compatibility for the entire set of schema versions with the new compatibility
+  setting. If the value for `Compatibility` is provided, the `VersionNumber` (a
+  checkpoint) is also required. The API will validate the checkpoint version
+  number for consistency.
   """
   @spec update_schema(AWS.Client.t(), update_schema_input(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
@@ -15442,12 +15080,9 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Synchronizes a job to the source control repository.
-
-  This operation takes the job artifacts from the Glue internal stores and makes a
-  commit to the remote repository that is configured on the job.
-
-  This API supports optional parameters which take in the repository information.
+  Synchronizes a job to the source control repository. This operation takes the
+  job artifacts from the Glue internal stores and makes a commit to the remote
+  repository that is configured on the job.
   """
   @spec update_source_control_from_job(
           AWS.Client.t(),

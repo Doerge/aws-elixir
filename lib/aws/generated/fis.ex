@@ -4,10 +4,9 @@
 defmodule AWS.Fis do
   @moduledoc """
   Fault Injection Service is a managed service that enables you to perform fault
-  injection
-  experiments on your Amazon Web Services workloads.
-
-  For more information, see the [Fault Injection Service User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
+  injection experiments on your Amazon Web Services workloads. For more
+  information, see the [Fault Injection Service User
+  Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
   """
 
   alias AWS.Client
@@ -1332,33 +1331,12 @@ defmodule AWS.Fis do
   end
 
   @doc """
-  Creates an experiment template.
+  Creates an experiment template. An experiment template includes the following
+  components:
 
-  An experiment template includes the following components:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20CreateExperimentTemplate&this_doc_guide=API%2520Reference)
 
-    *
-
-  **Targets**: A target can be a specific resource in
-  your Amazon Web Services environment, or one or more resources that match
-  criteria that you
-  specify, for example, resources that have specific tags.
-
-    *
-
-  **Actions**: The actions to carry out on the
-  target. You can specify multiple actions, the duration of each action, and when
-  to start each action during an experiment.
-
-    *
-
-  **Stop conditions**: If a stop condition is
-  triggered while an experiment is running, the experiment is automatically
-  stopped. You can define a stop condition as a CloudWatch alarm.
-
-  For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html)
-  in the *Fault Injection Service User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1392,16 +1370,18 @@ defmodule AWS.Fis do
   end
 
   @doc """
-  Creates a target account configuration for the experiment template.
-
-  A target account configuration
-  is required when `accountTargeting` of `experimentOptions` is set to
-  `multi-account`.
-  For more information, see [experiment options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
+  Creates a target account configuration for the experiment template. A target
+  account configuration is required when `accountTargeting` of
+  `experimentOptions` is set to `multi-account`. For more information, see
+  [experiment
+  options](https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html)
   in the *Fault Injection Service User Guide*.
 
-  ## Required positional parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20CreateTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
   * `:experiment_template_id` (`t:string`) The experiment template ID.
 
   ## Optional parameters:
@@ -1448,7 +1428,9 @@ defmodule AWS.Fis do
   @doc """
   Deletes the specified experiment template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20DeleteExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
@@ -1486,8 +1468,11 @@ defmodule AWS.Fis do
   @doc """
   Deletes the specified target account configuration of the experiment template.
 
-  ## Required positional parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20DeleteTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
@@ -1534,7 +1519,9 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified FIS action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the action.
 
   ## Optional parameters:
@@ -1562,7 +1549,9 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified experiment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
@@ -1591,8 +1580,11 @@ defmodule AWS.Fis do
   Gets information about the specified target account configuration of the
   experiment.
 
-  ## Required positional parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperimentTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
   * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
@@ -1631,7 +1623,9 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified experiment template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
@@ -1660,8 +1654,11 @@ defmodule AWS.Fis do
   Gets information about the specified target account configuration of the
   experiment template.
 
-  ## Required positional parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
@@ -1695,7 +1692,9 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified resource type.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20GetTargetResourceType&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_type` (`t:string`) The resource type.
 
   ## Optional parameters:
@@ -1723,10 +1722,14 @@ defmodule AWS.Fis do
   @doc """
   Lists the available FIS actions.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListActions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_actions(AWS.Client.t(), Keyword.t()) ::
@@ -1770,12 +1773,15 @@ defmodule AWS.Fis do
   @doc """
   Lists the resolved targets information of the specified experiment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentResolvedTargets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, 
-      make another call with the returned nextToken value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:target_name` (`t:string`) The name of the target.
   """
@@ -1829,7 +1835,9 @@ defmodule AWS.Fis do
   @doc """
   Lists the target account configurations of the specified experiment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentTargetAccountConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:experiment_id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
@@ -1871,10 +1879,14 @@ defmodule AWS.Fis do
   @doc """
   Lists your experiment templates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiment_templates(AWS.Client.t(), Keyword.t()) ::
@@ -1918,11 +1930,15 @@ defmodule AWS.Fis do
   @doc """
   Lists your experiments.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperiments&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiments(AWS.Client.t(), Keyword.t()) ::
@@ -1975,7 +1991,9 @@ defmodule AWS.Fis do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2002,12 +2020,15 @@ defmodule AWS.Fis do
   @doc """
   Lists the target account configurations of the specified experiment template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTargetAccountConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, 
-      make another call with the returned nextToken value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2056,10 +2077,14 @@ defmodule AWS.Fis do
   @doc """
   Lists the target resource types.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTargetResourceTypes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_resource_types(AWS.Client.t(), Keyword.t()) ::
@@ -2103,7 +2128,9 @@ defmodule AWS.Fis do
   @doc """
   Starts running an experiment from the specified experiment template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20StartExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2135,7 +2162,9 @@ defmodule AWS.Fis do
   @doc """
   Stops the specified experiment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20StopExperiment&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the experiment.
 
   ## Optional parameters:
@@ -2168,7 +2197,9 @@ defmodule AWS.Fis do
   @doc """
   Applies the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2200,7 +2231,9 @@ defmodule AWS.Fis do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -2238,7 +2271,9 @@ defmodule AWS.Fis do
   @doc """
   Updates the specified experiment template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UpdateExperimentTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:
@@ -2276,8 +2311,11 @@ defmodule AWS.Fis do
   @doc """
   Updates the target account configuration for the specified experiment template.
 
-  ## Required positional parameters:
-  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20UpdateTargetAccountConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:account_id` (`t:string`) The Amazon Web Services account ID of the target
+    account.
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
 
   ## Optional parameters:

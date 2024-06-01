@@ -4,12 +4,11 @@
 defmodule AWS.ComprehendMedical do
   @moduledoc """
   Amazon Comprehend Medical extracts structured information from unstructured
-  clinical text.
-
-  Use these actions to gain insight in your documents. Amazon Comprehend Medical
-  only detects entities in English language texts. Amazon Comprehend Medical
-  places limits on the sizes of files allowed for different API operations. To
-  learn more, see [Guidelines and quotas](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-quotas.html)
+  clinical text. Use these actions to gain insight in your documents. Amazon
+  Comprehend Medical only detects entities in English language texts. Amazon
+  Comprehend Medical places limits on the sizes of files allowed for different
+  API operations. To learn more, see [Guidelines and
+  quotas](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-quotas.html)
   in the *Amazon Comprehend Medical Developer Guide*.
   """
 
@@ -1261,10 +1260,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Gets the properties associated with a medical entities detection job.
-
-  Use this operation
-  to get the status of a detection job.
+  Gets the properties associated with a medical entities detection job. Use this
+  operation to get the status of a detection job.
   """
   @spec describe_entities_detection_v2_job(
           AWS.Client.t(),
@@ -1282,10 +1279,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Gets the properties associated with an InferICD10CM job.
-
-  Use this operation to get the
-  status of an inference job.
+  Gets the properties associated with an InferICD10CM job. Use this operation to
+  get the status of an inference job.
   """
   @spec describe_icd10_cm_inference_job(
           AWS.Client.t(),
@@ -1304,9 +1299,7 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Gets the properties associated with a protected health information (PHI)
-  detection job.
-
-  Use this operation to get the status of a detection job.
+  detection job. Use this operation to get the status of a detection job.
   """
   @spec describe_phi_detection_job(
           AWS.Client.t(),
@@ -1324,10 +1317,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Gets the properties associated with an InferRxNorm job.
-
-  Use this operation to get the
-  status of an inference job.
+  Gets the properties associated with an InferRxNorm job. Use this operation to
+  get the status of an inference job.
   """
   @spec describe_rx_norm_inference_job(
           AWS.Client.t(),
@@ -1345,10 +1336,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-
-  Gets the properties associated with an InferSNOMEDCT job.
-
-  Use this operation to get the status of an inference job.
+  Gets the properties associated with an InferSNOMEDCT job. Use this operation to
+  get the status of an inference job.
   """
   @spec describe_s_n_o_m_e_d_c_t_inference_job(
           AWS.Client.t(),
@@ -1366,15 +1355,8 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  The `DetectEntities` operation is deprecated.
-
-  You should use the `DetectEntitiesV2` operation instead.
-
-  Inspects the clinical text for a variety of medical entities and returns
-  specific
-  information about them such as entity category, location, and confidence score
-  on that
-  information.
+  The `DetectEntities` operation is deprecated. You should use the
+  `DetectEntitiesV2` operation instead.
   """
   @spec detect_entities(AWS.Client.t(), detect_entities_request(), Keyword.t()) ::
           {:ok, detect_entities_response(), any()}
@@ -1389,23 +1371,13 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Inspects the clinical text for a variety of medical entities and returns
-  specific
-  information about them such as entity category, location, and confidence score
-  on that
-  information.
-
-  Amazon Comprehend Medical only detects medical entities in English language
-  texts.
-
-  The `DetectEntitiesV2` operation replaces the `DetectEntities`
-  operation. This new action uses a different model for determining the entities
-  in your medical
-  text and changes the way that some entities are returned in the output. You
-  should use the
+  specific information about them such as entity category, location, and
+  confidence score on that information. Amazon Comprehend Medical only detects
+  medical entities in English language texts. The `DetectEntitiesV2` operation
+  replaces the `DetectEntities` operation. This new action uses a different
+  model for determining the entities in your medical text and changes the way
+  that some entities are returned in the output. You should use the
   `DetectEntitiesV2` operation in all new applications.
-
-  The `DetectEntitiesV2` operation returns the `Acuity` and
-  `Direction` entities as attributes instead of types.
   """
   @spec detect_entities_v2(AWS.Client.t(), detect_entities_v2_request(), Keyword.t()) ::
           {:ok, detect_entities_v2_response(), any()}
@@ -1420,11 +1392,8 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Inspects the clinical text for protected health information (PHI) entities and
-  returns
-  the entity category, location, and confidence score for each entity.
-
-  Amazon Comprehend Medical
-  only detects entities in English language texts.
+  returns the entity category, location, and confidence score for each entity.
+  Amazon Comprehend Medical only detects entities in English language texts.
   """
   @spec detect_phi(AWS.Client.t(), detect_phi_request(), Keyword.t()) ::
           {:ok, detect_phi_response(), any()}
@@ -1439,13 +1408,9 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   InferICD10CM detects medical conditions as entities listed in a patient record
-  and links
-  those entities to normalized concept identifiers in the ICD-10-CM knowledge base
-  from the
-  Centers for Disease Control.
-
-  Amazon Comprehend Medical only detects medical entities in
-  English language texts.
+  and links those entities to normalized concept identifiers in the ICD-10-CM
+  knowledge base from the Centers for Disease Control. Amazon Comprehend Medical
+  only detects medical entities in English language texts.
   """
   @spec infer_icd10_cm(AWS.Client.t(), infer_icd10_cm_request(), Keyword.t()) ::
           {:ok, infer_icd10_cm_response(), any()}
@@ -1460,12 +1425,9 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   InferRxNorm detects medications as entities listed in a patient record and links
-  to the
-  normalized concept identifiers in the RxNorm database from the National Library
-  of Medicine.
-
-  Amazon Comprehend Medical only detects medical entities in English language
-  texts.
+  to the normalized concept identifiers in the RxNorm database from the National
+  Library of Medicine. Amazon Comprehend Medical only detects medical entities
+  in English language texts.
   """
   @spec infer_rx_norm(AWS.Client.t(), infer_rx_norm_request(), Keyword.t()) ::
           {:ok, infer_rx_norm_response(), any()}
@@ -1479,10 +1441,9 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-
   InferSNOMEDCT detects possible medical concepts as entities and links them to
-  codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT)
-  ontology
+  codes from the Systematized Nomenclature of Medicine, Clinical Terms
+  (SNOMED-CT) ontology
   """
   @spec infer_s_n_o_m_e_d_c_t(AWS.Client.t(), infer_s_n_o_m_e_d_c_t_request(), Keyword.t()) ::
           {:ok, infer_s_n_o_m_e_d_c_t_response(), any()}
@@ -1565,7 +1526,6 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-
   Gets a list of InferSNOMEDCT jobs a user has submitted.
   """
   @spec list_s_n_o_m_e_d_c_t_inference_jobs(
@@ -1585,10 +1545,8 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Starts an asynchronous medical entity detection job for a collection of
-  documents.
-
-  Use the
-  `DescribeEntitiesDetectionV2Job` operation to track the status of a job.
+  documents. Use the `DescribeEntitiesDetectionV2Job` operation to track the
+  status of a job.
   """
   @spec start_entities_detection_v2_job(
           AWS.Client.t(),
@@ -1607,11 +1565,8 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Starts an asynchronous job to detect medical conditions and link them to the
-  ICD-10-CM
-  ontology.
-
-  Use the `DescribeICD10CMInferenceJob` operation to track the status of a
-  job.
+  ICD-10-CM ontology. Use the `DescribeICD10CMInferenceJob` operation to track
+  the status of a job.
   """
   @spec start_icd10_cm_inference_job(
           AWS.Client.t(),
@@ -1629,9 +1584,7 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-  Starts an asynchronous job to detect protected health information (PHI).
-
-  Use the
+  Starts an asynchronous job to detect protected health information (PHI). Use the
   `DescribePHIDetectionJob` operation to track the status of a job.
   """
   @spec start_phi_detection_job(AWS.Client.t(), start_phi_detection_job_request(), Keyword.t()) ::
@@ -1647,11 +1600,8 @@ defmodule AWS.ComprehendMedical do
 
   @doc """
   Starts an asynchronous job to detect medication entities and link them to the
-  RxNorm
-  ontology.
-
-  Use the `DescribeRxNormInferenceJob` operation to track the status of a
-  job.
+  RxNorm ontology. Use the `DescribeRxNormInferenceJob` operation to track the
+  status of a job.
   """
   @spec start_rx_norm_inference_job(
           AWS.Client.t(),
@@ -1669,11 +1619,9 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-
   Starts an asynchronous job to detect medical concepts and link them to the
-  SNOMED-CT ontology.
-
-  Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
+  SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track
+  the status of a job.
   """
   @spec start_s_n_o_m_e_d_c_t_inference_job(
           AWS.Client.t(),
@@ -1759,7 +1707,6 @@ defmodule AWS.ComprehendMedical do
   end
 
   @doc """
-
   Stops an InferSNOMEDCT inference job in progress.
   """
   @spec stop_s_n_o_m_e_d_c_t_inference_job(

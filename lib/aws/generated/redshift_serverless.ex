@@ -3,22 +3,15 @@
 
 defmodule AWS.RedshiftServerless do
   @moduledoc """
-  This is an interface reference for Amazon Redshift Serverless.
-
-  It contains documentation for one of the programming or command line interfaces
-  you can use to manage Amazon Redshift Serverless.
-
-  Amazon Redshift Serverless automatically provisions data warehouse capacity and
-  intelligently scales the
+  This is an interface reference for Amazon Redshift Serverless. It contains
+  documentation for one of the programming or command line interfaces you can
+  use to manage Amazon Redshift Serverless. Amazon Redshift Serverless
+  automatically provisions data warehouse capacity and intelligently scales the
   underlying resources based on workload demands. Amazon Redshift Serverless
-  adjusts capacity in seconds to deliver consistently high
-  performance and simplified operations for even the most demanding and volatile
-  workloads. Amazon Redshift Serverless lets you
-  focus on using your data to acquire new insights for your business and
-  customers.
-
-  To learn more about Amazon Redshift Serverless,
-  see [What is Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
+  adjusts capacity in seconds to deliver consistently high performance and
+  simplified operations for even the most demanding and volatile workloads.
+  Amazon Redshift Serverless lets you focus on using your data to acquire new
+  insights for your business and customers.
   """
 
   alias AWS.Client
@@ -2173,10 +2166,9 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Converts a recovery point to a snapshot.
-
-  For more information about recovery points and snapshots,
-  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  Converts a recovery point to a snapshot. For more information about recovery
+  points and snapshots, see [Working with snapshots and recovery
+  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   @spec convert_recovery_point_to_snapshot(
           AWS.Client.t(),
@@ -2240,11 +2232,9 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Creates a scheduled action.
-
-  A scheduled action contains a schedule and an Amazon Redshift API action.
-  For example, you can create a schedule of when to run the `CreateSnapshot` API
-  operation.
+  Creates a scheduled action. A scheduled action contains a schedule and an Amazon
+  Redshift API action. For example, you can create a schedule of when to run the
+  `CreateSnapshot` API operation.
   """
   @spec create_scheduled_action(AWS.Client.t(), create_scheduled_action_request(), Keyword.t()) ::
           {:ok, create_scheduled_action_response(), any()}
@@ -2258,11 +2248,8 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Creates a snapshot of all databases in a namespace.
-
-  For more information about snapshots, see
-  [
-  Working with snapshots and recovery
+  Creates a snapshot of all databases in a namespace. For more information about
+  snapshots, see [ Working with snapshots and recovery
   points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
   """
   @spec create_snapshot(AWS.Client.t(), create_snapshot_request(), Keyword.t()) ::
@@ -2296,9 +2283,8 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Creates a usage limit for a specified Amazon Redshift Serverless usage type.
-
-  The usage limit is identified by the returned usage limit identifier.
+  Creates a usage limit for a specified Amazon Redshift Serverless usage type. The
+  usage limit is identified by the returned usage limit identifier.
   """
   @spec create_usage_limit(AWS.Client.t(), create_usage_limit_request(), Keyword.t()) ::
           {:ok, create_usage_limit_response(), any()}
@@ -2358,10 +2344,9 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Deletes a namespace from Amazon Redshift Serverless.
-
-  Before you delete the namespace, you can create a final snapshot that has all of
-  the data within the namespace.
+  Deletes a namespace from Amazon Redshift Serverless. Before you delete the
+  namespace, you can create a final snapshot that has all of the data within the
+  namespace.
   """
   @spec delete_namespace(AWS.Client.t(), delete_namespace_request(), Keyword.t()) ::
           {:ok, delete_namespace_response(), any()}
@@ -2463,19 +2448,10 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Returns a database user name and temporary password with
-  temporary authorization to log in to Amazon Redshift Serverless.
-
-  By default, the temporary credentials expire in 900 seconds.
-  You can optionally specify a duration between 900 seconds (15 minutes) and 3600
-  seconds (60 minutes).
-
-  The Identity and Access Management (IAM) user or role that runs
-  GetCredentials must have an IAM policy attached that allows access to all
-  necessary actions and resources.
-
-  If the `DbName` parameter is specified, the IAM policy must
-  allow access to the resource dbname for the specified database name.
+  Returns a database user name and temporary password with temporary authorization
+  to log in to Amazon Redshift Serverless. By default, the temporary credentials
+  expire in 900 seconds. You can optionally specify a duration between 900
+  seconds (15 minutes) and 3600 seconds (60 minutes).
   """
   @spec get_credentials(AWS.Client.t(), get_credentials_request(), Keyword.t()) ::
           {:ok, get_credentials_response(), any()}
@@ -2693,9 +2669,8 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Returns a list of scheduled actions.
-
-  You can use the flags to filter the list of returned scheduled actions.
+  Returns a list of scheduled actions. You can use the flags to filter the list of
+  returned scheduled actions.
   """
   @spec list_scheduled_actions(AWS.Client.t(), list_scheduled_actions_request(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
@@ -2801,10 +2776,8 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Creates or updates a resource policy.
-
-  Currently, you can use policies to share snapshots across Amazon Web Services
-  accounts.
+  Creates or updates a resource policy. Currently, you can use policies to share
+  snapshots across Amazon Web Services accounts.
   """
   @spec put_resource_policy(AWS.Client.t(), put_resource_policy_request(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -2851,9 +2824,8 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Restores a table from a recovery point to your Amazon Redshift Serverless
-  instance.
-
-  You can't use this operation to restore tables with interleaved sort keys.
+  instance. You can't use this operation to restore tables with interleaved sort
+  keys.
   """
   @spec restore_table_from_recovery_point(
           AWS.Client.t(),
@@ -2872,9 +2844,8 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Restores a table from a snapshot to your Amazon Redshift Serverless instance.
-
-  You can't use this operation to
-  restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+  You can't use this operation to restore tables with [interleaved sort
+  keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
   """
   @spec restore_table_from_snapshot(
           AWS.Client.t(),
@@ -2953,13 +2924,10 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Updates a namespace with the specified settings.
-
-  Unless required, you can't update multiple parameters in one request. For
-  example,
-  you must specify both `adminUsername` and `adminUserPassword` to update either
-  field, but you can't update both `kmsKeyId`
-  and `logExports` in a single request.
+  Updates a namespace with the specified settings. Unless required, you can't
+  update multiple parameters in one request. For example, you must specify both
+  `adminUsername` and `adminUserPassword` to update either field, but you can't
+  update both `kmsKeyId` and `logExports` in a single request.
   """
   @spec update_namespace(AWS.Client.t(), update_namespace_request(), Keyword.t()) ::
           {:ok, update_namespace_response(), any()}
@@ -3019,9 +2987,8 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Update a usage limit in Amazon Redshift Serverless.
-
-  You can't update the usage type or period of a usage limit.
+  Update a usage limit in Amazon Redshift Serverless. You can't update the usage
+  type or period of a usage limit.
   """
   @spec update_usage_limit(AWS.Client.t(), update_usage_limit_request(), Keyword.t()) ::
           {:ok, update_usage_limit_response(), any()}
@@ -3035,11 +3002,9 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
-  Updates a workgroup with the specified configuration settings.
-
-  You can't update multiple parameters in one request. For example,
-  you can update `baseCapacity` or `port` in a single request, but you can't
-  update both in the same request.
+  Updates a workgroup with the specified configuration settings. You can't update
+  multiple parameters in one request. For example, you can update `baseCapacity`
+  or `port` in a single request, but you can't update both in the same request.
   """
   @spec update_workgroup(AWS.Client.t(), update_workgroup_request(), Keyword.t()) ::
           {:ok, update_workgroup_response(), any()}

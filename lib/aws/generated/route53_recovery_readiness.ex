@@ -1202,7 +1202,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Creates a cell in an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1232,13 +1234,13 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a cross-account readiness authorization.
+  Creates a cross-account readiness authorization. This lets you authorize another
+  account to work with Route 53 Application Recovery Controller, for example, to
+  check the readiness status of resources in a separate account.
 
-  This lets you authorize another account to work with Route 53 Application
-  Recovery Controller, for example, to check the readiness status of resources in
-  a separate account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateCrossAccountAuthorization&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1272,14 +1274,15 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a readiness check in an account.
+  Creates a readiness check in an account. A readiness check monitors a resource
+  set in your application, such as a set of Amazon Aurora instances, that
+  Application Recovery Controller is auditing recovery readiness for. The audits
+  run once every minute on every resource that's associated with a readiness
+  check.
 
-  A readiness check monitors a resource set in your application, such as a set of
-  Amazon Aurora instances, that Application Recovery Controller is auditing
-  recovery readiness for. The audits run once every minute on every resource
-  that's associated with a readiness check.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateReadinessCheck&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1309,12 +1312,12 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a recovery group in an account.
+  Creates a recovery group in an account. A recovery group corresponds to an
+  application and includes a list of the cells that make up the application.
 
-  A recovery group corresponds to an application and includes a list of the cells
-  that make up the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateRecoveryGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1344,13 +1347,13 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Creates a resource set.
+  Creates a resource set. A resource set is a set of resources of one type that
+  span multiple cells. You can associate a resource set with a readiness check
+  to monitor the resources for failover readiness.
 
-  A resource set is a set of resources of one type that span multiple cells. You
-  can associate a resource set with a readiness check to monitor the resources for
-  failover readiness.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20CreateResourceSet&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1380,11 +1383,11 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Delete a cell.
+  Delete a cell. When successful, the response code is 204, with no response body.
 
-  When successful, the response code is 204, with no response body.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCell&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
@@ -1417,7 +1420,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Deletes cross account readiness authorization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteCrossAccountAuthorization&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:cross_account_authorization` (`t:string`) The cross-account authorization.
 
   ## Optional parameters:
@@ -1460,7 +1465,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Deletes a readiness check.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
@@ -1498,7 +1505,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Deletes a recovery group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
@@ -1536,7 +1545,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Deletes a resource set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20DeleteResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:
@@ -1575,12 +1586,16 @@ defmodule AWS.Route53RecoveryReadiness do
   Gets recommendations about architecture designs for improving resiliency for an
   application, based on a recovery group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetArchitectureRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec get_architecture_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_architecture_recommendations_response(), any()}
@@ -1626,7 +1641,9 @@ defmodule AWS.Route53RecoveryReadiness do
   (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with
   their associated recovery group ARNs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
@@ -1652,17 +1669,19 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Gets readiness for a cell.
+  Gets readiness for a cell. Aggregates the readiness of all the resources that
+  are associated with the cell into a single value.
 
-  Aggregates the readiness of all the resources that are associated with the cell
-  into a single value.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetCellReadinessSummary&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec get_cell_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
@@ -1705,7 +1724,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Gets details about a readiness check.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
@@ -1731,19 +1752,24 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Gets individual readiness status for a readiness check.
-
-  To see the overall readiness status for a recovery group, that considers the
-  readiness status for all the readiness checks in the recovery group, use
+  Gets individual readiness status for a readiness check. To see the overall
+  readiness status for a recovery group, that considers the readiness status for
+  all the readiness checks in the recovery group, use
   GetRecoveryGroupReadinessSummary.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckResourceStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:readiness_check_name` (`t:string`) Name of a readiness check.
-  * `:resource_identifier` (`t:string`) The resource identifier, which is the Amazon Resource Name (ARN) or the identifier generated for the resource by Application Recovery Controller (for example, for a DNS target resource).
+  * `:resource_identifier` (`t:string`) The resource identifier, which is the
+    Amazon Resource Name (ARN) or the identifier generated for the resource by
+    Application Recovery Controller (for example, for a DNS target resource).
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec get_readiness_check_resource_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
@@ -1790,18 +1816,21 @@ defmodule AWS.Route53RecoveryReadiness do
   end
 
   @doc """
-  Gets the readiness status for an individual readiness check.
-
-  To see the overall readiness status for a recovery group, that considers the
-  readiness status for all the readiness checks in a recovery group, use
+  Gets the readiness status for an individual readiness check. To see the overall
+  readiness status for a recovery group, that considers the readiness status for
+  all the readiness checks in a recovery group, use
   GetRecoveryGroupReadinessSummary.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetReadinessCheckStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec get_readiness_check_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_readiness_check_status_response(), any()}
@@ -1845,7 +1874,9 @@ defmodule AWS.Route53RecoveryReadiness do
   Gets details about a recovery group, including a list of the cells that are
   included in it.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
@@ -1872,16 +1903,19 @@ defmodule AWS.Route53RecoveryReadiness do
 
   @doc """
   Displays a summary of information about a recovery group's readiness status.
-
   Includes the readiness checks for resources in the recovery group and the
   readiness status of each one.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetRecoveryGroupReadinessSummary&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec get_recovery_group_readiness_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
@@ -1925,7 +1959,9 @@ defmodule AWS.Route53RecoveryReadiness do
   Displays the details about a resource set, including a list of the resources in
   the set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20GetResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:
@@ -1953,11 +1989,15 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the cells for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCells&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_cells(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cells_response(), any()}
@@ -2001,11 +2041,15 @@ defmodule AWS.Route53RecoveryReadiness do
   Lists the cross-account readiness authorizations that are in place for an
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListCrossAccountAuthorizations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_cross_account_authorizations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
@@ -2048,11 +2092,15 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the readiness checks for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListReadinessChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_readiness_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_readiness_checks_response(), any()}
@@ -2095,11 +2143,15 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the recovery groups in an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRecoveryGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_recovery_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recovery_groups_response(), any()}
@@ -2142,11 +2194,15 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the resource sets in an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListResourceSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
   """
   @spec list_resource_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_sets_response(), any()}
@@ -2190,12 +2246,17 @@ defmodule AWS.Route53RecoveryReadiness do
   Lists all readiness rules, or lists the readiness rules for a specific resource
   type.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListRules&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The number of objects that you want to return with this call.
-  * `:next_token` (`t:string`) The token that identifies which batch of results you want to see.
-  * `:resource_type` (`t:string`) The resource type that a readiness rule applies to.
+  * `:max_results` (`t:integer`) The number of objects that you want to return
+    with this call.
+  * `:next_token` (`t:string`) The token that identifies which batch of results
+    you want to see.
+  * `:resource_type` (`t:string`) The resource type that a readiness rule applies
+    to.
   """
   @spec list_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rules_response(), any()}
@@ -2247,7 +2308,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Lists the tags for a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20ListTagsForResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
@@ -2275,7 +2338,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Adds a tag to a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
@@ -2308,11 +2373,14 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Removes a tag from a resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for a resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) The keys for tags you add to resources.
+  * `:tag_keys` (`t:list[com.amazonaws.route53recoveryreadiness#__string]`) The
+    keys for tags you add to resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2348,7 +2416,9 @@ defmodule AWS.Route53RecoveryReadiness do
   Updates a cell to replace the list of nested cells with a new list of nested
   cells.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateCell&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:cell_name` (`t:string`) The name of the cell.
 
   ## Optional parameters:
@@ -2371,7 +2441,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Updates a readiness check.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateReadinessCheck&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:readiness_check_name` (`t:string`) Name of a readiness check.
 
   ## Optional parameters:
@@ -2399,7 +2471,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Updates a recovery group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateRecoveryGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:recovery_group_name` (`t:string`) The name of a recovery group.
 
   ## Optional parameters:
@@ -2427,7 +2501,9 @@ defmodule AWS.Route53RecoveryReadiness do
   @doc """
   Updates a resource set.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53recoveryreadiness%20UpdateResourceSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_set_name` (`t:string`) Name of a resource set.
 
   ## Optional parameters:

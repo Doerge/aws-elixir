@@ -2634,19 +2634,15 @@ defmodule AWS.Location do
 
   @doc """
   Creates an association between a geofence collection and a tracker resource.
+  This allows the tracker resource to communicate location data to the linked
+  geofence collection. You can associate up to five geofence collections to each
+  tracker resource.
 
-  This
-  allows the tracker resource to communicate location data to the linked geofence
-  collection.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20AssociateTrackerConsumer&this_doc_guide=API%2520Reference)
 
-  You can associate up to five geofence collections to each tracker resource.
-
-  Currently not supported — Cross-account configurations, such as creating
-  associations between a tracker resource in one account and a geofence collection
-  in another account.
-
-  ## Required positional parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be associated with a geofence collection.
+  ## Parameters:
+  * `:tracker_name` (`t:string`) The name of the tracker resource to be associated
+    with a geofence collection.
 
   ## Optional parameters:
   """
@@ -2683,8 +2679,11 @@ defmodule AWS.Location do
   @doc """
   Deletes the position history of one or more devices from a tracker resource.
 
-  ## Required positional parameters:
-  * `:tracker_name` (`t:string`) The name of the tracker resource to delete the device position history from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchDeleteDevicePositionHistory&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:tracker_name` (`t:string`) The name of the tracker resource to delete the
+    device position history from.
 
   ## Optional parameters:
   """
@@ -2721,10 +2720,11 @@ defmodule AWS.Location do
   @doc """
   Deletes a batch of geofences from a geofence collection.
 
-  This operation deletes the resource permanently.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchDeleteGeofence&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The geofence collection storing the geofences to be deleted.
+  ## Parameters:
+  * `:collection_name` (`t:string`) The geofence collection storing the geofences
+    to be deleted.
 
   ## Optional parameters:
   """
@@ -2762,36 +2762,16 @@ defmodule AWS.Location do
 
   @doc """
   Evaluates device positions against the geofence geometries from a given geofence
-  collection.
+  collection. This operation always returns an empty response because geofences
+  are asynchronously evaluated. The evaluation determines if the device has
+  entered or exited a geofenced area, and then publishes one of the following
+  events to Amazon EventBridge:
 
-  This operation always returns an empty response because geofences are
-  asynchronously
-  evaluated. The evaluation determines if the device has entered or exited a
-  geofenced
-  area, and then publishes one of the following events to Amazon EventBridge:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchEvaluateGeofences&this_doc_guide=API%2520Reference)
 
-    *
-
-  `ENTER` if Amazon Location determines that the tracked device has entered
-  a geofenced area.
-
-    *
-
-  `EXIT` if Amazon Location determines that the tracked device has exited a
-  geofenced area.
-
-  The last geofence that a device was observed within is tracked for 30 days after
-  the most recent device position update.
-
-  Geofence evaluation uses the given device position. It does not account for the
-  optional `Accuracy` of a `DevicePositionUpdate`.
-
-  The `DeviceID` is used as a string to represent the device. You do not
-  need to have a `Tracker` associated with the `DeviceID`.
-
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The geofence collection used in evaluating the position of devices against its
-            geofences.
+  ## Parameters:
+  * `:collection_name` (`t:string`) The geofence collection used in evaluating the
+    position of devices against its geofences.
 
   ## Optional parameters:
   """
@@ -2828,8 +2808,11 @@ defmodule AWS.Location do
   @doc """
   Lists the latest device positions for requested devices.
 
-  ## Required positional parameters:
-  * `:tracker_name` (`t:string`) The tracker resource retrieving the device position.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchGetDevicePosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:tracker_name` (`t:string`) The tracker resource retrieving the device
+    position.
 
   ## Optional parameters:
   """
@@ -2865,11 +2848,12 @@ defmodule AWS.Location do
 
   @doc """
   A batch request for storing geofence geometries into a given geofence
-  collection, or
-  updates the geometry of an existing geofence if a geofence ID is included in the
-  request.
+  collection, or updates the geometry of an existing geofence if a geofence ID
+  is included in the request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchPutGeofence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:collection_name` (`t:string`) The geofence collection storing the geofences.
 
   ## Optional parameters:
@@ -2901,36 +2885,13 @@ defmodule AWS.Location do
 
   @doc """
   Uploads position update data for one or more devices to a tracker resource (up
-  to
-  10 devices per batch).
+  to 10 devices per batch). Amazon Location uses the data when it reports the
+  last known device position and position history. Amazon Location retains
+  location data for 30 days.
 
-  Amazon Location uses the data when it reports the last known device
-  position and position history. Amazon Location retains location data for 30
-  days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20BatchUpdateDevicePosition&this_doc_guide=API%2520Reference)
 
-  Position updates are handled based on the `PositionFiltering`
-  property of the tracker. When `PositionFiltering` is set to
-  `TimeBased`, updates are evaluated against linked geofence collections,
-  and location data is stored at a maximum of one position per 30 second interval.
-  If your update frequency is more often than every 30 seconds, only one update
-  per
-  30 seconds is stored for each unique device ID.
-
-  When `PositionFiltering` is set to `DistanceBased`
-  filtering, location data is stored and evaluated against linked geofence
-  collections only if the device has moved more than 30 m (98.4 ft).
-
-  When `PositionFiltering` is set to `AccuracyBased`
-  filtering, location data is stored and evaluated against linked geofence
-  collections only if the device has moved more than the measured accuracy. For
-  example, if two consecutive updates from a device have a horizontal accuracy of
-  5 m and 10 m, the second update is neither stored or evaluated if the device has
-  moved less than 15 m. If `PositionFiltering` is set to
-  `AccuracyBased` filtering, Amazon Location uses the default value
-  `{ "Horizontal": 0}` when accuracy is not provided on a
-  `DevicePositionUpdate`.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to update.
 
   ## Optional parameters:
@@ -2966,51 +2927,23 @@ defmodule AWS.Location do
   end
 
   @doc """
-
-  [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
-  given the following required parameters:
-  `DeparturePosition` and `DestinationPosition`.
-
-  Requires that
-  you first [create a route calculator
+  [Calculates a
+  route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
+  given the following required parameters: `DeparturePosition` and
+  `DestinationPosition`. Requires that you first [create a route calculator
   resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
-
   By default, a request that doesn't specify a departure time uses the best time
-  of day
-  to travel with the best traffic conditions when calculating the route.
-
+  of day to travel with the best traffic conditions when calculating the route.
   Additional options include:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CalculateRoute&this_doc_guide=API%2520Reference)
 
-  [Specifying a departure
-  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
-  using either `DepartureTime` or
-  `DepartNow`. This calculates a route based on predictive traffic
-  data at the given time.
-
-  You can't specify both `DepartureTime` and
-  `DepartNow` in a single request. Specifying both parameters
-  returns a validation error.
-
-    *
-
-  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
-  using TravelMode sets the transportation mode used to calculate
-  the routes. This also lets you specify additional route preferences in
-  `CarModeOptions` if traveling by `Car`, or
-  `TruckModeOptions` if traveling by `Truck`.
-
-  If you specify `walking` for the travel mode and your data
-  provider is Esri, the start and destination must be within 40km.
-
-  ## Required positional parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource that you want to use to calculate the route.
-        
+  ## Parameters:
+  * `:calculator_name` (`t:string`) The name of the route calculator resource that
+    you want to use to calculate the route.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec calculate_route(AWS.Client.t(), String.t(), calculate_route_request(), Keyword.t()) ::
           {:ok, calculate_route_response(), any()}
@@ -3043,60 +2976,28 @@ defmodule AWS.Location do
   end
 
   @doc """
-
-  [ Calculates a route matrix](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html)
-  given the following required parameters:
-  `DeparturePositions` and `DestinationPositions`.
-
-  `CalculateRouteMatrix` calculates routes and returns the travel time and
-  travel distance from each departure position to each destination position in the
-  request. For example, given departure positions A and B, and destination
-  positions X and
-  Y, `CalculateRouteMatrix` will return time and distance for routes from A to
-  X, A to Y, B to X, and B to Y (in that order). The number of results returned
-  (and
-  routes calculated) will be the number of `DeparturePositions` times the
-  number of `DestinationPositions`.
-
-  Your account is charged for each route calculated, not the number of
-  requests.
-
+  [ Calculates a route
+  matrix](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html)
+  given the following required parameters: `DeparturePositions` and
+  `DestinationPositions`. `CalculateRouteMatrix` calculates routes and returns
+  the travel time and travel distance from each departure position to each
+  destination position in the request. For example, given departure positions A
+  and B, and destination positions X and Y, `CalculateRouteMatrix` will return
+  time and distance for routes from A to X, A to Y, B to X, and B to Y (in that
+  order). The number of results returned (and routes calculated) will be the
+  number of `DeparturePositions` times the number of `DestinationPositions`.
+  Your account is charged for each route calculated, not the number of requests.
   Requires that you first [create a route calculator
   resource](https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html).
 
-  By default, a request that doesn't specify a departure time uses the best time
-  of day
-  to travel with the best traffic conditions when calculating routes.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CalculateRouteMatrix&this_doc_guide=API%2520Reference)
 
-  Additional options include:
-
-    *
-
-  [ Specifying a departure
-  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
-  using either `DepartureTime` or
-  `DepartNow`. This calculates routes based on predictive traffic
-  data at the given time.
-
-  You can't specify both `DepartureTime` and
-  `DepartNow` in a single request. Specifying both parameters
-  returns a validation error.
-
-    *
-
-  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
-  using TravelMode sets the transportation mode used to calculate
-  the routes. This also lets you specify additional route preferences in
-  `CarModeOptions` if traveling by `Car`, or
-  `TruckModeOptions` if traveling by `Truck`.
-
-  ## Required positional parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource that you want to use to calculate the route
-            matrix. 
+  ## Parameters:
+  * `:calculator_name` (`t:string`) The name of the route calculator resource that
+    you want to use to calculate the route matrix.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec calculate_route_matrix(
           AWS.Client.t(),
@@ -3138,7 +3039,9 @@ defmodule AWS.Location do
   @doc """
   Creates a geofence collection, which manages and stores geofences.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateGeofenceCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3173,12 +3076,11 @@ defmodule AWS.Location do
 
   @doc """
   Creates an API key resource in your Amazon Web Services account, which lets you
-  grant
-  actions for Amazon Location resources to the API key bearer.
+  grant actions for Amazon Location resources to the API key bearer.
 
-  For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3209,14 +3111,11 @@ defmodule AWS.Location do
 
   @doc """
   Creates a map resource in your Amazon Web Services account, which provides map
-  tiles of different
-  styles sourced from global location data providers.
+  tiles of different styles sourced from global location data providers.
 
-  If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateMap&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3246,19 +3145,15 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a place index resource in your Amazon Web Services account.
+  Creates a place index resource in your Amazon Web Services account. Use a place
+  index resource to geocode addresses and other text queries by using the
+  `SearchPlaceIndexForText` operation, and reverse geocode coordinates by using
+  the `SearchPlaceIndexForPosition` operation, and enable autosuggestions by
+  using the `SearchPlaceIndexForSuggestions` operation.
 
-  Use a place index resource to
-  geocode addresses and other text queries by using the
-  `SearchPlaceIndexForText` operation, and reverse geocode coordinates by
-  using the `SearchPlaceIndexForPosition` operation, and enable autosuggestions
-  by using the `SearchPlaceIndexForSuggestions` operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreatePlaceIndex&this_doc_guide=API%2520Reference)
 
-  If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3288,18 +3183,14 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Creates a route calculator resource in your Amazon Web Services account.
-
-  You can send requests to a route calculator resource to estimate travel time,
+  Creates a route calculator resource in your Amazon Web Services account. You can
+  send requests to a route calculator resource to estimate travel time,
   distance, and get directions. A route calculator sources traffic and road
-  network data
-  from your chosen data provider.
+  network data from your chosen data provider.
 
-  If your application is tracking or routing assets you use in your business, such
-  as delivery vehicles or employees, you must not use Esri as your geolocation
-  provider. See section 82 of the [Amazon Web Services service terms](http://aws.amazon.com/service-terms) for more details.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateRouteCalculator&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3330,10 +3221,11 @@ defmodule AWS.Location do
 
   @doc """
   Creates a tracker resource in your Amazon Web Services account, which lets you
-  retrieve current and
-  historical location of devices.
+  retrieve current and historical location of devices.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3365,12 +3257,11 @@ defmodule AWS.Location do
   @doc """
   Deletes a geofence collection from your Amazon Web Services account.
 
-  This operation deletes the resource permanently. If the geofence collection is
-  the
-  target of a tracker resource, the devices will no longer be monitored.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteGeofenceCollection&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection to be deleted.
+  ## Parameters:
+  * `:collection_name` (`t:string`) The name of the geofence collection to be
+    deleted.
 
   ## Optional parameters:
   """
@@ -3405,16 +3296,18 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Deletes the specified API key.
-
-  The API key must have been deactivated more than
+  Deletes the specified API key. The API key must have been deactivated more than
   90 days previously.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key_name` (`t:string`) The name of the API key to delete.
 
   ## Optional parameters:
-  * `:force_delete` (`t:`) ForceDelete bypasses an API key&#39;s expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.
+  * `:force_delete` (`t:`) ForceDelete bypasses an API key's expiry conditions and
+    deletes the key. Set the parameter true to delete the key or to false to not
+    preemptively delete the API key.
   """
   @spec delete_key(AWS.Client.t(), String.t(), delete_key_request(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -3449,11 +3342,9 @@ defmodule AWS.Location do
   @doc """
   Deletes a map resource from your Amazon Web Services account.
 
-  This operation deletes the resource permanently. If the map is being used in an
-  application,
-  the map may not render.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteMap&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:map_name` (`t:string`) The name of the map resource to be deleted.
 
   ## Optional parameters:
@@ -3486,9 +3377,9 @@ defmodule AWS.Location do
   @doc """
   Deletes a place index resource from your Amazon Web Services account.
 
-  This operation deletes the resource permanently.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeletePlaceIndex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource to be deleted.
 
   ## Optional parameters:
@@ -3521,10 +3412,11 @@ defmodule AWS.Location do
   @doc """
   Deletes a route calculator resource from your Amazon Web Services account.
 
-  This operation deletes the resource permanently.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteRouteCalculator&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource to be deleted.
+  ## Parameters:
+  * `:calculator_name` (`t:string`) The name of the route calculator resource to
+    be deleted.
 
   ## Optional parameters:
   """
@@ -3561,13 +3453,9 @@ defmodule AWS.Location do
   @doc """
   Deletes a tracker resource from your Amazon Web Services account.
 
-  This operation deletes the resource permanently. If the tracker resource is in
-  use, you may
-  encounter an error. Make sure that the target resource isn't a dependency for
-  your
-  applications.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DeleteTracker&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to be deleted.
 
   ## Optional parameters:
@@ -3600,7 +3488,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the geofence collection details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeGeofenceCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:collection_name` (`t:string`) The name of the geofence collection.
 
   ## Optional parameters:
@@ -3628,7 +3518,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the API key resource details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key_name` (`t:string`) The name of the API key resource.
 
   ## Optional parameters:
@@ -3656,7 +3548,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the map resource details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:map_name` (`t:string`) The name of the map resource.
 
   ## Optional parameters:
@@ -3684,7 +3578,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the place index resource details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribePlaceIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource.
 
   ## Optional parameters:
@@ -3712,7 +3608,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the route calculator resource details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeRouteCalculator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:calculator_name` (`t:string`) The name of the route calculator resource.
 
   ## Optional parameters:
@@ -3740,7 +3638,9 @@ defmodule AWS.Location do
   @doc """
   Retrieves the tracker resource details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DescribeTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource.
 
   ## Optional parameters:
@@ -3768,13 +3668,14 @@ defmodule AWS.Location do
   @doc """
   Removes the association between a tracker resource and a geofence collection.
 
-  Once you unlink a tracker resource from a geofence collection, the tracker
-  positions will no longer be automatically evaluated against geofences.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20DisassociateTrackerConsumer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:consumer_arn` (`t:string`) The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
-            the tracker resource. Used when you need to specify a resource across all Amazon Web Services. 
-  * `:tracker_name` (`t:string`) The name of the tracker resource to be dissociated from the consumer.
+  ## Parameters:
+  * `:consumer_arn` (`t:string`) The Amazon Resource Name (ARN) for the geofence
+    collection to be disassociated from the tracker resource. Used when you need
+    to specify a resource across all Amazon Web Services.
+  * `:tracker_name` (`t:string`) The name of the tracker resource to be
+    dissociated from the consumer.
 
   ## Optional parameters:
   """
@@ -3820,11 +3721,12 @@ defmodule AWS.Location do
   @doc """
   Retrieves a device's most recent position according to its sample time.
 
-  Device positions are deleted after 30 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetDevicePosition&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_id` (`t:string`) The device whose position you want to retrieve.
-  * `:tracker_name` (`t:string`) The tracker resource receiving the position update.
+  * `:tracker_name` (`t:string`) The tracker resource receiving the position
+    update.
 
   ## Optional parameters:
   """
@@ -3851,14 +3753,15 @@ defmodule AWS.Location do
 
   @doc """
   Retrieves the device position history from a tracker resource within a specified
-  range
-  of time.
+  range of time.
 
-  Device positions are deleted after 30 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetDevicePositionHistory&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:device_id` (`t:string`) The device whose position history you want to retrieve.
-  * `:tracker_name` (`t:string`) The tracker resource receiving the request for the device position history.
+  ## Parameters:
+  * `:device_id` (`t:string`) The device whose position history you want to
+    retrieve.
+  * `:tracker_name` (`t:string`) The tracker resource receiving the request for
+    the device position history.
 
   ## Optional parameters:
   """
@@ -3904,9 +3807,12 @@ defmodule AWS.Location do
   @doc """
   Retrieves the geofence details from a geofence collection.
 
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The geofence collection storing the target geofence.
-  * `:geofence_id` (`t:string`) The geofence you&#39;re retrieving details for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetGeofence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:collection_name` (`t:string`) The geofence collection storing the target
+    geofence.
+  * `:geofence_id` (`t:string`) The geofence you're retrieving details for.
 
   ## Optional parameters:
   """
@@ -3934,17 +3840,19 @@ defmodule AWS.Location do
   @doc """
   Retrieves glyphs used to display labels on a map.
 
-  ## Required positional parameters:
-  * `:font_stack` (`t:`) A comma-separated list of fonts to load glyphs from in order of preference. For
-            example, <code>Noto Sans Regular, Arial Unicode</code>.
-  * `:font_unicode_range` (`t:`) A Unicode range of characters to download glyphs for. Each response will contain 256
-            characters. For example, 0–255 includes all characters from range <code>U+0000</code> to
-                <code>00FF</code>. Must be aligned to multiples of 256.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapGlyphs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:font_stack` (`t:`) A comma-separated list of fonts to load glyphs from in
+    order of preference. For example, Noto Sans Regular, Arial Unicode.
+  * `:font_unicode_range` (`t:`) A Unicode range of characters to download glyphs
+    for. Each response will contain 256 characters. For example, 0–255 includes
+    all characters from range U+0000 to 00FF. Must be aligned to multiples of
+    256.
   * `:map_name` (`t:string`) The map resource associated with the glyph ﬁle.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec get_map_glyphs(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_glyphs_response(), any()}
@@ -3984,20 +3892,19 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Retrieves the sprite sheet corresponding to a map resource.
+  Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is
+  a PNG image paired with a JSON document describing the offsets of individual
+  icons that will be displayed on a rendered map.
 
-  The sprite sheet is a PNG
-  image paired with a JSON document describing the offsets of individual icons
-  that will
-  be displayed on a rendered map.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapSprites&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:file_name` (`t:`) The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:
+  ## Parameters:
+  * `:file_name` (`t:`) The name of the sprite ﬁle. Use the following ﬁle names
+    for the sprite sheet:
   * `:map_name` (`t:string`) The map resource associated with the sprite ﬁle.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec get_map_sprites(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_sprites_response(), any()}
@@ -4039,17 +3946,14 @@ defmodule AWS.Location do
   @doc """
   Retrieves the map style descriptor from a map resource.
 
-  The style descriptor contains speciﬁcations on how features render on a map. For
-  example, what data to display, what order to display the data in, and the style
-  for the
-  data. Style descriptors follow the Mapbox Style Specification.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapStyleDescriptor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:map_name` (`t:string`) The map resource to retrieve the style descriptor from.
+  ## Parameters:
+  * `:map_name` (`t:string`) The map resource to retrieve the style descriptor
+    from.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec get_map_style_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_style_descriptor_response(), any()}
@@ -4088,27 +3992,20 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Retrieves a vector data tile from the map resource.
+  Retrieves a vector data tile from the map resource. Map tiles are used by
+  clients to render a map. they're addressed using a grid arrangement with an X
+  coordinate, Y coordinate, and Z (zoom) level.
 
-  Map tiles are used by clients to
-  render a map. they're addressed using a grid arrangement with an X coordinate, Y
-  coordinate, and Z (zoom) level.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetMapTile&this_doc_guide=API%2520Reference)
 
-  The origin (0, 0) is the top left of the map. Increasing the zoom level by 1
-  doubles
-  both the X and Y dimensions, so a tile containing data for the entire world at
-  (0/0/0)
-  will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:map_name` (`t:string`) The map resource to retrieve the map tiles from.
   * `:x` (`t:`) The X axis value for the map tile.
-  * `:y` (`t:`) The Y axis value for the map tile. 
+  * `:y` (`t:`) The Y axis value for the map tile.
   * `:z` (`t:`) The zoom value for the map tile.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec get_map_tile(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_map_tile_response(), any()}
@@ -4148,32 +4045,20 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Finds a place by its unique ID.
-
-  A `PlaceId` is returned by other search
+  Finds a place by its unique ID. A `PlaceId` is returned by other search
   operations.
 
-  A PlaceId is valid only if all of the following are the same in the original
-  search request and the call to `GetPlace`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20GetPlace&this_doc_guide=API%2520Reference)
 
-    
-  Customer Amazon Web Services account
-
-    
-  Amazon Web Services Region
-
-    
-  Data provider specified in the place index resource
-
-  ## Required positional parameters:
-  * `:index_name` (`t:string`) The name of the place index resource that you want to use for the search.
+  ## Parameters:
+  * `:index_name` (`t:string`) The name of the place index resource that you want
+    to use for the search.
   * `:place_id` (`t:string`) The identifier of the place to find.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
-  * `:language` (`t:string`) The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-                <code>en</code> for English.
+  * `:key` (`t:string`) The optional API key to authorize the request.
+  * `:language` (`t:string`) The preferred language used to return results. The
+    value must be a valid BCP 47 language tag, for example, en for English.
   """
   @spec get_place(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_place_response(), any()}
@@ -4217,8 +4102,11 @@ defmodule AWS.Location do
   @doc """
   A batch request to retrieve all device positions.
 
-  ## Required positional parameters:
-  * `:tracker_name` (`t:string`) The tracker resource containing the requested devices.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListDevicePositions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:tracker_name` (`t:string`) The tracker resource containing the requested
+    devices.
 
   ## Optional parameters:
   """
@@ -4255,7 +4143,9 @@ defmodule AWS.Location do
   @doc """
   Lists geofence collections in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListGeofenceCollections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4291,8 +4181,11 @@ defmodule AWS.Location do
   @doc """
   Lists geofences stored in a given geofence collection.
 
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The name of the geofence collection storing the list of geofences.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListGeofences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:collection_name` (`t:string`) The name of the geofence collection storing
+    the list of geofences.
 
   ## Optional parameters:
   """
@@ -4324,7 +4217,9 @@ defmodule AWS.Location do
   @doc """
   Lists API key resources in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListKeys&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4356,7 +4251,9 @@ defmodule AWS.Location do
   @doc """
   Lists map resources in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListMaps&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4388,7 +4285,9 @@ defmodule AWS.Location do
   @doc """
   Lists place index resources in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListPlaceIndexes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4420,7 +4319,9 @@ defmodule AWS.Location do
   @doc """
   Lists route calculator resources in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListRouteCalculators&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4453,8 +4354,11 @@ defmodule AWS.Location do
   Returns a list of tags that are applied to the specified Amazon Location
   resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    whose tags you want to retrieve.
 
   ## Optional parameters:
   """
@@ -4481,8 +4385,11 @@ defmodule AWS.Location do
   @doc """
   Lists geofence collections currently associated to the given tracker resource.
 
-  ## Required positional parameters:
-  * `:tracker_name` (`t:string`) The tracker resource whose associated geofence collections you want to list.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTrackerConsumers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:tracker_name` (`t:string`) The tracker resource whose associated geofence
+    collections you want to list.
 
   ## Optional parameters:
   """
@@ -4519,7 +4426,9 @@ defmodule AWS.Location do
   @doc """
   Lists tracker resources in your Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTrackers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4550,12 +4459,15 @@ defmodule AWS.Location do
 
   @doc """
   Stores a geofence geometry in a given geofence collection, or updates the
-  geometry of
-  an existing geofence if a geofence ID is included in the request.
+  geometry of an existing geofence if a geofence ID is included in the request.
 
-  ## Required positional parameters:
-  * `:collection_name` (`t:string`) The geofence collection to store the geofence in.
-  * `:geofence_id` (`t:string`) An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20PutGeofence&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:collection_name` (`t:string`) The geofence collection to store the geofence
+    in.
+  * `:geofence_id` (`t:string`) An identifier for the geofence. For example,
+    ExampleGeofence-1.
 
   ## Optional parameters:
   """
@@ -4577,17 +4489,17 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Reverse geocodes a given coordinate and returns a legible address.
-
-  Allows you to
+  Reverse geocodes a given coordinate and returns a legible address. Allows you to
   search for Places or points of interest near a given position.
 
-  ## Required positional parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForPosition&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:index_name` (`t:string`) The name of the place index resource you want to
+    use for the search.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec search_place_index_for_position(
           AWS.Client.t(),
@@ -4626,27 +4538,19 @@ defmodule AWS.Location do
 
   @doc """
   Generates suggestions for addresses and points of interest based on partial or
-  misspelled free-form text.
+  misspelled free-form text. This operation is also known as autocomplete,
+  autosuggest, or fuzzy matching. Optional parameters let you narrow your search
+  results by bounding box or country, or bias your search toward a specific
+  position on the globe.
 
-  This operation is also known as autocomplete, autosuggest, or
-  fuzzy matching.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForSuggestions&this_doc_guide=API%2520Reference)
 
-  Optional parameters let you narrow your search results by bounding box or
-  country, or
-  bias your search toward a specific position on the globe.
-
-  You can search for suggested place names near a specified position by using
-  `BiasPosition`, or filter results within a bounding box by using
-  `FilterBBox`. These parameters are mutually exclusive; using both
-  `BiasPosition` and `FilterBBox` in the same command
-  returns an error.
-
-  ## Required positional parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
+  ## Parameters:
+  * `:index_name` (`t:string`) The name of the place index resource you want to
+    use for the search.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec search_place_index_for_suggestions(
           AWS.Client.t(),
@@ -4685,25 +4589,18 @@ defmodule AWS.Location do
 
   @doc """
   Geocodes free-form text, such as an address, name, city, or region to allow you
-  to
-  search for Places or points of interest.
+  to search for Places or points of interest. Optional parameters let you narrow
+  your search results by bounding box or country, or bias your search toward a
+  specific position on the globe.
 
-  Optional parameters let you narrow your search results by bounding box or
-  country, or
-  bias your search toward a specific position on the globe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20SearchPlaceIndexForText&this_doc_guide=API%2520Reference)
 
-  You can search for places near a given position using `BiasPosition`,
-  or filter results within a bounding box using `FilterBBox`. Providing
-  both parameters simultaneously returns an error.
-
-  Search results are returned in order of highest to lowest relevance.
-
-  ## Required positional parameters:
-  * `:index_name` (`t:string`) The name of the place index resource you want to use for the search.
+  ## Parameters:
+  * `:index_name` (`t:string`) The name of the place index resource you want to
+    use for the search.
 
   ## Optional parameters:
-  * `:key` (`t:string`) The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize 
-            the request.
+  * `:key` (`t:string`) The optional API key to authorize the request.
   """
   @spec search_place_index_for_text(
           AWS.Client.t(),
@@ -4742,28 +4639,15 @@ defmodule AWS.Location do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Amazon Location
-  Service
-  resource.
+  Service resource. Tags can help you organize and categorize your resources.
+  You can also use them to scope user permissions, by granting a user permission
+  to access or change only resources with certain tag values.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to
-  scope user permissions, by granting a user permission to access or change only
-  resources
-  with certain tag values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20TagResource&this_doc_guide=API%2520Reference)
 
-  You can use the `TagResource` operation with an Amazon Location Service
-  resource that already has tags. If you specify a new tag key for the resource,
-  this tag
-  is appended to the tags already associated with the resource. If you specify a
-  tag key
-  that's already associated with the resource, the new tag value that you specify
-  replaces
-  the previous value for that tag.
-
-  You can associate up to 50 tags with a resource.
-
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource whose tags you want to update.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    whose tags you want to update.
 
   ## Optional parameters:
   """
@@ -4795,12 +4679,15 @@ defmodule AWS.Location do
   @doc """
   Removes one or more tags from the specified Amazon Location resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource from which you want to remove
-            tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource
+    from which you want to remove tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) The list of tag keys to remove from the specified resource.
+  * `:tag_keys` (`t:list[smithy.api#String]`) The list of tag keys to remove from
+    the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4835,7 +4722,9 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given geofence collection.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateGeofenceCollection&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:collection_name` (`t:string`) The name of the geofence collection to update.
 
   ## Optional parameters:
@@ -4873,7 +4762,9 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given API key resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:key_name` (`t:string`) The name of the API key resource to update.
 
   ## Optional parameters:
@@ -4906,7 +4797,9 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given map resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateMap&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:map_name` (`t:string`) The name of the map resource to update.
 
   ## Optional parameters:
@@ -4939,7 +4832,9 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given place index resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdatePlaceIndex&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:index_name` (`t:string`) The name of the place index resource to update.
 
   ## Optional parameters:
@@ -4972,8 +4867,11 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties for a given route calculator resource.
 
-  ## Required positional parameters:
-  * `:calculator_name` (`t:string`) The name of the route calculator resource to update.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateRouteCalculator&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:calculator_name` (`t:string`) The name of the route calculator resource to
+    update.
 
   ## Optional parameters:
   """
@@ -5010,7 +4908,9 @@ defmodule AWS.Location do
   @doc """
   Updates the specified properties of a given tracker resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20UpdateTracker&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:tracker_name` (`t:string`) The name of the tracker resource to update.
 
   ## Optional parameters:

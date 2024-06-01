@@ -4,36 +4,7 @@
 defmodule AWS.Signer do
   @moduledoc """
   AWS Signer is a fully managed code-signing service to help you ensure the trust
-  and
-  integrity of your code.
-
-  Signer supports the following applications:
-
-  With code signing for AWS Lambda, you can sign [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/) deployment packages.
-  Integrated support is provided for [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/gsg/), [Amazon CloudWatch](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and
-  [AWS CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/). In order
-  to sign code, you create a signing profile and then use Signer to sign Lambda
-  zip
-  files in S3.
-
-  With code signing for IoT, you can sign code for any IoT device that is
-  supported by AWS.
-  IoT code signing is available for [Amazon
-  FreeRTOS](http://docs.aws.amazon.com/freertos/latest/userguide/) and [AWS IoT Device Management](http://docs.aws.amazon.com/iot/latest/developerguide/), and
-  is integrated with [AWS Certificate Manager (ACM)](http://docs.aws.amazon.com/acm/latest/userguide/). In order to sign code,
-  you import a third-party code-signing
-  certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS
-  IoT Device Management.
-
-  With Signer and the Notation CLI from the [Notary Project](https://notaryproject.dev/), you can sign container images stored in a
-  container registry such
-  as Amazon Elastic Container Registry (ECR). The signatures are stored in the
-  registry
-  alongside the images, where they are available for verifying image authenticity
-  and
-  integrity.
-
-  For more information about Signer, see the [AWS Signer Developer Guide](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html).
+  and integrity of your code. Signer supports the following applications:
   """
 
   alias AWS.Client
@@ -1035,7 +1006,9 @@ defmodule AWS.Signer do
   @doc """
   Adds cross-account permissions to a signing profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20AddProfilePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:profile_name` (`t:string`) The human-readable name of the signing profile.
 
   ## Optional parameters:
@@ -1071,14 +1044,13 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of an `ACTIVE` signing profile to `CANCELED`.
+  Changes the state of an `ACTIVE` signing profile to `CANCELED`. A canceled
+  profile is still viewable with the `ListSigningProfiles` operation, but it
+  cannot perform new signing jobs, and is deleted two years after cancelation.
 
-  A canceled profile is still viewable with the `ListSigningProfiles`
-  operation, but it cannot perform new signing jobs, and is deleted two years
-  after
-  cancelation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20CancelSigningProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_name` (`t:string`) The name of the signing profile to be canceled.
 
   ## Optional parameters:
@@ -1114,13 +1086,12 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Returns information about a specific code signing job.
+  Returns information about a specific code signing job. You specify the job by
+  using the `jobId` value that is returned by the `StartSigningJob` operation.
 
-  You specify the job by using the
-  `jobId` value that is returned by the `StartSigningJob`
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20DescribeSigningJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the signing job on input.
 
   ## Optional parameters:
@@ -1147,17 +1118,20 @@ defmodule AWS.Signer do
 
   @doc """
   Retrieves the revocation status of one or more of the signing profile, signing
-  job,
-  and signing certificate.
+  job, and signing certificate.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetRevocationStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]`) A list of composite signed hashes that identify certificates.
+  * `:certificate_hashes` (`t:list[com.amazonaws.signer#String]`) A list of
+    composite signed hashes that identify certificates.
   * `:job_arn` (`t:string`) The ARN of a signing job.
-  * `:platform_id` (`t:string`) The ID of a signing platform. 
+  * `:platform_id` (`t:string`) The ID of a signing platform.
   * `:profile_version_arn` (`t:string`) The version of a signing profile.
-  * `:signature_timestamp` (`t:timestamp`) The timestamp of the signature that validates the profile or job.
+  * `:signature_timestamp` (`t:timestamp`) The timestamp of the signature that
+    validates the profile or job.
   """
   @spec get_revocation_status(
           AWS.Client.t(),
@@ -1243,7 +1217,9 @@ defmodule AWS.Signer do
   @doc """
   Returns information on a specific signing platform.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningPlatform&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:platform_id` (`t:string`) The ID of the target signing platform.
 
   ## Optional parameters:
@@ -1271,7 +1247,9 @@ defmodule AWS.Signer do
   @doc """
   Returns information on a specific signing profile.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20GetSigningProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:profile_name` (`t:string`) The name of the target signing profile.
 
   ## Optional parameters:
@@ -1309,11 +1287,15 @@ defmodule AWS.Signer do
   @doc """
   Lists the cross-account permissions associated with a signing profile.
 
-  ## Required positional parameters:
-  * `:profile_name` (`t:string`) Name of the signing profile containing the cross-account permissions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListProfilePermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) Name of the signing profile containing the
+    cross-account permissions.
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) String for specifying the next set of paginated results.
+  * `:next_token` (`t:string`) String for specifying the next set of paginated
+    results.
   """
   @spec list_profile_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_permissions_response(), any()}
@@ -1345,39 +1327,41 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all your signing jobs.
-
-  You can use the `maxResults` parameter to limit the
+  Lists all your signing jobs. You can use the `maxResults` parameter to limit the
   number of signing jobs that are returned in the response. If additional jobs
-  remain to
-  be listed, AWS Signer returns a `nextToken` value. Use this value in
+  remain to be listed, AWS Signer returns a `nextToken` value. Use this value in
   subsequent calls to `ListSigningJobs` to fetch the remaining values. You can
-  continue calling `ListSigningJobs` with your `maxResults`
-  parameter and with new values that Signer returns in the `nextToken`
-  parameter until all of your signing jobs have been returned.
+  continue calling `ListSigningJobs` with your `maxResults` parameter and with
+  new values that Signer returns in the `nextToken` parameter until all of your
+  signing jobs have been returned.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:is_revoked` (`t:boolean`) Filters results to return only signing jobs with revoked signatures.
-  * `:job_invoker` (`t:string`) Filters results to return only signing jobs initiated by a specified IAM
-  	entity.
-  * `:max_results` (`t:integer`) Specifies the maximum number of items to return in the response. Use this parameter
-  	when paginating results. If additional items exist beyond the number you specify, the
-  		<code>nextToken</code> element is set in the response. Use the
-  		<code>nextToken</code> value in a subsequent request to retrieve additional items.
-
-  * `:next_token` (`t:string`) String for specifying the next set of paginated results to return. After you receive a
-  	response with truncated results, use this parameter in a subsequent request. Set it to
-  	the value of <code>nextToken</code> from the response that you just received.
-  * `:platform_id` (`t:string`) The ID of microcontroller platform that you specified for the distribution of your
-  	code image.
+  * `:is_revoked` (`t:boolean`) Filters results to return only signing jobs with
+    revoked signatures.
+  * `:job_invoker` (`t:string`) Filters results to return only signing jobs
+    initiated by a specified IAM entity.
+  * `:max_results` (`t:integer`) Specifies the maximum number of items to return
+    in the response. Use this parameter when paginating results. If additional
+    items exist beyond the number you specify, the nextToken element is set in
+    the response. Use the nextToken value in a subsequent request to retrieve
+    additional items.
+  * `:next_token` (`t:string`) String for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
+  * `:platform_id` (`t:string`) The ID of microcontroller platform that you
+    specified for the distribution of your code image.
   * `:requested_by` (`t:string`) The IAM principal that requested the signing job.
-  * `:signature_expires_after` (`t:timestamp`) Filters results to return only signing jobs with signatures expiring after a specified
-  	timestamp.
-  * `:signature_expires_before` (`t:timestamp`) Filters results to return only signing jobs with signatures expiring before a
-  	specified timestamp.
-  * `:status` (`t:enum["Failed|InProgress|Succeeded"]`) A status value with which to filter your results.
+  * `:signature_expires_after` (`t:timestamp`) Filters results to return only
+    signing jobs with signatures expiring after a specified timestamp.
+  * `:signature_expires_before` (`t:timestamp`) Filters results to return only
+    signing jobs with signatures expiring before a specified timestamp.
+  * `:status` (`t:enum["Failed|InProgress|Succeeded"]`) A status value with which
+    to filter your results.
   """
   @spec list_signing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_jobs_response(), any()}
@@ -1482,26 +1466,27 @@ defmodule AWS.Signer do
 
   @doc """
   Lists all signing platforms available in AWS Signer that match the request
-  parameters.
+  parameters. If additional jobs remain to be listed, Signer returns a
+  `nextToken` value. Use this value in subsequent calls to `ListSigningJobs` to
+  fetch the remaining values. You can continue calling `ListSigningJobs` with
+  your `maxResults` parameter and with new values that Signer returns in the
+  `nextToken` parameter until all of your signing jobs have been returned.
 
-  If
-  additional jobs remain to be listed, Signer returns a `nextToken` value.
-  Use this value in subsequent calls to `ListSigningJobs` to fetch the
-  remaining values. You can continue calling `ListSigningJobs` with your
-  `maxResults` parameter and with new values that Signer returns in the
-  `nextToken` parameter until all of your signing jobs have been
-  returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningPlatforms&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:category` (`t:string`) The category type of a signing platform.
-  * `:max_results` (`t:integer`) The maximum number of results to be returned by this operation.
-  * `:next_token` (`t:string`) Value for specifying the next set of paginated results to return. After you receive a
-  	response with truncated results, use this parameter in a subsequent request. Set it to
-  	the value of <code>nextToken</code> from the response that you just received.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned by
+    this operation.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
   * `:partner` (`t:string`) Any partner entities connected to a signing platform.
-  * `:target` (`t:string`) The validation template that is used by the target signing platform.
+  * `:target` (`t:string`) The validation template that is used by the target
+    signing platform.
   """
   @spec list_signing_platforms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_platforms_response(), any()}
@@ -1569,30 +1554,30 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Lists all available signing profiles in your AWS account.
+  Lists all available signing profiles in your AWS account. Returns only profiles
+  with an `ACTIVE` status unless the `includeCanceled` request field is set to
+  `true`. If additional jobs remain to be listed, AWS Signer returns a
+  `nextToken` value. Use this value in subsequent calls to `ListSigningJobs` to
+  fetch the remaining values. You can continue calling `ListSigningJobs` with
+  your `maxResults` parameter and with new values that Signer returns in the
+  `nextToken` parameter until all of your signing jobs have been returned.
 
-  Returns only profiles with an
-  `ACTIVE` status unless the `includeCanceled` request field is
-  set to `true`. If additional jobs remain to be listed, AWS Signer returns a
-  `nextToken` value. Use this value in subsequent calls to
-  `ListSigningJobs` to fetch the remaining values. You can continue calling
-  `ListSigningJobs` with your `maxResults` parameter and with
-  new values that Signer returns in the `nextToken` parameter until all of
-  your signing jobs have been returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListSigningProfiles&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:include_canceled` (`t:boolean`) Designates whether to include profiles with the status of
-  	<code>CANCELED</code>.
+  * `:include_canceled` (`t:boolean`) Designates whether to include profiles with
+    the status of CANCELED.
   * `:max_results` (`t:integer`) The maximum number of profiles to be returned.
-  * `:next_token` (`t:string`) Value for specifying the next set of paginated results to return. After you receive a
-  	response with truncated results, use this parameter in a subsequent request. Set it to
-  	the value of <code>nextToken</code> from the response that you just received.
-  * `:platform_id` (`t:string`) Filters results to return only signing jobs initiated for a specified signing
-  	platform.
-  * `:statuses` (`t:list[com.amazonaws.signer#SigningProfileStatus]`) Filters results to return only signing jobs with statuses in the specified
-  	list.
+  * `:next_token` (`t:string`) Value for specifying the next set of paginated
+    results to return. After you receive a response with truncated results, use
+    this parameter in a subsequent request. Set it to the value of nextToken
+    from the response that you just received.
+  * `:platform_id` (`t:string`) Filters results to return only signing jobs
+    initiated for a specified signing platform.
+  * `:statuses` (`t:list[com.amazonaws.signer#SigningProfileStatus]`) Filters
+    results to return only signing jobs with statuses in the specified list.
   """
   @spec list_signing_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signing_profiles_response(), any()}
@@ -1662,8 +1647,11 @@ defmodule AWS.Signer do
   @doc """
   Returns a list of the tags associated with a signing profile resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
 
   ## Optional parameters:
   """
@@ -1688,12 +1676,12 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Creates a signing profile.
+  Creates a signing profile. A signing profile is a code-signing template that can
+  be used to carry out a pre-defined signing job.
 
-  A signing profile is a code-signing template that can be used to
-  carry out a pre-defined signing job.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20PutSigningProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_name` (`t:string`) The name of the signing profile to be created.
 
   ## Optional parameters:
@@ -1721,12 +1709,17 @@ defmodule AWS.Signer do
   @doc """
   Removes cross-account permissions from a signing profile.
 
-  ## Required positional parameters:
-  * `:profile_name` (`t:string`) A human-readable name for the signing profile with permissions to be removed.
-  * `:statement_id` (`t:string`) A unique identifier for the cross-account permissions statement.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RemoveProfilePermission&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:profile_name` (`t:string`) A human-readable name for the signing profile
+    with permissions to be removed.
+  * `:statement_id` (`t:string`) A unique identifier for the cross-account
+    permissions statement.
 
   ## Optional parameters:
-  * `:revision_id` (`t:string`) An identifier for the current revision of the signing profile permissions.
+  * `:revision_id` (`t:string`) An identifier for the current revision of the
+    signing profile permissions.
   """
   @spec remove_profile_permission(
           AWS.Client.t(),
@@ -1773,12 +1766,12 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of a signing job to REVOKED.
+  Changes the state of a signing job to REVOKED. This indicates that the signature
+  is no longer valid.
 
-  This indicates that the signature is no
-  longer valid.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSignature&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) ID of the signing job to be revoked.
 
   ## Optional parameters:
@@ -1799,13 +1792,13 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Changes the state of a signing profile to REVOKED.
+  Changes the state of a signing profile to REVOKED. This indicates that
+  signatures generated using the signing profile after an effective start date
+  are no longer valid.
 
-  This indicates that signatures
-  generated using the signing profile after an effective start date are no longer
-  valid.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20RevokeSigningProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:profile_name` (`t:string`) The name of the signing profile to be revoked.
 
   ## Optional parameters:
@@ -1833,7 +1826,9 @@ defmodule AWS.Signer do
   @doc """
   Signs a binary payload and returns a signature envelope.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20SignPayload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1863,44 +1858,13 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Initiates a signing job to be performed on the code provided.
-
-  Signing jobs are
+  Initiates a signing job to be performed on the code provided. Signing jobs are
   viewable by the `ListSigningJobs` operation for two years after they are
   performed. Note the following requirements:
 
-    *
-  You must create an Amazon S3 source bucket. For more information, see [Creating a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
-  in the
-  *Amazon S3 Getting Started Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20StartSigningJob&this_doc_guide=API%2520Reference)
 
-    *
-  Your S3 source bucket must be version enabled.
-
-    *
-  You must create an S3 destination bucket. AWS Signer uses your S3 destination
-  bucket to
-  write your signed code.
-
-    *
-  You specify the name of the source and destination buckets when calling the
-  `StartSigningJob` operation.
-
-    *
-  You must ensure the S3 buckets are from the same Region as the signing profile.
-  Cross-Region signing isn't supported.
-
-    *
-  You must also specify a request token that identifies your request to Signer.
-
-  You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after
-  you call
-  `StartSigningJob`.
-
-  For a Java example that shows how to use this action, see
-  [StartSigningJob](https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html).
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1930,17 +1894,16 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Adds one or more tags to a signing profile.
-
-  Tags are labels that you can use to
+  Adds one or more tags to a signing profile. Tags are labels that you can use to
   identify and organize your AWS resources. Each tag consists of a key and an
-  optional
-  value. To specify the signing profile, use its Amazon Resource Name (ARN). To
-  specify
-  the tag, use a key-value pair.
+  optional value. To specify the signing profile, use its Amazon Resource Name
+  (ARN). To specify the tag, use a key-value pair.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
 
   ## Optional parameters:
   """
@@ -1970,16 +1933,18 @@ defmodule AWS.Signer do
   end
 
   @doc """
-  Removes one or more tags from a signing profile.
+  Removes one or more tags from a signing profile. To remove the tags, specify a
+  list of tag keys.
 
-  To remove the tags, specify a list of
-  tag keys.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=signer%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing profile.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the signing
+    profile.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]`) A list of tag keys to be removed from the signing profile.
+  * `:tag_keys` (`t:list[com.amazonaws.signer#TagKey]`) A list of tag keys to be
+    removed from the signing profile.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

@@ -4,30 +4,9 @@
 defmodule AWS.SageMakerFeatureStoreRuntime do
   @moduledoc """
   Contains all data plane API operations and data types for the Amazon SageMaker
-  Feature
-  Store.
-
-  Use this API to put, delete, and retrieve (get) features from a feature
-  store.
-
-  Use the following operations to configure your `OnlineStore` and
-  `OfflineStore` features, and to create and manage feature groups:
-
-    *
-
-  [CreateFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateFeatureGroup.html) 
-
-    *
-
-  [DeleteFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFeatureGroup.html)
-
-    *
-
-  [DescribeFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html) 
-
-    *
-
-  [ListFeatureGroups](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListFeatureGroups.html)
+  Feature Store. Use this API to put, delete, and retrieve (get) features from a
+  feature store. Use the following operations to configure your `OnlineStore`
+  and `OfflineStore` features, and to create and manage feature groups:
   """
 
   alias AWS.Client
@@ -266,7 +245,9 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @doc """
   Retrieves a batch of `Records` from a `FeatureGroup`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20BatchGetRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -296,63 +277,38 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
-  Deletes a `Record` from a `FeatureGroup` in the
-  `OnlineStore`.
+  Deletes a `Record` from a `FeatureGroup` in the `OnlineStore`. Feature Store
+  supports both `SoftDelete` and `HardDelete`. For `SoftDelete` (default),
+  feature columns are set to `null` and the record is no longer retrievable by
+  `GetRecord` or `BatchGetRecord`. For `HardDelete`, the complete `Record` is
+  removed from the `OnlineStore`. In both cases, Feature Store appends the
+  deleted record marker to the `OfflineStore`. The deleted record marker is a
+  record with the same `RecordIdentifer` as the original, but with `is_deleted`
+  value set to `True`, `EventTime` set to the delete input `EventTime`, and
+  other feature values set to `null`. Note that the `EventTime` specified in
+  `DeleteRecord` should be set later than the `EventTime` of the existing record
+  in the `OnlineStore` for that `RecordIdentifer`. If it is not, the deletion
+  does not occur:
 
-  Feature Store supports both `SoftDelete` and
-  `HardDelete`. For `SoftDelete` (default), feature columns are set
-  to `null` and the record is no longer retrievable by `GetRecord` or
-  `BatchGetRecord`. For `HardDelete`, the complete
-  `Record` is removed from the `OnlineStore`. In both cases, Feature
-  Store appends the deleted record marker to the `OfflineStore`. The deleted
-  record marker is a record with the same `RecordIdentifer` as the original, but
-  with `is_deleted` value set to `True`, `EventTime` set to
-  the delete input `EventTime`, and other feature values set to
-  `null`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20DeleteRecord&this_doc_guide=API%2520Reference)
 
-  Note that the `EventTime` specified in `DeleteRecord` should be
-  set later than the `EventTime` of the existing record in the
-  `OnlineStore` for that `RecordIdentifer`. If it is not, the
-  deletion does not occur:
-
-    *
-  For `SoftDelete`, the existing (not deleted) record remains in the
-  `OnlineStore`, though the delete record marker is still written to the
-  `OfflineStore`.
-
-    *
-
-  `HardDelete` returns `EventTime`:
-
-  ```
-  400
-  ValidationException
-  ```
-
-  to indicate that the delete operation failed. No delete
-  record marker is written to the `OfflineStore`.
-
-  When a record is deleted from the `OnlineStore`, the deleted record marker is
-  appended to the `OfflineStore`. If you have the Iceberg table format enabled for
-  your `OfflineStore`, you can remove all history of a record from the
-  `OfflineStore` using Amazon Athena or Apache Spark. For information on how to
-  hard delete a record from the `OfflineStore` with the Iceberg table format
-  enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
-
-  ## Required positional parameters:
-  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
-      
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group to delete the record from.
 
   ## Optional parameters:
-  * `:deletion_mode` (`t:enum["HARD_DELETE|SOFT_DELETE"]`) The name of the deletion mode for deleting the record. By default, the deletion mode is
-         set to <code>SoftDelete</code>.
-  * `:event_time` (`t:string`) Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
-         used to query data at a certain point in time.
-  * `:record_identifier_value_as_string` (`t:string`) The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in
-         string format. 
-  * `:target_stores` (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of stores from which you&#39;re deleting the record. By default, Feature Store
-         deletes the record from all of the stores that you&#39;re using for the
-            <code>FeatureGroup</code>.
+  * `:deletion_mode` (`t:enum["HARD_DELETE|SOFT_DELETE"]`) The name of the
+    deletion mode for deleting the record. By default, the deletion mode is set
+    to SoftDelete.
+  * `:event_time` (`t:string`) Timestamp indicating when the deletion event
+    occurred. EventTime can be used to query data at a certain point in time.
+  * `:record_identifier_value_as_string` (`t:string`) The value for the
+    RecordIdentifier that uniquely identifies the record, in string format.
+  * `:target_stores`
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of
+    stores from which you're deleting the record. By default, Feature Store
+    deletes the record from all of the stores that you're using for the
+    FeatureGroup.
   """
   @spec delete_record(AWS.Client.t(), String.t(), delete_record_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -388,24 +344,28 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
-  Use for `OnlineStore` serving from a `FeatureStore`.
-
-  Only the
-  latest records stored in the `OnlineStore` can be retrieved. If no Record with
+  Use for `OnlineStore` serving from a `FeatureStore`. Only the latest records
+  stored in the `OnlineStore` can be retrieved. If no Record with
   `RecordIdentifierValue` is found, then an empty result is returned.
 
-  ## Required positional parameters:
-  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group from which you want to
-         retrieve a record.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20GetRecord&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group from which you want to retrieve a record.
 
   ## Optional parameters:
-  * `:expiration_time_response` (`t:enum["DISABLED|ENABLED"]`) Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-            <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
-         null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.
-  * `:feature_names` (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of names of Features to be retrieved. If not specified, the latest value for all
-         the Features are returned.
-  * `:record_identifier_value_as_string` (`t:string`) The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
-         the record in the <code>FeatureGroup</code>. 
+  * `:expiration_time_response` (`t:enum["DISABLED|ENABLED"]`) Parameter to
+    request ExpiresAt in response. If Enabled, GetRecord will return the value
+    of ExpiresAt, if it is not null. If Disabled and null, GetRecord will return
+    null.
+  * `:feature_names`
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of
+    names of Features to be retrieved. If not specified, the latest value for
+    all the Features are returned.
+  * `:record_identifier_value_as_string` (`t:string`) The value that corresponds
+    to RecordIdentifier type and uniquely identifies the record in the
+    FeatureGroup.
   """
   @spec get_record(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_record_response(), any()}
@@ -461,30 +421,16 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   end
 
   @doc """
-  The `PutRecord` API is used to ingest a list of `Records` into
-  your feature group.
+  The `PutRecord` API is used to ingest a list of `Records` into your feature
+  group. If a new record’s `EventTime` is greater, the new record is written to
+  both the `OnlineStore` and `OfflineStore`. Otherwise, the record is a historic
+  record and it is written only to the `OfflineStore`.
 
-  If a new record’s `EventTime` is greater, the new record is written to both
-  the `OnlineStore` and `OfflineStore`. Otherwise, the record is a
-  historic record and it is written only to the `OfflineStore`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20PutRecord&this_doc_guide=API%2520Reference)
 
-  You can specify the ingestion to be applied to the `OnlineStore`,
-  `OfflineStore`, or both by using the `TargetStores` request
-  parameter.
-
-  You can set the ingested record to expire at a given time to live (TTL) duration
-  after
-  the record’s event time, `ExpiresAt` = `EventTime` +
-  `TtlDuration`, by specifying the `TtlDuration` parameter. A record
-  level `TtlDuration` is set when specifying the `TtlDuration`
-  parameter using the `PutRecord` API call. If the input `TtlDuration`
-  is `null` or unspecified, `TtlDuration` is set to the default feature
-  group level `TtlDuration`. A record level `TtlDuration` supersedes
-  the group level `TtlDuration`.
-
-  ## Required positional parameters:
-  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
-         record into.
+  ## Parameters:
+  * `:feature_group_name` (`t:string`) The name or Amazon Resource Name (ARN) of
+    the feature group that you want to insert the record into.
 
   ## Optional parameters:
   """

@@ -4439,7 +4439,9 @@ defmodule AWS.Macie2 do
   Accepts an Amazon Macie membership invitation that was received from a specific
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20AcceptInvitation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4471,7 +4473,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves information about one or more custom data identifiers.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20BatchGetCustomDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4507,7 +4511,9 @@ defmodule AWS.Macie2 do
   @doc """
   Creates and defines the settings for an allow list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4539,7 +4545,9 @@ defmodule AWS.Macie2 do
   @doc """
   Creates and defines the settings for a classification job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4576,7 +4584,9 @@ defmodule AWS.Macie2 do
   Creates and defines the criteria and other settings for a custom data
   identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4612,7 +4622,9 @@ defmodule AWS.Macie2 do
   @doc """
   Creates and defines the criteria and other settings for a findings filter.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4644,7 +4656,9 @@ defmodule AWS.Macie2 do
   @doc """
   Sends an Amazon Macie membership invitation to one or more accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4676,7 +4690,9 @@ defmodule AWS.Macie2 do
   @doc """
   Associates an account with an Amazon Macie administrator account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4708,7 +4724,9 @@ defmodule AWS.Macie2 do
   @doc """
   Creates sample findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20CreateSampleFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4741,7 +4759,9 @@ defmodule AWS.Macie2 do
   Declines Amazon Macie membership invitations that were received from specific
   accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeclineInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4773,11 +4793,16 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes an allow list.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
-  * `:ignore_job_checks` (`t:string`) Specifies whether to force deletion of the allow list, even if active classification jobs are configured to use the list.
+  * `:ignore_job_checks` (`t:string`) Specifies whether to force deletion of the
+    allow list, even if active classification jobs are configured to use the
+    list.
   """
   @spec delete_allow_list(AWS.Client.t(), String.t(), delete_allow_list_request(), Keyword.t()) ::
           {:ok, delete_allow_list_response(), any()}
@@ -4812,8 +4837,11 @@ defmodule AWS.Macie2 do
   @doc """
   Soft deletes a custom data identifier.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -4850,8 +4878,11 @@ defmodule AWS.Macie2 do
   @doc """
   Deletes a findings filter.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -4889,7 +4920,9 @@ defmodule AWS.Macie2 do
   Deletes Amazon Macie membership invitations that were received from specific
   accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4922,8 +4955,11 @@ defmodule AWS.Macie2 do
   Deletes the association between an Amazon Macie administrator account and an
   account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DeleteMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -4956,7 +4992,9 @@ defmodule AWS.Macie2 do
   Retrieves (queries) statistical data and other information about one or more S3
   buckets that Amazon Macie monitors and analyzes for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeBuckets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4988,7 +5026,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the status and settings for a classification job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The unique identifier for the classification job.
 
   ## Optional parameters:
@@ -5017,7 +5057,9 @@ defmodule AWS.Macie2 do
   Retrieves the Amazon Macie configuration settings for an organization in
   Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5045,7 +5087,9 @@ defmodule AWS.Macie2 do
   Disables Amazon Macie and deletes all settings and resources for a Macie
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisableMacie&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5078,10 +5122,13 @@ defmodule AWS.Macie2 do
   Disables an account as the delegated Amazon Macie administrator account for an
   organization in Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:admin_account_id` (`t:string`) The Amazon Web Services account ID of the delegated Amazon Macie administrator account.
+  * `:admin_account_id` (`t:string`) The Amazon Web Services account ID of the
+    delegated Amazon Macie administrator account.
   """
   @spec disable_organization_admin_account(
           AWS.Client.t(),
@@ -5120,7 +5167,9 @@ defmodule AWS.Macie2 do
   @doc """
   Disassociates a member account from its Amazon Macie administrator account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5155,12 +5204,12 @@ defmodule AWS.Macie2 do
 
   @doc """
   (Deprecated) Disassociates a member account from its Amazon Macie administrator
-  account.
+  account. This operation has been replaced by the
+  DisassociateFromAdministratorAccount operation.
 
-  This operation has been replaced by the DisassociateFromAdministratorAccount
-  operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5196,8 +5245,11 @@ defmodule AWS.Macie2 do
   @doc """
   Disassociates an Amazon Macie administrator account from a member account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5235,7 +5287,9 @@ defmodule AWS.Macie2 do
   Enables Amazon Macie and specifies the configuration settings for a Macie
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20EnableMacie&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5268,7 +5322,9 @@ defmodule AWS.Macie2 do
   Designates an account as the delegated Amazon Macie administrator account for an
   organization in Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5305,7 +5361,9 @@ defmodule AWS.Macie2 do
   Retrieves information about the Amazon Macie administrator account for an
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5332,8 +5390,11 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the settings and status of an allow list.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5361,7 +5422,9 @@ defmodule AWS.Macie2 do
   Retrieves the configuration settings and status of automated sensitive data
   discovery for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAutomatedDiscoveryConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5389,7 +5452,9 @@ defmodule AWS.Macie2 do
   Retrieves (queries) aggregated statistical data about all the S3 buckets that
   Amazon Macie monitors and analyzes for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetBucketStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5421,7 +5486,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the configuration settings for storing data classification results.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetClassificationExportConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5448,8 +5515,11 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the classification scope settings for an account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetClassificationScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5476,8 +5546,11 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the criteria and other settings for a custom data identifier.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5504,7 +5577,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) aggregated statistical data about findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5536,7 +5611,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the details of one or more findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5568,8 +5645,11 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the criteria and other settings for a findings filter.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5596,7 +5676,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the configuration settings for publishing findings to Security Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingsPublicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5624,7 +5706,9 @@ defmodule AWS.Macie2 do
   Retrieves the count of Amazon Macie membership invitations that were received by
   an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetInvitationsCount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5651,7 +5735,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the status and configuration settings for an Amazon Macie account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMacieSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5677,11 +5763,12 @@ defmodule AWS.Macie2 do
 
   @doc """
   (Deprecated) Retrieves information about the Amazon Macie administrator account
-  for an account.
+  for an account. This operation has been replaced by the
+  GetAdministratorAccount operation.
 
-  This operation has been replaced by the GetAdministratorAccount operation.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5709,8 +5796,11 @@ defmodule AWS.Macie2 do
   Retrieves information about an account that's associated with an Amazon Macie
   administrator account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5738,10 +5828,13 @@ defmodule AWS.Macie2 do
   Retrieves (queries) sensitive data discovery statistics and the sensitivity
   score for an S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetResourceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
   """
   @spec get_resource_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_profile_response(), any()}
@@ -5776,7 +5869,9 @@ defmodule AWS.Macie2 do
   Retrieves the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetRevealConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5803,7 +5898,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves occurrences of sensitive data reported by a finding.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitiveDataOccurrences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:finding_id` (`t:string`) The unique identifier for the finding.
 
   ## Optional parameters:
@@ -5831,7 +5928,9 @@ defmodule AWS.Macie2 do
   @doc """
   Checks whether occurrences of sensitive data can be retrieved for a finding.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitiveDataOccurrencesAvailability&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:finding_id` (`t:string`) The unique identifier for the finding.
 
   ## Optional parameters:
@@ -5859,8 +5958,11 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves the settings for the sensitivity inspection template for an account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetSensitivityInspectionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -5887,7 +5989,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) quotas and aggregated usage data for one or more accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetUsageStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5919,10 +6023,16 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves (queries) aggregated usage data for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetUsageTotals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:time_range` (`t:string`) The inclusive time period to retrieve the data for. Valid values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days. If you don&#39;t specify a value for this parameter, Amazon Macie provides aggregated usage data for the preceding 30 days.
+  * `:time_range` (`t:string`) The inclusive time period to retrieve the data for.
+    Valid values are: MONTH_TO_DATE, for the current calendar month to date;
+    and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value
+    for this parameter, Amazon Macie provides aggregated usage data for the
+    preceding 30 days.
   """
   @spec get_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_usage_totals_response(), any()}
@@ -5956,11 +6066,15 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about all the allow lists for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListAllowLists&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_allow_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_allow_lists_response(), any()}
@@ -6003,7 +6117,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about one or more classification jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListClassificationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6035,11 +6151,15 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about the classification scope for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListClassificationScopes&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:name` (`t:string`) The name of the classification scope to retrieve the unique identifier for.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:name` (`t:string`) The name of the classification scope to retrieve the
+    unique identifier for.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_classification_scopes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_classification_scopes_response(), any()}
@@ -6083,7 +6203,9 @@ defmodule AWS.Macie2 do
   Retrieves a subset of information about all the custom data identifiers for an
   account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListCustomDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6119,7 +6241,9 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about one or more findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6151,11 +6275,15 @@ defmodule AWS.Macie2 do
   @doc """
   Retrieves a subset of information about all the findings filters for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListFindingsFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_findings_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_filters_response(), any()}
@@ -6199,11 +6327,15 @@ defmodule AWS.Macie2 do
   Retrieves information about the Amazon Macie membership invitations that were
   received by an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListInvitations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -6247,7 +6379,9 @@ defmodule AWS.Macie2 do
   Retrieves information about all the managed data identifiers that Amazon Macie
   currently provides.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListManagedDataIdentifiers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6283,12 +6417,19 @@ defmodule AWS.Macie2 do
   Retrieves information about the accounts that are associated with an Amazon
   Macie administrator account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
-  * `:only_associated` (`t:string`) Specifies which accounts to include in the response, based on the status of an account&#39;s relationship with the administrator account. By default, the response includes only current member accounts. To include all accounts, set this value to false.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
+  * `:only_associated` (`t:string`) Specifies which accounts to include in the
+    response, based on the status of an account's relationship with the
+    administrator account. By default, the response includes only current member
+    accounts. To include all accounts, set this value to false.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -6341,11 +6482,15 @@ defmodule AWS.Macie2 do
   Retrieves information about the delegated Amazon Macie administrator account for
   an organization in Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -6389,11 +6534,15 @@ defmodule AWS.Macie2 do
   Retrieves information about objects that were selected from an S3 bucket for
   automated sensitive data discovery.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListResourceProfileArtifacts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
   """
   @spec list_resource_profile_artifacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
@@ -6437,12 +6586,17 @@ defmodule AWS.Macie2 do
   Retrieves information about the types and amount of sensitive data that Amazon
   Macie found in an S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListResourceProfileDetections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
   """
   @spec list_resource_profile_detections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_detections_response(), any()}
@@ -6495,11 +6649,15 @@ defmodule AWS.Macie2 do
   Retrieves a subset of information about the sensitivity inspection template for
   an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListSensitivityInspectionTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of items to include in each page of a paginated response.
-  * `:next_token` (`t:string`) The nextToken string that specifies which page of results to return in a paginated response.
+  * `:max_results` (`t:integer`) The maximum number of items to include in each
+    page of a paginated response.
+  * `:next_token` (`t:string`) The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_sensitivity_inspection_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
@@ -6543,7 +6701,9 @@ defmodule AWS.Macie2 do
   Retrieves the tags (keys and values) that are associated with an Amazon Macie
   resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -6571,7 +6731,9 @@ defmodule AWS.Macie2 do
   Creates or updates the configuration settings for storing data classification
   results.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20PutClassificationExportConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6597,7 +6759,9 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the configuration settings for publishing findings to Security Hub.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20PutFindingsPublicationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6624,7 +6788,9 @@ defmodule AWS.Macie2 do
   Retrieves (queries) statistical data and other information about Amazon Web
   Services resources that Amazon Macie monitors and analyzes.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20SearchResources&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6657,7 +6823,9 @@ defmodule AWS.Macie2 do
   Adds or updates one or more tags (keys and values) that are associated with an
   Amazon Macie resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
@@ -6689,7 +6857,9 @@ defmodule AWS.Macie2 do
   @doc """
   Tests a custom data identifier.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20TestCustomDataIdentifier&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6725,11 +6895,16 @@ defmodule AWS.Macie2 do
   @doc """
   Removes one or more tags (keys and values) from an Amazon Macie resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.macie2#__string]`) One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, separated by an ampersand (&amp;).
+  * `:tag_keys` (`t:list[com.amazonaws.macie2#__string]`) One or more tags (keys)
+    to remove from the resource. In an HTTP request to remove multiple tags,
+    append the tagKeys parameter and argument for each tag to remove, separated
+    by an ampersand (&).
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6763,8 +6938,11 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the settings for an allow list.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateAllowList&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -6786,7 +6964,9 @@ defmodule AWS.Macie2 do
   @doc """
   Enables or disables automated sensitive data discovery for an account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateAutomatedDiscoveryConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6812,7 +6992,9 @@ defmodule AWS.Macie2 do
   @doc """
   Changes the status of a classification job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateClassificationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The unique identifier for the classification job.
 
   ## Optional parameters:
@@ -6850,8 +7032,11 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the classification scope settings for an account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateClassificationScope&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -6888,8 +7073,11 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the criteria and other settings for a findings filter.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateFindingsFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -6927,7 +7115,9 @@ defmodule AWS.Macie2 do
   Suspends or re-enables Amazon Macie, or updates the configuration settings for a
   Macie account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateMacieSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6960,8 +7150,11 @@ defmodule AWS.Macie2 do
   Enables an Amazon Macie administrator to suspend or re-enable Macie for a member
   account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateMemberSession&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """
@@ -6999,7 +7192,9 @@ defmodule AWS.Macie2 do
   Updates the Amazon Macie configuration settings for an organization in
   Organizations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7035,10 +7230,13 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the sensitivity score for an S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateResourceProfile&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
   """
   @spec update_resource_profile(AWS.Client.t(), update_resource_profile_request(), Keyword.t()) ::
           {:ok, update_resource_profile_response(), any()}
@@ -7073,10 +7271,13 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the sensitivity scoring settings for an S3 bucket.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateResourceProfileDetections&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the S3 bucket
+    that the request applies to.
   """
   @spec update_resource_profile_detections(
           AWS.Client.t(),
@@ -7116,7 +7317,9 @@ defmodule AWS.Macie2 do
   Updates the status and configuration settings for retrieving occurrences of
   sensitive data reported by findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateRevealConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -7142,8 +7345,11 @@ defmodule AWS.Macie2 do
   @doc """
   Updates the settings for the sensitivity inspection template for an account.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that the request applies to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20UpdateSensitivityInspectionTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The unique identifier for the Amazon Macie resource that
+    the request applies to.
 
   ## Optional parameters:
   """

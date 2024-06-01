@@ -4,13 +4,10 @@
 defmodule AWS.ChimeSDKMessaging do
   @moduledoc """
   The Amazon Chime SDK messaging APIs in this section allow software developers to
-  send
-  and receive messages in custom messaging applications.
-
-  These APIs depend on the frameworks
-  provided by the Amazon Chime SDK identity APIs. For more information about the
-  messaging
-  APIs, see [Amazon Chime SDK messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
+  send and receive messages in custom messaging applications. These APIs depend
+  on the frameworks provided by the Amazon Chime SDK identity APIs. For more
+  information about the messaging APIs, see [Amazon Chime SDK
+  messaging](https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html).
   """
 
   alias AWS.Client
@@ -2195,22 +2192,18 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Associates a channel flow with a channel.
-
-  Once associated, all messages to that channel go through channel flow
-  processors. To stop processing, use the
+  Associates a channel flow with a channel. Once associated, all messages to that
+  channel go through channel flow processors. To stop processing, use the
   `DisassociateChannelFlow` API.
 
-  Only administrators or channel moderators can associate a channel flow. The
-  `x-amz-chime-bearer` request header is mandatory. Use the ARN of the
-  `AppInstanceUser` or `AppInstanceBot`
-  that makes the API call as the value in the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20AssociateChannelFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
+    call.
   """
   @spec associate_channel_flow(
           AWS.Client.t(),
@@ -2241,12 +2234,15 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Adds a specified number of users and bots to a channel.
 
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel to which you&#39;re adding users or bots.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20BatchCreateChannelMembership&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
+    users or bots.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec batch_create_channel_membership(
           AWS.Client.t(),
@@ -2285,22 +2281,13 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Calls back Amazon Chime SDK messaging with a processing response message.
+  Calls back Amazon Chime SDK messaging with a processing response message. This
+  should be invoked from the processor Lambda. This is a developer API. You can
+  return one of the following processing responses:
 
-  This should be invoked from the processor Lambda. This is a developer API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ChannelFlowCallback&this_doc_guide=API%2520Reference)
 
-  You can return one of the following processing responses:
-
-    *
-  Update message content or metadata
-
-    *
-  Deny a message
-
-    *
-  Make no changes to the message
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
@@ -2336,20 +2323,16 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Creates a channel to which you can add users and send messages.
+  Creates a channel to which you can add users and send messages. **Restriction**:
+  You can't change a channel's privacy.
 
-  **Restriction**: You can't change a channel's
-  privacy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec create_channel(AWS.Client.t(), create_channel_request(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -2383,27 +2366,20 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Permanently bans a member from a channel.
-
-  Moderators can't add banned members to a
-  channel. To undo a ban, you first have to `DeleteChannelBan`, and then
+  Permanently bans a member from a channel. Moderators can't add banned members to
+  a channel. To undo a ban, you first have to `DeleteChannelBan`, and then
   `CreateChannelMembership`. Bans are cleaned up when you delete users or
-  channels.
+  channels. If you ban a user who is already part of a channel, that user is
+  automatically kicked from the channel.
 
-  If you ban a user who is already part of a channel, that user is automatically
-  kicked
-  from the channel.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannelBan&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the ban request.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec create_channel_ban(AWS.Client.t(), String.t(), create_channel_ban_request(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
@@ -2437,32 +2413,15 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Creates a channel flow, a container for processors.
+  Creates a channel flow, a container for processors. Processors are AWS Lambda
+  functions that perform actions on chat messages, such as stripping out
+  profanity. You can associate channel flows with channels, and the processors
+  in the channel flow then take action on all messages sent to that channel.
+  This is a developer API. Channel flows process the following items:
 
-  Processors are AWS Lambda functions
-  that perform actions on chat messages, such as stripping out profanity. You can
-  associate
-  channel flows with channels, and the processors in the channel flow then take
-  action on all
-  messages sent to that channel. This is a developer API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannelFlow&this_doc_guide=API%2520Reference)
 
-  Channel flows process the following items:
-
-    1.
-  New and updated messages
-
-    2.
-  Persistent and non-persistent messages
-
-    3.
-  The Standard message type
-
-  Channel flows don't process Control or System messages. For more information
-  about the message types provided by Chime SDK messaging, refer to
-  [Message types](https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types)
-  in the *Amazon Chime developer guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2492,46 +2451,18 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Adds a member to a channel.
+  Adds a member to a channel. The `InvitedBy` field in `ChannelMembership` is
+  derived from the request header. A channel member can:
 
-  The `InvitedBy` field in `ChannelMembership`
-  is derived from the request header. A channel member can:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannelMembership&this_doc_guide=API%2520Reference)
 
-    *
-  List messages
-
-    *
-  Send messages
-
-    *
-  Receive messages
-
-    *
-  Edit their own messages
-
-    *
-  Leave the channel
-
-  Privacy settings impact this action as follows:
-
-    *
-  Public Channels: You do not need to be a member to list messages, but you must
-  be
-  a member to send messages.
-
-    *
-  Private Channels: You must be a member to list or send messages.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call
-  as the value in the header.
-
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel to which you&#39;re adding users.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel to which you're adding
+    users.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec create_channel_membership(
           AWS.Client.t(),
@@ -2570,36 +2501,16 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Creates a new `ChannelModerator`.
+  Creates a new `ChannelModerator`. A channel moderator can:
 
-  A channel moderator can:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannelModerator&this_doc_guide=API%2520Reference)
 
-    *
-  Add and remove other members of the channel.
-
-    *
-  Add and remove other moderators of the channel.
-
-    *
-  Add and remove user bans for the channel.
-
-    *
-  Redact messages in the channel.
-
-    *
-  List messages in the channel.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot`of the user that makes the API
-  call as the value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec create_channel_moderator(
           AWS.Client.t(),
@@ -2639,21 +2550,16 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Immediately makes a channel and its memberships inaccessible and marks them for
-  deletion.
+  deletion. This is an irreversible process.
 
-  This is an irreversible process.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as
-  the value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel being deleted.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec delete_channel(AWS.Client.t(), String.t(), delete_channel_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2689,18 +2595,17 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Removes a member from a channel's ban list.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannelBan&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which the <code>AppInstanceUser</code> was banned.
-  * `:member_arn` (`t:string`) The ARN of the <code>AppInstanceUser</code> that you want to reinstate.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the
+    AppInstanceUser was banned.
+  * `:member_arn` (`t:string`) The ARN of the AppInstanceUser that you want to
+    reinstate.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec delete_channel_ban(
           AWS.Client.t(),
@@ -2741,16 +2646,11 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Deletes a channel flow, an irreversible process.
+  Deletes a channel flow, an irreversible process. This is a developer API.
 
-  This is a developer API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannelFlow&this_doc_guide=API%2520Reference)
 
-  This API works only when the channel flow is not associated with any channel. To
-  get a list of all channels that a channel flow is associated with, use the
-  `ListChannelsAssociatedWithChannelFlow` API. Use the `DisassociateChannelFlow`
-  API to disassociate a channel flow from all channels.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
@@ -2788,18 +2688,18 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Removes a member from a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannelMembership&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which you want to remove the user.
-  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member that you&#39;re removing from the channel.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which you want to
+    remove the user.
+  * `:member_arn` (`t:string`) The AppInstanceUserArn of the member that you're
+    removing from the channel.
 
   ## Optional parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec delete_channel_membership(
           AWS.Client.t(),
@@ -2844,25 +2744,20 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Deletes a channel message.
+  Deletes a channel message. Only admins can perform this action. Deletion makes
+  messages inaccessible immediately. A background process deletes any revisions
+  created by `UpdateChannelMessage`.
 
-  Only admins can perform this action. Deletion makes messages
-  inaccessible immediately. A background process deletes any revisions created by
-  `UpdateChannelMessage`.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannelMessage&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
   * `:message_id` (`t:string`) The ID of the message being deleted.
 
   ## Optional parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec delete_channel_message(
           AWS.Client.t(),
@@ -2909,18 +2804,16 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Deletes a channel moderator.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteChannelModerator&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:channel_moderator_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the moderator being deleted.
+  * `:channel_moderator_arn` (`t:string`) The AppInstanceUserArn of the moderator
+    being deleted.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec delete_channel_moderator(
           AWS.Client.t(),
@@ -2967,14 +2860,16 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Deletes the streaming configurations for an `AppInstance`.
+  Deletes the streaming configurations for an `AppInstance`. For more information,
+  see [Streaming messaging
+  data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html)
+  in the *Amazon Chime SDK Developer Guide*.
 
-  For more information, see
-  [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
-  the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DeleteMessagingStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being deleted.
+  ## Parameters:
+  * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations being
+    deleted.
 
   ## Optional parameters:
   """
@@ -3014,20 +2909,16 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Returns the full details of a channel in an Amazon Chime
-  `AppInstance`.
+  Returns the full details of a channel in an Amazon Chime `AppInstance`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -3062,18 +2953,16 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a channel ban.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelBan&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel from which the user is banned.
-  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member being banned.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel from which the user is
+    banned.
+  * `:member_arn` (`t:string`) The AppInstanceUserArn of the member being banned.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
@@ -3114,10 +3003,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Returns the full details of a channel flow in an Amazon Chime `AppInstance`.
-
   This is a developer API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelFlow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
@@ -3145,19 +3035,17 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a user's channel membership.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelMembership&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member.
+  * `:member_arn` (`t:string`) The AppInstanceUserArn of the member.
 
   ## Optional parameters:
-  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request. The response contains an <code>ElasticChannelConfiguration</code> object.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the 
-         API call.
+  * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request. The
+    response contains an ElasticChannelConfiguration object.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel_membership(
           AWS.Client.t(),
@@ -3215,18 +3103,15 @@ defmodule AWS.ChimeSDKMessaging do
   Returns the details of a channel based on the membership of the specified
   `AppInstanceUser` or `AppInstanceBot`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelMembershipForAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel to which the user belongs.
 
   ## Optional parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in a channel.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
@@ -3283,18 +3168,16 @@ defmodule AWS.ChimeSDKMessaging do
   Returns the full details of a channel moderated by the specified
   `AppInstanceUser` or `AppInstanceBot`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the moderated channel.
 
   ## Optional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the moderated channel.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the
+    moderated channel.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
@@ -3351,17 +3234,16 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Returns the full details of a single ChannelModerator.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  `AppInstanceUserArn` of the user that makes the API call as the value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DescribeChannelModerator&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:channel_moderator_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the channel moderator.
+  * `:channel_moderator_arn` (`t:string`) The AppInstanceUserArn of the channel
+    moderator.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec describe_channel_moderator(
           AWS.Client.t(),
@@ -3407,24 +3289,18 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Disassociates a channel flow from all its channels.
+  Disassociates a channel flow from all its channels. Once disassociated, all
+  messages to that channel stop going through the channel flow processor.
 
-  Once disassociated, all messages to
-  that channel stop going through the channel flow processor.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20DisassociateChannelFlow&this_doc_guide=API%2520Reference)
 
-  Only administrators or channel moderators can disassociate a channel flow.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
   * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
+    call.
   """
   @spec disassociate_channel_flow(
           AWS.Client.t(),
@@ -3471,27 +3347,23 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Gets the membership preferences of an `AppInstanceUser` or `AppInstanceBot`
-  for the specified channel.
+  Gets the membership preferences of an `AppInstanceUser` or `AppInstanceBot` for
+  the specified channel. A user or a bot must be a member of the channel and own
+  the membership in order to retrieve membership preferences. Users or bots in
+  the `AppInstanceAdmin` and channel moderator roles can't retrieve preferences
+  for other users or bots. Banned users or bots can't retrieve membership
+  preferences for the channel from which they are banned.
 
-  A user or a bot must be a member of the channel and own the membership in order
-  to retrieve membership preferences.
-  Users or bots in the `AppInstanceAdmin` and channel moderator roles can't
-  retrieve preferences for other users or bots. Banned users or bots can't
-  retrieve membership preferences for the
-  channel from which they are banned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetChannelMembershipPreferences&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
-  * `:member_arn` (`t:string`) The <code>AppInstanceUserArn</code> of the member retrieving the preferences.
+  * `:member_arn` (`t:string`) The AppInstanceUserArn of the member retrieving the
+    preferences.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec get_channel_membership_preferences(
           AWS.Client.t(),
@@ -3539,19 +3411,16 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Gets the full details of a channel message.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetChannelMessage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
   * `:message_id` (`t:string`) The ID of the message.
 
   ## Optional parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
@@ -3600,53 +3469,22 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Gets message status for a specified `messageId`.
+  Gets message status for a specified `messageId`. Use this API to determine the
+  intermediate status of messages going through channel flow processing. The API
+  provides an alternative to retrieving message status if the event was not
+  received because a client wasn't connected to a websocket. Messages can have
+  any one of these statuses.
 
-  Use this API to determine the intermediate status of messages going through
-  channel flow processing. The API provides an alternative to
-  retrieving message status if the event was not received because a client wasn't
-  connected to a websocket.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetChannelMessageStatus&this_doc_guide=API%2520Reference)
 
-  Messages can have any one of these statuses.
-
-  ## Definitions
-
-  ### SENT
-
-  Message processed successfully
-
-  ### PENDING
-
-  Ongoing processing
-
-  ### FAILED
-
-  Processing failed
-
-  ### DENIED
-
-  Message denied by the processor
-
-    
-  This API does not return statuses for denied messages, because we don't store
-  them once the processor denies them.
-
-    
-  Only the message sender can invoke this API.
-
-    
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel
   * `:message_id` (`t:string`) The ID of the message.
 
   ## Optional parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
+    call.
   """
   @spec get_channel_message_status(
           AWS.Client.t(),
@@ -3703,7 +3541,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   The details of the endpoint for the messaging session.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetMessagingSessionEndpoint&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -3728,13 +3568,14 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Retrieves the data streaming configuration for an `AppInstance`.
+  Retrieves the data streaming configuration for an `AppInstance`. For more
+  information, see [Streaming messaging
+  data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html)
+  in the *Amazon Chime SDK Developer Guide*.
 
-  For more information, see
-  [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
-  the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetMessagingStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:app_instance_arn` (`t:string`) The ARN of the streaming configurations.
 
   ## Optional parameters:
@@ -3762,19 +3603,18 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists all the users and bots banned from a particular channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelBans&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of bans that you want returned.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested bans are returned.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:max_results` (`t:integer`) The maximum number of bans that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested bans are returned.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channel_bans(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
@@ -3826,15 +3666,18 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Returns a paginated lists of all the channel flows created under a single Chime.
-
   This is a developer API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelFlows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:app_instance_arn` (`t:string`) The ARN of the app instance.
-  * `:max_results` (`t:integer`) The maximum number of channel flows that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channel flows are returned.
+  * `:max_results` (`t:integer`) The maximum number of channel flows that you want
+    to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channel flows are returned.
   """
   @spec list_channel_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_flows_response(), any()}
@@ -3884,32 +3727,28 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all channel memberships in a channel.
+  Lists all channel memberships in a channel. The `x-amz-chime-bearer` request
+  header is mandatory. Use the ARN of the `AppInstanceUser` or `AppInstanceBot`
+  that makes the API call as the value in the header.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelMemberships&this_doc_guide=API%2520Reference)
 
-  If you want to list the channels to which a specific app instance user belongs,
-  see the
-  [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html)
-  API.
-
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The maximum number of channel memberships that you want returned.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The maximum number of channel memberships that you
+    want returned.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of channel memberships that you want returned.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channel memberships are
-         returned.
+  * `:max_results` (`t:integer`) The maximum number of channel memberships that
+    you want returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channel memberships are returned.
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
-         members are returned as part of <code>ListChannelMemberships</code> if no type is specified. Hidden members
-         are only returned if the type filter in <code>ListChannelMemberships</code> equals
-            <code>HIDDEN</code>.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, DEFAULT or
+    HIDDEN. Default members are returned as part of ListChannelMemberships if no
+    type is specified. Hidden members are only returned if the type filter in
+    ListChannelMemberships equals HIDDEN.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channel_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
@@ -3979,24 +3818,21 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Lists all channels that an `AppInstanceUser` or `AppInstanceBot` is a part of.
-
   Only an `AppInstanceAdmin` can call the API with a user ARN that is not their
   own.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelMembershipsForAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot.
-  * `:max_results` (`t:integer`) The maximum number of users that you want returned.
-  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channel memberships is
-         reached.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:max_results` (`t:integer`) The maximum number of users that you want
+    returned.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of channel memberships is reached.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
@@ -4060,36 +3896,29 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  List all the messages in a channel.
-
-  Returns a paginated list of
+  List all the messages in a channel. Returns a paginated list of
   `ChannelMessages`. By default, sorted by creation timestamp in descending
   order.
 
-  Redacted messages appear in the results as empty, since they are only redacted,
-  not
-  deleted. Deleted messages do not appear in the results. This action always
-  returns the
-  latest version of an edited message.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelMessages&this_doc_guide=API%2520Reference)
 
-  Also, the `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of messages that you want returned.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested messages are returned.
-  * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested messages.
-  * `:not_before` (`t:timestamp`) The initial or starting time stamp for your requested messages.
-  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want messages sorted. Default is Descending, based on time
-         created.
+  * `:max_results` (`t:integer`) The maximum number of messages that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested messages are returned.
+  * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested
+    messages.
+  * `:not_before` (`t:timestamp`) The initial or starting time stamp for your
+    requested messages.
+  * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want
+    messages sorted. Default is Descending, based on time created.
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channel_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
@@ -4178,20 +4007,18 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists all the moderators for a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelModerators&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of moderators that you want returned.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested moderators are
-         returned.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:max_results` (`t:integer`) The maximum number of moderators that you want
+    returned.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested moderators are returned.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channel_moderators(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
@@ -4242,37 +4069,24 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all Channels created under a single Chime App as a paginated list.
+  Lists all Channels created under a single Chime App as a paginated list. You can
+  specify filters to narrow results. **Functionality & restrictions**
 
-  You can specify
-  filters to narrow results.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannels&this_doc_guide=API%2520Reference)
 
-  ## Functionality & restrictions
-
-    *
-  Use privacy = `PUBLIC` to retrieve all public channels in the
-  account.
-
-    *
-  Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to
-  list the private channels in an account.
-
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_instance_arn` (`t:string`) The ARN of the <code>AppInstance</code>.
-  * `:max_results` (`t:integer`) The maximum number of channels that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channels are returned.
-  * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. <code>PUBLIC</code> retrieves all the public channels.
-            <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
-         can retrieve private channels. 
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:app_instance_arn` (`t:string`) The ARN of the AppInstance.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want to
+    return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channels are returned.
+  * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. PUBLIC retrieves
+    all the public channels. PRIVATE retrieves private channels. Only an
+    AppInstanceAdmin can retrieve private channels.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -4341,17 +4155,20 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Lists all channels associated with a specified channel flow.
+  Lists all channels associated with a specified channel flow. You can associate a
+  channel flow with multiple channels, but you can only associate a channel with
+  one channel flow. This is a developer API.
 
-  You can associate a channel flow with multiple channels, but you can only
-  associate a channel with one channel flow. This is a developer API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelsAssociatedWithChannelFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
-  * `:max_results` (`t:integer`) The maximum number of channels that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested channels are returned.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want to
+    return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested channels are returned.
   """
   @spec list_channels_associated_with_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_associated_with_channel_flow_response(), any()}
@@ -4407,20 +4224,18 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   A list of the channels moderated by an `AppInstanceUser`.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListChannelsModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the moderated channel.
+  * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the
+    moderated channel.
   * `:max_results` (`t:integer`) The maximum number of channels in the request.
-  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channels moderated by
-         the user is reached.
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of channels moderated by the user is reached.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
@@ -4485,17 +4300,21 @@ defmodule AWS.ChimeSDKMessaging do
 
   @doc """
   Lists all the SubChannels in an elastic channel when given a channel ID.
-
   Available only to the app instance admins and channel moderators of elastic
   channels.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListSubChannels&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of elastic channel.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of sub-channels that you want to return.
-  * `:next_token` (`t:string`) The token passed by previous API calls until all requested sub-channels are returned.
-  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
+  * `:max_results` (`t:integer`) The maximum number of sub-channels that you want
+    to return.
+  * `:next_token` (`t:string`) The token passed by previous API calls until all
+    requested sub-channels are returned.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
+    call.
   """
   @spec list_sub_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sub_channels_response(), any()}
@@ -4548,7 +4367,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Lists the tags applied to an Amazon Chime SDK messaging resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_arn` (`t:string`) The ARN of the resource.
@@ -4585,26 +4406,14 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Sets the number of days before the channel is automatically deleted.
 
-    
-  A background process deletes expired channels within 6 hours of expiration.
-  Actual deletion times may vary.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20PutChannelExpirationSettings&this_doc_guide=API%2520Reference)
 
-    
-  Expired channels that have not yet been deleted appear as active, and you can
-  update
-  their expiration settings. The system honors the new settings.
-
-    
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec put_channel_expiration_settings(
           AWS.Client.t(),
@@ -4633,28 +4442,22 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Sets the membership preferences of an `AppInstanceUser` or `AppInstanceBot`
-  for the specified channel.
+  Sets the membership preferences of an `AppInstanceUser` or `AppInstanceBot` for
+  the specified channel. The user or bot must be a member of the channel. Only
+  the user or bot who owns the membership can set preferences. Users or bots in
+  the `AppInstanceAdmin` and channel moderator roles can't set preferences for
+  other users. Banned users or bots can't set membership preferences for the
+  channel from which they are banned.
 
-  The user or bot must be a member of the channel. Only the user or bot who owns
-  the
-  membership can set preferences. Users or bots in the `AppInstanceAdmin` and
-  channel moderator roles can't set
-  preferences for other users. Banned users or bots can't set membership
-  preferences for the channel from
-  which they are banned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20PutChannelMembershipPreferences&this_doc_guide=API%2520Reference)
 
-  The x-amz-chime-bearer request header is mandatory. Use the ARN of an
-  `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
-  the
-  header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
   * `:member_arn` (`t:string`) The ARN of the member setting the preferences.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec put_channel_membership_preferences(
           AWS.Client.t(),
@@ -4691,13 +4494,14 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Sets the data streaming configuration for an `AppInstance`.
+  Sets the data streaming configuration for an `AppInstance`. For more
+  information, see [Streaming messaging
+  data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html)
+  in the *Amazon Chime SDK Developer Guide*.
 
-  For more information, see
-  [Streaming messaging data](https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html) in
-  the *Amazon Chime SDK Developer Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20PutMessagingStreamingConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:app_instance_arn` (`t:string`) The ARN of the streaming configuration.
 
   ## Optional parameters:
@@ -4728,23 +4532,19 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Redacts message content, but not metadata.
+  Redacts message content, but not metadata. The message exists in the back end,
+  but the action returns null content, and the state shows as redacted.
 
-  The message exists in the back end, but the
-  action returns null content, and the state shows as redacted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20RedactChannelMessage&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
-  * `:channel_arn` (`t:string`) The ARN of the channel containing the messages that you want to redact.
+  ## Parameters:
+  * `:channel_arn` (`t:string`) The ARN of the channel containing the messages
+    that you want to redact.
   * `:message_id` (`t:string`) The ID of the message being redacted.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec redact_channel_message(
           AWS.Client.t(),
@@ -4785,24 +4585,21 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Allows the `ChimeBearer` to search channels by channel members.
+  Allows the `ChimeBearer` to search channels by channel members. Users or bots
+  can search across the channels that they belong to. Users in the
+  `AppInstanceAdmin` role can search across all channels.
 
-  Users or bots can search
-  across the channels that they belong to. Users in the `AppInstanceAdmin` role
-  can search across
-  all channels.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20SearchChannels&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of channels that you want returned.
-  * `:next_token` (`t:string`) The token returned from previous API requests until the number of channels is reached.
-  * `:chime_bearer` (`t:string`) The <code>AppInstanceUserArn</code> of the user making the API call.
+  * `:max_results` (`t:integer`) The maximum number of channels that you want
+    returned.
+  * `:next_token` (`t:string`) The token returned from previous API requests until
+    the number of channels is reached.
+  * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
+    call.
   """
   @spec search_channels(AWS.Client.t(), search_channels_request(), Keyword.t()) ::
           {:ok, search_channels_response(), any()}
@@ -4843,24 +4640,14 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Sends a message to a particular channel that the member is a part of.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20SendChannelMessage&this_doc_guide=API%2520Reference)
 
-  Also, `STANDARD` messages can be up to 4KB in size and contain metadata.
-  Metadata is arbitrary,
-  and you can use it in a variety of ways, such as containing a link to an
-  attachment.
-
-  `CONTROL` messages are limited to 30 bytes and do not contain metadata.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec send_channel_message(
           AWS.Client.t(),
@@ -4901,7 +4688,9 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Applies the specified tags to the specified Amazon Chime SDK messaging resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4934,7 +4723,9 @@ defmodule AWS.ChimeSDKMessaging do
   Removes the specified tags from the specified Amazon Chime SDK messaging
   resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4964,21 +4755,17 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Update a channel's attributes.
+  Update a channel's attributes. **Restriction**: You can't change a channel's
+  privacy.
 
-  **Restriction**: You can't change a channel's privacy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UpdateChannel&this_doc_guide=API%2520Reference)
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec update_channel(AWS.Client.t(), String.t(), update_channel_request(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -5002,11 +4789,11 @@ defmodule AWS.ChimeSDKMessaging do
   end
 
   @doc """
-  Updates channel flow attributes.
+  Updates channel flow attributes. This is a developer API.
 
-  This is a developer API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UpdateChannelFlow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_flow_arn` (`t:string`) The ARN of the channel flow.
 
   ## Optional parameters:
@@ -5034,18 +4821,15 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   Updates the content of a message.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UpdateChannelMessage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
   * `:message_id` (`t:string`) The ID string of the message being updated.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec update_channel_message(
           AWS.Client.t(),
@@ -5078,17 +4862,14 @@ defmodule AWS.ChimeSDKMessaging do
   @doc """
   The details of the time when a user last read messages in a channel.
 
-  The `x-amz-chime-bearer` request header is mandatory. Use the
-  ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the
-  value in
-  the header.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UpdateChannelReadMarker&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:channel_arn` (`t:string`) The ARN of the channel.
 
   ## Optional parameters:
-  * `:chime_bearer` (`t:string`) The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.
+  * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
+    that makes the API call.
   """
   @spec update_channel_read_marker(
           AWS.Client.t(),

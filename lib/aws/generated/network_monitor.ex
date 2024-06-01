@@ -4,31 +4,19 @@
 defmodule AWS.NetworkMonitor do
   @moduledoc """
   Amazon CloudWatch Network Monitor is an Amazon Web Services active network
-  monitoring
-  service that identifies if a network issues exists within the Amazon Web
-  Services network
-  or your own company network.
-
-  Within Network Monitor you'll choose the source VPCs and
-  subnets from the Amazon Web Services network in which you operate and then
-  you'll choose
-  the destination IP addresses from your on-premises network. From these sources
-  and
-  destinations, Network Monitor creates a monitor containing all the possible
-  source and
+  monitoring service that identifies if a network issues exists within the
+  Amazon Web Services network or your own company network. Within Network
+  Monitor you'll choose the source VPCs and subnets from the Amazon Web Services
+  network in which you operate and then you'll choose the destination IP
+  addresses from your on-premises network. From these sources and destinations,
+  Network Monitor creates a monitor containing all the possible source and
   destination combinations, each of which is called a probe, within a single
-  monitor.
-  These probes then monitor network traffic to help you identify where network
-  issues might be affecting your traffic.
-
-  Before you begin, ensure the Amazon Web Services CLI is configured in the Amazon
-  Web Services Account where you will create the Network Monitor resource. Network
-  Monitor doesn’t support creation on cross-account resources, but you can create
-  a
-  Network Monitor in any subnet belonging to a VPC owned by your Account.
-
-  For more information, see [Using Amazon CloudWatch Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
-  in the *Amazon CloudWatch User Guide*.
+  monitor. These probes then monitor network traffic to help you identify where
+  network issues might be affecting your traffic. Before you begin, ensure the
+  Amazon Web Services CLI is configured in the Amazon Web Services Account where
+  you will create the Network Monitor resource. Network Monitor doesn’t support
+  creation on cross-account resources, but you can create a Network Monitor in
+  any subnet belonging to a VPC owned by your Account.
   """
 
   alias AWS.Client
@@ -599,45 +587,16 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Creates a monitor between a source subnet and destination IP address.
-
-  Within a monitor you'll create one or more probes that monitor network traffic
-  between your source Amazon Web Services VPC subnets and your destination IP
-  addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.
-
-  You can also create a monitor with probes using this command. For each probe,
-  you
+  Creates a monitor between a source subnet and destination IP address. Within a
+  monitor you'll create one or more probes that monitor network traffic between
+  your source Amazon Web Services VPC subnets and your destination IP addresses.
+  Each probe then aggregates and sends metrics to Amazon CloudWatch. You can
+  also create a monitor with probes using this command. For each probe, you
   define the following:
 
-    *
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
 
-  `source`—The subnet IDs where the probes will be created.
-
-    *
-
-  `destination`— The target destination IP address for the
-  probe.
-
-    *
-
-  `destinationPort`—Required only if the protocol is
-  `TCP`.
-
-    *
-
-  `protocol`—The communication protocol between the source and
-  destination. This will be either `TCP` or `ICMP`.
-
-    *
-
-  `packetSize`—The size of the packets. This must be a number between
-  `56` and `8500`.
-
-    *
-  (Optional) `tags` —Key-value pairs created and assigned to the
-  probe.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -667,17 +626,17 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Create a probe within a monitor.
+  Create a probe within a monitor. Once you create a probe, and it begins
+  monitoring your network traffic, you'll incur billing charges for that probe.
+  This action requires the `monitorName` parameter. Run `ListMonitors` to get a
+  list of monitor names. Note the name of the `monitorName` you want to create
+  the probe for.
 
-  Once you create a probe, and it begins monitoring your
-  network traffic, you'll incur billing charges for that probe. This action
-  requires the
-  `monitorName` parameter. Run `ListMonitors` to get a list of
-  monitor names. Note the name of the `monitorName` you want to create the
-  probe for.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateProbe&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to associated with the probe. 
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to associated with the
+    probe.
 
   ## Optional parameters:
   """
@@ -709,11 +668,10 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Deletes a specified monitor.
 
-  This action requires the `monitorName` parameter. Run
-  `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to delete.  
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
 
   ## Optional parameters:
   """
@@ -743,19 +701,14 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Deletes the specified probe.
+  Deletes the specified probe. Once a probe is deleted you'll no longer incur any
+  billing fees for that probe.
 
-  Once a probe is deleted you'll no longer incur any billing
-  fees for that probe.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20DeleteProbe&this_doc_guide=API%2520Reference)
 
-  This action requires both the `monitorName` and `probeId`
-  parameters. Run `ListMonitors` to get a list of monitor names. Run
-  `GetMonitor` to get a list of probes and probe IDs. You can only delete a
-  single probe at a time using this action.
-
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to delete. 
-  * `:probe_id` (`t:string`) The ID of the probe to delete. 
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to delete.
+  * `:probe_id` (`t:string`) The ID of the probe to delete.
 
   ## Optional parameters:
   """
@@ -789,11 +742,11 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Returns details about a specific monitor.
 
-  This action requires the `monitorName` parameter. Run
-  `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor that details are returned for.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor that details are returned
+    for.
 
   ## Optional parameters:
   """
@@ -818,16 +771,17 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Returns the details about a probe.
+  Returns the details about a probe. This action requires both the `monitorName`
+  and `probeId` parameters. Run `ListMonitors` to get a list of monitor names.
+  Run `GetMonitor` to get a list of probes and probe IDs.
 
-  This action requires both the
-  `monitorName` and `probeId` parameters. Run
-  `ListMonitors` to get a list of monitor names. Run
-  `GetMonitor` to get a list of probes and probe IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20GetProbe&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor associated with the probe. Run <code>ListMonitors</code> to get a list of monitor names.
-  * `:probe_id` (`t:string`) The ID of the probe to get information about. Run <code>GetMonitor</code> action to get a list of probes and probe IDs for the  monitor.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor associated with the
+    probe. Run ListMonitors to get a list of monitor names.
+  * `:probe_id` (`t:string`) The ID of the probe to get information about. Run
+    GetMonitor action to get a list of probes and probe IDs for the monitor.
 
   ## Optional parameters:
   """
@@ -855,11 +809,14 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Returns a list of all of your monitors.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return with a single call.
-  To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.
+  * `:max_results` (`t:integer`) The maximum number of results to return with a
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:state` (`t:`) The list of all monitors and their states.
   """
@@ -913,8 +870,10 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Lists the tags assigned to this resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The
 
   ## Optional parameters:
   """
@@ -941,7 +900,9 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Adds key-value pairs to a monitor or probe.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:resource_arn` (`t:string`) The ARN of the monitor or probe to tag.
 
   ## Optional parameters:
@@ -974,8 +935,11 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Removes a key-value pair from a monitor or probe.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag should be removed from. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the monitor or probe that the tag
+    should be removed from.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]`) The key-value pa
@@ -1011,15 +975,15 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Updates the `aggregationPeriod` for a monitor.
+  Updates the `aggregationPeriod` for a monitor. Monitors support an
+  `aggregationPeriod` of either `30` or `60` seconds. This action requires the
+  `monitorName` and `probeId` parameter. Run `ListMonitors` to get a list of
+  monitor names.
 
-  Monitors support an
-  `aggregationPeriod` of either `30` or `60` seconds.
-  This action requires the `monitorName` and `probeId` parameter.
-  Run `ListMonitors` to get a list of monitor names.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateMonitor&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor to update. 
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor to update.
 
   ## Optional parameters:
   """
@@ -1049,46 +1013,17 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Updates a monitor probe.
+  Updates a monitor probe. This action requires both the `monitorName` and
+  `probeId` parameters. Run `ListMonitors` to get a list of monitor names. Run
+  `GetMonitor` to get a list of probes and probe IDs. You can update the
+  following para create a monitor with probes using this command. For each
+  probe, you define the following:
 
-  This action requires both the `monitorName` and `probeId` parameters. Run
-  `ListMonitors` to get a list of monitor names. Run `GetMonitor` to get a list of
-  probes and probe IDs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20UpdateProbe&this_doc_guide=API%2520Reference)
 
-  You can update the following para create a monitor with probes using this
-  command. For
-  each probe, you define the following:
-
-    *
-
-  `state`—The state of the probe.
-
-    *
-
-  `destination`— The target destination IP address for the
-  probe.
-
-    *
-
-  `destinationPort`—Required only if the protocol is
-  `TCP`.
-
-    *
-
-  `protocol`—The communication protocol between the source and
-  destination. This will be either `TCP` or `ICMP`.
-
-    *
-
-  `packetSize`—The size of the packets. This must be a number between
-  `56` and `8500`.
-
-    *
-  (Optional) `tags` —Key-value pairs created and assigned to the
-  probe.
-
-  ## Required positional parameters:
-  * `:monitor_name` (`t:string`) The name of the monitor that the probe was updated for.
+  ## Parameters:
+  * `:monitor_name` (`t:string`) The name of the monitor that the probe was
+    updated for.
   * `:probe_id` (`t:string`) The ID of the probe to update.
 
   ## Optional parameters:

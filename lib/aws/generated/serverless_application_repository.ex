@@ -4,47 +4,16 @@
 defmodule AWS.ServerlessApplicationRepository do
   @moduledoc """
   The AWS Serverless Application Repository makes it easy for developers and
-  enterprises to quickly find
-  and deploy serverless applications in the AWS Cloud.
-
-  For more information about serverless applications,
-  see Serverless Computing and Applications on the AWS website.
-
-  The AWS Serverless Application Repository is deeply integrated with the AWS
-  Lambda console, so that developers of
-  all levels can get started with serverless computing without needing to learn
-  anything new. You can use category
-  keywords to browse for applications such as web and mobile backends, data
-  processing applications, or chatbots.
-  You can also search for applications by name, publisher, or event source. To use
-  an application, you simply choose it,
-  configure any required fields, and deploy it with a few clicks.
-
-  You can also easily publish applications, sharing them publicly with the
-  community at large, or privately
-  within your team or across your organization. To publish a serverless
-  application (or app), you can use the
-  AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS SDKs to
-  upload the code. Along with the
-  code, you upload a simple manifest file, also known as the AWS Serverless
-  Application Model (AWS SAM) template.
-  For more information about AWS SAM, see AWS Serverless Application Model (AWS
-  SAM) on the AWS Labs
-  GitHub repository.
-
-  The AWS Serverless Application Repository Developer Guide contains more
-  information about the two developer
-  experiences available:
-
-    *
-  Consuming Applications – Browse for applications and view information about
-  them, including
-  source code and readme files. Also install, configure, and deploy applications
-  of your choosing.
-
-  Publishing Applications – Configure and upload applications to make them
-  available to other
-  developers, and publish new versions of applications.
+  enterprises to quickly find and deploy serverless applications in the AWS
+  Cloud. For more information about serverless applications, see Serverless
+  Computing and Applications on the AWS website. The AWS Serverless Application
+  Repository is deeply integrated with the AWS Lambda console, so that
+  developers of all levels can get started with serverless computing without
+  needing to learn anything new. You can use category keywords to browse for
+  applications such as web and mobile backends, data processing applications, or
+  chatbots. You can also search for applications by name, publisher, or event
+  source. To use an application, you simply choose it, configure any required
+  fields, and deploy it with a few clicks.
   """
 
   alias AWS.Client
@@ -767,7 +736,9 @@ defmodule AWS.ServerlessApplicationRepository do
   Creates an application, optionally including an AWS SAM file to create the first
   application version in the same call.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -799,8 +770,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Creates an application version.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateApplicationVersion&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
   * `:semantic_version` (`t:string`) The semantic version of the new version.
 
   ## Optional parameters:
@@ -837,8 +811,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Creates an AWS CloudFormation change set for the given application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationChangeSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -875,8 +852,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Creates an AWS CloudFormation template.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20CreateCloudFormationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -913,8 +893,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Deletes the specified application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20DeleteApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -946,11 +929,15 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Gets the specified application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
-  * `:semantic_version` (`t:string`) The semantic version of the application to get.
+  * `:semantic_version` (`t:string`) The semantic version of the application to
+    get.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -984,8 +971,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Retrieves the policy for the application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetApplicationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -1012,8 +1002,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Gets the specified AWS CloudFormation template.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20GetCloudFormationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
   * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
 
   ## Optional parameters:
@@ -1042,13 +1035,17 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Retrieves the list of applications nested in the containing application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationDependencies&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
-  * `:semantic_version` (`t:string`) The semantic version of the application to get.
+  * `:semantic_version` (`t:string`) The semantic version of the application to
+    get.
   """
   @spec list_application_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_dependencies_response(), any()}
@@ -1100,8 +1097,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Lists versions for the specified application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplicationVersions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
@@ -1148,7 +1148,9 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Lists applications owned by the requester.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplications&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
@@ -1193,15 +1195,16 @@ defmodule AWS.ServerlessApplicationRepository do
   end
 
   @doc """
-  Sets the permission policy for an application.
-
-  For the list of actions supported for this operation, see
-  [Application Permissions](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions)
-
+  Sets the permission policy for an application. For the list of actions supported
+  for this operation, see [Application
+  Permissions](https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions)
   .
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20PutApplicationPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -1228,10 +1231,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Unshares an application from an AWS Organization.
 
-  This operation can be called only from the organization's master account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UnshareApplication&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """
@@ -1268,8 +1272,11 @@ defmodule AWS.ServerlessApplicationRepository do
   @doc """
   Updates the specified application.
 
-  ## Required positional parameters:
-  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the application.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20UpdateApplication&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:application_id` (`t:string`) The Amazon Resource Name (ARN) of the
+    application.
 
   ## Optional parameters:
   """

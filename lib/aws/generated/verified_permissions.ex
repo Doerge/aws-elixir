@@ -4,86 +4,18 @@
 defmodule AWS.VerifiedPermissions do
   @moduledoc """
   Amazon Verified Permissions is a permissions management service from Amazon Web
-  Services.
-
-  You can use Verified Permissions to manage
-  permissions for your application, and authorize user access based on those
-  permissions.
-  Using Verified Permissions, application developers can grant access based on
-  information about the
-  users, resources, and requested actions. You can also evaluate additional
-  information
-  like group membership, attributes of the resources, and session context, such as
-  time of
-  request and IP addresses. Verified Permissions manages these permissions by
-  letting you create and
-  store authorization policies for your applications, such as consumer-facing web
-  sites
-  and enterprise business systems.
-
-  Verified Permissions uses Cedar as the policy language to express your
-  permission requirements.
-  Cedar supports both role-based access control (RBAC) and attribute-based access
-  control (ABAC) authorization models.
-
-  For more information about configuring, administering, and using Amazon Verified
-  Permissions in your
-  applications, see the [Amazon Verified Permissions User Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/).
-
-  For more information about the Cedar policy language, see the [Cedar Policy Language Guide](https://docs.cedarpolicy.com/).
-
-  When you write Cedar policies that reference principals, resources and actions,
-  you can define the unique identifiers used for each of those elements. We
-  strongly
-  recommend that you follow these best practices:
-
-    
-
-  ## Use values like universally unique identifiers
-  (UUIDs) for all principal and resource identifiers.
-
-  For example, if user `jane` leaves the company, and you later
-  let someone else use the name `jane`, then that new user
-  automatically gets access to everything granted by policies that still
-  reference `User::"jane"`. Cedar can’t distinguish between the
-  new user and the old. This applies to both principal and resource
-  identifiers. Always use identifiers that are guaranteed unique and never
-  reused to ensure that you don’t unintentionally grant access because of the
-  presence of an old identifier in a policy.
-
-  Where you use a UUID for an entity, we recommend that you follow it with
-  the // comment specifier and the ‘friendly’ name of your entity. This helps
-  to make your policies easier to understand. For example: principal ==
-  User::"a1b2c3d4-e5f6-a1b2-c3d4-EXAMPLE11111", // alice
-
-    
-
-  **Do not include personally identifying, confidential,
-  or sensitive information as part of the unique identifier for your
-  principals or resources.** These identifiers are included in
-  log entries shared in CloudTrail trails.
-
-  Several operations return structures that appear similar, but have different
-  purposes.
-  As new functionality is added to the product, the structure used in a parameter
-  of one
-  operation might need to change in a way that wouldn't make sense for the same
-  parameter
-  in a different operation. To help you understand the purpose of each, the
-  following
-  naming convention is used for the structures:
-
-    *
-  Parameter type structures that end in `Detail` are used in
-  `Get` operations.
-
-    *
-  Parameter type structures that end in `Item` are used in
-  `List` operations.
-
-    *
-  Parameter type structures that use neither suffix are used in the mutating
-  (create and update) operations.
+  Services. You can use Verified Permissions to manage permissions for your
+  application, and authorize user access based on those permissions. Using
+  Verified Permissions, application developers can grant access based on
+  information about the users, resources, and requested actions. You can also
+  evaluate additional information like group membership, attributes of the
+  resources, and session context, such as time of request and IP addresses.
+  Verified Permissions manages these permissions by letting you create and store
+  authorization policies for your applications, such as consumer-facing web
+  sites and enterprise business systems. Verified Permissions uses Cedar as the
+  policy language to express your permission requirements. Cedar supports both
+  role-based access control (RBAC) and attribute-based access control (ABAC)
+  authorization models.
   """
 
   alias AWS.Client
@@ -1403,32 +1335,16 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Makes a series of decisions about multiple authorization requests for one
-  principal or
-  resource.
-
-  Each request contains the equivalent content of an `IsAuthorized`
-  request: principal, action, resource, and context. Either the `principal` or
-  the `resource` parameter must be identical across all requests. For example,
-  Verified Permissions won't evaluate a pair of requests where `bob` views
-  `photo1` and `alice` views `photo2`. Authorization
-  of `bob` to view `photo1` and `photo2`, or
-  `bob` and `alice` to view `photo1`, are valid
-  batches.
-
-  The request is evaluated against all policies in the specified policy store that
-  match the
-  entities that you declare. The result of the decisions is a series of `Allow`
-  or `Deny` responses, along with the IDs of the policies that produced each
-  decision.
-
-  The `entities` of a `BatchIsAuthorized` API request can contain
-  up to 100 principals and up to 100 resources. The `requests` of a
-  `BatchIsAuthorized` API request can contain up to 30 requests.
-
-  The `BatchIsAuthorized` operation doesn't have its own IAM
-  permission. To authorize this operation for Amazon Web Services principals,
-  include the permission
-  `verifiedpermissions:IsAuthorized` in their IAM policies.
+  principal or resource. Each request contains the equivalent content of an
+  `IsAuthorized` request: principal, action, resource, and context. Either the
+  `principal` or the `resource` parameter must be identical across all requests.
+  For example, Verified Permissions won't evaluate a pair of requests where
+  `bob` views `photo1` and `alice` views `photo2`. Authorization of `bob` to
+  view `photo1` and `photo2`, or `bob` and `alice` to view `photo1`, are valid
+  batches. The request is evaluated against all policies in the specified policy
+  store that match the entities that you declare. The result of the decisions is
+  a series of `Allow` or `Deny` responses, along with the IDs of the policies
+  that produced each decision.
   """
   @spec batch_is_authorized(AWS.Client.t(), batch_is_authorized_input(), Keyword.t()) ::
           {:ok, batch_is_authorized_output(), any()}
@@ -1443,31 +1359,15 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Makes a series of decisions about multiple authorization requests for one token.
-
-  The
-  principal in this request comes from an external identity source in the form of
-  an identity or
-  access token, formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in
-  the parameters can also define
-  additional context that Verified Permissions can include in the evaluations.
-
-  The request is evaluated against all policies in the specified policy store that
-  match the
-  entities that you provide in the entities declaration and in the token. The
-  result of
-  the decisions is a series of `Allow` or `Deny` responses, along
-  with the IDs of the policies that produced each decision.
-
-  The `entities` of a `BatchIsAuthorizedWithToken` API request can
-  contain up to 100 resources and up to 99 user groups. The `requests` of a
-  `BatchIsAuthorizedWithToken` API request can contain up to 30
-  requests.
-
-  The `BatchIsAuthorizedWithToken` operation doesn't have its own
-  IAM permission. To authorize this operation for Amazon Web Services principals,
-  include the
-  permission `verifiedpermissions:IsAuthorizedWithToken` in their IAM
-  policies.
+  The principal in this request comes from an external identity source in the
+  form of an identity or access token, formatted as a [JSON web token
+  (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
+  parameters can also define additional context that Verified Permissions can
+  include in the evaluations. The request is evaluated against all policies in
+  the specified policy store that match the entities that you provide in the
+  entities declaration and in the token. The result of the decisions is a series
+  of `Allow` or `Deny` responses, along with the IDs of the policies that
+  produced each decision.
   """
   @spec batch_is_authorized_with_token(
           AWS.Client.t(),
@@ -1486,45 +1386,22 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Creates a reference to an Amazon Cognito user pool as an external identity
-  provider (IdP).
-
-  After you create an identity source, you can use the identities provided by the
-  IdP as proxies
-  for the principal in authorization queries that use the
-  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) operation. These identities take the form of tokens that contain claims about
-  the user,
-  such as IDs, attributes and group memberships. Amazon Cognito provides both
-  identity tokens and
-  access tokens, and Verified Permissions can use either or both. Any combination
-  of identity and access
-  tokens results in the same Cedar principal. Verified Permissions automatically
-  translates the
-  information about the identities into the standard Cedar attributes that can be
-  evaluated by your policies. Because the Amazon Cognito identity and access
-  tokens can contain
-  different information, the tokens you choose to use determine which principal
-  attributes
-  are available to access when evaluating Cedar policies.
-
-  If you delete a Amazon Cognito user pool or user, tokens from that deleted pool
-  or that deleted user continue to be usable until they expire.
-
-  To reference a user from this identity source in your Cedar policies, use the
-  following
-  syntax.
-
-  *IdentityType::"<CognitoUserPoolIdentifier>|<CognitoClientId>*
-
-  Where `IdentityType` is the string that you provide to the
-  `PrincipalEntityType` parameter for this operation. The
-  `CognitoUserPoolId` and `CognitoClientId` are defined by
-  the Amazon Cognito user pool.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  provider (IdP). After you create an identity source, you can use the
+  identities provided by the IdP as proxies for the principal in authorization
+  queries that use the
+  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html)
+  operation. These identities take the form of tokens that contain claims about
+  the user, such as IDs, attributes and group memberships. Amazon Cognito
+  provides both identity tokens and access tokens, and Verified Permissions can
+  use either or both. Any combination of identity and access tokens results in
+  the same Cedar principal. Verified Permissions automatically translates the
+  information about the identities into the standard Cedar attributes that can
+  be evaluated by your policies. Because the Amazon Cognito identity and access
+  tokens can contain different information, the tokens you choose to use
+  determine which principal attributes are available to access when evaluating
+  Cedar policies. If you delete a Amazon Cognito user pool or user, tokens from
+  that deleted pool or that deleted user continue to be usable until they
+  expire.
   """
   @spec create_identity_source(AWS.Client.t(), create_identity_source_input(), Keyword.t()) ::
           {:ok, create_identity_source_output(), any()}
@@ -1538,35 +1415,8 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Creates a Cedar policy and saves it in the specified policy store.
-
-  You can create either a
-  static policy or a policy linked to a policy template.
-
-    *
-  To create a static policy, provide the Cedar policy text in the
-  `StaticPolicy` section of the
-  `PolicyDefinition`.
-
-    *
-  To create a policy that is dynamically linked to a policy template, specify the
-  policy template ID
-  and the principal and resource to associate with this policy in the
-  `templateLinked` section of the `PolicyDefinition`. If the
-  policy template is ever updated, any policies linked to the policy template
-  automatically use the
-  updated template.
-
-  Creating a policy causes it to be validated against the schema in the policy
-  store. If the
-  policy doesn't pass validation, the operation fails and the policy isn't
-  stored.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a Cedar policy and saves it in the specified policy store. You can
+  create either a static policy or a policy linked to a policy template.
   """
   @spec create_policy(AWS.Client.t(), create_policy_input(), Keyword.t()) ::
           {:ok, create_policy_output(), any()}
@@ -1580,19 +1430,7 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Creates a policy store.
-
-  A policy store is a container for policy resources.
-
-  Although [Cedar supports multiple namespaces](https://docs.cedarpolicy.com/schema/schema.html#namespace), Verified
-  Permissions currently supports only one
-  namespace per policy store.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a policy store. A policy store is a container for policy resources.
   """
   @spec create_policy_store(AWS.Client.t(), create_policy_store_input(), Keyword.t()) ::
           {:ok, create_policy_store_output(), any()}
@@ -1606,25 +1444,13 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Creates a policy template.
-
-  A template can use placeholders for the principal and resource. A
-  template must be instantiated into a policy by associating it with specific
-  principals
-  and resources to use for the placeholders. That instantiated policy can then be
-  considered in authorization decisions. The instantiated policy works identically
-  to any
-  other policy, except that it is dynamically linked to the template. If the
-  template
-  changes, then any policies that are linked to that template are immediately
-  updated as
-  well.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates a policy template. A template can use placeholders for the principal and
+  resource. A template must be instantiated into a policy by associating it with
+  specific principals and resources to use for the placeholders. That
+  instantiated policy can then be considered in authorization decisions. The
+  instantiated policy works identically to any other policy, except that it is
+  dynamically linked to the template. If the template changes, then any policies
+  that are linked to that template are immediately updated as well.
   """
   @spec create_policy_template(AWS.Client.t(), create_policy_template_input(), Keyword.t()) ::
           {:ok, create_policy_template_output(), any()}
@@ -1639,12 +1465,9 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes an identity source that references an identity provider (IdP) such as
-  Amazon Cognito.
-
-  After
-  you delete the identity source, you can no longer use tokens for identities from
-  that identity source to
-  represent principals in authorization queries made using
+  Amazon Cognito. After you delete the identity source, you can no longer use
+  tokens for identities from that identity source to represent principals in
+  authorization queries made using
   [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html).
   operations.
   """
@@ -1661,9 +1484,6 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy from the policy store.
-
-  This operation is idempotent; if you specify a policy that doesn't
-  exist, the request response returns a successful `HTTP 200` status code.
   """
   @spec delete_policy(AWS.Client.t(), delete_policy_input(), Keyword.t()) ::
           {:ok, delete_policy_output(), any()}
@@ -1678,10 +1498,6 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy store.
-
-  This operation is idempotent. If you specify a policy store that does not exist,
-  the request
-  response will still return a successful HTTP 200 status code.
   """
   @spec delete_policy_store(AWS.Client.t(), delete_policy_store_input(), Keyword.t()) ::
           {:ok, delete_policy_store_output(), any()}
@@ -1695,11 +1511,6 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Deletes the specified policy template from the policy store.
-
-  This operation also deletes any policies that were created from the specified
-  policy template. Those policies are immediately removed from all future API
-  responses, and are
-  asynchronously deleted from the policy store.
   """
   @spec delete_policy_template(AWS.Client.t(), delete_policy_template_input(), Keyword.t()) ::
           {:ok, delete_policy_template_output(), any()}
@@ -1785,15 +1596,11 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Makes an authorization decision about a service request described in the
-  parameters.
-
-  The information in the parameters can also define additional context that
-  Verified Permissions can
-  include in the evaluation. The request is evaluated against all matching
-  policies in the
-  specified policy store. The result of the decision is either `Allow` or
-  `Deny`, along with a list of the policies that resulted in the
-  decision.
+  parameters. The information in the parameters can also define additional
+  context that Verified Permissions can include in the evaluation. The request
+  is evaluated against all matching policies in the specified policy store. The
+  result of the decision is either `Allow` or `Deny`, along with a list of the
+  policies that resulted in the decision.
   """
   @spec is_authorized(AWS.Client.t(), is_authorized_input(), Keyword.t()) ::
           {:ok, is_authorized_output(), any()}
@@ -1808,27 +1615,15 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Makes an authorization decision about a service request described in the
-  parameters.
-
-  The principal in this request comes from an external identity source in the form
-  of an identity
-  token formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
-  parameters can also define additional
-  context that Verified Permissions can include in the evaluation. The request is
-  evaluated against all
-  matching policies in the specified policy store. The result of the decision is
-  either
-  `Allow` or `Deny`, along with a list of the policies that
-  resulted in the decision.
-
-  At this time, Verified Permissions accepts tokens from only Amazon Cognito.
-
-  Verified Permissions validates each token that is specified in a request by
-  checking its expiration
-  date and its signature.
-
-  If you delete a Amazon Cognito user pool or user, tokens from that deleted pool
-  or that deleted user continue to be usable until they expire.
+  parameters. The principal in this request comes from an external identity
+  source in the form of an identity token formatted as a [JSON web token
+  (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in the
+  parameters can also define additional context that Verified Permissions can
+  include in the evaluation. The request is evaluated against all matching
+  policies in the specified policy store. The result of the decision is either
+  `Allow` or `Deny`, along with a list of the policies that resulted in the
+  decision. At this time, Verified Permissions accepts tokens from only Amazon
+  Cognito.
   """
   @spec is_authorized_with_token(AWS.Client.t(), is_authorized_with_token_input(), Keyword.t()) ::
           {:ok, is_authorized_with_token_output(), any()}
@@ -1899,21 +1694,12 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Creates or updates the policy schema in the specified policy store.
-
-  The schema is used to
-  validate any Cedar policies and policy templates submitted to the policy store.
-  Any changes to the schema
-  validate only policies and templates submitted after the schema change. Existing
-  policies and templates are not re-evaluated against the changed schema. If you
-  later
-  update a policy, then it is evaluated against the new schema at that time.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  Creates or updates the policy schema in the specified policy store. The schema
+  is used to validate any Cedar policies and policy templates submitted to the
+  policy store. Any changes to the schema validate only policies and templates
+  submitted after the schema change. Existing policies and templates are not
+  re-evaluated against the changed schema. If you later update a policy, then it
+  is evaluated against the new schema at that time.
   """
   @spec put_schema(AWS.Client.t(), put_schema_input(), Keyword.t()) ::
           {:ok, put_schema_output(), any()}
@@ -1928,14 +1714,8 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Updates the specified identity source to use a new identity provider (IdP)
-  source, or to change
-  the mapping of identities from the IdP to a different principal entity type.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  source, or to change the mapping of identities from the IdP to a different
+  principal entity type.
   """
   @spec update_identity_source(AWS.Client.t(), update_identity_source_input(), Keyword.t()) ::
           {:ok, update_identity_source_output(), any()}
@@ -1949,55 +1729,23 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Modifies a Cedar static policy in the specified policy store.
-
-  You can change only certain elements of
-  the
-  [UpdatePolicyDefinition](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition) parameter. You can directly update only static policies. To
-  change a template-linked policy, you must update the template instead, using
+  Modifies a Cedar static policy in the specified policy store. You can change
+  only certain elements of the
+  [UpdatePolicyDefinition](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition)
+  parameter. You can directly update only static policies. To change a
+  template-linked policy, you must update the template instead, using
   [UpdatePolicyTemplate](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html).
-
-    
   If policy validation is enabled in the policy store, then updating a static
-  policy causes
-  Verified Permissions to validate the policy against the schema in the policy
-  store. If the updated
-  static policy doesn't pass validation, the operation fails and the update isn't
-  stored.
-
-    
-  When you edit a static policy, you can change only certain elements of a static
-  policy:
-
-      
-  The action referenced by the policy.
-
-      
-  A condition clause, such as when and unless.
-
-  You can't change these elements of a static policy:
-
-      
-  Changing a policy from a static policy to a template-linked
-  policy.
-
-      
-  Changing the effect of a static policy from permit or forbid.
-
-      
-  The principal referenced by a static policy.
-
-      
-  The resource referenced by a static policy.
-
-    
-  To update a template-linked policy, you must update the template instead.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  policy causes Verified Permissions to validate the policy against the schema
+  in the policy store. If the updated static policy doesn't pass validation, the
+  operation fails and the update isn't stored. When you edit a static policy,
+  you can change only certain elements of a static policy: The action referenced
+  by the policy. A condition clause, such as when and unless. You can't change
+  these elements of a static policy: Changing a policy from a static policy to a
+  template-linked policy. Changing the effect of a static policy from permit or
+  forbid. The principal referenced by a static policy. The resource referenced
+  by a static policy. To update a template-linked policy, you must update the
+  template instead.
   """
   @spec update_policy(AWS.Client.t(), update_policy_input(), Keyword.t()) ::
           {:ok, update_policy_output(), any()}
@@ -2012,12 +1760,6 @@ defmodule AWS.VerifiedPermissions do
 
   @doc """
   Modifies the validation setting for a policy store.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
   """
   @spec update_policy_store(AWS.Client.t(), update_policy_store_input(), Keyword.t()) ::
           {:ok, update_policy_store_output(), any()}
@@ -2031,22 +1773,12 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Updates the specified policy template.
-
-  You can update only the description and the some elements
-  of the
-  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody). 
+  Updates the specified policy template. You can update only the description and
+  the some elements of the
+  [policyBody](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody).
   Changes you make to the policy template content are immediately (within the
-  constraints of
-  eventual consistency) reflected in authorization decisions that involve all
-  template-linked policies
-  instantiated from this template.
-
-  Verified Permissions is *
-  [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
-  *. It can take a few seconds for a new or changed element to propagate through
-  the service and be visible in the results of other Verified Permissions
-  operations.
+  constraints of eventual consistency) reflected in authorization decisions that
+  involve all template-linked policies instantiated from this template.
   """
   @spec update_policy_template(AWS.Client.t(), update_policy_template_input(), Keyword.t()) ::
           {:ok, update_policy_template_output(), any()}

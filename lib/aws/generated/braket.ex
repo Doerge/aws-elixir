@@ -4,14 +4,7 @@
 defmodule AWS.Braket do
   @moduledoc """
   The Amazon Braket API Reference provides information about the operations and
-  structures
-  supported in Amazon Braket.
-
-  Additional Resources:
-
-    *
-
-  [Amazon Braket Developer Guide](https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.html)
+  structures supported in Amazon Braket. Additional Resources:
   """
 
   alias AWS.Client
@@ -850,7 +843,9 @@ defmodule AWS.Braket do
   @doc """
   Cancels an Amazon Braket job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_arn` (`t:string`) The ARN of the Amazon Braket job to cancel.
 
   ## Optional parameters:
@@ -873,7 +868,9 @@ defmodule AWS.Braket do
   @doc """
   Cancels the specified task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CancelQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:quantum_task_arn` (`t:string`) The ARN of the task to cancel.
 
   ## Optional parameters:
@@ -901,7 +898,9 @@ defmodule AWS.Braket do
   @doc """
   Creates an Amazon Braket job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -933,7 +932,9 @@ defmodule AWS.Braket do
   @doc """
   Creates a quantum task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -965,20 +966,9 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the devices available in Amazon Braket.
 
-  For backwards compatibility with older versions of BraketSchemas, OpenQASM
-  information is omitted from GetDevice API calls. To get this information the
-  user-agent
-  needs to present a recent version of the BraketSchemas (1.8.0 or later). The
-  Braket SDK
-  automatically reports this for you. If you do not see OpenQASM results in the
-  GetDevice
-  response when using a Braket SDK, you may need to set AWS_EXECUTION_ENV
-  environment
-  variable to configure user-agent. See the code examples provided below for how
-  to do
-  this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript SDKs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetDevice&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:device_arn` (`t:string`) The ARN of the device to retrieve.
 
   ## Optional parameters:
@@ -1006,11 +996,15 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified Amazon Braket job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_arn` (`t:string`) The ARN of the job to retrieve.
 
   ## Optional parameters:
-  * `:additional_attribute_names` (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of attributes to return information for.
+  * `:additional_attribute_names`
+    (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of
+    attributes to return information for.
   """
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
@@ -1044,11 +1038,15 @@ defmodule AWS.Braket do
   @doc """
   Retrieves the specified quantum task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20GetQuantumTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:quantum_task_arn` (`t:string`) The ARN of the task to retrieve.
 
   ## Optional parameters:
-  * `:additional_attribute_names` (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list of attributes to return information for.
+  * `:additional_attribute_names`
+    (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list
+    of attributes to return information for.
   """
   @spec get_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_quantum_task_response(), any()}
@@ -1082,8 +1080,11 @@ defmodule AWS.Braket do
   @doc """
   Shows the tags associated with this resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> for the resource whose tags to display.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn for the resource whose tags to
+    display.
 
   ## Optional parameters:
   """
@@ -1110,7 +1111,9 @@ defmodule AWS.Braket do
   @doc """
   Searches for devices using the specified filters.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchDevices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1142,7 +1145,9 @@ defmodule AWS.Braket do
   @doc """
   Searches for Amazon Braket jobs that match the specified filter values.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1174,7 +1179,9 @@ defmodule AWS.Braket do
   @doc """
   Searches for tasks that match the specified filter values.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchQuantumTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1206,9 +1213,11 @@ defmodule AWS.Braket do
   @doc """
   Add a tag to the specified resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> of the resource to which a tag will be
-         added.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn of the resource to which a tag
+    will be added.
 
   ## Optional parameters:
   """
@@ -1240,12 +1249,15 @@ defmodule AWS.Braket do
   @doc """
   Remove tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:`) Specify the <code>resourceArn</code> for the resource from which to remove the
-         tags.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:`) Specify the resourceArn for the resource from which to
+    remove the tags.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[smithy.api#String]`) Specify the keys for the tags to remove from the resource.
+  * `:tag_keys` (`t:list[smithy.api#String]`) Specify the keys for the tags to
+    remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

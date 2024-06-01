@@ -3,27 +3,10 @@
 
 defmodule AWS.EntityResolution do
   @moduledoc """
-  Welcome to the *Entity Resolution API Reference*.
-
-  Entity Resolution is an Amazon Web Services service that provides pre-configured
-  entity
-  resolution capabilities that enable developers and analysts at advertising and
-  marketing
+  Welcome to the *Entity Resolution API Reference*. Entity Resolution is an Amazon
+  Web Services service that provides pre-configured entity resolution
+  capabilities that enable developers and analysts at advertising and marketing
   companies to build an accurate and complete view of their consumers.
-
-  With Entity Resolution, you can match source records containing consumer
-  identifiers,
-  such as name, email address, and phone number. This is true even when these
-  records have
-  incomplete or conflicting identifiers. For example, Entity Resolution can
-  effectively match
-  a source record from a customer relationship management (CRM) system with a
-  source record
-  from a marketing system containing campaign information.
-
-  To learn more about Entity Resolution concepts, procedures, and best practices,
-  see the
-  [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
   """
 
   alias AWS.Client
@@ -1769,16 +1752,16 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Adds a policy statement object.
+  Adds a policy statement object. To retrieve a list of existing policy
+  statements, use the `GetPolicy` API.
 
-  To retrieve a list of existing policy statements, use
-  the `GetPolicy` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20AddPolicyStatement&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that will be accessed by the
-         principal.
-  * `:statement_id` (`t:string`) A statement identifier that differentiates the statement from others in the same
-         policy.
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource that will
+    be accessed by the principal.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the
+    statement from others in the same policy.
 
   ## Optional parameters:
   """
@@ -1816,12 +1799,16 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes multiple unique IDs in a matching workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20BatchDeleteUniqueId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
-  * `:input_source` (`t:`) The input source for the batch delete unique ID operation.
-  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]`) The unique IDs to delete.
+  * `:input_source` (`t:`) The input source for the batch delete unique ID
+    operation.
+  * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]`) The unique
+    IDs to delete.
   """
   @spec batch_delete_unique_id(
           AWS.Client.t(),
@@ -1861,14 +1848,13 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates an `IdMappingWorkflow` object which stores the configuration of the
-  data processing job to be run.
+  Creates an `IdMappingWorkflow` object which stores the configuration of the data
+  processing job to be run. Each `IdMappingWorkflow` must have a unique workflow
+  name. To modify an existing workflow, use the `UpdateIdMappingWorkflow` API.
 
-  Each `IdMappingWorkflow` must have a unique
-  workflow name. To modify an existing workflow, use the `UpdateIdMappingWorkflow`
-  API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1903,13 +1889,13 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Creates an ID namespace object which will help customers provide metadata
-  explaining
-  their dataset and how to use it.
+  explaining their dataset and how to use it. Each ID namespace must have a
+  unique name. To modify an existing ID namespace, use the `UpdateIdNamespace`
+  API.
 
-  Each ID namespace must have a unique name. To modify an
-  existing ID namespace, use the `UpdateIdNamespace` API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdNamespace&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1939,14 +1925,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates a `MatchingWorkflow` object which stores the configuration of the
-  data processing job to be run.
-
-  It is important to note that there should not be a
+  Creates a `MatchingWorkflow` object which stores the configuration of the data
+  processing job to be run. It is important to note that there should not be a
   pre-existing `MatchingWorkflow` with the same name. To modify an existing
   workflow, utilize the `UpdateMatchingWorkflow` API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -1977,12 +1963,13 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Creates a schema mapping, which defines the schema of the input customer records
-  table.
+  table. The `SchemaMapping` also provides Entity Resolution with some metadata
+  about the table, such as the attribute types of the columns and which columns
+  to match on.
 
-  The `SchemaMapping` also provides Entity Resolution with some metadata about the
-  table, such as the attribute types of the columns and which columns to match on.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateSchemaMapping&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -2012,12 +1999,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `IdMappingWorkflow` with a given name.
+  Deletes the `IdMappingWorkflow` with a given name. This operation will succeed
+  even if a workflow with the given name does not exist.
 
-  This operation will
-  succeed even if a workflow with the given name does not exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow to be deleted.
 
   ## Optional parameters:
@@ -2055,7 +2042,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `IdNamespace` with a given name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
@@ -2086,12 +2075,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `MatchingWorkflow` with a given name.
-
-  This operation will succeed
+  Deletes the `MatchingWorkflow` with a given name. This operation will succeed
   even if a workflow with the given name does not exist.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
@@ -2129,10 +2118,13 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the policy statement.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The ARN of the resource for which the policy need to be deleted.
-  * `:statement_id` (`t:string`) A statement identifier that differentiates the statement from others in the same
-         policy.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeletePolicyStatement&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The ARN of the resource for which the policy need to be
+    deleted.
+  * `:statement_id` (`t:string`) A statement identifier that differentiates the
+    statement from others in the same policy.
 
   ## Optional parameters:
   """
@@ -2168,15 +2160,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Deletes the `SchemaMapping` with a given name.
-
-  This operation will succeed
-  even if a schema with the given name does not exist. This operation will fail if
-  there is a
-  `MatchingWorkflow` object that references the `SchemaMapping` in
+  Deletes the `SchemaMapping` with a given name. This operation will succeed even
+  if a schema with the given name does not exist. This operation will fail if
+  there is a `MatchingWorkflow` object that references the `SchemaMapping` in
   the workflow's `InputSourceConfig`.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20DeleteSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:schema_name` (`t:string`) The name of the schema to delete.
 
   ## Optional parameters:
@@ -2213,10 +2204,11 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job.
   * `:workflow_name` (`t:string`) The name of the workflow.
 
@@ -2246,7 +2238,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `IdMappingWorkflow` with a given name, if it exists.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdMappingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
@@ -2274,7 +2268,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `IdNamespace` with a given name, if it exists.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
@@ -2303,7 +2299,9 @@ defmodule AWS.EntityResolution do
   Returns the corresponding Match ID of a customer record if the record has been
   processed.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchId&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
@@ -2335,10 +2333,11 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  a job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job.
   * `:workflow_name` (`t:string`) The name of the workflow.
 
@@ -2368,7 +2367,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `MatchingWorkflow` with a given name, if it exists.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetMatchingWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
@@ -2396,9 +2397,11 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the resource-based policy.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which the policy need to be
-         returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
+    the policy need to be returned.
 
   ## Optional parameters:
   """
@@ -2425,9 +2428,13 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `ProviderService` of a given name.
 
-  ## Required positional parameters:
-  * `:provider_name` (`t:string`) The name of the provider. This name is typically the company name.
-  * `:provider_service_name` (`t:string`) The ARN (Amazon Resource Name) of the product that the provider service provides.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetProviderService&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically
+    the company name.
+  * `:provider_service_name` (`t:string`) The ARN (Amazon Resource Name) of the
+    product that the provider service provides.
 
   ## Optional parameters:
   """
@@ -2460,7 +2467,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the SchemaMapping of a given name.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20GetSchemaMapping&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:schema_name` (`t:string`) The name of the schema to be retrieved.
 
   ## Optional parameters:
@@ -2488,7 +2497,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Lists all ID mapping jobs for a given workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
@@ -2537,7 +2548,9 @@ defmodule AWS.EntityResolution do
   Returns a list of all the `IdMappingWorkflows` that have been created for an
   Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of objects returned per page.
@@ -2584,10 +2597,13 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns a list of all ID namespaces.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdNamespaces&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of <code>IdNamespace</code> objects returned per page.
+  * `:max_results` (`t:`) The maximum number of IdNamespace objects returned per
+    page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_id_namespaces(AWS.Client.t(), Keyword.t()) ::
@@ -2631,7 +2647,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Lists all jobs for a given workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
@@ -2680,7 +2698,9 @@ defmodule AWS.EntityResolution do
   Returns a list of all the `MatchingWorkflows` that have been created for an
   Amazon Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of objects returned per page.
@@ -2725,15 +2745,18 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `ProviderServices` that are available in this
-  Amazon Web Services Region.
+  Returns a list of all the `ProviderServices` that are available in this Amazon
+  Web Services Region.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListProviderServices&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
-  * `:provider_name` (`t:string`) The name of the provider. This name is typically the company name.
+  * `:provider_name` (`t:string`) The name of the provider. This name is typically
+    the company name.
   """
   @spec list_provider_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provider_services_output(), any()}
@@ -2783,10 +2806,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `SchemaMappings` that have been created for an
-  Amazon Web Services account.
+  Returns a list of all the `SchemaMappings` that have been created for an Amazon
+  Web Services account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListSchemaMappings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:`) The maximum number of objects returned per page.
@@ -2831,13 +2856,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Displays the tags associated with an Entity Resolution resource.
+  Displays the tags associated with an Entity Resolution resource. In Entity
+  Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
 
-  In Entity Resolution,
-  `SchemaMapping`, and `MatchingWorkflow` can be tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    view tags.
 
   ## Optional parameters:
   """
@@ -2864,9 +2890,11 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates the resource-based policy.
 
-  ## Required positional parameters:
-  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which the policy needs to be
-         updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20PutPolicy&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:arn` (`t:string`) The Amazon Resource Name (ARN) of the resource for which
+    the policy needs to be updated.
 
   ## Optional parameters:
   """
@@ -2886,12 +2914,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Starts the `IdMappingJob` of a workflow.
+  Starts the `IdMappingJob` of a workflow. The workflow must have previously been
+  created using the `CreateIdMappingWorkflow` endpoint.
 
-  The workflow must have previously
-  been created using the `CreateIdMappingWorkflow` endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartIdMappingJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the ID mapping job to be retrieved.
 
   ## Optional parameters:
@@ -2927,12 +2955,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Starts the `MatchingJob` of a workflow.
+  Starts the `MatchingJob` of a workflow. The workflow must have previously been
+  created using the `CreateMatchingWorkflow` endpoint.
 
-  The workflow must have previously
-  been created using the `CreateMatchingWorkflow` endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20StartMatchingJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the matching job to be retrieved.
 
   ## Optional parameters:
@@ -2964,25 +2992,22 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Assigns one or more tags (key-value pairs) to the specified Entity Resolution
-  resource.
+  resource. Tags can help you organize and categorize your resources. You can
+  also use them to scope user permissions by granting a user permission to
+  access or change only resources with certain tag values. In Entity Resolution,
+  `SchemaMapping` and `MatchingWorkflow` can be tagged. Tags don't have any
+  semantic meaning to Amazon Web Services and are interpreted strictly as
+  strings of characters. You can use the `TagResource` action with a resource
+  that already has tags. If you specify a new tag key, this tag is appended to
+  the list of tags associated with the resource. If you specify a tag key that
+  is already associated with the resource, the new tag value that you specify
+  replaces the previous value for that tag.
 
-  Tags can help you organize and categorize your resources. You can also use them
-  to scope
-  user permissions by granting a user permission to access or change only
-  resources with
-  certain tag values. In Entity Resolution, `SchemaMapping` and
-  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to
-  Amazon Web Services and are interpreted strictly as strings of characters. You
-  can use
-  the `TagResource` action with a resource that already has tags. If you specify a
-  new tag key, this tag is appended to the list of tags associated with the
-  resource. If you
-  specify a tag key that is already associated with the resource, the new tag
-  value that you
-  specify replaces the previous value for that tag.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20TagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to view tags.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    view tags.
 
   ## Optional parameters:
   """
@@ -3012,16 +3037,18 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Removes one or more tags from the specified Entity Resolution resource.
+  Removes one or more tags from the specified Entity Resolution resource. In
+  Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
 
-  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be
-  tagged.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to untag.
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The ARN of the resource for which you want to
+    untag.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]`) The list of tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]`) The list of tag
+    keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_input(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -3054,14 +3081,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Updates an existing `IdMappingWorkflow`.
+  Updates an existing `IdMappingWorkflow`. This method is identical to
+  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request instead of a
+  `POST` request, and the `IdMappingWorkflow` must already exist for the method
+  to succeed.
 
-  This method is identical to
-  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `IdMappingWorkflow` must already
-  exist for the method to succeed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow.
 
   ## Optional parameters:
@@ -3089,7 +3116,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing ID namespace.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateIdNamespace&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id_namespace_name` (`t:string`) The name of the ID namespace.
 
   ## Optional parameters:
@@ -3110,14 +3139,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Updates an existing `MatchingWorkflow`.
+  Updates an existing `MatchingWorkflow`. This method is identical to
+  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request instead of a
+  `POST` request, and the `MatchingWorkflow` must already exist for the method
+  to succeed.
 
-  This method is identical to
-  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `MatchingWorkflow` must already
-  exist for the method to succeed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateMatchingWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:workflow_name` (`t:string`) The name of the workflow to be retrieved.
 
   ## Optional parameters:
@@ -3145,13 +3174,11 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates a schema mapping.
 
-  A schema is immutable if it is being used by a workflow. Therefore, you can't
-  update
-  a schema mapping if it's associated with a workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20UpdateSchemaMapping&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:schema_name` (`t:string`) The name of the schema. There can&#39;t be multiple <code>SchemaMappings</code> with the
-         same name.
+  ## Parameters:
+  * `:schema_name` (`t:string`) The name of the schema. There can't be multiple
+    SchemaMappings with the same name.
 
   ## Optional parameters:
   """

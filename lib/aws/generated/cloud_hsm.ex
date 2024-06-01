@@ -4,18 +4,6 @@
 defmodule AWS.CloudHSM do
   @moduledoc """
   AWS CloudHSM Service
-
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
 
   alias AWS.Client
@@ -680,22 +668,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
-
-  Each tag consists of a key and a value. Tag keys must be unique to each
-  resource.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Adds or
+  overwrites one or more tags for the specified AWS CloudHSM resource.
   """
   @spec add_tags_to_resource(AWS.Client.t(), add_tags_to_resource_request(), Keyword.t()) ::
           {:ok, add_tags_to_resource_response(), any()}
@@ -709,21 +693,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Creates a high-availability partition group. A high-availability partition group
-  is a
-  group of partitions that spans multiple physical HSMs.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec create_hapg(AWS.Client.t(), create_hapg_request(), Keyword.t()) ::
           {:ok, create_hapg_response(), any()}
@@ -737,30 +717,23 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Creates an uninitialized HSM instance.
-
-  There is an upfront fee charged for each HSM instance that you create with the
-  `CreateHsm` operation. If you accidentally provision an HSM and want to request
-  a
-  refund, delete the instance using the `DeleteHsm` operation, go to the [AWS Support Center](https://console.aws.amazon.com/support/home), create a new case,
-  and select
-  **Account and Billing Support**.
-
-  It can take up to 20 minutes to create and provision an HSM. You can monitor the
-  status of the HSM with the `DescribeHsm` operation. The HSM is ready to be
-  initialized when the status changes to `RUNNING`.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Creates
+  an uninitialized HSM instance. There is an upfront fee charged for each HSM
+  instance that you create with the `CreateHsm` operation. If you accidentally
+  provision an HSM and want to request a refund, delete the instance using the
+  `DeleteHsm` operation, go to the [AWS Support
+  Center](https://console.aws.amazon.com/support/home), create a new case, and
+  select **Account and Billing Support**.
   """
   @spec create_hsm(AWS.Client.t(), create_hsm_request(), Keyword.t()) ::
           {:ok, create_hsm_response(), any()}
@@ -774,19 +747,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Creates an HSM client.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec create_luna_client(AWS.Client.t(), create_luna_client_request(), Keyword.t()) ::
           {:ok, create_luna_client_response(), any()}
@@ -800,19 +771,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Deletes a high-availability partition group.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec delete_hapg(AWS.Client.t(), delete_hapg_request(), Keyword.t()) ::
           {:ok, delete_hapg_response(), any()}
@@ -826,21 +795,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Deletes an HSM. After completion, this operation cannot be undone and your key
-  material
-  cannot be recovered.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec delete_hsm(AWS.Client.t(), delete_hsm_request(), Keyword.t()) ::
           {:ok, delete_hsm_response(), any()}
@@ -854,19 +819,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Deletes a client.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec delete_luna_client(AWS.Client.t(), delete_luna_client_request(), Keyword.t()) ::
           {:ok, delete_luna_client_response(), any()}
@@ -880,19 +843,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Retrieves information about a high-availability partition group.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec describe_hapg(AWS.Client.t(), describe_hapg_request(), Keyword.t()) ::
           {:ok, describe_hapg_response(), any()}
@@ -906,21 +867,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Retrieves information about an HSM. You can identify the HSM by its ARN or its
-  serial
-  number.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec describe_hsm(AWS.Client.t(), describe_hsm_request(), Keyword.t()) ::
           {:ok, describe_hsm_response(), any()}
@@ -934,19 +891,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Retrieves information about an HSM client.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec describe_luna_client(AWS.Client.t(), describe_luna_client_request(), Keyword.t()) ::
           {:ok, describe_luna_client_response(), any()}
@@ -960,21 +915,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Gets the configuration files necessary to connect to all high availability
-  partition
-  groups the client is associated with.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec get_config(AWS.Client.t(), get_config_request(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
@@ -988,19 +939,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Lists the Availability Zones that have available AWS CloudHSM capacity.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec list_available_zones(AWS.Client.t(), list_available_zones_request(), Keyword.t()) ::
           {:ok, list_available_zones_response(), any()}
@@ -1014,24 +963,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Lists the high-availability partition groups for the account.
-
-  This operation supports pagination with the use of the `NextToken` member.
-  If more results are available, the `NextToken` member of the response contains a
-  token that you pass in the next call to `ListHapgs` to retrieve the next set of
-  items.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Lists
+  the high-availability partition groups for the account.
   """
   @spec list_hapgs(AWS.Client.t(), list_hapgs_request(), Keyword.t()) ::
           {:ok, list_hapgs_response(), any()}
@@ -1045,25 +988,19 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Retrieves the identifiers of all of the HSMs provisioned for the current
   customer.
-
-  This operation supports pagination with the use of the `NextToken` member.
-  If more results are available, the `NextToken` member of the response contains a
-  token that you pass in the next call to `ListHsms` to retrieve the next set of
-  items.
   """
   @spec list_hsms(AWS.Client.t(), list_hsms_request(), Keyword.t()) ::
           {:ok, list_hsms_response(), any()}
@@ -1077,25 +1014,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Lists all of the clients.
-
-  This operation supports pagination with the use of the `NextToken` member.
-  If more results are available, the `NextToken` member of the response contains a
-  token that you pass in the next call to `ListLunaClients` to retrieve the next
-  set
-  of items.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Lists
+  all of the clients.
   """
   @spec list_luna_clients(AWS.Client.t(), list_luna_clients_request(), Keyword.t()) ::
           {:ok, list_luna_clients_response(), any()}
@@ -1109,19 +1039,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Returns a list of all tags for the specified AWS CloudHSM resource.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec list_tags_for_resource(AWS.Client.t(), list_tags_for_resource_request(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1135,19 +1063,17 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Modifies an existing high-availability partition group.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   """
   @spec modify_hapg(AWS.Client.t(), modify_hapg_request(), Keyword.t()) ::
           {:ok, modify_hapg_response(), any()}
@@ -1161,27 +1087,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Modifies an HSM.
-
-  This operation can result in the HSM being offline for up to 15 minutes while
-  the AWS
-  CloudHSM service is reconfigured. If you are modifying a production HSM, you
-  should ensure
-  that your AWS CloudHSM service is configured for high availability, and consider
-  executing this
-  operation during a maintenance window.
   """
   @spec modify_hsm(AWS.Client.t(), modify_hsm_request(), Keyword.t()) ::
           {:ok, modify_hsm_response(), any()}
@@ -1195,23 +1112,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
   Modifies the certificate used by the client.
-
-  This action can potentially start a workflow to install the new certificate on
-  the
-  client's HSMs.
   """
   @spec modify_luna_client(AWS.Client.t(), modify_luna_client_request(), Keyword.t()) ::
           {:ok, modify_luna_client_response(), any()}
@@ -1225,23 +1137,18 @@ defmodule AWS.CloudHSM do
   end
 
   @doc """
-  This is documentation for **AWS CloudHSM Classic**.
-
-  For
-  more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User
-  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API
-  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
-
-  **For information about the current version of AWS
-  CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
-  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/),
-  and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
-
-  Removes one or more tags from the specified AWS CloudHSM resource.
-
-  To remove a tag, specify only the tag key to remove (not the value). To
-  overwrite the
-  value for an existing tag, use `AddTagsToResource`.
+  This is documentation for **AWS CloudHSM Classic**. For more information, see
+  [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the
+  [AWS CloudHSM Classic User
+  Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS
+  CloudHSM Classic API
+  Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/). **For
+  information about the current version of AWS CloudHSM**, see [AWS
+  CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User
+  Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS
+  CloudHSM API
+  Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/). Removes
+  one or more tags from the specified AWS CloudHSM resource.
   """
   @spec remove_tags_from_resource(
           AWS.Client.t(),

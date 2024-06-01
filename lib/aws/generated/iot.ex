@@ -3,33 +3,13 @@
 
 defmodule AWS.IoT do
   @moduledoc """
-  IoT
-
-  IoT provides secure, bi-directional communication between Internet-connected
-  devices (such as sensors, actuators, embedded devices, or smart appliances) and
-  the Amazon Web Services
-  cloud.
-
-  You can discover your custom IoT-Data endpoint to communicate with, configure
-  rules for data processing and integration with other services, organize
-  resources
-  associated with each device (Registry), configure logging, and create and manage
-  policies and credentials to authenticate devices.
-
-  The service endpoints that expose this API are listed in
-  [Amazon Web Services IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html).
-  You must use the endpoint for the region that has the resources you want to
-  access.
-
-  The service name used by [Amazon Web Services Signature Version
-  4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to
-  sign the request is:
-  *execute-api*.
-
-  For more information about how IoT works, see the [Developer Guide](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).
-
-  For information about how to use the credentials provider for IoT, see
-  [Authorizing Direct Calls to Amazon Web Services Services](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html).
+  IoT IoT provides secure, bi-directional communication between Internet-connected
+  devices (such as sensors, actuators, embedded devices, or smart appliances)
+  and the Amazon Web Services cloud. You can discover your custom IoT-Data
+  endpoint to communicate with, configure rules for data processing and
+  integration with other services, organize resources associated with each
+  device (Registry), configure logging, and create and manage policies and
+  credentials to authenticate devices.
   """
 
   alias AWS.Client
@@ -10891,21 +10871,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Accepts a pending certificate transfer.
-
-  The default state of the certificate is
-  INACTIVE.
-
-  To check for pending certificate transfers, call `ListCertificates`
+  Accepts a pending certificate transfer. The default state of the certificate is
+  INACTIVE. To check for pending certificate transfers, call `ListCertificates`
   to enumerate your certificates.
 
-  Requires permission to access the
-  [AcceptCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AcceptCertificateTransfer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
@@ -10948,11 +10922,9 @@ defmodule AWS.IoT do
   @doc """
   Adds a thing to a billing group.
 
-  Requires permission to access the
-  [AddThingToBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AddThingToBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -10978,11 +10950,9 @@ defmodule AWS.IoT do
   @doc """
   Adds a thing to a thing group.
 
-  Requires permission to access the
-  [AddThingToThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AddThingToThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -11002,29 +10972,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Associates a group with a continuous job.
+  Associates a group with a continuous job. The following criteria must be met:
 
-  The following criteria must be met:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AssociateTargetsWithJob&this_doc_guide=API%2520Reference)
 
-    *
-  The job must have been created with the `targetSelection` field set to
-  "CONTINUOUS".
-
-    *
-  The job status must currently be "IN_PROGRESS".
-
-    *
-  The total number of targets associated with a job must not exceed 100.
-
-  Requires permission to access the
-  [AssociateTargetsWithJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
   ## Optional parameters:
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec associate_targets_with_job(
           AWS.Client.t(),
@@ -11065,11 +11023,9 @@ defmodule AWS.IoT do
   Attaches the specified policy to the specified principal (certificate or other
   credential).
 
-  Requires permission to access the
-  [AttachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy to attach.
 
   ## Optional parameters:
@@ -11091,22 +11047,18 @@ defmodule AWS.IoT do
 
   @doc """
   Attaches the specified policy to the specified principal (certificate or other
-  credential).
+  credential). **Note:** This action is deprecated and works as expected for
+  backward compatibility, but we won't add enhancements. Use `AttachPolicy`
+  instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `AttachPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachPrincipalPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
-  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as returned from the CreateCertificate
-         operation) or an Amazon Cognito ID.
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as
+    returned from the CreateCertificate operation) or an Amazon Cognito ID.
   """
   @spec attach_principal_policy(
           AWS.Client.t(),
@@ -11136,20 +11088,17 @@ defmodule AWS.IoT do
 
   @doc """
   Associates a Device Defender security profile with a thing group or this
-  account.
+  account. Each thing group or account can have up to five security profiles
+  associated with it.
 
-  Each
-  thing group or account can have up to five security profiles associated with it.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachSecurityProfile&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:security_profile_name` (`t:string`) The security profile that is attached.
 
   ## Optional parameters:
-  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing group) to which the security profile is attached.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing
+    group) to which the security profile is attached.
   """
   @spec attach_security_profile(
           AWS.Client.t(),
@@ -11177,21 +11126,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Attaches the specified principal to the specified thing.
+  Attaches the specified principal to the specified thing. A principal can be
+  X.509 certificates, Amazon Cognito identities or federated identities.
 
-  A principal can be X.509
-  certificates, Amazon Cognito identities or federated identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20AttachThingPrincipal&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [AttachThingPrincipal](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as returned from the
-  	CreateCertificate operation) or an Amazon Cognito ID.
+  * `:principal` (`t:string`) The principal, which can be a certificate ARN (as
+    returned from the CreateCertificate operation) or an Amazon Cognito ID.
   """
   @spec attach_thing_principal(
           AWS.Client.t(),
@@ -11220,18 +11165,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Cancels a mitigation action task that is in progress.
+  Cancels a mitigation action task that is in progress. If the task is not in
+  progress, an InvalidRequestException occurs.
 
-  If the task
-  is not
-  in progress, an InvalidRequestException occurs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CancelAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) The unique identifier for the task that you want to cancel. 
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier for the task that you want to
+    cancel.
 
   ## Optional parameters:
   """
@@ -11256,18 +11197,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Cancels an audit that is in progress.
+  Cancels an audit that is in progress. The audit can be either scheduled or on
+  demand. If the audit isn't in progress, an "InvalidRequestException" occurs.
 
-  The audit can be either scheduled or on demand. If the audit isn't in progress,
-  an "InvalidRequestException" occurs.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelAuditTask&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CancelAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) The ID of the audit you want to cancel. You can only cancel an
-              audit that is &quot;IN_PROGRESS&quot;.
+  ## Parameters:
+  * `:task_id` (`t:string`) The ID of the audit you want to cancel. You can only
+    cancel an audit that is "IN_PROGRESS".
 
   ## Optional parameters:
   """
@@ -11287,26 +11224,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Cancels a pending transfer for the specified certificate.
+  Cancels a pending transfer for the specified certificate. **Note** Only the
+  transfer source account can use this operation to cancel a transfer. (Transfer
+  destinations can use `RejectCertificateTransfer` instead.) After transfer, IoT
+  returns the certificate to the source account in the INACTIVE state. After the
+  destination account has accepted the transfer, the transfer cannot be
+  cancelled.
 
-  **Note** Only the transfer source account can use this
-  operation to cancel a transfer. (Transfer destinations can use
-  `RejectCertificateTransfer` instead.) After transfer, IoT returns the
-  certificate to the source account in the INACTIVE state. After the destination
-  account has
-  accepted the transfer, the transfer cannot be cancelled.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelCertificateTransfer&this_doc_guide=API%2520Reference)
 
-  After a certificate transfer is cancelled, the status of the certificate changes
-  from
-  PENDING_TRANSFER to INACTIVE.
-
-  Requires permission to access the
-  [CancelCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   """
@@ -11341,17 +11270,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Cancels a Device Defender ML Detect mitigation action.
 
-  Requires permission to access the
-  [CancelDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) 
-      The unique identifier of the task.
-    
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
 
   ## Optional parameters:
   """
@@ -11378,17 +11302,16 @@ defmodule AWS.IoT do
   @doc """
   Cancels a job.
 
-  Requires permission to access the
-  [CancelJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
   ## Optional parameters:
-  * `:force` (`t:boolean`) (Optional) If <code>true</code> job executions with status &quot;IN_PROGRESS&quot; and &quot;QUEUED&quot; 
-          are canceled, otherwise only job executions with status &quot;QUEUED&quot; are canceled. The default 
-          is <code>false</code>.
+  * `:force` (`t:boolean`) (Optional) If true job executions with status
+    "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with
+    status "QUEUED" are canceled. The default is false.
   """
   @spec cancel_job(AWS.Client.t(), String.t(), cancel_job_request(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
@@ -11413,20 +11336,19 @@ defmodule AWS.IoT do
   @doc """
   Cancels the execution of a job for a given thing.
 
-  Requires permission to access the
-  [CancelJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CancelJobExecution&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job to be canceled.
-  * `:thing_name` (`t:string`) The name of the thing whose execution of the job will be canceled.
+  * `:thing_name` (`t:string`) The name of the thing whose execution of the job
+    will be canceled.
 
   ## Optional parameters:
-  * `:force` (`t:boolean`) (Optional) If <code>true</code> the job execution will be canceled if it has status 
-          IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status 
-          QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set 
-          <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> 
-          will be thrown. The default is <code>false</code>.
+  * `:force` (`t:boolean`) (Optional) If true the job execution will be canceled
+    if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be
+    canceled only if it has status QUEUED. If you attempt to cancel a job
+    execution that is IN_PROGRESS, and you do not set force to true, then an
+    InvalidStateTransitionException will be thrown. The default is false.
   """
   @spec cancel_job_execution(
           AWS.Client.t(),
@@ -11459,11 +11381,9 @@ defmodule AWS.IoT do
   @doc """
   Clears the default authorizer.
 
-  Requires permission to access the
-  [ClearDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ClearDefaultAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -11493,20 +11413,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Confirms a topic rule destination.
+  Confirms a topic rule destination. When you create a rule requiring a
+  destination, IoT sends a confirmation message to the endpoint or base address
+  you specify. The message includes a token which you pass back when calling
+  `ConfirmTopicRuleDestination` to confirm that you own or have access to the
+  endpoint.
 
-  When you create a rule requiring a destination, IoT
-  sends a confirmation message to the endpoint or base address you specify. The
-  message
-  includes a token which you pass back when calling `ConfirmTopicRuleDestination`
-  to confirm that you own or have access to the endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ConfirmTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ConfirmTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:confirmation_token` (`t:string`) The token used to confirm ownership or access to the topic rule confirmation URL.
+  ## Parameters:
+  * `:confirmation_token` (`t:string`) The token used to confirm ownership or
+    access to the topic rule confirmation URL.
 
   ## Optional parameters:
   """
@@ -11531,14 +11448,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Creates a Device Defender audit suppression.
 
-  Requires permission to access the
-  [CreateAuditSuppression](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateAuditSuppression&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -11570,11 +11484,9 @@ defmodule AWS.IoT do
   @doc """
   Creates an authorizer.
 
-  Requires permission to access the
-  [CreateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:authorizer_name` (`t:string`) The authorizer name.
 
   ## Optional parameters:
@@ -11607,12 +11519,11 @@ defmodule AWS.IoT do
   @doc """
   Creates a billing group.
 
-  Requires permission to access the
-  [CreateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:billing_group_name` (`t:string`) The name you wish to give to the billing group.
+  ## Parameters:
+  * `:billing_group_name` (`t:string`) The name you wish to give to the billing
+    group.
 
   ## Optional parameters:
   """
@@ -11647,72 +11558,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an X.509 certificate using the specified certificate signing
-  request.
-
+  Creates an X.509 certificate using the specified certificate signing request.
   Requires permission to access the
-  [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
-
-  The CSR must include a public key that is either an RSA key with a length of at
-  least
-  2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For
-  supported
-  certificates, consult [ Certificate signing algorithms supported by
+  [CreateCertificateFromCsr](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action. The CSR must include a public key that is either an RSA key with a
+  length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or
+  NIST P-521 curves. For supported certificates, consult [ Certificate signing
+  algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
-  Reusing the same certificate signing request (CSR)
-  results in a distinct certificate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCertificateFromCsr&this_doc_guide=API%2520Reference)
 
-  You can create multiple certificates in a batch by creating a directory, copying
-  multiple `.csr` files into that directory, and then specifying that directory on
-  the command
-  line. The following commands show how to create a batch of certificates given a
-  batch of
-  CSRs. In the following commands, we assume that a set of CSRs are located inside
-  of the
-  directory my-csr-directory:
-
-  On Linux and OS X, the command is:
-
-  ```
-  $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{}
-  ```
-
-  This command lists all of the CSRs in my-csr-directory and pipes each CSR file
-  name
-  to the `aws iot create-certificate-from-csr` Amazon Web Services CLI command to
-  create a certificate for
-  the corresponding CSR.
-
-  You can also run the `aws iot create-certificate-from-csr` part of the
-  command in parallel to speed up the certificate creation process:
-
-  ```
-  $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/{}
-
-  ```
-
-  On Windows PowerShell, the command to create certificates for all CSRs in
-  my-csr-directory is:
-
-  ```
-  > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
-  --certificate-signing-request file://my-csr-directory/$_}
-
-  ```
-
-  On a Windows command prompt, the command to create certificates for all CSRs in
-  my-csr-directory is:
-
-  ```
-  > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
-  --certificate-signing-request file://@path"
-
-  ```
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
@@ -11752,30 +11609,22 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an Amazon Web Services IoT Core certificate provider.
-
-  You can use Amazon Web Services IoT Core certificate provider to
-  customize how to sign a certificate signing request (CSR) in IoT fleet
-  provisioning. For
-  more information, see [Customizing certificate signing using Amazon Web Services IoT Core certificate
+  Creates an Amazon Web Services IoT Core certificate provider. You can use Amazon
+  Web Services IoT Core certificate provider to customize how to sign a
+  certificate signing request (CSR) in IoT fleet provisioning. For more
+  information, see [Customizing certificate signing using Amazon Web Services
+  IoT Core certificate
   provider](https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html)
-  from *Amazon Web Services IoT Core Developer
-  Guide*.
+  from *Amazon Web Services IoT Core Developer Guide*. Requires permission to
+  access the
+  [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
 
-  Requires permission to access the
-  [CreateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCertificateProvider&this_doc_guide=API%2520Reference)
 
-  After you create a certificate provider, the behavior of [
-  `CreateCertificateFromCsr` API for fleet
-  provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html#create-cert-csr)
-  will
-  change and all API calls to `CreateCertificateFromCsr` will invoke the
-  certificate provider to create the certificates. It can take up to a few minutes
-  for
-  this behavior to change after a certificate provider is created.
-
-  ## Required positional parameters:
-  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
 
   ## Optional parameters:
   """
@@ -11815,19 +11664,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Use this API to define a
-  Custom
-  Metric
-  published by your devices to Device Defender.
+  Use this API to define a Custom Metric published by your devices to Device
+  Defender.
 
-  Requires permission to access the
-  [CreateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateCustomMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:metric_name` (`t:string`)  The name of the custom metric. This will be used in the metric report submitted from the
-      device/thing. The name can&#39;t begin with <code>aws:</code>. You can&#39;t change the name after you
-      define it.
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric. This will be used
+    in the metric report submitted from the device/thing. The name can't begin
+    with aws:. You can't change the name after you define it.
 
   ## Optional parameters:
   """
@@ -11863,18 +11708,15 @@ defmodule AWS.IoT do
 
   @doc """
   Create a dimension that you can use to limit the scope of a metric used in a
-  security profile for IoT Device Defender.
+  security profile for IoT Device Defender. For example, using a `TOPIC_FILTER`
+  dimension, you can narrow down the scope of the metric only to MQTT topics
+  whose name match the pattern specified in the dimension.
 
-  For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of
-  the metric only to MQTT topics whose name match the pattern specified in the
-  dimension.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDimension&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+  ## Parameters:
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something
+    that describes the type and value to make it easy to remember what it does.
 
   ## Optional parameters:
   """
@@ -11906,12 +11748,11 @@ defmodule AWS.IoT do
   @doc """
   Creates a domain configuration.
 
-  Requires permission to access the
-  [CreateDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDomainConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_configuration_name` (`t:string`) The name of the domain configuration. This value must be unique to a region.
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain
+    configuration. This value must be unique to a region.
 
   ## Optional parameters:
   """
@@ -11953,11 +11794,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a dynamic thing group.
 
-  Requires permission to access the
-  [CreateDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateDynamicThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The dynamic thing group name to create.
 
   ## Optional parameters:
@@ -11995,11 +11834,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a fleet metric.
 
-  Requires permission to access the
-  [CreateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateFleetMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:metric_name` (`t:string`) The name of the fleet metric to create.
 
   ## Optional parameters:
@@ -12027,13 +11864,12 @@ defmodule AWS.IoT do
   @doc """
   Creates a job.
 
-  Requires permission to access the
-  [CreateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
-            characters, &quot;-&quot; and &quot;_&quot; are valid for use here.
+  ## Parameters:
+  * `:job_id` (`t:string`) A job identifier which must be unique for your Amazon
+    Web Services account. We recommend using a UUID. Alpha-numeric characters,
+    "-" and "_" are valid for use here.
 
   ## Optional parameters:
   """
@@ -12055,13 +11891,12 @@ defmodule AWS.IoT do
   @doc """
   Creates a job template.
 
-  Requires permission to access the
-  [CreateJobTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateJobTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_template_id` (`t:string`) A unique identifier for the job template. We recommend using a UUID. Alpha-numeric 
-        characters, &quot;-&quot;, and &quot;_&quot; are valid for use here.
+  ## Parameters:
+  * `:job_template_id` (`t:string`) A unique identifier for the job template. We
+    recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for
+    use here.
 
   ## Optional parameters:
   """
@@ -12087,19 +11922,15 @@ defmodule AWS.IoT do
 
   @doc """
   Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
-  public key.
+  public key. You can also call `CreateKeysAndCertificate` over MQTT from a
+  device, for more information, see [Provisioning MQTT
+  API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  **Note** This is the only time IoT issues the private key for this
+  certificate, so it is important to keep it in a secure location.
 
-  You can also call `CreateKeysAndCertificate` over MQTT from a
-  device, for more information, see [Provisioning MQTT API](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateKeysAndCertificate&this_doc_guide=API%2520Reference)
 
-  **Note** This is the only time IoT issues the private key
-  for this certificate, so it is important to keep it in a secure location.
-
-  Requires permission to access the
-  [CreateKeysAndCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:set_as_active` (`t:boolean`) Specifies whether the certificate is active.
@@ -12140,18 +11971,20 @@ defmodule AWS.IoT do
 
   @doc """
   Defines an action that can be applied to audit findings by using
-  StartAuditMitigationActionsTask.
-
-  Only certain types of mitigation actions can be applied to specific check names.
-  For more information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
-  Each mitigation action can apply only one type of change.
-
-  Requires permission to access the
+  StartAuditMitigationActionsTask. Only certain types of mitigation actions can
+  be applied to specific check names. For more information, see [Mitigation
+  actions](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html).
+  Each mitigation action can apply only one type of change. Requires permission
+  to access the
   [CreateMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  ## Required positional parameters:
-  * `:action_name` (`t:string`) A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateMitigationAction&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:action_name` (`t:string`) A friendly name for the action. Choose a friendly
+    name that accurately describes the action (for example,
+    EnableLoggingAction).
 
   ## Optional parameters:
   """
@@ -12188,11 +12021,9 @@ defmodule AWS.IoT do
   @doc """
   Creates an IoT OTA update on a target group of things or groups.
 
-  Requires permission to access the
-  [CreateOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateOTAUpdate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:ota_update_id` (`t:string`) The ID of the OTA update to be created.
 
   ## Optional parameters:
@@ -12225,17 +12056,15 @@ defmodule AWS.IoT do
   @doc """
   Creates an IoT software package that can be deployed to your fleet.
 
-  Requires permission to access the
-  [CreatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the new software package.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec create_package(AWS.Client.t(), String.t(), create_package_request(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
@@ -12260,18 +12089,16 @@ defmodule AWS.IoT do
   @doc """
   Creates a new version for an existing IoT software package.
 
-  Requires permission to access the
-  [CreatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePackageVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the associated software package.
   * `:version_name` (`t:string`) The name of the new package version.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec create_package_version(
           AWS.Client.t(),
@@ -12302,18 +12129,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates an IoT policy.
+  Creates an IoT policy. The created policy is the default version for the policy.
+  This operation creates a policy version with a version identifier of **1** and
+  sets **1** as the policy's default version.
 
-  The created policy is the default version for the policy. This operation creates
-  a
-  policy version with a version identifier of **1** and sets
-  **1** as the policy's default version.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreatePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
@@ -12344,30 +12166,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a new version of the specified IoT policy.
+  Creates a new version of the specified IoT policy. To update a policy, create a
+  new policy version. A managed policy can have up to five versions. If the
+  policy has five versions, you must use `DeletePolicyVersion` to delete an
+  existing version before you create a new one. Optionally, you can set the new
+  version as the policy's default version. The default version is the operative
+  version (that is, the version that is in effect for the certificates to which
+  the policy is attached).
 
-  To update a policy, create a
-  new policy version. A managed policy can have up to five versions. If the policy
-  has five
-  versions, you must use `DeletePolicyVersion` to delete an existing version
-  before you create a new one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreatePolicyVersion&this_doc_guide=API%2520Reference)
 
-  Optionally, you can set the new version as the policy's default version. The
-  default
-  version is the operative version (that is, the version that is in effect for the
-  certificates to which the policy is attached).
-
-  Requires permission to access the
-  [CreatePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
-  * `:set_as_default` (`t:boolean`) Specifies whether the policy version is set as the default. When this parameter is
-         true, the new policy version becomes the operative version (that is, the version that is in
-         effect for the certificates to which the policy is attached).
+  * `:set_as_default` (`t:boolean`) Specifies whether the policy version is set as
+    the default. When this parameter is true, the new policy version becomes the
+    operative version (that is, the version that is in effect for the
+    certificates to which the policy is attached).
   """
   @spec create_policy_version(
           AWS.Client.t(),
@@ -12407,11 +12223,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a provisioning claim.
 
-  Requires permission to access the
-  [CreateProvisioningClaim](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningClaim&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the provisioning template to use.
 
   ## Optional parameters:
@@ -12449,11 +12263,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a provisioning template.
 
-  Requires permission to access the
-  [CreateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12489,15 +12301,14 @@ defmodule AWS.IoT do
   @doc """
   Creates a new version of a provisioning template.
 
-  Requires permission to access the
-  [CreateProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
-  * `:set_as_default` (`t:boolean`) Sets a fleet provision template version as the default version.
+  * `:set_as_default` (`t:boolean`) Sets a fleet provision template version as the
+    default version.
   """
   @spec create_provisioning_template_version(
           AWS.Client.t(),
@@ -12542,13 +12353,11 @@ defmodule AWS.IoT do
   @doc """
   Creates a role alias.
 
-  Requires permission to access the
-  [CreateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateRoleAlias&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:role_alias` (`t:string`) The role alias that points to a role ARN. This allows you to change the role without
-         having to update the device.
+  ## Parameters:
+  * `:role_alias` (`t:string`) The role alias that points to a role ARN. This
+    allows you to change the role without having to update the device.
 
   ## Optional parameters:
   """
@@ -12578,15 +12387,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a scheduled audit that is run at a specified
-  time interval.
+  Creates a scheduled audit that is run at a specified time interval.
 
-  Requires permission to access the
-  [CreateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateScheduledAudit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:scheduled_audit_name` (`t:string`) The name you want to give to the scheduled audit. (Max. 128 chars)
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name you want to give to the
+    scheduled audit. (Max. 128 chars)
 
   ## Optional parameters:
   """
@@ -12623,12 +12430,11 @@ defmodule AWS.IoT do
   @doc """
   Creates a Device Defender security profile.
 
-  Requires permission to access the
-  [CreateSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:security_profile_name` (`t:string`) The name you are giving to the security profile.
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name you are giving to the security
+    profile.
 
   ## Optional parameters:
   """
@@ -12663,18 +12469,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a stream for delivering one or more large files in chunks over MQTT.
+  Creates a stream for delivering one or more large files in chunks over MQTT. A
+  stream transports data bytes in chunks or blocks packaged as MQTT messages
+  from a source like S3. You can have one or more files associated with a
+  stream.
 
-  A stream transports data
-  bytes in chunks or blocks packaged as MQTT messages from a source like S3. You
-  can have one or more files
-  associated with a stream.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateStream&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
@@ -12705,23 +12507,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a thing record in the registry.
-
-  If this call is made multiple times using
-  the same thing name and configuration, the call will succeed. If this call is
-  made with
-  the same thing name but different configuration a
+  Creates a thing record in the registry. If this call is made multiple times
+  using the same thing name and configuration, the call will succeed. If this
+  call is made with the same thing name but different configuration a
   `ResourceAlreadyExistsException` is thrown.
 
-  This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
-  information about authorizing control plane actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThing&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing to create.
 
   ## Optional parameters:
@@ -12754,18 +12547,9 @@ defmodule AWS.IoT do
   @doc """
   Create a thing group.
 
-  This is a control plane operation. See
-  [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html) for
-  information about authorizing control plane actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThingGroup&this_doc_guide=API%2520Reference)
 
-  If the `ThingGroup` that you create has the exact same attributes as an existing
-  `ThingGroup`, you will get a 200 success response.
-
-  Requires permission to access the
-  [CreateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The thing group name to create.
 
   ## Optional parameters:
@@ -12798,11 +12582,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a new thing type.
 
-  Requires permission to access the
-  [CreateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateThingType&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
@@ -12833,16 +12615,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a rule.
+  Creates a rule. Creating rules is an administrator-level action. Any user who
+  has permission to create rules will be able to access data processed by the
+  rule.
 
-  Creating rules is an administrator-level action. Any user who has
-  permission to create rules will be able to access data processed by the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateTopicRule&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
@@ -12880,15 +12659,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Creates a topic rule destination.
+  Creates a topic rule destination. The destination must be confirmed prior to
+  use.
 
-  The destination must be confirmed prior to use.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20CreateTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [CreateTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -12922,20 +12698,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Restores the default settings for Device Defender audits for this account.
-
-  Any
+  Restores the default settings for Device Defender audits for this account. Any
   configuration data you entered is deleted and all audit checks are reset to
   disabled.
 
-  Requires permission to access the
-  [DeleteAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAccountAuditConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:delete_scheduled_audits` (`t:boolean`) If true, all scheduled audits are deleted.
+  * `:delete_scheduled_audits` (`t:boolean`) If true, all scheduled audits are
+    deleted.
   """
   @spec delete_account_audit_configuration(
           AWS.Client.t(),
@@ -12972,14 +12745,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Deletes a Device Defender audit suppression.
 
-  Requires permission to access the
-  [DeleteAuditSuppression](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAuditSuppression&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -13011,11 +12781,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes an authorizer.
 
-  Requires permission to access the
-  [DeleteAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:authorizer_name` (`t:string`) The name of the authorizer to delete.
 
   ## Optional parameters:
@@ -13048,18 +12816,16 @@ defmodule AWS.IoT do
   @doc """
   Deletes the billing group.
 
-  Requires permission to access the
-  [DeleteBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the billing group. If the version of the billing group does
-  	not match the expected version specified in the request, the
-  		<code>DeleteBillingGroup</code> request is rejected with a
-  		<code>VersionConflictException</code>.
+  * `:expected_version` (`t:long`) The expected version of the billing group. If
+    the version of the billing group does not match the expected version
+    specified in the request, the DeleteBillingGroup request is rejected with a
+    VersionConflictException.
   """
   @spec delete_billing_group(
           AWS.Client.t(),
@@ -13099,13 +12865,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a registered CA certificate.
 
-  Requires permission to access the
-  [DeleteCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCACertificate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate to delete. (The last part of the certificate ARN contains
-         the certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate to delete. (The last
+    part of the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   """
@@ -13140,26 +12904,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified certificate.
+  Deletes the specified certificate. A certificate cannot be deleted if it has a
+  policy or IoT thing attached to it or if its status is set to ACTIVE. To
+  delete a certificate, first use the `DetachPolicy` action to detach all
+  policies. Next, use the `UpdateCertificate` action to set the certificate to
+  the INACTIVE status.
 
-  A certificate cannot be deleted if it has a policy or IoT thing attached to it
-  or if
-  its status is set to ACTIVE. To delete a certificate, first use the
-  `DetachPolicy` action to detach all policies. Next, use the `UpdateCertificate`
-  action to set the certificate to the INACTIVE
-  status.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCertificate&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
-  * `:force_delete` (`t:boolean`) Forces the deletion of a certificate if it is inactive and is not attached to an IoT
-         thing.
+  * `:force_delete` (`t:boolean`) Forces the deletion of a certificate if it is
+    inactive and is not attached to an IoT thing.
   """
   @spec delete_certificate(AWS.Client.t(), String.t(), delete_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -13192,18 +12951,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a certificate provider.
-
-  Requires permission to access the
+  Deletes a certificate provider. Requires permission to access the
   [DeleteCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  If you delete the certificate provider resource, the behavior of
-  `CreateCertificateFromCsr` will resume, and IoT will create
-  certificates signed by IoT from a certificate signing request (CSR).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCertificateProvider&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
 
   ## Optional parameters:
   """
@@ -13243,25 +12999,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Deletes a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [DeleteCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteCustomMetric&this_doc_guide=API%2520Reference)
 
-  Before you can delete a custom metric, you must first remove the custom metric
-  from all
-  security profiles it's a part of.
-  The
-  security
-  profile associated with the custom metric can be found using the
-  [ListSecurityProfiles](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html)
-  API with `metricName` set to your custom metric name.
-
-  ## Required positional parameters:
-  * `:metric_name` (`t:string`) 
-      The name of the custom metric.
-    
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric.
 
   ## Optional parameters:
   """
@@ -13298,12 +13041,11 @@ defmodule AWS.IoT do
   @doc """
   Removes the specified dimension from your Amazon Web Services accounts.
 
-  Requires permission to access the
-  [DeleteDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDimension&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) The unique identifier for the dimension that you want to delete.
+  ## Parameters:
+  * `:name` (`t:string`) The unique identifier for the dimension that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -13335,12 +13077,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified domain configuration.
 
-  Requires permission to access the
-  [DeleteDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDomainConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_configuration_name` (`t:string`) The name of the domain configuration to be deleted.
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration
+    to be deleted.
 
   ## Optional parameters:
   """
@@ -13382,15 +13123,15 @@ defmodule AWS.IoT do
   @doc """
   Deletes a dynamic thing group.
 
-  Requires permission to access the
-  [DeleteDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteDynamicThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to delete.
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to
+    delete.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the dynamic thing group to delete.
+  * `:expected_version` (`t:long`) The expected version of the dynamic thing group
+    to delete.
   """
   @spec delete_dynamic_thing_group(
           AWS.Client.t(),
@@ -13428,20 +13169,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified fleet metric.
+  Deletes the specified fleet metric. Returns successfully with no error if the
+  deletion is successful or you specify a fleet metric that doesn't exist.
 
-  Returns successfully with no error if the deletion is successful or you specify
-  a fleet metric that doesn't exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteFleetMetric&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:metric_name` (`t:string`) The name of the fleet metric to delete.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the fleet metric to delete.
+  * `:expected_version` (`t:long`) The expected version of the fleet metric to
+    delete.
   """
   @spec delete_fleet_metric(
           AWS.Client.t(),
@@ -13479,29 +13217,24 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a job and its related job executions.
+  Deletes a job and its related job executions. Deleting a job may take time,
+  depending on the number of job executions created for the job and various
+  other factors. While the job is being deleted, the status of the job will be
+  shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose
+  status is already "DELETION_IN_PROGRESS" will result in an error.
 
-  Deleting a job may take time, depending on the number of job
-  executions created for the job and various other factors. While the job
-  is being deleted, the status of the job will be shown as
-  "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
-  is already "DELETION_IN_PROGRESS" will result in an error.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJob&this_doc_guide=API%2520Reference)
 
-  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
-  a LimitExceededException will occur.
-
-  Requires permission to access the
-  [DeleteJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job to be deleted.
 
   ## Optional parameters:
-  * `:force` (`t:boolean`) (Optional) When true, you can delete a job which is &quot;IN_PROGRESS&quot;. Otherwise, you can
-        only delete a job which is in a terminal state (&quot;COMPLETED&quot; or &quot;CANCELED&quot;) or an exception 
-        will occur. The default is false.
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job which is
+    "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal
+    state ("COMPLETED" or "CANCELED") or an exception will occur. The default is
+    false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec delete_job(AWS.Client.t(), String.t(), delete_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -13537,21 +13270,24 @@ defmodule AWS.IoT do
   @doc """
   Deletes a job execution.
 
-  Requires permission to access the
-  [DeleteJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJobExecution&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:execution_number` (`t:long`) The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the 
-        execution of a particular job on a particular device.
-  * `:job_id` (`t:string`) The ID of the job whose execution on a particular device will be deleted.
-  * `:thing_name` (`t:string`) The name of the thing whose job execution will be deleted.
+  ## Parameters:
+  * `:execution_number` (`t:long`) The ID of the job execution to be deleted. The
+    executionNumber refers to the execution of a particular job on a particular
+    device.
+  * `:job_id` (`t:string`) The ID of the job whose execution on a particular
+    device will be deleted.
+  * `:thing_name` (`t:string`) The name of the thing whose job execution will be
+    deleted.
 
   ## Optional parameters:
-  * `:force` (`t:boolean`) (Optional) When true, you can delete a job execution which is &quot;IN_PROGRESS&quot;. Otherwise, 
-        you can only delete a job execution which is in a terminal state (&quot;SUCCEEDED&quot;, &quot;FAILED&quot;,
-        &quot;REJECTED&quot;, &quot;REMOVED&quot; or &quot;CANCELED&quot;) or an exception will occur. The default is false.
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:force` (`t:boolean`) (Optional) When true, you can delete a job execution
+    which is "IN_PROGRESS". Otherwise, you can only delete a job execution which
+    is in a terminal state ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or
+    "CANCELED") or an exception will occur. The default is false.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec delete_job_execution(
           AWS.Client.t(),
@@ -13603,8 +13339,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified job template.
 
-  ## Required positional parameters:
-  * `:job_template_id` (`t:string`) The unique identifier of the job template to delete.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_template_id` (`t:string`) The unique identifier of the job template to
+    delete.
 
   ## Optional parameters:
   """
@@ -13641,12 +13380,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a defined mitigation action from your Amazon Web Services accounts.
 
-  Requires permission to access the
-  [DeleteMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteMitigationAction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:action_name` (`t:string`) The name of the mitigation action that you want to delete.
+  ## Parameters:
+  * `:action_name` (`t:string`) The name of the mitigation action that you want to
+    delete.
 
   ## Optional parameters:
   """
@@ -13683,18 +13421,19 @@ defmodule AWS.IoT do
   @doc """
   Delete an OTA update.
 
-  Requires permission to access the
-  [DeleteOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteOTAUpdate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:ota_update_id` (`t:string`) The ID of the OTA update to delete.
 
   ## Optional parameters:
-  * `:delete_stream` (`t:boolean`) When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
-            Ignored if the stream specified in the OTAUpdate is supplied by the user.
-  * `:force_delete_aws_job` (`t:boolean`) When true, deletes the IoT job created by the OTAUpdate process even if it is &quot;IN_PROGRESS&quot;. Otherwise, if the 
-            job is not in a terminal state (&quot;COMPLETED&quot; or &quot;CANCELED&quot;) an exception will occur. The default is false.
+  * `:delete_stream` (`t:boolean`) When true, the stream created by the OTAUpdate
+    process is deleted when the OTA update is deleted. Ignored if the stream
+    specified in the OTAUpdate is supplied by the user.
+  * `:force_delete_aws_job` (`t:boolean`) When true, deletes the IoT job created
+    by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the job
+    is not in a terminal state ("COMPLETED" or "CANCELED") an exception will
+    occur. The default is false.
   """
   @spec delete_ota_update(AWS.Client.t(), String.t(), delete_ota_update_request(), Keyword.t()) ::
           {:ok, delete_ota_update_response(), any()}
@@ -13728,21 +13467,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes a specific version from a software package.
+  Deletes a specific version from a software package. **Note:** All package
+  versions must be deleted before deleting the software package.
 
-  **Note:** All package versions must be deleted before deleting the software
-  package.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePackage&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeletePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_package(AWS.Client.t(), String.t(), delete_package_request(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
@@ -13777,16 +13513,16 @@ defmodule AWS.IoT do
   @doc """
   Deletes a specific version from a software package.
 
-  **Note:** If a package version is designated as default, you must remove the
-  designation from the software package using the `UpdatePackage` action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePackageVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the associated software package.
   * `:version_name` (`t:string`) The name of the target package version.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_package_version(
           AWS.Client.t(),
@@ -13827,30 +13563,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified policy.
+  Deletes the specified policy. A policy cannot be deleted if it has non-default
+  versions or it is attached to any certificate.
 
-  A policy cannot be deleted if it has non-default versions or it is attached to
-  any
-  certificate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePolicy&this_doc_guide=API%2520Reference)
 
-  To delete a policy, use the `DeletePolicyVersion` action to delete all
-  non-default
-  versions of the policy; use the `DetachPolicy` action to detach the policy from
-  any
-  certificate; and then use the DeletePolicy action to delete the policy.
-
-  When a policy is deleted using DeletePolicy, its default version is deleted with
-  it.
-
-  Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after
-  a policy is detached before it's ready to be deleted.
-
-  Requires permission to access the
-  [DeletePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy to delete.
 
   ## Optional parameters:
@@ -13881,19 +13599,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified version of the specified policy.
+  Deletes the specified version of the specified policy. You cannot delete the
+  default version of a policy using this action. To delete the default version
+  of a policy, use `DeletePolicy`. To find out which version of a policy is
+  marked as the default version, use ListPolicyVersions.
 
-  You cannot delete the default
-  version of a policy using this action. To delete the default version of a
-  policy, use `DeletePolicy`. To find out which version of a policy is marked as
-  the default
-  version, use ListPolicyVersions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeletePolicyVersion&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeletePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy.
   * `:policy_version_id` (`t:string`) The policy version ID.
 
@@ -13941,12 +13654,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a provisioning template.
 
-  Requires permission to access the
-  [DeleteProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteProvisioningTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the fleet provision template to delete.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the fleet provision template to
+    delete.
 
   ## Optional parameters:
   """
@@ -13983,12 +13695,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a provisioning template version.
 
-  Requires permission to access the
-  [DeleteProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The name of the provisioning template version to delete.
+  ## Parameters:
+  * `:template_name` (`t:string`) The name of the provisioning template version to
+    delete.
   * `:version_id` (`t:integer`) The provisioning template version ID to delete.
 
   ## Optional parameters:
@@ -14035,11 +13746,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes a CA certificate registration code.
 
-  Requires permission to access the
-  [DeleteRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteRegistrationCode&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14071,11 +13780,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes a role alias
 
-  Requires permission to access the
-  [DeleteRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteRoleAlias&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:role_alias` (`t:string`) The role alias to delete.
 
   ## Optional parameters:
@@ -14108,12 +13815,11 @@ defmodule AWS.IoT do
   @doc """
   Deletes a scheduled audit.
 
-  Requires permission to access the
-  [DeleteScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteScheduledAudit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit you want to delete.
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit you want
+    to delete.
 
   ## Optional parameters:
   """
@@ -14150,17 +13856,17 @@ defmodule AWS.IoT do
   @doc """
   Deletes a Device Defender security profile.
 
-  Requires permission to access the
-  [DeleteSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:security_profile_name` (`t:string`) The name of the security profile to be deleted.
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile to be
+    deleted.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the security profile. A new version is generated whenever
-        the security profile is updated. If you specify a value that is different from the actual
-        version, a <code>VersionConflictException</code> is thrown.
+  * `:expected_version` (`t:long`) The expected version of the security profile. A
+    new version is generated whenever the security profile is updated. If you
+    specify a value that is different from the actual version, a
+    VersionConflictException is thrown.
   """
   @spec delete_security_profile(
           AWS.Client.t(),
@@ -14200,11 +13906,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes a stream.
 
-  Requires permission to access the
-  [DeleteStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteStream&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
@@ -14235,23 +13939,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing.
+  Deletes the specified thing. Returns successfully with no error if the deletion
+  is successful or you specify a thing that doesn't exist.
 
-  Returns successfully with no error if the deletion is
-  successful or you specify a thing that doesn't exist.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThing&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing to delete.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the thing record in the registry. If the version of the
-  	record in the registry does not match the expected version specified in the request, the
-  		<code>DeleteThing</code> request is rejected with a
-  		<code>VersionConflictException</code>.
+  * `:expected_version` (`t:long`) The expected version of the thing record in the
+    registry. If the version of the record in the registry does not match the
+    expected version specified in the request, the DeleteThing request is
+    rejected with a VersionConflictException.
   """
   @spec delete_thing(AWS.Client.t(), String.t(), delete_thing_request(), Keyword.t()) ::
           {:ok, delete_thing_response(), any()}
@@ -14286,15 +13986,14 @@ defmodule AWS.IoT do
   @doc """
   Deletes a thing group.
 
-  Requires permission to access the
-  [DeleteThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The name of the thing group to delete.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the thing group to delete.
+  * `:expected_version` (`t:long`) The expected version of the thing group to
+    delete.
   """
   @spec delete_thing_group(AWS.Client.t(), String.t(), delete_thing_group_request(), Keyword.t()) ::
           {:ok, delete_thing_group_response(), any()}
@@ -14327,19 +14026,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deletes the specified thing type.
+  Deletes the specified thing type. You cannot delete a thing type if it has
+  things associated with it. To delete a thing type, first mark it as deprecated
+  by calling `DeprecateThingType`, then remove any associated things by calling
+  `UpdateThing` to change the thing type on any associated thing, and finally
+  use `DeleteThingType` to delete the thing type.
 
-  You cannot delete a thing type if it has things
-  associated with it. To delete a thing type, first mark it as deprecated by
-  calling `DeprecateThingType`, then remove any associated things by calling
-  `UpdateThing` to change the thing type on any associated thing, and
-  finally use `DeleteThingType` to delete the thing type.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteThingType&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DeleteThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
@@ -14372,11 +14067,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes the rule.
 
-  Requires permission to access the
-  [DeleteTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteTopicRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
@@ -14409,11 +14102,9 @@ defmodule AWS.IoT do
   @doc """
   Deletes a topic rule destination.
 
-  Requires permission to access the
-  [DeleteTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The ARN of the topic rule destination to delete.
 
   ## Optional parameters:
@@ -14451,16 +14142,16 @@ defmodule AWS.IoT do
   @doc """
   Deletes a logging level.
 
-  Requires permission to access the
-  [DeleteV2LoggingLevel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeleteV2LoggingLevel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:target_name` (`t:string`) The name of the resource for which you are configuring logging.
-  * `:target_type` (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type of resource for which you are configuring logging. Must be
-            <code>THING_Group</code>.
+  * `:target_name` (`t:string`) The name of the resource for which you are
+    configuring logging.
+  * `:target_type`
+    (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type
+    of resource for which you are configuring logging. Must be THING_Group.
   """
   @spec delete_v2_logging_level(AWS.Client.t(), delete_v2_logging_level_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -14494,16 +14185,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Deprecates a thing type.
-
-  You can not associate new things with deprecated thing
+  Deprecates a thing type. You can not associate new things with deprecated thing
   type.
 
-  Requires permission to access the
-  [DeprecateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DeprecateThingType&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_type_name` (`t:string`) The name of the thing type to deprecate.
 
   ## Optional parameters:
@@ -14540,15 +14227,12 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about the Device Defender audit settings for this account.
-
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
 
-  Requires permission to access the
-  [DescribeAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAccountAuditConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14573,20 +14257,15 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets information about a single audit finding.
+  Gets information about a single audit finding. Properties include the reason for
+  noncompliance, the severity of the issue, and the start time when the audit
+  that returned the finding.
 
-  Properties include the reason for
-  noncompliance, the severity of the issue,
-  and the start time
-  when the audit that returned the
-  finding.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditFinding&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DescribeAuditFinding](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:finding_id` (`t:string`) A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
+  ## Parameters:
+  * `:finding_id` (`t:string`) A unique identifier for a single audit finding. You
+    can use this identifier to apply mitigation actions to the finding.
 
   ## Optional parameters:
   """
@@ -14612,12 +14291,13 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about an audit mitigation task that is used to apply mitigation
-  actions to a set of audit findings.
+  actions to a set of audit findings. Properties include the actions being
+  applied, the audit checks to which they're being applied, the task status, and
+  aggregated task statistics.
 
-  Properties include the actions being applied, the audit checks to which they're
-  being applied, the task status, and aggregated task statistics.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:task_id` (`t:string`) The unique identifier for the audit mitigation task.
 
   ## Optional parameters:
@@ -14643,10 +14323,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Gets information about a Device Defender audit suppression.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14682,11 +14363,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a Device Defender audit.
 
-  Requires permission to access the
-  [DescribeAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuditTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:task_id` (`t:string`) The ID of the audit whose information you want to get.
 
   ## Optional parameters:
@@ -14714,11 +14393,9 @@ defmodule AWS.IoT do
   @doc """
   Describes an authorizer.
 
-  Requires permission to access the
-  [DescribeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:authorizer_name` (`t:string`) The name of the authorizer to describe.
 
   ## Optional parameters:
@@ -14746,11 +14423,9 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a billing group.
 
-  Requires permission to access the
-  [DescribeBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
@@ -14778,11 +14453,9 @@ defmodule AWS.IoT do
   @doc """
   Describes a registered CA certificate.
 
-  Requires permission to access the
-  [DescribeCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCACertificate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:certificate_id` (`t:string`) The CA certificate identifier.
 
   ## Optional parameters:
@@ -14810,13 +14483,11 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified certificate.
 
-  Requires permission to access the
-  [DescribeCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCertificate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   """
@@ -14843,12 +14514,11 @@ defmodule AWS.IoT do
   @doc """
   Describes a certificate provider.
 
-  Requires permission to access the
-  [DescribeCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCertificateProvider&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
 
   ## Optional parameters:
   """
@@ -14873,17 +14543,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Gets information about a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [DescribeCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeCustomMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:metric_name` (`t:string`) 
-      The name of the custom metric.
-    
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric.
 
   ## Optional parameters:
   """
@@ -14910,11 +14575,9 @@ defmodule AWS.IoT do
   @doc """
   Describes the default authorizer.
 
-  Requires permission to access the
-  [DescribeDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDefaultAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -14939,17 +14602,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Gets information about a Device Defender ML Detect mitigation action.
 
-  Requires permission to access the
-  [DescribeDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) 
-      The unique identifier of the task.
-    
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
 
   ## Optional parameters:
   """
@@ -14977,11 +14635,9 @@ defmodule AWS.IoT do
   Provides details about a dimension that is defined in your Amazon Web Services
   accounts.
 
-  Requires permission to access the
-  [DescribeDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDimension&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:name` (`t:string`) The unique identifier for the dimension.
 
   ## Optional parameters:
@@ -15009,12 +14665,11 @@ defmodule AWS.IoT do
   @doc """
   Gets summary information about a domain configuration.
 
-  Requires permission to access the
-  [DescribeDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeDomainConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:domain_configuration_name` (`t:string`) The name of the domain configuration.
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain
+    configuration.
 
   ## Optional parameters:
   """
@@ -15040,17 +14695,12 @@ defmodule AWS.IoT do
 
   @doc """
   Returns or creates a unique endpoint specific to the Amazon Web Services account
-  making the
-  call.
+  making the call. The first time `DescribeEndpoint` is called, an endpoint is
+  created. All subsequent calls to `DescribeEndpoint` return the same endpoint.
 
-  The first time `DescribeEndpoint` is called, an endpoint is created. All
-  subsequent calls to `DescribeEndpoint` return the same endpoint.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeEndpoint&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DescribeEndpoint](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:endpoint_type` (`t:string`) The endpoint type. Valid endpoint types include:
@@ -15087,11 +14737,9 @@ defmodule AWS.IoT do
   @doc """
   Describes event configurations.
 
-  Requires permission to access the
-  [DescribeEventConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeEventConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -15118,11 +14766,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified fleet metric.
 
-  Requires permission to access the
-  [DescribeFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeFleetMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:metric_name` (`t:string`) The name of the fleet metric to describe.
 
   ## Optional parameters:
@@ -15150,11 +14796,9 @@ defmodule AWS.IoT do
   @doc """
   Describes a search index.
 
-  Requires permission to access the
-  [DescribeIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeIndex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:index_name` (`t:string`) The index name.
 
   ## Optional parameters:
@@ -15182,12 +14826,11 @@ defmodule AWS.IoT do
   @doc """
   Describes a job.
 
-  Requires permission to access the
-  [DescribeJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
   ## Optional parameters:
   """
@@ -15214,17 +14857,18 @@ defmodule AWS.IoT do
   @doc """
   Describes a job execution.
 
-  Requires permission to access the
-  [DescribeJobExecution](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJobExecution&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
-  * `:thing_name` (`t:string`) The name of the thing on which the job execution is running.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+  * `:thing_name` (`t:string`) The name of the thing on which the job execution is
+    running.
 
   ## Optional parameters:
-  * `:execution_number` (`t:long`) A string (consisting of the digits &quot;0&quot; through &quot;9&quot; which is used to specify a particular job execution
-            on a particular device.
+  * `:execution_number` (`t:long`) A string (consisting of the digits "0" through
+    "9" which is used to specify a particular job execution on a particular
+    device.
   """
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
@@ -15258,7 +14902,9 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a job template.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:job_template_id` (`t:string`) The unique identifier of the job template.
 
   ## Optional parameters:
@@ -15286,12 +14932,16 @@ defmodule AWS.IoT do
   @doc """
   View details of a managed job template.
 
-  ## Required positional parameters:
-  * `:template_name` (`t:string`) The unique name of a managed job template, which is required.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeManagedJobTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:template_name` (`t:string`) The unique name of a managed job template, which
+    is required.
 
   ## Optional parameters:
-  * `:template_version` (`t:string`) An optional parameter to specify version of a managed template. If not specified, the 
-            pre-defined default version is returned.
+  * `:template_version` (`t:string`) An optional parameter to specify version of a
+    managed template. If not specified, the pre-defined default version is
+    returned.
   """
   @spec describe_managed_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_job_template_response(), any()}
@@ -15325,12 +14975,11 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a mitigation action.
 
-  Requires permission to access the
-  [DescribeMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeMitigationAction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:action_name` (`t:string`) The friendly name that uniquely identifies the mitigation action.
+  ## Parameters:
+  * `:action_name` (`t:string`) The friendly name that uniquely identifies the
+    mitigation action.
 
   ## Optional parameters:
   """
@@ -15357,11 +15006,9 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a provisioning template.
 
-  Requires permission to access the
-  [DescribeProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeProvisioningTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
@@ -15389,11 +15036,9 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a provisioning template version.
 
-  Requires permission to access the
-  [DescribeProvisioningTemplateVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeProvisioningTemplateVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The template name.
   * `:version_id` (`t:integer`) The provisioning template version ID.
 
@@ -15433,11 +15078,9 @@ defmodule AWS.IoT do
   @doc """
   Describes a role alias.
 
-  Requires permission to access the
-  [DescribeRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeRoleAlias&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:role_alias` (`t:string`) The role alias to describe.
 
   ## Optional parameters:
@@ -15465,12 +15108,11 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a scheduled audit.
 
-  Requires permission to access the
-  [DescribeScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeScheduledAudit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit whose information you want to get.
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit whose
+    information you want to get.
 
   ## Optional parameters:
   """
@@ -15497,13 +15139,11 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a Device Defender security profile.
 
-  Requires permission to access the
-  [DescribeSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:security_profile_name` (`t:string`) The name of the security profile
-      whose information you want to get.
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile whose
+    information you want to get.
 
   ## Optional parameters:
   """
@@ -15530,11 +15170,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a stream.
 
-  Requires permission to access the
-  [DescribeStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeStream&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
@@ -15562,11 +15200,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified thing.
 
-  Requires permission to access the
-  [DescribeThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThing&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
@@ -15594,11 +15230,9 @@ defmodule AWS.IoT do
   @doc """
   Describe a thing group.
 
-  Requires permission to access the
-  [DescribeThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The name of the thing group.
 
   ## Optional parameters:
@@ -15626,11 +15260,9 @@ defmodule AWS.IoT do
   @doc """
   Describes a bulk thing provisioning task.
 
-  Requires permission to access the
-  [DescribeThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingRegistrationTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:task_id` (`t:string`) The task ID.
 
   ## Optional parameters:
@@ -15658,11 +15290,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified thing type.
 
-  Requires permission to access the
-  [DescribeThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DescribeThingType&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_type_name` (`t:string`) The name of the thing type.
 
   ## Optional parameters:
@@ -15688,17 +15318,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Detaches a policy from the specified target.
+  Detaches a policy from the specified target. Because of the distributed nature
+  of Amazon Web Services, it can take up to five minutes after a policy is
+  detached before it's ready to be deleted.
 
-  Because of the distributed nature of Amazon Web Services, it can take up to five
-  minutes after
-  a policy is detached before it's ready to be deleted.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DetachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy to detach.
 
   ## Optional parameters:
@@ -15729,17 +15355,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Removes the specified policy from the specified certificate.
+  Removes the specified policy from the specified certificate. **Note:** This
+  action is deprecated and works as expected for backward compatibility, but we
+  won't add enhancements. Use `DetachPolicy` instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `DetachPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachPrincipalPolicy&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [DetachPrincipalPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy to detach.
 
   ## Optional parameters:
@@ -15785,15 +15407,14 @@ defmodule AWS.IoT do
   Disassociates a Device Defender security profile from a thing group or from this
   account.
 
-  Requires permission to access the
-  [DetachSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:security_profile_name` (`t:string`) The security profile that is detached.
 
   ## Optional parameters:
-  * `:security_profile_target_arn` (`t:string`) The ARN of the thing group from which the security profile is detached.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the thing group from
+    which the security profile is detached.
   """
   @spec detach_security_profile(
           AWS.Client.t(),
@@ -15831,27 +15452,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Detaches the specified principal from the specified thing.
+  Detaches the specified principal from the specified thing. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities. This call is asynchronous. It might take several seconds
+  for the detachment to propagate.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DetachThingPrincipal&this_doc_guide=API%2520Reference)
 
-  This call is asynchronous. It might take several seconds for the detachment to
-  propagate.
-
-  Requires permission to access the
-  [DetachThingPrincipal](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-  * `:principal` (`t:string`) If the principal is a certificate, this value must be ARN of the certificate. If
-  	the principal is an Amazon Cognito identity, this value must be the ID of the Amazon
-  	Cognito identity.
+  * `:principal` (`t:string`) If the principal is a certificate, this value must
+    be ARN of the certificate. If the principal is an Amazon Cognito identity,
+    this value must be the ID of the Amazon Cognito identity.
   """
   @spec detach_thing_principal(
           AWS.Client.t(),
@@ -15892,11 +15506,9 @@ defmodule AWS.IoT do
   @doc """
   Disables the rule.
 
-  Requires permission to access the
-  [DisableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20DisableTopicRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the rule to disable.
 
   ## Optional parameters:
@@ -15929,11 +15541,9 @@ defmodule AWS.IoT do
   @doc """
   Enables the rule.
 
-  Requires permission to access the
-  [EnableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20EnableTopicRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the topic rule to enable.
 
   ## Optional parameters:
@@ -15964,25 +15574,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Returns a Device Defender's ML Detect Security Profile training model's status.
 
-  Requires permission to access the
-  [GetBehaviorModelTrainingSummaries](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetBehaviorModelTrainingSummaries&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-      The maximum number of results to return at one time. The default is 10.
-    
-  * `:next_token` (`t:string`) 
-      The token for the next set of results.
-    
-  * `:security_profile_name` (`t:string`) 
-      The name of the security profile.
-    
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 10.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:security_profile_name` (`t:string`) The name of the security profile.
   """
   @spec get_behavior_model_training_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_behavior_model_training_summaries_response(), any()}
@@ -16034,11 +15636,9 @@ defmodule AWS.IoT do
   @doc """
   Aggregates on indexed data with search queries pertaining to particular fields.
 
-  Requires permission to access the
-  [GetBucketsAggregation](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetBucketsAggregation&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16070,11 +15670,9 @@ defmodule AWS.IoT do
   @doc """
   Returns the approximate count of unique values that match the query.
 
-  Requires permission to access the
-  [GetCardinality](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetCardinality&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16105,14 +15703,11 @@ defmodule AWS.IoT do
 
   @doc """
   Gets a list of the policies that have an effect on the authorization behavior of
-  the
-  specified device when it connects to the IoT device gateway.
+  the specified device when it connects to the IoT device gateway.
 
-  Requires permission to access the
-  [GetEffectivePolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetEffectivePolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:thing_name` (`t:string`) The thing name.
@@ -16150,11 +15745,9 @@ defmodule AWS.IoT do
   @doc """
   Gets the indexing configuration.
 
-  Requires permission to access the
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetIndexingConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16181,12 +15774,11 @@ defmodule AWS.IoT do
   @doc """
   Gets a job document.
 
-  Requires permission to access the
-  [GetJobDocument](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetJobDocument&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
   ## Optional parameters:
   """
@@ -16211,16 +15803,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets the logging options.
+  Gets the logging options. NOTE: use of this command is not recommended. Use
+  `GetV2LoggingOptions` instead.
 
-  NOTE: use of this command is not recommended. Use `GetV2LoggingOptions`
-  instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetLoggingOptions&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16247,11 +15835,9 @@ defmodule AWS.IoT do
   @doc """
   Gets an OTA update.
 
-  Requires permission to access the
-  [GetOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetOTAUpdate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:ota_update_id` (`t:string`) The OTA update ID.
 
   ## Optional parameters:
@@ -16279,11 +15865,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified software package.
 
-  Requires permission to access the
-  [GetPackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
@@ -16311,11 +15895,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified software package's configuration.
 
-  Requires permission to access the
-  [GetPackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackageConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16342,11 +15924,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified package version.
 
-  Requires permission to access the
-  [GetPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPackageVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the associated package.
   * `:version_name` (`t:string`) The name of the target package version.
 
@@ -16374,28 +15954,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Groups the aggregated values that match the query into percentile groupings.
+  Groups the aggregated values that match the query into percentile groupings. The
+  default percentile groupings are: 1,5,25,50,75,95,99, although you can specify
+  your own when you call `GetPercentiles`. This function returns a value for
+  each percentile group specified (or the default percentile groupings). The
+  percentile group "1" contains the aggregated field value that occurs in
+  approximately one percent of the values that match the query. The percentile
+  group "5" contains the aggregated field value that occurs in approximately
+  five percent of the values that match the query, and so on. The result is an
+  approximation, the more values that match the query, the more accurate the
+  percentile values.
 
-  The default
-  percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
-  when you call `GetPercentiles`. This function returns a value for each
-  percentile group specified (or the default percentile groupings). The percentile
-  group
-  "1" contains the aggregated field value that occurs in approximately one percent
-  of the
-  values that match the query. The percentile group "5" contains the aggregated
-  field value
-  that occurs in approximately five percent of the values that match the query,
-  and so on.
-  The result is an approximation, the more values that match the query, the more
-  accurate
-  the percentile values.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPercentiles&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetPercentiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16426,14 +15998,11 @@ defmodule AWS.IoT do
 
   @doc """
   Gets information about the specified policy with the policy document of the
-  default
-  version.
+  default version.
 
-  Requires permission to access the
-  [GetPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy.
 
   ## Optional parameters:
@@ -16461,11 +16030,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified policy version.
 
-  Requires permission to access the
-  [GetPolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetPolicyVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The name of the policy.
   * `:policy_version_id` (`t:string`) The policy version ID.
 
@@ -16493,18 +16060,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a registration code used to register a CA certificate with IoT.
+  Gets a registration code used to register a CA certificate with IoT. IoT will
+  create a registration code as part of this API call if the registration code
+  doesn't exist or has been deleted. If you already have a registration code,
+  this API call will return the same registration code.
 
-  IoT will create a registration code as part of this API call if the registration
-  code doesn't exist or has been deleted. If you already have a registration code,
-  this API
-  call will return the same registration code.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetRegistrationCode&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetRegistrationCode](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16529,17 +16092,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Returns the count, average, sum, minimum, maximum, sum of squares, variance,
-  and standard deviation for the specified aggregated field.
+  Returns the count, average, sum, minimum, maximum, sum of squares, variance, and
+  standard deviation for the specified aggregated field. If the aggregation
+  field is of type `String`, only the count statistic is returned.
 
-  If the aggregation field is of type
-  `String`, only the count statistic is returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetStatistics&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [GetStatistics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16571,11 +16130,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the rule.
 
-  Requires permission to access the
-  [GetTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetTopicRule&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
@@ -16603,11 +16160,9 @@ defmodule AWS.IoT do
   @doc """
   Gets information about a topic rule destination.
 
-  Requires permission to access the
-  [GetTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:arn` (`t:string`) The ARN of the topic rule destination.
 
   ## Optional parameters:
@@ -16635,11 +16190,9 @@ defmodule AWS.IoT do
   @doc """
   Gets the fine grained logging options.
 
-  Requires permission to access the
-  [GetV2LoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20GetV2LoggingOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16666,24 +16219,24 @@ defmodule AWS.IoT do
   @doc """
   Lists the active violations for a given Device Defender security profile.
 
-  Requires permission to access the
-  [ListActiveViolations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListActiveViolations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`) 
-      The criteria for a behavior.
-    
-  * `:list_suppressed_alerts` (`t:boolean`) 
-      A list of all suppressed alerts.
-    
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`)
+    The criteria for a behavior.
+  * `:list_suppressed_alerts` (`t:boolean`) A list of all suppressed alerts.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:security_profile_name` (`t:string`) The name of the Device Defender security profile for which violations are listed.
-  * `:thing_name` (`t:string`) The name of the thing whose active violations are listed.
-  * `:verification_state` (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The verification state of the violation (detect alarm).
+  * `:security_profile_name` (`t:string`) The name of the Device Defender security
+    profile for which violations are listed.
+  * `:thing_name` (`t:string`) The name of the thing whose active violations are
+    listed.
+  * `:verification_state`
+    (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The
+    verification state of the violation (detect alarm).
   """
   @spec list_active_violations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_active_violations_response(), any()}
@@ -16771,16 +16324,19 @@ defmodule AWS.IoT do
   @doc """
   Lists the policies attached to the specified thing group.
 
-  Requires permission to access the
-  [ListAttachedPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAttachedPolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:target` (`t:string`) The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).
+  ## Parameters:
+  * `:target` (`t:string`) The group or principal for which the policies will be
+    listed. Valid principals are CertificateArn
+    (arn:aws:iot:region:accountId:cert/certificateId), thingGroupArn
+    (arn:aws:iot:region:accountId:thinggroup/groupName) and CognitoId
+    (region:id).
 
   ## Optional parameters:
   * `:marker` (`t:string`) The token to retrieve the next set of results.
-  * `:page_size` (`t:integer`) The maximum number of results to be returned per request.
+  * `:page_size` (`t:integer`) The maximum number of results to be returned per
+    request.
   * `:recursive` (`t:boolean`) When true, recursively list attached policies.
   """
   @spec list_attached_policies(
@@ -16822,15 +16378,11 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the findings (results) of a Device Defender audit or of the audits
-  performed during a specified time period.
+  performed during a specified time period. (Findings are retained for 90 days.)
 
-  (Findings are retained for 90 days.)
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditFindings&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListAuditFindings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -16860,21 +16412,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets the status of audit mitigation action tasks that were
-  executed.
+  Gets the status of audit mitigation action tasks that were executed.
 
-  Requires permission to access the
-  [ListAuditMitigationActionsExecutions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditMitigationActionsExecutions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:action_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS|PENDING|SKIPPED"]`) Specify this filter to limit results to those with a specific status.
-  * `:finding_id` (`t:string`) Specify this filter to limit results to those that were applied to a specific audit finding.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:action_status`
+    (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS|PENDING|SKIPPED"]`) Specify
+    this filter to limit results to those with a specific status.
+  * `:finding_id` (`t:string`) Specify this filter to limit results to those that
+    were applied to a specific audit finding.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:task_id` (`t:string`) Specify this filter to limit results to actions for a specific audit mitigation actions task.
+  * `:task_id` (`t:string`) Specify this filter to limit results to actions for a
+    specific audit mitigation actions task.
   """
   @spec list_audit_mitigation_actions_executions(
           AWS.Client.t(),
@@ -16954,20 +16508,24 @@ defmodule AWS.IoT do
   @doc """
   Gets a list of audit mitigation action tasks that match the specified filters.
 
-  Requires permission to access the
-  [ListAuditMitigationActionsTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditMitigationActionsTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:audit_task_id` (`t:string`) Specify this filter to limit results to tasks that were applied to results for a specific audit.
-  * `:end_time` (`t:timestamp`) Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
-  * `:finding_id` (`t:string`) Specify this filter to limit results to tasks that were applied to a specific audit finding.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:audit_task_id` (`t:string`) Specify this filter to limit results to tasks
+    that were applied to results for a specific audit.
+  * `:end_time` (`t:timestamp`) Specify this filter to limit results to tasks that
+    were completed or canceled on or before a specific date and time.
+  * `:finding_id` (`t:string`) Specify this filter to limit results to tasks that
+    were applied to a specific audit finding.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:start_time` (`t:timestamp`) Specify this filter to limit results to tasks that began on or after a specific date and time.
-  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) Specify this filter to limit results to tasks that are in a specific state.
+  * `:start_time` (`t:timestamp`) Specify this filter to limit results to tasks
+    that began on or after a specific date and time.
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) Specify
+    this filter to limit results to tasks that are in a specific state.
   """
   @spec list_audit_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_mitigation_actions_tasks_response(), any()}
@@ -17053,14 +16611,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Lists your Device Defender audit listings.
 
-  Requires permission to access the
-  [ListAuditSuppressions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditSuppressions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -17090,26 +16645,27 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender audits that have been performed during a given
-  time period.
+  Lists the Device Defender audits that have been performed during a given time
+  period.
 
-  Requires permission to access the
-  [ListAuditTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuditTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:end_time` (`t:timestamp`) The end of the time period.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:start_time` (`t:timestamp`) The beginning of the time period. Audit information is retained for a 
-              limited time (90 days). Requesting a start time prior to what is retained 
-              results in an &quot;InvalidRequestException&quot;.
-  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) A filter to limit the output to audits with the specified completion
-            status: can be one of &quot;IN_PROGRESS&quot;, &quot;COMPLETED&quot;, &quot;FAILED&quot;, or &quot;CANCELED&quot;.
-  * `:task_type` (`t:enum["ON_DEMAND_AUDIT_TASK|SCHEDULED_AUDIT_TASK"]`) A filter to limit the output to the specified type of audit: can be one of
-            &quot;ON_DEMAND_AUDIT_TASK&quot; or &quot;SCHEDULED__AUDIT_TASK&quot;.
+  * `:start_time` (`t:timestamp`) The beginning of the time period. Audit
+    information is retained for a limited time (90 days). Requesting a start
+    time prior to what is retained results in an "InvalidRequestException".
+  * `:task_status` (`t:enum["CANCELED|COMPLETED|FAILED|IN_PROGRESS"]`) A filter to
+    limit the output to audits with the specified completion status: can be one
+    of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+  * `:task_type` (`t:enum["ON_DEMAND_AUDIT_TASK|SCHEDULED_AUDIT_TASK"]`) A filter
+    to limit the output to the specified type of audit: can be one of
+    "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
   """
   @spec list_audit_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_audit_tasks_response(), any()}
@@ -17188,17 +16744,18 @@ defmodule AWS.IoT do
   @doc """
   Lists the authorizers registered in your account.
 
-  Requires permission to access the
-  [ListAuthorizers](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListAuthorizers&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Return the list of authorizers in ascending alphabetical order.
+  * `:ascending_order` (`t:boolean`) Return the list of authorizers in ascending
+    alphabetical order.
   * `:marker` (`t:string`) A marker used to get the next set of results.
-  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
-  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status of the list authorizers request.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:status` (`t:enum["ACTIVE|INACTIVE"]`) The status of the list authorizers
+    request.
   """
   @spec list_authorizers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_authorizers_response(), any()}
@@ -17259,18 +16816,18 @@ defmodule AWS.IoT do
   @doc """
   Lists the billing groups you have created.
 
-  Requires permission to access the
-  [ListBillingGroups](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListBillingGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return per request.
-  * `:name_prefix_filter` (`t:string`) Limit the results to billing groups whose names have the given prefix.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:name_prefix_filter` (`t:string`) Limit the results to billing groups whose
+    names have the given prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_response(), any()}
@@ -17320,17 +16877,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the CA certificates registered for your Amazon Web Services account.
-
-  The results are paginated with a default page size of 25. You can use the
-  returned
+  Lists the CA certificates registered for your Amazon Web Services account. The
+  results are paginated with a default page size of 25. You can use the returned
   marker to retrieve additional results.
 
-  Requires permission to access the
-  [ListCACertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCACertificates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:ascending_order` (`t:boolean`) Determines the order of the results.
@@ -17397,15 +16950,15 @@ defmodule AWS.IoT do
   @doc """
   Lists all your certificate providers in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListCertificateProviders](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificateProviders&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Returns the list of certificate providers in ascending alphabetical order.
-  * `:next_token` (`t:string`) The token for the next set of results, or <code>null</code> if there are no more results.
+  * `:ascending_order` (`t:boolean`) Returns the list of certificate providers in
+    ascending alphabetical order.
+  * `:next_token` (`t:string`) The token for the next set of results, or null if
+    there are no more results.
   """
   @spec list_certificate_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_certificate_providers_response(), any()}
@@ -17446,21 +16999,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the certificates registered in your Amazon Web Services account.
-
-  The results are paginated with a default page size of 25. You can use the
-  returned
+  Lists the certificates registered in your Amazon Web Services account. The
+  results are paginated with a default page size of 25. You can use the returned
   marker to retrieve additional results.
 
-  Requires permission to access the
-  [ListCertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
-         order, based on the creation date.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   """
@@ -17514,17 +17063,16 @@ defmodule AWS.IoT do
   @doc """
   List the device certificates signed by the specified CA certificate.
 
-  Requires permission to access the
-  [ListCertificatesByCA](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCertificatesByCA&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:ca_certificate_id` (`t:string`) The ID of the CA certificate. This operation will list all registered device
-         certificate that were signed by this CA certificate.
+  ## Parameters:
+  * `:ca_certificate_id` (`t:string`) The ID of the CA certificate. This operation
+    will list all registered device certificate that were signed by this CA
+    certificate.
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
-         order, based on the creation date.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   """
@@ -17576,22 +17124,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Lists your Device Defender detect custom metrics.
 
-  Requires permission to access the
-  [ListCustomMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListCustomMetrics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) 
-      The maximum number of results to return at one time. The default is 25.
-    
-  * `:next_token` (`t:string`) 
-      The token for the next set of results.
-    
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_custom_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_metrics_response(), any()}
@@ -17632,39 +17174,26 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Lists mitigation actions executions for a Device Defender ML Detect Security
   Profile.
 
-  Requires permission to access the
-  [ListDetectMitigationActionsExecutions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDetectMitigationActionsExecutions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp`) 
-      The end of the time period for which ML Detect mitigation actions executions are returned.
-    
-  * `:max_results` (`t:integer`) 
-      The maximum number of results to return at one time. The default is 25.
-    
-  * `:next_token` (`t:string`) 
-      The token for the next set of results.
-    
-  * `:start_time` (`t:timestamp`) 
-      A filter to limit results to those found after the specified time. You must
-      specify either the startTime and endTime or the taskId, but not both.
-    
-  * `:task_id` (`t:string`) 
-      The unique identifier of the task.
-    
-  * `:thing_name` (`t:string`) 
-      The name of the thing whose mitigation actions are listed.
-    
-  * `:violation_id` (`t:string`) 
-      The unique identifier of the violation.
-    
+  * `:end_time` (`t:timestamp`) The end of the time period for which ML Detect
+    mitigation actions executions are returned.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) A filter to limit results to those found after
+    the specified time. You must specify either the startTime and endTime or the
+    taskId, but not both.
+  * `:task_id` (`t:string`) The unique identifier of the task.
+  * `:thing_name` (`t:string`) The name of the thing whose mitigation actions are
+    listed.
+  * `:violation_id` (`t:string`) The unique identifier of the violation.
   """
   @spec list_detect_mitigation_actions_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_executions_response(), any()}
@@ -17750,27 +17279,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   List of Device Defender ML Detect mitigation actions tasks.
 
-  Requires permission to access the
-  [ListDetectMitigationActionsTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDetectMitigationActionsTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:end_time` (`t:timestamp`) 
-      The end of the time period for which ML Detect mitigation actions tasks are returned.
-    
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
-  * `:next_token` (`t:string`) 
-      The token for the next set of results.
-    
-  * `:start_time` (`t:timestamp`) 
-      A filter to limit results to those found after the specified time. You must
-      specify either the startTime and endTime or the taskId, but not both.
-    
+  * `:end_time` (`t:timestamp`) The end of the time period for which ML Detect
+    mitigation actions tasks are returned.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
+  * `:next_token` (`t:string`) The token for the next set of results.
+  * `:start_time` (`t:timestamp`) A filter to limit results to those found after
+    the specified time. You must specify either the startTime and endTime or the
+    taskId, but not both.
   """
   @spec list_detect_mitigation_actions_tasks(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_detect_mitigation_actions_tasks_response(), any()}
@@ -17837,14 +17360,13 @@ defmodule AWS.IoT do
   List the set of dimensions that are defined for your Amazon Web Services
   accounts.
 
-  Requires permission to access the
-  [ListDimensions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDimensions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to retrieve at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to retrieve at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_dimensions(AWS.Client.t(), Keyword.t()) ::
@@ -17886,21 +17408,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Gets a list of domain configurations for the user.
-
-  This list is sorted
+  Gets a list of domain configurations for the user. This list is sorted
   alphabetically by domain configuration name.
 
-  Requires permission to access the
-  [ListDomainConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListDomainConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
-  * `:service_type` (`t:enum["CREDENTIAL_PROVIDER|DATA|JOBS"]`) The type of service delivered by the endpoint.
+  * `:service_type` (`t:enum["CREDENTIAL_PROVIDER|DATA|JOBS"]`) The type of
+    service delivered by the endpoint.
   """
   @spec list_domain_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_configurations_response(), any()}
@@ -17952,16 +17471,16 @@ defmodule AWS.IoT do
   @doc """
   Lists all your fleet metrics.
 
-  Requires permission to access the
-  [ListFleetMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListFleetMetrics&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code> value from a previous response; 
-       otherwise <code>null</code> to receive the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_fleet_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleet_metrics_response(), any()}
@@ -18004,16 +17523,15 @@ defmodule AWS.IoT do
   @doc """
   Lists the search indices.
 
-  Requires permission to access the
-  [ListIndices](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListIndices&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) The token used to get the next set of results, or <code>null</code> if there are no additional
-      results.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) The token used to get the next set of results, or
+    null if there are no additional results.
   """
   @spec list_indices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indices_response(), any()}
@@ -18056,17 +17574,19 @@ defmodule AWS.IoT do
   @doc """
   Lists the job executions for a job.
 
-  Requires permission to access the
-  [ListJobExecutionsForJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobExecutionsForJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
+  ## Parameters:
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
-  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`) The status of the job.
+  * `:status`
+    (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`)
+    The status of the job.
   """
   @spec list_job_executions_for_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_job_response(), any()}
@@ -18118,19 +17638,23 @@ defmodule AWS.IoT do
   @doc """
   Lists the job executions for the specified thing.
 
-  Requires permission to access the
-  [ListJobExecutionsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobExecutionsForThing&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The thing name.
 
   ## Optional parameters:
-  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it was created.
-  * `:max_results` (`t:integer`) The maximum number of results to be returned per request.
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:job_id` (`t:string`) The unique identifier you assigned to this job when it
+    was created.
+  * `:max_results` (`t:integer`) The maximum number of results to be returned per
+    request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
-  * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`) An optional filter that lets you search for jobs that have the specified status.
+  * `:status`
+    (`t:enum["CANCELED|FAILED|IN_PROGRESS|QUEUED|REJECTED|REMOVED|SUCCEEDED|TIMED_OUT"]`)
+    An optional filter that lets you search for jobs that have the specified
+    status.
   """
   @spec list_job_executions_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_executions_for_thing_response(), any()}
@@ -18200,15 +17724,15 @@ defmodule AWS.IoT do
   @doc """
   Returns a list of job templates.
 
-  Requires permission to access the
-  [ListJobTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobTemplates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in the list.
-  * `:next_token` (`t:string`) The token to use to return the next set of results in the list.
+  * `:max_results` (`t:integer`) The maximum number of results to return in the
+    list.
+  * `:next_token` (`t:string`) The token to use to return the next set of results
+    in the list.
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -18251,23 +17775,31 @@ defmodule AWS.IoT do
   @doc """
   Lists jobs.
 
-  Requires permission to access the
-  [ListJobs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListJobs&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return per request.
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
-  * `:status` (`t:enum["CANCELED|COMPLETED|DELETION_IN_PROGRESS|IN_PROGRESS|SCHEDULED"]`) An optional filter that lets you search for jobs that have the specified status.
-  * `:target_selection` (`t:enum["CONTINUOUS|SNAPSHOT"]`) Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-            specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-            when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-            target group, even after the job was completed by all things originally in the group. 
-  * `:thing_group_id` (`t:string`) A filter that limits the returned jobs to those for the specified group.
-  * `:thing_group_name` (`t:string`) A filter that limits the returned jobs to those for the specified group.
+  * `:status`
+    (`t:enum["CANCELED|COMPLETED|DELETION_IN_PROGRESS|IN_PROGRESS|SCHEDULED"]`)
+    An optional filter that lets you search for jobs that have the specified
+    status.
+  * `:target_selection` (`t:enum["CONTINUOUS|SNAPSHOT"]`) Specifies whether the
+    job will continue to run (CONTINUOUS), or will be complete after all those
+    things specified as targets have completed the job (SNAPSHOT). If
+    continuous, the job may also be run on a thing when a change is detected in
+    a target. For example, a job will run on a thing when the thing is added to
+    a target group, even after the job was completed by all things originally in
+    the group.
+  * `:thing_group_id` (`t:string`) A filter that limits the returned jobs to those
+    for the specified group.
+  * `:thing_group_name` (`t:string`) A filter that limits the returned jobs to
+    those for the specified group.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -18355,13 +17887,16 @@ defmodule AWS.IoT do
   @doc """
   Returns a list of managed job templates.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListManagedJobTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) Maximum number of entries that can be returned.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
-  * `:template_name` (`t:string`) An optional parameter for template name. If specified, only the versions of the
-            managed job templates that have the specified template name will be returned.
+  * `:template_name` (`t:string`) An optional parameter for template name. If
+    specified, only the versions of the managed job templates that have the
+    specified template name will be returned.
   """
   @spec list_managed_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_job_templates_response(), any()}
@@ -18412,20 +17947,28 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the values reported for an IoT Device Defender metric (device-side metric,
-  cloud-side metric, or custom metric)
-  by the given thing during the specified time period.
+  cloud-side metric, or custom metric) by the given thing during the specified
+  time period.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListMetricValues&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:dimension_name` (`t:string`) The dimension name.
-  * `:dimension_value_operator` (`t:enum["IN|NOT_IN"]`) The dimension value operator.
-  * `:end_time` (`t:timestamp`) The end of the time period for which metric values are returned.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:metric_name` (`t:string`) The name of the security profile metric for which values are returned.
+  * `:dimension_value_operator` (`t:enum["IN|NOT_IN"]`) The dimension value
+    operator.
+  * `:end_time` (`t:timestamp`) The end of the time period for which metric values
+    are returned.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:metric_name` (`t:string`) The name of the security profile metric for which
+    values are returned.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:start_time` (`t:timestamp`) The start of the time period for which metric values are returned.
-  * `:thing_name` (`t:string`) The name of the thing for which security profile metric values are returned.
+  * `:start_time` (`t:timestamp`) The start of the time period for which metric
+    values are returned.
+  * `:thing_name` (`t:string`) The name of the thing for which security profile
+    metric values are returned.
   """
   @spec list_metric_values(
           AWS.Client.t(),
@@ -18536,15 +18079,17 @@ defmodule AWS.IoT do
   @doc """
   Gets a list of all mitigation actions that match the specified filter criteria.
 
-  Requires permission to access the
-  [ListMitigationActions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListMitigationActions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:action_type` (`t:enum["ADD_THINGS_TO_THING_GROUP|ENABLE_IOT_LOGGING|PUBLISH_FINDING_TO_SNS|REPLACE_DEFAULT_POLICY_VERSION|UPDATE_CA_CERTIFICATE|UPDATE_DEVICE_CERTIFICATE"]`) Specify a value to limit the result to mitigation actions with a specific action type.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:action_type`
+    (`t:enum["ADD_THINGS_TO_THING_GROUP|ENABLE_IOT_LOGGING|PUBLISH_FINDING_TO_SNS|REPLACE_DEFAULT_POLICY_VERSION|UPDATE_CA_CERTIFICATE|UPDATE_DEVICE_CERTIFICATE"]`)
+    Specify a value to limit the result to mitigation actions with a specific
+    action type.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_mitigation_actions(AWS.Client.t(), Keyword.t()) ::
@@ -18597,16 +18142,17 @@ defmodule AWS.IoT do
   @doc """
   Lists OTA updates.
 
-  Requires permission to access the
-  [ListOTAUpdates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListOTAUpdates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) A token used to retrieve the next set of results.
-  * `:ota_update_status` (`t:enum["CREATE_COMPLETE|CREATE_FAILED|CREATE_IN_PROGRESS|CREATE_PENDING|DELETE_FAILED|DELETE_IN_PROGRESS"]`) The OTA update job status.
+  * `:ota_update_status`
+    (`t:enum["CREATE_COMPLETE|CREATE_FAILED|CREATE_IN_PROGRESS|CREATE_PENDING|DELETE_FAILED|DELETE_IN_PROGRESS"]`)
+    The OTA update job status.
   """
   @spec list_ota_updates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ota_updates_response(), any()}
@@ -18658,15 +18204,13 @@ defmodule AWS.IoT do
   @doc """
   Lists certificates that are being transferred but not yet accepted.
 
-  Requires permission to access the
-  [ListOutgoingCertificates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListOutgoingCertificates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the results are returned in ascending
-         order, based on the creation date.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If True, the
+    results are returned in ascending order, based on the creation date.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   """
@@ -18720,17 +18264,17 @@ defmodule AWS.IoT do
   @doc """
   Lists the software package versions associated to the account.
 
-  Requires permission to access the
-  [ListPackageVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPackageVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:status` (`t:enum["DEPRECATED|DRAFT|PUBLISHED"]`) The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.
+  * `:status` (`t:enum["DEPRECATED|DRAFT|PUBLISHED"]`) The status of the package
+    version. For more information, see Package version lifecycle.
   """
   @spec list_package_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_package_versions_response(), any()}
@@ -18782,14 +18326,13 @@ defmodule AWS.IoT do
   @doc """
   Lists the software packages associated to the account.
 
-  Requires permission to access the
-  [ListPackages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPackages&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results returned at one time.
+  * `:max_results` (`t:integer`) The maximum number of results returned at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_packages(AWS.Client.t(), Keyword.t()) ::
@@ -18833,15 +18376,13 @@ defmodule AWS.IoT do
   @doc """
   Lists your policies.
 
-  Requires permission to access the
-  [ListPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicies&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the results are returned in ascending
-         creation order.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the
+    results are returned in ascending creation order.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   """
@@ -18893,21 +18434,17 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the principals associated with the specified policy.
+  Lists the principals associated with the specified policy. **Note:** This action
+  is deprecated and works as expected for backward compatibility, but we won't
+  add enhancements. Use `ListTargetsForPolicy` instead.
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `ListTargetsForPolicy` instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicyPrincipals&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListPolicyPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the results are returned in ascending
-         creation order.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, the
+    results are returned in ascending creation order.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
   * `:policy_name` (`t:string`) The policy name.
@@ -18970,14 +18507,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the versions of the specified policy and identifies the default
-  version.
+  Lists the versions of the specified policy and identifies the default version.
 
-  Requires permission to access the
-  [ListPolicyVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPolicyVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
@@ -19003,27 +18537,26 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the policies attached to the specified principal.
+  Lists the policies attached to the specified principal. If you use an Cognito
+  identity, the ID must be in [AmazonCognito Identity
+  format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  **Note:** This action is deprecated and works as expected for backward
+  compatibility, but we won't add enhancements. Use `ListAttachedPolicies`
+  instead.
 
-  If you use an Cognito
-  identity, the ID must be in [AmazonCognito Identity format](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPrincipalPolicies&this_doc_guide=API%2520Reference)
 
-  **Note:** This action is deprecated and works as
-  expected for backward compatibility, but we won't add enhancements. Use
-  `ListAttachedPolicies` instead.
-
-  Requires permission to access the
-  [ListPrincipalPolicies](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true, results are returned in ascending creation
-         order.
+  * `:ascending_order` (`t:boolean`) Specifies the order for results. If true,
+    results are returned in ascending creation order.
   * `:marker` (`t:string`) The marker for the next set of results.
   * `:page_size` (`t:integer`) The result page size.
-  * `:principal` (`t:string`) The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).
+  * `:principal` (`t:string`) The principal. Valid principals are CertificateArn
+    (arn:aws:iot:region:accountId:cert/certificateId), thingGroupArn
+    (arn:aws:iot:region:accountId:thinggroup/groupName) and CognitoId
+    (region:id).
   """
   @spec list_principal_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_principal_policies_response(), any()}
@@ -19083,24 +18616,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the things associated with the specified principal.
+  Lists the things associated with the specified principal. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListPrincipalThings&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListPrincipalThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:principal` (`t:string`) The principal.
   """
   @spec list_principal_things(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -19154,15 +18683,14 @@ defmodule AWS.IoT do
   @doc """
   A list of provisioning template versions.
 
-  Requires permission to access the
-  [ListProvisioningTemplateVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListProvisioningTemplateVersions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
   @spec list_provisioning_template_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -19206,14 +18734,13 @@ defmodule AWS.IoT do
   @doc """
   Lists the provisioning templates in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListProvisioningTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListProvisioningTemplates&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
   """
   @spec list_provisioning_templates(AWS.Client.t(), Keyword.t()) ::
@@ -19255,53 +18782,19 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  The related resources of an Audit finding.
+  The related resources of an Audit finding. The following resources can be
+  returned from calling this API:
 
-  The following resources can be returned from calling this API:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListRelatedResourcesForAuditFinding&this_doc_guide=API%2520Reference)
 
-    *
-  DEVICE_CERTIFICATE
-
-    *
-  CA_CERTIFICATE
-
-    *
-  IOT_POLICY
-
-    *
-  COGNITO_IDENTITY_POOL
-
-    *
-  CLIENT_ID
-
-    *
-  ACCOUNT_SETTINGS
-
-    *
-  ROLE_ALIAS
-
-    *
-  IAM_ROLE
-
-    *
-  ISSUER_CERTIFICATE
-
-  This API is similar to DescribeAuditFinding's
-  [RelatedResources](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html) but provides pagination and is not limited to 10 resources.
-  When calling
-  [DescribeAuditFinding](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html)
-  for the intermediate CA revoked for
-  active device certificates check, RelatedResources will not be populated. You
-  must use this API, ListRelatedResourcesForAuditFinding, to list the
-  certificates.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:finding_id` (`t:string`) The finding Id.
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) A token that can be used to retrieve the next set of results, 
-      or <code>null</code> if there are no additional results.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) A token that can be used to retrieve the next set
+    of results, or null if there are no additional results.
   """
   @spec list_related_resources_for_audit_finding(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
@@ -19353,16 +18846,16 @@ defmodule AWS.IoT do
   @doc """
   Lists the role aliases registered in your account.
 
-  Requires permission to access the
-  [ListRoleAliases](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListRoleAliases&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Return the list of role aliases in ascending alphabetical order.
+  * `:ascending_order` (`t:boolean`) Return the list of role aliases in ascending
+    alphabetical order.
   * `:marker` (`t:string`) A marker used to get the next set of results.
-  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
   """
   @spec list_role_aliases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_role_aliases_response(), any()}
@@ -19414,14 +18907,13 @@ defmodule AWS.IoT do
   @doc """
   Lists all of your scheduled audits.
 
-  Requires permission to access the
-  [ListScheduledAudits](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListScheduledAudits&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time. The default is 25.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time. The default is 25.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_scheduled_audits(AWS.Client.t(), Keyword.t()) ::
@@ -19463,27 +18955,23 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the Device Defender security profiles
-  you've
-  created.
-
-  You can filter security profiles by dimension or custom metric.
-
-  Requires permission to access the
+  Lists the Device Defender security profiles you've created. You can filter
+  security profiles by dimension or custom metric. Requires permission to access
+  the
   [ListSecurityProfiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  `dimensionName` and `metricName` cannot be used in the same request.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListSecurityProfiles&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:dimension_name` (`t:string`) A filter to limit results to the security profiles that use the defined dimension.
-      Cannot be used with <code>metricName</code>
-         
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:metric_name` (`t:string`)  The name of the custom metric.
-      Cannot be used with <code>dimensionName</code>. 
+  * `:dimension_name` (`t:string`) A filter to limit results to the security
+    profiles that use the defined dimension. Cannot be used with metricName
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:metric_name` (`t:string`) The name of the custom metric. Cannot be used with
+    dimensionName.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_security_profiles(AWS.Client.t(), Keyword.t()) ::
@@ -19545,17 +19033,17 @@ defmodule AWS.IoT do
   @doc """
   Lists the Device Defender security profiles attached to a target (thing group).
 
-  Requires permission to access the
-  [ListSecurityProfilesForTarget](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListSecurityProfilesForTarget&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
   * `:recursive` (`t:boolean`) If true, return child groups too.
-  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing group) whose attached security profiles you want to get.
+  * `:security_profile_target_arn` (`t:string`) The ARN of the target (thing
+    group) whose attached security profiles you want to get.
   """
   @spec list_security_profiles_for_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_security_profiles_for_target_response(), any()}
@@ -19621,15 +19109,15 @@ defmodule AWS.IoT do
   @doc """
   Lists all of the streams in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListStreams](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListStreams&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:ascending_order` (`t:boolean`) Set to true to return the list of streams in ascending order.
-  * `:max_results` (`t:integer`) The maximum number of results to return at a time.
+  * `:ascending_order` (`t:boolean`) Set to true to return the list of streams in
+    ascending order.
+  * `:max_results` (`t:integer`) The maximum number of results to return at a
+    time.
   * `:next_token` (`t:string`) A token used to get the next set of results.
   """
   @spec list_streams(AWS.Client.t(), Keyword.t()) ::
@@ -19682,16 +19170,14 @@ defmodule AWS.IoT do
   @doc """
   Lists the tags (metadata) you have assigned to the resource.
 
-  Requires permission to access the
-  [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:resource_arn` (`t:string`) The ARN of the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -19735,16 +19221,15 @@ defmodule AWS.IoT do
   @doc """
   List targets for the specified policy.
 
-  Requires permission to access the
-  [ListTargetsForPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTargetsForPolicy&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
 
   ## Optional parameters:
   * `:marker` (`t:string`) A marker used to get the next set of results.
-  * `:page_size` (`t:integer`) The maximum number of results to return at one time.
+  * `:page_size` (`t:integer`) The maximum number of results to return at one
+    time.
   """
   @spec list_targets_for_policy(
           AWS.Client.t(),
@@ -19786,15 +19271,14 @@ defmodule AWS.IoT do
   Lists the targets (thing groups) associated with a given Device Defender
   security profile.
 
-  Requires permission to access the
-  [ListTargetsForSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTargetsForSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:security_profile_name` (`t:string`) The security profile.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_targets_for_security_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -19838,19 +19322,20 @@ defmodule AWS.IoT do
   @doc """
   List the thing groups in your account.
 
-  Requires permission to access the
-  [ListThingGroups](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingGroups&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:name_prefix_filter` (`t:string`) A filter that limits the results to those with the specified name prefix.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
-  * `:parent_group` (`t:string`) A filter that limits the results to those with the specified parent group.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:name_prefix_filter` (`t:string`) A filter that limits the results to those
+    with the specified name prefix.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:parent_group` (`t:string`) A filter that limits the results to those with
+    the specified parent group.
   * `:recursive` (`t:boolean`) If true, return child groups as well.
   """
   @spec list_thing_groups(AWS.Client.t(), Keyword.t()) ::
@@ -19921,18 +19406,17 @@ defmodule AWS.IoT do
   @doc """
   List the thing groups to which the specified thing belongs.
 
-  Requires permission to access the
-  [ListThingGroupsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingGroupsForThing&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The thing name.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_thing_groups_for_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_groups_for_thing_response(), any()}
@@ -19973,25 +19457,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists the principals associated with the specified thing.
+  Lists the principals associated with the specified thing. A principal can be
+  X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+  federated identities.
 
-  A principal can be X.509
-  certificates, IAM users, groups, and roles, Amazon Cognito identities or
-  federated
-  identities.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingPrincipals&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListThingPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_thing_principals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_thing_principals_response(), any()}
@@ -20034,14 +19514,17 @@ defmodule AWS.IoT do
   @doc """
   Information about the thing registration tasks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingRegistrationTaskReports&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:task_id` (`t:string`) The id of the task.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return per request.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:report_type` (`t:enum["ERRORS|RESULTS"]`) The type of task report.
   """
   @spec list_thing_registration_task_reports(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -20099,18 +19582,18 @@ defmodule AWS.IoT do
   @doc """
   List bulk thing provisioning tasks.
 
-  Requires permission to access the
-  [ListThingRegistrationTasks](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingRegistrationTasks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
-  * `:status` (`t:enum["Cancelled|Cancelling|Completed|Failed|InProgress"]`) The status of the bulk thing provisioning task.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:status` (`t:enum["Cancelled|Cancelling|Completed|Failed|InProgress"]`) The
+    status of the bulk thing provisioning task.
   """
   @spec list_thing_registration_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_thing_registration_tasks_response(), any()}
@@ -20162,17 +19645,16 @@ defmodule AWS.IoT do
   @doc """
   Lists the existing thing types.
 
-  Requires permission to access the
-  [ListThingTypes](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingTypes&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:thing_type_name` (`t:string`) The name of the thing type.
   """
   @spec list_thing_types(AWS.Client.t(), Keyword.t()) ::
@@ -20223,37 +19705,34 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Lists your things.
-
-  Use the **attributeName** and **attributeValue** parameters to filter your
-  things. For example,
-  calling `ListThings` with attributeName=Color and attributeValue=Red
-  retrieves all things in the registry that contain an attribute **Color** with
-  the value **Red**. For more
-  information, see [List Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
-  from the *Amazon Web Services IoT Core Developer
-  Guide*.
-
-  Requires permission to access the
+  Lists your things. Use the **attributeName** and **attributeValue** parameters
+  to filter your things. For example, calling `ListThings` with
+  attributeName=Color and attributeValue=Red retrieves all things in the
+  registry that contain an attribute **Color** with the value **Red**. For more
+  information, see [List
+  Things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things)
+  from the *Amazon Web Services IoT Core Developer Guide*. Requires permission
+  to access the
   [ListThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  You will not be charged for calling this API if an `Access denied` error is
-  returned. You will also not be charged if no attributes or pagination token was
-  provided in request and no pagination token and no results were returned.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThings&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:attribute_name` (`t:string`) The attribute name used to search for things.
   * `:attribute_value` (`t:string`) The attribute value used to search for things.
-  * `:max_results` (`t:integer`) The maximum number of results to return in this operation.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
-  * `:thing_type_name` (`t:string`) The name of the thing type used to search for things.
-  * `:use_prefix_attribute_value` (`t:boolean`) When <code>true</code>, the action returns the thing resources with attribute values
-                     that start with the <code>attributeValue</code> provided.
+  * `:max_results` (`t:integer`) The maximum number of results to return in this
+    operation.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:thing_type_name` (`t:string`) The name of the thing type used to search for
+    things.
+  * `:use_prefix_attribute_value` (`t:boolean`) When true, the action returns the
+    thing resources with attribute values that start with the attributeValue
+    provided.
   """
   @spec list_things(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_things_response(), any()}
@@ -20332,18 +19811,17 @@ defmodule AWS.IoT do
   @doc """
   Lists the things you have added to the given billing group.
 
-  Requires permission to access the
-  [ListThingsInBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingsInBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return per request.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return per
+    request.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_things_in_billing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_billing_group_response(), any()}
@@ -20386,20 +19864,19 @@ defmodule AWS.IoT do
   @doc """
   Lists the things in the specified group.
 
-  Requires permission to access the
-  [ListThingsInThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListThingsInThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The thing group name.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-  	value from a previous response; otherwise <b>null</b> to receive
-  	the first set of results.
-  * `:recursive` (`t:boolean`) When true, list things in this thing group and in all child groups as
-  	well.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:recursive` (`t:boolean`) When true, list things in this thing group and in
+    all child groups as well.
   """
   @spec list_things_in_thing_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_things_in_thing_group_response(), any()}
@@ -20451,17 +19928,16 @@ defmodule AWS.IoT do
   @doc """
   Lists all the topic rule destinations in your Amazon Web Services account.
 
-  Requires permission to access the
-  [ListTopicRuleDestinations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTopicRuleDestinations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-         value from a previous response; otherwise <b>null</b> to receive
-         the first set of results.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_topic_rule_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_topic_rule_destinations_response(), any()}
@@ -20504,17 +19980,15 @@ defmodule AWS.IoT do
   @doc """
   Lists the rules for the specific topic.
 
-  Requires permission to access the
-  [ListTopicRules](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListTopicRules&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-         value from a previous response; otherwise <b>null</b> to receive
-         the first set of results.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:rule_disabled` (`t:boolean`) Specifies whether the rule is disabled.
   * `:topic` (`t:string`) The topic.
   """
@@ -20577,19 +20051,19 @@ defmodule AWS.IoT do
   @doc """
   Lists logging levels.
 
-  Requires permission to access the
-  [ListV2LoggingLevels](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListV2LoggingLevels&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
-  * `:next_token` (`t:string`) To retrieve the next set of results, the <code>nextToken</code>
-         value from a previous response; otherwise <b>null</b> to receive
-         the first set of results.
-  * `:target_type` (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type of resource for which you are configuring logging. Must be
-            <code>THING_Group</code>.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
+  * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
+    value from a previous response; otherwise null to receive the first set of
+    results.
+  * `:target_type`
+    (`t:enum["CLIENT_ID|DEFAULT|PRINCIPAL_ID|SOURCE_IP|THING_GROUP"]`) The type
+    of resource for which you are configuring logging. Must be THING_Group.
   """
   @spec list_v2_logging_levels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_v2_logging_levels_response(), any()}
@@ -20640,32 +20114,29 @@ defmodule AWS.IoT do
 
   @doc """
   Lists the Device Defender security profile violations discovered during the
-  given time period.
+  given time period. You can use filters to limit the results to those alerts
+  issued for a particular security profile, behavior, or thing (device).
 
-  You can use filters to limit the results to those alerts issued for a particular
-  security profile,
-  behavior, or thing (device).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ListViolationEvents&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ListViolationEvents](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`) 
-      The criteria for a behavior.
-    
+  * `:behavior_criteria_type` (`t:enum["MACHINE_LEARNING|STATIC|STATISTICAL"]`)
+    The criteria for a behavior.
   * `:end_time` (`t:timestamp`) The end time for the alerts to be listed.
-  * `:list_suppressed_alerts` (`t:boolean`) 
-      A list of all suppressed alerts.
-    
-  * `:max_results` (`t:integer`) The maximum number of results to return at one time.
+  * `:list_suppressed_alerts` (`t:boolean`) A list of all suppressed alerts.
+  * `:max_results` (`t:integer`) The maximum number of results to return at one
+    time.
   * `:next_token` (`t:string`) The token for the next set of results.
-  * `:security_profile_name` (`t:string`) A filter to limit results to those alerts generated by the specified security profile.
+  * `:security_profile_name` (`t:string`) A filter to limit results to those
+    alerts generated by the specified security profile.
   * `:start_time` (`t:timestamp`) The start time for the alerts to be listed.
-  * `:thing_name` (`t:string`) A filter to limit results to those alerts caused by the specified thing.
-  * `:verification_state` (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The verification state of the violation (detect alarm).
+  * `:thing_name` (`t:string`) A filter to limit results to those alerts caused by
+    the specified thing.
+  * `:verification_state`
+    (`t:enum["BENIGN_POSITIVE|FALSE_POSITIVE|TRUE_POSITIVE|UNKNOWN"]`) The
+    verification state of the violation (detect alarm).
   """
   @spec list_violation_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_violation_events_response(), any()}
@@ -20772,7 +20243,9 @@ defmodule AWS.IoT do
   Set a verification state and provide a description of that verification state on
   a violation (detect alarm).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20PutVerificationStateOnViolation&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:violation_id` (`t:string`) The violation ID.
 
   ## Optional parameters:
@@ -20808,23 +20281,20 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a CA certificate with Amazon Web Services IoT Core.
+  Registers a CA certificate with Amazon Web Services IoT Core. There is no limit
+  to the number of CA certificates you can register in your Amazon Web Services
+  account. You can register up to 10 CA certificates with the same `CA subject
+  field` per Amazon Web Services account.
 
-  There is no limit to the number of CA
-  certificates you can register in your Amazon Web Services account. You can
-  register up to 10 CA
-  certificates with the same `CA subject field` per Amazon Web Services account.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCACertificate&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [RegisterCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:allow_auto_registration` (`t:boolean`) Allows this CA certificate to be used for auto registration of device
-         certificates.
-  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the CA certificate is set to active.
+  * `:allow_auto_registration` (`t:boolean`) Allows this CA certificate to be used
+    for auto registration of device certificates.
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the CA
+    certificate is set to active.
   """
   @spec register_ca_certificate(AWS.Client.t(), register_ca_certificate_request(), Keyword.t()) ::
           {:ok, register_ca_certificate_response(), any()}
@@ -20858,22 +20328,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Registers a device certificate with IoT in the same [certificate mode](https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode)
-  as the signing CA.
-
-  If you have more than one CA certificate that has the same subject field, you
-  must
-  specify the CA certificate that was used to sign the device certificate being
-  registered.
-
-  Requires permission to access the
+  Registers a device certificate with IoT in the same [certificate
+  mode](https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode)
+  as the signing CA. If you have more than one CA certificate that has the same
+  subject field, you must specify the CA certificate that was used to sign the
+  device certificate being registered. Requires permission to access the
   [RegisterCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCertificate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the certificate is set to active.
+  * `:set_as_active` (`t:boolean`) A boolean value that specifies if the
+    certificate is set to active.
   """
   @spec register_certificate(AWS.Client.t(), register_certificate_request(), Keyword.t()) ::
           {:ok, register_certificate_response(), any()}
@@ -20906,13 +20375,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Register a certificate that does not have a certificate authority (CA).
-
-  For supported certificates, consult [
-  Certificate signing algorithms supported by
+  Register a certificate that does not have a certificate authority (CA). For
+  supported certificates, consult [ Certificate signing algorithms supported by
   IoT](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms).
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterCertificateWithoutCA&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -20946,20 +20415,18 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Provisions a thing in the device registry.
-
-  RegisterThing calls other IoT control
-  plane APIs. These calls might exceed your account level [
-  IoT Throttling
+  Provisions a thing in the device registry. RegisterThing calls other IoT control
+  plane APIs. These calls might exceed your account level [ IoT Throttling
   Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot)
-  and cause throttle errors. Please contact [Amazon Web Services Customer Support](https://console.aws.amazon.com/support/home) to raise
-  your throttling limits if necessary.
-
-  Requires permission to access the
+  and cause throttle errors. Please contact [Amazon Web Services Customer
+  Support](https://console.aws.amazon.com/support/home) to raise your throttling
+  limits if necessary. Requires permission to access the
   [RegisterThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RegisterThing&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -20989,26 +20456,16 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Rejects a pending certificate transfer.
+  Rejects a pending certificate transfer. After IoT rejects a certificate
+  transfer, the certificate status changes from **PENDING_TRANSFER** to
+  **INACTIVE**. To check for pending certificate transfers, call
+  `ListCertificates` to enumerate your certificates.
 
-  After IoT rejects a certificate transfer,
-  the certificate status changes from **PENDING_TRANSFER** to
-  **INACTIVE**.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RejectCertificateTransfer&this_doc_guide=API%2520Reference)
 
-  To check for pending certificate transfers, call `ListCertificates`
-  to enumerate your certificates.
-
-  This operation can only be called by the transfer destination. After it is
-  called,
-  the certificate will be returned to the source's account in the INACTIVE state.
-
-  Requires permission to access the
-  [RejectCertificateTransfer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   """
@@ -21043,16 +20500,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Removes the given thing from the billing group.
-
-  Requires permission to access the
+  Removes the given thing from the billing group. Requires permission to access
+  the
   [RemoveThingFromBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  This call is asynchronous. It might take several seconds for the detachment to
-  propagate.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RemoveThingFromBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21076,18 +20531,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Remove the specified thing from the specified group.
+  Remove the specified thing from the specified group. You must specify either a
+  `thingGroupArn` or a `thingGroupName` to identify the thing group and either a
+  `thingArn` or a `thingName` to identify the thing to remove from the thing
+  group.
 
-  You must specify either a `thingGroupArn` or a
-  `thingGroupName` to identify the thing group and
-  either a `thingArn` or a `thingName` to
-  identify the thing to remove from the thing group.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20RemoveThingFromThingGroup&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [RemoveThingFromThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21111,18 +20562,13 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Replaces the rule.
+  Replaces the rule. You must specify all parameters for the new rule. Creating
+  rules is an administrator-level action. Any user who has permission to create
+  rules will be able to access data processed by the rule.
 
-  You must specify all parameters for the new rule. Creating rules
-  is an administrator-level action. Any user who has permission to create rules
-  will be able
-  to access data processed by the rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ReplaceTopicRule&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [ReplaceTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:rule_name` (`t:string`) The name of the rule.
 
   ## Optional parameters:
@@ -21155,11 +20601,9 @@ defmodule AWS.IoT do
   @doc """
   The query search index.
 
-  Requires permission to access the
-  [SearchIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SearchIndex&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21189,16 +20633,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Sets the default authorizer.
-
-  This will be used if a websocket connection is made
+  Sets the default authorizer. This will be used if a websocket connection is made
   without specifying an authorizer.
 
-  Requires permission to access the
-  [SetDefaultAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetDefaultAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21229,18 +20669,13 @@ defmodule AWS.IoT do
 
   @doc """
   Sets the specified version of the specified policy as the policy's default
-  (operative) version.
+  (operative) version. This action affects all certificates to which the policy
+  is attached. To list the principals the policy is attached to, use the
+  `ListPrincipalPolicies` action.
 
-  This action affects all certificates to which the policy is attached.
-  To list the principals the policy is attached to, use the
-  `ListPrincipalPolicies`
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetDefaultPolicyVersion&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [SetDefaultPolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:policy_name` (`t:string`) The policy name.
   * `:policy_version_id` (`t:string`) The policy version ID.
 
@@ -21286,16 +20721,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Sets the logging options.
+  Sets the logging options. NOTE: use of this command is not recommended. Use
+  `SetV2LoggingOptions` instead.
 
-  NOTE: use of this command is not recommended. Use `SetV2LoggingOptions`
-  instead.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetLoggingOptions&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [SetLoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21327,11 +20758,9 @@ defmodule AWS.IoT do
   @doc """
   Sets the logging level.
 
-  Requires permission to access the
-  [SetV2LoggingLevel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetV2LoggingLevel&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21363,11 +20792,9 @@ defmodule AWS.IoT do
   @doc """
   Sets the logging options for the V2 logging service.
 
-  Requires permission to access the
-  [SetV2LoggingOptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20SetV2LoggingOptions&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21399,12 +20826,11 @@ defmodule AWS.IoT do
   @doc """
   Starts a task that applies a set of mitigation actions to the specified target.
 
-  Requires permission to access the
-  [StartAuditMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartAuditMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
+  ## Parameters:
+  * `:task_id` (`t:string`) A unique identifier for the task. You can use this
+    identifier to check the status of the task or to cancel it.
 
   ## Optional parameters:
   """
@@ -21439,17 +20865,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Starts a Device Defender ML Detect mitigation actions task.
 
-  Requires permission to access the
-  [StartDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartDetectMitigationActionsTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:task_id` (`t:string`) 
-      The unique identifier of the task.
-    
+  ## Parameters:
+  * `:task_id` (`t:string`) The unique identifier of the task.
 
   ## Optional parameters:
   """
@@ -21476,11 +20897,9 @@ defmodule AWS.IoT do
   @doc """
   Starts an on-demand Device Defender audit.
 
-  Requires permission to access the
-  [StartOnDemandAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartOnDemandAuditTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21516,11 +20935,9 @@ defmodule AWS.IoT do
   @doc """
   Creates a bulk thing provisioning task.
 
-  Requires permission to access the
-  [StartThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StartThingRegistrationTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21556,11 +20973,9 @@ defmodule AWS.IoT do
   @doc """
   Cancels a bulk thing provisioning task.
 
-  Requires permission to access the
-  [StopThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20StopThingRegistrationTask&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:task_id` (`t:string`) The bulk thing provisioning task ID.
 
   ## Optional parameters:
@@ -21586,16 +21001,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Adds to or modifies the tags of the given resource.
+  Adds to or modifies the tags of the given resource. Tags are metadata which can
+  be used to manage a resource.
 
-  Tags are metadata which can be
-  used to manage a resource.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TagResource&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21626,16 +21037,12 @@ defmodule AWS.IoT do
 
   @doc """
   Tests if a specified principal is authorized to perform an IoT action on a
-  specified resource.
+  specified resource. Use this to test and debug the authorization behavior of
+  devices that connect to the IoT device gateway.
 
-  Use this to test and debug the authorization behavior of devices that
-  connect to the IoT device gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TestAuthorization&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TestAuthorization](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   * `:client_id` (`t:string`) The MQTT client ID.
@@ -21672,17 +21079,12 @@ defmodule AWS.IoT do
 
   @doc """
   Tests a custom authorization behavior by invoking a specified custom authorizer.
+  Use this to test and debug the custom authorization behavior of devices that
+  connect to the IoT device gateway.
 
-  Use
-  this to test and debug the custom authorization behavior of devices that connect
-  to the IoT
-  device gateway.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TestInvokeAuthorizer&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [TestInvokeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:authorizer_name` (`t:string`) The custom authorizer name.
 
   ## Optional parameters:
@@ -21719,28 +21121,15 @@ defmodule AWS.IoT do
 
   @doc """
   Transfers the specified certificate to the specified Amazon Web Services
-  account.
-
-  Requires permission to access the
+  account. Requires permission to access the
   [TransferCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  You can cancel the transfer until it is acknowledged by the recipient.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20TransferCertificate&this_doc_guide=API%2520Reference)
 
-  No notification is sent to the transfer destination's account. It is up to the
-  caller
-  to notify the transfer target.
-
-  The certificate being transferred must not be in the ACTIVE state. You can use
-  the
-  `UpdateCertificate` action to deactivate it.
-
-  The certificate must not have any policies attached to it. You can use the
-  `DetachPolicy` action to detach them.
-
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
   * `:target_aws_account` (`t:string`) The Amazon Web Services account.
@@ -21783,11 +21172,9 @@ defmodule AWS.IoT do
   @doc """
   Removes the given tags (metadata) from the resource.
 
-  Requires permission to access the
-  [UntagResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UntagResource&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21818,15 +21205,12 @@ defmodule AWS.IoT do
 
   @doc """
   Configures or reconfigures the Device Defender audit settings for this account.
-
   Settings include how audit notifications are sent and which audit checks are
   enabled or disabled.
 
-  Requires permission to access the
-  [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAccountAuditConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21860,10 +21244,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-
   Updates a Device Defender audit suppression.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAuditSuppression&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -21895,11 +21280,9 @@ defmodule AWS.IoT do
   @doc """
   Updates an authorizer.
 
-  Requires permission to access the
-  [UpdateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateAuthorizer&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:authorizer_name` (`t:string`) The authorizer name.
 
   ## Optional parameters:
@@ -21922,11 +21305,9 @@ defmodule AWS.IoT do
   @doc """
   Updates information about the billing group.
 
-  Requires permission to access the
-  [UpdateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:billing_group_name` (`t:string`) The name of the billing group.
 
   ## Optional parameters:
@@ -21964,17 +21345,16 @@ defmodule AWS.IoT do
   @doc """
   Updates a registered CA certificate.
 
-  Requires permission to access the
-  [UpdateCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCACertificate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:certificate_id` (`t:string`) The CA certificate identifier.
 
   ## Optional parameters:
-  * `:new_auto_registration_status` (`t:enum["DISABLE|ENABLE"]`) The new value for the auto registration status. Valid values are: &quot;ENABLE&quot; or
-         &quot;DISABLE&quot;.
-  * `:new_status` (`t:enum["ACTIVE|INACTIVE"]`) The updated status of the CA certificate.
+  * `:new_auto_registration_status` (`t:enum["DISABLE|ENABLE"]`) The new value for
+    the auto registration status. Valid values are: "ENABLE" or "DISABLE".
+  * `:new_status` (`t:enum["ACTIVE|INACTIVE"]`) The updated status of the CA
+    certificate.
   """
   @spec update_ca_certificate(
           AWS.Client.t(),
@@ -22003,30 +21383,21 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the status of the specified certificate.
-
-  This operation is
-  idempotent.
-
+  Updates the status of the specified certificate. This operation is idempotent.
   Requires permission to access the
   [UpdateCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
 
-  Certificates must be in the ACTIVE state to authenticate devices that use
-  a certificate to connect to IoT.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCertificate&this_doc_guide=API%2520Reference)
 
-  Within a few minutes of updating a certificate from the ACTIVE state to any
-  other
-  state, IoT disconnects all devices that used that certificate to connect.
-  Devices cannot
-  use a certificate that is not in the ACTIVE state to reconnect.
-
-  ## Required positional parameters:
-  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of the certificate ARN contains the
-         certificate ID.)
+  ## Parameters:
+  * `:certificate_id` (`t:string`) The ID of the certificate. (The last part of
+    the certificate ARN contains the certificate ID.)
 
   ## Optional parameters:
-  * `:new_status` (`t:enum["ACTIVE|INACTIVE|PENDING_ACTIVATION|PENDING_TRANSFER|REGISTER_INACTIVE|REVOKED"]`) The new status.
+  * `:new_status`
+    (`t:enum["ACTIVE|INACTIVE|PENDING_ACTIVATION|PENDING_TRANSFER|REGISTER_INACTIVE|REVOKED"]`)
+    The new status.
   """
   @spec update_certificate(AWS.Client.t(), String.t(), update_certificate_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -22051,12 +21422,11 @@ defmodule AWS.IoT do
   @doc """
   Updates a certificate provider.
 
-  Requires permission to access the
-  [UpdateCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCertificateProvider&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:certificate_provider_name` (`t:string`) The name of the certificate provider.
+  ## Parameters:
+  * `:certificate_provider_name` (`t:string`) The name of the certificate
+    provider.
 
   ## Optional parameters:
   """
@@ -22086,16 +21456,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a
-  Device Defender detect custom metric.
+  Updates a Device Defender detect custom metric.
 
-  Requires permission to access the
-  [UpdateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateCustomMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:metric_name` (`t:string`)  The name of the custom metric.
-      Cannot be updated. 
+  ## Parameters:
+  * `:metric_name` (`t:string`) The name of the custom metric. Cannot be updated.
 
   ## Optional parameters:
   """
@@ -22130,21 +21496,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates the definition for a dimension.
+  Updates the definition for a dimension. You cannot change the type of a
+  dimension after it is created (you can delete it and recreate it).
 
-  You
-  cannot
-  change the type of a dimension after
-  it is created (you can delete it and
-  recreate
-  it).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDimension&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:name` (`t:string`) A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+  ## Parameters:
+  * `:name` (`t:string`) A unique identifier for the dimension. Choose something
+    that describes the type and value to make it easy to remember what it does.
 
   ## Optional parameters:
   """
@@ -22174,17 +21533,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates values stored in the domain configuration.
+  Updates values stored in the domain configuration. Domain configurations for
+  default endpoints can't be updated.
 
-  Domain configurations for default
-  endpoints can't be updated.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDomainConfiguration&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
-  * `:domain_configuration_name` (`t:string`) The name of the domain configuration to be updated.
+  ## Parameters:
+  * `:domain_configuration_name` (`t:string`) The name of the domain configuration
+    to be updated.
 
   ## Optional parameters:
   """
@@ -22216,12 +21572,11 @@ defmodule AWS.IoT do
   @doc """
   Updates a dynamic thing group.
 
-  Requires permission to access the
-  [UpdateDynamicThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateDynamicThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to update.
+  ## Parameters:
+  * `:thing_group_name` (`t:string`) The name of the dynamic thing group to
+    update.
 
   ## Optional parameters:
   """
@@ -22258,11 +21613,9 @@ defmodule AWS.IoT do
   @doc """
   Updates the event configurations.
 
-  Requires permission to access the
-  [UpdateEventConfigurations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateEventConfigurations&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -22298,11 +21651,9 @@ defmodule AWS.IoT do
   @doc """
   Updates the data for a fleet metric.
 
-  Requires permission to access the
-  [UpdateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateFleetMetric&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:metric_name` (`t:string`) The name of the fleet metric to update.
 
   ## Optional parameters:
@@ -22340,11 +21691,9 @@ defmodule AWS.IoT do
   @doc """
   Updates the search configuration.
 
-  Requires permission to access the
-  [UpdateIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateIndexingConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -22380,15 +21729,14 @@ defmodule AWS.IoT do
   @doc """
   Updates supported fields of the specified job.
 
-  Requires permission to access the
-  [UpdateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:job_id` (`t:string`) The ID of the job to be updated.
 
   ## Optional parameters:
-  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a customer-managed job.
+  * `:namespace_id` (`t:string`) The namespace used to indicate that a job is a
+    customer-managed job.
   """
   @spec update_job(AWS.Client.t(), String.t(), update_job_request(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -22423,15 +21771,12 @@ defmodule AWS.IoT do
   @doc """
   Updates the definition for the specified mitigation action.
 
-  Requires permission to access the
-  [UpdateMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateMitigationAction&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:action_name` (`t:string`) The friendly name for the mitigation action. You cannot change the name by using
-        <code>UpdateMitigationAction</code>. Instead, you must delete and
-      recreate the
-      mitigation action with the new name.
+  ## Parameters:
+  * `:action_name` (`t:string`) The friendly name for the mitigation action. You
+    cannot change the name by using UpdateMitigationAction. Instead, you must
+    delete and recreate the mitigation action with the new name.
 
   ## Optional parameters:
   """
@@ -22468,17 +21813,15 @@ defmodule AWS.IoT do
   @doc """
   Updates the supported fields for a specific software package.
 
-  Requires permission to access the
-  [UpdatePackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackage&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the target software package.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec update_package(AWS.Client.t(), String.t(), update_package_request(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
@@ -22513,16 +21856,14 @@ defmodule AWS.IoT do
   @doc """
   Updates the software package configuration.
 
-  Requires permission to access the
-  [UpdatePackageConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackageConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec update_package_configuration(
           AWS.Client.t(),
@@ -22561,18 +21902,16 @@ defmodule AWS.IoT do
   @doc """
   Updates the supported fields for a specific package version.
 
-  Requires permission to access the
-  [UpdatePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) and
-  [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  actions.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdatePackageVersion&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:package_name` (`t:string`) The name of the associated software package.
   * `:version_name` (`t:string`) The name of the target package version.
 
   ## Optional parameters:
-  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. 
-      Don&#39;t reuse this client token if a new idempotent request is required.
+  * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec update_package_version(
           AWS.Client.t(),
@@ -22615,11 +21954,9 @@ defmodule AWS.IoT do
   @doc """
   Updates a provisioning template.
 
-  Requires permission to access the
-  [UpdateProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateProvisioningTemplate&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:template_name` (`t:string`) The name of the provisioning template.
 
   ## Optional parameters:
@@ -22657,11 +21994,9 @@ defmodule AWS.IoT do
   @doc """
   Updates a role alias.
 
-  Requires permission to access the
-  [UpdateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateRoleAlias&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:role_alias` (`t:string`) The role alias to update.
 
   ## Optional parameters:
@@ -22682,15 +22017,14 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a scheduled audit, including which checks are performed and
-  how often the audit takes place.
+  Updates a scheduled audit, including which checks are performed and how often
+  the audit takes place.
 
-  Requires permission to access the
-  [UpdateScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateScheduledAudit&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit. (Max. 128 chars)
+  ## Parameters:
+  * `:scheduled_audit_name` (`t:string`) The name of the scheduled audit. (Max.
+    128 chars)
 
   ## Optional parameters:
   """
@@ -22727,17 +22061,17 @@ defmodule AWS.IoT do
   @doc """
   Updates a Device Defender security profile.
 
-  Requires permission to access the
-  [UpdateSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateSecurityProfile&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:security_profile_name` (`t:string`) The name of the security profile you want to update.
+  ## Parameters:
+  * `:security_profile_name` (`t:string`) The name of the security profile you
+    want to update.
 
   ## Optional parameters:
-  * `:expected_version` (`t:long`) The expected version of the security profile. A new version is generated whenever
-        the security profile is updated. If you specify a value that is different from the actual
-        version, a <code>VersionConflictException</code> is thrown.
+  * `:expected_version` (`t:long`) The expected version of the security profile. A
+    new version is generated whenever the security profile is updated. If you
+    specify a value that is different from the actual version, a
+    VersionConflictException is thrown.
   """
   @spec update_security_profile(
           AWS.Client.t(),
@@ -22775,15 +22109,11 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates an existing stream.
+  Updates an existing stream. The stream version will be incremented by one.
 
-  The stream version will be incremented by one.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateStream&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:stream_id` (`t:string`) The stream ID.
 
   ## Optional parameters:
@@ -22806,11 +22136,9 @@ defmodule AWS.IoT do
   @doc """
   Updates the data for a thing.
 
-  Requires permission to access the
-  [UpdateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThing&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_name` (`t:string`) The name of the thing to update.
 
   ## Optional parameters:
@@ -22843,11 +22171,9 @@ defmodule AWS.IoT do
   @doc """
   Update a thing group.
 
-  Requires permission to access the
-  [UpdateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThingGroup&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:thing_group_name` (`t:string`) The thing group to update.
 
   ## Optional parameters:
@@ -22880,11 +22206,9 @@ defmodule AWS.IoT do
   @doc """
   Updates the groups to which the thing belongs.
 
-  Requires permission to access the
-  [UpdateThingGroupsForThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateThingGroupsForThing&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -22908,16 +22232,12 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Updates a topic rule destination.
+  Updates a topic rule destination. You use this to change the status, endpoint
+  URL, or confirmation URL of the destination.
 
-  You use this to change the status, endpoint URL, or
-  confirmation URL of the destination.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20UpdateTopicRuleDestination&this_doc_guide=API%2520Reference)
 
-  Requires permission to access the
-  [UpdateTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -22953,11 +22273,9 @@ defmodule AWS.IoT do
   @doc """
   Validates a Device Defender security profile behaviors specification.
 
-  Requires permission to access the
-  [ValidateSecurityProfileBehaviors](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot%20ValidateSecurityProfileBehaviors&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

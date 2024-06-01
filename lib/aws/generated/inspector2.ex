@@ -4,9 +4,8 @@
 defmodule AWS.Inspector2 do
   @moduledoc """
   Amazon Inspector is a vulnerability discovery service that automates continuous
-  scanning for
-  security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web
-  Services Lambda environments.
+  scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and
+  Amazon Web Services Lambda environments.
   """
 
   alias AWS.Client
@@ -3985,16 +3984,17 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Associates an Amazon Web Services account with an Amazon Inspector delegated
-  administrator.
-
-  An HTTP 200 response indicates the association was successfully started, but
-  doesn’t indicate whether it was completed. You can check if the association
-  completed by using
-  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple accounts or
+  administrator. An HTTP 200 response indicates the association was successfully
+  started, but doesn’t indicate whether it was completed. You can check if the
+  association completed by using
+  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html)
+  for multiple accounts or
   [GetMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html)
   for a single account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20AssociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4027,7 +4027,9 @@ defmodule AWS.Inspector2 do
   Retrieves the Amazon Inspector status of multiple Amazon Web Services accounts
   within your environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetAccountStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4060,7 +4062,9 @@ defmodule AWS.Inspector2 do
   Retrieves code snippets from findings that Amazon Inspector detected code
   vulnerabilities in.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetCodeSnippet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4092,7 +4096,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets vulnerability details for findings.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFindingDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4128,7 +4134,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets free trial status for multiple Amazon Web Services accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFreeTrialInfo&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4163,12 +4171,12 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves Amazon Inspector deep inspection activation status of multiple member
-  accounts within your organization.
+  accounts within your organization. You must be the delegated administrator of
+  an organization in Amazon Inspector to use this API.
 
-  You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4203,12 +4211,12 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Activates or deactivates Amazon Inspector deep inspection for the provided
-  member accounts in your organization.
+  member accounts in your organization. You must be the delegated administrator
+  of an organization in Amazon Inspector to use this API.
 
-  You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchUpdateMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4244,7 +4252,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Cancels the given findings report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelFindingsReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4276,7 +4286,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Cancels a software bill of materials (SBOM) report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4308,7 +4320,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Creates a CIS scan configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4342,12 +4356,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Creates a filter resource using specified filter criteria.
+  Creates a filter resource using specified filter criteria. When the filter
+  action is set to `SUPPRESS` this action creates a suppression rule.
 
-  When the filter action is set to `SUPPRESS` this action creates a suppression
-  rule.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFilter&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4377,13 +4391,13 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Creates a finding report.
+  Creates a finding report. By default only `ACTIVE` findings are returned in the
+  report. To see `SUPRESSED` or `CLOSED` findings you must specify a value for
+  the `findingStatus` filter criteria.
 
-  By default only `ACTIVE` findings are returned in the report. To see `SUPRESSED`
-  or `CLOSED` findings you must specify a value for the `findingStatus` filter
-  criteria.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFindingsReport&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4415,7 +4429,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Creates a software bill of materials (SBOM) report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4447,7 +4463,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Deletes a CIS scan configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4483,7 +4501,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Deletes a filter resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4516,7 +4536,9 @@ defmodule AWS.Inspector2 do
   Describe Amazon Inspector configuration settings for an Amazon Web Services
   organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4551,11 +4573,11 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
+  Disabling all scan types in an account disables the Amazon Inspector service.
 
-  Disabling all scan types in an account
-  disables the Amazon Inspector service.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Disable&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4587,7 +4609,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Disables the Amazon Inspector delegated administrator for your organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4623,7 +4647,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Disassociates a member account from an Amazon Inspector delegated administrator.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisassociateMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4655,7 +4681,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Enables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Enable&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4688,7 +4716,9 @@ defmodule AWS.Inspector2 do
   Enables the Amazon Inspector delegated administrator for your Organizations
   organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20EnableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4724,7 +4754,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves a CIS scan report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanReport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4756,7 +4788,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves CIS scan result details.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanResultDetails&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4792,7 +4826,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves setting configurations for Inspector scans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4823,10 +4859,11 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves information about the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetDelegatedAdminAccount&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4863,7 +4900,9 @@ defmodule AWS.Inspector2 do
   Retrieves the activation status of Amazon Inspector deep inspection and custom
   paths associated with your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4899,7 +4938,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets an encryption key.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEncryptionKey&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   * `:resource_type` (`t:string`) The resource type the key encrypts.
@@ -4946,7 +4987,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets the status of a findings report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetFindingsReportStatus&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4982,7 +5025,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets member information for your organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetMember&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5014,7 +5059,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Gets details of a software bill of materials (SBOM) report.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetSbomExport&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5046,7 +5093,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists the permissions an account has to configure Amazon Inspector.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListAccountPermissions&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5078,7 +5127,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists CIS scan configurations.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanConfigurations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5114,7 +5165,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists scan results aggregated by checks.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByChecks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5150,7 +5203,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists scan results aggregated by a target resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByTargetResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5190,7 +5245,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Returns a CIS scan list.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5222,7 +5279,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists coverage details for you environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverage&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5254,7 +5313,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists Amazon Inspector coverage statistics for your environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverageStatistics&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5287,7 +5348,9 @@ defmodule AWS.Inspector2 do
   Lists information about the Amazon Inspector delegated administrator of your
   organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListDelegatedAdminAccounts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5323,7 +5386,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists the filters associated with your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFilters&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5355,7 +5420,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists aggregated finding data for your environment based on specific criteria.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindingAggregations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5391,7 +5458,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists findings for your environment.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5422,10 +5491,11 @@ defmodule AWS.Inspector2 do
 
   @doc """
   List members associated with the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListMembers&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5457,8 +5527,11 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists all tags attached to a given resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon resource number (ARN) of the resource to list tags of.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon resource number (ARN) of the resource
+    to list tags of.
 
   ## Optional parameters:
   """
@@ -5485,7 +5558,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists the Amazon Inspector usage totals over the last 30 days.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListUsageTotals&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5515,12 +5590,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Resets an encryption key.
+  Resets an encryption key. After the key is reset your resources will be
+  encrypted by an Amazon Web Services owned key.
 
-  After the key is reset your resources will be encrypted by an Amazon Web
-  Services owned key.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ResetEncryptionKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5542,7 +5617,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Lists Amazon Inspector coverage details for a specific vulnerability.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SearchVulnerabilities&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5572,15 +5649,14 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Sends a CIS session health. This API is used by the Amazon Inspector SSM plugin
+  to communicate with the Amazon Inspector service. The Amazon Inspector SSM
+  plugin calls this API to start a CIS scan session for the scan ID supplied by
+  the service.
 
-  Sends a CIS session health.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionHealth&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5600,15 +5676,14 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Sends a CIS session telemetry. This API is used by the Amazon Inspector SSM
+  plugin to communicate with the Amazon Inspector service. The Amazon Inspector
+  SSM plugin calls this API to start a CIS scan session for the scan ID supplied
+  by the service.
 
-  Sends a CIS session telemetry.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionTelemetry&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5632,15 +5707,14 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Starts a CIS session. This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls this API to start a CIS scan session for the scan ID supplied by the
+  service.
 
-  Starts a CIS session.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StartCisSession&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5660,15 +5734,14 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls this API to start a CIS scan session for the scan ID supplied by the
+  service.
 
-  Stops a CIS session.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StopCisSession&this_doc_guide=API%2520Reference)
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5690,8 +5763,11 @@ defmodule AWS.Inspector2 do
   @doc """
   Adds tags to a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to apply a tag to.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) of the resource to
+    apply a tag to.
 
   ## Optional parameters:
   """
@@ -5723,11 +5799,15 @@ defmodule AWS.Inspector2 do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource to remove tags from.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The Amazon Resource Name (ARN) for the resource
+    to remove tags from.
 
   ## Optional parameters:
-  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]`) The tag keys to remove from the resource.
+  * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]`) The tag keys to remove
+    from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), untag_resource_request(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5762,7 +5842,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates a CIS scan configuration.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateCisScanConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5796,13 +5878,14 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Updates setting configurations for your Amazon Inspector account.
+  Updates setting configurations for your Amazon Inspector account. When you use
+  this API as an Amazon Inspector delegated administrator this updates the
+  setting for all accounts you manage. Member accounts in an organization cannot
+  update this setting.
 
-  When you use this API as an Amazon Inspector delegated administrator this
-  updates the setting for all accounts you manage. Member accounts in an
-  organization cannot update this setting.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateConfiguration&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5835,7 +5918,9 @@ defmodule AWS.Inspector2 do
   Activates, deactivates Amazon Inspector deep inspection, or updates custom paths
   for your account.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5869,12 +5954,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Updates an encryption key.
+  Updates an encryption key. A `ResourceNotFoundException` means that an Amazon
+  Web Services owned key is being used for encryption.
 
-  A `ResourceNotFoundException` means that an Amazon Web Services owned key is
-  being used for encryption.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEncryptionKey&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5897,7 +5982,9 @@ defmodule AWS.Inspector2 do
   Specifies the action that is to be applied to the findings that match the
   filter.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateFilter&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5928,10 +6015,11 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Updates the Amazon Inspector deep inspection custom paths for your organization.
-
   You must be an Amazon Inspector delegated administrator to use this API.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrgEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -5967,7 +6055,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates the configurations for your Amazon Inspector organization.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

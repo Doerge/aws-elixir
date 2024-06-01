@@ -3,22 +3,18 @@
 
 defmodule AWS.Athena do
   @moduledoc """
-  Amazon Athena is an interactive query service that lets you use standard SQL
-  to analyze data directly in Amazon S3.
-
-  You can point Athena at your
-  data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is
-  serverless, so there is no infrastructure to set up or manage. You pay
-  only for the queries you run. Athena scales automatically—executing queries
-  in parallel—so results are fast, even with large datasets and complex queries.
-  For more
-  information, see [What is Amazon Athena](http://docs.aws.amazon.com/athena/latest/ug/what-is.html) in the *Amazon
-  Athena User
-  Guide*.
-
-  If you connect to Athena using the JDBC driver, use version 1.1.0 of the
-  driver or later with the Amazon Athena API. Earlier version drivers do not
-  support the API. For more information and to download the driver, see [Accessing Amazon Athena with
+  Amazon Athena is an interactive query service that lets you use standard SQL to
+  analyze data directly in Amazon S3. You can point Athena at your data in
+  Amazon S3 and run ad-hoc queries and get results in seconds. Athena is
+  serverless, so there is no infrastructure to set up or manage. You pay only
+  for the queries you run. Athena scales automatically—executing queries in
+  parallel—so results are fast, even with large datasets and complex queries.
+  For more information, see [What is Amazon
+  Athena](http://docs.aws.amazon.com/athena/latest/ug/what-is.html) in the
+  *Amazon Athena User Guide*. If you connect to Athena using the JDBC driver,
+  use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier
+  version drivers do not support the API. For more information and to download
+  the driver, see [Accessing Amazon Athena with
   JDBC](https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html).
   """
 
@@ -2823,17 +2819,13 @@ defmodule AWS.Athena do
 
   @doc """
   Returns the details of a single named query or a list of up to 50 queries, which
-  you
-  provide as an array of query ID strings.
-
-  Requires you to have access to the workgroup in
-  which the queries were saved. Use `ListNamedQueriesInput` to get the
-  list of named query IDs in the specified workgroup. If information could not be
-  retrieved for a submitted query ID, information about the query ID submitted is
-  listed
-  under `UnprocessedNamedQueryId`. Named queries differ from executed
-  queries. Use `BatchGetQueryExecutionInput` to get details about each
-  unique query execution, and `ListQueryExecutionsInput` to get a list of
+  you provide as an array of query ID strings. Requires you to have access to
+  the workgroup in which the queries were saved. Use `ListNamedQueriesInput` to
+  get the list of named query IDs in the specified workgroup. If information
+  could not be retrieved for a submitted query ID, information about the query
+  ID submitted is listed under `UnprocessedNamedQueryId`. Named queries differ
+  from executed queries. Use `BatchGetQueryExecutionInput` to get details about
+  each unique query execution, and `ListQueryExecutionsInput` to get a list of
   query execution IDs.
   """
   @spec batch_get_named_query(AWS.Client.t(), batch_get_named_query_input(), Keyword.t()) ::
@@ -2849,14 +2841,10 @@ defmodule AWS.Athena do
 
   @doc """
   Returns the details of a single prepared statement or a list of up to 256
-  prepared
-  statements for the array of prepared statement names that you provide.
-
-  Requires you to
-  have access to the workgroup to which the prepared statements belong. If a
-  prepared
-  statement cannot be retrieved for the name specified, the statement is listed in
-  `UnprocessedPreparedStatementNames`.
+  prepared statements for the array of prepared statement names that you
+  provide. Requires you to have access to the workgroup to which the prepared
+  statements belong. If a prepared statement cannot be retrieved for the name
+  specified, the statement is listed in `UnprocessedPreparedStatementNames`.
   """
   @spec batch_get_prepared_statement(
           AWS.Client.t(),
@@ -2876,13 +2864,10 @@ defmodule AWS.Athena do
   @doc """
   Returns the details of a single query execution or a list of up to 50 query
   executions, which you provide as an array of query execution ID strings.
-
-  Requires you to
-  have access to the workgroup in which the queries ran. To get a list of query
-  execution
-  IDs, use `ListQueryExecutionsInput$WorkGroup`. Query executions differ
-  from named (saved) queries. Use `BatchGetNamedQueryInput` to get details
-  about named queries.
+  Requires you to have access to the workgroup in which the queries ran. To get
+  a list of query execution IDs, use `ListQueryExecutionsInput$WorkGroup`. Query
+  executions differ from named (saved) queries. Use `BatchGetNamedQueryInput` to
+  get details about named queries.
   """
   @spec batch_get_query_execution(AWS.Client.t(), batch_get_query_execution_input(), Keyword.t()) ::
           {:ok, batch_get_query_execution_output(), any()}
@@ -2896,14 +2881,10 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Cancels the capacity reservation with the specified name.
-
-  Cancelled reservations
+  Cancels the capacity reservation with the specified name. Cancelled reservations
   remain in your account and will be deleted 45 days after cancellation. During
-  the 45
-  days, you cannot re-purpose or reuse a reservation that has been cancelled, but
-  you can
-  refer to its tags and view it for historical reference.
+  the 45 days, you cannot re-purpose or reuse a reservation that has been
+  cancelled, but you can refer to its tags and view it for historical reference.
   """
   @spec cancel_capacity_reservation(
           AWS.Client.t(),
@@ -2922,8 +2903,7 @@ defmodule AWS.Athena do
 
   @doc """
   Creates a capacity reservation with the specified name and number of requested
-  data
-  processing units.
+  data processing units.
   """
   @spec create_capacity_reservation(
           AWS.Client.t(),
@@ -2942,9 +2922,8 @@ defmodule AWS.Athena do
 
   @doc """
   Creates (registers) a data catalog with the specified name and properties.
-
-  Catalogs
-  created are visible to all users of the same Amazon Web Services account.
+  Catalogs created are visible to all users of the same Amazon Web Services
+  account.
   """
   @spec create_data_catalog(AWS.Client.t(), create_data_catalog_input(), Keyword.t()) ::
           {:ok, create_data_catalog_output(), any()}
@@ -2958,10 +2937,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Creates a named query in the specified workgroup.
-
-  Requires that you have access to the
-  workgroup.
+  Creates a named query in the specified workgroup. Requires that you have access
+  to the workgroup.
   """
   @spec create_named_query(AWS.Client.t(), create_named_query_input(), Keyword.t()) ::
           {:ok, create_named_query_output(), any()}
@@ -2975,11 +2952,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Creates an empty `ipynb` file in the specified Apache Spark enabled
-  workgroup.
-
-  Throws an error if a file in the workgroup with the same name already
-  exists.
+  Creates an empty `ipynb` file in the specified Apache Spark enabled workgroup.
+  Throws an error if a file in the workgroup with the same name already exists.
   """
   @spec create_notebook(AWS.Client.t(), create_notebook_input(), Keyword.t()) ::
           {:ok, create_notebook_output(), any()}
@@ -3008,12 +2982,9 @@ defmodule AWS.Athena do
 
   @doc """
   Gets an authentication token and the URL at which the notebook can be accessed.
-
-  During
-  programmatic access, `CreatePresignedNotebookUrl` must be called every 10
-  minutes to refresh the authentication token. For information about granting
-  programmatic
-  access, see [Grant programmatic
+  During programmatic access, `CreatePresignedNotebookUrl` must be called every
+  10 minutes to refresh the authentication token. For information about granting
+  programmatic access, see [Grant programmatic
   access](https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access).
   """
   @spec create_presigned_notebook_url(
@@ -3032,9 +3003,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Creates a workgroup with the specified name.
-
-  A workgroup can be an Apache Spark
+  Creates a workgroup with the specified name. A workgroup can be an Apache Spark
   enabled workgroup or an Athena SQL workgroup.
   """
   @spec create_work_group(AWS.Client.t(), create_work_group_input(), Keyword.t()) ::
@@ -3049,15 +3018,11 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Deletes a cancelled capacity reservation.
-
-  A reservation must be cancelled before it
-  can be deleted. A deleted reservation is immediately removed from your account
-  and can
-  no longer be referenced, including by its ARN. A deleted reservation cannot be
-  called by
-  `GetCapacityReservation`, and deleted reservations do not appear in the
-  output of `ListCapacityReservations`.
+  Deletes a cancelled capacity reservation. A reservation must be cancelled before
+  it can be deleted. A deleted reservation is immediately removed from your
+  account and can no longer be referenced, including by its ARN. A deleted
+  reservation cannot be called by `GetCapacityReservation`, and deleted
+  reservations do not appear in the output of `ListCapacityReservations`.
   """
   @spec delete_capacity_reservation(
           AWS.Client.t(),
@@ -3090,8 +3055,7 @@ defmodule AWS.Athena do
 
   @doc """
   Deletes the named query if you have access to the workgroup in which the query
-  was
-  saved.
+  was saved.
   """
   @spec delete_named_query(AWS.Client.t(), delete_named_query_input(), Keyword.t()) ::
           {:ok, delete_named_query_output(), any()}
@@ -3134,9 +3098,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Deletes the workgroup with the specified name.
-
-  The primary workgroup cannot be
+  Deletes the workgroup with the specified name. The primary workgroup cannot be
   deleted.
   """
   @spec delete_work_group(AWS.Client.t(), delete_work_group_input(), Keyword.t()) ::
@@ -3280,9 +3242,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Returns information about a single query.
-
-  Requires that you have access to the
+  Returns information about a single query. Requires that you have access to the
   workgroup in which the query was saved.
   """
   @spec get_named_query(AWS.Client.t(), get_named_query_input(), Keyword.t()) ::
@@ -3327,11 +3287,8 @@ defmodule AWS.Athena do
 
   @doc """
   Returns information about a single execution of a query if you have access to
-  the
-  workgroup in which the query ran.
-
-  Each time a query executes, information about the
-  query execution is saved with a unique ID.
+  the workgroup in which the query ran. Each time a query executes, information
+  about the query execution is saved with a unique ID.
   """
   @spec get_query_execution(AWS.Client.t(), get_query_execution_input(), Keyword.t()) ::
           {:ok, get_query_execution_output(), any()}
@@ -3345,25 +3302,15 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Streams the results of a single query execution specified by
-  `QueryExecutionId` from the Athena query results location in
-  Amazon S3.
-
-  For more information, see [Working with query results, recent queries, and output files](https://docs.aws.amazon.com/athena/latest/ug/querying.html) in the
-  *Amazon Athena User Guide*.
-  This request does not execute the query but returns results. Use
-  `StartQueryExecution` to run a query.
-
-  To stream query results successfully, the IAM principal with permission to call
-  `GetQueryResults` also must have permissions to the Amazon S3
-  `GetObject` action for the Athena query results location.
-
-  IAM principals with permission to the Amazon S3
-  `GetObject` action for the query results location are able to retrieve
-  query results from Amazon S3 even if permission to the
-  `GetQueryResults` action is denied. To restrict user or role access,
-  ensure that Amazon S3 permissions to the Athena query location
-  are denied.
+  Streams the results of a single query execution specified by `QueryExecutionId`
+  from the Athena query results location in Amazon S3. For more information, see
+  [Working with query results, recent queries, and output
+  files](https://docs.aws.amazon.com/athena/latest/ug/querying.html) in the
+  *Amazon Athena User Guide*. This request does not execute the query but
+  returns results. Use `StartQueryExecution` to run a query. To stream query
+  results successfully, the IAM principal with permission to call
+  `GetQueryResults` also must have permissions to the Amazon S3 `GetObject`
+  action for the Athena query results location.
   """
   @spec get_query_results(AWS.Client.t(), get_query_results_input(), Keyword.t()) ::
           {:ok, get_query_results_output(), any()}
@@ -3378,19 +3325,13 @@ defmodule AWS.Athena do
 
   @doc """
   Returns query execution runtime statistics related to a single execution of a
-  query if
-  you have access to the workgroup in which the query ran.
-
-  Statistics from the
-  `Timeline` section of the response object are available as soon as
-  `QueryExecutionStatus$State` is in a SUCCEEDED or FAILED state. The
-  remaining non-timeline statistics in the response (like stage-level input and
-  output row
+  query if you have access to the workgroup in which the query ran. Statistics
+  from the `Timeline` section of the response object are available as soon as
+  `QueryExecutionStatus$State` is in a SUCCEEDED or FAILED state. The remaining
+  non-timeline statistics in the response (like stage-level input and output row
   count and data size) are updated asynchronously and may not be available
-  immediately
-  after a query completes. The non-timeline statistics are also not included when
-  a query
-  has row-level filters defined in Lake Formation.
+  immediately after a query completes. The non-timeline statistics are also not
+  included when a query has row-level filters defined in Lake Formation.
   """
   @spec get_query_runtime_statistics(
           AWS.Client.t(),
@@ -3409,8 +3350,7 @@ defmodule AWS.Athena do
 
   @doc """
   Gets the full details of a previously created session, including the session
-  status
-  and configuration.
+  status and configuration.
   """
   @spec get_session(AWS.Client.t(), get_session_request(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
@@ -3466,14 +3406,12 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Imports a single `ipynb` file to a Spark enabled workgroup.
-
-  To import the
+  Imports a single `ipynb` file to a Spark enabled workgroup. To import the
   notebook, the request must specify a value for either `Payload` or
-  `NoteBookS3LocationUri`. If neither is specified or both are specified,
-  an `InvalidRequestException` occurs. The maximum file size that can be
-  imported is 10 megabytes. If an `ipynb` file with the same name already
-  exists in the workgroup, throws an error.
+  `NoteBookS3LocationUri`. If neither is specified or both are specified, an
+  `InvalidRequestException` occurs. The maximum file size that can be imported
+  is 10 megabytes. If an `ipynb` file with the same name already exists in the
+  workgroup, throws an error.
   """
   @spec import_notebook(AWS.Client.t(), import_notebook_input(), Keyword.t()) ::
           {:ok, import_notebook_output(), any()}
@@ -3488,8 +3426,7 @@ defmodule AWS.Athena do
 
   @doc """
   Returns the supported DPU sizes for the supported application runtimes (for
-  example,
-  `Athena notebook version 1`).
+  example, `Athena notebook version 1`).
   """
   @spec list_application_d_p_u_sizes(
           AWS.Client.t(),
@@ -3508,9 +3445,8 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the calculations that have been submitted to a session in descending
-  order.
-
-  Newer calculations are listed first; older calculations are listed later.
+  order. Newer calculations are listed first; older calculations are listed
+  later.
   """
   @spec list_calculation_executions(
           AWS.Client.t(),
@@ -3547,9 +3483,6 @@ defmodule AWS.Athena do
 
   @doc """
   Lists the data catalogs in the current Amazon Web Services account.
-
-  In the Athena console, data catalogs are listed as "data sources" on
-  the **Data sources** page under the **Data source name** column.
   """
   @spec list_data_catalogs(AWS.Client.t(), list_data_catalogs_input(), Keyword.t()) ::
           {:ok, list_data_catalogs_output(), any()}
@@ -3578,8 +3511,7 @@ defmodule AWS.Athena do
 
   @doc """
   Returns a list of engine versions that are available to choose from, including
-  the
-  Auto option.
+  the Auto option.
   """
   @spec list_engine_versions(AWS.Client.t(), list_engine_versions_input(), Keyword.t()) ::
           {:ok, list_engine_versions_output(), any()}
@@ -3593,12 +3525,9 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists, in descending order, the executors that joined a session.
-
-  Newer executors are
-  listed first; older executors are listed later. The result can be optionally
-  filtered by
-  state.
+  Lists, in descending order, the executors that joined a session. Newer executors
+  are listed first; older executors are listed later. The result can be
+  optionally filtered by state.
   """
   @spec list_executors(AWS.Client.t(), list_executors_request(), Keyword.t()) ::
           {:ok, list_executors_response(), any()}
@@ -3613,10 +3542,8 @@ defmodule AWS.Athena do
 
   @doc """
   Provides a list of available query IDs only for queries saved in the specified
-  workgroup.
-
-  Requires that you have access to the specified workgroup. If a workgroup is
-  not specified, lists the saved queries for the primary workgroup.
+  workgroup. Requires that you have access to the specified workgroup. If a
+  workgroup is not specified, lists the saved queries for the primary workgroup.
   """
   @spec list_named_queries(AWS.Client.t(), list_named_queries_input(), Keyword.t()) ::
           {:ok, list_named_queries_output(), any()}
@@ -3645,12 +3572,8 @@ defmodule AWS.Athena do
 
   @doc """
   Lists, in descending order, the sessions that have been created in a notebook
-  that are
-  in an active state like `CREATING`, `CREATED`, `IDLE`
-  or `BUSY`.
-
-  Newer sessions are listed first; older sessions are listed
-  later.
+  that are in an active state like `CREATING`, `CREATED`, `IDLE` or `BUSY`.
+  Newer sessions are listed first; older sessions are listed later.
   """
   @spec list_notebook_sessions(AWS.Client.t(), list_notebook_sessions_request(), Keyword.t()) ::
           {:ok, list_notebook_sessions_response(), any()}
@@ -3679,13 +3602,10 @@ defmodule AWS.Athena do
 
   @doc """
   Provides a list of available query execution IDs for the queries in the
-  specified
-  workgroup.
-
-  Athena keeps a query history for 45 days. If a workgroup is not
-  specified, returns a list of query execution IDs for the primary workgroup.
-  Requires you
-  to have access to the workgroup in which the queries ran.
+  specified workgroup. Athena keeps a query history for 45 days. If a workgroup
+  is not specified, returns a list of query execution IDs for the primary
+  workgroup. Requires you to have access to the workgroup in which the queries
+  ran.
   """
   @spec list_query_executions(AWS.Client.t(), list_query_executions_input(), Keyword.t()) ::
           {:ok, list_query_executions_output(), any()}
@@ -3699,12 +3619,9 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Lists the sessions in a workgroup that are in an active state like
-  `CREATING`, `CREATED`, `IDLE`, or
-  `BUSY`.
-
-  Newer sessions are listed first; older sessions are listed
-  later.
+  Lists the sessions in a workgroup that are in an active state like `CREATING`,
+  `CREATED`, `IDLE`, or `BUSY`. Newer sessions are listed first; older sessions
+  are listed later.
   """
   @spec list_sessions(AWS.Client.t(), list_sessions_request(), Keyword.t()) ::
           {:ok, list_sessions_response(), any()}
@@ -3761,11 +3678,8 @@ defmodule AWS.Athena do
 
   @doc """
   Puts a new capacity assignment configuration for a specified capacity
-  reservation.
-
-  If
-  a capacity assignment configuration already exists for the capacity reservation,
-  replaces the existing capacity assignment configuration.
+  reservation. If a capacity assignment configuration already exists for the
+  capacity reservation, replaces the existing capacity assignment configuration.
   """
   @spec put_capacity_assignment_configuration(
           AWS.Client.t(),
@@ -3783,17 +3697,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Submits calculations for execution within a session.
-
-  You can supply the code to run as
-  an inline code block within the request.
-
-  The request syntax requires the `StartCalculationExecutionRequest$CodeBlock`
-  parameter or the `CalculationConfiguration$CodeBlock` parameter, but not both.
-  Because
-  `CalculationConfiguration$CodeBlock` is deprecated, use the
-  `StartCalculationExecutionRequest$CodeBlock` parameter
-  instead.
+  Submits calculations for execution within a session. You can supply the code to
+  run as an inline code block within the request.
   """
   @spec start_calculation_execution(
           AWS.Client.t(),
@@ -3811,15 +3716,12 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Runs the SQL query statements contained in the `Query`.
-
-  Requires you to
-  have access to the workgroup in which the query ran. Running queries against an
-  external
-  catalog requires `GetDataCatalog` permission to the catalog. For code
-  samples using the Amazon Web Services SDK for Java, see [Examples and Code Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in
-  the *Amazon Athena User
-  Guide*.
+  Runs the SQL query statements contained in the `Query`. Requires you to have
+  access to the workgroup in which the query ran. Running queries against an
+  external catalog requires `GetDataCatalog` permission to the catalog. For code
+  samples using the Amazon Web Services SDK for Java, see [Examples and Code
+  Samples](http://docs.aws.amazon.com/athena/latest/ug/code-samples.html) in the
+  *Amazon Athena User Guide*.
   """
   @spec start_query_execution(AWS.Client.t(), start_query_execution_input(), Keyword.t()) ::
           {:ok, start_query_execution_output(), any()}
@@ -3833,10 +3735,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Creates a session for running calculations within a workgroup.
-
-  The session is ready
-  when it reaches an `IDLE` state.
+  Creates a session for running calculations within a workgroup. The session is
+  ready when it reaches an `IDLE` state.
   """
   @spec start_session(AWS.Client.t(), start_session_request(), Keyword.t()) ::
           {:ok, start_session_response(), any()}
@@ -3850,18 +3750,9 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Requests the cancellation of a calculation.
-
-  A `StopCalculationExecution`
-  call on a calculation that is already in a terminal state (for example,
-  `STOPPED`, `FAILED`, or `COMPLETED`) succeeds but
-  has no effect.
-
-  Cancelling a calculation is done on a best effort basis. If a calculation cannot
-  be cancelled, you can be charged for its completion. If you are concerned about
-  being charged for a calculation that cannot be cancelled, consider terminating
-  the
-  session in which the calculation is running.
+  Requests the cancellation of a calculation. A `StopCalculationExecution` call on
+  a calculation that is already in a terminal state (for example, `STOPPED`,
+  `FAILED`, or `COMPLETED`) succeeds but has no effect.
   """
   @spec stop_calculation_execution(
           AWS.Client.t(),
@@ -3879,10 +3770,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Stops a query execution.
-
-  Requires you to have access to the workgroup in which the
-  query ran.
+  Stops a query execution. Requires you to have access to the workgroup in which
+  the query ran.
   """
   @spec stop_query_execution(AWS.Client.t(), stop_query_execution_input(), Keyword.t()) ::
           {:ok, stop_query_execution_output(), any()}
@@ -3896,25 +3785,18 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Adds one or more tags to an Athena resource.
-
-  A tag is a label that you
-  assign to a resource. Each tag consists of a key and an optional value, both of
-  which
+  Adds one or more tags to an Athena resource. A tag is a label that you assign to
+  a resource. Each tag consists of a key and an optional value, both of which
   you define. For example, you can use tags to categorize Athena workgroups,
-  data catalogs, or capacity reservations by purpose, owner, or environment. Use a
-  consistent set of tag keys to make it easier to search and filter the resources
-  in your
-  account. For best practices, see [Tagging Best
+  data catalogs, or capacity reservations by purpose, owner, or environment. Use
+  a consistent set of tag keys to make it easier to search and filter the
+  resources in your account. For best practices, see [Tagging Best
   Practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).
-  Tag keys can be from 1 to 128 UTF-8 Unicode characters, and
-  tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters
-  and
-  numbers representable in UTF-8, and the following characters: + - = . _ : / @.
-  Tag keys
-  and values are case-sensitive. Tag keys must be unique per resource. If you
-  specify more
-  than one tag, separate them by commas.
+  Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values can be
+  from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers
+  representable in UTF-8, and the following characters: + - = . _ : / @. Tag
+  keys and values are case-sensitive. Tag keys must be unique per resource. If
+  you specify more than one tag, separate them by commas.
   """
   @spec tag_resource(AWS.Client.t(), tag_resource_input(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -3928,13 +3810,11 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Terminates an active session.
-
-  A `TerminateSession` call on a session that
-  is already inactive (for example, in a `FAILED`, `TERMINATED` or
-  `TERMINATING` state) succeeds but has no effect. Calculations running in
-  the session when `TerminateSession` is called are forcefully stopped, but may
-  display as `FAILED` instead of `STOPPED`.
+  Terminates an active session. A `TerminateSession` call on a session that is
+  already inactive (for example, in a `FAILED`, `TERMINATED` or `TERMINATING`
+  state) succeeds but has no effect. Calculations running in the session when
+  `TerminateSession` is called are forcefully stopped, but may display as
+  `FAILED` instead of `STOPPED`.
   """
   @spec terminate_session(AWS.Client.t(), terminate_session_request(), Keyword.t()) ::
           {:ok, terminate_session_response(), any()}
@@ -3963,8 +3843,7 @@ defmodule AWS.Athena do
 
   @doc """
   Updates the number of requested data processing units for the capacity
-  reservation
-  with the specified name.
+  reservation with the specified name.
   """
   @spec update_capacity_reservation(
           AWS.Client.t(),
@@ -3996,10 +3875,7 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Updates a `NamedQuery` object.
-
-  The database or workgroup cannot be
-  updated.
+  Updates a `NamedQuery` object. The database or workgroup cannot be updated.
   """
   @spec update_named_query(AWS.Client.t(), update_named_query_input(), Keyword.t()) ::
           {:ok, update_named_query_output(), any()}
@@ -4055,10 +3931,8 @@ defmodule AWS.Athena do
   end
 
   @doc """
-  Updates the workgroup with the specified name.
-
-  The workgroup's name cannot be changed.
-  Only `ConfigurationUpdates` can be specified.
+  Updates the workgroup with the specified name. The workgroup's name cannot be
+  changed. Only `ConfigurationUpdates` can be specified.
   """
   @spec update_work_group(AWS.Client.t(), update_work_group_input(), Keyword.t()) ::
           {:ok, update_work_group_output(), any()}

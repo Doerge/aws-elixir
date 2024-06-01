@@ -4,40 +4,20 @@
 defmodule AWS.EBS do
   @moduledoc """
   You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to create
-  Amazon EBS snapshots, write data directly to
-  your snapshots, read data on your snapshots, and identify the differences or
-  changes between
-  two snapshots.
-
-  If you’re an independent software vendor (ISV) who offers backup services for
+  Amazon EBS snapshots, write data directly to your snapshots, read data on your
+  snapshots, and identify the differences or changes between two snapshots. If
+  you’re an independent software vendor (ISV) who offers backup services for
   Amazon EBS, the EBS direct APIs make it more efficient and cost-effective to
-  track incremental changes on
-  your Amazon EBS volumes through snapshots. This can be done without having to
-  create new volumes
-  from snapshots, and then use Amazon Elastic Compute Cloud (Amazon EC2) instances
-  to compare the differences.
-
-  You can create incremental snapshots directly from data on-premises into volumes
-  and the
-  cloud to use for quick disaster recovery. With the ability to write and read
-  snapshots, you can
-  write your on-premises data to an snapshot during a disaster. Then after
-  recovery, you can
-  restore it back to Amazon Web Services or on-premises from the snapshot. You no
-  longer need to build and
-  maintain complex mechanisms to copy data to and from Amazon EBS.
-
-  This API reference provides detailed information about the actions, data types,
-  parameters, and errors of the EBS direct APIs. For more information about the
-  elements that
-  make up the EBS direct APIs, and examples of how to use them effectively, see
-  [Accessing the Contents of an Amazon EBS Snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html)
-  in the *Amazon Elastic Compute Cloud User
-  Guide*. For more information about the supported Amazon Web Services Regions,
-  endpoints,
-  and service quotas for the EBS direct APIs, see [Amazon Elastic Block Store Endpoints and
-  Quotas](https://docs.aws.amazon.com/general/latest/gr/ebs-service.html) in
-  the *Amazon Web Services General Reference*.
+  track incremental changes on your Amazon EBS volumes through snapshots. This
+  can be done without having to create new volumes from snapshots, and then use
+  Amazon Elastic Compute Cloud (Amazon EC2) instances to compare the
+  differences. You can create incremental snapshots directly from data
+  on-premises into volumes and the cloud to use for quick disaster recovery.
+  With the ability to write and read snapshots, you can write your on-premises
+  data to an snapshot during a disaster. Then after recovery, you can restore it
+  back to Amazon Web Services or on-premises from the snapshot. You no longer
+  need to build and maintain complex mechanisms to copy data to and from Amazon
+  EBS.
   """
 
   alias AWS.Client
@@ -414,29 +394,25 @@ defmodule AWS.EBS do
 
   @doc """
   Seals and completes the snapshot after all of the required blocks of data have
-  been
-  written to it.
+  been written to it. Completing the snapshot changes the status to `completed`.
+  You cannot write new blocks to a snapshot after it has been completed.
 
-  Completing the snapshot changes the status to `completed`. You
-  cannot write new blocks to a snapshot after it has been completed.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20CompleteSnapshot&this_doc_guide=API%2520Reference)
 
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
   * `:snapshot_id` (`t:string`) The ID of the snapshot.
 
   ## Optional parameters:
-  * `:changed_blocks_count` (`t:integer`) The number of blocks that were written to the snapshot.
-  * `:checksum` (`t:string`) An aggregated Base-64 SHA256 checksum based on the checksums of each written
-            block.
-  * `:checksum_aggregation_method` (`t:enum["CHECKSUM_AGGREGATION_LINEAR"]`) The aggregation method used to generate the checksum. Currently, the only supported
-            aggregation method is <code>LINEAR</code>.
-  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm used to generate the checksum. Currently, the only supported algorithm
-            is <code>SHA256</code>.
+  * `:changed_blocks_count` (`t:integer`) The number of blocks that were written
+    to the snapshot.
+  * `:checksum` (`t:string`) An aggregated Base-64 SHA256 checksum based on the
+    checksums of each written block.
+  * `:checksum_aggregation_method` (`t:enum["CHECKSUM_AGGREGATION_LINEAR"]`) The
+    aggregation method used to generate the checksum. Currently, the only
+    supported aggregation method is LINEAR.
+  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm
+    used to generate the checksum. Currently, the only supported algorithm is
+    SHA256.
   """
   @spec complete_snapshot(AWS.Client.t(), String.t(), complete_snapshot_request(), Keyword.t()) ::
           {:ok, complete_snapshot_response(), any()}
@@ -475,23 +451,21 @@ defmodule AWS.EBS do
   @doc """
   Returns the data in a block in an Amazon Elastic Block Store snapshot.
 
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20GetSnapshotBlock&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:block_index` (`t:integer`) The block index of the block in which to read the data. A block index is a logical 
-            index in units of <code>512</code> KiB blocks. To identify the block index, divide 
-            the logical offset of the data in the logical volume by the block size (logical offset 
-            of data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
-            KiB aligned.
-  * `:snapshot_id` (`t:string`) The ID of the snapshot containing the block from which to get data.
+  ## Parameters:
+  * `:block_index` (`t:integer`) The block index of the block in which to read the
+    data. A block index is a logical index in units of 512 KiB blocks. To
+    identify the block index, divide the logical offset of the data in the
+    logical volume by the block size (logical offset of data/524288). The
+    logical offset of the data must be 512 KiB aligned.
+  * `:snapshot_id` (`t:string`) The ID of the snapshot containing the block from
+    which to get data.
 
   ## Optional parameters:
-  * `:block_token` (`t:string`) The block token of the block from which to get data. You can obtain the <code>BlockToken</code> 
-            by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.
+  * `:block_token` (`t:string`) The block token of the block from which to get
+    data. You can obtain the BlockToken by running the ListChangedBlocks or
+    ListSnapshotBlocks operations.
   """
   @spec get_snapshot_block(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_snapshot_block_response(), any()}
@@ -535,23 +509,23 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Returns information about the blocks that are different between two
-  Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.
+  Returns information about the blocks that are different between two Amazon
+  Elastic Block Store snapshots of the same volume/snapshot lineage.
 
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20ListChangedBlocks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:second_snapshot_id` (`t:string`) The ID of the second snapshot to use for the comparison.
+  ## Parameters:
+  * `:second_snapshot_id` (`t:string`) The ID of the second snapshot to use for
+    the comparison.
 
   ## Optional parameters:
-  * `:first_snapshot_id` (`t:string`) The ID of the first snapshot to use for the comparison.
-  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by the request.
+  * `:first_snapshot_id` (`t:string`) The ID of the first snapshot to use for the
+    comparison.
+  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
+    the request.
   * `:next_token` (`t:string`) The token to request the next page of results.
-  * `:starting_block_index` (`t:integer`) The block index from which the comparison should start.
+  * `:starting_block_index` (`t:integer`) The block index from which the
+    comparison should start.
   """
   @spec list_changed_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changed_blocks_response(), any()}
@@ -612,20 +586,19 @@ defmodule AWS.EBS do
   @doc """
   Returns information about the blocks in an Amazon Elastic Block Store snapshot.
 
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20ListSnapshotBlocks&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:snapshot_id` (`t:string`) The ID of the snapshot from which to get block indexes and block tokens.
+  ## Parameters:
+  * `:snapshot_id` (`t:string`) The ID of the snapshot from which to get block
+    indexes and block tokens.
 
   ## Optional parameters:
-  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by the request.
+  * `:max_results` (`t:integer`) The maximum number of blocks to be returned by
+    the request.
   * `:next_token` (`t:string`) The token to request the next page of results.
-  * `:starting_block_index` (`t:integer`) The block index from which the list should start. The list in the response will start
-            from this block index or the next valid block index in the snapshot.
+  * `:starting_block_index` (`t:integer`) The block index from which the list
+    should start. The list in the response will start from this block index or
+    the next valid block index in the snapshot.
   """
   @spec list_snapshot_blocks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_snapshot_blocks_response(), any()}
@@ -675,35 +648,28 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Writes a block of data to a snapshot.
+  Writes a block of data to a snapshot. If the specified block contains data, the
+  existing data is overwritten. The target snapshot must be in the `pending`
+  state. Data written to a snapshot must be aligned with 512-KiB sectors.
 
-  If the specified block contains
-  data, the existing data is overwritten. The target snapshot must be in the
-  `pending` state.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20PutSnapshotBlock&this_doc_guide=API%2520Reference)
 
-  Data written to a snapshot must be aligned with 512-KiB sectors.
-
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
-
-  ## Required positional parameters:
-  * `:block_index` (`t:integer`) The block index of the block in which to write the data. A block index is a logical 
-    	index in units of <code>512</code> KiB blocks. To identify the block index, divide 
-        	the logical offset of the data in the logical volume by the block size (logical offset of 
-        	data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
-        	KiB aligned.
+  ## Parameters:
+  * `:block_index` (`t:integer`) The block index of the block in which to write
+    the data. A block index is a logical index in units of 512 KiB blocks. To
+    identify the block index, divide the logical offset of the data in the
+    logical volume by the block size (logical offset of data/524288). The
+    logical offset of the data must be 512 KiB aligned.
   * `:snapshot_id` (`t:string`) The ID of the snapshot.
 
   ## Optional parameters:
-  * `:checksum` (`t:string`) A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
-            supported.
-  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm used to generate the checksum. Currently, the only supported algorithm
-            is <code>SHA256</code>.
-  * `:data_length` (`t:integer`) The size of the data to write to the block, in bytes. Currently, the only supported
-            size is <code>524288</code> bytes.
+  * `:checksum` (`t:string`) A Base64-encoded SHA256 checksum of the data. Only
+    SHA256 checksums are supported.
+  * `:checksum_algorithm` (`t:enum["CHECKSUM_ALGORITHM_SHA256"]`) The algorithm
+    used to generate the checksum. Currently, the only supported algorithm is
+    SHA256.
+  * `:data_length` (`t:integer`) The size of the data to write to the block, in
+    bytes. Currently, the only supported size is 524288 bytes.
   * `:progress` (`t:integer`) The progress of the write process, as a percentage.
   """
   @spec put_snapshot_block(
@@ -748,23 +714,12 @@ defmodule AWS.EBS do
   end
 
   @doc """
-  Creates a new Amazon EBS snapshot.
-
-  The new snapshot enters the `pending` state
+  Creates a new Amazon EBS snapshot. The new snapshot enters the `pending` state
   after the request completes.
 
-  After creating the snapshot, use [
-  PutSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html)
-  to
-  write blocks of data to the snapshot.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ebs%20StartSnapshot&this_doc_guide=API%2520Reference)
 
-  You should always retry requests that receive server (`5xx`)
-  error responses, and `ThrottlingException` and `RequestThrottledException`
-  client error responses. For more information see [Error retries](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html)
-  in the
-  *Amazon Elastic Compute Cloud User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """

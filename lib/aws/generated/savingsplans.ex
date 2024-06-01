@@ -4,13 +4,10 @@
 defmodule AWS.Savingsplans do
   @moduledoc """
   Savings Plans are a pricing model that offer significant savings on Amazon Web
-  Services usage (for example, on Amazon EC2 instances).
-
-  You commit to a consistent
-  amount of usage per hour, in the specified currency, for a term of one or three
-  years, and
-  receive a lower price for that usage. For more information, see the [Amazon Web Services
-  Savings Plans User
+  Services usage (for example, on Amazon EC2 instances). You commit to a
+  consistent amount of usage per hour, in the specified currency, for a term of
+  one or three years, and receive a lower price for that usage. For more
+  information, see the [Amazon Web Services Savings Plans User
   Guide](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
   """
 
@@ -563,7 +560,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Creates a Savings Plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20CreateSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -595,7 +594,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Deletes the queued purchase for the specified Savings Plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DeleteQueuedSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -631,7 +632,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Describes the rates for the specified Savings Plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlanRates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -667,7 +670,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Describes the specified Savings Plans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlans&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -699,7 +704,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Describes the offering rates for the specified Savings Plans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferingRates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -735,7 +742,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Describes the offerings for the specified Savings Plans.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferings&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -771,7 +780,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Lists the tags for the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -803,7 +814,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Returns the specified Savings Plan.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ReturnSavingsPlan&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -835,7 +848,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Adds the specified tags to the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -867,7 +882,9 @@ defmodule AWS.Savingsplans do
   @doc """
   Removes the specified tags from the specified resource.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """

@@ -3,10 +3,9 @@
 
 defmodule AWS.Omics do
   @moduledoc """
-  This is the *AWS HealthOmics API Reference*.
-
-  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the
-  *AWS HealthOmics User Guide*.
+  This is the *AWS HealthOmics API Reference*. For an introduction to the service,
+  see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/)
+  in the *AWS HealthOmics User Guide*.
   """
 
   alias AWS.Client
@@ -3933,8 +3932,11 @@ defmodule AWS.Omics do
   @doc """
   Stops a multipart upload.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved in the multipart upload.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AbortMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
+    in the multipart upload.
   * `:upload_id` (`t:string`) The ID for the multipart upload.
 
   ## Optional parameters:
@@ -3981,7 +3983,9 @@ defmodule AWS.Omics do
   @doc """
   Accept a resource share request.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20AcceptShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:share_id` (`t:`) The ID of the resource share.
 
   ## Optional parameters:
@@ -4014,8 +4018,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes one or more read sets.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The read sets&#39; sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20BatchDeleteReadSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read sets' sequence store ID.
 
   ## Optional parameters:
   """
@@ -4052,8 +4058,10 @@ defmodule AWS.Omics do
   @doc """
   Cancels an annotation import job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -4090,8 +4098,10 @@ defmodule AWS.Omics do
   @doc """
   Cancels a run.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The run&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
 
   ## Optional parameters:
   """
@@ -4123,8 +4133,10 @@ defmodule AWS.Omics do
   @doc """
   Cancels a variant import job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CancelVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -4161,8 +4173,11 @@ defmodule AWS.Omics do
   @doc """
   Concludes a multipart upload once you have uploaded all the components.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved in the multipart upload.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CompleteMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store involved
+    in the multipart upload.
   * `:upload_id` (`t:string`) The ID for the multipart upload.
 
   ## Optional parameters:
@@ -4209,7 +4224,9 @@ defmodule AWS.Omics do
   @doc """
   Creates an annotation store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4239,13 +4256,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Creates a new version of an annotation store.
 
-  ## Required positional parameters:
-  * `:name` (`t:string`) 
-  The name of an annotation store version from which versions are being created. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:name` (`t:string`) The name of an annotation store version from which
+    versions are being created.
 
   ## Optional parameters:
   """
@@ -4282,8 +4299,11 @@ defmodule AWS.Omics do
   @doc """
   Begins a multipart read set upload.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The sequence store ID for the store that is the destination of the multipart uploads.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateMultipartReadSetUpload&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The sequence store ID for the store that is
+    the destination of the multipart uploads.
 
   ## Optional parameters:
   """
@@ -4325,7 +4345,9 @@ defmodule AWS.Omics do
   @doc """
   Creates a reference store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4357,7 +4379,9 @@ defmodule AWS.Omics do
   @doc """
   Creates a run group.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4389,7 +4413,9 @@ defmodule AWS.Omics do
   @doc """
   Creates a sequence store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4419,24 +4445,14 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a cross-account shared resource.
+  Creates a cross-account shared resource. The resource owner makes an offer to
+  share the resource with the principal subscriber (an AWS user with a different
+  account than the resource owner). The following resources support
+  cross-account sharing:
 
-  The resource owner makes an offer to share the resource
-  with the principal subscriber (an AWS user with a different account than the
-  resource owner).
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateShare&this_doc_guide=API%2520Reference)
 
-  The following resources support cross-account sharing:
-
-    *
-  Healthomics variant stores
-
-    *
-  Healthomics annotation stores
-
-    *
-  Private workflows
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4468,7 +4484,9 @@ defmodule AWS.Omics do
   @doc """
   Creates a variant store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4500,7 +4518,9 @@ defmodule AWS.Omics do
   @doc """
   Creates a workflow.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -4532,8 +4552,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes an annotation store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) The store&#39;s name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
 
   ## Optional parameters:
   * `:force` (`t:`) Whether to force deletion.
@@ -4574,18 +4596,17 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Deletes one or multiple versions of an annotation store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) 
-  The name of the annotation store from which versions are being deleted. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteAnnotationStoreVersions&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:name` (`t:`) The name of the annotation store from which versions are being
+    deleted.
 
   ## Optional parameters:
-  * `:force` (`t:`) 
-  Forces the deletion of an annotation store version when imports are in-progress.. 
-
+  * `:force` (`t:`) Forces the deletion of an annotation store version when
+    imports are in-progress..
   """
   @spec delete_annotation_store_versions(
           AWS.Client.t(),
@@ -4625,9 +4646,11 @@ defmodule AWS.Omics do
   @doc """
   Deletes a genome reference.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The reference&#39;s ID.
-  * `:reference_store_id` (`t:string`) The reference&#39;s store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's store ID.
 
   ## Optional parameters:
   """
@@ -4667,8 +4690,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a genome reference store.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The store&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
 
   ## Optional parameters:
   """
@@ -4705,8 +4730,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a workflow run.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The run&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRun&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
 
   ## Optional parameters:
   """
@@ -4738,8 +4765,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a workflow run group.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The run group&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run group's ID.
 
   ## Optional parameters:
   """
@@ -4771,8 +4800,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a sequence store.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The sequence store&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The sequence store's ID.
 
   ## Optional parameters:
   """
@@ -4807,13 +4838,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Deletes a resource share.
+  Deletes a resource share. If you are the resource owner, the subscriber will no
+  longer have access to the shared resource. If you are the subscriber, this
+  operation deletes your access to the share.
 
-  If you are the resource owner, the subscriber will no longer have
-  access to the shared resource. If you are the subscriber, this operation deletes
-  your access to the share.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteShare&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
   * `:share_id` (`t:`) The ID for the resource share to be deleted.
 
   ## Optional parameters:
@@ -4846,8 +4877,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a variant store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) The store&#39;s name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
 
   ## Optional parameters:
   * `:force` (`t:`) Whether to force deletion.
@@ -4890,8 +4923,10 @@ defmodule AWS.Omics do
   @doc """
   Deletes a workflow.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The workflow&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20DeleteWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
 
   ## Optional parameters:
   """
@@ -4923,8 +4958,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about an annotation import job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -4951,8 +4988,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about an annotation store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) The store&#39;s name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
 
   ## Optional parameters:
   """
@@ -4977,16 +5016,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Retrieves the metadata for an annotation store version.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) 
-  The name given to an annotation store version to distinguish it from others. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
-  * `:version_name` (`t:`) 
-  The name given to an annotation store version to distinguish it from others. 
-
+  ## Parameters:
+  * `:name` (`t:`) The name given to an annotation store version to distinguish it
+    from others.
+  * `:version_name` (`t:`) The name given to an annotation store version to
+    distinguish it from others.
 
   ## Optional parameters:
   """
@@ -5014,9 +5052,11 @@ defmodule AWS.Omics do
   @doc """
   Gets a file from a read set.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The read set&#39;s ID.
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSet&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The read set's ID.
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
   * `:file` (`t:string`) The file to retrieve.
@@ -5064,9 +5104,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set activation job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The job&#39;s ID.
-  * `:sequence_store_id` (`t:string`) The job&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetActivationJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
 
   ## Optional parameters:
   """
@@ -5094,9 +5136,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set export job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The job&#39;s ID.
-  * `:sequence_store_id` (`t:string`) The job&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
 
   ## Optional parameters:
   """
@@ -5124,9 +5168,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set import job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The job&#39;s ID.
-  * `:sequence_store_id` (`t:string`) The job&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:sequence_store_id` (`t:string`) The job's sequence store ID.
 
   ## Optional parameters:
   """
@@ -5154,9 +5200,11 @@ defmodule AWS.Omics do
   @doc """
   Gets details about a read set.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The read set&#39;s ID.
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReadSetMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The read set's ID.
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
   """
@@ -5184,9 +5232,11 @@ defmodule AWS.Omics do
   @doc """
   Gets a reference file.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The reference&#39;s ID.
-  * `:reference_store_id` (`t:string`) The reference&#39;s store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReference&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's store ID.
 
   ## Optional parameters:
   * `:file` (`t:string`) The file to retrieve.
@@ -5245,9 +5295,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a reference import job.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The job&#39;s ID.
-  * `:reference_store_id` (`t:string`) The job&#39;s reference store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The job's ID.
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
 
   ## Optional parameters:
   """
@@ -5275,9 +5327,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a genome reference's metadata.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The reference&#39;s ID.
-  * `:reference_store_id` (`t:string`) The reference&#39;s reference store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceMetadata&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The reference's ID.
+  * `:reference_store_id` (`t:string`) The reference's reference store ID.
 
   ## Optional parameters:
   """
@@ -5305,8 +5359,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a reference store.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The store&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetReferenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
 
   ## Optional parameters:
   """
@@ -5333,13 +5389,13 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow run.
 
-  If a workflow is shared with you, you cannot export information about the run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRun&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The run&#39;s ID.
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
 
   ## Optional parameters:
-  * `:export` (`t:list[com.amazonaws.omics#RunExport]`) The run&#39;s export format.
+  * `:export` (`t:list[com.amazonaws.omics#RunExport]`) The run's export format.
   """
   @spec get_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_response(), any()}
@@ -5373,8 +5429,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow run group.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The group&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The group's ID.
 
   ## Optional parameters:
   """
@@ -5401,9 +5459,11 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow run task.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetRunTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:id` (`t:string`) The workflow run ID.
-  * `:task_id` (`t:string`) The task&#39;s ID.
+  * `:task_id` (`t:string`) The task's ID.
 
   ## Optional parameters:
   """
@@ -5430,8 +5490,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a sequence store.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The store&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetSequenceStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The store's ID.
 
   ## Optional parameters:
   """
@@ -5458,7 +5520,9 @@ defmodule AWS.Omics do
   @doc """
   Retrieves the metadata for the specified resource share.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetShare&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:share_id` (`t:`) The ID of the share.
 
   ## Optional parameters:
@@ -5486,8 +5550,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a variant import job.
 
-  ## Required positional parameters:
-  * `:job_id` (`t:string`) The job&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:job_id` (`t:string`) The job's ID.
 
   ## Optional parameters:
   """
@@ -5514,8 +5580,10 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a variant store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) The store&#39;s name.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:name` (`t:`) The store's name.
 
   ## Optional parameters:
   """
@@ -5542,14 +5610,15 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a workflow.
 
-  If a workflow is shared with you, you cannot export the workflow.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20GetWorkflow&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The workflow&#39;s ID.
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
 
   ## Optional parameters:
-  * `:export` (`t:list[com.amazonaws.omics#WorkflowExport]`) The export format for the workflow.
-  * `:type` (`t:string`) The workflow&#39;s type.
+  * `:export` (`t:list[com.amazonaws.omics#WorkflowExport]`) The export format for
+    the workflow.
+  * `:type` (`t:string`) The workflow's type.
   * `:workflow_owner_id` (`t:string`) The ID of the workflow owner.
   """
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5602,11 +5671,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of annotation import jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of jobs to return in one page of results.
-  * `:next_token` (`t:`) Specifies the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:`) Specifies the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_annotation_import_jobs(
           AWS.Client.t(),
@@ -5644,21 +5717,18 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Lists the versions of an annotation store.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) 
-  The name of an annotation store. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStoreVersions&this_doc_guide=API%2520Reference)
 
+  ## Parameters:
+  * `:name` (`t:`) The name of an annotation store.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) 
-  The maximum number of annotation store versions to return in one page of results.
-
-  * `:next_token` (`t:`) 
-  Specifies the pagination token from a previous request to retrieve the next page of results.
-
+  * `:max_results` (`t:`) The maximum number of annotation store versions to
+    return in one page of results.
+  * `:next_token` (`t:`) Specifies the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_annotation_store_versions(
           AWS.Client.t(),
@@ -5699,11 +5769,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of annotation stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of stores to return in one page of results.
-  * `:next_token` (`t:`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_annotation_stores(AWS.Client.t(), list_annotation_stores_request(), Keyword.t()) ::
           {:ok, list_annotation_stores_response(), any()}
@@ -5737,18 +5811,21 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Lists multipart read set uploads and for in progress uploads.
+  Lists multipart read set uploads and for in progress uploads. Once the upload is
+  completed, a read set is created and the upload will no longer be returned in
+  the response.
 
-  Once the upload is completed, a read set is created and the upload will no
-  longer be returned in the response.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListMultipartReadSetUploads&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart uploads.
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    uploads.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of multipart uploads returned in a page.
-  * `:next_token` (`t:string`) Next token returned in the response of a previous ListMultipartReadSetUploads call. 
-      Used to get the next page of results.
+  * `:max_results` (`t:`) The maximum number of multipart uploads returned in a
+    page.
+  * `:next_token` (`t:string`) Next token returned in the response of a previous
+    ListMultipartReadSetUploads call. Used to get the next page of results.
   """
   @spec list_multipart_read_set_uploads(
           AWS.Client.t(),
@@ -5789,12 +5866,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read set activation jobs.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetActivationJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of read set activation jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of read set activation jobs to return
+    in one page of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_read_set_activation_jobs(
           AWS.Client.t(),
@@ -5835,12 +5916,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read set export jobs.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The jobs&#39; sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetExportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_read_set_export_jobs(
           AWS.Client.t(),
@@ -5881,12 +5966,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read set import jobs.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The jobs&#39; sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_read_set_import_jobs(
           AWS.Client.t(),
@@ -5928,14 +6017,18 @@ defmodule AWS.Omics do
   This operation will list all parts in a requested multipart upload for a
   sequence store.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart uploads.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSetUploadParts&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    uploads.
   * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of read set upload parts returned in a page.
-  * `:next_token` (`t:string`) Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
-      Used to get the next page of results.
+  * `:max_results` (`t:`) The maximum number of read set upload parts returned in
+    a page.
+  * `:next_token` (`t:string`) Next token returned in the response of a previous
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
   @spec list_read_set_upload_parts(
           AWS.Client.t(),
@@ -5985,12 +6078,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read sets.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The jobs&#39; sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReadSets&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The jobs' sequence store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of read sets to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of read sets to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_read_sets(AWS.Client.t(), String.t(), list_read_sets_request(), Keyword.t()) ::
           {:ok, list_read_sets_response(), any()}
@@ -6026,12 +6123,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of reference import jobs.
 
-  ## Required positional parameters:
-  * `:reference_store_id` (`t:string`) The job&#39;s reference store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of jobs to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of jobs to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_reference_import_jobs(
           AWS.Client.t(),
@@ -6072,11 +6173,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of reference stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of stores to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_reference_stores(AWS.Client.t(), list_reference_stores_request(), Keyword.t()) ::
           {:ok, list_reference_stores_response(), any()}
@@ -6112,12 +6217,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of references.
 
-  ## Required positional parameters:
-  * `:reference_store_id` (`t:string`) The references&#39; reference store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferences&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The references' reference store ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of references to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of references to return in one page
+    of results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_references(AWS.Client.t(), String.t(), list_references_request(), Keyword.t()) ::
           {:ok, list_references_response(), any()}
@@ -6153,12 +6262,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of run groups.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunGroups&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of run groups to return in one page of results.
-  * `:name` (`t:string`) The run groups&#39; name.
-  * `:starting_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of run groups to return in one page
+    of results.
+  * `:name` (`t:string`) The run groups' name.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_run_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_run_groups_response(), any()}
@@ -6210,12 +6323,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of tasks for a run.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The run&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunTasks&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The run's ID.
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of run tasks to return in one page of results.
-  * `:starting_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of run tasks to return in one page of
+    results.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   * `:status` (`t:string`) Filter the list by status.
   """
   @spec list_run_tasks(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -6268,13 +6385,17 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of runs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRuns&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of runs to return in one page of results.
+  * `:max_results` (`t:`) The maximum number of runs to return in one page of
+    results.
   * `:name` (`t:string`) Filter the list by run name.
   * `:run_group_id` (`t:string`) Filter the list by run group ID.
-  * `:starting_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   * `:status` (`t:string`) The status of a run.
   """
   @spec list_runs(AWS.Client.t(), Keyword.t()) ::
@@ -6345,11 +6466,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of sequence stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListSequenceStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of stores to return in one page of results.
-  * `:next_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   """
   @spec list_sequence_stores(AWS.Client.t(), list_sequence_stores_request(), Keyword.t()) ::
           {:ok, list_sequence_stores_response(), any()}
@@ -6383,17 +6508,18 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Retrieves the resource shares associated with an account.
+  Retrieves the resource shares associated with an account. Use the filter
+  parameter to retrieve a specific subset of the shares.
 
-  Use the filter parameter to
-  retrieve a specific subset of the shares.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListShares&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of shares to return in one page of results.
-  * `:next_token` (`t:`) Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
-      Used to get the next page of results.
+  * `:max_results` (`t:`) The maximum number of shares to return in one page of
+    results.
+  * `:next_token` (`t:`) Next token returned in the response of a previous
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
   @spec list_shares(AWS.Client.t(), list_shares_request(), Keyword.t()) ::
           {:ok, list_shares_response(), any()}
@@ -6429,8 +6555,10 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of tags for a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListTagsForResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   """
@@ -6457,11 +6585,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of variant import jobs.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantImportJobs&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of import jobs to return in one page of results.
-  * `:next_token` (`t:`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of import jobs to return in one page
+    of results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_variant_import_jobs(AWS.Client.t(), list_variant_import_jobs_request(), Keyword.t()) ::
           {:ok, list_variant_import_jobs_response(), any()}
@@ -6497,11 +6629,15 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of variant stores.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantStores&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of stores to return in one page of results.
-  * `:next_token` (`t:`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:max_results` (`t:`) The maximum number of stores to return in one page of
+    results.
+  * `:next_token` (`t:`) Specify the pagination token from a previous request to
+    retrieve the next page of results.
   """
   @spec list_variant_stores(AWS.Client.t(), list_variant_stores_request(), Keyword.t()) ::
           {:ok, list_variant_stores_response(), any()}
@@ -6537,12 +6673,16 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of workflows.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListWorkflows&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
-  * `:max_results` (`t:`) The maximum number of workflows to return in one page of results.
+  * `:max_results` (`t:`) The maximum number of workflows to return in one page of
+    results.
   * `:name` (`t:string`) Filter the list by workflow name.
-  * `:starting_token` (`t:string`) Specify the pagination token from a previous request to retrieve the next page of results.
+  * `:starting_token` (`t:string`) Specify the pagination token from a previous
+    request to retrieve the next page of results.
   * `:type` (`t:string`) Filter the list by workflow type.
   """
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
@@ -6604,7 +6744,9 @@ defmodule AWS.Omics do
   @doc """
   Starts an annotation import job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartAnnotationImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6638,13 +6780,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Activates an archived read set.
+  Activates an archived read set. To reduce storage charges, Amazon Omics archives
+  unused read sets after 30 days.
 
-  To reduce storage charges, Amazon Omics archives unused read
-  sets after 30 days.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetActivationJob&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
   """
@@ -6681,8 +6823,10 @@ defmodule AWS.Omics do
   @doc """
   Exports a read set to Amazon S3.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetExportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
   """
@@ -6719,8 +6863,10 @@ defmodule AWS.Omics do
   @doc """
   Starts a read set import job.
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The read set&#39;s sequence store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReadSetImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The read set's sequence store ID.
 
   ## Optional parameters:
   """
@@ -6757,8 +6903,10 @@ defmodule AWS.Omics do
   @doc """
   Starts a reference import job.
 
-  ## Required positional parameters:
-  * `:reference_store_id` (`t:string`) The job&#39;s reference store ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartReferenceImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:reference_store_id` (`t:string`) The job's reference store ID.
 
   ## Optional parameters:
   """
@@ -6793,27 +6941,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a workflow run.
+  Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN.
+  The remaining parameters are copied from the previous run. StartRun will not
+  support re-run for a workflow that is shared with you.
 
-  To duplicate a run, specify the run's ID and a role ARN. The
-  remaining parameters are copied from the previous run.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartRun&this_doc_guide=API%2520Reference)
 
-  StartRun will not support re-run for a workflow that is shared with you.
-
-  The total number of runs in your account is subject to a quota per Region. To
-  avoid
-  needing to delete runs manually, you can set the retention mode to `REMOVE`.
-  Runs with this setting are deleted automatically when the run quoata is
-  exceeded.
-
-  By default, the run uses STATIC storage. For STATIC storage, set the
-  `storageCapacity` field.
-  You can set the storage type to DYNAMIC. You do not set `storageCapacity`,
-  because HealthOmics dynamically scales the storage up or down as required.
-  For more information about static and dynamic storage, see [Running workflows](https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html)
-  in the *AWS HealthOmics User Guide*.
-
-  ## Required positional parameters:
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6845,7 +6979,9 @@ defmodule AWS.Omics do
   @doc """
   Starts a variant import job.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartVariantImportJob&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
 
   ## Optional parameters:
   """
@@ -6877,8 +7013,10 @@ defmodule AWS.Omics do
   @doc """
   Tags a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20TagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   """
@@ -6910,8 +7048,10 @@ defmodule AWS.Omics do
   @doc """
   Removes tags from a resource.
 
-  ## Required positional parameters:
-  * `:resource_arn` (`t:string`) The resource&#39;s ARN.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UntagResource&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:resource_arn` (`t:string`) The resource's ARN.
 
   ## Optional parameters:
   * `:tag_keys` (`t:list[com.amazonaws.omics#TagKey]`) Keys of tags to remove.
@@ -6949,7 +7089,9 @@ defmodule AWS.Omics do
   @doc """
   Updates an annotation store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:`) A name for the store.
 
   ## Optional parameters:
@@ -6985,16 +7127,13 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Updates the description of an annotation store version.
 
-  ## Required positional parameters:
-  * `:name` (`t:`) 
-  The name of an annotation store. 
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateAnnotationStoreVersion&this_doc_guide=API%2520Reference)
 
-  * `:version_name` (`t:`) 
-  The name of an annotation store version. 
-
+  ## Parameters:
+  * `:name` (`t:`) The name of an annotation store.
+  * `:version_name` (`t:`) The name of an annotation store version.
 
   ## Optional parameters:
   """
@@ -7040,8 +7179,10 @@ defmodule AWS.Omics do
   @doc """
   Updates a run group.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The group&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateRunGroup&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The group's ID.
 
   ## Optional parameters:
   """
@@ -7073,7 +7214,9 @@ defmodule AWS.Omics do
   @doc """
   Updates a variant store.
 
-  ## Required positional parameters:
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateVariantStore&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
   * `:name` (`t:`) A name for the store.
 
   ## Optional parameters:
@@ -7111,8 +7254,10 @@ defmodule AWS.Omics do
   @doc """
   Updates a workflow.
 
-  ## Required positional parameters:
-  * `:id` (`t:string`) The workflow&#39;s ID.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UpdateWorkflow&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:id` (`t:string`) The workflow's ID.
 
   ## Optional parameters:
   """
@@ -7142,13 +7287,15 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  This operation uploads a specific part of a read set.
+  This operation uploads a specific part of a read set. If you upload a new part
+  using a previously used part number, the previously uploaded part will be
+  overwritten.
 
-  If you upload a new part using a previously used part number,
-  the previously uploaded part will be overwritten.
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20UploadReadSetPart&this_doc_guide=API%2520Reference)
 
-  ## Required positional parameters:
-  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart upload.
+  ## Parameters:
+  * `:sequence_store_id` (`t:string`) The Sequence Store ID used for the multipart
+    upload.
   * `:upload_id` (`t:string`) The ID for the initiated multipart upload.
 
   ## Optional parameters:
